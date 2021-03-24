@@ -1,0 +1,19 @@
+version: '3'
+services:
+  arms_kaiqiaoui_react:
+    build:
+      dockerfile: docker/dockerfile
+      context: ../
+    container_name: $CI_JOB_NAME-$GROUP_NAME-$APP_NAME
+    ports: ['80']
+    logging:
+      options:
+        max-size: 100m
+    entrypoint: ['nginx', '-g', 'daemon off;']
+    restart: always
+    networks:
+      - common
+
+networks:
+  common:
+    external: true

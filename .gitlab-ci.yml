@@ -1,0 +1,57 @@
+stages:
+  - build
+  - alpha
+  - staging
+  - production
+
+variables:
+  BUILD_IMAGE: "node:dubnium"
+  GROUP_NAME: kaiqiaoui
+  APP_NAME: admin     # 注意：h5端改成mobile, PC端改成site
+  PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org  #安装依赖包的命令
+  DIST_PATH: docs-dist  #打包结果的路径
+
+##------------- production阶段 -------------
+build_app:
+  stage: build
+  image: $BUILD_IMAGE
+  variables:
+    CI: "true"
+    BUILD_CMD: yarn build:production  #打包的命令
+  script:
+    - echo $PREPARE_CMD
+    - $PREPARE_CMD
+    - echo $BUILD_CMD
+    - $BUILD_CMD
+  artifacts:
+    paths:
+      - $DIST_PATH/
+    expire_in: 2 hours
+  cache:
+    paths:
+      - node_modules/
+      - $DIST_PATH/
+  only:
+    - /^app[0-9.]+$/
+  tags:
+    - java_test
+
+app:
+  stage: production
+  script:
+    - pwd
+    - rm -rf _dist.d && cp -r $DIST_PATH _dist.d
+    - ly deregister --service=$CI_JOB_NAME-$GROUP_NAME-$APP_NAME
+    - docker-compose -p $CI_JOB_NAME-$GROUP_NAME-$APP_NAME -f docker/docker-compose.yml up -d --build
+    - ly register --service=$CI_JOB_NAME-$GROUP_NAME-$APP_NAME --check=http://$CI_JOB_NAME-$GROUP_NAME-$APP_NAME
+    - ly wait --service=$CI_JOB_NAME-$GROUP_NAME-$APP_NAME --timeout=15 --prune
+  environment:
+    name: $CI_JOB_NAME
+    url: http://$APP_NAME.$GROUP_NAME.$CI_JOB_NAME.lyd.parsec.com.cn
+  dependencies:
+    - build_app
+  when: manual
+  only:
+    - /^app[0-9.]+$/
+  tags:
+    - kq-ui-hw  #runner名称
