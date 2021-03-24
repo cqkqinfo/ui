@@ -52,6 +52,6 @@ app:
     - build_app
   when: manual
   only:
-    - /^app[0-9.]+$/
+    - /^v[0-9.]+$/
   tags:
     - kq-ui-hw  #runner名称
