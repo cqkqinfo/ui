@@ -32,7 +32,7 @@ build_app:
       - node_modules/
       - $DIST_PATH/
   only:
-    - /^app[0-9.]+$/
+    - /^v[0-9.]+$/
   tags:
     - java_test
 
