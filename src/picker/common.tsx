@@ -23,14 +23,17 @@ export const getChildren = ({
   value,
   children,
 }: Props): React.ReactNode => {
-  return renderValue
+  const result = renderValue
     ? dataFlat(data)
         .filter(({ value: v }: any) => value === v || value?.includes?.(v))
         .map((data: any) => data.label)
         .join('-') ||
-        value ||
-        children
+      value ||
+      children
     : children;
+  return React.isValidElement(children)
+    ? React.cloneElement(children, { ...children.props, children: result })
+    : result;
 };
 
 export const useProps = (props: Props) => {
