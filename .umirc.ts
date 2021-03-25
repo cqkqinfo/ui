@@ -13,5 +13,13 @@ export default defineConfig({
       libraryDirectory: 'es',
       style: true,
     }],
-  ]
+  ],
+  themeConfig: {
+    hd: {
+      rules: [
+        { maxWidth: 375, mode: 'vw', options: [100, 750] },
+        { minWidth: 376, maxWidth: 750, mode: 'vw', options: [100, 1500] },
+      ],
+    }
+  }
 });
