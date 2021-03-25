@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -31,7 +31,9 @@
   "dependencies": {
     "ahooks": "^2.10.0",
     "antd-mobile": "^2.3.4",
-    "china-division": "^2.3.1",
+    "china-division": "^2.3.1"
+  },
+  "peerDependencies": {
     "react": "^16.12.0",
     "remax": "^2.11.8"
   },
