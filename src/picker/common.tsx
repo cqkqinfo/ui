@@ -7,7 +7,13 @@ export interface Props
   extends Omit<PickerPropsType, 'data'>,
     Pick<PickerProps, 'mode' | 'start' | 'end'> {
   data?: PickerData[] | PickerData[][];
-  children?: React.ReactNode;
+  /**
+   * 传入方法可以自定义渲染
+   */
+  children?: React.ReactNode | ((result: any) => React.ReactNode);
+  /**
+   * 是否根据value渲染children
+   */
   renderValue?: boolean;
 }
 
@@ -23,15 +29,15 @@ export const getChildren = ({
   value,
   children,
 }: Props): React.ReactNode => {
-  const result = renderValue
-    ? dataFlat(data)
-        .filter(({ value: v }: any) => value === v || value?.includes?.(v))
-        .map((data: any) => data.label)
-        .join('-') ||
-      value ||
-      children
-    : children;
-  return React.isValidElement(children)
+  const render =
+    dataFlat(data)
+      .filter(({ value: v }: any) => value === v || value?.includes?.(v))
+      .map((data: any) => data.label)
+      .join('-') || value;
+  const result = renderValue ? render || children : children;
+  return children instanceof Function
+    ? children(render)
+    : React.isValidElement(children)
     ? React.cloneElement(children, { ...children.props, children: result })
     : result;
 };
