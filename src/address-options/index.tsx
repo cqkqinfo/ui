@@ -3,7 +3,7 @@ import cities from 'china-division/dist/cities.json';
 import areas from 'china-division/dist/areas.json';
 import { PickerData } from 'antd-mobile/lib/picker/PropsType';
 
-interface CascaderOptionType {
+export interface CascaderOptionType {
   value?: string;
   label?: React.ReactNode;
   children?: Array<CascaderOptionType>;
@@ -37,31 +37,12 @@ cities.forEach((city: CascaderOptionType) => {
   }
 });
 
-const options: CascaderOptionType[] = provinces.map(
+export const options: CascaderOptionType[] = provinces.map(
   (province: CascaderOptionType) => ({
     label: province.name,
     value: province.code,
     children: province.children,
   }),
 );
-
-export const getAddress = (arr: Array<string | number> = []) => {
-  const strArr: string[] = [];
-  let index = 0;
-  const fn = (options: CascaderOptionType[]) =>
-    options.find(({ value, label, children }) => {
-      const is = value === arr[index];
-      if (is) {
-        strArr.push(label + '');
-        index++;
-      }
-      if (children) {
-        fn(children);
-      }
-      return is;
-    });
-  fn(options);
-  return strArr.join('-');
-};
 
 export default options as PickerData[];
