@@ -27,6 +27,7 @@ export const getChildren = ({
   renderValue,
   data = [],
   value,
+  style,
   children,
 }: Props): React.ReactNode => {
   const render =
@@ -38,7 +39,14 @@ export const getChildren = ({
   return children instanceof Function
     ? children(render)
     : React.isValidElement(children)
-    ? React.cloneElement(children, { ...children.props, children: result })
+    ? React.cloneElement(children, {
+        ...children.props,
+        children: result,
+        style: {
+          ...style,
+          ...children.props?.style,
+        },
+      })
     : result;
 };
 
@@ -56,6 +64,7 @@ export const useProps = (props: Props) => {
   };
   return {
     ...newProps,
+    style: undefined,
     children: getChildren(newProps),
   };
 };

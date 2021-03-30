@@ -1,11 +1,73 @@
 .button {
-  width: 710px;
   height: 98px;
-  background: #2780D9;
+  background: #2780d9;
   border-radius: 20px;
+  box-sizing: border-box;
+  display: inline-flex;
   font-size: 36px;
   font-family: Microsoft YaHei;
-  font-weight: 400;
-  color: #FFFFFF;
+  color: #ffffff;
+  border: 1px solid #2780d9;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  padding: 0 11px;
+  user-select: none;
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.block {
+  width: 100%;
+  max-width: 710px;
   display: flex;
+  align-self: center;
+  margin: auto;
+}
+
+.ghost {
+  background-color: transparent;
+  color: #2780d9;
+}
+
+.round {
+  border-radius: 59px;
+}
+
+.disable {
+  pointer-events: none;
+  background-color: #cccccc;
+  color: #fff;
+}
+
+.small {
+  height: 78px;
+  font-size: 30px;
+  padding: 0 27px;
+}
+
+.action {
+  min-width: 152px;
+  height: 74px;
+  font-size: 26px;
+}
+
+.default {
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  color: #999999;
+}
+
+.ghost.default {
+  background-color: transparent;
+}
+
+.noBorder {
+  border: none;
+  color: #2780d9;
 }

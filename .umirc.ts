@@ -2,24 +2,27 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: '@kqinfo/ui',
-  favicon: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
-  logo: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  favicon:
+    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  logo:
+    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
   outputPath: 'docs-dist',
   mode: 'site',
   // more config: https://d.umijs.org/config
   extraBabelPlugins: [
-    ['babel-plugin-import', {
-      libraryName: 'antd-mobile',
-      libraryDirectory: 'es',
-      style: true,
-    }],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es',
+        style: true,
+      },
+    ],
   ],
-  themeConfig: {
-    hd: {
-      rules: [
-        { maxWidth: 375, mode: 'vw', options: [100, 750] },
-        { minWidth: 376, maxWidth: 750, mode: 'vw', options: [100, 1500] },
-      ],
-    }
-  }
+  extraPostCSSPlugins: [
+    require('postcss-plugin-px2rem')({
+      rootValue: 100,
+      exclude: /(.dumi)|(antd-mobile)/,
+    }),
+  ],
 });

@@ -6,22 +6,28 @@ nav:
 
 ## Picker
 
-地区选择:
+选择器
 
 ```tsx
 import React from 'react';
-import { Picker, addressOptions } from '@kqinfo/ui';
+import { Picker, addressOptions, PartTitle, Space, Button } from '@kqinfo/ui';
 
-export default () => <Picker cols={3} data={addressOptions}>显示</Picker>;
+export default () => (
+  <Space vertical size={10}>
+    <PartTitle>地区选择</PartTitle>
+    <Picker cols={3} data={addressOptions}>
+      <Button type={'primary'}>显示</Button>
+    </Picker>
+    <PartTitle>日期选择</PartTitle>
+    <Picker mode={'date'}>
+      <Button type={'primary'}>显示</Button>
+    </Picker>
+    <PartTitle>时间选择</PartTitle>
+    <Picker mode={'time'}>
+      <Button type={'primary'}>显示</Button>
+    </Picker>
+  </Space>
+);
 ```
 
-日期选择:
-
-```tsx
-import React from 'react';
-import { Picker } from '@kqinfo/ui';
-
-export default () => <Picker date={'date'}>显示</Picker>;
-```
-
-More skills for writing demo: https://d.umijs.org/guide/demo-principle
+<API></API>
