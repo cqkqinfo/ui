@@ -50,7 +50,6 @@ app:
     url: http://$APP_NAME.$GROUP_NAME.$CI_JOB_NAME.lyd.parsec.com.cn
   dependencies:
     - build_app
-  when: manual
   only:
     - /^v[0-9.]+$/
   tags:
