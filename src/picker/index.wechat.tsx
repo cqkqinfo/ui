@@ -61,7 +61,8 @@ export default (props: Props) => {
         setColumnIndex([...columnIndex]);
       }}
       onChange={({ detail: { value } }) => {
-        if (value && mode !== 'date') {
+        console.log(value);
+        if (value && !['date', 'time'].includes(mode)) {
           const newValues: any[] = [];
           new Array(cols).fill(0).forEach((_, index) => {
             newValues.push(
