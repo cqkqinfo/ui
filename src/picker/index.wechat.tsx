@@ -48,6 +48,11 @@ export default (props: Props) => {
     });
     setColumnIndex(numbers);
   }, [cols, value]);
+
+  const isDateOrTimeMode = useMemo(() => {
+    return ['date', 'time'].includes(mode);
+  }, [mode]);
+
   return (
     <Picker
       range-key={'label'}
@@ -55,14 +60,13 @@ export default (props: Props) => {
       start={start}
       end={end}
       range={range}
-      value={mode !== 'date' ? columnIndex : value}
+      value={!isDateOrTimeMode ? columnIndex : value}
       onColumnChange={({ detail: { column, value } }) => {
         columnIndex[column] = value;
         setColumnIndex([...columnIndex]);
       }}
       onChange={({ detail: { value } }) => {
-        console.log(value);
-        if (value && !['date', 'time'].includes(mode)) {
+        if (value && !isDateOrTimeMode) {
           const newValues: any[] = [];
           new Array(cols).fill(0).forEach((_, index) => {
             newValues.push(
