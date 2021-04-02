@@ -16,3 +16,15 @@ export { default as Space } from './space';
  * 分块标题
  */
 export { default as PartTitle } from './part-title';
+/**
+ * 没有数据占位
+ */
+export { default as NoData } from './no-data';
+/**
+ * 可见元素
+ */
+export { default as Visible } from './visible';
+/**
+ * 列表组件，可以进行懒加载
+ */
+export { default as List } from './list';
