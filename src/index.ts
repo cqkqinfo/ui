@@ -36,3 +36,7 @@ export { default as ReInput } from './re-input';
  * 原始输入域
  */
 export { default as ReTextarea } from './re-textarea';
+/**
+ * 切换Tab
+ */
+export { default as Tab } from './tab';
