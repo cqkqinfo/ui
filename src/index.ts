@@ -28,3 +28,11 @@ export { default as Visible } from './visible';
  * 列表组件，可以进行懒加载
  */
 export { default as List } from './list';
+/**
+ * 原始输入框
+ */
+export { default as ReInput } from './re-input';
+/**
+ * 原始输入域
+ */
+export { default as ReTextarea } from './re-textarea';
