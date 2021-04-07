@@ -64,3 +64,7 @@ export { default as Search } from './search';
  * 二维码
  */
 export { default as QrCode } from './qr-code';
+/**
+ * 条形码
+ */
+export { default as BarCode } from './bar-code';
