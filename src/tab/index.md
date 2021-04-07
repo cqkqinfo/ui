@@ -24,6 +24,14 @@ export default () => (
         { content: '标签2', index: 2 },
       ]}
     />
+    <PartTitle>多个Tab</PartTitle>
+    <Tab
+      tabs={[
+        { content: '标签1', index: 1 },
+        { content: '标签2', index: 2 },
+        { content: '标签3', index: 3 },
+      ]}
+    />
   </Space>
 );
 ```

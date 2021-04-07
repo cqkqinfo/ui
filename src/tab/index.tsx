@@ -25,13 +25,21 @@ export interface Props {
    * current改变的事件回调
    */
   onChange?: (current: number | string) => void;
+  style?: React.CSSProperties;
 }
 
-export default ({ tabs, className, itemCls, current, onChange }: Props) => {
+export default ({
+  tabs,
+  className,
+  itemCls,
+  current,
+  onChange,
+  style,
+}: Props) => {
   const firstTabIndex = tabs?.[0].index;
   const [active, setActive] = useEffectState(current || firstTabIndex);
   return (
-    <View className={classNames(className, styles.tab)}>
+    <View className={classNames(className, styles.tab)} style={style}>
       {tabs.map(({ content, index }, i) => (
         <>
           <View
