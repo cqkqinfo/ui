@@ -55,9 +55,9 @@ export interface Props {
   renderDot?: (day: dayjs.Dayjs, index: number) => React.ReactNode | boolean;
   /**
    * 渲染禁止的日期
-   * @default day.isBefore(dayjs(), 'date')
+   * @default day => day.isBefore(dayjs(), 'date')
    */
-  renderDisable?: (day: dayjs.Dayjs) => React.ReactNode | boolean;
+  renderDisable?: (day: dayjs.Dayjs) => boolean;
 }
 
 export default ({
