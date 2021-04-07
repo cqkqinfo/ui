@@ -13,6 +13,14 @@ export { default as Button } from './button';
  */
 export { default as Space } from './space';
 /**
+ * 阴影组件
+ */
+export { default as Shadow } from './shadow';
+/**
+ * 包装组件
+ */
+export { default as NeedWrap } from './need-wrap';
+/**
  * 分块标题
  */
 export { default as PartTitle } from './part-title';

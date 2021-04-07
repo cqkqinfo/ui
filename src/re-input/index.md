@@ -1,6 +1,7 @@
 ---
 group:
-  title: ReInput
+  title: 数据录入
+  path: form
 nav:
   title: Components
   path: /components

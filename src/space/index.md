@@ -2,6 +2,9 @@
 nav:
   title: Components
   path: /components
+group:
+  title: 布局
+  path: layout
 ---
 
 ## Space

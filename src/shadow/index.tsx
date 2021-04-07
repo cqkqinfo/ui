@@ -1,12 +1,11 @@
 import React from 'react';
 
-export default ({
-  children,
-  ...props
-}: {
+export interface Props {
   children: React.ReactElement;
   style?: React.CSSProperties;
-}) =>
+}
+
+export default ({ children, ...props }: Props) =>
   React.cloneElement(children, {
     ...children.props,
     ...props,

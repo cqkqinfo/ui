@@ -2,6 +2,8 @@
 nav:
   title: Components
   path: /components
+group:
+  title: 数据录入
 ---
 
 ## Picker

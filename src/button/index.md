@@ -2,6 +2,9 @@
 nav:
   title: Components
   path: /components
+group:
+  title: 通用
+  path: general
 ---
 
 ## Button
@@ -22,7 +25,7 @@ export default () => (
     <Button type={'primary'} ghost>
       主题色按钮
     </Button>
-    <PartTitle>非行内元素</PartTitle>
+    <PartTitle>行内元素</PartTitle>
     <Space size={10}>
       <Button block={false}>默认</Button>
       <Button type={'primary'} block={false}>

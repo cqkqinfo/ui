@@ -10,11 +10,31 @@ import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
+  /**
+   * 渲染子项
+   */
   renderItem: (data: D, index: number) => React.ReactNode;
+  /**
+   * 列表接口
+   */
   getList: LoadMoreGetListFn<D>;
+  /**
+   * 没有更多时的空占位
+   */
   noMore?: React.ReactNode;
+  /**
+   * 没有数据时的空占位
+   * @default <NoData/>
+   */
   noData?: React.ReactNode;
+  /**
+   * 加载中的提示元素
+   * @default <NoData/>
+   */
   loadingTip?: React.ReactNode;
+  /**
+   * space组件的props
+   */
   spaceProps?: SpaceProps;
 }
 

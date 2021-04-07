@@ -1,9 +1,18 @@
 import React from 'react';
 
-interface Props<P> {
+export interface Props<P> {
+  /**
+   * Wrap组件
+   */
   wrap: React.ComponentType<P>;
   children: React.ReactNode;
+  /**
+   * Wrap组件的props
+   */
   wrapProps?: P;
+  /**
+   * 是否需要wrap
+   */
   need: boolean;
   style?: React.CSSProperties;
 }
