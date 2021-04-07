@@ -60,3 +60,7 @@ export { default as Step } from './step';
  * 步骤条
  */
 export { default as Search } from './search';
+/**
+ * 二维码
+ */
+export { default as QrCode } from './qr-code';
