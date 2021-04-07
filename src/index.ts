@@ -21,6 +21,10 @@ export { default as Shadow } from './shadow';
  */
 export { default as NeedWrap } from './need-wrap';
 /**
+ * 日历
+ */
+export { default as Calendar } from './calendar';
+/**
  * 分块标题
  */
 export { default as PartTitle } from './part-title';
