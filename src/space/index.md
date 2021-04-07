@@ -4,7 +4,7 @@ nav:
   path: /components
 group:
   title: 布局
-  path: layout
+  path: /layout
 ---
 
 ## Space

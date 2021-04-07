@@ -4,7 +4,7 @@ nav:
   path: /components
 group:
   title: 通用
-  path: general
+  path: /general
 ---
 
 ## Shadow

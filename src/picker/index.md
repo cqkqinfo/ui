@@ -4,7 +4,7 @@ nav:
   path: /components
 group:
   title: 数据录入
-  path: data-entry
+  path: /data-entry
 ---
 
 ## Picker

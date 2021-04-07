@@ -28,7 +28,7 @@ export default ({ content, style, ...props }: BarCodeProps) => {
       alignItems={'center'}
       id={canvasId}
       size={'10px'}
-      style={style}
+      style={{ background: '#fff', ...style }}
       {...props}
     >
       <Canvas canvasId={canvasId} style={{ width: '100%', height: '100%' }} />

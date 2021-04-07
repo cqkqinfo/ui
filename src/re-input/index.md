@@ -1,7 +1,7 @@
 ---
 group:
   title: 数据录入
-  path: data-entry
+  path: /data-entry
 nav:
   title: Components
   path: /components
