@@ -52,3 +52,7 @@ export { default as ReTextarea } from './re-textarea';
  * 切换Tab
  */
 export { default as Tab } from './tab';
+/**
+ * 步骤条
+ */
+export { default as Step } from './step';
