@@ -9,7 +9,7 @@ group:
 
 ## Shadow
 
-阴影
+阴影，如果没有效果请确保`children`支持`style`的 prop
 
 ```tsx
 import React from 'react';
