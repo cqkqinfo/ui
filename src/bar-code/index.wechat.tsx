@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Canvas, createSelectorQuery, getSystemInfoSync } from 'remax/wechat';
+import { Canvas, createSelectorQuery } from 'remax/wechat';
 import Space from '../space';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -11,8 +11,6 @@ export default ({ content, style, ...props }: BarCodeProps) => {
   useEffect(() => {
     const query = createSelectorQuery();
     query.select(`#${canvasId}`).boundingClientRect((data: any) => {
-      const a = getSystemInfoSync();
-      console.log(a, data);
       wxbarcode.barcode(
         canvasId,
         content,
