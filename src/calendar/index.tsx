@@ -26,6 +26,18 @@ export interface Props {
    */
   itemCls?: string;
   /**
+   * 选中的子项样式类名
+   */
+  activeItemCls?: string;
+  /**
+   * 选中的标记点样式类名
+   */
+  activeDotCls?: string;
+  /**
+   * 不可选中的子项样式类名
+   */
+  disableItemCls?: string;
+  /**
    * 标记点的类名
    */
   dotCls?: string;
@@ -55,6 +67,9 @@ export default ({
   onChange,
   itemCls,
   renderDisable = day => day.isBefore(dayjs(), 'date'),
+  activeItemCls,
+  disableItemCls,
+  activeDotCls,
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
@@ -84,8 +99,8 @@ export default ({
               marginRight: (index + 1) % 7 === 0 ? 0 : undefined,
             }}
             className={classNames(styles.item, itemCls, {
-              [styles.disable]: renderDisable(day),
-              [styles.active]: active,
+              [classNames(styles.disable, activeItemCls)]: renderDisable(day),
+              [classNames(styles.active, disableItemCls)]: active,
             })}
             key={index}
           >
@@ -94,7 +109,7 @@ export default ({
               {dot === true ? (
                 <View
                   className={classNames(styles.dot, dotCls, {
-                    [styles.activeDot]: active,
+                    [classNames(styles.activeDot, activeDotCls)]: active,
                   })}
                 >
                   {dot}
