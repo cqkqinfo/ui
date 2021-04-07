@@ -7,18 +7,20 @@ nav:
   path: /components
 ---
 
-## ReTextarea
+## Search
 
-原始输入域，没有样式，回调事件由`onInput`改为`onChange`，并且没有值乱跳的问题。
+搜索框
 
 ```tsx
 import React from 'react';
-import { ReTextarea, Space, PartTitle } from '@kqinfo/ui';
+import { Search, Space, PartTitle } from '@kqinfo/ui';
 
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
     <PartTitle>基本使用</PartTitle>
-    <ReTextarea />
+    <Search placeholder={'请输入搜索内容'} onConfirm={console.log} />
+    <PartTitle>显示搜索按钮</PartTitle>
+    <Search placeholder={'请输入搜索内容'} showBtn onConfirm={console.log} />
   </Space>
 );
 ```

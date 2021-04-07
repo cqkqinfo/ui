@@ -3,13 +3,18 @@ import { Input } from 'remax/one';
 import { InputProps } from '@remax/one/esm/hostComponents/Input/props';
 import { useEffectState } from 'parsec-hooks';
 
-export default ({
-  value,
-  onChange,
-  ...props
-}: Omit<InputProps, 'onInput'> & {
+export interface Props extends Omit<InputProps, 'onInput' | 'onConfirm'> {
+  /**
+   * 输入事件
+   */
   onChange?: (value: string) => void;
-}) => {
+  /**
+   * 确认事件
+   */
+  onConfirm?: (value: string | undefined) => void;
+}
+
+export default ({ value, onChange, onConfirm, ...props }: Props) => {
   const [value2, setValue2] = useEffectState(value, { wait: 300 });
   return (
     <Input
@@ -20,6 +25,7 @@ export default ({
         setValue2(value);
         onChange?.(value);
       }}
+      onConfirm={() => onConfirm?.(value2)}
     />
   );
 };

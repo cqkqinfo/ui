@@ -56,3 +56,7 @@ export { default as Tab } from './tab';
  * 步骤条
  */
 export { default as Step } from './step';
+/**
+ * 步骤条
+ */
+export { default as Search } from './search';
