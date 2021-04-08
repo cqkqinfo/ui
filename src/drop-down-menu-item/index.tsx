@@ -5,6 +5,18 @@ import classNames from 'classnames';
 import styles from './index.less';
 
 export interface DropDownMenuIremProps {
+  /**
+   * 外层样式
+   */
+  className?: string;
+  /**
+   * 子项目样式
+   */
+  cldClassName?: string;
+  /**
+   * 子项目选中样式
+   */
+  cldSelectClassName?: string;
   /** 当前所选值 */
   value?: any;
   /** 显示的标题 */
@@ -49,7 +61,11 @@ export default (props: DropDownMenuIremProps) => {
 
   return (
     <View
-      className={classNames(styles.downItem, styles.flexCenter)}
+      className={classNames(
+        styles.downItem,
+        styles.flexCenter,
+        props.className,
+      )}
       onTap={() => {
         onToggle?.();
       }}
@@ -73,9 +89,15 @@ export default (props: DropDownMenuIremProps) => {
               onTap={() => {
                 onChange?.(item.value, item);
               }}
-              className={classNames(styles.downSelect, styles.flexCenter, {
-                [styles.select]: item.value === value,
-              })}
+              className={classNames(
+                styles.downSelect,
+                styles.flexCenter,
+                props.cldClassName,
+                {
+                  [styles.select]: item.value === value,
+                  [styles.cldSelectClassName]: item.value === value,
+                },
+              )}
             >
               {item.text}
             </View>
