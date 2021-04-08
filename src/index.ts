@@ -76,3 +76,7 @@ export { default as Icon } from './icon';
  * 旋转动画
  */
 export { default as Rotate } from './rotate';
+/**
+ * 菜单
+ */
+export { default as Menu } from './menu';
