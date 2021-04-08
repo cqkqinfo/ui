@@ -28,7 +28,7 @@ const renderItem = (name: string) => (
       border: '1px solid #eee',
     }}
   >
-    <Icon name={'kq-loading'} size={20} />
+    <Icon name={'kq-loading'} />
     {name}
   </Space>
 );

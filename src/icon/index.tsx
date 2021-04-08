@@ -8,10 +8,20 @@ import classNames from 'classnames';
 export interface Props
   extends ViewProps,
     Pick<IconFontProps, 'name' | 'color'> {
-  size: number | string;
+  /**
+   * 图标大小，默认是fontSize的值
+   */
+  size?: number | string;
 }
 
-export default ({ name, color, size, className, style, ...props }: Props) => {
+export default ({
+  name,
+  color,
+  size = '1em',
+  className,
+  style,
+  ...props
+}: Props) => {
   return (
     <View
       className={classNames(styles.wrap, className)}
