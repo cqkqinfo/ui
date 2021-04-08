@@ -98,6 +98,7 @@ export default ({
           [styles.ghost]: ghost,
           [styles.disable]: disable,
           [styles.block]: block,
+          [styles.loading]: loading,
           [styles.round]: round,
           [styles.bold]: bold,
           [styles.noBorder]: type === 'default' && shadow,
