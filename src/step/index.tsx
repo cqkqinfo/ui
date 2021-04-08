@@ -10,6 +10,10 @@ export interface Props {
   current: number;
   className?: string;
   /**
+   * 子项类名
+   */
+  itemCls?: string;
+  /**
    * 子项节点
    */
   items: (
@@ -47,6 +51,7 @@ export default ({
   style,
   activeLineCls,
   activeItemCls,
+  itemCls,
   activeColor = '#FCFFC7',
   defaultColor,
 }: Props) => {
@@ -55,16 +60,22 @@ export default ({
       {items.map((item: any, i) => {
         const active = i <= current - 1;
         const { icon, text } = typeof item === 'function' ? item(active) : item;
+        const color = active ? activeColor : defaultColor;
         return (
           <View
             key={i}
-            className={classNames(styles.item, active && activeItemCls)}
+            className={classNames(
+              styles.item,
+              itemCls,
+              active && activeItemCls,
+            )}
           >
             <View className={styles.numberWrap}>
               <View
                 className={classNames(styles.line, active && activeLineCls)}
                 style={{
                   left: i === 0 ? '50%' : i === items.length - 1 ? '-50%' : 0,
+                  background: color,
                 }}
               />
               <View style={{ position: 'relative', zIndex: 1 }}>
@@ -72,7 +83,7 @@ export default ({
                   <View
                     className={styles.number}
                     style={{
-                      backgroundColor: active ? activeColor : defaultColor,
+                      backgroundColor: color,
                     }}
                   >
                     {i + 1}
@@ -83,7 +94,7 @@ export default ({
             <View
               className={styles.text}
               style={{
-                color: active ? activeColor : defaultColor,
+                color,
               }}
             >
               {text || item}
