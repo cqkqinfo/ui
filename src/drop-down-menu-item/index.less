@@ -1,0 +1,54 @@
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.downItem {
+  flex: 1;
+  height: 100%;
+  z-index: 101;
+  background-color: inherit;
+}
+
+.down {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  background-color: #fff;
+  color: #666;
+  text-align: center;
+  z-index: 101;
+  max-height: 100vh;
+  transition: all 1s;
+  overflow: hidden;
+}
+.hideDown {
+  max-height: 0;
+  height: 0;
+}
+
+.downSelect {
+  height: 100px;
+  font-size: 30px;
+  border-bottom: 1px solid #e2e2e2;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+.rotate {
+  transform: rotate(180deg);
+}
+
+.select {
+  color: #2780d9;
+  font-weight: bold;
+}

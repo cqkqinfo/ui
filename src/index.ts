@@ -80,3 +80,13 @@ export { default as Rotate } from './rotate';
  * 菜单
  */
 export { default as Menu } from './menu';
+
+/**
+ * 下拉菜单
+ */
+export { default as DropDownMenu } from './drop-down-menu';
+
+/**
+ * 下拉菜单子项
+ */
+export { default as DropDownMenuItem } from './drop-down-menu-item';
