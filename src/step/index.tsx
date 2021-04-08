@@ -14,25 +14,52 @@ export interface Props {
    */
   items: (
     | React.ReactNode
-    | {
-        icon: (active: boolean) => React.ReactNode;
-        text: (active: boolean) => React.ReactNode;
-      }
+    | ((
+        active: boolean,
+      ) => {
+        icon: React.ReactNode;
+        text: React.ReactNode;
+      })
   )[];
   /**
    * active状态下的横线类名
    */
   activeLineCls?: string;
+  /**
+   * active状态下的item类名
+   */
+  activeItemCls?: string;
+  /**
+   * active颜色
+   */
+  activeColor?: string;
+  /**
+   * 默认文字或者icon的颜色
+   */
+  defaultColor?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ current, className, items, style, activeLineCls }: Props) => {
+export default ({
+  current,
+  className,
+  items,
+  style,
+  activeLineCls,
+  activeItemCls,
+  activeColor = '#FCFFC7',
+  defaultColor,
+}: Props) => {
   return (
     <View className={classNames(styles.step, className)} style={style}>
       {items.map((item: any, i) => {
         const active = i <= current - 1;
+        const { icon, text } = typeof item === 'function' ? item(active) : item;
         return (
-          <View key={i} className={styles.item}>
+          <View
+            key={i}
+            className={classNames(styles.item, active && activeItemCls)}
+          >
             <View className={styles.numberWrap}>
               <View
                 className={classNames(styles.line, active && activeLineCls)}
@@ -41,11 +68,11 @@ export default ({ current, className, items, style, activeLineCls }: Props) => {
                 }}
               />
               <View style={{ position: 'relative', zIndex: 1 }}>
-                {item?.icon?.(active) || (
+                {icon || (
                   <View
                     className={styles.number}
                     style={{
-                      backgroundColor: active ? '#FCFFC7' : undefined,
+                      backgroundColor: active ? activeColor : defaultColor,
                     }}
                   >
                     {i + 1}
@@ -56,10 +83,10 @@ export default ({ current, className, items, style, activeLineCls }: Props) => {
             <View
               className={styles.text}
               style={{
-                color: active ? '#FCFFC7' : undefined,
+                color: active ? activeColor : defaultColor,
               }}
             >
-              {item?.text?.(active) || item}
+              {text || item}
             </View>
           </View>
         );

@@ -22,9 +22,10 @@ export default () => (
     <Step items={['步骤1', '步骤2', '步骤3']} current={2} />
     <PartTitle>自定义样式</PartTitle>
     <Step
+      activeColor={'#fff'}
       items={[
-        {
-          icon: active => (
+        () => ({
+          icon: (
             <View
               style={{
                 color: 'red',
@@ -35,8 +36,8 @@ export default () => (
               步骤1
             </View>
           ),
-          text: () => <View>步骤1</View>,
-        },
+          text: '步骤1',
+        }),
         '步骤2',
         '步骤3',
       ]}
