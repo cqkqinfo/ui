@@ -68,3 +68,7 @@ export { default as QrCode } from './qr-code';
  * 条形码
  */
 export { default as BarCode } from './bar-code';
+/**
+ * 图标
+ */
+export { default as Icon } from './icon';

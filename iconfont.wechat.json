@@ -1,0 +1,9 @@
+{
+  "symbol_url": "https://at.alicdn.com/t/font_2472297_8nb4o1awx0a.js",
+  "save_dir": "./src/icon/wechat",
+  "use_typescript": true,
+  "platforms": ["wechat"],
+  "use_rpx": false,
+  "trim_icon_prefix": "icon",
+  "default_icon_size": 18
+}

@@ -71,17 +71,16 @@ export default ({
   flex,
   ...props
 }: Props) => {
-  const filterChildren =
-    children instanceof Array
-      ? children
-      : [children]
-          ?.map((i: any) =>
-            i?.type?.toString() === 'Symbol(react.fragment)'
-              ? i.props.children
-              : i,
-          )
-          ?.flat()
-          ?.filter?.(i => i);
+  const filterChildren = (children instanceof Array
+    ? children
+    : [children]
+        ?.map((i: any) =>
+          i?.type?.toString() === 'Symbol(react.fragment)'
+            ? i.props.children
+            : i,
+        )
+        ?.flat()
+  )?.filter?.(i => i);
   return (
     <View
       style={{

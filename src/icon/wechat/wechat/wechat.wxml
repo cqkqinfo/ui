@@ -1,0 +1,2 @@
+<!--kq-loading-->
+<view wx:if="{{name === 'kq-loading'}}" style="background-image: url({{quot}}data:image/svg+xml, %3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'%3E%3Cpath d='M512 981.312a469.312 469.312 0 1 0-445.824-322.24A42.688 42.688 0 1 0 147.2 632.32 384 384 0 1 1 512 896a42.688 42.688 0 1 0 0 85.312z' fill='{{(isStr ? colors : colors[0]) || 'rgb(51,51,51)'}}' /%3E%3C/svg%3E{{quot}}); width: {{svgSize}}px; height: {{svgSize}}px; " class="icon" />

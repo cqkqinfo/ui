@@ -1,11 +1,11 @@
 import React from 'react';
-import { View } from 'remax/one';
+import { View, ViewProps } from 'remax/one';
 import styles from './index.less';
 import classNames from 'classnames';
 import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
 import Space from '../space';
-import ViewProps from '@remax/one/esm/hostComponents/View/props';
+import Icon from '../icon';
 
 export interface Props
   extends Pick<
@@ -64,6 +64,11 @@ export interface Props
    * @default false
    */
   round?: boolean;
+  /**
+   * 是否是加载状态
+   * @default false
+   */
+  loading?: boolean;
 }
 
 export default ({
@@ -77,6 +82,7 @@ export default ({
   round = false,
   block = true,
   ghost = false,
+  loading = false,
   disable,
   ...props
 }: Props) => (
@@ -98,8 +104,15 @@ export default ({
       )}
       {...props}
     >
-      <Space size={'19rpx'} alignItems={'flex-end'}>
-        {icon}
+      <Space size={'.5em'} alignItems={'flex-end'}>
+        {loading ? (
+          <Icon
+            name={'kq-loading'}
+            color={type === 'default' ? '#999' : '#fff'}
+          />
+        ) : (
+          icon
+        )}
         {children}
       </Space>
     </View>
