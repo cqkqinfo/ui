@@ -17,7 +17,7 @@ import { Rotate, Icon, Space, PartTitle } from '@kqinfo/ui';
 
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
-    <PartTitle>按钮类型</PartTitle>
+    <PartTitle>一般用法</PartTitle>
     <Rotate>
       <Icon name={'kq-loading'} />
     </Rotate>
