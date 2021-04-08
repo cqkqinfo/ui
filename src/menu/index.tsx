@@ -9,7 +9,7 @@ export type ID = string | number;
 export interface MenuItem {
   id: ID;
   name: React.ReactNode;
-  children: MenuItem[];
+  children?: MenuItem[];
 }
 
 export interface Props {
@@ -37,15 +37,15 @@ export interface Props {
   /**
    * 当前选择的菜单id
    */
-  current: ID;
+  current?: ID;
   /**
    * 当前选择的菜单id
    */
-  onChange: (id: ID) => void;
+  onChange?: (id: ID) => void;
   /**
    * 选择了子项后的事件
    */
-  onSelect: (item: MenuItem) => void;
+  onSelect?: (item: MenuItem) => void;
 }
 
 export default ({
@@ -55,7 +55,7 @@ export default ({
   data,
   leftItemCls,
   rightItemCls,
-  current = data[0].id,
+  current = data?.[0]?.id,
   onSelect,
   onChange,
 }: Props) => {

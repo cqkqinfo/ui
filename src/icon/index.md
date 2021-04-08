@@ -15,10 +15,28 @@ group:
 import React from 'react';
 import { Icon, Space, PartTitle } from '@kqinfo/ui';
 
+const renderItem = (name: string) => (
+  <Space
+    justify={'center'}
+    size={10}
+    alignItems={'center'}
+    vertical
+    style={{
+      background: '#fff',
+      width: 100,
+      height: 100,
+      border: '1px solid #eee',
+    }}
+  >
+    <Icon name={'kq-loading'} size={20} />
+    {name}
+  </Space>
+);
+
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
     <PartTitle>基本用法</PartTitle>
-    <Icon name={'kq-loading'} />
+    <Space>{renderItem('kq-loading')}</Space>
   </Space>
 );
 ```

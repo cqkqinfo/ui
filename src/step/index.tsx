@@ -75,7 +75,7 @@ export default ({
                 className={classNames(styles.line, active && activeLineCls)}
                 style={{
                   left: i === 0 ? '50%' : i === items.length - 1 ? '-50%' : 0,
-                  background: color,
+                  background: current - 1 ? color : defaultColor,
                 }}
               />
               <View style={{ position: 'relative', zIndex: 1 }}>

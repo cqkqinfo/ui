@@ -7,12 +7,18 @@ import classNames from 'classnames';
 
 export interface Props
   extends ViewProps,
-    Pick<IconFontProps, 'name' | 'color' | 'size'> {}
+    Pick<IconFontProps, 'name' | 'color'> {
+  size: number | string;
+}
 
-export default ({ name, color, size, className, ...props }: Props) => {
+export default ({ name, color, size, className, style, ...props }: Props) => {
   return (
-    <View className={classNames(styles.wrap, className)} {...props}>
-      <Icon name={name} color={color} size={size} className={styles.icon} />
+    <View
+      className={classNames(styles.wrap, className)}
+      {...props}
+      style={{ width: size, height: size, ...style }}
+    >
+      <Icon name={name} color={color} className={styles.icon} />
     </View>
   );
 };

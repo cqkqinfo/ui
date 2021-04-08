@@ -41,7 +41,7 @@ export default () => (
         '步骤2',
         '步骤3',
       ]}
-      current={2}
+      current={1}
     />
   </Space>
 );
