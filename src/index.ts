@@ -72,3 +72,7 @@ export { default as BarCode } from './bar-code';
  * 图标
  */
 export { default as Icon } from './icon';
+/**
+ * 旋转动画
+ */
+export { default as Rotate } from './rotate';
