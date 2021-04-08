@@ -39,12 +39,11 @@ export default ({
   const firstTabIndex = tabs?.[0].index;
   const [active, setActive] = useEffectState(current || firstTabIndex);
   return (
-    <View className={classNames(className, styles.tab)} style={style}>
+    <View className={classNames(styles.tab, className)} style={style}>
       {tabs.map(({ content, index }, i) => (
-        <>
+        <React.Fragment key={index}>
           <View
-            key={index}
-            className={classNames(itemCls, styles.item, {
+            className={classNames(styles.item, itemCls, {
               [styles.active]: active === index,
             })}
             onTap={() => {
@@ -60,11 +59,11 @@ export default ({
               style={{
                 background: `linear-gradient(${
                   active === firstTabIndex ? 248 : -248
-                }deg, #fff 50%, #2780D9 50%)`,
+                }deg, transparent 50%, #2780D9 50%)`,
               }}
             />
           )}
-        </>
+        </React.Fragment>
       ))}
     </View>
   );
