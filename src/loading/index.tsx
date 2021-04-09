@@ -29,7 +29,7 @@ export default ({ top = false, content = '加载中' }: Props) => {
             <Icon
               name={top ? 'kq-loading' : 'kq-loading2'}
               color={top ? '#5299F6' : '#fff'}
-              size={rpxToPx(top ? 25 : 40)}
+              className={top ? styles.topIcon : styles.fullIcon}
             />
           </Rotate>
           {!top && <View className={styles.text}>{content}</View>}
