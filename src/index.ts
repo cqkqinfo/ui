@@ -105,3 +105,8 @@ export { default as Exceed } from './exceed';
  * 常用图片
  */
 export { default as CommonImg } from './common-img';
+
+/**
+ * 折叠图片
+ */
+export { default as Fold } from './fold';

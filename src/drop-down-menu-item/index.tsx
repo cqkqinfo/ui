@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from 'react';
-import { View, Image } from 'remax/one';
+import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
 import Icon from '../icon';
+import Fold from '../fold';
 
 export interface DropDownMenuIremProps {
   /**
@@ -79,11 +80,7 @@ export default (props: DropDownMenuIremProps) => {
           className={classNames(styles.icon, { [styles.rotate]: showOptions })}
         />
       </View>
-      <View
-        className={classNames(styles.down, {
-          [styles.hideDown]: !showOptions,
-        })}
-      >
+      <Fold folded={!showOptions} className={styles.down}>
         {options?.map(item => {
           return (
             <View
@@ -104,7 +101,7 @@ export default (props: DropDownMenuIremProps) => {
           );
         })}
         {children}
-      </View>
+      </Fold>
     </View>
   );
 };
