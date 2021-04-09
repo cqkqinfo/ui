@@ -100,3 +100,8 @@ export { default as Loading } from './loading';
  * 超出组件
  */
 export { default as Exceed } from './exceed';
+
+/**
+ * 常用图片
+ */
+export { default as CommonImg } from './common-img';
