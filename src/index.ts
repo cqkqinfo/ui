@@ -90,3 +90,8 @@ export { default as DropDownMenu } from './drop-down-menu';
  * 下拉菜单子项
  */
 export { default as DropDownMenuItem } from './drop-down-menu-item';
+
+/**
+ * 加载组件
+ */
+export { default as Loading } from './loading';
