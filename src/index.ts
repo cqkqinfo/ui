@@ -95,3 +95,8 @@ export { default as DropDownMenuItem } from './drop-down-menu-item';
  * 加载组件
  */
 export { default as Loading } from './loading';
+
+/**
+ * 超出组件
+ */
+export { default as Exceed } from './exceed';
