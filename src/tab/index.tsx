@@ -26,6 +26,10 @@ export interface Props {
    */
   onChange?: (current: number | string) => void;
   style?: React.CSSProperties;
+  /**
+   * 是否是受控模式
+   */
+  control?: boolean;
 }
 
 export default ({
@@ -34,10 +38,17 @@ export default ({
   itemCls,
   current,
   onChange,
+  control,
   style,
 }: Props) => {
   const firstTabIndex = tabs?.[0].index;
-  const [active, setActive] = useEffectState(current || firstTabIndex);
+  let [active, setActive] = useEffectState(
+    current || firstTabIndex || undefined,
+  );
+  if (control) {
+    active = current;
+    setActive = onChange as any;
+  }
   return (
     <View className={classNames(styles.tab, className)} style={style}>
       {tabs.map(({ content, index }, i) => (
@@ -47,7 +58,7 @@ export default ({
               [styles.active]: active === index,
             })}
             onTap={() => {
-              setActive(index);
+              setActive?.(index);
               onChange?.(index);
             }}
           >
@@ -57,9 +68,11 @@ export default ({
             <View
               className={styles.slice}
               style={{
-                background: `linear-gradient(${
-                  active === firstTabIndex ? 248 : -248
-                }deg, transparent 50%, #2780D9 50%)`,
+                background: active
+                  ? `linear-gradient(${
+                      active === firstTabIndex ? 248 : -248
+                    }deg, transparent 50%, #2780D9 50%)`
+                  : 'transparent',
               }}
             />
           )}
