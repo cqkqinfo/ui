@@ -35,6 +35,15 @@ export default () => (
     <PartTitle>阴影</PartTitle>
     <Button shadow>默认</Button>
     <Button type={'primary'}>默认</Button>
+    <PartTitle>大小</PartTitle>
+    <Space size={10}>
+      <Button size={'small'} block={false}>
+        小号
+      </Button>
+      <Button type={'primary'} size={'action'} block={false}>
+        操作按钮，大小跟小号差不多
+      </Button>
+    </Space>
     <PartTitle>加载中</PartTitle>
     <Button loading>默认</Button>
     <Button loading type={'primary'}>
