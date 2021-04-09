@@ -55,6 +55,10 @@ export interface Props
    * CSS的padding设置
    */
   padding?: Property.Padding;
+  /**
+   * CSS的flexWrap设置
+   */
+  flexWrap?: Property.FlexWrap;
 }
 
 export default ({
@@ -65,6 +69,7 @@ export default ({
   margin,
   padding,
   vertical,
+  flexWrap,
   justify,
   alignSelf,
   alignItems,
@@ -91,6 +96,7 @@ export default ({
         padding,
         alignSelf,
         alignItems,
+        flexWrap,
         ...style,
       }}
       className={classNames(styles.space, className, {
