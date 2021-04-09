@@ -3,7 +3,11 @@
 
 import React, { FunctionComponent } from 'react';
 
-export type IconFontNames = 'kq-loading';
+export type IconFontNames =
+  | 'kq-search'
+  | 'kq-down'
+  | 'kq-loading2'
+  | 'kq-loading';
 
 export interface IconFontProps {
   name: IconFontNames;

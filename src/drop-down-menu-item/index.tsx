@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { View, Image } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
+import Icon from '../icon';
 
 export interface DropDownMenuIremProps {
   /**
@@ -72,9 +73,10 @@ export default (props: DropDownMenuIremProps) => {
     >
       <View className={styles.flexCenter}>
         {title || selectItem?.text}
-        <Image
+        <Icon
+          name={'kq-down'}
+          color={'#bbb'}
           className={classNames(styles.icon, { [styles.rotate]: showOptions })}
-          src={require('./images/down.svg')}
         />
       </View>
       <View

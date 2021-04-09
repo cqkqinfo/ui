@@ -28,15 +28,17 @@ const renderItem = (name: string) => (
       border: '1px solid #eee',
     }}
   >
-    <Icon name={'kq-loading'} />
+    <Icon name={name} />
     {name}
   </Space>
 );
 
+const names = ['kq-search', 'kq-loading', 'kq-down', 'kq-loading2'];
+
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
     <PartTitle>基本用法</PartTitle>
-    <Space>{renderItem('kq-loading')}</Space>
+    <Space flexWrap={'wrap'}>{names.map(renderItem)}</Space>
   </Space>
 );
 ```

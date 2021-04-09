@@ -1,9 +1,9 @@
-import { Image, View } from 'remax/one';
+import { View } from 'remax/one';
 import React from 'react';
 import styles from './index.less';
-import icon from './icon.png';
 import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
+import Icon from '../icon';
 
 interface Props extends InputProps {
   /**
@@ -17,7 +17,7 @@ export default ({ showBtn, value, onChange, style, ...props }: Props) => {
   return (
     <View className={styles.wrap} style={style}>
       <View className={styles.inputWrap}>
-        <Image src={icon} className={styles.icon} />
+        <Icon className={styles.icon} color={'#999999'} name={'kq-search'} />
         <Input
           className={styles.input}
           placeholderStyle={{ color: '#999999' }}
