@@ -99,8 +99,8 @@ export default ({
               marginRight: (index + 1) % 7 === 0 ? 0 : undefined,
             }}
             className={classNames(styles.item, itemCls, {
-              [classNames(styles.disable, activeItemCls)]: renderDisable(day),
-              [classNames(styles.active, disableItemCls)]: active,
+              [classNames(styles.disable, disableItemCls)]: renderDisable(day),
+              [classNames(styles.active, activeItemCls)]: active,
             })}
             key={index}
           >

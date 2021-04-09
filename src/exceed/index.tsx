@@ -9,7 +9,7 @@ interface Props extends PropsWithChildren<ViewProps> {
    * 超过多少行显示省略号
    * @default 2
    */
-  clamp: number;
+  clamp?: number;
 }
 
 export default ({ clamp = 2, className, style, ...props }: Props) => (
