@@ -8,6 +8,7 @@ import Visible from '../visible';
 import Space, { Props as SpaceProps } from '../space';
 import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
+import Loading from '../loading';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -29,7 +30,7 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   noData?: React.ReactNode;
   /**
    * 加载中的提示元素
-   * @default <NoData/>
+   * @default <Loading top/>
    */
   loadingTip?: React.ReactNode;
   /**
@@ -51,7 +52,7 @@ const List = forwardRef(
       noData = <NoData />,
       spaceProps,
       noMore,
-      loadingTip = <NoData />,
+      loadingTip = <Loading top />,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,

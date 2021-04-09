@@ -22,7 +22,6 @@ export default () => (
     <List
       defaultLimit={50}
       getList={getList}
-      loadingTip={'加载中...'}
       renderItem={({ random, id }) => (
         <div key={id}>
           random: {random} id: {id}
