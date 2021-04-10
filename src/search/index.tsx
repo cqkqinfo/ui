@@ -4,15 +4,27 @@ import styles from './index.less';
 import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';
+import classNames from 'classnames';
 
 interface Props extends InputProps {
   /**
    * 显示搜索按钮
    */
   showBtn?: boolean;
+  /**
+   * 搜索按钮类名
+   */
+  btnCls?: string;
 }
 
-export default ({ showBtn, value, onChange, style, ...props }: Props) => {
+export default ({
+  showBtn,
+  value,
+  onChange,
+  style,
+  btnCls,
+  ...props
+}: Props) => {
   const [value2, setValue] = useEffectState(value, { wait: 300 });
   return (
     <View className={styles.wrap} style={style}>
@@ -30,7 +42,10 @@ export default ({ showBtn, value, onChange, style, ...props }: Props) => {
         />
       </View>
       {showBtn && (
-        <View className={styles.btn} onTap={() => props.onConfirm?.(value2)}>
+        <View
+          className={classNames(styles.btn, btnCls)}
+          onTap={() => props.onConfirm?.(value2)}
+        >
           搜索
         </View>
       )}

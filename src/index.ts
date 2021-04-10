@@ -110,3 +110,8 @@ export { default as CommonImg } from './common-img';
  * 折叠图片
  */
 export { default as Fold } from './fold';
+
+/**
+ * 富文本
+ */
+export { default as RichText } from './rich-text';
