@@ -5,6 +5,8 @@ import { IconFontProps } from './wechat';
 import styles from './index.less';
 import classNames from 'classnames';
 import useViewSize from '../use-view-size';
+import NeedWrap from '../need-wrap';
+import Rotate from '../rotate';
 
 export interface Props
   extends ViewProps,
@@ -27,9 +29,10 @@ export default ({
   ...props
 }: Props) => {
   const idRef = useRef(id);
-  const [{ width = 0 }, setWH] = useState<{ width?: number; height?: number }>(
-    {},
-  );
+  const [{ width = size || 0 }, setWH] = useState<{
+    width?: number;
+    height?: number;
+  }>({});
   useViewSize(idRef.current, setWH);
   return (
     <View
@@ -38,7 +41,17 @@ export default ({
       id={idRef.current}
       style={{ width: size, height: size, ...style }}
     >
-      <Icon name={name} size={width} color={color} className={styles.icon} />
+      <NeedWrap
+        wrap={Rotate}
+        need={['kq-loading', 'kq-loading2'].includes(name)}
+      >
+        <Icon
+          name={name}
+          size={width as any}
+          color={color}
+          className={styles.icon}
+        />
+      </NeedWrap>
     </View>
   );
 };
