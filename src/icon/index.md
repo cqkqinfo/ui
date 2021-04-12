@@ -33,7 +33,16 @@ const renderItem = (name: string) => (
   </Space>
 );
 
-const names = ['kq-search', 'kq-loading', 'kq-down', 'kq-loading2', 'kq-yes'];
+const names = [
+  'kq-search',
+  'kq-loading',
+  'kq-down',
+  'kq-loading2',
+  'kq-yes',
+  'kq-add',
+  'kq-clear',
+  'kq-clear2',
+];
 
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
