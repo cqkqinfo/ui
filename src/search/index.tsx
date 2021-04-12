@@ -26,6 +26,10 @@ export default ({
   ...props
 }: Props) => {
   const [value2, setValue] = useEffectState(value, { wait: 300 });
+  const handleChange = (e?: string) => {
+    setValue(e);
+    onChange?.(e);
+  };
   return (
     <View className={styles.wrap} style={style}>
       <View className={styles.inputWrap}>
@@ -33,13 +37,17 @@ export default ({
         <Input
           className={styles.input}
           placeholderStyle={{ color: '#999999' }}
-          onChange={e => {
-            setValue(e);
-            onChange?.(e);
-          }}
+          onChange={handleChange}
           value={value2}
           {...props}
         />
+        {value2 && (
+          <Icon
+            onTap={() => handleChange('')}
+            name={'kq-clear2'}
+            color={'#999999'}
+          />
+        )}
       </View>
       {showBtn && (
         <View

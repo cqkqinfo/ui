@@ -7,7 +7,7 @@ export interface Props extends Omit<InputProps, 'onInput' | 'onConfirm'> {
   /**
    * 输入事件
    */
-  onChange?: (value: string) => void;
+  onChange?: (value?: string) => void;
   /**
    * 确认事件
    */
