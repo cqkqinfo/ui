@@ -62,28 +62,36 @@ module.exports = {
 安装依赖
 
 ```bash
-$ yan i
+$ yarn
 ```
 
 启动服务
 
 ```bash
-$ yan start
+$ yarn start
 ```
 
-编译文档
+## 本地调试
+
+启动调试
 
 ```bash
-$ yarn docs:build
+$ yarn dev
 ```
 
-编译项目
+本地连接
 
 ```bash
-$ yarn build
+$ yarn link
 ```
 
-## 开发主要项
+本地项目调试
+
+```bash
+$ yarn link @kqinfo/ui
+```
+
+## 开发注意项
 
 - 先`fork`到自己名下，再提`merge request`
 - 样式不要嵌套
