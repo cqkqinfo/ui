@@ -57,7 +57,7 @@ const Radio = (props: RadioProps) => {
         {checked ? (
           <View
             className={styles.annaRadioContainerChecked}
-            style={{ background: color }}
+            style={{ borderColor: color }}
           ></View>
         ) : (
           <View className={styles.annaRadioContainerNotChecked} />
