@@ -115,3 +115,11 @@ export { default as Fold } from './fold';
  * 富文本
  */
 export { default as RichText } from './rich-text';
+/**
+ * 单选
+ */
+export { default as Radio } from './radio';
+/**
+ * 多选
+ */
+export { default as CheckBox } from './checkBox';
