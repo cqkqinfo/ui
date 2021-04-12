@@ -6,7 +6,6 @@ import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
 import Space from '../space';
 import Icon from '../icon';
-import Rotate from '../rotate';
 
 export interface Props
   extends Pick<
@@ -108,12 +107,10 @@ export default ({
     >
       <Space size={'.5em'} alignItems={'flex-end'}>
         {loading ? (
-          <Rotate>
-            <Icon
-              name={'kq-loading'}
-              color={type === 'default' ? '#999' : '#fff'}
-            />
-          </Rotate>
+          <Icon
+            name={'kq-loading'}
+            color={type === 'default' ? '#999' : '#fff'}
+          />
         ) : (
           icon
         )}

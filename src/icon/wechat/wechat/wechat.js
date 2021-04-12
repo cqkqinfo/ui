@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // kq-search | kq-down | kq-loading2 | kq-loading
+    // kq-yes | kq-search | kq-down | kq-loading2 | kq-loading
     name: {
       type: String,
     },
