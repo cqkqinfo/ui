@@ -18,13 +18,39 @@ export interface CheckBoxProps {
 
 const Checkbox = (props: CheckBoxProps) => {
   const {
+    /**
+     * checkbox内容
+     * @default label
+     */
     children,
+    /**
+     * 当前是否选中
+     */
     checked,
+    /**
+     * 值
+     * @default value
+     */
     value,
+    /**
+     * 最右侧可以再扩展一些内容
+     */
     extra,
+    /**
+     * checkbox框style
+     */
     style,
+    /**
+     * 选中时的背景色
+     */
     color = '#277fd9',
+    /**
+     * 选中时的勾选icon颜色
+     */
     iconColor = '#ffffff',
+    /**
+     * onchange方法
+     */
     onChange,
   } = props;
 
