@@ -10,10 +10,19 @@ export interface RadioProps {
   extra?: React.ReactNode;
   style?: React.CSSProperties;
   onChange?: (checked: boolean, e?: any, v?: string) => void;
+  color?: string;
 }
 
 const Radio = (props: RadioProps) => {
-  const { children, checked, value, extra, style, onChange } = props;
+  const {
+    children,
+    checked,
+    value,
+    extra,
+    color = '#277fd9',
+    style,
+    onChange,
+  } = props;
 
   const handleClick = (e: any) => {
     onChange?.(!checked, e, value);
@@ -23,7 +32,10 @@ const Radio = (props: RadioProps) => {
     <View className={styles.annaRadio} style={style}>
       <View className={styles.annaRadioContainer} onTap={handleClick}>
         {checked ? (
-          <View className={styles.annaRadioContainerChecked}></View>
+          <View
+            className={styles.annaRadioContainerChecked}
+            style={{ background: color }}
+          ></View>
         ) : (
           <View className={styles.annaRadioContainerNotChecked} />
         )}

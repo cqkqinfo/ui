@@ -25,7 +25,7 @@ export default () => {
           { value: '1', label: '西瓜' },
           { value: '2', label: '香蕉' },
         ].map((item: any) => (
-          <Radio value={item.value} key={item.value}>
+          <Radio value={item.value} key={item.value} color="#277fd9">
             {item.label}
           </Radio>
         ))}

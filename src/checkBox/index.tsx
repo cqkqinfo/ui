@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { View, Image } from 'remax/one';
+import { View } from 'remax/one';
 import classNames from 'classnames';
-import Images from './images';
+import { Icon } from '../index';
 import styles from './index.less';
 type CheckboxValue = string | number;
 export interface CheckBoxProps {
@@ -12,10 +12,21 @@ export interface CheckBoxProps {
   children?: React.ReactNode;
   onChange?: (checked: any, e?: any, v?: CheckboxValue) => void;
   onGroupChange?: (v: CheckboxValue[], e?: any) => void;
+  color?: string;
+  iconColor?: string;
 }
 
 const Checkbox = (props: CheckBoxProps) => {
-  const { children, checked, value, extra, style, onChange } = props;
+  const {
+    children,
+    checked,
+    value,
+    extra,
+    style,
+    color = '#277fd9',
+    iconColor = '#ffffff',
+    onChange,
+  } = props;
 
   const handleClick = (e: any) => {
     onChange?.(!checked, e, value);
@@ -24,11 +35,12 @@ const Checkbox = (props: CheckBoxProps) => {
   return (
     <View className={styles.annaCheckBox}>
       <View className={styles.annaCheckBoxContainer} onTap={handleClick}>
-        <Image
-          className={styles.pic}
-          src={checked ? Images.iconSelect : Images.iconUnSelect}
-          mode={'widthFix'}
-        />
+        <View
+          className={styles.checkbox}
+          style={{ background: checked ? color : '#e2e2e2' }}
+        >
+          {checked && <Icon name="kq-yes" color={iconColor} />}
+        </View>
         {children ? (
           <View className={classNames(styles.annaCheckBoxContainerChildren)}>
             {children}
