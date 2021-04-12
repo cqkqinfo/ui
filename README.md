@@ -1,27 +1,60 @@
-# @kqinfo/ui
+# 凯桥 UI
 
-## Getting Started
-
-Install dependencies,
+## 使用
 
 ```bash
-$ npm i
+$ yarn add @kqinfo/ui
 ```
 
-Start the dev server,
+## 按需加载
+
+安装`babel-plugin-import`插件
 
 ```bash
-$ npm start
+$ yarn add babel-plugin-import -D
 ```
 
-Build documentation,
+修改`babel.config.js`文件
 
-```bash
-$ npm run docs:build
+```diff
+// babel.config.js
+module.exports = {
+  plugins: [
++    [
++      'import',
++      {
++        libraryDirectory: 'es',
++        libraryName: '@kqinfo/ui'
++      },
++      '@kqinfo/ui'
++    ]
+  ]
+};
+
 ```
 
-Build library via `father-build`,
+## 快速开始
+
+按照依赖
 
 ```bash
-$ npm run build
+$ yan i
+```
+
+启动服务
+
+```bash
+$ yan start
+```
+
+编译文档
+
+```bash
+$ yarn docs:build
+```
+
+编译项目
+
+```bash
+$ yarn build
 ```

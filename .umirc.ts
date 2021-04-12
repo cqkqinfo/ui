@@ -1,11 +1,9 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: '@kqinfo/ui',
-  favicon:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
-  logo:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  title: '凯桥UI',
+  favicon: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',
+  logo: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',
   outputPath: 'docs-dist',
   mode: 'site',
   // more config: https://d.umijs.org/config
