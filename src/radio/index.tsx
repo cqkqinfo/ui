@@ -4,12 +4,35 @@ import classNames from 'classnames';
 import styles from './index.less';
 
 export interface RadioProps {
+  /**
+   * radio内容
+   * @default label
+   */
   children?: React.ReactNode;
+  /**
+   * 当前是否选中
+   */
   checked?: boolean;
+  /**
+   * radio值
+   * @default value
+   */
   value?: string;
+  /**
+   * radio最右侧可以再扩展一些内容
+   */
   extra?: React.ReactNode;
+  /**
+   * radio框style
+   */
   style?: React.CSSProperties;
+  /**
+   * onchange方法
+   */
   onChange?: (checked: boolean, e?: any, v?: string) => void;
+  /**
+   * radio选中时的背景色
+   */
   color?: string;
 }
 
@@ -34,7 +57,7 @@ const Radio = (props: RadioProps) => {
         {checked ? (
           <View
             className={styles.annaRadioContainerChecked}
-            style={{ background: color }}
+            style={{ borderColor: color }}
           ></View>
         ) : (
           <View className={styles.annaRadioContainerNotChecked} />

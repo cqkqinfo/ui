@@ -14,18 +14,49 @@ export interface CheckBoxProps {
   onGroupChange?: (v: CheckboxValue[], e?: any) => void;
   color?: string;
   iconColor?: string;
+  isRound?: boolean;
 }
 
 const Checkbox = (props: CheckBoxProps) => {
   const {
+    /**
+     * checkbox内容
+     * @default label
+     */
     children,
+    /**
+     * 当前是否选中
+     */
     checked,
+    /**
+     * 值
+     * @default value
+     */
     value,
+    /**
+     * 最右侧可以再扩展一些内容
+     */
     extra,
+    /**
+     * checkbox框style
+     */
     style,
+    /**
+     * 选中时的背景色
+     */
     color = '#277fd9',
+    /**
+     * 选中时的勾选icon颜色
+     */
     iconColor = '#ffffff',
+    /**
+     * onchange方法
+     */
     onChange,
+    /**
+     * 是否是圆型的
+     */
+    isRound = false,
   } = props;
 
   const handleClick = (e: any) => {
@@ -36,8 +67,10 @@ const Checkbox = (props: CheckBoxProps) => {
     <View className={styles.annaCheckBox}>
       <View className={styles.annaCheckBoxContainer} onTap={handleClick}>
         <View
-          className={styles.checkbox}
-          style={{ background: checked ? color : '#e2e2e2' }}
+          className={classNames(styles.checkbox, { [styles.round]: isRound })}
+          style={{
+            background: checked ? color : '#e2e2e2',
+          }}
         >
           {checked && <Icon name="kq-yes" color={iconColor} />}
         </View>

@@ -7,29 +7,29 @@ group:
   path: /data-entry
 ---
 
-## Radio
+## CheckBox
 
-单选框
+复选框
 
 ```tsx
 import React, { useState } from 'react';
-import { Space, Radio, PartTitle } from '@kqinfo/ui';
+import { Space, CheckBox, PartTitle } from '@kqinfo/ui';
 
 export default () => {
-  const [checkValue, setCheckValue] = useState('1');
+  const [checkValue, setCheckValue] = useState(['1']);
   return (
     <Space vertical size={10}>
       <PartTitle>一般用法</PartTitle>
-      <Radio.Group value={checkValue} onChange={v => setCheckValue(v)}>
+      <CheckBox.Group value={checkValue} onChange={v => setCheckValue(v)}>
         {[
           { value: '1', label: '西瓜' },
           { value: '2', label: '香蕉' },
         ].map((item: any) => (
-          <Radio value={item.value} key={item.value} color="#277fd9">
+          <CheckBox value={item.value} key={item.value}>
             {item.label}
-          </Radio>
+          </CheckBox>
         ))}
-      </Radio.Group>
+      </CheckBox.Group>
     </Space>
   );
 };
