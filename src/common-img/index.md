@@ -34,7 +34,7 @@ const renderItem = (name: string) => (
   </Space>
 );
 
-const names = ['calendar', 'doctor', 'hospital'];
+const names = ['calendar', 'doctor', 'hospital', 'healthCard'];
 
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
