@@ -40,7 +40,9 @@ export default ({
     style={{ ['-webkit-line-clamp' as any]: `calc(${clamp})`, ...style }}
     {...props}
   >
-    {children}
+    {typeof children === 'string'
+      ? children.replace?.(/(<[^>]+>)|(&[^>]+;)/g, '')
+      : children}
     {more && (
       <Text
         className={classNames(styles.more, moreCls)}
