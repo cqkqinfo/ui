@@ -41,13 +41,15 @@ export default ({
           value={value2}
           {...props}
         />
-        {value2 && (
-          <Icon
-            onTap={() => handleChange('')}
-            name={'kq-clear2'}
-            color={'#999999'}
-          />
-        )}
+        <View
+          onTap={() => {
+            handleChange('');
+          }}
+          style={{ opacity: value2 ? 1 : 0 }}
+          className={styles.clear}
+        >
+          <Icon name={'kq-clear2'} color={'#999999'} />
+        </View>
       </View>
       {showBtn && (
         <View
