@@ -34,6 +34,22 @@ export interface RadioProps {
    * radio选中时的背景色
    */
   color?: string;
+  /**
+   * 默认背景色
+   */
+  defaultColor?: string;
+  /**
+   * 选中时的前景色
+   */
+  fontColor?: string;
+  /**
+   * 默认前景色
+   */
+  defaultFontColor?: string;
+  /**
+   * type样式
+   */
+  type?: 'normal' | 'button';
 }
 
 const Radio = (props: RadioProps) => {
@@ -43,8 +59,12 @@ const Radio = (props: RadioProps) => {
     value,
     extra,
     color = '#277fd9',
+    defaultColor = '#eeeeee',
+    fontColor = 'inherit',
+    defaultFontColor = '#000',
     style,
     onChange,
+    type = 'normal',
   } = props;
 
   const handleClick = (e: any) => {
@@ -52,17 +72,37 @@ const Radio = (props: RadioProps) => {
   };
 
   return (
-    <View className={styles.annaRadio} style={style}>
+    <View
+      className={classNames({
+        [styles.annaRadio]: type === 'normal',
+        [styles.annaRadioBtn]: type === 'button',
+      })}
+      style={{
+        background: type !== 'button' ? 'none' : checked ? color : defaultColor,
+        ...style,
+      }}
+    >
       <View className={styles.annaRadioContainer} onTap={handleClick}>
-        {checked ? (
+        {type === 'normal' && (
           <View
-            className={styles.annaRadioContainerChecked}
-            style={{ borderColor: color }}
+            className={classNames(styles.annaRadioContainerRadio, {
+              [styles.annaRadioContainerRadioCheck]: checked,
+            })}
+            style={{
+              borderColor: checked ? color : 'transparent',
+              background: defaultColor,
+            }}
           ></View>
-        ) : (
-          <View className={styles.annaRadioContainerNotChecked} />
         )}
-        <View className={classNames(styles.annaRadioContainerChildren)}>
+        <View
+          className={classNames(styles.annaRadioContainerChildren, {
+            [styles.annaRadioContainerChildrenChecked]:
+              type === 'button' && checked,
+          })}
+          style={{
+            color: checked ? fontColor : defaultFontColor,
+          }}
+        >
           {children}
         </View>
       </View>
