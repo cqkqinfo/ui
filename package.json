@@ -37,7 +37,7 @@
     "classnames": "^2.2.6",
     "dayjs": "^1.10.4",
     "jsbarcode": "^3.11.3",
-    "parsec-hooks": "^0.0.134",
+    "parsec-hooks": "^0.0.135",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
     "rc-field-form": "^1.20.0",
