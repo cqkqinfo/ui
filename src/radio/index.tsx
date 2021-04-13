@@ -81,8 +81,9 @@ const Radio = (props: RadioProps) => {
         background: type !== 'button' ? 'none' : checked ? color : defaultColor,
         ...style,
       }}
+      onTap={handleClick}
     >
-      <View className={styles.annaRadioContainer} onTap={handleClick}>
+      <View className={styles.annaRadioContainer}>
         {type === 'normal' && (
           <View
             className={classNames(styles.annaRadioContainerRadio, {
