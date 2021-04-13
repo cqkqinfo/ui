@@ -39,6 +39,9 @@ const names = [
   'kq-down',
   'kq-loading2',
   'kq-yes',
+  'kq-add',
+  'kq-clear',
+  'kq-clear2',
   'kq-notice',
 ];
 

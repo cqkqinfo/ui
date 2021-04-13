@@ -26,7 +26,7 @@ export interface NoticeBarProps {
   /**
    * 设置左侧标题
    */
-  title: React.ReactNode;
+  title?: React.ReactNode;
   /**
    * 文字颜色
    */
