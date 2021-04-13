@@ -20,4 +20,18 @@
   position: absolute;
   top: 50%;
   left: 0;
+  transform: translate(0, -50%);
+  animation-name: move;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 0.5s;
+}
+@keyframes move {
+  from {
+    transform: translate(0, -50%);
+  }
+  to {
+    transform: translate(-100%, -50%);
+  }
 }

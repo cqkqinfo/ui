@@ -1,61 +1,61 @@
 import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import { Icon } from '../index';
+import Icon from '../icon';
 import styles from './index.less';
 type CheckboxValue = string | number;
 export interface CheckBoxProps {
+  /**
+   * 当前是否选中
+   */
   checked?: boolean;
+  /**
+   * 值
+   * @default value
+   */
   value?: CheckboxValue;
+  /**
+   * 最右侧可以再扩展一些内容
+   */
   extra?: React.ReactNode;
+  /**
+   * checkbox框style
+   */
   style?: React.CSSProperties;
+  /**
+   * checkbox内容
+   * @default label
+   */
   children?: React.ReactNode;
+  /**
+   * onchange方法
+   */
   onChange?: (checked: any, e?: any, v?: CheckboxValue) => void;
   onGroupChange?: (v: CheckboxValue[], e?: any) => void;
+  /**
+   * 选中时的背景色
+   */
   color?: string;
+  /**
+   * 选中时的勾选icon颜色
+   */
   iconColor?: string;
+  /**
+   * 是否是圆型的
+   */
   isRound?: boolean;
 }
 
 const Checkbox = (props: CheckBoxProps) => {
   const {
-    /**
-     * checkbox内容
-     * @default label
-     */
     children,
-    /**
-     * 当前是否选中
-     */
     checked,
-    /**
-     * 值
-     * @default value
-     */
     value,
-    /**
-     * 最右侧可以再扩展一些内容
-     */
     extra,
-    /**
-     * checkbox框style
-     */
     style,
-    /**
-     * 选中时的背景色
-     */
     color = '#277fd9',
-    /**
-     * 选中时的勾选icon颜色
-     */
     iconColor = '#ffffff',
-    /**
-     * onchange方法
-     */
     onChange,
-    /**
-     * 是否是圆型的
-     */
     isRound = false,
   } = props;
 
@@ -64,7 +64,7 @@ const Checkbox = (props: CheckBoxProps) => {
   };
 
   return (
-    <View className={styles.annaCheckBox}>
+    <View className={styles.annaCheckBox} style={style}>
       <View className={styles.annaCheckBoxContainer} onTap={handleClick}>
         <View
           className={classNames(styles.checkbox, { [styles.round]: isRound })}
@@ -80,6 +80,7 @@ const Checkbox = (props: CheckBoxProps) => {
           </View>
         ) : null}
       </View>
+      <View className={styles.annaCheckBoxExtra}>{extra}</View>
     </View>
   );
 };
