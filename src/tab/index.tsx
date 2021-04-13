@@ -3,6 +3,7 @@ import styles from './index.less';
 import classNames from 'classnames';
 import { View } from 'remax/one';
 import { useEffectState } from 'parsec-hooks';
+import provider from '@/config-provider';
 
 export interface Props {
   /**
@@ -41,6 +42,7 @@ export default ({
   control,
   style,
 }: Props) => {
+  const { brandPrimary } = provider.useContainer();
   const firstTabIndex = tabs?.[0].index;
   let [active, setActive] = useEffectState(
     current || firstTabIndex || undefined,
@@ -71,7 +73,7 @@ export default ({
                 background: active
                   ? `linear-gradient(${
                       active === firstTabIndex ? 248 : -248
-                    }deg, transparent 50%, #2780D9 50%)`
+                    }deg, transparent 50%, ${brandPrimary} 50%)`
                   : 'transparent',
               }}
             />
