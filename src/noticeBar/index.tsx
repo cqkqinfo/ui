@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './index.less';
 import useViewSize from '../use-view-size';
 import Space from '../space';
+import Icon from '../icon';
 
 export interface NoticeBarProps {
   /**
@@ -19,7 +20,7 @@ export interface NoticeBarProps {
    */
   background?: string;
   /**
-   * 设置图标
+   * 设置图标,传none 就是不显示
    */
   icon?: React.ReactNode;
   /**
@@ -46,7 +47,7 @@ const NoticeBar = (props: NoticeBarProps) => {
     style,
     background = '#fefcec',
     color = '#FF9D46',
-    icon,
+    icon = <Icon name="kq-notice" />,
     title,
     children,
     id = `notice${count++}`,
@@ -63,7 +64,7 @@ const NoticeBar = (props: NoticeBarProps) => {
       className={classNames(styles.noticeBarBox, className)}
       style={{ background, color, ...style }}
     >
-      {React.isValidElement(icon) && React.cloneElement(icon, { color })}
+      {React.isValidElement(icon) && React.cloneElement(icon as any, { color })}
       {title && <View className={styles.noticeBarTitle}>{title}：</View>}
       <View className={styles.noticeContent}>
         <View
