@@ -20,7 +20,7 @@ export interface NoticeBarProps {
    */
   background?: string;
   /**
-   * 设置图标,传none 就是不显示
+   * 设置图标,传null就是不显示
    */
   icon?: React.ReactNode;
   /**
