@@ -4,6 +4,7 @@
 import React, { FunctionComponent } from 'react';
 
 export type IconFontNames =
+  | 'kq-notice'
   | 'kq-add'
   | 'kq-clear'
   | 'kq-clear2'

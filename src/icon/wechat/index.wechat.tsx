@@ -7,6 +7,7 @@ import Iconfont_wechat from './wechat/wechat';
 
 interface Props {
   name:
+    | 'kq-notice'
     | 'kq-add'
     | 'kq-clear'
     | 'kq-clear2'
