@@ -6,7 +6,16 @@ import React, { FunctionComponent } from 'react';
 import Iconfont_wechat from './wechat/wechat';
 
 interface Props {
-  name: 'kq-yes' | 'kq-search' | 'kq-down' | 'kq-loading2' | 'kq-loading';
+  name:
+    | 'kq-notice'
+    | 'kq-add'
+    | 'kq-clear'
+    | 'kq-clear2'
+    | 'kq-yes'
+    | 'kq-search'
+    | 'kq-down'
+    | 'kq-loading2'
+    | 'kq-loading';
   size?: number;
   color?: string | string[];
 }

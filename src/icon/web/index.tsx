@@ -2,6 +2,10 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqNotice from './KqNotice';
+import KqAdd from './KqAdd';
+import KqClear from './KqClear';
+import KqClear2 from './KqClear2';
 import KqYes from './KqYes';
 import KqSearch from './KqSearch';
 import KqDown from './KqDown';
@@ -9,6 +13,10 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-notice'
+  | 'kq-add'
+  | 'kq-clear'
+  | 'kq-clear2'
   | 'kq-yes'
   | 'kq-search'
   | 'kq-down'
@@ -23,6 +31,14 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-notice':
+      return <KqNotice {...rest} />;
+    case 'kq-add':
+      return <KqAdd {...rest} />;
+    case 'kq-clear':
+      return <KqClear {...rest} />;
+    case 'kq-clear2':
+      return <KqClear2 {...rest} />;
     case 'kq-yes':
       return <KqYes {...rest} />;
     case 'kq-search':

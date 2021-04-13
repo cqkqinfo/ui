@@ -123,3 +123,7 @@ export { default as Radio } from './radio';
  * 多选
  */
 export { default as CheckBox } from './checkBox';
+/**
+ * 通告栏
+ */
+export { default as NoticeBar } from './noticeBar';
