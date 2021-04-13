@@ -15,6 +15,10 @@ interface Props extends InputProps {
    * 搜索按钮类名
    */
   btnCls?: string;
+  /**
+   * 图标的颜色
+   */
+  iconColor?: string;
 }
 
 export default ({
@@ -23,6 +27,7 @@ export default ({
   onChange,
   style,
   btnCls,
+  iconColor = '#999999',
   ...props
 }: Props) => {
   const [value2, setValue] = useEffectState(value, { wait: 300 });
@@ -33,7 +38,7 @@ export default ({
   return (
     <View className={styles.wrap} style={style}>
       <View className={styles.inputWrap}>
-        <Icon className={styles.icon} color={'#999999'} name={'kq-search'} />
+        <Icon className={styles.icon} color={iconColor} name={'kq-search'} />
         <Input
           className={styles.input}
           placeholderStyle={{ color: '#999999' }}
@@ -48,7 +53,7 @@ export default ({
           style={{ opacity: value2 ? 1 : 0 }}
           className={styles.clear}
         >
-          <Icon name={'kq-clear2'} color={'#999999'} />
+          <Icon name={'kq-clear2'} color={iconColor} />
         </View>
       </View>
       {showBtn && (
