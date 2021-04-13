@@ -16,7 +16,6 @@ import React, { useState } from 'react';
 import { Space, NoticeBar, PartTitle } from '@kqinfo/ui';
 
 export default () => {
-  const [checkValue, setCheckValue] = useState('1');
   return (
     <Space vertical size={10}>
       <PartTitle>一般用法</PartTitle>
