@@ -13,19 +13,14 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { Space, NoticeBar, PartTitle } from '@kqinfo/ui';
+import { Space, NoticeBar, PartTitle, Icon } from '@kqinfo/ui';
 
 export default () => {
   const [checkValue, setCheckValue] = useState('1');
   return (
     <Space vertical size={10}>
       <PartTitle>一般用法</PartTitle>
-      <NoticeBar
-        icon="kq-notice"
-        title="温馨提示"
-        color="#FF9D46"
-        background="#fefcec"
-      >
+      <NoticeBar icon={<Icon name="kq-notice" />} title="温馨提示">
         {[
           { id: '1', content: '温馨提醒：请于2.20日前填写健康监测信息' },
           { id: '2', content: '温馨提醒：请于2.8日前填写健康监测信息' },

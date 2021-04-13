@@ -3,8 +3,6 @@ import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
 import useViewSize from '../use-view-size';
-import { IconFontNames } from '../icon/wechat';
-import Icon from '../icon';
 import Space from '../space';
 
 export interface NoticeBarProps {
@@ -23,11 +21,11 @@ export interface NoticeBarProps {
   /**
    * 设置图标
    */
-  icon?: IconFontNames;
+  icon?: React.ReactNode;
   /**
    * 设置左侧标题
    */
-  title: string | React.ReactNode;
+  title: React.ReactNode;
   /**
    * 文字颜色
    */
@@ -46,8 +44,8 @@ const NoticeBar = (props: NoticeBarProps) => {
   const {
     className,
     style,
-    background = 'none',
-    color = 'inherit',
+    background = '#fefcec',
+    color = '#FF9D46',
     icon,
     title,
     children,
@@ -65,7 +63,7 @@ const NoticeBar = (props: NoticeBarProps) => {
       className={classNames(styles.noticeBarBox, className)}
       style={{ background, color, ...style }}
     >
-      {icon && <Icon name={icon} color={color} />}
+      {React.isValidElement(icon) && React.cloneElement(icon, { color })}
       {title && <View className={styles.noticeBarTitle}>{title}：</View>}
       <View className={styles.noticeContent}>
         <View
