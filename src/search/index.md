@@ -3,7 +3,7 @@ group:
   title: 数据录入
   path: /data-entry
 nav:
-  title: Components
+  title: 组件
   path: /components
 ---
 
