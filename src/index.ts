@@ -122,8 +122,12 @@ export { default as Radio } from './radio';
 /**
  * 多选
  */
-export { default as CheckBox } from './checkBox';
+export { default as CheckBox } from './check-box';
 /**
  * 通告栏
  */
-export { default as NoticeBar } from './noticeBar';
+export { default as NoticeBar } from './notice-bar';
+/**
+ * 配置项
+ */
+export { default as ConfigProvider } from './config-provider';
