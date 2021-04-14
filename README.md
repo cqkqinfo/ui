@@ -64,8 +64,14 @@ module.exports = {
 ```diff
 module.exports = {
   ...
--  plugins: [less(), sass()],
-+  plugins: [less({modifyVars: { '@brand-primary': '#2780d9' }}), sass()],
+-  plugins: [less()],
++  plugins: [
++   less({
++     lessOptions: {
++       modifyVars: { '@brand-primary': '#2780d9' }
++     }
++   })
++ ]
   ...
 };
 ```
