@@ -57,6 +57,30 @@ module.exports = {
 
 ```
 
+## 定制主题
+
+修改`remax.config.js`文件
+
+```diff
+module.exports = {
+  ...
+-  plugins: [less(), sass()],
++  plugins: [less({modifyVars: { '@brand-primary': '#2780d9' }}), sass()],
+  ...
+};
+```
+
+修改`app.tsx`文件
+
+```diff
++import { ConfigProvider } from '@kqinfo/ui';
+
+const App = (props) => {
+-  return props.children;
++  return <ConfigProvider.Provider initialState={{brandPrimary: '#2780d9'}}>{props.children}</ConfigProvider.Provider>;
+};
+```
+
 ## 开发
 
 安装依赖

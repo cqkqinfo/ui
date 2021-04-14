@@ -3,7 +3,7 @@ import styles from './index.less';
 import classNames from 'classnames';
 import { View } from 'remax/one';
 import { useEffectState } from 'parsec-hooks';
-import provider from '@/config-provider';
+import provider from '../config-provider';
 
 export interface Props {
   /**

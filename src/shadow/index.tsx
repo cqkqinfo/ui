@@ -1,5 +1,5 @@
 import React from 'react';
-import provider from '@/config-provider';
+import provider from '../config-provider';
 
 const ColorRNA = require('color-rna').default;
 
