@@ -11,7 +11,7 @@ export interface Props extends Omit<InputProps, 'onInput' | 'onConfirm'> {
   /**
    * 确认事件
    */
-  onConfirm?: (value: string | undefined) => void;
+  onConfirm?: (value?: string) => void;
 }
 
 export default ({ value, onChange, onConfirm, ...props }: Props) => {
@@ -23,8 +23,8 @@ export default ({ value, onChange, onConfirm, ...props }: Props) => {
       onInput={e => {
         const value = e.target.value;
         setValue2(value);
-        onChange?.(value);
       }}
+      onBlur={() => onChange?.(value2)}
       onConfirm={() => onConfirm?.(value2)}
     />
   );
