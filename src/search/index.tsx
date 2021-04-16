@@ -44,6 +44,7 @@ export default ({
           placeholderStyle={{ color: '#999999' }}
           onChange={handleChange}
           value={value2}
+          wait={0}
           {...props}
         />
         <View
