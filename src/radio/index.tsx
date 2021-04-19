@@ -17,7 +17,7 @@ export interface RadioProps {
    * radio值
    * @default value
    */
-  value?: string;
+  value?: string | number;
   /**
    * radio最右侧可以再扩展一些内容
    */
@@ -29,7 +29,7 @@ export interface RadioProps {
   /**
    * onchange方法
    */
-  onChange?: (checked: boolean, e?: any, v?: string) => void;
+  onChange?: (checked: boolean, e?: any, v?: string | number) => void;
   /**
    * radio选中时的背景色
    */
@@ -93,7 +93,7 @@ const Radio = (props: RadioProps) => {
               borderColor: checked ? color : 'transparent',
               background: defaultColor,
             }}
-          ></View>
+          />
         )}
         <View
           className={classNames(styles.annaRadioContainerChildren, {
