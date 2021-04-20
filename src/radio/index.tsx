@@ -19,10 +19,6 @@ export interface RadioProps {
    */
   value?: string | number;
   /**
-   * radio最右侧可以再扩展一些内容
-   */
-  extra?: React.ReactNode;
-  /**
    * radio框style
    */
   style?: React.CSSProperties;
@@ -31,21 +27,21 @@ export interface RadioProps {
    */
   onChange?: (checked: boolean, e?: any, v?: string | number) => void;
   /**
-   * radio选中时的背景色
+   * 文字颜色
    */
   color?: string;
   /**
    * 默认背景色
    */
-  defaultColor?: string;
+  backgroundColor?: string;
   /**
-   * 选中时的前景色
+   * 选中的文字颜色
    */
-  fontColor?: string;
+  activeColor?: string;
   /**
-   * 默认前景色
+   * 选中的背景颜色
    */
-  defaultFontColor?: string;
+  activeBackgroundColor?: string;
   /**
    * type样式
    */
@@ -65,11 +61,10 @@ const Radio = (props: RadioProps) => {
     children,
     checked,
     value,
-    extra,
-    color = '#277fd9',
-    defaultColor = '#eeeeee',
-    fontColor = 'inherit',
-    defaultFontColor = '#000',
+    activeBackgroundColor = '#277fd9',
+    backgroundColor = '#eeeeee',
+    color = '#000',
+    activeColor = '#fff',
     style,
     onChange,
     className,
@@ -85,43 +80,37 @@ const Radio = (props: RadioProps) => {
     <View
       className={classNames(
         className,
+        styles.container,
         {
-          [styles.annaRadio]: type === 'normal',
-          [styles.annaRadioBtn]: type === 'button',
+          [styles.radio]: type === 'normal',
+          [styles.btn]: type === 'button',
         },
-        checked && activeCls,
+        checked && classNames(activeCls, type === 'button' && styles.btnActive),
       )}
       style={{
-        background: type !== 'button' ? 'none' : checked ? color : defaultColor,
+        background:
+          type !== 'button'
+            ? 'none'
+            : checked
+            ? activeBackgroundColor
+            : backgroundColor,
+        color: type !== 'button' ? 'none' : checked ? activeColor : color,
         ...style,
       }}
       onTap={handleClick}
     >
-      <View className={styles.annaRadioContainer}>
-        {type === 'normal' && (
-          <View
-            className={classNames(styles.annaRadioContainerRadio, {
-              [styles.annaRadioContainerRadioCheck]: checked,
-            })}
-            style={{
-              borderColor: checked ? color : 'transparent',
-              background: defaultColor,
-            }}
-          />
-        )}
+      {type === 'normal' && (
         <View
-          className={classNames(styles.annaRadioContainerChildren, {
-            [styles.annaRadioContainerChildrenChecked]:
-              type === 'button' && checked,
+          className={classNames(styles.dot, {
+            [styles.dotCheck]: checked,
           })}
           style={{
-            color: checked ? fontColor : defaultFontColor,
+            borderColor: checked ? activeBackgroundColor : 'transparent',
+            background: activeColor,
           }}
-        >
-          {children}
-        </View>
-      </View>
-      <View className={styles.annaRadioExtra}>{extra}</View>
+        />
+      )}
+      {children}
     </View>
   );
 };

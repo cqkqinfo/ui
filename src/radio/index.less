@@ -2,48 +2,40 @@
 @light-base: #fff;
 @gray-base: #eeeeee;
 
-.annaRadio {
+.container {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.radio {
   margin: 30px 0;
   margin-right: 30px;
   max-width: 100%;
   font-size: 26px;
 }
-.annaRadioBtn {
+.btn {
   max-width: 100%;
-  border-radius: 39px;
+  border-radius: 42px;
   border: 1px solid #eeeeee;
-  height: 78px;
-  padding: 0 40px;
+  height: 84px;
+  padding: 0 30px;
   background: #fff;
   display: flex;
   align-items: center;
   margin: 10px;
   cursor: pointer;
 }
-
-.annaRadioContainer {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-}
-.annaRadioContainerRadio {
+.dot {
   box-sizing: border-box;
   width: 34px;
   height: 34px;
   border-radius: 50%;
   margin-right: 20px;
 }
-.annaRadioContainerRadioCheck {
+.dotCheck {
   border-style: solid;
   border-width: 11px;
 }
-.annaRadioContainerChildren {
-  font-size: 30px;
-
-  color: #666666;
-  font-weight: bold;
-  white-space: nowrap;
-}
-.annaRadioContainerChildrenChecked {
+.btnActive {
   color: #fff;
 }
