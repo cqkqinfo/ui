@@ -131,3 +131,7 @@ export { default as NoticeBar } from './notice-bar';
  * 配置项
  */
 export { default as ConfigProvider } from './config-provider';
+/**
+ * 底部导航栏
+ */
+export { default as TabBar } from './tab-bar';
