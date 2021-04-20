@@ -50,6 +50,14 @@ export interface RadioProps {
    * type样式
    */
   type?: 'normal' | 'button';
+  /**
+   * 类名
+   */
+  className?: string;
+  /**
+   * 选择的类名
+   */
+  activeCls?: string;
 }
 
 const Radio = (props: RadioProps) => {
@@ -64,6 +72,8 @@ const Radio = (props: RadioProps) => {
     defaultFontColor = '#000',
     style,
     onChange,
+    className,
+    activeCls,
     type = 'normal',
   } = props;
 
@@ -73,10 +83,14 @@ const Radio = (props: RadioProps) => {
 
   return (
     <View
-      className={classNames({
-        [styles.annaRadio]: type === 'normal',
-        [styles.annaRadioBtn]: type === 'button',
-      })}
+      className={classNames(
+        className,
+        {
+          [styles.annaRadio]: type === 'normal',
+          [styles.annaRadioBtn]: type === 'button',
+        },
+        checked && activeCls,
+      )}
       style={{
         background: type !== 'button' ? 'none' : checked ? color : defaultColor,
         ...style,
