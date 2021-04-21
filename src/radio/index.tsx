@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
 import { Property } from 'csstype';
+import { useEffectState } from 'parsec-hooks';
 
 export interface RadioProps {
   /**
@@ -147,8 +148,12 @@ const getRadios = (
 
 Radio.Group = (props: GroupProps) => {
   const { value, children, direction, onChange, style, className } = props;
+  const [v, setV] = useEffectState(value);
 
-  const radios = getRadios(children, value, onChange);
+  const radios = getRadios(children, v, (...arg) => {
+    setV(arg[0]);
+    onChange?.(...arg);
+  });
 
   return (
     <View
