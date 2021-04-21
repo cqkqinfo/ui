@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
+import { Property } from 'csstype';
 
 export interface RadioProps {
   /**
@@ -25,7 +26,7 @@ export interface RadioProps {
   /**
    * onchange方法
    */
-  onChange?: (checked: boolean, e?: any, v?: string | number) => void;
+  onChange?: (checked: boolean, v?: string | number) => void;
   /**
    * 文字颜色
    */
@@ -71,11 +72,6 @@ const Radio = (props: RadioProps) => {
     activeCls,
     type = 'normal',
   } = props;
-
-  const handleClick = (e: any) => {
-    onChange?.(!checked, e, value);
-  };
-
   return (
     <View
       className={classNames(
@@ -97,7 +93,7 @@ const Radio = (props: RadioProps) => {
         color: type !== 'button' ? 'none' : checked ? activeColor : color,
         ...style,
       }}
-      onTap={handleClick}
+      onTap={e => onChange?.(!checked, value)}
     >
       {type === 'normal' && (
         <View
@@ -116,61 +112,51 @@ const Radio = (props: RadioProps) => {
 };
 
 export interface GroupProps {
-  value?: any;
+  value?: string | number;
   children?: React.ReactNode;
-  direction?: string;
-  onChange?: (e: any, v: any) => void;
+  direction?: Property.FlexDirection;
+  onChange?: (v: string | number) => void;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const getRadios = (
   children: React.ReactNode,
-  value?: string,
-  onChange?: (v: string, e?: any) => void,
+  value?: string | number,
+  onChange?: (v: string | number) => void,
 ) => {
-  const onGroupChange = (checked: any, e: any, v: string) => {
-    const newValue = v;
-    onChange?.(newValue as string, e);
+  const onGroupChange = (checked: boolean, v: string | number) => {
+    onChange?.(v);
   };
-  const radios = React.Children.map(children, (radio: any) => {
+  return React.Children.map(children, radio => {
     const newRadio = radio;
     let checked = false;
-    if (newRadio && newRadio.props) {
-      if (
+    if (newRadio && React.isValidElement(newRadio) && newRadio.props) {
+      checked =
         (newRadio.props.value ||
           newRadio.props.value === 0 ||
           newRadio.props.value === false) &&
-        newRadio.props.value === value
-      ) {
-        checked = true;
-      } else {
-        checked = false;
-      }
+        newRadio.props.value === value;
       return (
         <Radio {...newRadio.props} checked={checked} onChange={onGroupChange} />
       );
     }
     return newRadio;
   });
-
-  return radios;
 };
 
 Radio.Group = (props: GroupProps) => {
-  const { value, children, direction = 'row', onChange, style } = props;
+  const { value, children, direction, onChange, style, className } = props;
 
   const radios = getRadios(children, value, onChange);
 
   return (
     <View
-      style={
-        {
-          display: 'flex',
-          flexWrap: 'wrap',
-          flexDirection: direction,
-          ...style,
-        } as React.CSSProperties
-      }
+      style={{
+        flexDirection: direction,
+        ...style,
+      }}
+      className={classNames(className, styles.group)}
     >
       {radios}
     </View>
