@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
 import { useEffectState } from 'parsec-hooks';
 import { InputProps, TextareaProps } from 'remax/one';
+import styles from './index.less';
+import classNames from 'classnames';
 
 export interface UseInputOption
   extends Omit<InputProps & TextareaProps, 'onConfirm' | 'onInput'> {
@@ -29,6 +31,7 @@ export default ({
   onConfirm,
   onFocus,
   onBlur,
+  className,
   wait = 5000,
   ...props
 }: UseInputOption) => {
@@ -39,6 +42,7 @@ export default ({
   });
   return {
     ...props,
+    className: classNames(styles.input, className),
     value: value2,
     onInput: useCallback(
       (e: any) => {

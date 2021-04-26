@@ -135,3 +135,11 @@ export { default as ConfigProvider } from './config-provider';
  * 底部导航栏
  */
 export { default as TabBar } from './tab-bar';
+/**
+ * 表单
+ */
+export { default as Form } from './form';
+/**
+ * 表单项
+ */
+export { default as FormItem } from './form-item';

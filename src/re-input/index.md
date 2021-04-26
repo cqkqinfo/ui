@@ -18,7 +18,7 @@ import { ReInput, Space, PartTitle } from '@kqinfo/ui';
 export default () => (
   <Space vertical size={10} alignItems={'flex-start'}>
     <PartTitle>基本使用</PartTitle>
-    <ReInput />
+    <ReInput placeholder={'请输入'} />
   </Space>
 );
 ```
