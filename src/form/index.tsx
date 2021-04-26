@@ -88,10 +88,6 @@ export interface Props<Values = {}>
    */
   colon?: React.ReactNode;
   cell?: boolean;
-  /**
-   * label是否靠左
-   */
-  leftLabel?: boolean;
 }
 
 const ReForm = ContainerUseWrap(
