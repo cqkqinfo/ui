@@ -75,7 +75,7 @@ export interface ItemProps extends FieldProps, BaseItemProps {}
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
-    Pick<ItemProps, keyof BaseItemProps> {
+    Omit<Pick<ItemProps, keyof BaseItemProps>, 'strLabel' | 'label'> {
   /**
    * label的宽度，建议使用em单位
    */
