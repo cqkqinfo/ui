@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // kq-notice | kq-add | kq-clear | kq-clear2 | kq-yes | kq-search | kq-down | kq-loading2 | kq-loading
+    // kq-right | kq-home-solid | kq-monitor | kq-notice | kq-add | kq-clear | kq-clear2 | kq-yes | kq-search | kq-down | kq-loading2 | kq-loading
     name: {
       type: String,
     },

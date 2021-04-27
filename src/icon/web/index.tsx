@@ -2,6 +2,9 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqRight from './KqRight';
+import KqHomeSolid from './KqHomeSolid';
+import KqMonitor from './KqMonitor';
 import KqNotice from './KqNotice';
 import KqAdd from './KqAdd';
 import KqClear from './KqClear';
@@ -13,6 +16,9 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-right'
+  | 'kq-home-solid'
+  | 'kq-monitor'
   | 'kq-notice'
   | 'kq-add'
   | 'kq-clear'
@@ -31,6 +37,12 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-right':
+      return <KqRight {...rest} />;
+    case 'kq-home-solid':
+      return <KqHomeSolid {...rest} />;
+    case 'kq-monitor':
+      return <KqMonitor {...rest} />;
     case 'kq-notice':
       return <KqNotice {...rest} />;
     case 'kq-add':
