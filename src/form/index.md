@@ -36,7 +36,7 @@ const Demo = (props: any) => {
           <FormItem
             label={'地区'}
             name={'city'}
-            after={<Icon name={'kq-right'} />}
+            after={<Icon name={'kq-right'} color={'#666'} />}
           >
             <Picker cols={3} data={addressOptions}>
               请选择

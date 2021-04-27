@@ -33,6 +33,7 @@ export default ({
   onBlur,
   className,
   wait = 5000,
+  placeholderStyle,
   ...props
 }: UseInputOption) => {
   const [isFocus, setIsFocus] = useState(false);
@@ -44,6 +45,10 @@ export default ({
     ...props,
     className: classNames(styles.input, className),
     value: value2,
+    placeholderStyle: {
+      color: '#CCCCCC',
+      ...placeholderStyle,
+    },
     onInput: useCallback(
       (e: any) => {
         const value = e.target.value;

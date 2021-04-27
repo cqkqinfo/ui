@@ -24,7 +24,7 @@ export default ({
   noStyle: outNoStyle,
   labelCls: outLabelCls,
   afterCls: outAfterCls,
-  style: outStyle,
+  style,
   labelJustify: outLabelJustify = 'right',
   ...props
 }: ItemProps) => {
@@ -38,7 +38,6 @@ export default ({
     requiredMark = outRequiredMark,
     cell,
     requiredMarkCls,
-    style = outStyle,
     vertical = outVertical,
     readOnly = outReadOnly,
     labelCls = outLabelCls,
@@ -72,7 +71,7 @@ export default ({
             [styles.cell]: cell,
             [styles.vertical]: vertical,
           })}
-          style={{ ...style, ...outStyle }}
+          style={style}
           {...props}
         >
           {label && (

@@ -13,15 +13,22 @@ group:
 
 ```tsx
 import React from 'react';
-import { Shadow, Space, PartTitle } from '@kqinfo/ui';
+import { Shadow, Space, PartTitle, Form, FormItem } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={10} alignItems={'stretch'}>
     <PartTitle>一般用法</PartTitle>
     <Shadow>
       <div style={{ width: 100, height: 100, background: '#fff' }}>
         我是内容
       </div>
+    </Shadow>
+    <PartTitle>box模式</PartTitle>
+    <Shadow box>
+      <Form cell onFinish={console.log}>
+        <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+        <FormItem label={'身份证号'} name={'idCard'} />
+      </Form>
     </Shadow>
   </Space>
 );
