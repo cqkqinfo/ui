@@ -2,16 +2,24 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
+  position: relative;
   .children {
     flex: 1;
   }
   &.cell {
-    background-color: #fff;
-    padding: 20px;
+    padding: 20px 0;
     justify-content: space-between;
+    &:not(:last-child) {
+      border-bottom: 1px solid #e2e2e2;
+    }
     .children {
       color: #999;
-      flex: inherit;
+      display: flex;
+      justify-content: flex-end;
+      textarea,
+      input {
+        text-align: right;
+      }
     }
   }
   &.vertical {
@@ -40,6 +48,8 @@
 .mark {
   color: #ea5328;
   display: inline-block;
+  position: absolute;
+  left: -0.5em;
 }
 
 .labelText {

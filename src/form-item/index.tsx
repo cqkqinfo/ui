@@ -16,7 +16,7 @@ export default ({
   rules = [],
   vertical: outVertical,
   children = name ? <Input placeholder={`请输入${strLabel}`} /> : undefined,
-  requiredMark: outRequiredMark = false,
+  requiredMark: outRequiredMark = true,
   readOnly: outReadOnly,
   childrenCls: outChildrenCls,
   requiredMarkCls: outRequiredMarkCls,

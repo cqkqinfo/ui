@@ -11,6 +11,7 @@ import createContainer from 'parsec-hooks/lib/createContainer';
 import showToast from '../show-toast';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
+import { View } from 'remax/one';
 
 export const FormStore = createContainer(
   initialState => ((initialState || {}) as any) as Props<any>,
@@ -30,7 +31,7 @@ interface BaseItemProps {
   vertical?: boolean;
   /**
    * 显示必填*号
-   * @default false
+   * @default true
    */
   requiredMark?: boolean;
   /**
@@ -94,7 +95,7 @@ const ReForm = ContainerUseWrap(
   FormStore,
   <Values extends unknown>({ labelWidth, ...props }: Props<Values>) => (
     <RcForm<Values>
-      component={false}
+      component={View}
       onFinishFailed={(e: any) => {
         showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
       }}
