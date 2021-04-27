@@ -143,3 +143,27 @@ export { default as Form } from './form';
  * 表单项
  */
 export { default as FormItem } from './form-item';
+/**
+ * 显示loading
+ */
+export { default as showLoading } from './show-loading';
+/**
+ * 显示弹窗
+ */
+export { default as showModal } from './show-modal';
+/**
+ * 显示提示
+ */
+export { default as showToast } from './show-toast';
+/**
+ * 隐藏loading
+ */
+export { default as hideLoading } from './hide-loading';
+/**
+ * 单位转换
+ */
+export { default as rpxToPx } from './rpx-to-px';
+// /**
+//  * 单位转换
+//  */
+// export { default as pxToRpx } from './px-to-rpx';
