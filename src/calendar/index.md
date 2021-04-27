@@ -17,7 +17,7 @@ import { Calendar, Space, PartTitle } from '@kqinfo/ui';
 import dayjs from 'dayjs';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>基本用法</PartTitle>
     <Calendar />
     <PartTitle>渲染标记点</PartTitle>

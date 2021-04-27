@@ -17,7 +17,7 @@ import { Space, NoticeBar, PartTitle } from '@kqinfo/ui';
 
 export default () => {
   return (
-    <Space vertical size={10}>
+    <Space vertical size={'10px'}>
       <PartTitle>一般用法</PartTitle>
       <NoticeBar title="温馨提示">
         {[

@@ -16,7 +16,7 @@ import React from 'react';
 import { Shadow, Space, PartTitle, Form, FormItem } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10} alignItems={'stretch'}>
+  <Space vertical size={'10px'} alignItems={'stretch'}>
     <PartTitle>一般用法</PartTitle>
     <Shadow>
       <div style={{ width: 100, height: 100, background: '#fff' }}>

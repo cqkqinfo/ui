@@ -17,7 +17,7 @@ import { Step, Space, PartTitle } from '@kqinfo/ui';
 import { View } from 'remax/one';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>基本用法</PartTitle>
     <Step items={['步骤1', '步骤2', '步骤3']} current={2} />
     <PartTitle>自定义样式</PartTitle>

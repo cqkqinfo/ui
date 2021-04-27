@@ -16,7 +16,7 @@ import React from 'react';
 import { Button, Space, PartTitle } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>按钮类型</PartTitle>
     <Button>默认</Button>
     <Button type={'primary'}>主题色按钮</Button>
@@ -26,7 +26,7 @@ export default () => (
       主题色按钮
     </Button>
     <PartTitle>行内元素</PartTitle>
-    <Space size={10}>
+    <Space size={'10px'}>
       <Button block={false}>默认</Button>
       <Button type={'primary'} block={false}>
         主题色按钮
@@ -36,7 +36,7 @@ export default () => (
     <Button shadow>默认</Button>
     <Button type={'primary'}>默认</Button>
     <PartTitle>大小</PartTitle>
-    <Space size={10}>
+    <Space size={'10px'}>
       <Button size={'small'} block={false}>
         小号
       </Button>

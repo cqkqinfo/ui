@@ -16,7 +16,7 @@ import React from 'react';
 import { Picker, addressOptions, PartTitle, Space, Button } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>地区选择</PartTitle>
     <Picker cols={3} data={addressOptions}>
       <Button type={'primary'}>显示</Button>

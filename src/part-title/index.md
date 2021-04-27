@@ -16,7 +16,7 @@ import React from 'react';
 import { Space, PartTitle } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>一般用法</PartTitle>
     <PartTitle required>必填</PartTitle>
     <PartTitle required bold={false}>

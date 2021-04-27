@@ -16,7 +16,7 @@ import React from 'react';
 import { Tab, Space, PartTitle } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>基本用法</PartTitle>
     <Tab
       tabs={[

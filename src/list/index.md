@@ -17,7 +17,7 @@ import { Space, List, PartTitle } from '@kqinfo/ui';
 import getList from '../_mock/getList';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>一般用法</PartTitle>
     <List
       defaultLimit={50}

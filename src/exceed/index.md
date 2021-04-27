@@ -17,7 +17,7 @@ import { Shadow, Space, Exceed, PartTitle } from '@kqinfo/ui';
 import { View } from 'remax/one';
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>一般用法</PartTitle>
     <Exceed>
       我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容

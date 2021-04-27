@@ -4,6 +4,7 @@ import styles from './index.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
 import ViewProps from '@remax/one/esm/hostComponents/View/props';
+import rpxToPx from '../rpx-to-px';
 
 export interface Props
   extends Pick<
@@ -27,7 +28,7 @@ export interface Props
    */
   children?: React.ReactNodeArray | React.ReactNode;
   /**
-   * 间距大小，字符串可以传入自定义单位，数字就是px单位
+   * 间距大小，字符串可以传入自定义单位，数字默认会转为rpx
    */
   size?: string | number;
   /**
@@ -109,7 +110,11 @@ export default ({
           key: index,
           style: {
             [vertical ? 'marginBottom' : 'marginRight']:
-              index + 1 === filterChildren?.length ? undefined : size,
+              index + 1 === filterChildren?.length
+                ? undefined
+                : typeof size === 'number'
+                ? rpxToPx(size)
+                : size,
             ...props.style,
           },
         });

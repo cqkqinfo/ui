@@ -19,7 +19,7 @@ export default () => {
   const [loading1, setLoading1] = useState(false);
   const [loading2, setLoading2] = useState(false);
   return (
-    <Space vertical size={10} alignItems={'flex-start'}>
+    <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>全屏Loading</PartTitle>
       {loading1 && <Loading />}
       <Button

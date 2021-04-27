@@ -18,7 +18,7 @@ import { Rotate, Icon, Space, PartTitle, Button } from '@kqinfo/ui';
 export default () => {
   const [run, setRun] = useState(false);
   return (
-    <Space vertical size={10} alignItems={'flex-start'}>
+    <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>一般用法</PartTitle>
       <Rotate>
         <Icon name={'kq-loading'} />

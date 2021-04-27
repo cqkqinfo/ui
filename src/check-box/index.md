@@ -18,7 +18,7 @@ import { Space, CheckBox, PartTitle } from '@kqinfo/ui';
 export default () => {
   const [checkValue, setCheckValue] = useState(['1']);
   return (
-    <Space vertical size={10}>
+    <Space vertical size={'10px'}>
       <PartTitle>一般用法</PartTitle>
       <CheckBox.Group value={checkValue} onChange={v => setCheckValue(v)}>
         {[

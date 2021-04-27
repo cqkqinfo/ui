@@ -19,7 +19,7 @@ import { Image } from 'remax/one';
 const renderItem = (name: string) => (
   <Space
     justify={'center'}
-    size={10}
+    size={'10px'}
     alignItems={'center'}
     vertical
     style={{
@@ -44,7 +44,7 @@ const names = [
 ];
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>基本用法</PartTitle>
     <Space flexWrap={'wrap'}>{names.map(renderItem)}</Space>
   </Space>

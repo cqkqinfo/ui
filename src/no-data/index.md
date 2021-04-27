@@ -16,7 +16,7 @@ import React from 'react';
 import { Space, NoData, PartTitle } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10}>
+  <Space vertical size={'10px'}>
     <PartTitle>一般用法</PartTitle>
     <NoData />
   </Space>

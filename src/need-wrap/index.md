@@ -18,7 +18,7 @@ import { Space, NeedWrap, Shadow, PartTitle, Button } from '@kqinfo/ui';
 export default () => {
   const [need, setNeed] = useState(true);
   return (
-    <Space vertical size={10} alignItems={'flex-start'}>
+    <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>一般用法</PartTitle>
       <NeedWrap wrap={Shadow} need={need}>
         <div style={{ width: 100, height: 100, background: '#fff' }}>

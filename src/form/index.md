@@ -54,7 +54,12 @@ const Demo = (props: any) => {
 export default () => {
   const [folded, setFolded] = useState(false);
   return (
-    <Space vertical size={10} alignItems={'flex-start'} style={{ padding: 5 }}>
+    <Space
+      vertical
+      size={'10px'}
+      alignItems={'flex-start'}
+      style={{ padding: 5 }}
+    >
       <PartTitle>一般用法</PartTitle>
       <Demo />
       <PartTitle>垂直布局</PartTitle>

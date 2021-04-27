@@ -24,7 +24,7 @@ import {
 } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={10} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>基本使用</PartTitle>
     <FormItem
       requiredMark

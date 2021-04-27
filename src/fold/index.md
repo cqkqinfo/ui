@@ -18,7 +18,7 @@ import { Shadow, Space, Fold, Button, PartTitle } from '@kqinfo/ui';
 export default () => {
   const [folded, setFolded] = useState(false);
   return (
-    <Space vertical size={10} alignItems={'flex-start'}>
+    <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>一般用法</PartTitle>
       <Fold folded={folded}>
         我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
