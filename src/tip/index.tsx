@@ -65,7 +65,7 @@ export default ({
           className={classNames(iconCls, styles.icon)}
         />
       )}
-      <Space size={17} vertical style={{ width: rpxToPx(625) }}>
+      <Space size={17} vertical style={{ width: rpxToPx(666) }}>
         <View className={classNames(styles.title, titleCls)}>{title}</View>
         <View className={classNames(textCls, styles.text)}>
           {items.map((item, index) => (
