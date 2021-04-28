@@ -44,6 +44,7 @@ const names = [
   'kq-clear2',
   'kq-notice',
   'kq-zengjia',
+  'kq-right',
   'kq-jianshao',
 ];
 
