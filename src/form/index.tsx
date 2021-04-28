@@ -107,12 +107,14 @@ const ReForm = ContainerUseWrap(
   <Values extends unknown>({
     card = true,
     shadowProps,
+    cell = false,
+    colon = !cell,
     ...props
   }: Props<Values>) => (
     <RcForm<Values>
       component={props => (
         <NeedWrap
-          need={card && props.cell}
+          need={card && cell}
           wrap={Shadow as any}
           wrapProps={{ card: true, ...shadowProps }}
         >

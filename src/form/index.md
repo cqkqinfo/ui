@@ -59,7 +59,7 @@ export default () => {
       <PartTitle>一般用法</PartTitle>
       <Demo />
       <PartTitle>cell模式</PartTitle>
-      <Demo cell colon={false} />
+      <Demo cell />
       <PartTitle>垂直布局</PartTitle>
       <Demo vertical />
       <PartTitle>label两端对齐</PartTitle>

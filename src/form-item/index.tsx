@@ -32,11 +32,11 @@ export default ({
   const {
     labelWidth,
     itemCls,
-    colon = '：',
     childrenCls,
+    colon,
+    cell,
     afterCls,
     requiredMark = outRequiredMark,
-    cell,
     requiredMarkCls,
     vertical = outVertical,
     readOnly = outReadOnly,
@@ -107,7 +107,7 @@ export default ({
                 >
                   {label}
                 </View>
-                {colon}
+                {colon === undefined && !cell ? '：' : colon}
               </View>
             </View>
           )}
