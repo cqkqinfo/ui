@@ -43,6 +43,8 @@ const names = [
   'kq-clear',
   'kq-clear2',
   'kq-notice',
+  'kq-zengjia',
+  'kq-jianshao',
 ];
 
 export default () => (
