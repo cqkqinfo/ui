@@ -8,9 +8,9 @@ export interface Props {
   children: React.ReactElement;
   style?: React.CSSProperties;
   /**
-   * 盒子模式，会带有圆角和背景样式
+   * 卡片模式，会带有圆角和背景样式
    */
-  box?: boolean;
+  card?: boolean;
   /**
    * 阴影颜色
    */
@@ -19,7 +19,7 @@ export interface Props {
 
 export default ({
   children,
-  box,
+  card,
   shadowColor: outShadowColor,
   ...props
 }: Props) => {
@@ -29,9 +29,10 @@ export default ({
     ...children.props,
     ...props,
     style: {
-      ...(box
+      ...(card
         ? {
-            width: rpxToPx(710),
+            boxSizing: 'border-box',
+            maxWidth: rpxToPx(710),
             backgroundColor: '#fff',
             borderRadius: rpx20,
             padding: `0 ${rpx20}`,

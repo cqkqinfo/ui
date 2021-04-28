@@ -52,16 +52,27 @@ const Demo = (props: any) => {
 };
 
 export default () => {
-  const [folded, setFolded] = useState(false);
+  const [readOnly, setReadOnly] = useState(false);
+  const [form] = Form.useForm();
   return (
-    <Space
-      vertical
-      size={'10px'}
-      alignItems={'flex-start'}
-      style={{ padding: 5 }}
-    >
+    <Space vertical size={'10px'} style={{ padding: 5 }} alignItems={'stretch'}>
       <PartTitle>一般用法</PartTitle>
       <Demo />
+      <PartTitle>一般用法</PartTitle>
+      <Shadow card>
+        <Form
+          form={form}
+          cell
+          onFinish={() => setReadOnly(!readOnly)}
+          readOnly={readOnly}
+        >
+          <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+          <FormItem label={'身份证号'} name={'idCard'} />
+        </Form>
+      </Shadow>
+      <Button type={'primary'} onTap={() => form.submit()}>
+        {readOnly ? '修改' : '保存'}
+      </Button>
       <PartTitle>垂直布局</PartTitle>
       <Demo vertical />
       <PartTitle>label两端对齐</PartTitle>
