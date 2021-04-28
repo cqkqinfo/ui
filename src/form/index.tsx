@@ -9,6 +9,8 @@ import RcForm, {
 import ContainerUseWrap from 'parsec-hooks/lib/ContainerUseWrap';
 import createContainer from 'parsec-hooks/lib/createContainer';
 import showToast from '../show-toast';
+import Shadow, { Props as ShadowProps } from '../shadow';
+import NeedWrap from '../need-wrap';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
 import { View } from 'remax/one';
@@ -89,13 +91,34 @@ export interface Props<Values = {}>
    */
   colon?: React.ReactNode;
   cell?: boolean;
+  /**
+   * 卡片模式
+   * @default true
+   */
+  card?: boolean;
+  /**
+   * shadow组件的props
+   */
+  shadowProps?: ShadowProps;
 }
 
 const ReForm = ContainerUseWrap(
   FormStore,
-  <Values extends unknown>({ labelWidth, ...props }: Props<Values>) => (
+  <Values extends unknown>({
+    card = true,
+    shadowProps,
+    ...props
+  }: Props<Values>) => (
     <RcForm<Values>
-      component={View}
+      component={props => (
+        <NeedWrap
+          need={card && props.cell}
+          wrap={Shadow as any}
+          wrapProps={{ card: true, ...shadowProps }}
+        >
+          <View {...props} />
+        </NeedWrap>
+      )}
       onFinishFailed={(e: any) => {
         showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
       }}

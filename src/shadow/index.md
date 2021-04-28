@@ -27,17 +27,15 @@ export default () => {
         </div>
       </Shadow>
       <PartTitle>card模式</PartTitle>
-      <Shadow card>
-        <Form
-          form={form}
-          cell
-          onFinish={() => setReadOnly(!readOnly)}
-          readOnly={readOnly}
-        >
-          <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
-          <FormItem label={'身份证号'} name={'idCard'} />
-        </Form>
-      </Shadow>
+      <Form
+        form={form}
+        cell
+        onFinish={() => setReadOnly(!readOnly)}
+        readOnly={readOnly}
+      >
+        <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+        <FormItem label={'身份证号'} name={'idCard'} />
+      </Form>
       <Button type={'primary'} onTap={() => form.submit()}>
         {readOnly ? '修改' : '保存'}
       </Button>
