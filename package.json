@@ -33,6 +33,8 @@
     "@types/classnames": "^2.2.11",
     "ahooks": "^2.10.0",
     "antd-mobile": "^2.3.4",
+    "axios-ali-adapter": "^0.0.2",
+    "axios-wechat-adapter": "^0.0.4",
     "china-division": "^2.3.1",
     "classnames": "^2.2.6",
     "color-rna": "^1.0.1",
@@ -47,6 +49,7 @@
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {
+    "axios": "0.x",
     "rc-field-form": "^1.20.0",
     "react": "^16.12.0",
     "remax": "^2.11.8"
@@ -55,6 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@umijs/test": "^3.0.5",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-polyfill-corejs2": "^0.1.10",
     "babel-plugin-polyfill-corejs3": "^0.1.7",
