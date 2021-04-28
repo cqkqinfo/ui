@@ -38,6 +38,11 @@ export interface Props
    */
   step?: number;
   /**
+   * 显示的单位
+   * @default 1
+   */
+  unit?: string;
+  /**
    * 初始值
    * @default 0
    */
@@ -53,7 +58,7 @@ export interface Props
   disabled?: boolean;
   /**
    * 禁用icon的颜色
-   * @default #ccc
+   * @default transparent
    */
   disabledColor?: string;
   /**
@@ -61,6 +66,11 @@ export interface Props
    * @default 主题色
    */
   iconColor?: string;
+
+  /**
+   * 格式化样式
+   */
+  formatValue?: (val: any) => string | number;
   /**
    * 外层样式
    */
@@ -71,23 +81,29 @@ export interface Props
   iconCls?: string;
   /**
    * 数字的样式
-   * @default 主题色
    */
   numerCls?: string;
+  /**
+   * 禁用时数字的样式
+   */
+  numerDisabledCls?: string;
 }
 
 export default ({
   min = Number.MIN_SAFE_INTEGER,
   max = Number.MAX_SAFE_INTEGER,
   value,
-  disabledColor = '#ccc',
+  disabledColor = 'transparent',
   defaultValue = 0,
   step = 1,
   iconColor,
   className,
   iconCls,
   numerCls,
+  numerDisabledCls,
   onChange,
+  formatValue = a => a,
+  unit,
   disabled,
   ...restProps
 }: Props) => {
@@ -151,8 +167,13 @@ export default ({
         className={cls(styles.icon, iconCls)}
         color={minDisabled ? disabledColor : iconSelectColor}
       />
-      <Text className={cls(styles.number, numerCls)}>
-        {realVal.toFixed(precision)}
+      <Text
+        className={cls(styles.number, numerCls, {
+          [numerDisabledCls || '']: minDisabled && maxDisabled,
+        })}
+      >
+        {formatValue(realVal.toFixed(precision))}
+        <Text className={styles.unit}>{unit}</Text>
       </Text>
       <Icon
         name="kq-zengjia"

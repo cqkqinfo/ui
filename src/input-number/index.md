@@ -21,15 +21,20 @@ export default () => {
     <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>一般用法</PartTitle>
       <InputNumber />
-      <InputNumber iconColor="red" />
       <InputNumber min={12} max={20} defaultValue={13} />
       <InputNumber min={13} max={14} defaultValue={13} />
+      <PartTitle>增加单位</PartTitle>
+      <InputNumber />
+      <InputNumber unit="份" />
+      <InputNumber formatValue={a => `${a}个`} />
       <PartTitle>控制步长</PartTitle>
       <InputNumber step={0.1} defaultValue={0.0} />
       <InputNumber step={10} />
       <PartTitle>受控组件</PartTitle>
       <InputNumber value={value} onChange={setValue} />
+      <PartTitle>自定义禁用颜色</PartTitle>
       <InputNumber disabled />
+      <InputNumber disabled disabledColor="#ccc" />
     </Space>
   );
 };
