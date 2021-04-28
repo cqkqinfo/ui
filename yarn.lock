@@ -3485,12 +3485,29 @@ axe-core@^4.0.2:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.2.0.tgz#6594db4ee62f78be79e32a7295d21b099b60668d"
   integrity sha512-1uIESzroqpaTzt9uX48HO+6gfnKu3RwvWdCcWSrX4csMInJfCo1yvKPNXCwXFRpJqRW25tiASb6No0YH57PXqg==
 
+axios-ali-adapter@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/axios-ali-adapter/-/axios-ali-adapter-0.0.2.tgz#83107891322b63bf46095f43ecb6e451d30fdd88"
+  integrity sha512-T/jn8hTS+6LddRHFAgjB25jJEYaNlqKIaGAvCK9k2Rd2taRW+k8VXl4wdps/59FrG+ZabreU9q4wZ7XxFAsX6w==
+
+axios-wechat-adapter@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/axios-wechat-adapter/-/axios-wechat-adapter-0.0.4.tgz#1620fa7495c20b1765c373bd9822b24a6af5712e"
+  integrity sha512-OEqKl7Xg4TG7yJgzvCaMW9EpTH0a0LVr3tv+bAiOlMu50zsk4n9qNn3iKXgB2AafLBllfVNvfnG4WRFspXQj0A==
+
 axios@^0.19.0:
   version "0.19.2"
   resolved "https://registry.npmjs.org/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   dependencies:
     follow-redirects "1.5.10"
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -6853,7 +6870,7 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.14.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.0.tgz#f5d260f95c5f8c105894491feee5dc8993b402fe"
   integrity sha512-0vRwd7RKQBTt+mgu87mtYeofLFZpTas2S9zY+jIeuLJMNvudIgF52nr19q40HOwH5RrhWIPuj9puybzSJiRrVg==

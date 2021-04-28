@@ -148,6 +148,10 @@ export { default as FormItem } from './form-item';
  */
 export { default as showLoading } from './show-loading';
 /**
+ * axios网络请求
+ */
+export { default as axios } from './axios';
+/**
  * 显示弹窗
  */
 export { default as showModal } from './show-modal';
