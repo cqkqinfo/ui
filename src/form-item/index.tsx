@@ -43,7 +43,7 @@ export default ({
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
     noStyle = outNoStyle,
-    labelJustify = outLabelJustify,
+    labelJustify = labelWidth ? 'justify' : outLabelJustify,
   } = store || {};
   let required = false;
   rules?.forEach(item => {

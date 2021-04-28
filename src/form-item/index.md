@@ -19,6 +19,7 @@ import {
   Picker,
   PartTitle,
   FormItem,
+  ReTextarea,
   Icon,
   Button,
   Form,
@@ -32,7 +33,7 @@ export default () => {
   return (
     <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>基本使用</PartTitle>
-      <Form form={form} cell onFinish={console.log}>
+      <Form form={form} cell onFinish={console.log} labelWidth={'4em'}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
         <FormItem
           label={'手机号'}
@@ -45,13 +46,16 @@ export default () => {
           rules={[{ type: 'idCard', required: true }]}
         />
         <FormItem
-          label={'地区'}
+          label={'城市'}
           name={'city'}
           after={<Icon name={'kq-right'} color={'#666'} />}
         >
           <Picker cols={3} data={addressOptions}>
             请选择
           </Picker>
+        </FormItem>
+        <FormItem label={'详情地区'} name={'area'}>
+          <ReTextarea placeholder={'请输入地区'} />
         </FormItem>
       </Form>
       <Button type={'primary'} onTap={() => form.submit()}>
