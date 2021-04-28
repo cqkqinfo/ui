@@ -102,7 +102,8 @@ const Radio = (props: RadioProps) => {
             [styles.dotCheck]: checked,
           })}
           style={{
-            borderColor: checked ? activeBackgroundColor : 'transparent',
+            borderColor: checked ? activeBackgroundColor : '#eee',
+            borderWidth: checked ? undefined : 1,
             background: activeColor,
           }}
         />
