@@ -1,6 +1,6 @@
 import React from 'react';
 import { Textarea } from 'remax/wechat';
-import useInput, { UseInputOption } from '../re-input/useInput';
+import useInput, { UseInputOption } from '../../re-input/useInput';
 
 export type Props = UseInputOption;
 
