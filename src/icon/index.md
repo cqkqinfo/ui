@@ -45,6 +45,7 @@ const names = [
   'kq-notice',
   'kq-zengjia',
   'kq-right',
+  'kq-tip',
   'kq-jianshao',
 ];
 
