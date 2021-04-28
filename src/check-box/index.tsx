@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View } from 'remax/one';
+import { View, ViewProps } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
+import Space, { Props as SpaceProps } from '../space';
 import styles from './index.less';
 type CheckboxValue = string | number;
-export interface CheckBoxProps {
+export interface CheckBoxProps extends ViewProps {
   /**
    * 当前是否选中
    */
@@ -15,14 +16,6 @@ export interface CheckBoxProps {
    */
   value?: CheckboxValue;
   /**
-   * 最右侧可以再扩展一些内容
-   */
-  extra?: React.ReactNode;
-  /**
-   * checkbox框style
-   */
-  style?: React.CSSProperties;
-  /**
    * checkbox内容
    * @default label
    */
@@ -30,7 +23,7 @@ export interface CheckBoxProps {
   /**
    * onchange方法
    */
-  onChange?: (checked: any, e?: any, v?: CheckboxValue) => void;
+  onChange?: (checked: boolean, e?: any, v?: CheckboxValue) => void;
   onGroupChange?: (v: CheckboxValue[], e?: any) => void;
   /**
    * 选中时的勾选icon颜色
@@ -44,6 +37,10 @@ export interface CheckBoxProps {
    * 选中的类名
    */
   activeCls?: boolean;
+  /**
+   * 类名
+   */
+  className?: string;
 }
 
 const Checkbox = (props: CheckBoxProps) => {
@@ -51,12 +48,12 @@ const Checkbox = (props: CheckBoxProps) => {
     children,
     checked,
     value,
-    extra,
-    style,
     activeCls,
     iconColor = '#ffffff',
     onChange,
+    className,
     isRound = false,
+    ...other
   } = props;
 
   const handleClick = (e: any) => {
@@ -64,30 +61,21 @@ const Checkbox = (props: CheckBoxProps) => {
   };
 
   return (
-    <View className={styles.annaCheckBox} style={style}>
+    <View
+      className={classNames(styles.checkBox, checked && activeCls, className)}
+      onTap={handleClick}
+      {...other}
+    >
       <View
         className={classNames(
-          styles.annaCheckBoxContainer,
-          checked && activeCls,
+          styles.box,
+          { [styles.round]: isRound },
+          checked && styles.active,
         )}
-        onTap={handleClick}
       >
-        <View
-          className={classNames(
-            styles.checkbox,
-            { [styles.round]: isRound },
-            checked && styles.active,
-          )}
-        >
-          {checked && <Icon name="kq-yes" color={iconColor} />}
-        </View>
-        {children ? (
-          <View className={classNames(styles.annaCheckBoxContainerChildren)}>
-            {children}
-          </View>
-        ) : null}
+        {checked && <Icon name="kq-yes" color={iconColor} />}
       </View>
-      <View className={styles.annaCheckBoxExtra}>{extra}</View>
+      {children}
     </View>
   );
 };
@@ -106,7 +94,7 @@ const getCheckboxs = (
       !Array.isArray(newVal) || newVal.length === 0 ? [] : newVal;
     onChange?.(newValue, e);
   };
-  const checkboxs = React.Children.map(children, (checkbox: any) => {
+  return React.Children.map(children, (checkbox: any) => {
     const p = checkbox?.props || {};
     let checked = p.checked;
     if (
@@ -124,32 +112,18 @@ const getCheckboxs = (
       },
     };
   });
-
-  return checkboxs;
 };
-export interface GroupProps {
-  value: any;
+export interface GroupProps extends SpaceProps {
+  value?: CheckboxValue[];
   children?: React.ReactNode;
-  direction?: string;
   onChange?: (v?: CheckboxValue[]) => void;
 }
 Checkbox.Group = (props: GroupProps) => {
-  const { value = [], children, direction = 'row', onChange } = props;
-
-  const checkboxs = getCheckboxs(children, value, onChange);
-
+  const { value = [], children, onChange, ...other } = props;
   return (
-    <View
-      style={
-        {
-          display: 'flex',
-          flexWrap: 'wrap',
-          flexDirection: direction,
-        } as React.CSSProperties
-      }
-    >
-      {checkboxs}
-    </View>
+    <Space flexWrap={'wrap'} {...other}>
+      {getCheckboxs(children, value, onChange)}
+    </Space>
   );
 };
 
