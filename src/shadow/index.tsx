@@ -32,7 +32,7 @@ export default ({
       ...(card
         ? {
             boxSizing: 'border-box',
-            maxWidth: rpxToPx(710),
+            width: rpxToPx(710),
             backgroundColor: '#fff',
             borderRadius: rpx20,
             padding: `0 ${rpx20}`,

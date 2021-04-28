@@ -55,7 +55,7 @@ export default () => {
   const [readOnly, setReadOnly] = useState(false);
   const [form] = Form.useForm();
   return (
-    <Space vertical size={'10px'} style={{ padding: 5 }} alignItems={'stretch'}>
+    <Space vertical size={'10px'} alignItems={'stretch'}>
       <PartTitle>一般用法</PartTitle>
       <Demo />
       <PartTitle>cell模式</PartTitle>
