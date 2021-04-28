@@ -46,8 +46,9 @@ export default ({
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
     noStyle = outNoStyle,
-    labelJustify = labelWidth ? 'justify' : outLabelJustify,
   } = store || {};
+  const labelJustify =
+    store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
   let required = false;
   rules?.forEach(item => {
     if (item instanceof Function) return;
