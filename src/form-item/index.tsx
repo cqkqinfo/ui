@@ -127,6 +127,7 @@ export default ({
           )}
           <View
             className={classNames(styles.children, childrenCls, outChildrenCls)}
+            style={{ justifyContent: label ? 'flex-end' : 'flex-start' }}
           >
             {readOnly ? (
               <>

@@ -141,6 +141,7 @@ const ReForm = ContainerUseWrap(
     shadowProps,
     cell = false,
     colon = !cell,
+    style,
     ...props
   }: Props<Values>) => (
     <RcForm<Values>
@@ -150,7 +151,7 @@ const ReForm = ContainerUseWrap(
           wrap={Shadow as any}
           wrapProps={{ card: true, ...shadowProps }}
         >
-          <View {...props} />
+          <View style={style} {...props} />
         </NeedWrap>
       )}
       onFinishFailed={(e: any) => {
