@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { InputProps, TextareaProps } from 'remax/one';
 import styles from './index.less';
 import classNames from 'classnames';
@@ -20,20 +20,17 @@ export interface UseInputOption
 }
 
 export default ({
-  value,
   onChange,
   onConfirm,
-  onFocus,
-  onBlur,
   className,
   placeholderStyle,
+  value,
   ...props
 }: UseInputOption) => {
-  const [isFocus, setIsFocus] = useState(false);
   return {
     ...props,
+    value,
     className: classNames(styles.input, className),
-    value: isFocus ? undefined : value,
     placeholderStyle: {
       color: '#CCCCCC',
       ...placeholderStyle,
@@ -44,20 +41,6 @@ export default ({
         onChange?.(value);
       },
       [onChange],
-    ),
-    onFocus: useCallback(
-      e => {
-        setIsFocus(true);
-        onFocus?.(e);
-      },
-      [onFocus],
-    ),
-    onBlur: useCallback(
-      e => {
-        setIsFocus(false);
-        onBlur?.(e);
-      },
-      [onBlur],
     ),
     onConfirm: useCallback(() => onConfirm?.(value), [onConfirm, value]),
   };
