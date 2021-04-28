@@ -168,10 +168,10 @@ export { default as showToast } from './show-toast';
  */
 export { default as hideLoading } from './hide-loading';
 /**
+ * 温馨提示
+ */
+export { default as Tip } from './tip';
+/**
  * 单位转换
  */
 export { default as rpxToPx } from './rpx-to-px';
-// /**
-//  * 单位转换
-//  */
-// export { default as pxToRpx } from './px-to-rpx';
