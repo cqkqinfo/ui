@@ -103,6 +103,15 @@ interface BaseItemProps {
    * @default right
    */
   labelJustify?: Property.TextAlign;
+  cell?: boolean;
+  /**
+   * 显示冒号
+   */
+  colon?: React.ReactNode;
+  /**
+   * label的宽度，建议使用em单位
+   */
+  labelWidth?: number | string;
 }
 
 export interface ItemProps extends Omit<FieldProps, 'rules'>, BaseItemProps {}
@@ -111,18 +120,9 @@ export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
     Omit<Pick<ItemProps, keyof BaseItemProps>, 'strLabel' | 'label'> {
   /**
-   * label的宽度，建议使用em单位
-   */
-  labelWidth?: number | string;
-  /**
    * 子项的类名
    */
   itemCls?: string;
-  /**
-   * 显示冒号
-   */
-  colon?: React.ReactNode;
-  cell?: boolean;
   /**
    * 卡片模式
    * @default true
