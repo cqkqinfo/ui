@@ -31,7 +31,11 @@ const Demo = (props: any) => {
     <Space vertical style={props.style}>
       <Form form={form} onFinish={console.log} {...props}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
-        <FormItem label={'身份证号'} name={'idCard'} />
+        <FormItem
+          label={'身份证号'}
+          name={'idCard'}
+          rules={[{ type: 'idCard' }]}
+        />
         {props.cell && (
           <FormItem
             label={'地区'}

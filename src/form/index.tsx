@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import RcForm, {
   FormProps,
   useForm,
@@ -14,13 +14,45 @@ import NeedWrap from '../need-wrap';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
 import { View } from 'remax/one';
+import {
+  RuleType,
+  ValidatorRule,
+  RuleRender,
+  StoreValue,
+} from 'rc-field-form/es/interface';
 
 export const FormStore = createContainer(
   initialState => ((initialState || {}) as any) as Props<any>,
 );
 
+interface BaseRule {
+  enum?: StoreValue[];
+  len?: number;
+  max?: number;
+  message?: string | ReactElement;
+  min?: number;
+  pattern?: RegExp;
+  required?: boolean;
+  transform?: (value: StoreValue) => StoreValue;
+  type?: RuleType | 'phone' | 'idCard';
+  whitespace?: boolean;
+  /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
+  validateTrigger?: string | string[];
+}
+type AggregationRule = BaseRule & Partial<ValidatorRule>;
+interface ArrayRule extends Omit<AggregationRule, 'type'> {
+  type: 'array';
+  defaultField?: RuleObject;
+}
+export type RuleObject = AggregationRule | ArrayRule;
+export type Rule = RuleObject | RuleRender;
+
 interface BaseItemProps {
   style?: React.CSSProperties;
+  /**
+   * 校验规则
+   */
+  rules?: Rule[];
   label?: React.ReactNode;
   /**
    * 后面的节点
@@ -73,7 +105,7 @@ interface BaseItemProps {
   labelJustify?: Property.TextAlign;
 }
 
-export interface ItemProps extends FieldProps, BaseItemProps {}
+export interface ItemProps extends Omit<FieldProps, 'rules'>, BaseItemProps {}
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
