@@ -49,6 +49,10 @@ export { default as ReInput } from './re-input';
  */
 export { default as ReTextarea } from './re-textarea';
 /**
+ * 数字输入框
+ */
+export { default as InputNumber } from './input-number';
+/**
  * 切换Tab
  */
 export { default as Tab } from './tab';
