@@ -49,12 +49,12 @@ export default ({
   } = store || {};
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
-  let required = false;
+  let required = outRequiredMark || false;
   rules?.forEach(item => {
     if (item instanceof Function) return;
-    if (item.required && !item.message) {
+    if (item.required) {
       required = true;
-      item.message = `${strLabel}是必填的`;
+      item.message = item.message || `${strLabel}是必填的`;
     }
     if (item.type === 'phone') {
       item.pattern = /^1[3-9][0-9]{9}$/;
