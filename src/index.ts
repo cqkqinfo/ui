@@ -128,6 +128,10 @@ export { default as Radio } from './radio';
  */
 export { default as CheckBox } from './check-box';
 /**
+ * 评分组件
+ */
+export { default as Rate } from './rate';
+/**
  * 通告栏
  */
 export { default as NoticeBar } from './notice-bar';
