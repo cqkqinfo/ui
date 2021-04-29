@@ -132,6 +132,10 @@ export { default as CheckBox } from './check-box';
  */
 export { default as Switch } from './switch';
 /**
+ * 评分组件
+ */
+export { default as Rate } from './rate';
+/**
  * 通告栏
  */
 export { default as NoticeBar } from './notice-bar';
@@ -172,10 +176,10 @@ export { default as showToast } from './show-toast';
  */
 export { default as hideLoading } from './hide-loading';
 /**
- * 温馨提示
- */
-export { default as Tip } from './tip';
-/**
  * 单位转换
  */
 export { default as rpxToPx } from './rpx-to-px';
+// /**
+//  * 单位转换
+//  */
+// export { default as pxToRpx } from './px-to-rpx';
