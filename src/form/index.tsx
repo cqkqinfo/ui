@@ -146,13 +146,13 @@ const ReForm = ContainerUseWrap(
     ...props
   }: Props<Values>) => (
     <RcForm<Values>
-      component={props => (
+      component={({ children }) => (
         <NeedWrap
           need={card === undefined ? cell : card}
           wrap={Shadow as any}
           wrapProps={{ card: true, ...shadowProps }}
         >
-          <View style={style} className={className} {...props} />
+          <View style={style} className={className} children={children} />
         </NeedWrap>
       )}
       onFinishFailed={(e: any) => {
