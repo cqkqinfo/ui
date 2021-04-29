@@ -37,6 +37,14 @@ export interface DropDownMenuIremProps {
       value: any;
     },
   ) => void;
+  /**
+   * 箭头的类名
+   */
+  arrowsCls?: string;
+  /**
+   * 箭头的颜色
+   */
+  arrowsColor?: string;
 }
 
 export default (props: DropDownMenuIremProps) => {
@@ -46,6 +54,8 @@ export default (props: DropDownMenuIremProps) => {
     showOptions,
     title,
     value,
+    arrowsCls,
+    arrowsColor = '#bbb',
     onChange,
     children,
   } = props as DropDownMenuIremProps & {
@@ -76,8 +86,12 @@ export default (props: DropDownMenuIremProps) => {
         {title || selectItem?.text}
         <Icon
           name={'kq-down'}
-          color={'#bbb'}
-          className={classNames(styles.icon, { [styles.rotate]: showOptions })}
+          color={arrowsColor}
+          className={classNames(
+            styles.icon,
+            { [styles.rotate]: showOptions },
+            arrowsCls,
+          )}
         />
       </View>
       <Fold folded={!showOptions} className={styles.down}>
