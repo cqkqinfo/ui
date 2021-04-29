@@ -66,9 +66,7 @@ export default (props: DropDownMenuIremProps) => {
   };
 
   const selectItem = useMemo(() => {
-    if (options) {
-      return options.find(item => item.value === value) || options[0];
-    }
+    return options?.find(item => item.value === value);
   }, [options, value]);
 
   return (
