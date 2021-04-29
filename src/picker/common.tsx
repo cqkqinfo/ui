@@ -15,6 +15,10 @@ export interface Props
    * 是否根据value渲染children
    */
   renderValue?: boolean;
+  /**
+   * 包裹children的类名
+   */
+  childrenCls?: string;
 }
 
 const dataFlat = (data: PickerData[] | PickerData[][]): PickerData[] =>

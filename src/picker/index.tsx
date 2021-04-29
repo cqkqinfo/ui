@@ -13,6 +13,7 @@ export default (props: Props) => {
     mode = 'selector',
     start,
     end,
+    childrenCls,
     ...other
   } = useProps(props);
   return mode === 'selector' ? (
@@ -25,7 +26,7 @@ export default (props: Props) => {
       }}
       {...other}
     >
-      <div className={'Picker-children'}>{children}</div>
+      <div className={childrenCls}>{children}</div>
     </Picker>
   ) : (
     <DatePicker
@@ -46,9 +47,7 @@ export default (props: Props) => {
       }}
       {...(other as any)}
     >
-      <div className={'Picker-children'}>
-        <div className={'Picker-children'}>{children}</div>
-      </div>
+      <div className={childrenCls}>{children}</div>
     </DatePicker>
   );
 };
