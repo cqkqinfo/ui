@@ -83,7 +83,7 @@ export default (props: DropDownMenuIremProps) => {
       }}
     >
       <View className={styles.flexCenter}>
-        {title || selectItem?.text}
+        {selectItem?.text || title}
         <Icon
           name={'kq-down'}
           color={arrowsColor}
