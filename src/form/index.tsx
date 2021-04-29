@@ -137,21 +137,22 @@ export interface Props<Values = {}>
 const ReForm = ContainerUseWrap(
   FormStore,
   <Values extends unknown>({
-    card = true,
+    card,
     shadowProps,
     cell = false,
     colon = !cell,
+    className,
     style,
     ...props
   }: Props<Values>) => (
     <RcForm<Values>
       component={props => (
         <NeedWrap
-          need={card && cell}
+          need={card === undefined ? cell : card}
           wrap={Shadow as any}
           wrapProps={{ card: true, ...shadowProps }}
         >
-          <View style={style} {...props} />
+          <View style={style} className={className} {...props} />
         </NeedWrap>
       )}
       onFinishFailed={(e: any) => {
