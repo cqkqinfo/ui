@@ -25,6 +25,10 @@ export interface DropDownMenuProps {
   opsVisibleIndex?: number;
 }
 
+function isReactElement(obj: any): obj is ReactElement {
+  return obj && typeof obj?.props === 'object';
+}
+
 export default (props: DropDownMenuProps) => {
   const {
     children,
@@ -37,13 +41,15 @@ export default (props: DropDownMenuProps) => {
   const handledChildren = useMemo(
     () =>
       React.Children.map(children, (item, index) => {
-        if (React.isValidElement(item)) {
+        if (isReactElement(item)) {
           const childProps = {
             ...item.props,
             onToggle: () => {
-              const visible = showOptions === index;
-              setShowOptions(visible ? -1 : index);
-              onOpsVisible?.(visible, index);
+              setShowOptions(prev => {
+                const showOptions = prev === index ? -1 : index;
+                onOpsVisible?.(showOptions === index, index);
+                return showOptions;
+              });
             },
             showOptions: showOptions === index,
           };
