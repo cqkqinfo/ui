@@ -1,4 +1,4 @@
-import React, { useMemo, useState, ReactElement, cloneElement } from 'react';
+import React, { useMemo, ReactElement, cloneElement } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.less';
