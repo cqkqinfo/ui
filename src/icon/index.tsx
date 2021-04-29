@@ -29,7 +29,7 @@ export default ({
   ...props
 }: Props) => {
   const idRef = useRef(id);
-  const [{ width = size || 0 }, setWH] = useState<{
+  const [{ width = 0 }, setWH] = useState<{
     width?: number;
     height?: number;
   }>({});
@@ -45,12 +45,7 @@ export default ({
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
       >
-        <Icon
-          name={name}
-          size={width as any}
-          color={color}
-          className={styles.icon}
-        />
+        <Icon name={name} size={width} color={color} className={styles.icon} />
       </NeedWrap>
     </View>
   );
