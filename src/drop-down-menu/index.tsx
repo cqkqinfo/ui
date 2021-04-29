@@ -18,7 +18,7 @@ export interface DropDownMenuProps {
   /**
    * 当弹出层隐藏显示的回调
    */
-  onOpsVisible?: (visible: boolean) => void;
+  onOpsVisible?: (visible: boolean, index: number) => void;
   /**
    * 手动控制所有的弹出层显示
    */
@@ -49,7 +49,7 @@ export default (props: DropDownMenuProps) => {
             onToggle: () => {
               setShowOptions(prev => {
                 const showOptions = prev === index ? -1 : index;
-                onOpsVisible?.(showOptions === index);
+                onOpsVisible?.(showOptions === index, index);
                 return showOptions;
               });
             },
