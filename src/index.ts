@@ -128,6 +128,10 @@ export { default as Radio } from './radio';
  */
 export { default as CheckBox } from './check-box';
 /**
+ * 开关选择器
+ */
+export { default as Switch } from './switch';
+/**
  * 通告栏
  */
 export { default as NoticeBar } from './notice-bar';
