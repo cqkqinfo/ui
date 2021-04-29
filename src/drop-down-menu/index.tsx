@@ -20,9 +20,9 @@ export interface DropDownMenuProps {
    */
   onOpsVisible?: (visible: boolean, index: number) => void;
   /**
-   * 手动控制所有的弹出层显示
+   * 手动控制所有的弹出层显示的索引
    */
-  opsVisible?: boolean;
+  opsVisibleIndex?: number;
 }
 
 function isReactElement(obj: any): obj is ReactElement {
@@ -35,11 +35,9 @@ export default (props: DropDownMenuProps) => {
     className,
     showModal = true,
     onOpsVisible,
-    opsVisible,
+    opsVisibleIndex = -1,
   } = props;
-  const [showOptions, setShowOptions] = useEffectState<number>(
-    opsVisible === false ? -1 : -1,
-  );
+  const [showOptions, setShowOptions] = useEffectState<number>(opsVisibleIndex);
   const handledChildren = useMemo(
     () =>
       React.Children.map(children, (item, index) => {
