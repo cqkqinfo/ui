@@ -1,19 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createSelectorQuery } from 'remax/wechat';
 
-export default (
-  id: string,
-  effect: (data: { width?: number; height?: number }) => void,
-  deps: any[] = [],
-) => {
+export default (id: string) => {
+  const [wh, setWH] = useState<{
+    width?: number;
+    height?: number;
+  }>({});
   useEffect(() => {
     const query = createSelectorQuery();
     query.select(`#${id}`).boundingClientRect(data => {
       if (data) {
-        effect(data);
+        setWH(data);
       }
     });
     query.exec();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, ...deps]);
+  }, [id]);
+  return wh;
 };

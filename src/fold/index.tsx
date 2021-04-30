@@ -18,19 +18,16 @@ export default ({
   id = useRef(`fold${count++}`).current,
   ...props
 }: Props) => {
-  const [height, setHeight] = useState<number>();
-  useViewSize(id, ({ height }) => {
-    if (height !== 0) {
-      setHeight(height);
-    }
-  });
+  const { height } = useViewSize(id);
+  const heightRef = useRef(height);
+  heightRef.current = height !== 0 ? height : heightRef.current;
   return (
     <View
       id={id}
       style={{
         transition: 'all .3s',
         overflow: 'hidden',
-        ...(folded ? { maxHeight: 0 } : { maxHeight: height }),
+        ...(folded ? { maxHeight: 0 } : { maxHeight: heightRef.current }),
         ...style,
       }}
       {...props}

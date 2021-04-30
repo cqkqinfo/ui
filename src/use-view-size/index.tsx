@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForceUpdate } from 'parsec-hooks';
 
-export default (
-  id: string,
-  effect: (data: { width?: number; height?: number }) => void,
-  deps: any[] = [],
-) => {
+export default (id: string) => {
+  const [wh, setWH] = useState<{
+    width?: number;
+    height?: number;
+  }>({});
   const { offsetWidth: width, offsetHeight: height } =
     document.getElementById(id) || {};
   const { forceUpdate } = useForceUpdate();
@@ -13,8 +13,8 @@ export default (
     if (height === undefined) {
       forceUpdate();
     } else {
-      effect({ width, height });
+      setWH({ width, height });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width, height, ...deps]);
+  }, [width, height, forceUpdate]);
+  return wh;
 };
