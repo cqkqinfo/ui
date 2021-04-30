@@ -76,6 +76,7 @@ export default ({
   defaultValue = 0,
   gutter = '0.4em',
   size,
+  disabled,
   maxValue = 5,
   iconName = 'kq-xingxing',
   renderItem,
@@ -90,10 +91,13 @@ export default ({
 
   const handleChange = useCallback(
     (num: number) => {
+      if (disabled) {
+        return;
+      }
       setInnerVal(num);
       onChange?.(num);
     },
-    [setInnerVal, onChange],
+    [setInnerVal, onChange, disabled],
   );
 
   const renderNode = useCallback(
