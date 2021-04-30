@@ -33,7 +33,7 @@ export default () => {
   return (
     <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>基本使用</PartTitle>
-      <Form form={form} cell onFinish={console.log} labelWidth={'4em'}>
+      <Form form={form} cell onFinish={console.log} labelWidth={'3em'}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
         <FormItem
           label={'手机号'}

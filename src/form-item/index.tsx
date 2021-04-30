@@ -105,24 +105,21 @@ export default ({
               <View
                 style={{
                   minWidth: labelWidth,
-                  textAlign: labelJustify,
                   justifyContent:
-                    labelJustify === 'right' ? 'flex-end' : 'flex-start',
+                    labelJustify === 'right'
+                      ? 'flex-end'
+                      : labelJustify === 'justify'
+                      ? 'space-between'
+                      : 'flex-start',
                   ...labelStyle,
                 }}
                 className={classNames(styles.label, labelCls, outLabelCls)}
               >
-                <View
-                  className={styles.labelText}
-                  style={{
-                    textAlign: labelJustify,
-                    flex: labelJustify === 'justify' ? 1 : undefined,
-                  }}
-                >
-                  {label}
-                </View>
-                {colon === undefined && !cell ? '：' : colon}
+                {typeof label === 'string'
+                  ? [...label].map(i => <View key={i}>{i}</View>)
+                  : label}
               </View>
+              {colon === undefined && !cell ? '：' : colon}
             </View>
           )}
           <View

@@ -67,7 +67,7 @@ export default () => {
       <PartTitle>垂直布局</PartTitle>
       <Demo vertical />
       <PartTitle>label两端对齐</PartTitle>
-      <Demo labelWidth={'5em'} />
+      <Demo labelWidth={'4em'} />
       <div />
     </Space>
   );
