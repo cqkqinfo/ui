@@ -152,6 +152,10 @@ export { default as TabBar } from './tab-bar';
  */
 export { default as Form } from './form';
 /**
+ * 温馨提示
+ */
+export { default as Tip } from './tip';
+/**
  * 表单项
  */
 export { default as FormItem } from './form-item';
