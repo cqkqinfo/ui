@@ -34,6 +34,7 @@ export default ({
     height?: number;
   }>({});
   useViewSize(idRef.current, setWH);
+  console.log(width);
   return (
     <View
       className={classNames(styles.wrap, className)}
@@ -45,7 +46,14 @@ export default ({
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
       >
-        <Icon name={name} size={width} color={color} className={styles.icon} />
+        {width && (
+          <Icon
+            name={name}
+            size={width}
+            color={color}
+            className={styles.icon}
+          />
+        )}
       </NeedWrap>
     </View>
   );
