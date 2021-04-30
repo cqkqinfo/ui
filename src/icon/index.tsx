@@ -34,7 +34,6 @@ export default ({
     height?: number;
   }>({});
   useViewSize(idRef.current, setWH);
-  console.log(width);
   return (
     <View
       className={classNames(styles.wrap, className)}
