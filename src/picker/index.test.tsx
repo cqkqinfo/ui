@@ -1,7 +1,5 @@
 import React from 'react';
 import Picker from './index';
-import WechatPicker from './index.wechat';
-import AliPicker from './index.ali';
 import data from '../address-options';
 import { render, fireEvent } from '@testing-library/react';
 import dayjs from 'dayjs';
@@ -12,26 +10,6 @@ describe('picker选择器', () => {
       <Picker cols={3} data={data}>
         显示
       </Picker>,
-    );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('微信渲染', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    const { baseElement } = render(
-      <WechatPicker cols={3} data={data}>
-        显示
-      </WechatPicker>,
-    );
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  it('阿里渲染', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    const { baseElement } = render(
-      <AliPicker cols={3} data={data}>
-        显示
-      </AliPicker>,
     );
     expect(baseElement).toMatchSnapshot();
   });
