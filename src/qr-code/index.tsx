@@ -19,5 +19,5 @@ export default ({ content, ...restProps }: QrCodeProps) => {
       [content],
     ),
   );
-  return <Image src={src} mode="aspectFill" {...restProps} />;
+  return <Image src={src as string} mode="aspectFill" {...restProps} />;
 };
