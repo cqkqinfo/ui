@@ -10,6 +10,8 @@ const app = createAppConfig(undefined);
 global.getApp = () => app;
 global.stopPullDownRefresh = () => {};
 
+global.console = { warn: jest.fn() };
+
 global.my = {
   getSystemInfoSync() {
     return {

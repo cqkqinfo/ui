@@ -57,6 +57,7 @@
     "remax": "^2.11.8"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.23",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.19.0",

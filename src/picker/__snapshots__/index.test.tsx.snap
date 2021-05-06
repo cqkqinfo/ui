@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`picker选择器 城市选择 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div>
+    <div>
+      <div
+        extra="北京市,市辖区,东城区"
+      >
+        <div>
+          东城区-市辖区-北京市
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`picker选择器 渲染 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        extra="请选择"
+      >
+        显示
+      </div>
+    </div>
+  </div>
+</body>
+`;

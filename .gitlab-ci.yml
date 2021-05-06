@@ -35,8 +35,8 @@ build_app:
     paths:
       - node_modules/
       - $DIST_PATH/
-  only:
-    - /^v[0-9.]+$/
+#  only:
+#    - /^v[0-9.]+$/
   tags:
     - java_test
 
