@@ -132,6 +132,11 @@ $ yarn link
 $ yarn link @kqinfo/ui
 ```
 
+## 编写测试
+
+- 相关库 [jest](https://jestjs.io/zh-Hans/docs/getting-started) 、[testing-library](https://testing-library.com/docs/react-testing-library/intro)
+- [如何编写测试](https://segmentfault.com/a/1190000022054307)
+
 ## 开发注意项
 
 - 先`fork`到自己名下，再提`merge request`
