@@ -13,7 +13,7 @@ module.exports = {
       'onError',
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!(.*remax.*))'],
+  transformIgnorePatterns: ['node_modules/(?!(.*(remax|hex-rgb).*))'],
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/example/',

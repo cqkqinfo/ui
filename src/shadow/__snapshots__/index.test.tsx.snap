@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`阴影 卡片模式 1`] = `
+<body>
+  <div>
+    <div
+      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
+    >
+      233
+    </div>
+  </div>
+</body>
+`;
+
+exports[`阴影 渲染 1`] = `
+<body>
+  <div>
+    <div
+      style="box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
+    >
+      233
+    </div>
+  </div>
+</body>
+`;

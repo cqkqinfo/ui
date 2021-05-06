@@ -20,6 +20,7 @@ import {
   RuleRender,
   StoreValue,
 } from 'rc-field-form/es/interface';
+import rpxToPx from '../rpx-to-px';
 
 export const FormStore = createContainer(
   initialState => ((initialState || {}) as any) as Props<any>,
@@ -144,23 +145,33 @@ const ReForm = ContainerUseWrap(
     className,
     style,
     ...props
-  }: Props<Values>) => (
-    <RcForm<Values>
-      component={({ children }) => (
-        <NeedWrap
-          need={card === undefined ? cell : card}
-          wrap={Shadow as any}
-          wrapProps={{ card: true, ...shadowProps }}
-        >
-          <View style={style} className={className} children={children} />
-        </NeedWrap>
-      )}
-      onFinishFailed={(e: any) => {
-        showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
-      }}
-      {...props}
-    />
-  ),
+  }: Props<Values>) => {
+    const isCard = card === undefined ? cell : card;
+    return (
+      <RcForm<Values>
+        component={({ children }) => (
+          <NeedWrap
+            need={isCard}
+            wrap={Shadow as any}
+            wrapProps={{ card: true, ...shadowProps }}
+          >
+            <View
+              style={{
+                padding: isCard ? `0 ${rpxToPx(20)}px` : undefined,
+                ...style,
+              }}
+              className={className}
+              children={children}
+            />
+          </NeedWrap>
+        )}
+        onFinishFailed={(e: any) => {
+          showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
+        }}
+        {...props}
+      />
+    );
+  },
 );
 
 const Form: typeof ReForm & {

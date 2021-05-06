@@ -1,8 +1,7 @@
 import React from 'react';
 import provider from '../config-provider';
 import rpxToPx from '../rpx-to-px';
-
-const ColorRNA = require('color-rna').default;
+import hexRgb from 'hex-rgb';
 
 export interface Props {
   children: React.ReactElement;
@@ -32,19 +31,16 @@ export default ({
       ...(card
         ? {
             boxSizing: 'border-box',
-            width: rpxToPx(710),
             backgroundColor: '#fff',
             borderRadius: rpx20,
-            padding: `0 ${rpx20}`,
           }
         : {}),
       ...children.props.style,
       ...props.style,
-      boxShadow: `0 0 ${rpx20} rgba(${new ColorRNA(
-        outShadowColor || shadowColor,
-      )
-        .rgb()
-        .join(',')}, 0.15)`,
+      boxShadow: `0 0 ${rpx20} rgba(${hexRgb(
+        outShadowColor || (shadowColor as string),
+        { format: 'array', alpha: 0.15 },
+      ).join(',')})`,
     },
   });
 };
