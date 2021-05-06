@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`图标 渲染 1`] = `
-<view
-  className="wrap"
-  id="id0"
-  style={
-    Object {
-      "height": "1em",
-      "width": "1em",
-    }
-  }
-/>
+<body>
+  <div>
+    <div
+      class="wrap"
+      id="id0"
+      style="width: 1em; height: 1em;"
+    />
+  </div>
+</body>
 `;

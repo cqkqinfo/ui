@@ -1,4 +1,13 @@
 import { createAppConfig } from 'remax';
+import React from 'react';
+
+const reCreateFn = React.createElement;
+React.createElement = (...arg) => {
+  if (arg[0] === 'view') {
+    arg[0] = 'div';
+  }
+  return reCreateFn(...arg);
+};
 
 jest.mock('@remax/runtime/cjs/stopPullDownRefresh', () => {
   return () => {};
@@ -10,7 +19,7 @@ const app = createAppConfig(undefined);
 global.getApp = () => app;
 global.stopPullDownRefresh = () => {};
 
-global.console = { warn: jest.fn() };
+global.console.warn = jest.fn();
 
 global.my = {
   getSystemInfoSync() {

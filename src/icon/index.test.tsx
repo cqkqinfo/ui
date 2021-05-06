@@ -1,11 +1,11 @@
 import React from 'react';
 import Icon from './index';
-import TestRenderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 describe('图标', () => {
   it('渲染', () => {
-    const tree = TestRenderer.create(<Icon name={'kq-add'} />).toJSON();
+    const { baseElement } = render(<Icon name={'kq-add'} />);
 
-    expect(tree).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

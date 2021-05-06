@@ -59,7 +59,6 @@
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.23",
-    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@umijs/test": "^3.0.5",
@@ -89,7 +88,6 @@
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^1.19.1",
     "react-iconfont-cli": "^2.0.1",
-    "react-test-renderer": "^17.0.2",
     "remax-iconfont-cli": "^1.1.0",
     "yorkie": "^2.0.0"
   },
