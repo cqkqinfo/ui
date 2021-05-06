@@ -18,6 +18,22 @@ exports[`picker选择器 城市选择 1`] = `
 </body>
 `;
 
+exports[`picker选择器 微信渲染 1`] = `
+<body>
+  <div>
+    <picker
+      fields="day"
+      mode="multiSelector"
+      range="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+      range-key="label"
+      value="0,0,0"
+    >
+      显示
+    </picker>
+  </div>
+</body>
+`;
+
 exports[`picker选择器 渲染 1`] = `
 <body>
   <div>
@@ -27,6 +43,16 @@ exports[`picker选择器 渲染 1`] = `
       >
         显示
       </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`picker选择器 阿里渲染 1`] = `
+<body>
+  <div>
+    <div>
+      显示
     </div>
   </div>
 </body>
