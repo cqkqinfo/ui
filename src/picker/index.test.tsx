@@ -17,7 +17,6 @@ describe('picker选择器', () => {
   });
 
   it('微信渲染', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
     const { baseElement } = render(
       <WechatPicker cols={3} data={data}>
         显示
@@ -27,7 +26,6 @@ describe('picker选择器', () => {
   });
 
   it('阿里渲染', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
     const { baseElement } = render(
       <AliPicker cols={3} data={data}>
         显示
