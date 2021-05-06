@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should  1`] = `
+exports[`图标 渲染 1`] = `
 <view
   className="wrap"
   id="id0"
