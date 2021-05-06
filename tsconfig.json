@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "declaration": true,
     "skipLibCheck": true,
+    "types": ["@types/jest"],
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]
