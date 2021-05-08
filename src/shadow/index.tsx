@@ -31,8 +31,10 @@ export default ({
       ...(card
         ? {
             boxSizing: 'border-box',
+            width: rpxToPx(710),
             backgroundColor: '#fff',
             borderRadius: rpx20,
+            padding: `0 ${rpx20}`,
           }
         : {}),
       ...children.props.style,

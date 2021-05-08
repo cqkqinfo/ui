@@ -4,7 +4,7 @@ exports[`表单 card模式 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; padding: 0px 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
+      style="box-sizing: border-box; width: 969.3866666666667px; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; padding: 0px 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
     >
       <div
         class="item"
@@ -102,7 +102,7 @@ exports[`表单 cell模式 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; padding: 0px 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
+      style="box-sizing: border-box; width: 969.3866666666667px; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; padding: 0px 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
     >
       <div
         class="item cell"
