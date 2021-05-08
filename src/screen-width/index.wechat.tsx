@@ -1,5 +1,5 @@
 import { getSystemInfoSync } from 'remax/wechat';
 
-const { screenWidth } = getSystemInfoSync();
+const { windowWidth } = getSystemInfoSync();
 
-export default screenWidth;
+export default windowWidth * 2;

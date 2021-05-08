@@ -32,6 +32,8 @@ console.error = (...arg) => {
   return logError(...arg);
 };
 
+window.innerWidth = 375;
+
 global.my = {
   getSystemInfoSync() {
     return {
