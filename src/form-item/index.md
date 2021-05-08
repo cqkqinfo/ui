@@ -31,7 +31,7 @@ export default () => {
   const [form] = Form.useForm();
   const [form2] = Form.useForm();
   return (
-    <Space vertical size={'10px'} alignItems={'flex-start'}>
+    <Space vertical size={'10px'}>
       <PartTitle>基本使用</PartTitle>
       <Form form={form} cell onFinish={console.log} labelWidth={'3em'}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />

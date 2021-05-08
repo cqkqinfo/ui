@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`表单项 渲染 1`] = `
+<body>
+  <div>
+    <div
+      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 27.306666666666665px; padding: 0px 27.306666666666665px; box-shadow: 0 0 27.306666666666665px rgba(39,128,217,0.15);"
+    >
+      <div
+        class="item cell"
+        initialvalue="1"
+      >
+        <div>
+          <div
+            class="mark"
+            style="opacity: 0;"
+          >
+            *
+          </div>
+          <div
+            class="label"
+            style="justify-content: flex-end;"
+          >
+            <div>
+              号
+            </div>
+            <div>
+              码
+            </div>
+            <div>
+              类
+            </div>
+            <div>
+              型
+            </div>
+          </div>
+        </div>
+        <div
+          class="children"
+          style="justify-content: flex-end;"
+        >
+          <div
+            class="group"
+          >
+            <div
+              class="container radio"
+              style="background: none;"
+            >
+              <div
+                class="dot dotCheck"
+                style="border-color: #277fd9; background: rgb(255, 255, 255);"
+              />
+              身份证
+            </div>
+            <div
+              class="container radio"
+              style="background: none;"
+            >
+              <div
+                class="dot"
+                style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+              />
+              手机号
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="item cell"
+      >
+        <div>
+          <div
+            class="mark"
+            style="opacity: 1;"
+          >
+            *
+          </div>
+          <div
+            class="label"
+            style="justify-content: flex-end;"
+          >
+            <div>
+              身
+            </div>
+            <div>
+              份
+            </div>
+            <div>
+              证
+            </div>
+            <div>
+              号
+            </div>
+          </div>
+        </div>
+        <div
+          class="children"
+          style="justify-content: flex-end;"
+        >
+          <input
+            class="input"
+            placeholder="请输入身份证号"
+            placeholderstyle="[object Object]"
+            toutiao-selection-end="999"
+            toutiao-selection-start="999"
+            value=""
+            wechat-confirm-type="done"
+            wechat-cursor-spacing="0"
+            wechat-placeholder-class="input-placeholder"
+            wechat-selection-end="-1"
+            wechat-selection-start="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

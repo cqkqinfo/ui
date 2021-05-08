@@ -18,13 +18,11 @@ build_app:
   variables:
     CI: "true"
     BUILD_CMD: yarn docs:build  #打包的命令
-    TEST_CMD: yarn test  #测试的命令
-    COVERAGE_CMD: yarn test:coverage  #测试的命令
+    TEST_CMD: yarn test:coverage  #测试的命令
   script:
     - echo $PREPARE_CMD
     - $PREPARE_CMD
     - $TEST_CMD
-    - $COVERAGE_CMD
     - echo $BUILD_CMD
     - $BUILD_CMD
   artifacts:

@@ -22,7 +22,11 @@ global.stopPullDownRefresh = () => {};
 global.console.warn = jest.fn();
 const logError = console.error;
 console.error = (...arg) => {
-  if (['Unknown event', 'attribute'].some(i => arg[0]?.includes(i))) {
+  if (
+    ['Unknown event', 'attribute', 'input to be controlled'].some(i =>
+      arg[0]?.includes(i),
+    )
+  ) {
     return;
   }
   return logError(...arg);
