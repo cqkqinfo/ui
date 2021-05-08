@@ -145,21 +145,21 @@ const ReForm = ContainerUseWrap(
     style,
     ...props
   }: Props<Values>) => (
-    <RcForm<Values>
-      component={({ children }) => (
-        <NeedWrap
-          need={card === undefined ? cell : card}
-          wrap={Shadow as any}
-          wrapProps={{ card: true, ...shadowProps }}
-        >
-          <View style={style} className={className} children={children} />
-        </NeedWrap>
-      )}
-      onFinishFailed={(e: any) => {
-        showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
-      }}
-      {...props}
-    />
+    <NeedWrap
+      need={card === undefined ? cell : card}
+      wrap={Shadow as any}
+      wrapProps={{ card: true, ...shadowProps }}
+    >
+      <View style={style} className={className}>
+        <RcForm<Values>
+          component={false}
+          onFinishFailed={(e: any) => {
+            showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
+          }}
+          {...props}
+        />
+      </View>
+    </NeedWrap>
   ),
 );
 
