@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './index.less';
 import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
+import configStore from '../config-provider';
 
 export interface RadioProps {
   /**
@@ -59,11 +60,12 @@ export interface RadioProps {
 }
 
 const Radio = (props: RadioProps) => {
+  const { brandPrimary } = configStore.useContainer();
   const {
     children,
     checked,
     value,
-    activeBackgroundColor = '#277fd9',
+    activeBackgroundColor = brandPrimary,
     backgroundColor = '#eeeeee',
     color = '#000',
     activeColor = '#fff',

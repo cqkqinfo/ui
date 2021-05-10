@@ -48,7 +48,7 @@ exports[`表单项 渲染 1`] = `
             >
               <div
                 class="dot dotCheck"
-                style="border-color: #277fd9; background: rgb(255, 255, 255);"
+                style="border-color: #2780d9; background: rgb(255, 255, 255);"
               />
               身份证
             </div>
