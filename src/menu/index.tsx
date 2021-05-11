@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 
 export type ID = string | number;

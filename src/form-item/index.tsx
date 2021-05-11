@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
-import styles from './index.less';
+import styles from './index.module.less';
 import { FormStore, ItemProps } from '../form';
 import NeedWrap from '../need-wrap';
 import Input from '../re-input';

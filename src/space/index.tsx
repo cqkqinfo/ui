@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
 import ViewProps from '@remax/one/esm/hostComponents/View/props';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
 import configStore from '../config-provider';

@@ -1,7 +1,7 @@
 import { View } from 'remax/one';
 import Space from '../space';
 import React from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 
 export interface Props {

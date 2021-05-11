@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 import { View } from 'remax/one';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';

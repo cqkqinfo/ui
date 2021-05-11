@@ -1,5 +1,5 @@
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import Space, { Props as SpacePrpos } from '../space';
 import Icon from '../icon';
 import React from 'react';

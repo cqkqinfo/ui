@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { View, ViewProps } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 
 export interface Props extends React.PropsWithChildren<ViewProps> {
   /**

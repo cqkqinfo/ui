@@ -3,7 +3,7 @@ import { View, Text, ViewProps } from 'remax/one';
 import provider from '../config-provider';
 import cls from 'classnames';
 import Icon from '../icon';
-import styles from './index.less';
+import styles from './index.module.less';
 
 export interface Props
   extends Pick<

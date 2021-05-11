@@ -3,7 +3,7 @@ import { View, ViewProps } from 'remax/one';
 import classNames from 'classnames';
 import Icon from '../icon';
 import Space, { Props as SpaceProps } from '../space';
-import styles from './index.less';
+import styles from './index.module.less';
 type CheckboxValue = string | number;
 export interface CheckBoxProps extends ViewProps {
   /**

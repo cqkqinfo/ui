@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { View } from 'remax/one';
 import cls from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 
 interface Props {
   /**

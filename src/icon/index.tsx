@@ -2,7 +2,7 @@ import { View, ViewProps } from 'remax/one';
 import React from 'react';
 import Icon from './one';
 import { IconFontProps } from './wechat';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import useViewSize from '../use-view-size';
 import NeedWrap from '../need-wrap';

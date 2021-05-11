@@ -1,6 +1,6 @@
 import { View } from 'remax/one';
 import React from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';

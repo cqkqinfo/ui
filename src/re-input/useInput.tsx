@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { InputProps, TextareaProps } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 
 export interface UseInputOption

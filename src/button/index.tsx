@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ViewProps } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';

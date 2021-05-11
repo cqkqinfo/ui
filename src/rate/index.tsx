@@ -3,7 +3,7 @@ import { View } from 'remax/one';
 import Icon from '../icon';
 import { IconFontNames } from '../icon/wechat';
 import provider from '../config-provider';
-import styles from './index.less';
+import styles from './index.module.less';
 
 interface Props {
   /**
