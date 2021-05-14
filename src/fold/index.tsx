@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { View, ViewProps } from 'remax/one';
 import useViewSize from '../use-view-size';
 
@@ -20,7 +20,8 @@ export default ({
 }: Props) => {
   const { height } = useViewSize(id);
   const heightRef = useRef(height);
-  heightRef.current = height !== 0 ? height : heightRef.current;
+  heightRef.current =
+    !heightRef.current && height !== 0 ? height : heightRef.current;
   return (
     <View
       id={id}
