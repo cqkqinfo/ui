@@ -1,11 +1,11 @@
 import React from 'React';
 
-export default <V extends unknown>({
+export default ({
   children,
   onChange = () => {},
   value,
 }: {
-  children: (onChange: (value: V) => void, value: V) => React.ReactElement;
-  onChange: (value: V) => void;
-  value: V;
+  children: (onChange: (value: any) => void, value: any) => React.ReactElement;
+  onChange: (value: any) => void;
+  value: any;
 }) => children(onChange, value);
