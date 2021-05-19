@@ -154,7 +154,7 @@ const ReForm = ContainerUseWrap(
         <RcForm<Values>
           component={false}
           onFinishFailed={(e: any) => {
-            showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
+            showToast({ title: e.errorFields?.[0]?.errors?.[0], icon: 'none' });
           }}
           {...props}
         />
