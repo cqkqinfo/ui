@@ -187,3 +187,7 @@ export { default as rpxToPx } from './rpx-to-px';
 //  * 单位转换
 //  */
 // export { default as pxToRpx } from './px-to-rpx';
+/**
+ * 让change事件转移
+ */
+export { default as TransferChange } from './transfer-change';
