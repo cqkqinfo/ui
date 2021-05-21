@@ -40,7 +40,7 @@ export default ({
         const value = e.detail?.value || e.target.value;
         onChange?.(value);
         return {
-          value,
+          value: value || '',
         };
       },
       [onChange],
