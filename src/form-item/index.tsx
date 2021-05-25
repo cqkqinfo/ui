@@ -6,6 +6,9 @@ import { FormStore, ItemProps } from '../form';
 import NeedWrap from '../need-wrap';
 import Input from '../re-input';
 import classNames from 'classnames';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import IDCard from 'china-id-card';
 
 export default ({
   label,
@@ -50,8 +53,9 @@ export default ({
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
   let required = outRequiredMark || false;
-  rules?.forEach(item => {
-    if (item instanceof Function) return;
+  rules = rules?.map(item => {
+    if (item instanceof Function) return item;
+    item = { ...item };
     if (item.required) {
       required = true;
       item.message = item.message || `${strLabel}是必填的`;
@@ -59,13 +63,19 @@ export default ({
     if (item.type === 'phone') {
       item.pattern = /^1[3-9][0-9]{9}$/;
       item.message = '请输入正确的手机号';
-      item.type = 'string';
+      delete item.type;
     }
     if (item.type === 'idCard') {
-      item.pattern = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/;
-      item.message = '请输入正确的身份证号码';
-      item.type = 'string';
+      item.validator = (_, value) => {
+        return value
+          ? value?.length === 18 && IDCard(value).isVerified
+            ? Promise.resolve()
+            : Promise.reject(new Error('请输入正确的身份证号码'))
+          : Promise.reject(new Error('请输入身份证号码'));
+      };
+      delete item.type;
     }
+    return item;
   });
   const oldField = (
     <NeedWrap

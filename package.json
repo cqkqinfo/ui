@@ -37,6 +37,7 @@
     "axios-ali-adapter": "^0.0.4",
     "axios-wechat-adapter": "^0.0.8",
     "china-division": "^2.3.1",
+    "china-id-card": "^1.0.3",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.4",
     "hex-rgb": "^5.0.0",
