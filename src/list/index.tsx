@@ -9,6 +9,8 @@ import Space, { Props as SpaceProps } from '../space';
 import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 import Loading from '../loading';
+import Icon from '../icon';
+import styles from './index.module.less';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -52,7 +54,20 @@ const List = forwardRef(
       noData = <NoData />,
       spaceProps,
       noMore,
-      loadingTip = <Loading top />,
+      loadingTip = (
+        <>
+          <Loading top />
+          <Space
+            size={10}
+            className={styles.tip}
+            alignItems={'center'}
+            justify={'center'}
+          >
+            <Icon color={'#CCCCCC'} name={'kq-loading2'} />
+            数据正在加载中
+          </Space>
+        </>
+      ),
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
