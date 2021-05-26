@@ -1,7 +1,7 @@
 import React from 'react';
 import provider from '../config-provider';
 import rpxToPx from '../rpx-to-px';
-import hexRgb from 'hex-rgb';
+const convert = require('color-convert');
 
 export interface Props {
   children: React.ReactElement;
@@ -38,10 +38,9 @@ export default ({
         : {}),
       ...children.props.style,
       ...props.style,
-      boxShadow: `0 0 ${rpx20} rgba(${hexRgb(
-        outShadowColor || (shadowColor as string),
-        { format: 'array', alpha: 0.15 },
-      ).join(',')})`,
+      boxShadow: `0 0 ${rpx20} rgba(${convert.hex
+        .rgb(shadowColor)
+        .join(',')}, 0.15)`,
     },
   });
 };
