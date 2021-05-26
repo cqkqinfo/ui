@@ -195,3 +195,7 @@ export { default as TransferChange } from './transfer-change';
  * 页面组件
  */
 export { default as Page } from './page';
+/**
+ * 状态组件
+ */
+export { default as Status } from './status';
