@@ -25,5 +25,14 @@ export default {
       },
       'antd-mobile',
     ],
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd',
+    ],
   ],
 };

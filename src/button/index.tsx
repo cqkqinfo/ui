@@ -8,16 +8,18 @@ import Space from '../space';
 import Icon from '../icon';
 
 export interface Props
-  extends Pick<
-    ViewProps,
-    | 'style'
-    | 'className'
-    | 'onTap'
-    | 'onTouchStart'
-    | 'onTouchMove'
-    | 'onTouchEnd'
-    | 'onTouchCancel'
-    | 'onLongTap'
+  extends Partial<
+    Pick<
+      ViewProps,
+      | 'style'
+      | 'className'
+      | 'onTap'
+      | 'onTouchStart'
+      | 'onTouchMove'
+      | 'onTouchEnd'
+      | 'onTouchCancel'
+      | 'onLongTap'
+    >
   > {
   children: React.ReactNode;
   /**

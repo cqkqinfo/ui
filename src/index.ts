@@ -191,3 +191,7 @@ export { default as rpxToPx } from './rpx-to-px';
  * 让change事件转移
  */
 export { default as TransferChange } from './transfer-change';
+/**
+ * 页面组件
+ */
+export { default as Page } from './page';

@@ -33,6 +33,7 @@
   "dependencies": {
     "@types/classnames": "^2.2.11",
     "ahooks": "^2.10.0",
+    "antd": "^4.16.0",
     "antd-mobile": "^2.3.4",
     "axios-ali-adapter": "^0.0.4",
     "axios-wechat-adapter": "^0.0.8",
@@ -42,6 +43,7 @@
     "dayjs": "^1.10.4",
     "hex-rgb": "^5.0.0",
     "jsbarcode": "^3.11.3",
+    "moment": "^2.29.1",
     "parsec-hooks": "^0.0.144",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
