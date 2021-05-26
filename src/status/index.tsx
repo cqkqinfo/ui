@@ -8,12 +8,17 @@ const convert = require('color-convert');
 export interface Props extends ViewProps {
   /**
    * 状态颜色
-   * @default @brand-primary
+   * @default brand-primary
    */
   color?: string;
+  /**
+   * 透明底色
+   * @default false
+   */
+  ghost?: boolean;
 }
 
-export default ({ className, color, ...props }: Props) => {
+export default ({ className, color, ghost, ...props }: Props) => {
   const { brandPrimary, shadowColor = brandPrimary } = provider.useContainer();
   const showColor = color || shadowColor;
   return (
@@ -21,8 +26,11 @@ export default ({ className, color, ...props }: Props) => {
       className={classNames(className, styles.status)}
       {...props}
       style={{
-        backgroundColor: `rgba(${convert.hex.rgb(showColor).join(',')}, 0.2)`,
+        backgroundColor: ghost
+          ? undefined
+          : `rgba(${convert.hex.rgb(showColor).join(',')}, 0.2)`,
         color: showColor,
+        border: ghost ? `1px solid ${showColor}` : undefined,
         ...props.style,
       }}
     />
