@@ -1,5 +1,7 @@
 import { defineConfig } from 'dumi';
 
+process.env.REMAX_PLATFORM = 'web';
+
 export default defineConfig({
   title: '凯桥UI',
   favicon: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',

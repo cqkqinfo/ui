@@ -6,6 +6,7 @@ import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
 import Space from '../space';
 import Icon from '../icon';
+import rpxToPx from '../rpx-to-px';
 
 export interface Props
   extends Partial<
@@ -106,6 +107,14 @@ export default ({
         },
       )}
       {...props}
+      style={{
+        /**
+         * pc 模式默认宽度
+         */
+        width:
+          process.env.REMAX_PLATFORM === undefined ? undefined : rpxToPx(710),
+        ...props.style,
+      }}
     >
       <Space size={'.5em'} alignItems={'flex-end'}>
         {loading ? (

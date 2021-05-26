@@ -22,13 +22,14 @@ import {
   Shadow,
   Icon,
   addressOptions,
+  Page,
   Picker,
 } from '@kqinfo/ui';
 
 const Demo = (props: any) => {
   const [form] = Form.useForm();
   return (
-    <Space vertical style={props.style}>
+    <Space alignItems={'stretch'} vertical style={props.style}>
       <Form form={form} onFinish={console.log} {...props}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
         <FormItem

@@ -4,7 +4,7 @@ exports[`阴影 卡片模式 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; width: 355px; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217,0.15);"
+      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217,0.15);"
     >
       233
     </div>
