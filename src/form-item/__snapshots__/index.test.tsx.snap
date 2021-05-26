@@ -4,7 +4,7 @@ exports[`表单项 渲染 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217,0.15);"
+      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
         class="item cell"
