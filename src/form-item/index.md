@@ -11,6 +11,8 @@ nav:
 
 表单项
 
+`FormItem` 的所有 `props` 都可以在 `Form` 组件上统一设置
+
 ```tsx
 import React from 'react';
 import {
@@ -33,7 +35,7 @@ export default () => {
   return (
     <Space vertical size={'10px'}>
       <PartTitle>基本使用</PartTitle>
-      <Form form={form} cell onFinish={console.log} labelWidth={'3em'}>
+      <Form form={form} cell onFinish={console.log} labelWidth={'4em'}>
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
         <FormItem
           label={'手机号'}
@@ -87,6 +89,26 @@ export default () => {
       <Button type={'primary'} onTap={() => form2.submit()}>
         提交
       </Button>
+      <PartTitle>cell用法</PartTitle>
+      <Space style={{ backgroundColor: '#fff', padding: '0 5px' }} vertical>
+        <FormItem
+          cell
+          label={'我的订单'}
+          after={<Icon name={'kq-right'} color={'#666'} />}
+        />
+        <FormItem
+          cell
+          label={'地址管理'}
+          after={<Icon name={'kq-right'} color={'#666'} />}
+        />
+        <FormItem
+          cell
+          label={'修改手机号'}
+          after={<Icon name={'kq-right'} color={'#666'} />}
+        >
+          185****7047
+        </FormItem>
+      </Space>
     </Space>
   );
 };
