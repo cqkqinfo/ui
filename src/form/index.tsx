@@ -115,9 +115,9 @@ interface BaseItemProps {
 }
 
 export interface ItemProps
-  extends Omit<FieldProps, 'rules'>,
+  extends Omit<FieldProps, 'rules' | 'children'>,
     BaseItemProps,
-    ViewProps {}
+    React.PropsWithChildren<ViewProps> {}
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
@@ -126,6 +126,14 @@ export interface Props<Values = {}>
    * 子项的类名
    */
   itemCls?: string;
+  /**
+   * 子项的样式
+   */
+  itemStyle?: React.CSSProperties;
+  /**
+   * 子项children的样式
+   */
+  itemChildrenStyle?: React.CSSProperties;
   /**
    * 卡片模式
    * @default true

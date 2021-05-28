@@ -51,11 +51,11 @@ export interface Props
   /**
    * CSS的margin设置
    */
-  margin?: Property.Margin;
+  margin?: Property.Margin | number;
   /**
    * CSS的padding设置
    */
-  padding?: Property.Padding;
+  padding?: Property.Padding | number;
   /**
    * CSS的flexWrap设置
    */

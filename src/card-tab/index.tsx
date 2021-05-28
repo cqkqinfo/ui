@@ -5,10 +5,17 @@ import styles from './index.module.less';
 import provider from '../config-provider';
 import classNames from 'classnames';
 
-export default ({ tabs, current, className, itemCls, onChange }: Props) => {
+export default ({
+  tabs,
+  current,
+  className,
+  itemCls,
+  onChange,
+  style,
+}: Props) => {
   const { brandPrimary } = provider.useContainer();
   return (
-    <Space className={classNames(styles.tab, className)}>
+    <Space className={classNames(styles.tab, className)} style={style}>
       {tabs.map(({ content, index }) => (
         <Space
           flex={1}
