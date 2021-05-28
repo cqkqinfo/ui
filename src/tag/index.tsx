@@ -5,7 +5,7 @@ import styles from './index.module.less';
 import provider from '../config-provider';
 const convert = require('color-convert');
 
-export interface Props extends ViewProps {
+export interface Props extends React.PropsWithChildren<ViewProps> {
   /**
    * 状态颜色
    * @default brand-primary

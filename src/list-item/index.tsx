@@ -16,7 +16,7 @@ interface Props extends SpaceProps {
   /**
    * 图片下面的部分
    */
-  imgFooter?: string;
+  imgFooter?: React.ReactNode;
   /**
    * 图片下面的部分的类名
    */
@@ -52,7 +52,7 @@ interface Props extends SpaceProps {
   /**
    * text，右边文字第二行
    */
-  text?: string;
+  text?: React.ReactNode;
   /**
    * footer类名
    */
@@ -60,7 +60,7 @@ interface Props extends SpaceProps {
   /**
    * 右边文字最后一行
    */
-  footer?: string;
+  footer?: React.ReactNode;
 }
 
 export default ({
