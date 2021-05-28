@@ -1,7 +1,7 @@
 import React from 'react';
 import { Props } from '../tab/types';
 import Space from '../space';
-import styles from './index.less';
+import styles from './index.module.less';
 import provider from '@/config-provider';
 import classNames from 'classnames';
 

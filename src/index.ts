@@ -203,3 +203,7 @@ export { default as Tag } from './tag';
  * 列表项
  */
 export { default as ListItem } from './list-item';
+/**
+ * 背景图
+ */
+export { default as BackgroundImg } from './background-img';
