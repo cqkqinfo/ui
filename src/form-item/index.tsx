@@ -49,6 +49,8 @@ export default ({
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
     noStyle = outNoStyle,
+    itemStyle,
+    itemChildrenStyle,
   } = store || {};
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
@@ -96,7 +98,7 @@ export default ({
             [styles.cell]: cell,
             [styles.vertical]: vertical,
           })}
-          style={style}
+          style={{ ...style, ...itemStyle }}
           {...props}
         >
           {label && (
@@ -135,7 +137,10 @@ export default ({
           )}
           <View
             className={classNames(styles.children, childrenCls, outChildrenCls)}
-            style={{ justifyContent: label ? 'flex-end' : 'flex-start' }}
+            style={{
+              justifyContent: label ? 'flex-end' : 'flex-start',
+              ...itemChildrenStyle,
+            }}
           >
             {readOnly ? (
               <>
