@@ -211,3 +211,7 @@ export { default as BackgroundImg } from './background-img';
  * 分割线
  */
 export { default as Divider } from './divider';
+/**
+ * 表格
+ */
+export { default as Table } from './table';
