@@ -3,31 +3,35 @@ import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import ConfigProvider from '../config-provider';
 import NoData from '../no-data';
+import Loading from '../loading';
 import classNames from 'classnames';
 const convert = require('color-convert');
+
+export type DataSource<T> = T[];
+export interface Column<T> {
+  /**
+   * 列的title
+   */
+  title: React.ReactNode;
+  /**
+   * 列的数据索引
+   */
+  dataIndex: keyof T;
+  /**
+   * 自定义渲染
+   */
+  render?: (value: T[keyof T], data: T, index: number) => React.ReactNode;
+}
 
 interface Props<T> extends ViewProps {
   /**
    * 表格数据
    */
-  dataSource?: T[];
+  dataSource?: DataSource<T>;
   /**
    * 表格列
    */
-  columns?: {
-    /**
-     * 列的title
-     */
-    title: React.ReactNode;
-    /**
-     * 列的数据索引
-     */
-    dataIndex: keyof T;
-    /**
-     * 自定义渲染
-     */
-    render?: (value: T[keyof T], data: T, index: number) => React.ReactNode;
-  }[];
+  columns?: Column<T>[];
   /**
    * 头部类名
    */
@@ -68,6 +72,10 @@ interface Props<T> extends ViewProps {
    * noData组件样式
    */
   noDataStyle?: React.CSSProperties;
+  /**
+   * 是否加载中
+   */
+  loading?: boolean;
 }
 
 export default <T extends unknown>({
@@ -84,6 +92,7 @@ export default <T extends unknown>({
   className,
   noDataStyle,
   noDataCls,
+  loading,
   ...props
 }: Props<T>) => {
   const { brandPrimary } = ConfigProvider.useContainer();
@@ -97,35 +106,41 @@ export default <T extends unknown>({
         ))}
       </View>
       <View className={classNames(styles.body, bodyCls)} style={bodyStyle}>
-        {!dataSource?.length && (
-          <NoData style={noDataStyle} className={noDataCls} />
-        )}
-        {dataSource?.map((item, i) => (
-          <View
-            key={i}
-            className={classNames(styles.row, rowCls)}
-            style={{
-              ...rowStyle,
-              ...(i % 2
-                ? {
-                    backgroundColor: `rgba(${convert.hex
-                      .rgb(brandPrimary)
-                      .join(',')}, 0.1)`,
-                  }
-                : undefined),
-            }}
-          >
-            {columns?.map(({ dataIndex, render = v => v }, i) => (
+        {loading ? (
+          <Loading type={'inline'} />
+        ) : (
+          <>
+            {!dataSource?.length && (
+              <NoData style={noDataStyle} className={noDataCls} />
+            )}
+            {dataSource?.map((item, i) => (
               <View
-                style={itemStyle}
-                className={classNames(styles.item, itemCls)}
                 key={i}
+                className={classNames(styles.row, rowCls)}
+                style={{
+                  ...rowStyle,
+                  ...(i % 2
+                    ? {
+                        backgroundColor: `rgba(${convert.hex
+                          .rgb(brandPrimary)
+                          .join(',')}, 0.1)`,
+                      }
+                    : undefined),
+                }}
               >
-                {render(item[dataIndex], item, i)}
+                {columns?.map(({ dataIndex, render = v => v }, i) => (
+                  <View
+                    style={itemStyle}
+                    className={classNames(styles.item, itemCls)}
+                    key={i}
+                  >
+                    {render(item[dataIndex], item, i)}
+                  </View>
+                ))}
               </View>
             ))}
-          </View>
-        ))}
+          </>
+        )}
       </View>
     </View>
   );
