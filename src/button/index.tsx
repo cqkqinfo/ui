@@ -116,7 +116,7 @@ export default ({
         ...props.style,
       }}
     >
-      <Space size={'.5em'} alignItems={'flex-end'}>
+      <Space size={'.5em'} alignItems={'center'}>
         {loading ? (
           <Icon
             name={'kq-loading'}
