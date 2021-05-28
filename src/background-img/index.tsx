@@ -3,7 +3,7 @@ import { View, Image, ImageProps, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
 
-interface Props extends ViewProps {
+interface Props extends React.PropsWithChildren<ViewProps> {
   /**
    * 图片的props
    */
@@ -13,24 +13,32 @@ interface Props extends ViewProps {
    */
   img?: string;
   /**
-   * 最外层view的props
+   * 里层view的props
    */
-  wrapProps?: ViewProps;
+  innerProps?: ViewProps;
 }
 
-export default ({ img, imgProps, className, wrapProps, ...props }: Props) => {
+export default ({
+  img,
+  imgProps,
+  className,
+  innerProps,
+  children,
+  ...props
+}: Props) => {
   return (
-    <View
-      {...wrapProps}
-      className={classNames(styles.wrap, wrapProps?.className)}
-    >
+    <View {...props} className={classNames(styles.wrap, className)}>
       <Image
         src={img}
         mode={'scaleToFill'}
         {...imgProps}
         className={classNames(styles.img, imgProps?.className)}
       />
-      <View className={classNames(styles.inner, className)} {...props} />
+      <View
+        {...innerProps}
+        children={children}
+        className={classNames(styles.inner, innerProps?.className)}
+      />
     </View>
   );
 };
