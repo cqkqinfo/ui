@@ -19,8 +19,7 @@
   "module": "es/index.esm.js",
   "typings": "lib/index.d.ts",
   "gitHooks": {
-    "pre-commit": "lint-staged",
-    "pre-push": "yarn test"
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [

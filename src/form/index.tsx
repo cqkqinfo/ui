@@ -13,7 +13,7 @@ import Shadow, { Props as ShadowProps } from '../shadow';
 import NeedWrap from '../need-wrap';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
-import { View } from 'remax/one';
+import { View, ViewProps } from 'remax/one';
 import {
   RuleType,
   ValidatorRule,
@@ -114,7 +114,10 @@ interface BaseItemProps {
   labelWidth?: number | string;
 }
 
-export interface ItemProps extends Omit<FieldProps, 'rules'>, BaseItemProps {}
+export interface ItemProps
+  extends Omit<FieldProps, 'rules'>,
+    BaseItemProps,
+    ViewProps {}
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
