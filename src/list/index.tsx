@@ -56,16 +56,8 @@ const List = forwardRef(
       noMore,
       loadingTip = (
         <>
-          <Loading top />
-          <Space
-            size={10}
-            className={styles.tip}
-            alignItems={'center'}
-            justify={'center'}
-          >
-            <Icon color={'#CCCCCC'} name={'kq-loading2'} />
-            数据正在加载中
-          </Space>
+          <Loading type={'top'} />
+          <Loading type={'inline'} />
         </>
       ),
       ...options
