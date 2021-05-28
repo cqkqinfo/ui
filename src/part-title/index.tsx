@@ -3,6 +3,7 @@ import Space from '../space';
 import React from 'react';
 import styles from './index.module.less';
 import classNames from 'classnames';
+import ConfigProvider from '../config-provider';
 
 export interface Props {
   children: React.ReactNode;
@@ -16,6 +17,10 @@ export interface Props {
    */
   bold?: boolean;
   className?: string;
+  /**
+   * 是否填充字体颜色
+   */
+  full?: boolean;
 }
 
 export default ({
@@ -23,14 +28,19 @@ export default ({
   className,
   required,
   bold = true,
+  full,
   ...props
 }: Props) => {
+  const { brandPrimary } = ConfigProvider.useContainer();
   return (
     <Space className={classNames(styles.part, className)} {...props}>
       <View className={styles.block} />
       <View
         className={styles.title}
-        style={{ fontWeight: bold ? 'bold' : 'normal' }}
+        style={{
+          fontWeight: bold ? 'bold' : 'normal',
+          color: full ? brandPrimary : undefined,
+        }}
       >
         {children}
       </View>

@@ -22,6 +22,9 @@ export default () => (
     <PartTitle required bold={false}>
       必填细体
     </PartTitle>
+    <PartTitle required bold={false} full>
+      填充字体颜色
+    </PartTitle>
   </Space>
 );
 ```
