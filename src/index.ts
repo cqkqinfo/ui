@@ -207,3 +207,7 @@ export { default as ListItem } from './list-item';
  * 背景图
  */
 export { default as BackgroundImg } from './background-img';
+/**
+ * 分割线
+ */
+export { default as Divider } from './divider';
