@@ -23,4 +23,12 @@ export default {
    * 团队
    */
   team: 'https://z3.ax1x.com/2021/04/13/cru8bQ.png',
+  /**
+   * 女人
+   */
+  woman: 'https://z3.ax1x.com/2021/05/28/2FFTv4.png',
+  /**
+   * 男人
+   */
+  man: 'https://z3.ax1x.com/2021/05/28/2FFXUx.png',
 };

@@ -34,14 +34,7 @@ const renderItem = (name: string) => (
   </Space>
 );
 
-const names = [
-  'calendar',
-  'doctor',
-  'hospital',
-  'healthCard',
-  'doctor2',
-  'team',
-];
+const names = Object.keys(CommonImg);
 
 export default () => (
   <Space vertical size={'10px'} alignItems={'flex-start'}>
