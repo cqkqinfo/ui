@@ -4,8 +4,17 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 
 interface Props extends ViewProps {
+  /**
+   * 图片的props
+   */
   imgProps?: ImageProps;
+  /**
+   * 背景图
+   */
   img?: string;
+  /**
+   * 最外层view的props
+   */
   wrapProps?: ViewProps;
 }
 
