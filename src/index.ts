@@ -215,3 +215,7 @@ export { default as Divider } from './divider';
  * 表格
  */
 export { default as Table } from './table';
+/**
+ * f2图表
+ */
+export { default as F2 } from './f2';

@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "@antv/wx-f2": "^2.1.1",
     "@types/classnames": "^2.2.11",
     "ahooks": "^2.10.0",
     "antd": "^4.16.0",
@@ -55,6 +56,7 @@
   "peerDependencies": {
     "axios": "0.x",
     "rc-field-form": "^1.20.0",
+    "@antv/wx-f2": "^2.1.1",
     "react": "^16.12.0",
     "remax": "^2.11.8"
   },
