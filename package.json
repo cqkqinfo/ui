@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -54,9 +54,9 @@
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {
+    "@antv/wx-f2": "^2.1.1",
     "axios": "0.x",
     "rc-field-form": "^1.20.0",
-    "@antv/wx-f2": "^2.1.1",
     "react": "^16.12.0",
     "remax": "^2.11.8"
   },
