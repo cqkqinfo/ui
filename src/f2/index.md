@@ -22,12 +22,8 @@ require('@antv/f2/lib/geom/interval'); // 只引入 interval-select 柱状图选
 require('@antv/f2/lib/geom/adjust/stack'); // 只加载层叠类型
 require('@antv/f2/lib/coord/polar'); // 引入 极坐标
 const f2 = require('@antv/f2/lib/core'); // 引入核心包 Core
-const Tooltip = require('@antv/f2/lib/plugin/tooltip'); // 加载插件 Tooltip
-const Guide = require('@antv/f2/lib/plugin/guide');
-const PieLabel = require('@antv/f2/lib/plugin/pie-label');
+const PieLabel = require('@antv/f2/lib/plugin/pie-label'); // 饼图
 // 注册插件
-f2.Chart.plugins.register(Tooltip);
-f2.Chart.plugins.register(Guide);
 f2.Chart.plugins.register(PieLabel);
 
 export default () => (
@@ -101,8 +97,6 @@ export default () => (
           radius: 0.75,
         });
         chart.axis(false);
-        chart.tooltip(false);
-        chart.legend(false);
         // 配置文本饼图
         chart.pieLabel({
           sidePadding: 75,
