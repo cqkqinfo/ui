@@ -90,28 +90,28 @@ export default () => (
           const: 'const',
         },
       ]}
-      setChart={(chart, F2) => {
+      setChart={chart => {
         chart.coord('polar', {
           transposed: true,
-          innerRadius: 0.4,
-          radius: 0.75,
+          innerRadius: 0.7,
+          radius: 1,
         });
         chart.axis(false);
         // 配置文本饼图
         chart.pieLabel({
-          sidePadding: 75,
+          sidePadding: 40,
           label1: function label1(data) {
             return {
-              text: data.memo,
-              fill: '#808080',
+              fill: '#333333',
+              text: '¥' + data.amount.toFixed(2),
+              fontWeight: 700,
+              fontSize: 10,
             };
           },
           label2: function label2(data) {
             return {
-              fill: '#000000',
-              text: '$' + data.amount.toFixed(2),
-              fontWeight: 500,
-              fontSize: 10,
+              text: data.memo,
+              fill: '#666666',
             };
           },
         });
