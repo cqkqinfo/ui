@@ -10,7 +10,6 @@ import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Button from '../button';
-import usePageEvent from '../use-page-event';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -39,16 +38,6 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    * space组件的props
    */
   spaceProps?: SpaceProps;
-  /**
-   * 显示时刷新列表
-   * @default true
-   */
-  reShowRefresh?: boolean;
-  /**
-   * 显示时刷新列表
-   * @default true
-   */
-  pullDownRefresh?: boolean;
 }
 
 const List = forwardRef(
@@ -60,7 +49,7 @@ const List = forwardRef(
         ? // eslint-disable-next-line
           // @ts-ignore
           getCurrentPages()[getCurrentPages().length - 1].pageId
-        : window.location.href,
+        : window.location.pathname,
       noData = <NoData />,
       spaceProps,
       noMore,
@@ -70,8 +59,6 @@ const List = forwardRef(
           <Loading type={'inline'} />
         </>
       ),
-      reShowRefresh = true,
-      pullDownRefresh = true,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -84,16 +71,6 @@ const List = forwardRef(
     });
     const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
-    usePageEvent('onShow', () => {
-      if (reShowRefresh) {
-        refreshList(true);
-      }
-    });
-    usePageEvent('onPullDownRefresh', () => {
-      if (pullDownRefresh) {
-        return refreshList(true);
-      }
-    });
     return (
       <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
         {showError ? (
