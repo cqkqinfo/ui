@@ -9,14 +9,12 @@ import Space, { Props as SpaceProps } from '../space';
 import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 import Loading from '../loading';
-import Icon from '../icon';
-import styles from './index.module.less';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
-  renderItem: (data: D, index: number) => React.ReactNode;
+  renderItem: (data: D, index: number, list: D[]) => React.ReactNode;
   /**
    * 列表接口
    */
@@ -73,7 +71,7 @@ const List = forwardRef(
     useImperativeHandle(ref, () => ({ refreshList }));
     return (
       <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
-        {list.map((data, index) => renderItem(data, index))}
+        {list.map((data, index) => renderItem(data, index, list))}
         <Visible
           onVisible={() => setLoadMoreVisible(true)}
           onHidden={() => setLoadMoreVisible(false)}
