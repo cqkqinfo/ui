@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -44,7 +44,7 @@
     "dayjs": "^1.10.4",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",
-    "parsec-hooks": "^0.0.144",
+    "parsec-hooks": "^0.0.145",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
     "rc-field-form": "^1.20.0",
