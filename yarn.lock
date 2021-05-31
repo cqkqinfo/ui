@@ -48,18 +48,7 @@
 "@antv/f2@^3.8.8":
   version "3.8.8"
   resolved "https://registry.npmjs.org/@antv/f2/-/f2-3.8.8.tgz#69b329e7b25f6f14e765a0746256d35cf486e230"
-  dependencies:
-    "@antv/adjust" "~0.1.1"
-    "@antv/scale" "~0.3.3"
-    "@antv/util" "~2.0.6"
-    "@babel/runtime" "^7.7.7"
-    "@types/hammerjs" "^2.0.36"
-    hammerjs "^2.0.8"
-    type-fest "^0.15.1"
-
-"@antv/f2@~3.7.0":
-  version "3.7.8"
-  resolved "https://registry.npmjs.org/@antv/f2/-/f2-3.7.8.tgz#71b2cc58187abfca35a02f7eb29b164489af9ea0"
+  integrity sha512-XIR5TOwxzQQ68f/QS9pe68VvRut2uyfSsvOxj6FYrLVWkj3kl5q8R5RUvTSR7Yweqxzst8zvdHKDJjZzDcZmsg==
   dependencies:
     "@antv/adjust" "~0.1.1"
     "@antv/scale" "~0.3.3"
@@ -92,12 +81,6 @@
   resolved "https://registry.npmjs.org/@antv/util/-/util-2.0.13.tgz#7c2e701d89527116ec17cf5a400413c5c6afcb4d"
   dependencies:
     tslib "^2.0.3"
-
-"@antv/wx-f2@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@antv/wx-f2/-/wx-f2-2.1.1.tgz#58831e91775c8280d27cbfa7cb9a64b6332807b2"
-  dependencies:
-    "@antv/f2" "~3.7.0"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
