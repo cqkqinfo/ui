@@ -1,1 +1,3 @@
-export { usePageEvent as default } from 'remax/macro';
+import { usePageEvent } from 'remax/macro';
+
+export default usePageEvent;
