@@ -3,7 +3,12 @@ import {
   LoadMoreGetListFn,
   LoadMoreOptions,
 } from 'parsec-hooks/lib/loadMoreHooks';
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
 import Visible from '../visible';
 import Space, { Props as SpaceProps } from '../space';
 import NeedWrap from '../need-wrap';
@@ -71,18 +76,22 @@ const List = forwardRef(
     });
     const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
+    useEffect(() => {
+      if (error) {
+        console.error(error);
+      }
+    }, [error]);
     return (
       <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
         {showError ? (
-          <>
-            <Button
-              onTap={() => {
-                setShowError(false);
-              }}
-            >
-              加载失败，点击重试
-            </Button>
-          </>
+          <Button
+            onTap={() => {
+              setShowError(false);
+            }}
+            style={{ margin: '20px auto' }}
+          >
+            加载失败，点击重试
+          </Button>
         ) : (
           <>
             {list.map((data, index) => renderItem(data, index, list))}
