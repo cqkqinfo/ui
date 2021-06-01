@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
-import { Icon } from '@kqinfo/ui';
+import Icon from '../icon';
 import classNames from 'classnames';
 import provider from '../config-provider';
 

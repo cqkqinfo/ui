@@ -6,6 +6,7 @@ import useViewSize from '../use-view-size';
 import Space from '../space';
 import Icon from '../icon';
 import { useId } from 'parsec-hooks';
+import PxToRpx from '../px-to-rpx';
 
 export interface NoticeBarProps {
   /**
@@ -63,8 +64,8 @@ const NoticeBar = (props: NoticeBarProps) => {
           className={styles.noticeInner}
           id={innerId}
           style={{
-            animationDuration: `${innerW / 30}s`,
-            paddingLeft: contentW,
+            animationDuration: `${(PxToRpx(innerW) || 0) / 30}s`,
+            paddingLeft: contentW + 'PX',
           }}
         >
           <Space size={10}>{children}</Space>

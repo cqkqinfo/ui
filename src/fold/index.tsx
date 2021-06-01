@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, ViewProps } from 'remax/one';
 import useViewSize from '../use-view-size';
-import { useForceUpdate, usePrevious, useRefState } from 'parsec-hooks';
+import { useRefState } from 'parsec-hooks';
+import pxToRpx from '../px-to-rpx';
 
 export interface Props extends React.PropsWithChildren<ViewProps> {
   /**
@@ -30,14 +31,14 @@ export default ({
     if (maxHeightRef.current === undefined) {
       setMaxHeight(height);
     }
-  }, [height, maxHeightRef, setMaxHeight]);
+  }, [height, maxHeightRef, setMaxHeight, props.children]);
   return (
     <View
       id={id}
       style={{
         transition: 'all .3s',
         overflow: 'hidden',
-        ...(folded ? { maxHeight: 0 } : { maxHeight: maxHeight }),
+        ...(folded ? { maxHeight: 0 } : { maxHeight: `${maxHeight}PX` }),
         ...style,
       }}
       {...props}
