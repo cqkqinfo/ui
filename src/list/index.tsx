@@ -58,12 +58,7 @@ const List = forwardRef(
       noData = <NoData />,
       spaceProps,
       noMore,
-      loadingTip = (
-        <>
-          <Loading type={'top'} />
-          <Loading type={'inline'} />
-        </>
-      ),
+      loadingTip,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -81,6 +76,15 @@ const List = forwardRef(
         console.error(error);
       }
     }, [error]);
+    loadingTip = loadingTip || (
+      <>
+        {loadMoreVisible ? (
+          <Loading type={'inline'} />
+        ) : (
+          <Loading type={'top'} />
+        )}
+      </>
+    );
     return (
       <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
         {showError ? (
