@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, ViewProps } from 'remax/one';
 import useViewSize from '../use-view-size';
+import { useForceUpdate, usePrevious, useRefState } from 'parsec-hooks';
 
 export interface Props extends React.PropsWithChildren<ViewProps> {
   /**
@@ -19,16 +20,24 @@ export default ({
   ...props
 }: Props) => {
   const { height } = useViewSize(id);
-  const heightRef = useRef(height);
-  heightRef.current =
-    !heightRef.current && height !== 0 ? height : heightRef.current;
+  const [maxHeight, setMaxHeight, maxHeightRef] = useRefState<
+    number | undefined
+  >(undefined);
+  useEffect(() => {
+    setMaxHeight(undefined);
+  }, [props.children, setMaxHeight]);
+  useEffect(() => {
+    if (maxHeightRef.current === undefined) {
+      setMaxHeight(height);
+    }
+  }, [height, maxHeightRef, setMaxHeight]);
   return (
     <View
       id={id}
       style={{
         transition: 'all .3s',
         overflow: 'hidden',
-        ...(folded ? { maxHeight: 0 } : { maxHeight: heightRef.current }),
+        ...(folded ? { maxHeight: 0 } : { maxHeight: maxHeight }),
         ...style,
       }}
       {...props}
