@@ -1,4 +1,4 @@
-import { useLoadMore } from 'parsec-hooks';
+import { useEffectState, useLoadMore } from 'parsec-hooks';
 import {
   LoadMoreGetListFn,
   LoadMoreOptions,
@@ -9,14 +9,13 @@ import Space, { Props as SpaceProps } from '../space';
 import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 import Loading from '../loading';
-import Icon from '../icon';
-import styles from './index.module.less';
+import Button from '../button';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
-  renderItem: (data: D, index: number) => React.ReactNode;
+  renderItem: (data: D, index: number, list: D[]) => React.ReactNode;
   /**
    * 列表接口
    */
@@ -65,25 +64,40 @@ const List = forwardRef(
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
   ) => {
     const [loadMoreVisible, setLoadMoreVisible] = useState(false);
-    const { refreshList, list, isEnd, loading } = useLoadMore(getList, {
+    const { refreshList, list, isEnd, loading, error } = useLoadMore(getList, {
       cacheKey,
       ...options,
       loadMoreVisible,
     });
+    const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
     return (
       <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
-        {list.map((data, index) => renderItem(data, index))}
-        <Visible
-          onVisible={() => setLoadMoreVisible(true)}
-          onHidden={() => setLoadMoreVisible(false)}
-        >
-          {loading
-            ? loadingTip
-            : list.length === 0
-            ? noData || noMore || loadingTip
-            : isEnd && (noMore || noData)}
-        </Visible>
+        {showError ? (
+          <>
+            <Button
+              onTap={() => {
+                setShowError(false);
+              }}
+            >
+              加载失败，点击重试
+            </Button>
+          </>
+        ) : (
+          <>
+            {list.map((data, index) => renderItem(data, index, list))}
+            <Visible
+              onVisible={() => setLoadMoreVisible(true)}
+              onHidden={() => setLoadMoreVisible(false)}
+            >
+              {loading
+                ? loadingTip
+                : list.length === 0
+                ? noData || noMore || loadingTip
+                : isEnd && (noMore || noData)}
+            </Visible>
+          </>
+        )}
       </NeedWrap>
     );
   },

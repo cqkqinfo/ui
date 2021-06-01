@@ -4,6 +4,8 @@ import styles from './index.module.less';
 import ConfigProvider from '../config-provider';
 import NoData from '../no-data';
 import Loading from '../loading';
+import Shadow, { Props as ShadowProps } from '../shadow';
+import NeedWrap from '../need-wrap';
 import classNames from 'classnames';
 const convert = require('color-convert');
 
@@ -76,6 +78,10 @@ interface Props<T> extends ViewProps {
    * 是否加载中
    */
   loading?: boolean;
+  /**
+   * 阴影props，设置为false不显示
+   */
+  shadow?: false | ShadowProps;
 }
 
 export default <T extends unknown>({
@@ -93,55 +99,58 @@ export default <T extends unknown>({
   noDataStyle,
   noDataCls,
   loading,
+  shadow,
   ...props
 }: Props<T>) => {
   const { brandPrimary } = ConfigProvider.useContainer();
   return (
-    <View className={classNames(styles.table, className)} {...props}>
-      <View className={classNames(styles.header, headerCls)}>
-        {columns?.map(({ title }, i) => (
-          <View key={i} className={classNames(styles.item, itemCls)}>
-            {title}
-          </View>
-        ))}
+    <NeedWrap wrap={Shadow as any} need={shadow !== false} wrapProps={shadow}>
+      <View className={classNames(styles.table, className)} {...props}>
+        <View className={classNames(styles.header, headerCls)}>
+          {columns?.map(({ title }, i) => (
+            <View key={i} className={classNames(styles.item, itemCls)}>
+              {title}
+            </View>
+          ))}
+        </View>
+        <View className={classNames(styles.body, bodyCls)} style={bodyStyle}>
+          {loading ? (
+            <Loading type={'inline'} />
+          ) : (
+            <>
+              {!dataSource?.length && (
+                <NoData style={noDataStyle} className={noDataCls} />
+              )}
+              {dataSource?.map((item, i) => (
+                <View
+                  key={i}
+                  className={classNames(styles.row, rowCls)}
+                  style={{
+                    ...rowStyle,
+                    ...(i % 2
+                      ? {
+                          backgroundColor: `rgba(${convert.hex
+                            .rgb(brandPrimary)
+                            .join(',')}, 0.1)`,
+                        }
+                      : undefined),
+                  }}
+                >
+                  {columns?.map(({ dataIndex, render = v => v }, i) => (
+                    <View
+                      style={itemStyle}
+                      className={classNames(styles.item, itemCls)}
+                      key={i}
+                    >
+                      {render(item[dataIndex], item, i)}
+                    </View>
+                  ))}
+                </View>
+              ))}
+            </>
+          )}
+        </View>
       </View>
-      <View className={classNames(styles.body, bodyCls)} style={bodyStyle}>
-        {loading ? (
-          <Loading type={'inline'} />
-        ) : (
-          <>
-            {!dataSource?.length && (
-              <NoData style={noDataStyle} className={noDataCls} />
-            )}
-            {dataSource?.map((item, i) => (
-              <View
-                key={i}
-                className={classNames(styles.row, rowCls)}
-                style={{
-                  ...rowStyle,
-                  ...(i % 2
-                    ? {
-                        backgroundColor: `rgba(${convert.hex
-                          .rgb(brandPrimary)
-                          .join(',')}, 0.1)`,
-                      }
-                    : undefined),
-                }}
-              >
-                {columns?.map(({ dataIndex, render = v => v }, i) => (
-                  <View
-                    style={itemStyle}
-                    className={classNames(styles.item, itemCls)}
-                    key={i}
-                  >
-                    {render(item[dataIndex], item, i)}
-                  </View>
-                ))}
-              </View>
-            ))}
-          </>
-        )}
-      </View>
-    </View>
+    </NeedWrap>
   );
 };
