@@ -19,15 +19,18 @@ import getList from '../_mock/getList';
 export default () => (
   <Space vertical size={'10px'}>
     <PartTitle>一般用法</PartTitle>
-    <List
-      defaultLimit={50}
-      getList={getList}
-      renderItem={({ random, id }) => (
-        <div key={id}>
-          random: {random} id: {id}
-        </div>
-      )}
-    />
+    <Space style={{ height: '300px', overflow: 'auto' }}>
+      <List
+        renderItemHeight={() => 50}
+        defaultLimit={10}
+        getList={getList}
+        renderItem={({ random, id }) => (
+          <div key={id}>
+            random: {random} id: {id}
+          </div>
+        )}
+      />
+    </Space>
   </Space>
 );
 ```

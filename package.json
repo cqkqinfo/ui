@@ -32,6 +32,7 @@
   "dependencies": {
     "@antv/f2": "^3.8.8",
     "@types/classnames": "^2.2.11",
+    "@types/react-window": "^1.8.3",
     "ahooks": "^2.10.0",
     "antd": "^4.16.0",
     "antd-mobile": "^2.3.4",
@@ -50,7 +51,9 @@
     "rc-field-form": "^1.20.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-window": "^1.8.6",
     "remax": "^2.11.8",
+    "remax-recycle-view": "^1.1.1",
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {

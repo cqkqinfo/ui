@@ -1,4 +1,4 @@
-import { useEffectState, useLoadMore } from 'parsec-hooks';
+import { useEffectState, useId, useLoadMore } from 'parsec-hooks';
 import {
   LoadMoreGetListFn,
   LoadMoreOptions,
@@ -8,19 +8,24 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useEffect,
+  useMemo,
 } from 'react';
 import Visible from '../visible';
-import Space, { Props as SpaceProps } from '../space';
-import NeedWrap from '../need-wrap';
+import Space from '../space';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Button from '../button';
+import RecycleView from '../recycle-view';
+import rpxToPx from '../rpx-to-px';
+import useViewSize from '../use-view-size';
+import screenWidth from '../screen-width';
+import pxToRpx from '../px-to-rpx';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
-  renderItem: (data: D, index: number, list: D[]) => React.ReactNode;
+  renderItem: (data: D, index: number, list: D[]) => React.ReactElement;
   /**
    * 列表接口
    */
@@ -40,13 +45,22 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    */
   loadingTip?: React.ReactNode;
   /**
-   * space组件的props
+   * 渲染每项的高度，设置后可以开启虚拟滚动，请传入rpx的number值
    */
-  spaceProps?: SpaceProps;
+  renderItemHeight?: (data: D, index: number) => number;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * 类名
+   */
+  className?: string;
 }
 
 const List = forwardRef(
-  <D extends unknown>(
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  <D extends {}>(
     {
       getList,
       renderItem,
@@ -55,10 +69,12 @@ const List = forwardRef(
           // @ts-ignore
           getCurrentPages()[getCurrentPages().length - 1].pageId
         : window.location.pathname,
-      noData = <NoData />,
-      spaceProps,
+      noData = useMemo(() => <NoData />, []),
       noMore,
       loadingTip,
+      renderItemHeight,
+      className,
+      style,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -76,42 +92,85 @@ const List = forwardRef(
         console.error(error);
       }
     }, [error]);
-    loadingTip = loadingTip || (
-      <>
-        {loadMoreVisible ? (
-          <Loading type={'inline'} />
-        ) : (
-          <Loading type={'top'} />
-        )}
-      </>
+    loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
+      loadingTip,
+    ]);
+    const footer = useMemo(
+      () => (
+        <Visible
+          onVisible={() => setLoadMoreVisible(true)}
+          onHidden={() => setLoadMoreVisible(false)}
+        >
+          {loading
+            ? loadingTip
+            : list.length === 0
+            ? noData || noMore || loadingTip
+            : isEnd && (noMore || noData)}
+        </Visible>
+      ),
+      [isEnd, list.length, loading, loadingTip, noData, noMore],
     );
-    return (
-      <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
-        {showError ? (
-          <Button
-            onTap={() => {
-              setShowError(false);
-            }}
-            style={{ margin: '20px auto' }}
-          >
-            加载失败，点击重试
-          </Button>
-        ) : (
-          <>
-            {list.map((data, index) => renderItem(data, index, list))}
-            <Visible
-              onVisible={() => setLoadMoreVisible(true)}
-              onHidden={() => setLoadMoreVisible(false)}
+    const id = useId();
+    const { width, height } = useViewSize(id);
+    return useMemo(
+      () => (
+        <Space
+          style={{ width: '100%', height: '100%', ...style }}
+          id={id}
+          className={className}
+          vertical
+        >
+          {showError ? (
+            <Button
+              onTap={() => {
+                setShowError(false);
+              }}
+              style={{ margin: '20px auto' }}
             >
-              {loading
-                ? loadingTip
-                : list.length === 0
-                ? noData || noMore || loadingTip
-                : isEnd && (noMore || noData)}
-            </Visible>
-          </>
-        )}
-      </NeedWrap>
+              加载失败，点击重试
+            </Button>
+          ) : renderItemHeight ? (
+            <RecycleView
+              overscanCount={30}
+              style={{
+                width: pxToRpx(width || screenWidth),
+                height: pxToRpx(height || 100),
+              }}
+              renderBottom={() => (
+                <Space justify={'center'} style={{ height: '100%' }}>
+                  {footer}
+                </Space>
+              )}
+              bottomHeight={rpxToPx(140)}
+              data={list.map((data, index) => ({
+                ...data,
+                height: rpxToPx(renderItemHeight(data, index)),
+              }))}
+              renderItem={(item, index) =>
+                renderItem((item as any) as D, index, list)
+              }
+            />
+          ) : (
+            <>
+              {list.map((data, index) => renderItem(data, index, list))}
+              {footer}
+            </>
+          )}
+        </Space>
+      ),
+      [
+        className,
+        footer,
+        height,
+        id,
+        list,
+        renderItem,
+        renderItemHeight,
+        setShowError,
+        showError,
+        style,
+        width,
+      ],
     );
   },
 );
