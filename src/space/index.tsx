@@ -12,6 +12,7 @@ export interface Props
     | 'style'
     | 'onTap'
     | 'className'
+    | 'id'
     | 'onTouchStart'
     | 'onTouchMove'
     | 'onTouchEnd'
@@ -60,6 +61,7 @@ export interface Props
    * CSS的flexWrap设置
    */
   flexWrap?: Property.FlexWrap;
+  hidden?: boolean;
 }
 
 export default ({
