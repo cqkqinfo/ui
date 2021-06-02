@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import RcForm, {
   FormProps,
   useForm,
@@ -19,11 +19,19 @@ import {
   ValidatorRule,
   RuleRender,
   StoreValue,
+  Meta,
+  FormInstance,
 } from 'rc-field-form/es/interface';
 
-export const FormStore = createContainer(
-  initialState => ((initialState || {}) as any) as Props<any>,
-);
+export const FormStore = createContainer(initialState => {
+  const [verified, setVerified] = useState(false);
+  return { ...((initialState || {}) as any), verified, setVerified } as Props<
+    any
+  > & {
+    verified: boolean;
+    setVerified: (verified: boolean) => void;
+  };
+});
 
 interface BaseRule {
   enum?: StoreValue[];
@@ -114,14 +122,22 @@ interface BaseItemProps {
   labelWidth?: number | string;
 }
 
-export interface ItemProps
+export interface ItemProps<Values = {}>
   extends Omit<FieldProps, 'rules' | 'children'>,
     BaseItemProps,
-    React.PropsWithChildren<ViewProps> {}
+    ViewProps {
+  children?:
+    | React.ReactElement
+    | ((
+        control: any,
+        meta: Meta,
+        form: FormInstance<Values>,
+      ) => React.ReactNode);
+}
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
-    Omit<Pick<ItemProps, keyof BaseItemProps>, 'strLabel' | 'label'> {
+    Omit<Pick<ItemProps<Values>, keyof BaseItemProps>, 'strLabel' | 'label'> {
   /**
    * 子项的类名
    */
@@ -155,23 +171,30 @@ const ReForm = ContainerUseWrap(
     className,
     style,
     ...props
-  }: Props<Values>) => (
-    <NeedWrap
-      need={card === undefined ? cell : card}
-      wrap={Shadow as any}
-      wrapProps={{ card: true, ...shadowProps }}
-    >
-      <View style={style} className={className}>
-        <RcForm<Values>
-          component={false}
-          onFinishFailed={(e: any) => {
-            showToast({ title: e.errorFields?.[0]?.errors?.[0], icon: 'none' });
-          }}
-          {...props}
-        />
-      </View>
-    </NeedWrap>
-  ),
+  }: Props<Values>) => {
+    const { setVerified } = FormStore.useContainer();
+    return (
+      <NeedWrap
+        need={card === undefined ? cell : card}
+        wrap={Shadow as any}
+        wrapProps={{ card: true, ...shadowProps }}
+      >
+        <View style={style} className={className}>
+          <RcForm<Values>
+            component={false}
+            onFinishFailed={(e: any) => {
+              setVerified(true);
+              showToast({
+                title: e.errorFields?.[0]?.errors?.[0],
+                icon: 'none',
+              });
+            }}
+            {...props}
+          />
+        </View>
+      </NeedWrap>
+    );
+  },
 );
 
 const Form: typeof ReForm & {

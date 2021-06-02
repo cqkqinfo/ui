@@ -6,6 +6,7 @@
   color: #333;
   font-size: 30px;
   .children {
+    color: #666;
     flex: 1;
   }
   &.cell {
@@ -15,7 +16,6 @@
       border-bottom: 1px solid #e2e2e2;
     }
     .children {
-      //color: #999;
       display: flex;
       justify-content: space-between;
       textarea,
@@ -37,6 +37,12 @@
         border-top: 1px solid #eee;
         padding-top: 20px;
       }
+    }
+  }
+  &.error {
+    color: #ed4e56;
+    .children {
+      color: #ed4e56 !important;
     }
   }
 }

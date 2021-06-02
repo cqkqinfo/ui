@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
@@ -9,6 +9,7 @@ import classNames from 'classnames';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import IDCard from 'china-id-card';
+import Icon from '../icon';
 
 export default ({
   label,
@@ -51,6 +52,7 @@ export default ({
     noStyle = outNoStyle,
     itemStyle,
     itemChildrenStyle,
+    verified,
   } = store || {};
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
@@ -79,95 +81,126 @@ export default ({
     }
     return item;
   });
-  const oldField = (
+  const renderField = (node = children) => (
     <NeedWrap
-      need={!!name || children instanceof Function}
+      need={!!name || node instanceof Function}
       wrap={Field as any}
       wrapProps={{ rules, name, ...props }}
     >
-      {React.isValidElement(children) ? children : children}
+      {React.isValidElement(node) ? node : node}
     </NeedWrap>
   );
   return (
     <NeedWrap wrap={Form} wrapProps={{ component: false }} need={!store}>
-      {noStyle ? (
-        oldField
-      ) : (
-        <View
-          className={classNames(styles.item, itemCls, className, {
-            [styles.cell]: cell,
-            [styles.vertical]: vertical,
-          })}
-          style={{ ...style, ...itemStyle }}
-          {...props}
-        >
-          {label && (
-            <View>
-              {requiredMark && (!vertical || required) && (
+      {noStyle
+        ? renderField()
+        : renderField((control, meta, form) => {
+            const showError = !!meta.errors.length && verified;
+            const childNode =
+              typeof children === 'function'
+                ? children(control, meta, form)
+                : React.cloneElement(children as React.ReactElement, {
+                    ...control,
+                  });
+            return (
+              <View
+                className={classNames(
+                  styles.item,
+                  itemCls,
+                  showError && styles.error,
+                  className,
+                  {
+                    [styles.cell]: cell,
+                    [styles.vertical]: vertical,
+                  },
+                )}
+                style={{ ...style, ...itemStyle }}
+                {...props}
+              >
+                {label && (
+                  <View>
+                    {requiredMark && (!vertical || required) && (
+                      <View
+                        className={classNames(
+                          styles.mark,
+                          requiredMarkCls,
+                          outRequiredMarkCls,
+                        )}
+                        style={{ opacity: +(required && requiredMark) }}
+                      >
+                        *
+                      </View>
+                    )}
+                    <View
+                      style={{
+                        minWidth: labelWidth,
+                        justifyContent:
+                          labelJustify === 'right'
+                            ? 'flex-end'
+                            : labelJustify === 'justify'
+                            ? 'space-between'
+                            : 'flex-start',
+                        ...labelStyle,
+                      }}
+                      className={classNames(
+                        styles.label,
+                        labelCls,
+                        outLabelCls,
+                      )}
+                    >
+                      {typeof label === 'string'
+                        ? [...label].map(i => <View key={i}>{i}</View>)
+                        : label}
+                    </View>
+                    {colon === undefined && !cell ? '：' : colon}
+                  </View>
+                )}
                 <View
                   className={classNames(
-                    styles.mark,
-                    requiredMarkCls,
-                    outRequiredMarkCls,
+                    styles.children,
+                    childrenCls,
+                    outChildrenCls,
                   )}
-                  style={{ opacity: +(required && requiredMark) }}
-                >
-                  *
-                </View>
-              )}
-              <View
-                style={{
-                  minWidth: labelWidth,
-                  justifyContent:
-                    labelJustify === 'right'
-                      ? 'flex-end'
-                      : labelJustify === 'justify'
-                      ? 'space-between'
-                      : 'flex-start',
-                  ...labelStyle,
-                }}
-                className={classNames(styles.label, labelCls, outLabelCls)}
-              >
-                {typeof label === 'string'
-                  ? [...label].map(i => <View key={i}>{i}</View>)
-                  : label}
-              </View>
-              {colon === undefined && !cell ? '：' : colon}
-            </View>
-          )}
-          <View
-            className={classNames(styles.children, childrenCls, outChildrenCls)}
-            style={{
-              justifyContent: label ? 'flex-end' : 'flex-start',
-              ...itemChildrenStyle,
-            }}
-          >
-            {readOnly ? (
-              <>
-                <Field shouldUpdate>
-                  {(_, __, { getFieldValue }) => name && getFieldValue(name)}
-                </Field>
-                <View
                   style={{
-                    visibility: 'hidden',
-                    position: 'absolute',
-                    pointerEvents: 'none',
+                    justifyContent: label ? 'flex-end' : 'flex-start',
+                    ...itemChildrenStyle,
                   }}
                 >
-                  {oldField}
+                  {readOnly ? (
+                    <>
+                      <Field shouldUpdate>
+                        {(_, __, { getFieldValue }) =>
+                          name && getFieldValue(name)
+                        }
+                      </Field>
+                      <View
+                        style={{
+                          visibility: 'hidden',
+                          position: 'absolute',
+                          pointerEvents: 'none',
+                        }}
+                      >
+                        {childNode}
+                      </View>
+                    </>
+                  ) : (
+                    childNode
+                  )}
                 </View>
-              </>
-            ) : (
-              oldField
-            )}
-          </View>
-          {after && (
-            <View className={classNames(styles.after, afterCls, outAfterCls)}>
-              {after}
-            </View>
-          )}
-        </View>
-      )}
+                {(after || showError) && (
+                  <View
+                    className={classNames(styles.after, afterCls, outAfterCls)}
+                  >
+                    {showError ? (
+                      <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
+                    ) : (
+                      after
+                    )}
+                  </View>
+                )}
+              </View>
+            );
+          })}
     </NeedWrap>
   );
 };
