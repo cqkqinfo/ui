@@ -112,7 +112,9 @@ export default ({
          * pc 模式默认宽度
          */
         width:
-          process.env.REMAX_PLATFORM === undefined ? undefined : rpxToPx(710),
+          process.env.REMAX_PLATFORM === undefined || block === undefined
+            ? undefined
+            : rpxToPx(710),
         ...props.style,
       }}
     >
