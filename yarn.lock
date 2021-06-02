@@ -11898,13 +11898,6 @@ remax-stats@^0.1.1:
     git-url-parse "^11.1.2"
     is-git-repository "^1.1.1"
 
-remax-virtual-list@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/remax-virtual-list/-/remax-virtual-list-1.1.0.tgz#db5cc5278641d0fffd7f8bd4048463447ccd994d"
-  integrity sha512-Pwn/VkpCkd7pFYAIuNCtLPNqfTG2ZggBo4qJG9QDZmdv1xok4ZeETlnwK15EYbHUw5lmL6ep66Nk+cODtRa/Gg==
-  dependencies:
-    memoize-one "^5.1.1"
-
 remax@^2.11.4, remax@^2.11.8:
   version "2.13.1"
   resolved "https://registry.npmjs.org/remax/-/remax-2.13.1.tgz#2b6a49bb3594239cbba5afaa4e56de8f7a8e605a"

@@ -8,12 +8,13 @@ import useViewSize from '../use-view-size';
 import NeedWrap from '../need-wrap';
 import Rotate from '../rotate';
 import { useId } from 'parsec-hooks';
+import rpxToPx from '../rpx-to-px';
 
 export interface Props
   extends ViewProps,
     Pick<IconFontProps, 'name' | 'color'> {
   /**
-   * 图标大小，默认是fontSize的值
+   * 图标大小，默认是fontSize的值，传入number的话请输入rpx的值
    */
   size?: number | string;
 }
@@ -28,6 +29,7 @@ export default ({
 }: Props) => {
   const id = useId();
   const { width } = useViewSize(id);
+  size = typeof size === 'number' ? rpxToPx(size) : size;
   return (
     <View
       className={classNames(styles.wrap, className)}
