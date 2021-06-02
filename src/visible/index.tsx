@@ -13,6 +13,6 @@ interface Props {
 
 export default ({ children, className, onHidden, onVisible }: Props) => (
   <Visible class-name={className} bindvisible={onVisible} bindhidden={onHidden}>
-    {children || <View style={{ height: '1px' }} />}
+    {children || <View style={{ height: '1px', width: '1px' }} />}
   </Visible>
 );

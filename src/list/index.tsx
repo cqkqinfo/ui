@@ -56,6 +56,18 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    * 类名
    */
   className?: string;
+  /**
+   * noData高度
+   */
+  noDataHeight?: number;
+  /**
+   * loading高度
+   */
+  loadingHeight?: number;
+  /**
+   * noMore高度
+   */
+  noMoreHeight?: number;
 }
 
 const List = forwardRef(
@@ -73,6 +85,9 @@ const List = forwardRef(
       noMore,
       loadingTip,
       renderItemHeight,
+      loadingHeight = 140,
+      noDataHeight = loadingHeight,
+      noMoreHeight = loadingHeight,
       className,
       style,
       ...options
@@ -92,9 +107,16 @@ const List = forwardRef(
         console.error(error);
       }
     }, [error]);
-    loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
-      loadingTip,
-    ]);
+    loadingTip = useMemo(
+      () =>
+        loadingTip || (
+          <>
+            {!loadMoreVisible && <Loading type={'top'} />}
+            <Loading type={'inline'} />
+          </>
+        ),
+      [loadMoreVisible, loadingTip],
+    );
     const footer = useMemo(
       () => (
         <Visible
@@ -105,13 +127,29 @@ const List = forwardRef(
             ? loadingTip
             : list.length === 0
             ? noData || noMore || loadingTip
-            : isEnd && (noMore || noData)}
+            : isEnd
+            ? noMore || noData
+            : loadingTip}
         </Visible>
       ),
       [isEnd, list.length, loading, loadingTip, noData, noMore],
     );
     const id = useId();
     const { width, height } = useViewSize(id);
+    const bottomHeight = loading
+      ? loadingHeight
+      : list.length === 0
+      ? noDataHeight || noMoreHeight || loadingHeight
+      : isEnd
+      ? noMoreHeight || noDataHeight
+      : loadingHeight;
+    const [showHeight, setShowHeight] = useState(height);
+    console.log(width);
+    useEffect(() => {
+      if (height && bottomHeight !== height) {
+        setShowHeight(height);
+      }
+    }, [bottomHeight, height]);
     return useMemo(
       () => (
         <Space
@@ -133,15 +171,15 @@ const List = forwardRef(
             <RecycleView
               overscanCount={30}
               style={{
-                width: pxToRpx(width || screenWidth),
-                height: pxToRpx(height || 100),
+                width: width ? pxToRpx(width) : screenWidth,
+                height: pxToRpx(showHeight || bottomHeight),
               }}
               renderBottom={() => (
                 <Space justify={'center'} style={{ height: '100%' }}>
                   {footer}
                 </Space>
               )}
-              bottomHeight={rpxToPx(140)}
+              bottomHeight={rpxToPx(bottomHeight)}
               data={list.map((data, index) => ({
                 ...data,
                 height: rpxToPx(renderItemHeight(data, index)),
@@ -159,15 +197,16 @@ const List = forwardRef(
         </Space>
       ),
       [
+        bottomHeight,
         className,
         footer,
-        height,
         id,
         list,
         renderItem,
         renderItemHeight,
         setShowError,
         showError,
+        showHeight,
         style,
         width,
       ],

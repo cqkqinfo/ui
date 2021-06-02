@@ -9,11 +9,11 @@ export default (id: string) => {
   useEffect(() => {
     const query = createSelectorQuery();
     query.select(`#${id}`).boundingClientRect(data => {
-      if (data) {
+      if (data && (data.width !== wh.width || data.height !== wh.height)) {
         setWH(data);
       }
     });
     query.exec();
-  }, [id]);
+  });
   return wh;
 };
