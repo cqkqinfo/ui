@@ -55,7 +55,8 @@ module.exports = {
 +  plugins: [
 +   less({
 +     lessOptions: {
-+       modifyVars: { '@brand-primary': '#2780d9' }
++       modifyVars: { '@brand-primary': '#2780d9' },
++       javascriptEnabled: true
 +     }
 +   })
 + ]
