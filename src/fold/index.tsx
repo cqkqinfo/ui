@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { View, ViewProps } from 'remax/one';
 import useViewSize from '../use-view-size';
 import { useRefState } from 'parsec-hooks';
-import pxToRpx from '../px-to-rpx';
 
 export interface Props extends React.PropsWithChildren<ViewProps> {
   /**
