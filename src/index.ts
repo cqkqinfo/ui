@@ -219,3 +219,7 @@ export { default as Table } from './table';
  * f2图表
  */
 export { default as F2 } from './f2';
+/**
+ * 反应更快的原生响应组件
+ */
+export { default as Native } from './native';

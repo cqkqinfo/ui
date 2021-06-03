@@ -1,0 +1,5 @@
+<view id="{{id}}" style="{{style}}" class="{{className}}">
+  {{children}}
+  <slot wx:if="{{visible}}"/>
+</view>
+
