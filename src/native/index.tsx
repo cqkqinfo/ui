@@ -1,5 +1,5 @@
 import { View } from 'remax/one';
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import React from 'react';
 
 export interface Data {
@@ -7,7 +7,7 @@ export interface Data {
    * 行内样式
    */
   style?: string;
-  children?: string | number;
+  content?: string | number;
   className?: string;
   /**
    * 是否显示

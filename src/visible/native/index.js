@@ -20,8 +20,6 @@ Component({
     ready: function() {
       this.setData({
         id: `visible${idCount++}`,
-        className: this.properties.className,
-        perf: this.properties.perf,
         height: this.properties.height || 1,
       });
       var offsetY = this.properties.perf

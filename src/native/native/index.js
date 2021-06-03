@@ -1,12 +1,12 @@
 /* eslint-disable */
 // eslint-disable-next-line no-undef
 Component({
-  data: {
-    id: '',
-    style: '',
-    className: '',
-    children: '',
-    visible: true,
+  properties: {
+    id: String,
+    style: String,
+    className: String,
+    content: String,
+    visible: Boolean,
   },
   lifetimes: {
     ready: function() {
