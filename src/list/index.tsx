@@ -1,4 +1,4 @@
-import { useEffectState, useId, useLoadMore } from 'parsec-hooks';
+import { useEffectState, useLoadMore } from 'parsec-hooks';
 import {
   LoadMoreGetListFn,
   LoadMoreOptions,
@@ -11,15 +11,9 @@ import React, {
   useMemo,
 } from 'react';
 import Visible from '../visible';
-import Space from '../space';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Button from '../button';
-import RecycleView from '../recycle-view';
-import rpxToPx from '../rpx-to-px';
-import useViewSize from '../use-view-size';
-import screenWidth from '../screen-width';
-import pxToRpx from '../px-to-rpx';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -56,23 +50,11 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    * 类名
    */
   className?: string;
-  /**
-   * noData高度
-   */
-  noDataHeight?: number;
-  /**
-   * loading高度
-   */
-  loadingHeight?: number;
-  /**
-   * noMore高度
-   */
-  noMoreHeight?: number;
 }
 
 const List = forwardRef(
   // eslint-disable-next-line @typescript-eslint/ban-types
-  <D extends {}>(
+  <D extends { id: number }>(
     {
       getList,
       renderItem,
@@ -85,11 +67,9 @@ const List = forwardRef(
       noMore,
       loadingTip,
       renderItemHeight,
-      loadingHeight = 140,
-      noDataHeight = loadingHeight,
-      noMoreHeight = loadingHeight,
       className,
       style,
+      defaultLimit = 10,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -107,16 +87,9 @@ const List = forwardRef(
         console.error(error);
       }
     }, [error]);
-    loadingTip = useMemo(
-      () =>
-        loadingTip || (
-          <>
-            {!loadMoreVisible && <Loading type={'top'} />}
-            <Loading type={'inline'} />
-          </>
-        ),
-      [loadMoreVisible, loadingTip],
-    );
+    loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
+      loadingTip,
+    ]);
     const footer = useMemo(
       () => (
         <Visible
@@ -134,30 +107,18 @@ const List = forwardRef(
       ),
       [isEnd, list.length, loading, loadingTip, noData, noMore],
     );
-    const id = useId();
-    const { width, height } = useViewSize(id);
-    const bottomHeight = loading
-      ? loadingHeight
-      : list.length === 0
-      ? noDataHeight || noMoreHeight || loadingHeight
-      : isEnd
-      ? noMoreHeight || noDataHeight
-      : loadingHeight;
-    const [showHeight, setShowHeight] = useState(height);
-    console.log(width);
-    useEffect(() => {
-      if (height && bottomHeight !== height) {
-        setShowHeight(height);
-      }
-    }, [bottomHeight, height]);
+    const list2 = useMemo(() => {
+      const result: D[][] = [];
+      list.forEach((_, i) => {
+        if (!(i % defaultLimit)) {
+          result.push([...list].slice(i, i + defaultLimit));
+        }
+      });
+      return result;
+    }, [defaultLimit, list]);
     return useMemo(
       () => (
-        <Space
-          style={{ width: '100%', height: '100%', ...style }}
-          id={id}
-          className={className}
-          vertical
-        >
+        <>
           {showError ? (
             <Button
               onTap={() => {
@@ -168,47 +129,39 @@ const List = forwardRef(
               加载失败，点击重试
             </Button>
           ) : renderItemHeight ? (
-            <RecycleView
-              overscanCount={30}
-              style={{
-                width: width ? pxToRpx(width) : screenWidth,
-                height: pxToRpx(showHeight || bottomHeight),
-              }}
-              renderBottom={() => (
-                <Space justify={'center'} style={{ height: '100%' }}>
-                  {footer}
-                </Space>
-              )}
-              bottomHeight={rpxToPx(bottomHeight)}
-              data={list.map((data, index) => ({
-                ...data,
-                height: rpxToPx(renderItemHeight(data, index)),
-              }))}
-              renderItem={(item, index) =>
-                renderItem((item as any) as D, index, list)
-              }
-            />
+            <>
+              {list2.map((items, index) => {
+                let height = 0;
+                items.forEach((item, i) => {
+                  height += renderItemHeight(item, index * defaultLimit + i);
+                });
+                return (
+                  <Visible key={index} height={height} perf>
+                    {items.map((data, i) =>
+                      renderItem(data, index * defaultLimit + i, list),
+                    )}
+                  </Visible>
+                );
+              })}
+              {footer}
+            </>
           ) : (
             <>
               {list.map((data, index) => renderItem(data, index, list))}
               {footer}
             </>
           )}
-        </Space>
+        </>
       ),
       [
-        bottomHeight,
-        className,
+        defaultLimit,
         footer,
-        id,
         list,
+        list2,
         renderItem,
         renderItemHeight,
         setShowError,
         showError,
-        showHeight,
-        style,
-        width,
       ],
     );
   },

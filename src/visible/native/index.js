@@ -9,30 +9,37 @@ Component({
   },
   properties: {
     className: String,
+    perf: Boolean,
+    height: Number,
   },
   data: {
     id: '',
+    isShow: false,
   },
-  isShow: false,
   lifetimes: {
     ready: function() {
       this.setData({
         id: `visible${idCount++}`,
         className: this.properties.className,
+        perf: this.properties.perf,
+        height: this.properties.height || 1,
       });
-      var offsetY = 0;
+      var offsetY = this.properties.perf
+        ? // eslint-disable-next-line no-undef
+          wx.getSystemInfoSync().windowHeight * 2
+        : 0;
       var that = this;
       // eslint-disable-next-line no-undef
       wx.createIntersectionObserver(this)
         .relativeToViewport({
-          top: this.isShow ? -offsetY : offsetY,
-          bottom: this.isShow ? -offsetY : offsetY,
+          top: offsetY,
+          bottom: offsetY,
         })
         .observe(`#${this.data.id}`, function({
           intersectionRect: { height },
         }) {
           var isShow = height > 0;
-          that.isShow = isShow;
+          that.setData({ isShow });
           if (isShow) {
             that.triggerEvent('visible');
           } else {
