@@ -1,7 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Native from './native';
-import React, { forwardRef, useRef, useImperativeHandle } from 'react';
+import React, {
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+  useState,
+} from 'react';
 import { NativeInstance, Props } from './index';
 
 export default forwardRef<NativeInstance, Props>(
@@ -9,8 +14,8 @@ export default forwardRef<NativeInstance, Props>(
     { children, initData: { visible, className, style, content } = {} },
     ref,
   ) => {
-    const thisRef = useRef<any>({});
-    useImperativeHandle(ref, () => thisRef.current);
+    const [thisRef, setRef] = useState({} as NativeInstance);
+    useImperativeHandle(ref, () => thisRef, [thisRef]);
     return (
       <Native
         content={content}
@@ -18,7 +23,7 @@ export default forwardRef<NativeInstance, Props>(
         style={style}
         visible={visible}
         bindthis={({ detail }: any) => {
-          thisRef.current = detail;
+          setRef(detail);
         }}
       >
         {children}
