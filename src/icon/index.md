@@ -48,6 +48,7 @@ const names = [
   'kq-tip',
   'kq-jianshao',
   'kq-xingxing',
+  'kq-xiangji',
 ];
 
 export default () => (
