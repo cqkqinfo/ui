@@ -92,7 +92,7 @@ export default (props: DropDownMenuIremProps) => {
           )}
         />
       </View>
-      <Fold folded={!showOptions} className={styles.down}>
+      <Fold folded={!showOptions} className={styles.down} maxHeight={'100vh'}>
         {options?.map(item => {
           return (
             <View

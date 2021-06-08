@@ -9,6 +9,10 @@ export interface Props extends React.PropsWithChildren<ViewProps> {
    * @default false
    */
   folded?: boolean;
+  /**
+   * 手动设置高度
+   */
+  maxHeight?: string;
 }
 
 let count = 0;
@@ -17,6 +21,7 @@ export default ({
   folded,
   style,
   id = useRef(`fold${count++}`).current,
+  maxHeight: outMaxHeight,
   ...props
 }: Props) => {
   const { height } = useViewSize(id);
@@ -37,7 +42,9 @@ export default ({
       style={{
         transition: 'all .3s',
         overflow: 'hidden',
-        ...(folded ? { maxHeight: 0 } : { maxHeight: `${maxHeight}PX` }),
+        ...(folded
+          ? { maxHeight: 0 }
+          : { maxHeight: outMaxHeight || `${maxHeight}PX` }),
         ...style,
       }}
       {...props}
