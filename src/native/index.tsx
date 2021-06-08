@@ -1,6 +1,6 @@
-import { View } from 'remax/one';
-import { forwardRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import React from 'react';
+import { useId } from 'parsec-hooks';
 
 export interface Data {
   /**
@@ -22,9 +22,56 @@ export type NativeInstance = {
 
 export interface Props {
   children?: React.ReactNode;
+  /**
+   * 初始数据
+   */
   initData?: Data;
 }
 
-export default forwardRef<NativeInstance, Props>((props, ref) => {
-  return <View />;
-});
+export default forwardRef<NativeInstance, Props>(
+  ({ initData = {}, children }, ref) => {
+    const [returns, setReturns] = useState<NativeInstance>({
+      data: initData,
+      setData: () => {},
+    });
+    useImperativeHandle(ref, () => returns, [returns]);
+    const id = useId();
+    const initRef = useRef(true);
+    return (
+      <div
+        id={id}
+        ref={() => {
+          const dom = document.getElementById(id);
+          if (dom && initRef.current) {
+            initRef.current = false;
+            const newReturns: NativeInstance = {
+              data: returns.data,
+              setData: (newData, callBack) => {
+                const {
+                  style = (returns.data.style = ''),
+                  visible = (returns.data.visible = false),
+                  content = returns.data.content,
+                  className = (returns.data.className = ''),
+                } = newData;
+                dom.setAttribute('style', style);
+                dom.hidden = !visible;
+                if (content !== undefined) {
+                  dom.innerText = content + '';
+                }
+                dom.className = className;
+                newReturns.data = newData;
+                callBack?.();
+              },
+            };
+            setReturns(newReturns);
+            if (initData) {
+              newReturns.setData(initData);
+            }
+          }
+        }}
+      >
+        {children}
+      </div>
+    );
+  },
+);
