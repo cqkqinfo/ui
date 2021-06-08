@@ -5,10 +5,10 @@ stages:
   - production
 
 variables:
-  BUILD_IMAGE: "node:14"
+  BUILD_IMAGE: "ianwalter/pnpm:latest"
   GROUP_NAME: kaiqiaoui
   APP_NAME: admin     # 注意：h5端改成mobile, PC端改成site
-  PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org  #安装依赖包的命令
+  PREPARE_CMD: pnpm  #安装依赖包的命令
   DIST_PATH: docs-dist  #打包结果的路径
 
 ##------------- production阶段 -------------
@@ -17,8 +17,8 @@ build_app:
   image: $BUILD_IMAGE
   variables:
     CI: "true"
-    BUILD_CMD: yarn docs:build  #打包的命令
-    TEST_CMD: yarn test:coverage  #测试的命令
+    BUILD_CMD: pnpm docs:build  #打包的命令
+    TEST_CMD: pnpm test:coverage  #测试的命令
   script:
     - echo $PREPARE_CMD
     - $PREPARE_CMD
