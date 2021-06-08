@@ -68,9 +68,9 @@ export default () => {
       >
         开始动画
       </Button>
-      这里渲染了100000条列表数据
+      这里渲染了50000条列表数据
       <div style={{ height: 100, overflow: 'auto', border: '1px solid red' }}>
-        {new Array(100000).fill(0).map((_, i) => (
+        {new Array(50000).fill(0).map((_, i) => (
           <div key={i}>{i}</div>
         ))}
       </div>
