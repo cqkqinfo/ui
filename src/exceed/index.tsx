@@ -47,7 +47,7 @@ export default ({
       <Text
         className={classNames(styles.more, moreCls)}
         style={{
-          background: `linear-gradient(-90deg, ${moreBg} 50%, transparent)`,
+          background: `linear-gradient(-90deg, ${moreBg} 50%, rgba(255,255,255,0.001))`,
         }}
       >
         {more}
