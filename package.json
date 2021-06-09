@@ -41,6 +41,7 @@
     "china-id-card": "^1.0.3",
     "classnames": "^2.2.6",
     "color-convert": "^2.0.1",
+    "create-api-hooks": "^0.0.30",
     "dayjs": "^1.10.4",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",

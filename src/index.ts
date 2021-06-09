@@ -227,3 +227,7 @@ export { default as Native } from './native';
  * 获取元素高度
  */
 export { default as useViewSize } from './use-view-size';
+/**
+ * 常用的请求方法
+ */
+export { default as commonApis } from './common-apis';

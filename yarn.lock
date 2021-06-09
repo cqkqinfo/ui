@@ -2168,13 +2168,6 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-window@^1.8.3":
-  version "1.8.3"
-  resolved "https://registry.npmjs.org/@types/react-window/-/react-window-1.8.3.tgz#14f74b144b4e3df9421eb31182dc580b7ccc7617"
-  integrity sha512-Xf+IR2Zyiyh/6z1CM8kv1aQba3S3X/hBXt4tH+T9bDSIGwFhle0GZFZGTSU8nw2cUT3UNbCHDjhxVQVZPtE8cA==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*":
   version "17.0.4"
   resolved "https://registry.npmjs.org/@types/react/-/react-17.0.4.tgz#a67c6f7a460d2660e950d9ccc1c2f18525c28220"
@@ -4517,6 +4510,11 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
+
+create-api-hooks@^0.0.30:
+  version "0.0.30"
+  resolved "https://registry.npmjs.org/create-api-hooks/-/create-api-hooks-0.0.30.tgz#fe978f261d4e38bc56113b9b16a5e2ec2261ee86"
+  integrity sha512-mNZQ19plZbSsK1q3f4e+itSiyvTmj3ANVJXLlCPr7/+FLjCujlYvI12DcOJCHctdYVOSi4w/95ZzE9Q5YSf8Hw==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -8987,7 +8985,7 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-"memoize-one@>=3.1.1 <6", memoize-one@^5.1.1:
+memoize-one@^5.1.1:
   version "5.2.1"
   resolved "https://registry.npmjs.org/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
 
@@ -11605,14 +11603,6 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react-window@^1.8.6:
-  version "1.8.6"
-  resolved "https://registry.npmjs.org/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
-  integrity sha512-8VwEEYyjz6DCnGBsd+MgkD0KJ2/OXFULyDtorIiTz+QzwoP94tBoA7CnbtyXMm+cCeAUER5KJcPtWl9cpKbOBg==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    memoize-one ">=3.1.1 <6"
-
 react@16.x:
   version "16.14.0"
   resolved "https://registry.npmjs.org/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
@@ -11884,11 +11874,6 @@ remax-iconfont-cli@^1.1.0:
     mini-program-iconfont-cli "0.5.5"
     minimist "^1.2.5"
     mkdirp "^1.0.4"
-
-remax-recycle-view@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/remax-recycle-view/-/remax-recycle-view-1.1.1.tgz#54876635e3308caffddcc3004264e29d84ae5c28"
-  integrity sha512-rhIFi4MENfpZyc+jhJPuKrAbV5mddWKhYGtbkmp5MV2R6wHsb0Uit5Mi43ObnUYaOoxJYr4gyTeqk2eZaBMHZw==
 
 remax-stats@^0.1.1:
   version "0.1.9"
