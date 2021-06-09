@@ -127,7 +127,7 @@ export interface ItemProps<Values = {}>
     BaseItemProps,
     ViewProps {
   children?:
-    | React.ReactElement
+    | React.ReactNode
     | ((
         control: any,
         meta: Meta,
