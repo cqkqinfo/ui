@@ -11,6 +11,7 @@ export interface Props {
    */
   current: number;
   className?: string;
+
   /**
    * 预置的样式
    */
@@ -48,11 +49,16 @@ export interface Props {
    */
   defaultColor?: string;
   style?: React.CSSProperties;
+  /**
+   * 默认文字或者icon的颜色
+   */
+  onChoose?: (i: number) => void;
 }
 
 export default ({
   current,
   className,
+  onChoose,
   items,
   style,
   type = 'normal',
@@ -74,7 +80,14 @@ export default ({
           const { text } = typeof item === 'function' ? item(active) : item;
           const width = `${100 / (items.length || 1)}%`;
           return (
-            <View key={i} className={styles.dashedItem} style={{ width }}>
+            <View
+              key={i}
+              onTap={() => {
+                onChoose?.(i + 1);
+              }}
+              className={styles.dashedItem}
+              style={{ width }}
+            >
               <View className={classNames(styles.circleWrap)}>
                 <View
                   className={classNames(styles.circle, {
@@ -121,6 +134,9 @@ export default ({
         return (
           <View
             key={i}
+            onTap={() => {
+              onChoose?.(i + 1);
+            }}
             className={classNames(
               styles.item,
               itemCls,
