@@ -42,6 +42,10 @@ export interface Props {
    */
   dotCls?: string;
   /**
+   * 标记点Wrap的类名
+   */
+  dotWrapCls?: string;
+  /**
    * 选中的日期
    */
   current?: dayjs.Dayjs;
@@ -70,6 +74,7 @@ export default ({
   activeItemCls,
   disableItemCls,
   activeDotCls,
+  dotWrapCls,
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
@@ -105,7 +110,7 @@ export default ({
             key={index}
           >
             {day.get('date')}
-            <View className={styles.dotWrap}>
+            <View className={classNames(styles.dotWrap, dotWrapCls)}>
               {dot === true ? (
                 <View
                   className={classNames(styles.dot, dotCls, {
