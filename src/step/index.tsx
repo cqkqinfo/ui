@@ -50,7 +50,7 @@ export interface Props {
   defaultColor?: string;
   style?: React.CSSProperties;
   /**
-   * 默认文字或者icon的颜色
+   * 进度条选择事件，保持跟current一致从1开始
    */
   onChoose?: (i: number) => void;
 }
