@@ -1,0 +1,30 @@
+@import '../styles/index';
+
+.item {
+  height: 88px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1;
+  &:active {
+    background-color: #e2e2e2;
+  }
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(#fff, #e2e2e2, #fff);
+}
+
+.cancel {
+  .item;
+  height: 14px;
+  background-color: #e2e2e2;
+  color: @brand-primary;
+}
