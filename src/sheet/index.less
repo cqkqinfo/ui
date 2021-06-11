@@ -1,4 +1,4 @@
-.Component-sheet {
+.sheet {
   width: 100vw;
   height: 100vh;
   z-index: -1;
@@ -10,26 +10,25 @@
   transition: all 0.3s, z-index 0s 0.3s;
   overflow: auto;
   pointer-events: none;
-  > .Sheet-bg {
-    width: 100vw;
-    height: 100vh;
-  }
-  > .Sheet-content {
-    transform: translateY(100vh);
-    transition: all 0.3s;
-    will-change: transform;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-  &-show {
-    pointer-events: auto;
-    z-index: 101;
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: all 0.3s;
-    > .Sheet-content {
-      transform: translateY(0);
-    }
+}
+.content {
+  transform: translateY(100vh);
+  transition: all 0.3s;
+  will-change: transform;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+.show {
+  pointer-events: auto;
+  z-index: 101;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+  .content {
+    transform: translateY(0);
   }
 }

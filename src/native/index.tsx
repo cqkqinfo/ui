@@ -49,7 +49,7 @@ export default forwardRef<NativeInstance, Props>(
               setData: (newData, callBack) => {
                 const {
                   style = (returns.data.style = ''),
-                  visible = (returns.data.visible = false),
+                  visible = (returns.data.visible = true),
                   content = returns.data.content,
                   className = (returns.data.className = ''),
                 } = newData;
@@ -59,7 +59,7 @@ export default forwardRef<NativeInstance, Props>(
                   dom.innerText = content + '';
                 }
                 dom.className = className;
-                newReturns.data = newData;
+                newReturns.data = { style, content, visible, className };
                 callBack?.();
               },
             };
