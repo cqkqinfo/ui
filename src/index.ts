@@ -235,3 +235,7 @@ export { default as commonApis } from './common-apis';
  * 弹出层
  */
 export { default as Sheet } from './sheet';
+/**
+ * 弹出操作项
+ */
+export { default as showActionSheet } from './show-action-sheet';

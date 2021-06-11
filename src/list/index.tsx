@@ -4,16 +4,18 @@ import {
   LoadMoreOptions,
 } from 'parsec-hooks/lib/loadMoreHooks';
 import React, {
-  useState,
   forwardRef,
   useImperativeHandle,
   useEffect,
   useMemo,
+  useRef,
+  useCallback,
 } from 'react';
 import Visible from '../visible';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Button from '../button';
+import Native, { NativeInstance } from '../native';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -74,11 +76,15 @@ const List = forwardRef(
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
   ) => {
-    const [loadMoreVisible, setLoadMoreVisible] = useState(false);
-    const { refreshList, list, isEnd, loading, error } = useLoadMore(getList, {
+    const loadingNativeRef = useRef<NativeInstance>(null);
+    const noLoadingNativeRef = useRef<NativeInstance>(null);
+    const { refreshList, list, isEnd, error, getNext } = useLoadMore(getList, {
       cacheKey,
       ...options,
-      loadMoreVisible,
+      customSetLoading: useCallback(loading => {
+        loadingNativeRef.current?.setData?.({ visible: loading });
+        noLoadingNativeRef.current?.setData?.({ visible: !loading });
+      }, []),
     });
     const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
@@ -90,23 +96,20 @@ const List = forwardRef(
     loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
       loadingTip,
     ]);
-    const footer = useMemo(
-      () => (
-        <Visible
-          onVisible={() => setLoadMoreVisible(true)}
-          onHidden={() => setLoadMoreVisible(false)}
-        >
-          {loading
-            ? loadingTip
-            : list.length === 0
-            ? noData || noMore || loadingTip
-            : isEnd
-            ? noMore || noData
-            : loadingTip}
+    const footer = useMemo(() => {
+      return (
+        <Visible onVisible={getNext}>
+          <Native ref={loadingNativeRef}>{loadingTip}</Native>
+          <Native ref={noLoadingNativeRef} initData={{ visible: false }}>
+            {list.length === 0
+              ? noData || noMore || loadingTip
+              : isEnd
+              ? noMore || noData
+              : loadingTip}
+          </Native>
         </Visible>
-      ),
-      [isEnd, list.length, loading, loadingTip, noData, noMore],
-    );
+      );
+    }, [getNext, isEnd, list.length, loadingTip, noData, noMore]);
     const list2 = useMemo(() => {
       const result: D[][] = [];
       list.forEach((_, i) => {

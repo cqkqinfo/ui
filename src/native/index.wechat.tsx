@@ -11,7 +11,7 @@ import { NativeInstance, Props } from './index';
 
 export default forwardRef<NativeInstance, Props>(
   (
-    { children, initData: { visible, className, style, content } = {} },
+    { children, initData: { visible = true, className, style, content } = {} },
     ref,
   ) => {
     const [thisRef, setRef] = useState({} as NativeInstance);
