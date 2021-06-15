@@ -82,6 +82,14 @@ interface Props<T> extends ViewProps {
    * 阴影props，设置为false不显示
    */
   shadow?: false | ShadowProps;
+  /**
+   * 双行的高亮颜色
+   */
+  doubleColor?: string;
+  /**
+   * 文字对齐
+   */
+  align?: 'center' | 'between';
 }
 
 export default <T extends unknown>({
@@ -99,16 +107,33 @@ export default <T extends unknown>({
   noDataStyle,
   noDataCls,
   loading,
+  doubleColor,
   shadow,
+  align,
   ...props
 }: Props<T>) => {
   const { brandPrimary } = ConfigProvider.useContainer();
+  const isBetween = align === 'between';
+  const getJustify = (i: number) =>
+    isBetween
+      ? i === 0
+        ? 'flex-start'
+        : i === (columns?.length || 0) - 1
+        ? 'flex-end'
+        : undefined
+      : undefined;
   return (
     <NeedWrap wrap={Shadow as any} need={shadow !== false} wrapProps={shadow}>
       <View className={classNames(styles.table, className)} {...props}>
         <View className={classNames(styles.header, headerCls)}>
           {columns?.map(({ title }, i) => (
-            <View key={i} className={classNames(styles.item, itemCls)}>
+            <View
+              key={i}
+              className={classNames(styles.item, itemCls)}
+              style={{
+                justifyContent: getJustify(i),
+              }}
+            >
               {title}
             </View>
           ))}
@@ -129,16 +154,18 @@ export default <T extends unknown>({
                     ...rowStyle,
                     ...(i % 2
                       ? {
-                          backgroundColor: `rgba(${convert.hex
-                            .rgb(brandPrimary)
-                            .join(',')}, 0.1)`,
+                          backgroundColor:
+                            doubleColor ||
+                            `rgba(${convert.hex
+                              .rgb(brandPrimary)
+                              .join(',')}, 0.1)`,
                         }
                       : undefined),
                   }}
                 >
                   {columns?.map(({ dataIndex, render = v => v }, i) => (
                     <View
-                      style={itemStyle}
+                      style={{ justifyContent: getJustify(i), ...itemStyle }}
                       className={classNames(styles.item, itemCls)}
                       key={i}
                     >

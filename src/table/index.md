@@ -35,6 +35,7 @@ export default () => {
     <Space vertical size={'10px'}>
       <PartTitle>基本用法</PartTitle>
       <Table
+        align={'between'}
         loading={loading}
         dataSource={dataSource}
         columns={[
