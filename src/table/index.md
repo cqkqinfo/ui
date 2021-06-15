@@ -35,7 +35,6 @@ export default () => {
     <Space vertical size={'10px'}>
       <PartTitle>基本用法</PartTitle>
       <Table
-        align={'between'}
         loading={loading}
         dataSource={dataSource}
         columns={[
@@ -47,6 +46,20 @@ export default () => {
           },
           { title: '参考值', dataIndex: 'reference' },
           { title: '单位', dataIndex: 'unit' },
+        ]}
+      />
+      <PartTitle>两端对齐</PartTitle>
+      <Table
+        align={'between'}
+        loading={loading}
+        dataSource={dataSource}
+        columns={[
+          { title: '项目名称', dataIndex: 'name' },
+          {
+            title: '结果',
+            dataIndex: 'result',
+            render: v => <div style={{ color: '#2780D9' }}>{v}</div>,
+          },
         ]}
       />
     </Space>
