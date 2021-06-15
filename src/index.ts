@@ -236,6 +236,6 @@ export { default as commonApis } from './common-apis';
  */
 export { default as Sheet } from './sheet';
 /**
- * 弹出操作项
+ * 操作项
  */
-export { default as showActionSheet } from './show-action-sheet';
+export { default as ActionSheet } from './action-sheet';

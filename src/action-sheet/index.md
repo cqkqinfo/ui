@@ -3,28 +3,27 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 工具
-  path: /utils
+  title: 通用
+  path: /general
 ---
 
-## showActionSheet
+## ActionsSheet
 
-显示操作项
+操作项
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { Space, showActionSheet, PartTitle, Button } from '@kqinfo/ui';
-import { SheetInstance } from '@kqinfo/ui/es/sheet';
+import { Space, ActionSheet, PartTitle, Button } from '@kqinfo/ui';
 
 export default () => {
-  const sheetRef = useRef<SheetInstance>(null);
   return (
     <Space vertical size={'10px'}>
+      <ActionSheet />
       <PartTitle>一般用法</PartTitle>
       <Button
         type={'primary'}
         onTap={() => {
-          sheetRef.current?.setVisible(true);
+          ActionSheet.show({ items: ['操作项1', '操作项2'] }).then(console.log);
         }}
       >
         显示
