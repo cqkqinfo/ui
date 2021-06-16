@@ -239,3 +239,7 @@ export { default as Sheet } from './sheet';
  * 操作项
  */
 export { default as ActionSheet } from './action-sheet';
+/**
+ * 固定
+ */
+export { default as Fixed } from './fixed';
