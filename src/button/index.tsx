@@ -113,8 +113,8 @@ export default ({
          */
         width:
           process.env.REMAX_PLATFORM === undefined || block === undefined
-            ? undefined
-            : rpxToPx(710),
+            ? 'auto'
+            : undefined,
         ...props.style,
       }}
     >
