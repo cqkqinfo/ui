@@ -243,3 +243,11 @@ export { default as ActionSheet } from './action-sheet';
  * 固定
  */
 export { default as Fixed } from './fixed';
+/**
+ * 聊天组件
+ */
+export { default as Chat } from './chat';
+/**
+ * 主题色文字
+ */
+export { default as ColorText } from './color-text';
