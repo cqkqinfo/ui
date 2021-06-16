@@ -2,7 +2,7 @@ import { ScrollViewProps } from 'remax/wechat';
 import React, { PropsWithChildren, useEffect, forwardRef } from 'react';
 
 export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
-  ({ scrollIntoView, children, className, scrollY, ...props }, ref) => {
+  ({ scrollIntoView, onTap, children, className, scrollY, ...props }, ref) => {
     useEffect(() => {
       const target = scrollIntoView && document.querySelector(scrollIntoView);
       if (target) {
@@ -14,6 +14,7 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
         className={className}
         children={children}
         {...(props as any)}
+        onClick={onTap}
         ref={ref}
       />
     );
