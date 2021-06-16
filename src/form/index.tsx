@@ -182,6 +182,7 @@ const ReForm = ContainerUseWrap(
         <View style={style} className={className}>
           <RcForm<Values>
             component={false}
+            {...props}
             onFinishFailed={(e: any) => {
               setVerified(true);
               if (props.onFinishFailed) {
@@ -193,7 +194,6 @@ const ReForm = ContainerUseWrap(
                 });
               }
             }}
-            {...props}
           />
         </View>
       </NeedWrap>
