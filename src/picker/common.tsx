@@ -25,7 +25,7 @@ export interface Props
 const dataFlat = (data: PickerData[] | PickerData[][]): PickerData[] =>
   data
     .flat(3)
-    .map(item => (item.children ? [...dataFlat(item.children), item] : [item]))
+    .map(item => (item.children ? [item, ...dataFlat(item.children)] : [item]))
     .flat(3);
 
 export const getChildren = ({
