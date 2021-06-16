@@ -97,13 +97,15 @@ export default ({
         : renderField((control, meta, form) => {
             const showError = !!meta.errors.length && verified;
             const childNode =
-              typeof children === 'function'
-                ? children(control, meta, form)
-                : React.isValidElement(children)
-                ? React.cloneElement(children as React.ReactElement, {
-                    ...control,
-                  })
-                : children;
+              typeof children === 'function' ? (
+                children(control, meta, form)
+              ) : React.isValidElement(children) ? (
+                React.cloneElement(children as React.ReactElement, {
+                  ...control,
+                })
+              ) : (
+                <View>{children}</View>
+              );
             return (
               <View
                 className={classNames(
