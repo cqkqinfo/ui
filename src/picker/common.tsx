@@ -2,6 +2,7 @@ import { PickerData, PickerPropsType } from 'antd-mobile/lib/picker/PropsType';
 import { PickerProps } from '@remax/wechat/esm/hostComponents/Picker';
 import React from 'react';
 import { useControllableValue } from 'ahooks';
+import 'array-flat-polyfill';
 
 export interface Props
   extends Omit<PickerPropsType, 'data'>,
