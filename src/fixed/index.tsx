@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { View, ViewProps } from 'remax/wechat';
+import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
 
