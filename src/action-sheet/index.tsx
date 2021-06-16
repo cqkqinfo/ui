@@ -6,18 +6,18 @@ import styles from './index.less';
 import Space from '../space';
 
 export interface ShowOptions {
-  items: React.ReactNode[];
+  items: { label: React.ReactNode; value: string | number }[];
 }
 
 const data: {
   [route: string]: (
     options: ShowOptions,
-  ) => Promise<{ item: React.ReactNode; index: number }>;
+  ) => Promise<ShowOptions['items'][number]>;
 } = {};
 
 const ActionSheet = () => {
   const page = getCurrentPage();
-  const [items, setItems] = useState<React.ReactNode[]>([]);
+  const [items, setItems] = useState<ShowOptions['items']>([]);
   const ref = useRef<SheetInstance>(null);
   const promiseRef = useRef<any>({ resolve: () => {}, reject: () => {} });
   useEffect(() => {
@@ -31,16 +31,16 @@ const ActionSheet = () => {
   return (
     <Sheet ref={ref}>
       <Space vertical style={{ width: '100vw' }}>
-        {items.map((item, index) => (
+        {items.map(({ label, value }, index) => (
           <React.Fragment key={index}>
             <View
               className={styles.item}
               onTap={() => {
                 ref.current?.setVisible(false);
-                promiseRef.current.resolve({ item, index });
+                promiseRef.current.resolve({ label, value });
               }}
             >
-              {item}
+              {label}
             </View>
             {index !== items.length - 1 && <View className={styles.line} />}
           </React.Fragment>

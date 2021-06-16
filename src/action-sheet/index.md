@@ -23,7 +23,12 @@ export default () => {
       <Button
         type={'primary'}
         onTap={() => {
-          ActionSheet.show({ items: ['操作项1', '操作项2'] }).then(console.log);
+          ActionSheet.show({
+            items: [
+              { label: '操作项1', value: 1 },
+              { label: '操作项2', value: 2 },
+            ],
+          }).then(console.log);
         }}
       >
         显示
