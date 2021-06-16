@@ -1,17 +1,8 @@
 import { ScrollViewProps } from 'remax/wechat';
 import React, { PropsWithChildren, useEffect, forwardRef } from 'react';
 
-export default forwardRef(
-  (
-    {
-      scrollIntoView,
-      children,
-      className,
-      scrollY,
-      ...props
-    }: PropsWithChildren<ScrollViewProps>,
-    ref,
-  ) => {
+export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
+  ({ scrollIntoView, children, className, scrollY, ...props }, ref) => {
     useEffect(() => {
       const target = scrollIntoView && document.querySelector(scrollIntoView);
       if (target) {
