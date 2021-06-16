@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Property } from 'csstype';
 import ViewProps from '@remax/one/esm/hostComponents/View/props';
 import rpxToPx from '../rpx-to-px';
+import 'array-flat-polyfill';
 
 export interface Props
   extends Pick<
