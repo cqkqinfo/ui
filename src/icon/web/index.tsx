@@ -2,6 +2,10 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqJia from './KqJia';
+import KqAlbum from './KqAlbum';
+import KqBiaoqing from './KqBiaoqing';
+import KqVoice from './KqVoice';
 import KqXiangji from './KqXiangji';
 import KqXingxing from './KqXingxing';
 import KqTip from './KqTip';
@@ -21,6 +25,10 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-jia'
+  | 'kq-album'
+  | 'kq-biaoqing'
+  | 'kq-voice'
   | 'kq-xiangji'
   | 'kq-xingxing'
   | 'kq-tip'
@@ -47,6 +55,14 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-jia':
+      return <KqJia {...rest} />;
+    case 'kq-album':
+      return <KqAlbum {...rest} />;
+    case 'kq-biaoqing':
+      return <KqBiaoqing {...rest} />;
+    case 'kq-voice':
+      return <KqVoice {...rest} />;
     case 'kq-xiangji':
       return <KqXiangji {...rest} />;
     case 'kq-xingxing':

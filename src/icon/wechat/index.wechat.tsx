@@ -7,6 +7,10 @@ import Iconfont_wechat from './wechat/wechat';
 
 interface Props {
   name:
+    | 'kq-jia'
+    | 'kq-album'
+    | 'kq-biaoqing'
+    | 'kq-voice'
     | 'kq-xiangji'
     | 'kq-xingxing'
     | 'kq-tip'

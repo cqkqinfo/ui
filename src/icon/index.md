@@ -49,6 +49,10 @@ const names = [
   'kq-jianshao',
   'kq-xingxing',
   'kq-xiangji',
+  'kq-voice',
+  'kq-biaoqing',
+  'kq-album',
+  'kq-jia',
 ];
 
 export default () => (
