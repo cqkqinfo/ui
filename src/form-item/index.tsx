@@ -156,7 +156,11 @@ export default ({
                         ? [...label].map(i => <View key={i}>{i}</View>)
                         : label}
                     </View>
-                    {colon === undefined && !cell ? (
+                    {(colon === undefined ? (
+                      !cell
+                    ) : (
+                      colon === true
+                    )) ? (
                       <View className={styles.colon}>:</View>
                     ) : (
                       colon
