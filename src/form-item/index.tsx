@@ -99,9 +99,11 @@ export default ({
             const childNode =
               typeof children === 'function'
                 ? children(control, meta, form)
-                : React.cloneElement(children as React.ReactElement, {
+                : React.isValidElement(children)
+                ? React.cloneElement(children as React.ReactElement, {
                     ...control,
-                  });
+                  })
+                : children;
             return (
               <View
                 className={classNames(
