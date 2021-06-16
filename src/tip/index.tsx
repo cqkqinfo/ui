@@ -54,7 +54,6 @@ export default ({
     <Space
       size={8}
       alignSelf={'stretch'}
-      padding={`0 ${rpxToPx(18)}px`}
       margin={`${rpxToPx(18)}px 0 0`}
       {...props}
     >
