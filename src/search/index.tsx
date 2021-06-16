@@ -49,6 +49,7 @@ export default ({
         <View
           onTap={() => {
             handleChange('');
+            props.onConfirm?.('');
           }}
           style={{ opacity: value2 ? 1 : 0 }}
           className={styles.clear}
