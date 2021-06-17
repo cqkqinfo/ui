@@ -42,6 +42,7 @@ export default {
       'import',
       {
         libraryName: 'ahooks',
+        camel2DashComponentName: false,
         libraryDirectory: 'es',
       },
       'ahooks',
