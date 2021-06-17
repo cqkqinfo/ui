@@ -4,15 +4,15 @@ import styles from './index.module.less';
 import Space from '../space';
 import Button from '../button';
 import ColorText from '../color-text';
-import PartTitle from '../part-title';
-import FormItem from '../form-item';
-import Form from '../form';
 import Divider from '../divider';
 import Textarea from '../re-textarea';
 import Icon from '../icon';
 import Native, { NativeInstance } from '../native';
 import ConfigProvider from '../config-provider';
-import classNames from 'classnames';
+import { selectFiles } from 'parsec-hooks';
+import InfoCard from './InfoCard';
+import Voice from './voice';
+import Emoji from './emoji';
 
 interface Props {
   className?: string;
@@ -20,40 +20,44 @@ interface Props {
 
 export default ({ className }: Props) => {
   const mainRef = useRef<NativeInstance>(null);
+  const mainStyle =
+    'display:flex;flex:1;flex-direction: column;transition: all 0.3s;position: relative;overflow: hidden;';
   const [active, setActive] = useState<number>();
   const { brandPrimary } = ConfigProvider.useContainer();
   //================"更多"模块的ref================//
   const voiceMore = useRef<NativeInstance>(null);
-  const albumMore = useRef<NativeInstance>(null);
   const emojiMore = useRef<NativeInstance>(null);
   const plusMore = useRef<NativeInstance>(null);
   const setMoreVisible = useCallback(
     (index?: number) => {
+      if (index === 1) {
+        return selectFiles({ multiple: true, accept: 'image/*' });
+      }
       const visible = index !== undefined && index !== active;
-      mainRef.current?.setData(
-        {
-          className: classNames(styles.main, visible && styles.showMore),
-        },
-        () => {
-          if (index === active) {
-            setActive(undefined);
-          } else {
-            setActive(index);
-          }
-        },
-      );
+      mainRef.current?.setData({
+        style:
+          mainStyle +
+          (visible ? 'overflow: visible;transform: translateY(-523rpx);' : ''),
+      });
+      if (index === active) {
+        setActive(undefined);
+      } else {
+        setActive(index);
+      }
       //================设置"更多"模块的显示================//
-      const moreRefArr = [voiceMore, albumMore, emojiMore, plusMore];
-      moreRefArr.forEach(({ current }, i) => {
+      const moreRefArr = [voiceMore, undefined, emojiMore, plusMore];
+      moreRefArr.forEach((item, i) => {
         if (i === index && visible) {
-          current?.setData({ visible: true });
+          item?.current?.setData({ visible: true });
         } else {
-          current?.setData({ visible: false });
+          item?.current?.setData({ visible: false });
         }
       });
     },
     [active],
   );
+  //================输入控制================//
+  const [inputValue, setInputValue] = useState<string | undefined>('');
   return (
     <Space vertical className={styles.chat}>
       <Space size={20} className={styles.header}>
@@ -65,88 +69,80 @@ export default ({ className }: Props) => {
             剩余条数<ColorText>4条</ColorText>
           </Space>
         </Space>
-        <Button className={styles.actionBtn} size={'action'}>
+        <Button block={false} className={styles.actionBtn} size={'action'}>
           就诊记录
         </Button>
-        <Button className={styles.actionBtn} size={'action'}>
+        <Button block={false} className={styles.actionBtn} size={'action'}>
           结束问诊
         </Button>
       </Space>
-      <Native initData={{ className: styles.main }} ref={mainRef}>
+      <Native
+        initData={{
+          style: mainStyle,
+        }}
+        flex
+        ref={mainRef}
+      >
         <ScrollView
           className={styles.scroll}
           onTap={() => setMoreVisible(undefined)}
         >
           <Space vertical alignItems={'center'} size={20}>
             <Space />
-            <Space className={styles.infoCard} vertical size={24}>
-              <PartTitle offsetX={-20}>
-                <Space justify={'space-between'}>
-                  患者信息
-                  <ColorText underline style={{ fontWeight: 400 }}>
-                    查看详情
-                  </ColorText>
-                </Space>
-              </PartTitle>
-              <Form
-                labelStyle={{ color: '#666' }}
-                itemChildrenStyle={{ color: '#333' }}
-              >
-                <Space size={26} vertical>
-                  <Space justify={'space-between'}>
-                    <FormItem label={'姓名'}>xxxx</FormItem>
-                    <FormItem label={'年龄'}>18岁</FormItem>
-                    <FormItem label={'性别'}>男</FormItem>
-                  </Space>
-                  <FormItem label={'当次就诊'}>xxxx</FormItem>
-                  <FormItem label={'患者主述'}>18岁</FormItem>
-                  <FormItem label={'主要诊断'}>男</FormItem>
-                </Space>
-              </Form>
-            </Space>
+            <InfoCard />
             <Space />
             <Divider style={{ fontWeight: 400 }}>查看历史消息</Divider>
           </Space>
         </ScrollView>
-        <Space className={styles.footer} vertical>
-          <Space vertical size={17}>
-            <Space className={styles.inputWrap} justify={'space-between'}>
-              <Textarea className={styles.textarea} autoHeight />
-              <Button className={styles.send} size={'action'}>
-                发送
-              </Button>
-            </Space>
-            <Space justify={'space-between'} alignItems={'center'}>
-              {['kq-voice', 'kq-album', 'kq-biaoqing', 'kq-jia'].map(
-                (item, index) => (
-                  <Icon
-                    color={active === index ? brandPrimary : '#BBBBBB'}
-                    size={40}
-                    className={styles.footerIcon}
-                    name={item as any}
-                    onTap={() => {
-                      if (active === index) {
-                        setMoreVisible(undefined);
-                      } else {
-                        setMoreVisible(index);
-                      }
-                    }}
-                    key={item}
-                  />
-                ),
-              )}
-            </Space>
+        <Space className={styles.footer} vertical size={17}>
+          <Space className={styles.inputWrap} justify={'space-between'}>
+            <Textarea
+              className={styles.textarea}
+              autoHeight
+              flex
+              cursorSpacing={20}
+              onFocus={(e: any) => {
+                setMoreVisible(undefined);
+              }}
+              // onBlur={() => footerRef.current?.setData({ style: '' })}
+              value={inputValue}
+              onChange={setInputValue}
+              showConfirmBar={false}
+              disableDefaultPadding
+              confirmHold
+              confirmType={'send'}
+            />
+            <Button block={false} className={styles.send} size={'action'}>
+              发送
+            </Button>
+          </Space>
+          <Space justify={'space-between'} alignItems={'center'}>
+            {['kq-voice', 'kq-album', 'kq-biaoqing', 'kq-jia'].map(
+              (item, index) => (
+                <Icon
+                  color={active === index ? brandPrimary : '#BBBBBB'}
+                  size={40}
+                  className={styles.footerIcon}
+                  name={item as any}
+                  onTap={() => {
+                    if (active === index) {
+                      setMoreVisible(undefined);
+                    } else {
+                      setMoreVisible(index);
+                    }
+                  }}
+                  key={item}
+                />
+              ),
+            )}
           </Space>
         </Space>
         <Space className={styles.more}>
           <Native ref={voiceMore} initData={{ visible: false }}>
-            点击录音
-          </Native>
-          <Native ref={albumMore} initData={{ visible: false }}>
-            表情
+            <Voice />
           </Native>
           <Native ref={emojiMore} initData={{ visible: false }}>
-            表情
+            <Emoji onChange={value => setInputValue(inputValue + value)} />
           </Native>
           <Native ref={plusMore} initData={{ visible: false }}>
             更多

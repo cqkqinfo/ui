@@ -251,3 +251,7 @@ export { default as Chat } from './chat';
  * 主题色文字
  */
 export { default as ColorText } from './color-text';
+/**
+ * 切换器
+ */
+export { default as Swiper } from './swiper';

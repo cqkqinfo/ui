@@ -32,7 +32,7 @@
   "dependencies": {
     "@antv/f2": "^3.8.8",
     "@types/classnames": "^2.2.11",
-    "ahooks": "^2.10.0",
+    "ahooks": "^2.10.6",
     "antd": "^4.16.0",
     "antd-mobile": "^2.3.4",
     "array-flat-polyfill": "^1.0.1",
@@ -46,13 +46,14 @@
     "dayjs": "^1.10.4",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",
-    "parsec-hooks": "^0.0.149",
+    "parsec-hooks": "^0.0.150",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
     "rc-field-form": "^1.20.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remax": "^2.11.8",
+    "swiper": "^6.7.0",
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {

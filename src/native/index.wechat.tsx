@@ -1,22 +1,35 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import Native from './native';
-import React, {
-  forwardRef,
-  useRef,
-  useImperativeHandle,
-  useState,
-} from 'react';
+// @ts-ignore
+import FlexNative from './flex-native';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { NativeInstance, Props } from './index';
 
 export default forwardRef<NativeInstance, Props>(
   (
-    { children, initData: { visible = true, className, style, content } = {} },
+    {
+      children,
+      flex,
+      initData: { visible = true, className, style, content } = {},
+    },
     ref,
   ) => {
     const [thisRef, setRef] = useState({} as NativeInstance);
     useImperativeHandle(ref, () => thisRef, [thisRef]);
-    return (
+    return flex ? (
+      <FlexNative
+        content={content}
+        class-name={className}
+        style={style}
+        visible={visible}
+        bindthis={({ detail }: any) => {
+          setRef(detail);
+        }}
+      >
+        {children}
+      </FlexNative>
+    ) : (
       <Native
         content={content}
         class-name={className}

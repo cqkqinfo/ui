@@ -11,9 +11,13 @@ export default {
           if (name === 'ContainerUseWrap') {
             return `parsec-hooks/lib/${name}`;
           }
-          return `parsec-hooks/lib/${name
-            .replace(/^(use)/, '')
-            .replace(/^\S/, s => s.toLowerCase())}Hooks`;
+          if (/^(use)/.test(name)) {
+            return `parsec-hooks/lib/${name
+              .replace(/^(use)/, '')
+              .replace(/^\S/, s => s.toLowerCase())}Hooks`;
+          } else {
+            return `parsec-hooks/lib/utils/${name}`;
+          }
         },
       },
     ],
@@ -33,6 +37,14 @@ export default {
         style: true,
       },
       'antd',
+    ],
+    [
+      'import',
+      {
+        libraryName: 'ahooks',
+        libraryDirectory: 'es',
+      },
+      'ahooks',
     ],
   ],
 };

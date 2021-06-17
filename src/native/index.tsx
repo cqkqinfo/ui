@@ -26,6 +26,10 @@ export interface Props {
    * 初始数据
    */
   initData?: Data;
+  /**
+   * flex模式
+   */
+  flex?: boolean;
 }
 
 export default forwardRef<NativeInstance, Props>(

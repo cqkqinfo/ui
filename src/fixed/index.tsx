@@ -14,11 +14,11 @@ export default ({
   ...props
 }: Props) => {
   return (
-    <>
+    <View>
       {placeholder && <View className={styles.index}>{children}</View>}
       <View className={classNames(styles.fixed, className)} {...props}>
         <View className={styles.index}>{children}</View>
       </View>
-    </>
+    </View>
   );
 };
