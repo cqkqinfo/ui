@@ -35,7 +35,7 @@ export default ({
       className={classNames(styles.wrap, className)}
       {...props}
       id={id}
-      style={{ width: size, height: size, ...style }}
+      style={{ width: size + 'PX', height: size + 'PX', ...style }}
     >
       <NeedWrap
         wrap={Rotate}
