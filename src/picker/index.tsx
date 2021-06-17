@@ -33,7 +33,6 @@ export default (props: Props) => {
     if (mode === 'time' && typeof value === 'string') {
       return dayjs(dayjs().format(`YYYY-MM-DD ${value}`)).toDate();
     }
-    console.error('时间类型不正确');
     return void 0;
   }, [value, mode]);
 
