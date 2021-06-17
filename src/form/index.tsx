@@ -184,14 +184,16 @@ const ReForm = ContainerUseWrap(
             component={false}
             {...props}
             onFinishFailed={(e: any) => {
-              setVerified(true);
-              if (props.onFinishFailed) {
-                props.onFinishFailed(e);
-              } else {
-                showToast({
-                  title: e.errorFields?.[0]?.errors?.[0],
-                  icon: 'none',
-                });
+              if (e.errorFields?.length > 0) {
+                setVerified(true);
+                if (props.onFinishFailed) {
+                  props.onFinishFailed(e);
+                } else {
+                  showToast({
+                    title: e.errorFields?.[0]?.errors?.[0],
+                    icon: 'none',
+                  });
+                }
               }
             }}
           />
