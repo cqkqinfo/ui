@@ -204,7 +204,7 @@ export default ({
                     className={classNames(styles.after, afterCls, outAfterCls)}
                   >
                     {showError ? (
-                      <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
+                      <Icon size={16} name={'kq-tip'} color={'#ED4E56'} />
                     ) : (
                       after
                     )}

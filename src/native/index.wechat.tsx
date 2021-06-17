@@ -36,6 +36,7 @@ export default forwardRef<NativeInstance, Props>(
         style={style}
         visible={visible}
         bindthis={({ detail }: any) => {
+          console.log(6666666);
           setRef(detail);
         }}
       >

@@ -10,6 +10,7 @@ Component({
   },
   lifetimes: {
     ready: function() {
+      console.log(33333333, this);
       this.triggerEvent('this', this);
     },
   },

@@ -28,10 +28,8 @@ export default ({
   ...props
 }: Props) => {
   const id = useId();
-  size = typeof size === 'number' ? rpxToPx(size) : size;
-  const { width = typeof size === 'number' ? size : undefined } = useViewSize(
-    id,
-  );
+  const width =
+    typeof size === 'number' ? rpxToPx(size) : useViewSize(id).width;
   return (
     <View
       className={classNames(styles.wrap, className)}

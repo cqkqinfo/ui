@@ -52,7 +52,7 @@ export default ({
 }: Props) => {
   return (
     <Space
-      size={8}
+      size={4}
       alignSelf={'stretch'}
       margin={`${rpxToPx(18)}px 0 0`}
       {...props}
