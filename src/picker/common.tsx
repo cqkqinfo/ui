@@ -5,7 +5,7 @@ import { useControllableValue } from 'ahooks';
 import 'array-flat-polyfill';
 
 export interface Props
-  extends Omit<PickerPropsType, 'data'>,
+  extends Omit<PickerPropsType, 'value' | 'data' | 'onChange'>,
     Pick<PickerProps, 'mode' | 'start' | 'end'> {
   data?: PickerData[] | PickerData[][];
   /**
@@ -20,6 +20,14 @@ export interface Props
    * 包裹children的类名
    */
   childrenCls?: string;
+  /**
+   * value值
+   */
+  value?: string | number | (string | number)[];
+  /**
+   * onChange事件
+   */
+  onChange?: (v?: string | number | (string | number)[]) => void;
 }
 
 const dataFlat = (data: PickerData[] | PickerData[][]): PickerData[] =>
@@ -37,7 +45,10 @@ export const getChildren = ({
 }: Props): React.ReactNode => {
   const render =
     dataFlat(data)
-      .filter(({ value: v }: any) => value === v || value?.includes?.(v))
+      .filter(
+        ({ value: v }: any) =>
+          value === v || (Array.isArray(value) && value?.includes?.(v)),
+      )
       .map((data: any) => data.label)
       .join('-') || value;
   const result = renderValue ? render || children : children;
