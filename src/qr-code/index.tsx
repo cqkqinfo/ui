@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Image } from 'remax/one';
 // @ts-ignore
 import QRCode from 'qrcode';
@@ -13,20 +13,28 @@ export default ({
   ...restProps
 }: QrCodeProps) => {
   const { data: src } = usePromise(
-    useCallback(
-      () =>
-        QRCode.toDataURL(content, {
-          errorCorrectionLevel: 'H',
-          type: 'image/jpeg',
-          width: 500,
-          margin: 1,
-          color: {
-            dark: darkColor,
-            light: lightColor,
-          },
-        }),
-      [content, darkColor, lightColor],
-    ),
+    ({
+      lightColor,
+      darkColor,
+      content,
+    }: Pick<QrCodeProps, 'lightColor' | 'darkColor' | 'content'>) =>
+      QRCode.toDataURL(content, {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        width: 500,
+        margin: 1,
+        color: {
+          dark: darkColor,
+          light: lightColor,
+        },
+      }),
+    {
+      params: {
+        lightColor,
+        darkColor,
+        content,
+      },
+    },
   );
   return <Image src={src as string} mode="aspectFill" {...restProps} />;
 };
