@@ -31,4 +31,28 @@ export default {
    * 男人
    */
   man: 'https://z3.ax1x.com/2021/05/28/2FFXUx.png',
+  /**
+   * 出生证
+   */
+  csz: 'https://z3.ax1x.com/2021/06/18/RpJIit.png',
+  /**
+   * 户口所在页
+   */
+  hkb: 'https://z3.ax1x.com/2021/06/18/RpJhdA.png',
+  /**
+   * 户口增减页
+   */
+  hkb2: 'https://z3.ax1x.com/2021/06/18/RpJoJP.png',
+  /**
+   * 手持身份证
+   */
+  scsfz: 'https://z3.ax1x.com/2021/06/18/RpJ4II.png',
+  /**
+   * 身份证正面
+   */
+  sfzzm: 'https://z3.ax1x.com/2021/06/18/RpYI0J.png',
+  /**
+   * 身份证反面
+   */
+  sfzfm: 'https://z3.ax1x.com/2021/06/18/RpYo79.png',
 };
