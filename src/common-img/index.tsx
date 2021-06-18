@@ -55,4 +55,8 @@ export default {
    * 身份证反面
    */
   sfzfm: 'https://z3.ax1x.com/2021/06/18/RpYo79.png',
+  /**
+   * 医保卡
+   */
+  ybk: 'https://z3.ax1x.com/2021/06/18/Rpal9I.png',
 };
