@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "@antv/f2": "^3.8.8",
+    "@sentry/react": "^6.7.1",
+    "@sentry/tracing": "^6.7.1",
     "@types/classnames": "^2.3.1",
     "ahooks": "^2.10.6",
     "antd": "^4.16.0",
@@ -53,6 +55,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remax": "^2.11.8",
+    "sentry-miniapp": "^0.11.1",
     "swiper": "^6.7.0",
     "wxbarcode": "^1.0.2"
   },
