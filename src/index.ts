@@ -255,3 +255,7 @@ export { default as ColorText } from './color-text';
  * 切换器
  */
 export { default as Swiper } from './swiper';
+/**
+ * sentry错误监控
+ */
+export { default as Sentry } from './sentry';

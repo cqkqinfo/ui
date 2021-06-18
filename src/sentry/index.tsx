@@ -33,3 +33,5 @@ Sentry.init = ({ beforeSend, ...options } = {}) => {
     ...options,
   });
 };
+
+export default Sentry;
