@@ -183,7 +183,7 @@ const ReForm = ContainerUseWrap(
           <RcForm<Values>
             component={false}
             {...props}
-            onFinishFailed={(e: any) => {
+            onFinishFailed={e => {
               if (e.errorFields?.length > 0) {
                 setVerified(true);
                 if (props.onFinishFailed) {
@@ -194,6 +194,8 @@ const ReForm = ContainerUseWrap(
                     icon: 'none',
                   });
                 }
+              } else {
+                props.onFinishFailed?.(e.values as any);
               }
             }}
           />

@@ -49,6 +49,7 @@ export default () => {
         />
         <FormItem
           label={'城市'}
+          rules={[{ required: true }]}
           name={'city'}
           after={<Icon name={'kq-right'} color={'#666'} />}
         >
