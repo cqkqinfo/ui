@@ -4,6 +4,7 @@ import Space from '../space';
 import styles from './index.module.less';
 import provider from '../config-provider';
 import classNames from 'classnames';
+import ScrollView from '../scroll-view';
 
 export default ({
   tabs,
@@ -15,29 +16,37 @@ export default ({
 }: Props) => {
   const { brandPrimary } = provider.useContainer();
   return (
-    <Space className={classNames(styles.tab, className)} style={style}>
-      {tabs.map(({ content, index }) => (
-        <Space
-          flex={1}
-          key={index}
-          className={classNames(styles.item, itemCls)}
-          alignItems={'center'}
-          justify={'center'}
-          onTap={() => {
-            onChange?.(index);
-          }}
-          style={
-            current === index
-              ? {
-                  color: brandPrimary,
-                  borderColor: brandPrimary,
-                }
-              : {}
-          }
-        >
-          {content}
-        </Space>
-      ))}
-    </Space>
+    <ScrollView
+      scrollX
+      className={classNames(styles.tab, className)}
+      style={style}
+      scrollIntoView={`tab${current}`}
+    >
+      <Space>
+        {tabs.map(({ content, index }) => (
+          <Space
+            flex={1}
+            key={index}
+            className={classNames(styles.item, itemCls)}
+            alignItems={'center'}
+            justify={'center'}
+            id={`tab${index}`}
+            onTap={() => {
+              onChange?.(index);
+            }}
+            style={
+              current === index
+                ? {
+                    color: brandPrimary,
+                    borderColor: brandPrimary,
+                  }
+                : {}
+            }
+          >
+            {content}
+          </Space>
+        ))}
+      </Space>
+    </ScrollView>
   );
 };
