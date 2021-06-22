@@ -33,6 +33,7 @@ export default ({
   labelWidth: outLabelWidth,
   style,
   labelJustify: outLabelJustify = 'right',
+  renderReadOnlyValue,
   ...props
 }: ItemProps) => {
   const store = FormStore.useContainer();
@@ -183,8 +184,14 @@ export default ({
                   {readOnly ? (
                     <>
                       <Field shouldUpdate>
-                        {(_, __, { getFieldValue }) =>
-                          name && getFieldValue(name)
+                        {(_, __, { getFieldValue, getFieldsValue }) =>
+                          name &&
+                          (renderReadOnlyValue
+                            ? renderReadOnlyValue(
+                                getFieldValue(name),
+                                getFieldsValue(),
+                              )
+                            : getFieldValue(name))
                         }
                       </Field>
                       <View

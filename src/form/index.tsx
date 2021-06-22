@@ -125,6 +125,10 @@ interface BaseItemProps {
    * label的宽度，建议使用em单位
    */
   labelWidth?: number | string;
+  /**
+   * 渲染只读时的值
+   */
+  renderReadOnlyValue?: (value: any, values: any) => React.ReactNode;
 }
 
 export interface ItemProps<Values = {}>
@@ -142,7 +146,10 @@ export interface ItemProps<Values = {}>
 
 export interface Props<Values = {}>
   extends Omit<FormProps<Values>, 'className'>,
-    Omit<Pick<ItemProps<Values>, keyof BaseItemProps>, 'strLabel' | 'label'> {
+    Omit<
+      Pick<ItemProps<Values>, keyof BaseItemProps>,
+      'strLabel' | 'label' | 'renderReadOnlyValue'
+    > {
   /**
    * 子项的类名
    */
