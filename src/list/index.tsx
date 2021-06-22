@@ -170,9 +170,7 @@ const List = forwardRef(
   },
 );
 
-export default React.memo(List, (p1, p2) => p1.getList === p2.getList) as <
-  D extends unknown
->(
+export default List as <D extends unknown>(
   props: Props<D> & {
     ref?: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>;
   },
