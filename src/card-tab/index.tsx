@@ -21,8 +21,9 @@ export default ({
       className={classNames(styles.tab, className)}
       style={style}
       scrollIntoView={`tab${current}`}
+      scrollWithAnimation
     >
-      <Space flex={1} justify={'space-between'}>
+      <Space flex={1} justify={'space-between'} style={{ height: '100%' }}>
         {tabs.map(({ content, index }) => (
           <Space
             flex={1}
