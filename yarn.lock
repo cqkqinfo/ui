@@ -10003,10 +10003,10 @@ parse5@6.0.1, parse5@^6.0.0:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
 
-parsec-hooks@^0.0.151:
-  version "0.0.151"
-  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-0.0.151.tgz#cf57f6162fbefd6f527dd2bb6ab57aebb953bb7b"
-  integrity sha512-0H9kvC5MkFodyNSaHJJNT7nHEhxfaWxrMrfRc24Xcqo+LZ1U3FtGrd4hoi4NxAB9xKbNE6jutrB0tzNDqbFylQ==
+parsec-hooks@^0.0.152:
+  version "0.0.152"
+  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-0.0.152.tgz#67cc5b507efe5b73fedd2a96d34ce956c263c09d"
+  integrity sha512-ngjVbJCmzPEpIzs27nPBwqG+F0ke85EEk5DBl5sNX2E8eTn7WOpoxib0pVYHlIloX9R2F3Cs9lhAJu7n86FM+g==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"

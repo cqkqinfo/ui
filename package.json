@@ -48,7 +48,7 @@
     "dayjs": "^1.10.4",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",
-    "parsec-hooks": "^0.0.151",
+    "parsec-hooks": "^0.0.152",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
     "rc-field-form": "^1.20.0",
