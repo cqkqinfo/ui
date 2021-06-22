@@ -52,7 +52,7 @@ export default ({
     noStyle = outNoStyle,
     itemStyle,
     itemChildrenStyle,
-    verified,
+    errorFields,
   } = store || {};
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
@@ -95,7 +95,9 @@ export default ({
       {noStyle
         ? renderField()
         : renderField((control, meta, form) => {
-            const showError = !!meta.errors.length && verified;
+            const showError =
+              !!meta.errors.length &&
+              errorFields[0]?.name.includes(name as any);
             const childNode =
               typeof children === 'function' ? (
                 children(control, meta, form)

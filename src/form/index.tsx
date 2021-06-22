@@ -21,15 +21,20 @@ import {
   StoreValue,
   Meta,
   FormInstance,
+  ValidateErrorEntity,
 } from 'rc-field-form/es/interface';
 
 export const FormStore = createContainer(initialState => {
-  const [verified, setVerified] = useState(false);
-  return { ...((initialState || {}) as any), verified, setVerified } as Props<
-    any
-  > & {
-    verified: boolean;
-    setVerified: (verified: boolean) => void;
+  const [errorFields, setErrorFields] = useState<
+    ValidateErrorEntity['errorFields']
+  >([]);
+  return {
+    ...((initialState || {}) as any),
+    errorFields,
+    setErrorFields,
+  } as Props<any> & {
+    errorFields: ValidateErrorEntity['errorFields'];
+    setErrorFields: (errorFields: ValidateErrorEntity['errorFields']) => void;
   };
 });
 
@@ -172,7 +177,7 @@ const ReForm = ContainerUseWrap(
     style,
     ...props
   }: Props<Values>) => {
-    const { setVerified } = FormStore.useContainer();
+    const { setErrorFields } = FormStore.useContainer();
     return (
       <NeedWrap
         need={card === undefined ? cell : card}
@@ -184,8 +189,8 @@ const ReForm = ContainerUseWrap(
             component={false}
             {...props}
             onFinishFailed={e => {
+              setErrorFields(e.errorFields);
               if (e.errorFields?.length > 0) {
-                setVerified(true);
                 if (props.onFinishFailed) {
                   props.onFinishFailed(e);
                 } else {
