@@ -22,7 +22,7 @@ export default ({
       style={style}
       scrollIntoView={`tab${current}`}
     >
-      <Space>
+      <Space flex={1} justify={'space-between'}>
         {tabs.map(({ content, index }) => (
           <Space
             flex={1}
