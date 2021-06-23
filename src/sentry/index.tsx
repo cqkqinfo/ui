@@ -3,7 +3,13 @@ import Sentry from './sentry';
 const newSentry: typeof Sentry = {
   ...Sentry,
   init: ({ beforeSend, ...options } = {}) => {
-    if (!window.location.host.includes('localhost')) {
+    if (
+      process.env.REMAX_PLATFORM === 'wechat'
+        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          __wxConfig.envVersion === 'release'
+        : !window.location.host.includes('localhost')
+    ) {
       Sentry.init({
         dsn: 'https://2306075284d9444894a37d888ef6977a@sentry.parsec.com.cn/13',
         integrations: [new Sentry.Integrations.GlobalHandlers()],
