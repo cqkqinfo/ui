@@ -6,6 +6,7 @@ import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
 import Space from '../space';
 import Icon from '../icon';
+import Sentry from '../sentry';
 
 export interface Props
   extends Partial<
@@ -106,6 +107,14 @@ export default ({
         },
       )}
       {...props}
+      onTap={e => {
+        Sentry.addBreadcrumb({
+          category: 'ui.click',
+          message: `点击了${children}`,
+          level: Sentry.Severity.Info,
+        });
+        props.onTap?.(e);
+      }}
     >
       <Space size={'.5em'} alignItems={'center'}>
         {loading ? (

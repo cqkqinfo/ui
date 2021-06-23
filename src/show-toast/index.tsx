@@ -1,12 +1,16 @@
-import { Toast } from 'antd-mobile';
-import { Options } from './index.wechat';
+import showToast from './one';
+import { Options } from './one/index.wechat';
+import Sentry from '@/sentry';
 
-export default ({ icon = 'success', title, duration, mask = false }: Options) =>
-  new Promise(resolve => {
-    if (icon === 'none') {
-      Toast.show(title, duration, mask);
-      setTimeout(resolve, duration);
-    } else {
-      Toast.success(title, duration, () => resolve(''), mask);
-    }
+export default (options: Options) => {
+  Sentry.addBreadcrumb({
+    category: 'ui.showToast',
+    message: `显示了${options.title}`,
+    data: options,
+    level: Sentry.Severity.Info,
   });
+  if (options.icon === 'none') {
+    Sentry.captureEvent(new Error(options.title));
+  }
+  return showToast(options);
+};
