@@ -22,7 +22,7 @@ axios.interceptors.response.use(
     Sentry.addBreadcrumb({
       category: 'xhr',
       message: 'response.data',
-      data: response.data,
+      data: response?.data,
       level: Sentry.Severity.Info,
     });
     return response;
@@ -31,7 +31,7 @@ axios.interceptors.response.use(
     Sentry.addBreadcrumb({
       category: 'xhr',
       message: 'response.data',
-      data: response.data,
+      data: response?.data,
       level: Sentry.Severity.Error,
     });
     return response;
