@@ -1,6 +1,6 @@
 import showToast from './one';
 import { Options } from './one/index.wechat';
-import Sentry from '@/sentry';
+import Sentry from '../sentry';
 
 export default (options: Options) => {
   Sentry.addBreadcrumb({
