@@ -76,7 +76,9 @@ export default ({
           ? value?.length === 18 && IDCard(value).isVerified
             ? Promise.resolve()
             : Promise.reject(new Error('请输入正确的身份证号码'))
-          : Promise.reject(new Error('请输入身份证号码'));
+          : required
+          ? Promise.reject(new Error('请输入身份证号码'))
+          : Promise.resolve();
       };
       delete item.type;
     }

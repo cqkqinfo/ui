@@ -35,12 +35,13 @@ const Demo = (props: any) => {
         <FormItem
           label={'身份证号'}
           name={'idCard'}
-          rules={[{ type: 'idCard' }]}
+          rules={[{ type: 'idCard', required: true }]}
         />
         {props.cell && (
           <FormItem
             label={'地区'}
             name={'city'}
+            rules={[{ required: true }]}
             after={<Icon name={'kq-right'} color={'#666'} />}
           >
             <Picker cols={3} data={addressOptions}>
