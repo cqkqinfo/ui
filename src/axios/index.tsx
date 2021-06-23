@@ -6,8 +6,11 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
   axios.interceptors.request.use(config => {
     Sentry.addBreadcrumb({
       category: 'xhr',
-      message: 'request.config',
-      data: config,
+      message: 'request.url',
+      data: {
+        url: config.url,
+        headers: config.headers,
+      },
       level: Sentry.Severity.Info,
     });
     Sentry.addBreadcrumb({
@@ -36,7 +39,7 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
         data: response?.data,
         level: Sentry.Severity.Error,
       });
-      return response;
+      return Promise.reject(response);
     },
   );
 };
