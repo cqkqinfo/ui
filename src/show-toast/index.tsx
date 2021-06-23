@@ -1,6 +1,7 @@
 import showToast from './one';
 import { Options } from './one/index.wechat';
 import Sentry from '../sentry';
+import { Severity } from '@sentry/types';
 
 export default (options: Options) => {
   Sentry.addBreadcrumb({
@@ -10,7 +11,7 @@ export default (options: Options) => {
     level: Sentry.Severity.Info,
   });
   if (options.icon === 'none') {
-    Sentry.captureEvent(new Error(options.title));
+    Sentry.captureEvent({ message: options.title, level: Severity.Info });
   }
   return showToast(options);
 };
