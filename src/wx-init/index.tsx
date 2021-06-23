@@ -43,7 +43,10 @@ export default ({
             };
           });
       }
-      wx.config(config);
+      wx.config({
+        ...config,
+        jsApiList: [...Object.keys(wx), 'requestWxFacePictureVerify'],
+      });
       Sentry.setExtra('wxConfig', config);
       wx.error((res: any) => {
         Sentry.setExtra('wxError', res);
