@@ -4,6 +4,7 @@ const newSentry: typeof Sentry = {
   ...Sentry,
   init: ({ beforeSend, ...options } = {}) => {
     Sentry.init({
+      dsn: 'https://2306075284d9444894a37d888ef6977a@sentry.parsec.com.cn/13',
       integrations: [new Sentry.Integrations.GlobalHandlers()],
       beforeSend(event, hint) {
         /* tslint:disable:no-string-literal only-arrow-functions */

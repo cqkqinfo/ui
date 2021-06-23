@@ -14429,6 +14429,11 @@ websocket-extensions@>=0.1.1:
   version "0.1.4"
   resolved "https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
 
+weixin-js-sdk@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npmjs.org/weixin-js-sdk/-/weixin-js-sdk-1.6.0.tgz#ff50484d8118ce1208f11248cf4a1c0831577514"
+  integrity sha512-3IYQH7aalJGFJrwdT3epvTdR1MboMiH7vIZ5BRL2eYOJ12BNah7csoMkmSZzkq1+l92sSq29XdTCVjCJoK2sBQ==
+
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"

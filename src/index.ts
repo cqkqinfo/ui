@@ -259,3 +259,7 @@ export { default as Swiper } from './swiper';
  * sentry错误监控
  */
 export { default as Sentry } from './sentry';
+/**
+ * h5微信初始化
+ */
+export { default as wxInit } from './wx-init';
