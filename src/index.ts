@@ -166,7 +166,7 @@ export { default as showLoading } from './show-loading';
 /**
  * axios网络请求
  */
-export { default as axios } from './axios/axios';
+export { default as axios } from './axios';
 /**
  * 显示弹窗
  */
