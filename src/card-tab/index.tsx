@@ -6,14 +6,14 @@ import provider from '../config-provider';
 import classNames from 'classnames';
 import ScrollView from '../scroll-view';
 
-export default ({
+export default <T extends unknown>({
   tabs,
   current,
   className,
   itemCls,
   onChange,
   style,
-}: Props) => {
+}: Props<T>) => {
   const { brandPrimary } = provider.useContainer();
   return (
     <ScrollView
@@ -24,10 +24,10 @@ export default ({
       scrollWithAnimation
     >
       <Space flex={1} justify={'space-between'}>
-        {tabs.map(({ content, index }) => (
+        {tabs.map(({ content, index }, i) => (
           <Space
             flex={1}
-            key={index}
+            key={i}
             className={classNames(styles.item, itemCls)}
             alignItems={'center'}
             justify={'center'}
