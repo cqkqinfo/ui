@@ -42,6 +42,7 @@
     "axios-wechat-adapter": "^0.0.8",
     "china-division": "^2.3.1",
     "china-id-card": "^1.0.3",
+    "circular-json": "^0.5.9",
     "classnames": "^2.3.1",
     "color-convert": "^2.0.1",
     "create-api-hooks": "^0.0.30",
