@@ -162,6 +162,7 @@ const List = forwardRef(
         footer,
         list,
         list2,
+        refreshList,
         renderItem,
         renderItemHeight,
         setShowError,

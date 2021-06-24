@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable @typescript-eslint/no-this-alias,no-undef */
 /* eslint-disable no-var */
 var idCount = 0;
 
@@ -18,32 +18,33 @@ Component({
   },
   lifetimes: {
     ready: function() {
-      this.setData({
-        id: `visible${idCount++}`,
-        height: this.properties.height || 1,
-      });
-      var offsetY = this.properties.perf
-        ? // eslint-disable-next-line no-undef
-          wx.getSystemInfoSync().windowHeight * 2
-        : 0;
-      var that = this;
-      // eslint-disable-next-line no-undef
-      wx.createIntersectionObserver(this)
-        .relativeToViewport({
-          top: offsetY,
-          bottom: offsetY,
-        })
-        .observe(`#${this.data.id}`, function({
-          intersectionRect: { height },
-        }) {
-          var isShow = height > 0;
-          that.setData({ isShow });
-          if (isShow) {
-            that.triggerEvent('visible');
-          } else {
-            that.triggerEvent('hidden');
-          }
+      wx.nextTick(() => {
+        this.setData({
+          id: `visible${idCount++}`,
+          height: this.properties.height || 1,
         });
+        var offsetY = this.properties.perf
+          ? // eslint-disable-next-line no-undef
+            wx.getSystemInfoSync().windowHeight * 2
+          : 0;
+        var that = this;
+        wx.createIntersectionObserver(this)
+          .relativeToViewport({
+            top: offsetY,
+            bottom: offsetY,
+          })
+          .observe(`#${this.data.id}`, function({
+            intersectionRect: { height },
+          }) {
+            var isShow = height > 0;
+            that.setData({ isShow });
+            if (isShow) {
+              that.triggerEvent('visible');
+            } else {
+              that.triggerEvent('hidden');
+            }
+          });
+      });
     },
   },
 });
