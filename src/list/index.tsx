@@ -126,6 +126,7 @@ const List = forwardRef(
             <Button
               onTap={() => {
                 setShowError(false);
+                refreshList();
               }}
               style={{ margin: '20px auto' }}
             >
