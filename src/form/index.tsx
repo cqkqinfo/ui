@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import RcForm, {
   FormProps,
   useForm,
@@ -13,7 +13,7 @@ import Shadow, { Props as ShadowProps } from '../shadow';
 import NeedWrap from '../need-wrap';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
-import { View, ViewProps } from 'remax/one';
+import { ViewProps } from 'remax/one';
 import {
   RuleType,
   ValidatorRule,
@@ -23,6 +23,8 @@ import {
   FormInstance,
   ValidateErrorEntity,
 } from 'rc-field-form/es/interface';
+import Space from '../space';
+const CircularJSON = require('circular-json');
 
 export const FormStore = createContainer(initialState => {
   const [errorFields, setErrorFields] = useState<
@@ -171,27 +173,48 @@ export interface Props<Values = {}>
    * shadow组件的props
    */
   shadowProps?: ShadowProps;
+  /**
+   * 绑定的数据
+   */
+  values?: Values;
 }
 
 const ReForm = ContainerUseWrap(
   FormStore,
-  <Values extends unknown>({
+  <Values extends {} = any>({
     card,
     shadowProps,
     cell = false,
     colon = !cell,
     className,
     style,
+    values,
     ...props
   }: Props<Values>) => {
-    const { setErrorFields } = FormStore.useContainer();
+    const { setErrorFields, form } = FormStore.useContainer();
+    const preValues = useRef<Values>();
+    useEffect(() => {
+      if (
+        values &&
+        CircularJSON.stringify(preValues.current) !==
+          CircularJSON.stringify(values)
+      ) {
+        preValues.current = { ...values };
+        form && form.setFieldsValue(values);
+      }
+    }, [form, values]);
     return (
       <NeedWrap
         need={card === undefined ? cell : card}
         wrap={Shadow as any}
         wrapProps={{ card: true, ...shadowProps }}
       >
-        <View style={style} className={className}>
+        <Space
+          style={style}
+          className={className}
+          alignSelf={'stretch'}
+          vertical
+        >
           <RcForm<Values>
             component={false}
             {...props}
@@ -211,7 +234,7 @@ const ReForm = ContainerUseWrap(
               }
             }}
           />
-        </View>
+        </Space>
       </NeedWrap>
     );
   },
