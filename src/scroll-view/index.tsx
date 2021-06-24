@@ -9,7 +9,7 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       const target =
         scrollIntoView && document.querySelector(`#${scrollIntoView}`);
       if (target) {
-        target.scrollIntoView();
+        target.scrollIntoView(false);
       }
     }, [scrollIntoView]);
     return (
