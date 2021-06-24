@@ -14,12 +14,17 @@ export interface Props {
    * 阴影颜色
    */
   shadowColor?: string;
+  /**
+   * 是否选中
+   */
+  active?: boolean;
 }
 
 export default ({
   children,
   card,
   shadowColor: outShadowColor,
+  active,
   ...props
 }: Props) => {
   const { brandPrimary, shadowColor = brandPrimary } = provider.useContainer();
@@ -28,6 +33,7 @@ export default ({
     ...children.props,
     ...props,
     style: {
+      cursor: active !== undefined ? 'pointer' : undefined,
       ...(card
         ? {
             boxSizing: 'border-box',
@@ -41,6 +47,7 @@ export default ({
       boxShadow: `0 0 ${rpx20} rgba(${convert.hex
         .rgb(shadowColor)
         .join(',')}, 0.15)`,
+      border: `1px solid ${active ? shadowColor : 'transparent'}`,
     },
   });
 };
