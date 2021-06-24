@@ -61,6 +61,14 @@ interface Props extends SpaceProps {
    * 右边文字最后一行
    */
   footer?: React.ReactNode;
+  /**
+   * 最右边的地方
+   */
+  after?: React.ReactNode;
+  /**
+   * 最右边的地方的类名
+   */
+  afterCls?: React.ReactNode;
 }
 
 export default ({
@@ -79,12 +87,15 @@ export default ({
   imgFooter,
   imgCls,
   imgFooterCls,
+  after,
+  afterCls,
   ...props
 }: Props) => {
   return (
     <Space
       className={classNames(styles.item, className)}
       size={20}
+      flex={1}
       {...props}
       alignItems={'center'}
     >
@@ -104,7 +115,7 @@ export default ({
           )}
         </Space>
       )}
-      <Space size={20} vertical {...leftSpaceProps}>
+      <Space size={20} flex={1} vertical {...leftSpaceProps}>
         {(title || subtitle) && (
           <Space
             size={20}
@@ -126,6 +137,7 @@ export default ({
           </Space>
         )}
       </Space>
+      {after && <Space className={classNames(afterCls)}>{after}</Space>}
     </Space>
   );
 };
