@@ -1,20 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useSize } from 'ahooks';
 import { useForceUpdate } from 'parsec-hooks';
+import { useEffect } from 'react';
 
 export default (id: string) => {
-  const [wh, setWH] = useState<{
-    width?: number;
-    height?: number;
-  }>({});
-  const { offsetWidth: width, offsetHeight: height } =
-    document.getElementById(id) || {};
   const { forceUpdate } = useForceUpdate();
+  const { width, height } = useSize(document.getElementById(id));
   useEffect(() => {
     if (height === undefined) {
       forceUpdate();
-    } else {
-      setWH({ width, height });
     }
   }, [width, height, forceUpdate]);
-  return wh;
+  return { width, height };
 };
