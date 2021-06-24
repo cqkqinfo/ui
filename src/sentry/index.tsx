@@ -7,7 +7,7 @@ const newSentry: typeof Sentry = {
       process.env.REMAX_PLATFORM === 'wechat'
         ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          __wxConfig.envVersion === 'release'
+          __wxConfig.envVersion !== 'develop'
         : !window.location.host.includes('localhost')
     ) {
       Sentry.init({
