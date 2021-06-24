@@ -28,7 +28,8 @@ export default ({
   return mode && React.isValidElement(children)
     ? React.cloneElement(children, {
         ...children.props,
-        onChange: (value: any) => {
+        onChange: (...arg: any[]) => {
+          let [value] = arg;
           if (value === undefined) {
             return onChange(value);
           }
@@ -44,6 +45,7 @@ export default ({
               : undefined;
           }
           onChange(value);
+          children.props?.onChange(...arg);
         },
         value,
       })
