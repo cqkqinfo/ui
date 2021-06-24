@@ -1,10 +1,10 @@
 import React from 'react';
 
-export interface Props {
+export interface Props<T> {
   /**
    * 标签项
    */
-  tabs: { content: React.ReactNode; index: number }[];
+  tabs: { content: React.ReactNode; index: T }[];
   /**
    * 样式类名
    */
@@ -16,11 +16,11 @@ export interface Props {
   /**
    * 当前tab的索引
    */
-  current?: number | string;
+  current?: T;
   /**
    * current改变的事件回调
    */
-  onChange?: (current: number | string) => void;
+  onChange?: (current: T) => void;
   style?: React.CSSProperties;
   /**
    * 是否是受控模式

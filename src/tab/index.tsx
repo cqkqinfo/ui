@@ -7,7 +7,7 @@ import provider from '../config-provider';
 import { Props } from './types';
 import CardTab from '../card-tab';
 
-export default (props: Props) => {
+export default <T extends unknown>(props: Props<T>) => {
   const {
     tabs,
     className,
@@ -21,13 +21,13 @@ export default (props: Props) => {
   const { brandPrimary } = provider.useContainer();
   const firstTabIndex = tabs?.[0].index;
   let [active, setActive] = useEffectState(
-    current || firstTabIndex || undefined,
+    current !== undefined ? current : firstTabIndex || undefined,
   );
   if (control) {
     active = current;
     setActive = onChange as any;
   }
-  const handleChange = (index: number | string) => {
+  const handleChange = (index: T) => {
     setActive?.(index);
     onChange?.(index);
   };
@@ -36,7 +36,7 @@ export default (props: Props) => {
   return (
     <View className={classNames(styles.tab, className)} style={style}>
       {tabs.map(({ content, index }, i) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={i}>
           <View
             className={classNames(styles.item, itemCls, {
               [styles.active]: active === index,
