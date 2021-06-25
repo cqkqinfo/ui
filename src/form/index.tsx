@@ -146,7 +146,7 @@ export interface ItemProps<Values = {}>
       ) => React.ReactNode);
 }
 
-export interface Props<Values = {}>
+export interface Props<Values extends unknown = any>
   extends Omit<FormProps<Values>, 'className'>,
     Omit<
       Pick<ItemProps<Values>, keyof BaseItemProps>,
