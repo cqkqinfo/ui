@@ -215,25 +215,31 @@ const ReForm = ContainerUseWrap(
           alignSelf={'stretch'}
           vertical
         >
-          <RcForm<Values>
-            component={false}
-            {...props}
-            onFinishFailed={e => {
-              setErrorFields(e.errorFields);
-              if (e.errorFields?.length > 0) {
-                if (props.onFinishFailed) {
-                  props.onFinishFailed(e);
+          <NeedWrap
+            need={!!form}
+            wrap={RcForm as any}
+            wrapProps={{
+              component: false,
+              ...props,
+              onFinishFailed: (e: any) => {
+                setErrorFields(e.errorFields);
+                if (e.errorFields?.length > 0) {
+                  if (props.onFinishFailed) {
+                    props.onFinishFailed(e);
+                  } else {
+                    showToast({
+                      title: e.errorFields?.[0]?.errors?.[0],
+                      icon: 'none',
+                    });
+                  }
                 } else {
-                  showToast({
-                    title: e.errorFields?.[0]?.errors?.[0],
-                    icon: 'none',
-                  });
+                  props.onFinishFailed?.(e.values as any);
                 }
-              } else {
-                props.onFinishFailed?.(e.values as any);
-              }
+              },
             }}
-          />
+          >
+            {props.children}
+          </NeedWrap>
         </Space>
       </NeedWrap>
     );

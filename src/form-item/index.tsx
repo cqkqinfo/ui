@@ -100,13 +100,18 @@ export default ({
         : renderField((control, meta, form) => {
             const showError =
               !!meta.errors.length &&
-              errorFields[0]?.name.includes(name as any);
+              (!errorFields.length ||
+                errorFields[0]?.name.includes(name as any));
             const childNode =
               typeof children === 'function' ? (
                 children(control, meta, form)
               ) : React.isValidElement(children) ? (
                 React.cloneElement(children as React.ReactElement, {
                   ...control,
+                  onChange: (...arg: any) => {
+                    control.onChange(...arg);
+                    children.props.onChange?.(...arg);
+                  },
                 })
               ) : (
                 <View>{children}</View>
