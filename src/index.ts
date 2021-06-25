@@ -263,3 +263,7 @@ export { default as Sentry } from './sentry';
  * h5微信初始化
  */
 export { default as wxInit } from './wx-init';
+/**
+ * 根据地址获取id
+ */
+export { default as getAddressId } from './get-address-id';
