@@ -51,6 +51,7 @@ export default ({
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
     noStyle = outNoStyle,
+    card,
     itemStyle,
     itemChildrenStyle,
     errorFields,
@@ -116,6 +117,15 @@ export default ({
               ) : (
                 <View>{children}</View>
               );
+            const errIcon = (after || showError) && (
+              <View className={classNames(styles.after, afterCls, outAfterCls)}>
+                {showError ? (
+                  <Icon size={16} name={'kq-tip'} color={'#ED4E56'} />
+                ) : (
+                  after
+                )}
+              </View>
+            );
             return (
               <View
                 className={classNames(
@@ -125,6 +135,7 @@ export default ({
                   className,
                   {
                     [styles.cell]: cell,
+                    [styles.card]: card,
                     [styles.vertical]: vertical,
                   },
                 )}
@@ -132,7 +143,7 @@ export default ({
                 {...props}
               >
                 {label && (
-                  <View>
+                  <View className={styles.labelWrap}>
                     {requiredMark && (!vertical || required) && (
                       <View
                         className={classNames(
@@ -175,6 +186,7 @@ export default ({
                     ) : (
                       colon
                     )}
+                    {vertical && errIcon}
                   </View>
                 )}
                 <View
@@ -215,17 +227,7 @@ export default ({
                     childNode
                   )}
                 </View>
-                {(after || showError) && (
-                  <View
-                    className={classNames(styles.after, afterCls, outAfterCls)}
-                  >
-                    {showError ? (
-                      <Icon size={16} name={'kq-tip'} color={'#ED4E56'} />
-                    ) : (
-                      after
-                    )}
-                  </View>
-                )}
+                {!vertical && errIcon}
               </View>
             );
           })}

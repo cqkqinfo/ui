@@ -47,6 +47,12 @@
         padding-top: 20px;
       }
     }
+    &.card {
+      margin: 20px 0 0;
+      .labelWrap {
+        margin-bottom: 10px;
+      }
+    }
   }
   &.error {
     color: #ed4e56;
@@ -59,11 +65,17 @@
   }
 }
 
+.labelWrap {
+  display: flex;
+  align-items: center;
+}
+
 .label {
   display: inline-flex;
 }
 .after {
   margin-left: 10px;
+  display: inline-flex;
 }
 
 .mark {
