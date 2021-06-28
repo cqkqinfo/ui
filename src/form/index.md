@@ -76,4 +76,73 @@ export default () => {
 };
 ```
 
+### 多个 Form 统一管理
+
+```tsx
+import React, { useState } from 'react';
+import {
+  Space,
+  Form,
+  FormItem,
+  Button,
+  PartTitle,
+  Shadow,
+  Icon,
+  addressOptions,
+  Page,
+  Picker,
+} from '@kqinfo/ui';
+
+export default () => {
+  const [form] = Form.useForm();
+  return (
+    <Form form={form} onFinish={console.log}>
+      <Space vertical size={'10px'}>
+        <PartTitle>Form1</PartTitle>
+        <Form cell>
+          <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+          <FormItem label={'性别'} name={'sex'} rules={[{ required: true }]}>
+            <Picker
+              data={[
+                { value: '男', label: '男' },
+                { value: '女', label: '女' },
+              ]}
+            >
+              请选择
+            </Picker>
+          </FormItem>
+        </Form>
+
+        <PartTitle>Form2</PartTitle>
+        <Form cell>
+          <FormItem
+            label={'身份证号'}
+            name={'idCard'}
+            rules={[{ type: 'idCard', required: true }]}
+          />
+          <FormItem
+            label={'地区'}
+            name={'city'}
+            rules={[{ required: true }]}
+            after={<Icon name={'kq-right'} color={'#666'} />}
+          >
+            <Picker cols={3} data={addressOptions}>
+              请选择
+            </Picker>
+          </FormItem>
+        </Form>
+        <Button
+          type={'primary'}
+          onTap={() => {
+            form.submit();
+          }}
+        >
+          提交
+        </Button>
+      </Space>
+    </Form>
+  );
+};
+```
+
 <API></API>
