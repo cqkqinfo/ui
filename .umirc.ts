@@ -18,11 +18,20 @@ export default defineConfig({
         style: true,
       },
     ],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd',
+    ],
   ],
   extraPostCSSPlugins: [
     require('postcss-plugin-px2rem')({
       rootValue: 100,
-      exclude: /(.dumi)|(antd-mobile)/,
+      exclude: /(.dumi)|(antd)/,
     }),
   ],
 });
