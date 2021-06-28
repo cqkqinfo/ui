@@ -15,7 +15,7 @@ export default defineConfig({
       {
         libraryName: 'antd-mobile',
         libraryDirectory: 'es',
-        style: 'less',
+        style: true,
       },
     ],
   ],

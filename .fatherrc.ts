@@ -25,7 +25,7 @@ export default {
       'import',
       {
         libraryName: 'antd-mobile',
-        style: true,
+        style: 'less',
       },
       'antd-mobile',
     ],
@@ -34,7 +34,7 @@ export default {
       {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        style: true,
+        style: 'less',
       },
       'antd',
     ],
