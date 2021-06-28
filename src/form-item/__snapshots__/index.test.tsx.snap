@@ -4,13 +4,16 @@ exports[`表单项 渲染 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      class="space vertical"
+      style="line-height: 1; padding: 0px 10px; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15); border: 1px solid transparent;"
     >
       <div
         class="item cell"
         initialvalue="1"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 0;"
@@ -47,8 +50,8 @@ exports[`表单项 渲染 1`] = `
               style="background: none;"
             >
               <div
-                class="dot dotCheck"
-                style="border-color: #2780d9; background: rgb(255, 255, 255);"
+                class="dot"
+                style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
               />
               身份证
             </div>
@@ -68,7 +71,9 @@ exports[`表单项 渲染 1`] = `
       <div
         class="item cell"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 1;"
@@ -80,13 +85,10 @@ exports[`表单项 渲染 1`] = `
             style="justify-content: flex-end;"
           >
             <div>
-              身
+              手
             </div>
             <div>
-              份
-            </div>
-            <div>
-              证
+              机
             </div>
             <div>
               号
@@ -99,7 +101,7 @@ exports[`表单项 渲染 1`] = `
         >
           <input
             class="input"
-            placeholder="请输入身份证号"
+            placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
             toutiao-selection-start="999"

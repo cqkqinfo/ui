@@ -4,12 +4,15 @@ exports[`表单 card模式 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      class="space vertical"
+      style="line-height: 1; padding: 0px 10px; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15); border: 1px solid transparent;"
     >
       <div
-        class="item"
+        class="item card"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 0;"
@@ -53,9 +56,11 @@ exports[`表单 card模式 1`] = `
         </div>
       </div>
       <div
-        class="item"
+        class="item card"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 1;"
@@ -110,12 +115,15 @@ exports[`表单 cell模式 1`] = `
 <body>
   <div>
     <div
-      style="box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding: 0px 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      class="space vertical"
+      style="line-height: 1; padding: 0px 10px; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15); border: 1px solid transparent;"
     >
       <div
         class="item cell"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 0;"
@@ -156,7 +164,9 @@ exports[`表单 cell模式 1`] = `
       <div
         class="item cell"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 1;"
@@ -205,11 +215,16 @@ exports[`表单 cell模式 1`] = `
 exports[`表单 两端对齐 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="space vertical"
+      style="line-height: 1; align-self: stretch;"
+    >
       <div
         class="item"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 0;"
@@ -255,7 +270,9 @@ exports[`表单 两端对齐 1`] = `
       <div
         class="item"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 1;"
@@ -309,11 +326,16 @@ exports[`表单 两端对齐 1`] = `
 exports[`表单 渲染 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="space vertical"
+      style="line-height: 1; align-self: stretch;"
+    >
       <div
         class="item"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 0;"
@@ -359,7 +381,9 @@ exports[`表单 渲染 1`] = `
       <div
         class="item"
       >
-        <div>
+        <div
+          class="labelWrap"
+        >
           <div
             class="mark"
             style="opacity: 1;"

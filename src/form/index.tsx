@@ -153,6 +153,7 @@ export interface Props<Values extends unknown = any>
       | 'form'
       | 'onValuesChange'
       | 'onFinishFailed'
+      | 'children'
       | 'onFinish'
     >,
     Omit<
