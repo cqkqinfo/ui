@@ -147,7 +147,14 @@ export interface ItemProps<Values = {}>
 }
 
 export interface Props<Values extends unknown = any>
-  extends Omit<FormProps<Values>, 'className'>,
+  extends Pick<
+      FormProps<Values>,
+      | 'initialValues'
+      | 'form'
+      | 'onValuesChange'
+      | 'onFinishFailed'
+      | 'onFinish'
+    >,
     Omit<
       Pick<ItemProps<Values>, keyof BaseItemProps>,
       'strLabel' | 'label' | 'renderReadOnlyValue'
