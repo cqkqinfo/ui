@@ -91,6 +91,7 @@ import {
   addressOptions,
   Page,
   Picker,
+  TransferChange,
 } from '@kqinfo/ui';
 
 export default () => {
@@ -112,7 +113,6 @@ export default () => {
             </Picker>
           </FormItem>
         </Form>
-
         <PartTitle>Form2</PartTitle>
         <Form cell>
           <FormItem
@@ -129,6 +129,90 @@ export default () => {
             <Picker cols={3} data={addressOptions}>
               请选择
             </Picker>
+          </FormItem>
+        </Form>
+        <Button
+          type={'primary'}
+          onTap={() => {
+            form.submit();
+          }}
+        >
+          提交
+        </Button>
+      </Space>
+    </Form>
+  );
+};
+```
+
+### 远程获取数据自动填充
+
+```tsx
+import React, { useEffect, useState } from 'react';
+import {
+  Space,
+  Form,
+  FormItem,
+  Button,
+  PartTitle,
+  Shadow,
+  Icon,
+  addressOptions,
+  Loading,
+  Page,
+  Picker,
+  TransferChange,
+} from '@kqinfo/ui';
+
+export default () => {
+  const [form] = Form.useForm();
+  const [values, setValues] = useState<any>();
+  useEffect(() => {
+    setTimeout(() => {
+      setValues({
+        name: '小明',
+        sex: '男',
+        idCard: '511xxxxxxxxxxxxxxx',
+        city: '重庆市-市辖区-渝北区',
+      });
+    }, 3000);
+  }, []);
+  return (
+    <Form form={form} onFinish={console.log} values={values}>
+      {!values && <Loading />}
+      <Space vertical size={'10px'}>
+        <PartTitle>Form1</PartTitle>
+        <Form cell>
+          <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+          <FormItem label={'性别'} name={'sex'} rules={[{ required: true }]}>
+            <Picker
+              data={[
+                { value: '男', label: '男' },
+                { value: '女', label: '女' },
+              ]}
+            >
+              请选择
+            </Picker>
+          </FormItem>
+        </Form>
+        <PartTitle>Form2</PartTitle>
+        <Form cell>
+          <FormItem
+            label={'身份证号'}
+            name={'idCard'}
+            rules={[{ type: 'idCard', required: true }]}
+          />
+          <FormItem
+            label={'地区'}
+            name={'city'}
+            rules={[{ required: true }]}
+            after={<Icon name={'kq-right'} color={'#666'} />}
+          >
+            <TransferChange mode={'city'}>
+              <Picker cols={3} data={addressOptions}>
+                请选择
+              </Picker>
+            </TransferChange>
           </FormItem>
         </Form>
         <Button
