@@ -47,7 +47,7 @@ export default ({
       boxShadow: `0 0 ${rpx20} rgba(${convert.hex
         .rgb(shadowColor)
         .join(',')}, 0.15)`,
-      border: `1px solid ${active ? shadowColor : 'transparent'}`,
+      border: active ? `1px solid ${shadowColor}` : undefined,
     },
   });
 };
