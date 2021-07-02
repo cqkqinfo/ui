@@ -46,7 +46,9 @@
     "classnames": "^2.3.1",
     "color-convert": "^2.0.1",
     "create-api-hooks": "^0.0.30",
+    "crypto-js": "^4.0.0",
     "dayjs": "^1.10.4",
+    "js-base64": "^3.6.1",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",
     "parsec-hooks": "^0.0.152",
@@ -70,6 +72,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
+    "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
