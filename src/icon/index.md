@@ -53,6 +53,7 @@ const names = [
   'kq-biaoqing',
   'kq-album',
   'kq-jia',
+  'kq-filter',
 ];
 
 export default () => (
