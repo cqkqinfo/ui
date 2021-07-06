@@ -31,7 +31,7 @@ export default ({
         await axios
           .post(
             apiUrl ||
-              '//ih.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig',
+              '//ih.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig?platformId=2214',
             data,
           )
           .then(({ data: { data } }) => {
