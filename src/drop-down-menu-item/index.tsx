@@ -49,7 +49,7 @@ export interface DropDownMenuIremProps {
   arrowsColor?: string;
   arrowsSize?: number;
   /**
-   * 如果返回false，不响应展开折叠
+   * 自定义点击事件，如果返回false，不响应展开折叠
    */
   onTap?: () => boolean | void;
 }
