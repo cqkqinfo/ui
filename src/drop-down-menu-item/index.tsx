@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import Icon from '../icon';
 import Fold from '../fold';
-import { IconNames } from '@/icon/web';
+import { IconNames } from '../icon/web';
 
 export interface DropDownMenuIremProps {
   /**
