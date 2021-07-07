@@ -48,7 +48,10 @@ export interface DropDownMenuIremProps {
    */
   arrowsColor?: string;
   arrowsSize?: number;
-  onTap?: () => boolean | void; // 如果返回false，不响应展开折叠
+  /**
+   * 如果返回false，不响应展开折叠
+   */
+  onTap?: () => boolean | void;
 }
 
 export default (props: DropDownMenuIremProps) => {
