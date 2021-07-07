@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import Icon from '../icon';
 import Fold from '../fold';
+import { IconNames } from '@/icon/web';
 
 export interface DropDownMenuIremProps {
   /**
@@ -37,6 +38,7 @@ export interface DropDownMenuIremProps {
       value: any;
     },
   ) => void;
+  icon?: IconNames;
   /**
    * 箭头的类名
    */
@@ -45,6 +47,8 @@ export interface DropDownMenuIremProps {
    * 箭头的颜色
    */
   arrowsColor?: string;
+  arrowsSize?: number;
+  onTap?: () => boolean | void; // 如果返回false，不响应展开折叠
 }
 
 export default (props: DropDownMenuIremProps) => {
@@ -54,8 +58,11 @@ export default (props: DropDownMenuIremProps) => {
     showOptions,
     title,
     value,
+    icon,
     arrowsCls,
     arrowsColor = '#bbb',
+    arrowsSize,
+    onTap,
     onChange,
     children,
   } = props as DropDownMenuIremProps & {
@@ -77,13 +84,21 @@ export default (props: DropDownMenuIremProps) => {
         props.className,
       )}
       onTap={() => {
-        onToggle?.();
+        if (onTap) {
+          // 如果返回false，不响应展开折叠
+          if (onTap() !== false) {
+            onToggle?.();
+          }
+        } else {
+          onToggle?.();
+        }
       }}
     >
       <View className={styles.flexCenter}>
         {selectItem?.text || title}
         <Icon
-          name={'kq-down'}
+          size={arrowsSize}
+          name={icon || 'kq-down'}
           color={arrowsColor}
           className={classNames(
             styles.icon,
@@ -92,7 +107,7 @@ export default (props: DropDownMenuIremProps) => {
           )}
         />
       </View>
-      <Fold folded={!showOptions} className={styles.down} maxHeight={'100vh'}>
+      <Fold folded={!showOptions} className={styles.down} maxHeight={'50vh'}>
         {options?.map(item => {
           return (
             <View
