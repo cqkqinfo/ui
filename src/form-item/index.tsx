@@ -74,7 +74,7 @@ export default ({
     if (item.type === 'idCard') {
       item.validator = (_, value) => {
         return value
-          ? value?.length === 18 && IDCard(value).isVerified
+          ? value?.length === 18 && IDCard(value.toUpperCase()).isVerified
             ? Promise.resolve()
             : Promise.reject(new Error('请输入正确的身份证号码'))
           : required
