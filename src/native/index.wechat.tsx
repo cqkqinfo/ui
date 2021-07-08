@@ -3,8 +3,13 @@
 import Native from './native';
 // @ts-ignore
 import FlexNative from './flex-native';
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import { NativeInstance, Props } from './index';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
+import { NativeInstance, Props, Data } from './index';
 
 export default forwardRef<NativeInstance, Props>(
   (
@@ -15,7 +20,11 @@ export default forwardRef<NativeInstance, Props>(
     },
     ref,
   ) => {
-    const [thisRef, setRef] = useState({} as NativeInstance);
+    const dataRef = useRef<Data>({ visible, className, style, content });
+    const [thisRef, setRef] = useState<NativeInstance>({
+      data: {},
+      setData: data => (dataRef.current = data),
+    });
     useImperativeHandle(ref, () => thisRef, [thisRef]);
     return flex ? (
       <FlexNative
@@ -24,6 +33,7 @@ export default forwardRef<NativeInstance, Props>(
         style={style}
         visible={visible}
         bindthis={({ detail }: any) => {
+          detail.setData(dataRef.current);
           setRef(detail);
         }}
       >
@@ -36,6 +46,7 @@ export default forwardRef<NativeInstance, Props>(
         style={style}
         visible={visible}
         bindthis={({ detail }: any) => {
+          detail.setData(dataRef.current);
           setRef(detail);
         }}
       >
