@@ -1,6 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
 import Native from '../native';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import { useRefState } from 'parsec-hooks';
 import Space from '../space';
