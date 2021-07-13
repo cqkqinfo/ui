@@ -8876,6 +8876,11 @@ lodash.uniq@^4.3.0, lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=
+
 lodash.zip@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/lodash.zip/-/lodash.zip-4.2.0.tgz#ec6662e4896408ed4ab6c542a3990b72cc080020"
@@ -11710,6 +11715,14 @@ react-native-swipeout@^2.2.2:
     create-react-class "^15.6.0"
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
+
+react-photo-view@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.npmjs.org/react-photo-view/-/react-photo-view-0.5.2.tgz#4f3ee8fa82b5a53ee6a7e9b1f9dadd5b0f8a9f39"
+  integrity sha512-yhErS6+EHDHSKionIAWi51MJDEbc++pnFGxHKplM/kLYq4oZGKh7GOwqSs/nkG6L7AFMpK+r941YkD1E8IMJkg==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.uniqueid "^4.0.1"
 
 react-reconciler@0.25.1:
   version "0.25.1"

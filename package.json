@@ -57,6 +57,7 @@
     "rc-field-form": "^1.20.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-photo-view": "^0.5.2",
     "remax": "^2.11.8",
     "sentry-miniapp": "^0.11.1",
     "swiper": "^6.7.0",

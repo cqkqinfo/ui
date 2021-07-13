@@ -271,3 +271,7 @@ export { default as getAddressId } from './get-address-id';
  * 加密解密
  */
 export { default as AES } from './aes';
+/**
+ * 图片预览
+ */
+export { default as previewImage } from './preview-image';
