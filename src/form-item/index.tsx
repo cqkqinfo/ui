@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { View } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
@@ -19,7 +19,7 @@ export default ({
   after,
   rules = [],
   vertical: outVertical,
-  children = name ? <Input placeholder={`请输入${strLabel}`} /> : <View />,
+  children,
   requiredMark: outRequiredMark,
   readOnly: outReadOnly,
   requiredMarkCls: outRequiredMarkCls,
@@ -85,6 +85,24 @@ export default ({
     }
     return item;
   });
+  const inputFocus = useRef(false);
+  children = useMemo(
+    () =>
+      children === undefined ? (
+        name ? (
+          <Input
+            onFocus={() => (inputFocus.current = true)}
+            onBlur={() => (inputFocus.current = false)}
+            placeholder={`请输入${strLabel}`}
+          />
+        ) : (
+          <View />
+        )
+      ) : (
+        children
+      ),
+    [children, name, strLabel],
+  );
   const renderField = (node = children) => (
     <NeedWrap
       need={!!name || node instanceof Function}
@@ -102,7 +120,8 @@ export default ({
             const showError =
               !!meta.errors.length &&
               (!errorFields.length ||
-                errorFields[0]?.name.includes(name as any));
+                errorFields[0]?.name.includes(name as any)) &&
+              !inputFocus.current;
             const childNode =
               typeof children === 'function' ? (
                 children(control, meta, form)
@@ -111,14 +130,19 @@ export default ({
                   ...control,
                   onChange: (...arg: any) => {
                     control.onChange(...arg);
-                    children.props.onChange?.(...arg);
+                    if (React.isValidElement(children)) {
+                      children.props.onChange?.(...arg);
+                    }
                   },
                 })
               ) : (
                 <View>{children}</View>
               );
-            const errIcon = (after || showError) && (
-              <View className={classNames(styles.after, afterCls, outAfterCls)}>
+            const errIcon = (
+              <View
+                className={classNames(styles.after, afterCls, outAfterCls)}
+                style={{ display: after || showError ? undefined : 'none' }}
+              >
                 {showError ? (
                   <Icon size={16} name={'kq-tip'} color={'#ED4E56'} />
                 ) : (
