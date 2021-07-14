@@ -1,5 +1,4 @@
 import { Modal } from 'antd-mobile';
-import './index.less';
 
 const fn = ({
   title = '提示',
