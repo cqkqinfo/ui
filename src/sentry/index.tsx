@@ -1,4 +1,5 @@
 import Sentry from './sentry';
+import getVersion from '../get-version';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
@@ -38,6 +39,7 @@ const newSentry: typeof Sentry = {
         // of transactions for performance monitoring.
         // We recommend adjusting this value in production
         tracesSampleRate: 1.0,
+        release: getVersion,
         ...options,
       });
     }
