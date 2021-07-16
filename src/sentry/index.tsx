@@ -1,5 +1,6 @@
 import Sentry from './sentry';
 import getVersion from '../get-version';
+import './init';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
