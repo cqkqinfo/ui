@@ -24,10 +24,10 @@ Page = options => {
               level: Severity.Info,
             });
           }
-          callback(...arg);
+          callback?.(...arg);
         });
       };
-      options['onLoad'].call(this, ...arg);
+      options['onLoad']?.call(this, ...arg);
     },
   });
 };
