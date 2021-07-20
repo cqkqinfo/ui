@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import { Base64 } from 'js-base64';
+import { Base64 } from 'js-base64/base64';
 
 const key = CryptoJS.enc.Utf8.parse('3afb44a7f4110ac9'); // 十六位十六进制数作为密钥
 // const iv = CryptoJS.enc.Utf8.parse(''); // 十六位十六进制数作为密钥偏移量 /
