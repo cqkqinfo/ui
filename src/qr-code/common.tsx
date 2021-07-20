@@ -13,4 +13,8 @@ export default interface QrCodeProps extends ImageProps {
    * 二维码背景颜色
    */
   lightColor?: string;
+  /**
+   * 设置二维码回调
+   */
+  onSetSrc?: (src: string) => void;
 }

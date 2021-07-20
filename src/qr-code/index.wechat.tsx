@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Image } from 'remax/one';
 import QrCodeProps from './common';
 // @ts-ignore
 import QR from 'qrcode-base64';
 
-export default ({ content, className, ...restProps }: QrCodeProps) => {
+export default ({
+  content,
+  className,
+  onSetSrc,
+  ...restProps
+}: QrCodeProps) => {
   const src = useMemo(
     () =>
       QR.drawImg(content, {
@@ -15,6 +20,9 @@ export default ({ content, className, ...restProps }: QrCodeProps) => {
       }),
     [content],
   );
+  useEffect(() => {
+    onSetSrc?.(src);
+  }, [onSetSrc, src]);
   return (
     <Image className={className} src={src} mode="aspectFill" {...restProps} />
   );

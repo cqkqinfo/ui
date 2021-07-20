@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Image } from 'remax/one';
 // @ts-ignore
 import QRCode from 'qrcode';
@@ -10,9 +10,10 @@ export default ({
   content,
   darkColor,
   lightColor,
+  onSetSrc,
   ...restProps
 }: QrCodeProps) => {
-  const { data: src } = usePromise(
+  const { data: src } = usePromise<any, string>(
     ({
       lightColor,
       darkColor,
@@ -36,5 +37,8 @@ export default ({
       },
     },
   );
+  useEffect(() => {
+    onSetSrc?.(src);
+  }, [onSetSrc, src]);
   return <Image src={src as string} mode="aspectFill" {...restProps} />;
 };
