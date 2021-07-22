@@ -1,12 +1,12 @@
 import CryptoJS from 'crypto-js';
-import { Base64 } from 'js-base64/base64';
+import Base64 from 'base64-js';
 
 const key = CryptoJS.enc.Utf8.parse('3afb44a7f4110ac9'); // 十六位十六进制数作为密钥
 // const iv = CryptoJS.enc.Utf8.parse(''); // 十六位十六进制数作为密钥偏移量 /
 
 export const Decrypt = (word: string) => {
   const encryptedHexStr = CryptoJS.enc.Hex.parse(
-    Uint8Array2HexString(Base64.toUint8Array(word)),
+    Uint8Array2HexString(Base64.toByteArray(word)),
   );
   const srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
   const decrypt = CryptoJS.AES.decrypt(srcs, AES.key, {
@@ -24,7 +24,7 @@ export const Encrypt = (word: string) => {
     mode: CryptoJS.mode.ECB,
     padding: CryptoJS.pad.Pkcs7,
   });
-  return Base64.fromUint8Array(
+  return Base64.fromByteArray(
     HexString2Uint8Array(encrypted.ciphertext.toString()),
   );
 };
