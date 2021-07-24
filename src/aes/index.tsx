@@ -1,32 +1,37 @@
-import CryptoJS from 'crypto-js';
+import * as aesjs from 'aes-js';
 import Base64 from 'base64-js';
 
-const key = CryptoJS.enc.Utf8.parse('3afb44a7f4110ac9'); // 十六位十六进制数作为密钥
-// const iv = CryptoJS.enc.Utf8.parse(''); // 十六位十六进制数作为密钥偏移量 /
+let aes: aesjs.ModeOfOperation.ModeOfOperationECB;
 
-export const Decrypt = (word: string) => {
-  const encryptedHexStr = CryptoJS.enc.Hex.parse(
-    Uint8Array2HexString(Base64.toByteArray(word)),
-  );
-  const srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
-  const decrypt = CryptoJS.AES.decrypt(srcs, AES.key, {
-    iv: AES.key, // iv为空时使用key代替
-    mode: CryptoJS.mode.ECB,
-    padding: CryptoJS.pad.Pkcs7,
-  });
-  const decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
-  return decryptedStr.toString();
+/**
+ *
+ * @param key 更换Key 重新生成aes实例
+ * @returns
+ */
+const create = (key: string) => {
+  aes = new aesjs.ModeOfOperation.ecb(aesjs.utils.utf8.toBytes(key));
+  return aes;
+};
+create('3afb44a7f4110ac9');
+
+const Decrypt = (word: string) => {
+  const unit8 = Base64.toByteArray(word);
+  const str = Uint8Array2HexString(unit8);
+  const hex = aesjs.utils.hex.toBytes(str);
+  const dec = aes.decrypt(hex);
+  const pkc = aesjs.padding.pkcs7.strip(dec);
+  const utf8Str = aesjs.utils.utf8.fromBytes(pkc);
+  return utf8Str;
 };
 
-export const Encrypt = (word: string) => {
-  const encrypted = CryptoJS.AES.encrypt(word, AES.key, {
-    iv: AES.key, // iv为空时使用key代替
-    mode: CryptoJS.mode.ECB,
-    padding: CryptoJS.pad.Pkcs7,
-  });
-  return Base64.fromByteArray(
-    HexString2Uint8Array(encrypted.ciphertext.toString()),
-  );
+const Encrypt = (word: string) => {
+  const utf8Byte = aesjs.utils.utf8.toBytes(word);
+  const pkc = aesjs.padding.pkcs7.pad(utf8Byte);
+  const enc = aes.encrypt(pkc);
+  const hex = aesjs.utils.hex.fromBytes(enc);
+  const unit8 = HexString2Uint8Array(hex);
+  const str = Base64.fromByteArray(unit8);
+  return str;
 };
 
 /**
@@ -60,7 +65,7 @@ const AES = {
   Encrypt,
   HexString2Uint8Array,
   Uint8Array2HexString,
-  key,
+  create,
 };
 
 export default AES;
