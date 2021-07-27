@@ -10,10 +10,32 @@ Page = options => {
     ...options,
     onLoad(...arg: any[]) {
       const nativeSetData = this.setData;
+      const fn = (data: any) =>
+        Object.entries(data || {}).forEach(([key, value]: any) => {
+          if (key.includes('hover-')) {
+            delete data[key];
+          } else if (
+            ['webp', 'lazy-load', 'show-menu-by-longpress'].includes(key) &&
+            !value
+          ) {
+            delete data[key];
+          } else if (value instanceof Array) {
+            if (value.length === 0) {
+              delete data[key];
+            }
+          } else if (typeof value === 'object') {
+            // if (key === 'props') {
+            //   value.id = value.id || data.id;
+            // }
+            fn(value);
+          }
+        });
       this.setData = (data: any, callback: any) => {
         const startTime = +new Date();
+        fn(data);
         nativeSetData.call(this, data, (...arg: any[]) => {
           const runTime = +new Date() - startTime;
+          console.log(runTime);
           if (runTime > 1500) {
             Sentry.addBreadcrumb({
               level: Sentry.Severity.Info,
