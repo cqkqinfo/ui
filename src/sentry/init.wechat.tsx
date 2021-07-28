@@ -35,7 +35,7 @@ Page = options => {
         fn(data);
         nativeSetData.call(this, data, (...arg: any[]) => {
           const runTime = +new Date() - startTime;
-          console.log(runTime);
+          // console.log(runTime);
           if (runTime > 1500) {
             Sentry.addBreadcrumb({
               level: Sentry.Severity.Info,

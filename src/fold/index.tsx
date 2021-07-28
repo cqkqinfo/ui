@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, ViewProps } from 'remax/one';
-import useViewSize from '../use-view-size';
-import { useRefState } from 'parsec-hooks';
+import { getWH } from '../use-view-size';
+import { useRerenderCallback } from 'parsec-hooks';
 
-export interface Props extends React.PropsWithChildren<ViewProps> {
+export interface Props extends ViewProps {
   /**
    * 是否折叠
    * @default false
@@ -13,6 +13,7 @@ export interface Props extends React.PropsWithChildren<ViewProps> {
    * 手动设置高度
    */
   maxHeight?: string;
+  children?: React.ReactNode;
 }
 
 let count = 0;
@@ -24,18 +25,16 @@ export default ({
   maxHeight: outMaxHeight,
   ...props
 }: Props) => {
-  const { height } = useViewSize(id);
-  const [maxHeight, setMaxHeight, maxHeightRef] = useRefState<
-    number | undefined
-  >(undefined);
+  const [maxHeight, setMaxHeight] = useState<number | undefined>(undefined);
+  const rerenderCallback = useRerenderCallback();
   useEffect(() => {
     setMaxHeight(undefined);
-  }, [props.children, setMaxHeight]);
-  useEffect(() => {
-    if (maxHeightRef.current === undefined) {
-      setMaxHeight(height);
-    }
-  }, [height, maxHeightRef, setMaxHeight, props.children]);
+    rerenderCallback(() => {
+      getWH(id).then(({ height }) => {
+        setMaxHeight(height);
+      });
+    });
+  }, [setMaxHeight, props.children, rerenderCallback, id]);
   return (
     <View
       id={id}
@@ -44,7 +43,10 @@ export default ({
         overflow: 'hidden',
         ...(folded
           ? { maxHeight: 0 }
-          : { maxHeight: outMaxHeight || `${maxHeight}PX` }),
+          : {
+              maxHeight:
+                outMaxHeight || maxHeight ? `${maxHeight}PX` : maxHeight,
+            }),
         ...style,
       }}
       {...props}

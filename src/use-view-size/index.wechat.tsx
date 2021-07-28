@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { createSelectorQuery } from 'remax/wechat';
 
+export const getWH = (id: string) =>
+  new Promise(resolve => {
+    const query = createSelectorQuery();
+    query.select(`#${id}`).boundingClientRect(data => {
+      resolve(data);
+    });
+    query.exec();
+  });
+
 export default (id: string) => {
   const [wh, setWH] = useState<{
     width?: number;
