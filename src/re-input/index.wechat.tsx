@@ -30,6 +30,7 @@ export default (props: UseInputOption) => {
     confirmHold,
     showConfirmBar,
     type,
+    placeholderClassName,
     onConfirm,
   } = useInput(props);
   return (
@@ -49,6 +50,7 @@ export default (props: UseInputOption) => {
       disableDefaultPadding={disableDefaultPadding}
       cursorSpacing={cursorSpacing}
       defaultValue={defaultValue}
+      placeholderClassName={placeholderClassName}
       disabled={disabled}
       maxLength={maxLength}
       password={password}

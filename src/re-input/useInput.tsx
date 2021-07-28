@@ -45,6 +45,10 @@ export interface UseInputOption
    * 确认类型
    */
   confirmType?: string;
+  /**
+   * 占位字符类名
+   */
+  placeholderClassName?: string;
 }
 
 export default ({

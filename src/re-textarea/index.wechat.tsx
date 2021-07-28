@@ -30,6 +30,7 @@ export default (props: UseInputOption) => {
     confirmHold,
     showConfirmBar,
     type,
+    placeholderClassName,
     onConfirm,
   } = useInput(props);
   return (
@@ -53,6 +54,7 @@ export default (props: UseInputOption) => {
       maxLength={maxLength}
       password={password}
       confirmType={confirmType}
+      placeholderClassName={placeholderClassName}
       confirmHold={confirmHold}
       showConfirmBar={showConfirmBar}
       type={type}

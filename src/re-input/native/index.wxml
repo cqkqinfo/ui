@@ -17,6 +17,7 @@
   max-length="{{maxLength}}"
   password="{{password}}"
   confirm-type="{{confirmType}}"
+  placeholder-class-name="{{placeholderClassName}}"
   type="{{type}}"
   confirm-hold="{{confirmHold}}"
   show-confirm-bar="{{showConfirmBar}}"

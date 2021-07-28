@@ -21,6 +21,7 @@ Component({
     maxLength: Number,
     password: Boolean,
     confirmType: String,
+    placeholderClassName: String,
     type: String,
     confirmHold: Boolean,
     showConfirmBar: Boolean,
