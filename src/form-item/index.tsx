@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { View } from 'remax/one';
+import { View, ViewProps } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
 import { FormStore, ItemProps } from '../form';
@@ -10,6 +10,14 @@ import classNames from 'classnames';
 // @ts-ignore
 import IDCard from 'china-id-card';
 import Icon from '../icon';
+import { useEffectState } from 'parsec-hooks';
+
+const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
+  const [myProps] = useEffectState(props, {
+    wait: 0,
+  });
+  return <View {...myProps} />;
+};
 
 export default ({
   label,
@@ -139,7 +147,7 @@ export default ({
                 <View>{children}</View>
               );
             const errIcon = (
-              <View
+              <LazyUpdate
                 className={classNames(styles.after, afterCls, outAfterCls)}
                 style={{ display: after || showError ? undefined : 'none' }}
               >
@@ -148,10 +156,10 @@ export default ({
                 ) : (
                   after
                 )}
-              </View>
+              </LazyUpdate>
             );
             return (
-              <View
+              <LazyUpdate
                 className={classNames(
                   styles.item,
                   itemCls,
@@ -252,7 +260,7 @@ export default ({
                   )}
                 </View>
                 {!vertical && errIcon}
-              </View>
+              </LazyUpdate>
             );
           })}
     </NeedWrap>
