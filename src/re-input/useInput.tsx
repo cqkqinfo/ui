@@ -65,7 +65,7 @@ export default ({
     },
     onInput: useCallback(
       (e: any) => {
-        const value = e.detail?.value || e.target.value;
+        const value = e.detail?.value || e.target?.value;
         onChange?.(value);
         return {
           value: value || '',

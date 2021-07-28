@@ -206,7 +206,9 @@ export default ({
                       )}
                     >
                       {typeof label === 'string'
-                        ? [...label].map(i => <View key={i}>{i}</View>)
+                        ? [...label].map((item, index) => (
+                            <View key={index}>{item}</View>
+                          ))
                         : label}
                     </View>
                     {(colon === undefined ? (
