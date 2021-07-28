@@ -275,3 +275,39 @@ export { default as AES } from './aes';
  * 图片预览
  */
 export { default as previewImage } from './preview-image';
+/**
+ * 获取位置
+ */
+export { default as getLocation } from './get-location';
+/**
+ * 获取本地储存
+ */
+export { default as getStorageSync } from './get-storage-sync';
+/**
+ * 设置本地储存
+ */
+export { default as setStorageSync } from './set-storage-sync';
+/**
+ * 移除本地储存
+ */
+export { default as removeStorageSync } from './remove-storage-sync';
+/**
+ * 清除本地储存
+ */
+export { default as clearStorageSync } from './clear-storage-sync';
+/**
+ * 微信登录
+ */
+export { default as login } from './login';
+/**
+ * 地图组件
+ */
+export { default as Map } from './map';
+/**
+ * 创建地图上下文
+ */
+export { default as createMapContext } from './create-map-context';
+/**
+ * 订阅消息
+ */
+export { default as requestSubscribeMessage } from './request-subscribe-message';
