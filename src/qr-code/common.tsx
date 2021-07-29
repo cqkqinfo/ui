@@ -1,4 +1,4 @@
-import { ImageProps } from 'remax/one';
+import { ImageProps } from 'remax/wechat';
 
 export default interface QrCodeProps extends ImageProps {
   /**
@@ -17,4 +17,8 @@ export default interface QrCodeProps extends ImageProps {
    * 设置二维码回调
    */
   onSetSrc?: (src: string) => void;
+  /**
+   * 长按保存
+   */
+  longTapSave?: boolean;
 }
