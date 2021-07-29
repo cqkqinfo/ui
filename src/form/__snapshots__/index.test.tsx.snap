@@ -54,6 +54,10 @@ exports[`表单 card模式 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
       <div
         class="item card"
@@ -105,6 +109,10 @@ exports[`表单 card模式 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
     </div>
   </div>
@@ -160,6 +168,10 @@ exports[`表单 cell模式 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
       <div
         class="item cell"
@@ -206,6 +218,10 @@ exports[`表单 cell模式 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
     </div>
   </div>
@@ -266,6 +282,10 @@ exports[`表单 两端对齐 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
       <div
         class="item"
@@ -317,6 +337,10 @@ exports[`表单 两端对齐 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
     </div>
   </div>
@@ -377,6 +401,10 @@ exports[`表单 渲染 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
       <div
         class="item"
@@ -428,6 +456,10 @@ exports[`表单 渲染 1`] = `
             wechat-selection-start="-1"
           />
         </div>
+        <div
+          class="after"
+          style="display: none;"
+        />
       </div>
     </div>
   </div>
