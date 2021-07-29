@@ -16,7 +16,7 @@ const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
   const [myProps] = useEffectState(props, {
     wait: 0,
   });
-  return <View {...myProps} />;
+  return <View {...myProps} children={props.children} />;
 };
 
 export default ({
@@ -62,6 +62,7 @@ export default ({
     card,
     itemStyle,
     itemChildrenStyle,
+    values,
     errorFields,
   } = store || {};
   const labelJustify =
@@ -238,13 +239,14 @@ export default ({
                     <>
                       <Field shouldUpdate>
                         {(_, __, { getFieldValue, getFieldsValue }) =>
-                          name &&
-                          (renderReadOnlyValue
-                            ? renderReadOnlyValue(
-                                getFieldValue(name),
-                                getFieldsValue(),
-                              )
-                            : getFieldValue(name))
+                          (name &&
+                            (renderReadOnlyValue
+                              ? renderReadOnlyValue(
+                                  getFieldValue(name),
+                                  getFieldsValue(),
+                                )
+                              : getFieldValue(name) || values?.[name + ''])) ||
+                          children
                         }
                       </Field>
                       <View
