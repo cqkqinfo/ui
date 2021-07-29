@@ -54,6 +54,7 @@ const names = [
   'kq-album',
   'kq-jia',
   'kq-filter',
+  'kq-left',
 ];
 
 export default () => (
