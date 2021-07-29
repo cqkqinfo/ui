@@ -311,3 +311,7 @@ export { default as createMapContext } from './create-map-context';
  * 订阅消息
  */
 export { default as requestSubscribeMessage } from './request-subscribe-message';
+/**
+ * 平台组件
+ */
+export { default as Platform } from './platform';

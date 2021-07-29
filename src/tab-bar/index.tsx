@@ -12,7 +12,7 @@ export interface TabBarItemProps {
   /**
    * 设置图标,传null就是不显示
    */
-  icon?: React.ReactNode;
+  icon: React.ReactNode | ((active: boolean) => React.ReactNode);
   /**
    * 路由索引
    */
@@ -53,17 +53,18 @@ const TabBar = (props: TabBarProps) => {
     style,
     color = '#bebebe',
     activeColor = '#2780d9',
-    current = 0,
+    current,
     items,
     onChange,
   } = props;
-  const [index, setIndex] = useEffectState(current || undefined);
+  const [index, setIndex] = useEffectState(current || items?.[0].index);
   return (
     <View
       className={classNames(styles.tabBarWrap, className)}
       style={{ color, ...style }}
     >
       {items.map(item => {
+        const active = index === item.index;
         return (
           <View
             className={styles.tabBarItem}
@@ -74,10 +75,12 @@ const TabBar = (props: TabBarProps) => {
             }}
           >
             <View className={styles.tabBarItem}>
-              {React.isValidElement(item.icon) &&
-                React.cloneElement(item.icon as any, {
-                  color: index === item.index ? activeColor : color,
-                })}
+              {typeof item.icon === 'function'
+                ? item.icon(active)
+                : React.isValidElement(item.icon) &&
+                  React.cloneElement(item.icon, {
+                    color: active ? activeColor : color,
+                  })}
             </View>
             <Text
               style={{ color: index === item.index ? activeColor : color }}

@@ -1,1 +1,1 @@
-export default () => Promise.reject({});
+export default () => Promise.resolve({});
