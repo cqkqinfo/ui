@@ -30,7 +30,7 @@ export default ({
   iconColor = '#999999',
   ...props
 }: Props) => {
-  const [value2, setValue] = useEffectState(value, { wait: 300 });
+  const [value2, setValue] = useEffectState(value);
   const handleChange = (e?: string) => {
     setValue(e);
     onChange?.(e);

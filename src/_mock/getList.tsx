@@ -12,7 +12,7 @@ export default async (page: number, limit: number, state = 1) => {
   return Promise.resolve({
     pageNum: page + 1,
     pageSize: limit,
-    total: 200,
+    total: 100,
     list,
   });
 };
