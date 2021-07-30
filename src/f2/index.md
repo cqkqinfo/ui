@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## F2
+## F2 图表组件
 
 跨平台[F2](https://f2.antv.vision/zh/docs/tutorial/getting-started)图表组件
 

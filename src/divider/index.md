@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Divider
+## Divider 分割线
 
 分割线
 

@@ -7,7 +7,7 @@ group:
   path: /data-entry
 ---
 
-## Switch
+## Switch 切换
 
 如果想要控制组件大小， 最好使用**fontSize**来缩放大小
 

@@ -7,9 +7,9 @@ nav:
   path: /components
 ---
 
-## InputNumber
+## InputNumber 数字输入
 
-折叠组件
+数字输入
 
 ```tsx
 import React, { useState } from 'react';

@@ -7,7 +7,7 @@ group:
   path: /data-entry
 ---
 
-## CheckBox
+## CheckBox 复选框
 
 复选框
 

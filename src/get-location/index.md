@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## getLocation
+## getLocation 获取位置
 
 获取位置
 

@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Tip
+## Tip 温馨提示
 
 温馨提示
 

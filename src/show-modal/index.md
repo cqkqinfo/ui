@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## showModal
+## showModal 显示确认框
 
 显示确认框
 

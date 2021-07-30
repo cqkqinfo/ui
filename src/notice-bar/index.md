@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## NoticeBar
+## NoticeBar 通告栏
 
 通告栏
 

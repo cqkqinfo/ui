@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## BarCode
+## BarCode 条形码
 
 条形码
 

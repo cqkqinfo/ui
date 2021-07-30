@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## hideModal
+## hideModal 隐藏 Loading
 
 隐藏 Loading
 

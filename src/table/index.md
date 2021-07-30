@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## Table
+## Table 表格
 
 表格
 

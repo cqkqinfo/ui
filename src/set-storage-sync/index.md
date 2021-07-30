@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## setStorageSync
+## setStorageSync 设置本地储存
 
 设置本地储存
 

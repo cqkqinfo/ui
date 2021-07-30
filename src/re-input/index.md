@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-## ReInput
+## ReInput 原生输入框
 
 原始输入框，没有样式，回调事件由`onInput`改为`onChange`，并且没有值乱跳的问题。
 

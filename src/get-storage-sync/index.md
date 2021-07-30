@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## getStorageSync
+## getStorageSync 获取本地储存
 
 获取本地储存
 

@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## CommonImg
+## CommonImg 常用图片
 
 常用图片
 

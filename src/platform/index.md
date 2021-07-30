@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Platform
+## Platform 按平台渲染
 
 根据平台显示内容
 

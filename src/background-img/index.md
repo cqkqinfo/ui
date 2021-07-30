@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## BackgroundImage
+## BackgroundImage 背景图
 
 背景图片
 

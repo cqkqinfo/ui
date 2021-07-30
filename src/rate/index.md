@@ -7,7 +7,7 @@ group:
   path: /data-entry
 ---
 
-## Rate
+## Rate 评分
 
 评分组件
 

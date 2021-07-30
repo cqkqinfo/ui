@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## QrCode
+## QrCode 二维码
 
 二维码
 

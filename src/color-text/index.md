@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## ColorText
+## ColorText 主题色文字
 
 主题色文字
 

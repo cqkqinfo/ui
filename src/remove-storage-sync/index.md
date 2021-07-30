@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## removeStorageSync
+## removeStorageSync 移除本地储存
 
 移除本地储存
 

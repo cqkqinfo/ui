@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Loading
+## Loading 加载中
 
 加载中
 

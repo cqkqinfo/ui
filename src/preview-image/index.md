@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## previewImage
+## previewImage 图片预览
 
 图片预览
 

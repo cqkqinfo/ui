@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## Menu
+## Menu 菜单
 
 菜单
 

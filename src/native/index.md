@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Native
+## Native 原生组件
 
 可以直接修改原生组件的属性，绕过`react diff`来达到快速的界面响应
 

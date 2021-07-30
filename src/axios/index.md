@@ -7,7 +7,7 @@ group:
   path: /utils
 ---
 
-## axios
+## axios 统一请求
 
 使用方法同 [axios 官方仓库](https://github.com/axios/axios)
 

@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-## ReTextarea
+## ReTextarea 原生输入域
 
 原始输入域，没有样式，回调事件由`onInput`改为`onChange`，并且没有值乱跳的问题。
 
