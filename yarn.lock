@@ -7313,6 +7313,7 @@ image-size@~0.5.0:
 import-cdn-js@^0.0.2:
   version "0.0.2"
   resolved "https://registry.npmjs.org/import-cdn-js/-/import-cdn-js-0.0.2.tgz#f3eccdc37b8ca59838e073ecf7e431582ac14b5e"
+  integrity sha512-HhLHN4mh/P6TSNVG46y1JkhHGVvwuVW0V+3cUjun6tnqXBDlHnvDTxeAAl05igSM00vhDLq3CIxh490S2Z1VIg==
 
 import-cwd@^2.0.0:
   version "2.1.0"

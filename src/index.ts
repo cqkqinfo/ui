@@ -315,3 +315,15 @@ export { default as requestSubscribeMessage } from './request-subscribe-message'
  * 平台组件
  */
 export { default as Platform } from './platform';
+/**
+ * 调试模式
+ */
+export { default as debug } from './debug';
+/**
+ * 获取版本
+ */
+export { default as getVersion } from './get-version';
+/**
+ * 获取平台
+ */
+export { default as getPlatform } from './get-platform';

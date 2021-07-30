@@ -1,6 +1,6 @@
 import { getAccountInfoSync } from 'remax/wechat';
 
-const {
+export const {
   miniProgram: { version, envVersion },
 } = getAccountInfoSync();
 
