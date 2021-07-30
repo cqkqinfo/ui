@@ -45,7 +45,7 @@ export default ({
           ? { maxHeight: 0 }
           : {
               maxHeight:
-                outMaxHeight || maxHeight ? `${maxHeight}PX` : maxHeight,
+                outMaxHeight || (maxHeight ? `${maxHeight}PX` : maxHeight),
             }),
         ...style,
       }}
