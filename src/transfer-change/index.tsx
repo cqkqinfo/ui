@@ -1,7 +1,12 @@
 import React, { useCallback } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import getAddress from '../get-address';
 import getAddressId from '../get-address-id';
+import weekday from 'dayjs/plugin/weekday';
+import localeData from 'dayjs/plugin/localeData';
+
+dayjs.extend(weekday);
+dayjs.extend(localeData);
 
 export default ({
   children,
@@ -28,9 +33,9 @@ export default ({
     if (mode === 'array') {
       value = [value];
     } else if (mode === 'date') {
-      value = value && moment(value, dateFormat);
+      value = value && dayjs(value, dateFormat);
     } else if (mode === 'time') {
-      value = value && moment(value, 'HH:mm');
+      value = value && dayjs(value, 'HH:mm');
     } else if (mode === 'JSON') {
       value = JSON.parse(value || '{}');
     } else if (mode === 'city') {
@@ -46,9 +51,9 @@ export default ({
       if (mode === 'array') {
         value = value[0];
       } else if (mode === 'date') {
-        value = value && moment(value).format(dateFormat);
+        value = value && dayjs(value).format(dateFormat);
       } else if (mode === 'time') {
-        value = value && moment(value).format('HH:mm');
+        value = value && dayjs(value).format('HH:mm');
       } else if (mode === 'JSON') {
         value = Object.keys(value).length ? JSON.stringify(value) : undefined;
       } else if (mode === 'city') {
