@@ -55,7 +55,7 @@
     "import-cdn-js": "^0.0.2",
     "jsbarcode": "^3.11.3",
     "moment": "^2.29.1",
-    "parsec-hooks": "^0.0.154",
+    "parsec-hooks": "^0.0.156",
     "qrcode": "^1.4.4",
     "qrcode-base64": "^1.0.1",
     "qs": "^6.10.1",

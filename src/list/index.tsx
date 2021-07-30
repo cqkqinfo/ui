@@ -10,6 +10,7 @@ import React, {
   useMemo,
   useRef,
   useCallback,
+  useState,
 } from 'react';
 import Visible from '../visible';
 import NoData from '../no-data';
@@ -78,8 +79,10 @@ const List = forwardRef(
   ) => {
     const loadingNativeRef = useRef<NativeInstance>(null);
     const noLoadingNativeRef = useRef<NativeInstance>(null);
+    const [visible, setVisible] = useState(false);
     const { refreshList, list, isEnd, error, getNext } = useLoadMore(getList, {
       cacheKey,
+      loadMoreVisible: visible,
       ...options,
       customSetLoading: useCallback(loading => {
         loadingNativeRef.current?.setData?.({ visible: loading });
@@ -98,7 +101,13 @@ const List = forwardRef(
     ]);
     const footer = useMemo(() => {
       return (
-        <Visible onVisible={getNext}>
+        <Visible
+          onVisible={() => {
+            getNext();
+            setVisible(true);
+          }}
+          onHidden={() => setVisible(false)}
+        >
           <Native ref={loadingNativeRef}>{loadingTip}</Native>
           <Native ref={noLoadingNativeRef} initData={{ visible: false }}>
             {list.length === 0
