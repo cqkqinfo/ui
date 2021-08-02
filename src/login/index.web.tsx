@@ -5,9 +5,12 @@ import qs from 'qs';
 export default ({ code = 'ff8080816f9c207c0170a34c50ba00dc' }) => {
   const openId = getStorageSync('openId');
   const params = qs.parse(window.location.href.split('#')[0].split('?')[1]);
-  if (params.openId) {
+  if (params.openId || params.openid) {
+    const openId = params.openId || params.openid;
     setStorageSync('openId', openId);
-    window.location.href = window.location.href.replace(`openId=${openId}`, '');
+    window.location.href = window.location.href
+      .replace(`openId=${openId}`, '')
+      .replace(`openid=${openId}`, '');
     return Promise.reject({});
   }
   if (openId) {
