@@ -75,6 +75,7 @@ const Radio = (props: RadioProps) => {
     activeCls,
     type = 'normal',
   } = props;
+  const [myChecked, setMyChecked] = useEffectState(checked);
   return (
     <View
       className={classNames(
@@ -84,28 +85,32 @@ const Radio = (props: RadioProps) => {
           [styles.radio]: type === 'normal',
           [styles.btn]: type === 'button',
         },
-        checked && classNames(activeCls, type === 'button' && styles.btnActive),
+        myChecked &&
+          classNames(activeCls, type === 'button' && styles.btnActive),
       )}
       style={{
         background:
           type !== 'button'
             ? 'none'
-            : checked
+            : myChecked
             ? activeBackgroundColor
             : backgroundColor,
-        color: type !== 'button' ? 'none' : checked ? activeColor : color,
+        color: type !== 'button' ? 'none' : myChecked ? activeColor : color,
         ...style,
       }}
-      onTap={e => onChange?.(!checked, value)}
+      onTap={e => {
+        onChange?.(!myChecked, value);
+        setMyChecked(!myChecked);
+      }}
     >
       {type === 'normal' && (
         <View
           className={classNames(styles.dot, {
-            [styles.dotCheck]: checked,
+            [styles.dotCheck]: myChecked,
           })}
           style={{
-            borderColor: checked ? activeBackgroundColor : '#eee',
-            borderWidth: checked ? undefined : 1,
+            borderColor: myChecked ? activeBackgroundColor : '#eee',
+            borderWidth: myChecked ? undefined : 1,
             background: activeColor,
           }}
         />

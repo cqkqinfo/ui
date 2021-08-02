@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import Space, { Props as SpaceProps } from '../space';
 import styles from './index.module.less';
+import { useEffectState } from 'parsec-hooks';
 type CheckboxValue = string | number;
 export interface CheckBoxProps extends ViewProps {
   /**
@@ -55,14 +56,16 @@ const Checkbox = (props: CheckBoxProps) => {
     isRound = false,
     ...other
   } = props;
+  const [myChecked, setMyChecked] = useEffectState(checked);
 
   const handleClick = (e: any) => {
-    onChange?.(!checked, e, value);
+    onChange?.(!myChecked, e, value);
+    setMyChecked(!myChecked);
   };
 
   return (
     <View
-      className={classNames(styles.checkBox, checked && activeCls, className)}
+      className={classNames(styles.checkBox, myChecked && activeCls, className)}
       onTap={handleClick}
       {...other}
     >
@@ -70,10 +73,10 @@ const Checkbox = (props: CheckBoxProps) => {
         className={classNames(
           styles.box,
           { [styles.round]: isRound },
-          checked && styles.active,
+          myChecked && styles.active,
         )}
       >
-        {checked && <Icon name="kq-yes" color={iconColor} />}
+        {myChecked && <Icon name="kq-yes" color={iconColor} />}
       </View>
       {children}
     </View>
