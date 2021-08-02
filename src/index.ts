@@ -330,4 +330,4 @@ export { default as getPlatform } from './get-platform';
 /**
  * 获取描述信息
  */
-export { default as getAccountInfoSync } from './get-accountInfo-sync';
+export { default as getAccountInfoSync } from './get-account-info-sync';
