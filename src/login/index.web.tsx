@@ -2,7 +2,7 @@ import getStorageSync from '../get-storage-sync';
 import setStorageSync from '../set-storage-sync';
 import qs from 'qs';
 
-export default (code = 'ff8080816f9c207c0170a34c50ba00dc') => {
+export default ({ code = 'ff8080816f9c207c0170a34c50ba00dc' }) => {
   const openId = getStorageSync('openId');
   const params = qs.parse(window.location.href.split('#')[0].split('?')[1]);
   if (params.openId) {

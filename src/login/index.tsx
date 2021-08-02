@@ -1,3 +1,5 @@
 import { login } from 'remax/wechat';
 
-export default (): Promise<{ code?: string; openId?: string }> => login();
+export default (data?: {
+  code?: string;
+}): Promise<{ code?: string; openId?: string }> => login();
