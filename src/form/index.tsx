@@ -49,7 +49,7 @@ interface BaseRule {
   pattern?: RegExp;
   required?: boolean;
   transform?: (value: StoreValue) => StoreValue;
-  type?: RuleType | 'phone' | 'idCard';
+  type?: RuleType | 'phone' | 'idCard' | 'password';
   whitespace?: boolean;
   /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
   validateTrigger?: string | string[];

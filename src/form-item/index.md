@@ -36,6 +36,11 @@ export default () => {
     <Space vertical size={'10px'}>
       <PartTitle>基本使用</PartTitle>
       <Form form={form} cell onFinish={console.log} labelWidth={'4em'}>
+        <FormItem
+          label={'密码'}
+          name={'password'}
+          rules={[{ type: 'password', required: true }]}
+        />
         <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
         <FormItem
           label={'手机号'}
