@@ -13,7 +13,6 @@ const newSentry: typeof Sentry = {
         : !window.location.host.includes('localhost')
     ) {
       Sentry.init({
-        dsn: 'https://2306075284d9444894a37d888ef6977a@sentry.parsec.com.cn/13',
         integrations: [new Sentry.Integrations.GlobalHandlers()],
         beforeSend(event, hint) {
           /* tslint:disable:no-string-literal only-arrow-functions */
@@ -42,6 +41,9 @@ const newSentry: typeof Sentry = {
         tracesSampleRate: 1.0,
         release: getVersion,
         ...options,
+        dsn:
+          options?.dsn ||
+          'https://2306075284d9444894a37d888ef6977a@sentry.parsec.com.cn/13',
       });
     }
   },
