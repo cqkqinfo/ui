@@ -28,7 +28,7 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Button
       onTap={() => {
-        getAccountInfoSync().then(console.log);
+        console.log(getAccountInfoSync());
       }}
       type={'priary'}
     >
