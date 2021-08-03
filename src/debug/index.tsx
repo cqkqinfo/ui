@@ -2,6 +2,7 @@
 // @ts-ignore
 import ImportCDNJS from 'import-cdn-js';
 import { envVersion } from '../get-version';
+import './index.less';
 
 export default () => {
   if (
