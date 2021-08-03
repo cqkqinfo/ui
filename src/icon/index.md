@@ -55,6 +55,23 @@ const names = [
   'kq-jia',
   'kq-filter',
   'kq-left',
+  'kq-mobile',
+  'kq-keshi',
+  'kq-yiyuan',
+  'kq-home',
+  'kq-tongzhi',
+  'kq-shuaxin',
+  'kq-shoucang',
+  'kq-zan',
+  'kq-eye',
+  'kq-weixin',
+  'kq-yisheng',
+  'kq-chuangzuo',
+  'kq-zhibo',
+  'kq-rili',
+  'kq-jiankang',
+  'kq-kanjian',
+  'kq-bukanjian',
 ];
 
 export default () => (

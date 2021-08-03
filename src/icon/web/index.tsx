@@ -2,6 +2,23 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqBukanjian from './KqBukanjian';
+import KqKanjian from './KqKanjian';
+import KqJiankang from './KqJiankang';
+import KqRili from './KqRili';
+import KqZhibo from './KqZhibo';
+import KqChuangzuo from './KqChuangzuo';
+import KqYisheng from './KqYisheng';
+import KqWeixin from './KqWeixin';
+import KqEye from './KqEye';
+import KqZan from './KqZan';
+import KqShoucang from './KqShoucang';
+import KqShuaxin from './KqShuaxin';
+import KqTongzhi from './KqTongzhi';
+import KqHome from './KqHome';
+import KqYiyuan from './KqYiyuan';
+import KqKeshi from './KqKeshi';
+import KqMobile from './KqMobile';
 import KqLeft from './KqLeft';
 import KqFilter from './KqFilter';
 import KqJia from './KqJia';
@@ -27,6 +44,23 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-bukanjian'
+  | 'kq-kanjian'
+  | 'kq-jiankang'
+  | 'kq-rili'
+  | 'kq-zhibo'
+  | 'kq-chuangzuo'
+  | 'kq-yisheng'
+  | 'kq-weixin'
+  | 'kq-eye'
+  | 'kq-zan'
+  | 'kq-shoucang'
+  | 'kq-shuaxin'
+  | 'kq-tongzhi'
+  | 'kq-home'
+  | 'kq-yiyuan'
+  | 'kq-keshi'
+  | 'kq-mobile'
   | 'kq-left'
   | 'kq-filter'
   | 'kq-jia'
@@ -59,6 +93,40 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-bukanjian':
+      return <KqBukanjian {...rest} />;
+    case 'kq-kanjian':
+      return <KqKanjian {...rest} />;
+    case 'kq-jiankang':
+      return <KqJiankang {...rest} />;
+    case 'kq-rili':
+      return <KqRili {...rest} />;
+    case 'kq-zhibo':
+      return <KqZhibo {...rest} />;
+    case 'kq-chuangzuo':
+      return <KqChuangzuo {...rest} />;
+    case 'kq-yisheng':
+      return <KqYisheng {...rest} />;
+    case 'kq-weixin':
+      return <KqWeixin {...rest} />;
+    case 'kq-eye':
+      return <KqEye {...rest} />;
+    case 'kq-zan':
+      return <KqZan {...rest} />;
+    case 'kq-shoucang':
+      return <KqShoucang {...rest} />;
+    case 'kq-shuaxin':
+      return <KqShuaxin {...rest} />;
+    case 'kq-tongzhi':
+      return <KqTongzhi {...rest} />;
+    case 'kq-home':
+      return <KqHome {...rest} />;
+    case 'kq-yiyuan':
+      return <KqYiyuan {...rest} />;
+    case 'kq-keshi':
+      return <KqKeshi {...rest} />;
+    case 'kq-mobile':
+      return <KqMobile {...rest} />;
     case 'kq-left':
       return <KqLeft {...rest} />;
     case 'kq-filter':

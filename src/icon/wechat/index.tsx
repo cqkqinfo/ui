@@ -4,6 +4,23 @@
 import React, { FunctionComponent } from 'react';
 
 export type IconFontNames =
+  | 'kq-bukanjian'
+  | 'kq-kanjian'
+  | 'kq-jiankang'
+  | 'kq-rili'
+  | 'kq-zhibo'
+  | 'kq-chuangzuo'
+  | 'kq-yisheng'
+  | 'kq-weixin'
+  | 'kq-eye'
+  | 'kq-zan'
+  | 'kq-shoucang'
+  | 'kq-shuaxin'
+  | 'kq-tongzhi'
+  | 'kq-home'
+  | 'kq-yiyuan'
+  | 'kq-keshi'
+  | 'kq-mobile'
   | 'kq-left'
   | 'kq-filter'
   | 'kq-jia'
