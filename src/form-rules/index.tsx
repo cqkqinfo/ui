@@ -52,7 +52,7 @@ export default {
     return value
       ? /^1[3-9][0-9]{9}$/.test(value)
         ? Promise.resolve()
-        : Promise.reject(new Error('请输入正确的手机号码'))
+        : Promise.reject(new Error('请输入正确的手机号'))
       : rule.required
       ? Promise.reject(new Error('请输入手机号码'))
       : Promise.resolve();
