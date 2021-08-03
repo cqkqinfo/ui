@@ -1,16 +1,18 @@
 import getStorageSync from '../get-storage-sync';
 import setStorageSync from '../set-storage-sync';
+import { envVersion } from '../get-version';
 import qs from 'qs';
 
-export default ({ code = 'ff8080816f9c207c0170a34c50ba00dc' }) => {
+export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
   const openId = getStorageSync('openId');
-  const params = qs.parse(window.location.href.split('#')[0].split('?')[1]);
-  if (params.openId || params.openid) {
-    const openId = params.openId || params.openid;
+  if (envVersion === 'develop') {
+    return Promise.resolve({ openId });
+  }
+  const params = qs.parse(window.location.href.split('?')[1]);
+  if (params.openId) {
+    const openId = params.openId;
     setStorageSync('openId', openId);
-    window.location.href = window.location.href
-      .replace(`openId=${openId}`, '')
-      .replace(`openid=${openId}`, '');
+    window.location.href = window.location.href.replace(`openId=${openId}`, '');
     return Promise.reject({});
   }
   if (openId) {
