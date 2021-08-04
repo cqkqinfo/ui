@@ -17,6 +17,7 @@ export default <T extends unknown>(props: Props<T>) => {
     control,
     type,
     style,
+    activeItemCls,
   } = props;
   const { brandPrimary } = provider.useContainer();
   const firstTabIndex = tabs?.[0].index;
@@ -38,9 +39,14 @@ export default <T extends unknown>(props: Props<T>) => {
       {tabs.map(({ content, index }, i) => (
         <React.Fragment key={i}>
           <View
-            className={classNames(styles.item, itemCls, {
-              [styles.active]: active === index,
-            })}
+            className={classNames(
+              styles.item,
+              itemCls,
+              active === index && activeItemCls,
+              {
+                [styles.active]: active === index,
+              },
+            )}
             onTap={() => handleChange(index)}
           >
             {content}

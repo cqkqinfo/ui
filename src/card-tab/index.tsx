@@ -13,6 +13,7 @@ export default <T extends unknown>({
   itemCls,
   onChange,
   style,
+  activeItemCls,
 }: Props<T>) => {
   const { brandPrimary } = provider.useContainer();
   return (
@@ -24,29 +25,36 @@ export default <T extends unknown>({
       scrollWithAnimation
     >
       <Space flex={1} justify={'space-between'}>
-        {tabs.map(({ content, index }, i) => (
-          <Space
-            flex={1}
-            key={i}
-            className={classNames(styles.item, itemCls)}
-            alignItems={'center'}
-            justify={'center'}
-            id={`tab${index}`}
-            onTap={() => {
-              onChange?.(index);
-            }}
-            style={
-              current === index
-                ? {
-                    color: brandPrimary,
-                    borderColor: brandPrimary,
-                  }
-                : {}
-            }
-          >
-            {content}
-          </Space>
-        ))}
+        {tabs.map(({ content, index }, i) => {
+          const active = current === index;
+          return (
+            <Space
+              flex={1}
+              key={i}
+              className={classNames(
+                styles.item,
+                itemCls,
+                active && activeItemCls,
+              )}
+              alignItems={'center'}
+              justify={'center'}
+              id={`tab${index}`}
+              onTap={() => {
+                onChange?.(index);
+              }}
+              style={
+                active
+                  ? {
+                      color: brandPrimary,
+                      borderColor: brandPrimary,
+                    }
+                  : {}
+              }
+            >
+              {content}
+            </Space>
+          );
+        })}
       </Space>
     </ScrollView>
   );

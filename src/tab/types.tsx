@@ -14,6 +14,10 @@ export interface Props<T> {
    */
   itemCls?: string;
   /**
+   * 当前子项类名
+   */
+  activeItemCls?: string;
+  /**
    * 当前tab的索引
    */
   current?: T;
