@@ -63,7 +63,7 @@ export default {
         ? Promise.resolve()
         : Promise.reject(
             new Error(
-              '请设置8- 20位密码，至少包含数字、字母、特殊符号中2种，不能有空格',
+              '请设置8-20位密码，至少包含数字、字母、特殊符号中2种，不能有空格',
             ),
           )
       : rule.required

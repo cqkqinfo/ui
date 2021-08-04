@@ -87,11 +87,7 @@ export default ({
     () =>
       children === undefined ? (
         name ? (
-          <Input
-            onFocus={() => (inputFocus.current = true)}
-            onBlur={() => (inputFocus.current = false)}
-            placeholder={`请输入${strLabel}`}
-          />
+          <Input placeholder={`请输入${strLabel}`} />
         ) : (
           <View />
         )
@@ -106,7 +102,7 @@ export default ({
       wrap={Field as any}
       wrapProps={{ rules, name, ...props }}
     >
-      {React.isValidElement(node) ? node : node}
+      {node}
     </NeedWrap>
   );
   return (
@@ -125,6 +121,16 @@ export default ({
               ) : React.isValidElement(children) ? (
                 React.cloneElement(children as React.ReactElement, {
                   ...control,
+                  onFocus: (...e: any) => {
+                    inputFocus.current = true;
+                    React.isValidElement(children) &&
+                      children.props.onFocus?.(...e);
+                  },
+                  onBlur: (...e: any) => {
+                    inputFocus.current = false;
+                    React.isValidElement(children) &&
+                      children.props.onBlur?.(...e);
+                  },
                   onChange: (...arg: any) => {
                     control.onChange(...arg);
                     if (React.isValidElement(children)) {
