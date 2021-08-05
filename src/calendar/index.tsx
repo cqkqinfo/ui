@@ -7,15 +7,6 @@ import { useEffectState } from 'parsec-hooks';
 
 const weeks = ['日', '一', '二', '三', '四', '五', '六'];
 
-const days = new Array(14).fill(0).map((_, index) =>
-  dayjs(
-    dayjs()
-      .subtract(dayjs().day(), 'day')
-      .add(index, 'day')
-      .format('YYYY-MM-DD'),
-  ),
-);
-
 export interface Props {
   /**
    * 样式类名
@@ -62,6 +53,15 @@ export interface Props {
    * @default day => day.isBefore(dayjs(), 'date')
    */
   renderDisable?: (day: dayjs.Dayjs) => boolean;
+  /**
+   * 日期范围天数
+   * @default 14
+   */
+  limit?: number;
+  /**
+   * 自定义渲染
+   */
+  renderDate?: (day: dayjs.Dayjs) => React.ReactNode;
 }
 
 export default ({
@@ -75,10 +75,24 @@ export default ({
   disableItemCls,
   activeDotCls,
   dotWrapCls,
+  limit = 14,
+  renderDate = day => day.get('date'),
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
     useMemo(() => current || dayjs(), [current]),
+  );
+  const days = useMemo(
+    () =>
+      new Array(limit).fill(0).map((_, index) =>
+        dayjs(
+          dayjs()
+            .subtract(dayjs().day(), 'day')
+            .add(index, 'day')
+            .format('YYYY-MM-DD'),
+        ),
+      ),
+    [limit],
   );
   return (
     <View className={classNames(styles.calendar, className)}>
@@ -109,7 +123,7 @@ export default ({
             })}
             key={index}
           >
-            {day.get('date')}
+            {renderDate(day)}
             <View className={classNames(styles.dotWrap, dotWrapCls)}>
               {dot === true ? (
                 <View

@@ -19,7 +19,9 @@ import dayjs from 'dayjs';
 export default () => (
   <Space vertical size={'10px'}>
     <PartTitle>基本用法</PartTitle>
-    <Calendar />
+    <Calendar
+      renderDate={day => `${day.get('month') + 1}/${day.get('date')}`}
+    />
     <PartTitle>渲染标记点</PartTitle>
     <Calendar
       renderDot={(_, index) =>
@@ -30,6 +32,8 @@ export default () => (
         )
       }
     />
+    <PartTitle>渲染范围</PartTitle>
+    <Calendar limit={35} />
   </Space>
 );
 ```
