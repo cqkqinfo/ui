@@ -2,6 +2,8 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqZhizhen from './KqZhizhen';
+import KqTime from './KqTime';
 import KqBukanjian from './KqBukanjian';
 import KqKanjian from './KqKanjian';
 import KqJiankang from './KqJiankang';
@@ -44,6 +46,8 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-zhizhen'
+  | 'kq-time'
   | 'kq-bukanjian'
   | 'kq-kanjian'
   | 'kq-jiankang'
@@ -93,6 +97,10 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-zhizhen':
+      return <KqZhizhen {...rest} />;
+    case 'kq-time':
+      return <KqTime {...rest} />;
     case 'kq-bukanjian':
       return <KqBukanjian {...rest} />;
     case 'kq-kanjian':
