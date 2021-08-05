@@ -3,6 +3,7 @@ import { View, Text } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
+import provider from '@/config-provider';
 
 export interface TabBarItemProps {
   /**
@@ -48,11 +49,12 @@ export interface TabBarProps {
 }
 
 const TabBar = (props: TabBarProps) => {
+  const { brandPrimary } = provider.useContainer();
   const {
     className,
     style,
     color = '#bebebe',
-    activeColor = '#2780d9',
+    activeColor = brandPrimary,
     current,
     items,
     onChange,

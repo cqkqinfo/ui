@@ -45,9 +45,9 @@ export default ({
       ...children.props.style,
       ...props.style,
       boxShadow: `0 0 ${rpx20} rgba(${convert.hex
-        .rgb(shadowColor)
+        .rgb(outShadowColor || shadowColor)
         .join(',')}, 0.15)`,
-      border: active ? `1px solid ${shadowColor}` : undefined,
+      border: active ? `1px solid ${outShadowColor || shadowColor}` : undefined,
     },
   });
 };
