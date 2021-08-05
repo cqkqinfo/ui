@@ -3,7 +3,7 @@ import { View, Text } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
-import provider from '@/config-provider';
+import provider from '../config-provider';
 
 export interface TabBarItemProps {
   /**

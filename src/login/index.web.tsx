@@ -13,11 +13,11 @@ export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
     const openId = params.openId;
     setStorageSync('openId', openId);
     window.location.href = window.location.href.replace(`openId=${openId}`, '');
-    return Promise.reject({});
+    return Promise.resolve({});
   }
   if (openId) {
     return Promise.resolve({ openId });
   }
   window.location.href = `https://wx.cqkqinfo.com/wx/wechat/authorize/${code}?scope=snsapi_userinfo`;
-  return Promise.reject({});
+  return Promise.resolve({});
 };
