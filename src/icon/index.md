@@ -76,10 +76,10 @@ const names = [
   'kq-shijian',
   'kq-zan1',
   'kq-shoucang1',
-  'kq-menu-two',
   'kq-zhibozhong',
   'kq-bofang',
   'kq-zanting',
+  'kq-caidan',
 ];
 
 export default () => (
