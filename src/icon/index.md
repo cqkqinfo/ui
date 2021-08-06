@@ -28,7 +28,7 @@ const renderItem = (name: string) => (
       border: '1px solid #eee',
     }}
   >
-    <Icon name={name} size={'20px'} />
+    <Icon name={name} size={'20px'} color={'#333'} />
     {name}
   </Space>
 );

@@ -98,7 +98,7 @@ export default ({
     <View className={classNames(styles.calendar, className)}>
       {weeks.map((item, index) => (
         <View
-          className={classNames(styles.item, styles.week)}
+          className={classNames(styles.item, itemCls, styles.week)}
           key={item}
           style={{ marginRight: index === 6 ? 0 : undefined }}
         >
