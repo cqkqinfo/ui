@@ -39,6 +39,7 @@ export default ({
   labelWidth: outLabelWidth,
   style,
   labelJustify: outLabelJustify = 'right',
+  childrenAlign: outChildrenAlign = 'right',
   renderReadOnlyValue,
   ...props
 }: ItemProps) => {
@@ -57,6 +58,7 @@ export default ({
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
     noStyle = outNoStyle,
+    childrenAlign = outChildrenAlign,
     card,
     itemStyle,
     itemChildrenStyle,
@@ -221,11 +223,15 @@ export default ({
                 <View
                   className={classNames(
                     styles.children,
+                    childrenAlign === 'left' && styles.left,
                     childrenCls,
                     outChildrenCls,
                   )}
                   style={{
-                    justifyContent: label ? 'flex-end' : 'flex-start',
+                    justifyContent:
+                      label && childrenAlign !== 'left'
+                        ? 'flex-end'
+                        : 'flex-start',
                     ...itemChildrenStyle,
                   }}
                 >

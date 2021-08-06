@@ -118,6 +118,11 @@ interface BaseItemProps {
    * @default right
    */
   labelJustify?: Property.TextAlign;
+  /**
+   * children的对齐
+   * @default right
+   */
+  childrenAlign?: Property.TextAlign;
   cell?: boolean;
   /**
    * 显示冒号
