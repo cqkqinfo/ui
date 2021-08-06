@@ -4,7 +4,10 @@ import { envVersion } from '../get-version';
 import qs from 'qs';
 
 export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
-  const openId = getStorageSync('openId');
+  let openId = getStorageSync('openId');
+  if (code !== getStorageSync('authorizeCode')) {
+    openId = undefined;
+  }
   if (envVersion === 'develop') {
     return Promise.resolve({ openId });
   }
@@ -18,6 +21,7 @@ export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
   if (openId) {
     return Promise.resolve({ openId });
   }
+  setStorageSync('authorizeCode', code);
   window.location.href = `https://wx.cqkqinfo.com/wx/wechat/authorize/${code}?scope=snsapi_userinfo`;
   return Promise.resolve({});
 };
