@@ -7,6 +7,7 @@ import Iconfont_wechat from './wechat/wechat';
 
 interface Props {
   name:
+    | 'kq-shouye'
     | 'kq-caidan'
     | 'kq-zanting'
     | 'kq-bofang'

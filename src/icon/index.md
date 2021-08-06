@@ -28,7 +28,7 @@ const renderItem = (name: string) => (
       border: '1px solid #eee',
     }}
   >
-    <Icon name={name} />
+    <Icon name={name} size={'20px'} />
     {name}
   </Space>
 );
@@ -80,6 +80,7 @@ const names = [
   'kq-bofang',
   'kq-zanting',
   'kq-caidan',
+  'kq-shouye',
 ];
 
 export default () => (

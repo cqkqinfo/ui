@@ -4,6 +4,7 @@
 import React, { FunctionComponent } from 'react';
 
 export type IconFontNames =
+  | 'kq-shouye'
   | 'kq-caidan'
   | 'kq-zanting'
   | 'kq-bofang'
