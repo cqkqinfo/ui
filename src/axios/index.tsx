@@ -6,15 +6,6 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
   axios.interceptors.request.use(config => {
     Sentry.addBreadcrumb({
       category: 'xhr',
-      message: 'request.url',
-      data: {
-        url: config.url,
-        headers: config.headers,
-      },
-      level: Sentry.Severity.Info,
-    });
-    Sentry.addBreadcrumb({
-      category: 'xhr',
       message: 'request.data',
       data: config.data,
       level: Sentry.Severity.Info,
@@ -26,6 +17,15 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
     response => {
       Sentry.addBreadcrumb({
         category: 'xhr',
+        message: 'response.config',
+        data: {
+          url: response.config.url,
+          headers: response.config.headers,
+        },
+        level: Sentry.Severity.Info,
+      });
+      Sentry.addBreadcrumb({
+        category: 'xhr',
         message: 'response.data',
         data: response?.data,
         level: Sentry.Severity.Info,
@@ -33,6 +33,15 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
       return response;
     },
     response => {
+      Sentry.addBreadcrumb({
+        category: 'xhr',
+        message: 'response.config',
+        data: {
+          url: response.config.url,
+          headers: response.config.headers,
+        },
+        level: Sentry.Severity.Info,
+      });
       Sentry.addBreadcrumb({
         category: 'xhr',
         message: 'response.data',
