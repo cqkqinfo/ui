@@ -13,7 +13,7 @@ export interface Props {
   /**
    * 阴影颜色
    */
-  shadowColor?: string;
+  shadowColor?: string | false;
   /**
    * 是否选中
    */
@@ -44,9 +44,11 @@ export default ({
         : {}),
       ...children.props.style,
       ...props.style,
-      boxShadow: `0 0 ${rpx20} rgba(${convert.hex
-        .rgb(outShadowColor || shadowColor)
-        .join(',')}, 0.15)`,
+      boxShadow:
+        outShadowColor !== false &&
+        `0 0 ${rpx20} rgba(${convert.hex
+          .rgb(outShadowColor || shadowColor)
+          .join(',')}, 0.15)`,
       border: active ? `1px solid ${outShadowColor || shadowColor}` : undefined,
     },
   });

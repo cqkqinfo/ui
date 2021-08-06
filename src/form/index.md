@@ -71,7 +71,7 @@ export default () => {
       <PartTitle>label两端对齐</PartTitle>
       <Demo labelWidth={'4em'} />
       <PartTitle>去掉阴影</PartTitle>
-      <Demo labelWidth={'4em'} shadowProps={false} cell />
+      <Demo labelWidth={'4em'} shadowProps={{ shadowColor: false }} cell />
       <PartTitle>form chilren左对齐</PartTitle>
       <Demo labelWidth={'4em'} childrenAlign={'left'} cell />
       <div />
