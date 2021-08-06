@@ -3,7 +3,7 @@ import React, { PropsWithChildren, useEffect, forwardRef } from 'react';
 import classNames from 'classnames';
 import styles from './index.module.less';
 import Visible from '../visible';
-import Space from '@/space';
+import Space from '../space';
 
 export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
   (
