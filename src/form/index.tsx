@@ -180,7 +180,7 @@ export interface Props<Values extends unknown = any>
   /**
    * shadow组件的props
    */
-  shadowProps?: ShadowProps;
+  shadowProps?: Omit<ShadowProps, 'children'> | false;
   /**
    * 绑定的数据
    */
@@ -213,7 +213,7 @@ const ReForm = ContainerUseWrap(
     }, [form, values]);
     return (
       <NeedWrap
-        need={card === undefined ? cell : card}
+        need={shadowProps !== false && (card === undefined ? cell : card)}
         wrap={Shadow as any}
         wrapProps={{ card: true, ...shadowProps }}
       >
