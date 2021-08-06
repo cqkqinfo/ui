@@ -2,6 +2,12 @@
 /* eslint-disable */
 
 import React, { SVGAttributes, FunctionComponent } from 'react';
+import KqZanting from './KqZanting';
+import KqBofang from './KqBofang';
+import KqZhibozhong from './KqZhibozhong';
+import KqMenuTwo from './KqMenuTwo';
+import KqShoucang1 from './KqShoucang1';
+import KqZan1 from './KqZan1';
 import KqShijian from './KqShijian';
 import KqZhuanlan from './KqZhuanlan';
 import KqZhizhen from './KqZhizhen';
@@ -48,6 +54,12 @@ import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
 
 export type IconNames =
+  | 'kq-zanting'
+  | 'kq-bofang'
+  | 'kq-zhibozhong'
+  | 'kq-menu-two'
+  | 'kq-shoucang1'
+  | 'kq-zan1'
   | 'kq-shijian'
   | 'kq-zhuanlan'
   | 'kq-zhizhen'
@@ -101,6 +113,18 @@ interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
 
 const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-zanting':
+      return <KqZanting {...rest} />;
+    case 'kq-bofang':
+      return <KqBofang {...rest} />;
+    case 'kq-zhibozhong':
+      return <KqZhibozhong {...rest} />;
+    case 'kq-menu-two':
+      return <KqMenuTwo {...rest} />;
+    case 'kq-shoucang1':
+      return <KqShoucang1 {...rest} />;
+    case 'kq-zan1':
+      return <KqZan1 {...rest} />;
     case 'kq-shijian':
       return <KqShijian {...rest} />;
     case 'kq-zhuanlan':
