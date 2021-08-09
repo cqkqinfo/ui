@@ -83,6 +83,7 @@ const List = forwardRef(
     const { refreshList, list, isEnd, error, getNext } = useLoadMore(getList, {
       cacheKey,
       loadMoreVisible: visible,
+      defaultLimit,
       ...options,
       customSetLoading: useCallback(loading => {
         loadingNativeRef.current?.setData?.({ visible: loading });

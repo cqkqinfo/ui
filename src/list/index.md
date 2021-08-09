@@ -20,7 +20,7 @@ export default () => (
   <Space vertical size={'10px'}>
     <PartTitle>一般用法</PartTitle>
     <List
-      defaultLimit={50}
+      defaultLimit={20}
       getList={getList}
       renderItem={({ random, id }) => (
         <div key={id}>
