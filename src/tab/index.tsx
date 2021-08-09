@@ -20,7 +20,7 @@ export default <T extends unknown>(props: Props<T>) => {
     activeItemCls,
   } = props;
   const { brandPrimary } = provider.useContainer();
-  const firstTabIndex = tabs?.[0].index;
+  const firstTabIndex = tabs?.[0]?.index;
   let [active, setActive] = useEffectState(
     current !== undefined ? current : firstTabIndex || undefined,
   );
