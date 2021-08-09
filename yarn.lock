@@ -8384,6 +8384,11 @@ jest@^26.6.3:
     import-local "^3.0.2"
     jest-cli "^26.6.3"
 
+jigsaw-captcha-js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/jigsaw-captcha-js/-/jigsaw-captcha-js-1.0.0.tgz#bf7c1f3baddaf691c2471287f3f61aa7ab25eddf"
+  integrity sha512-LBHV+l7UciUtjh2JE07XgFTDPs+Deq345rEiFmymrk7nDMMBkAvsSnKuU1/HPmPKPBjpipZnnJlBbt2Xve2Dhg==
+
 js-base64@^2.1.9:
   version "2.6.4"
   resolved "https://registry.npmjs.org/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"

@@ -335,3 +335,7 @@ export { default as getAccountInfoSync } from './get-account-info-sync';
  * 表单规则
  */
 export { default as formRules } from './form-rules';
+/**
+ * 拼图验证
+ */
+export { default as Jigsaw } from './jigsaw';
