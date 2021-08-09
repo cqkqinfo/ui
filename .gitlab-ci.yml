@@ -33,8 +33,8 @@ build_app:
     paths:
       - node_modules/
       - $DIST_PATH/
-#  only:
-#    - /^v[0-9.]+$/
+  only:
+    - master
   tags:
     - java_test
 
@@ -52,7 +52,7 @@ app:
     url: http://$APP_NAME.$GROUP_NAME.$CI_JOB_NAME.lyd.parsec.com.cn
   dependencies:
     - build_app
-#  only:
-#    - /^v[0-9.]+$/
+  only:
+    - master
   tags:
     - kq-ui-hw  #runner名称
