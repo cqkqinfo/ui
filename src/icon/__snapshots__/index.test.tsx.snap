@@ -6,6 +6,7 @@ exports[`图标 渲染 1`] = `
     <div
       class="wrap"
       id="id0"
+      style="width: 1em; height: 1em;"
     />
   </div>
 </body>
