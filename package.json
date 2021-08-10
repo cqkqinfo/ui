@@ -38,7 +38,6 @@
     "@types/qs": "^6.9.7",
     "aes-js": "^3.1.2",
     "ahooks": "^2.10.6",
-    "antd": "^4.16.0",
     "antd-mobile": "^2.3.4",
     "array-flat-polyfill": "^1.0.1",
     "axios-ali-adapter": "^0.0.4",
@@ -55,7 +54,6 @@
     "import-cdn-js": "^0.0.2",
     "jigsaw-captcha-js": "^1.0.0",
     "jsbarcode": "^3.11.3",
-    "moment": "^2.29.1",
     "parsec-hooks": "^0.0.157",
     "password-validator": "^5.1.1",
     "qrcode": "^1.4.4",
@@ -72,11 +70,15 @@
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {
-    "@antv/f2": "^3.8.8",
-    "axios": "0.x",
-    "rc-field-form": "^1.20.0",
-    "react": "^16.12.0",
-    "remax": "^2.11.8"
+    "@antv/f2": ">=3.8.8",
+    "axios": ">=0.x",
+    "rc-field-form": ">=1.20.0",
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0",
+    "antd-mobile": ">=2.3.4",
+    "ahooks": ">=2.10.6",
+    "dayjs": ">=1.10.4",
+    "remax": ">=2.11.8"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
