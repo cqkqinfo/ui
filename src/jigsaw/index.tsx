@@ -24,15 +24,15 @@ export interface Props {
   /**
    * 成功回调
    */
-  onSuccess?: string;
+  onSuccess?: () => void;
   /**
    * 失败回调
    */
-  onFail?: string;
+  onFail?: () => void;
   /**
    * 刷新回调
    */
-  onRefresh?: string;
+  onRefresh?: () => void;
 }
 
 export default ({
