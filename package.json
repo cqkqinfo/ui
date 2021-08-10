@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.4.39",
+  "version": "1.4.40",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -71,13 +71,13 @@
   },
   "peerDependencies": {
     "@antv/f2": ">=3.8.8",
+    "ahooks": ">=2.10.6",
+    "antd-mobile": ">=2.3.4",
     "axios": ">=0.x",
+    "dayjs": ">=1.10.4",
     "rc-field-form": ">=1.20.0",
     "react": ">=16.12.0",
     "react-dom": ">=16.12.0",
-    "antd-mobile": ">=2.3.4",
-    "ahooks": ">=2.10.6",
-    "dayjs": ">=1.10.4",
     "remax": ">=2.11.8"
   },
   "devDependencies": {
