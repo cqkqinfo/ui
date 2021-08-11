@@ -339,3 +339,7 @@ export { default as formRules } from './form-rules';
  * 拼图验证
  */
 export { default as Jigsaw } from './jigsaw';
+/**
+ * 显示频繁校验
+ */
+export { default as showFrequentModal } from './show-frequent-modal';
