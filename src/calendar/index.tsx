@@ -62,6 +62,14 @@ export interface Props {
    * 自定义渲染
    */
   renderDate?: (day: dayjs.Dayjs) => React.ReactNode;
+  /**
+   * 设置这个后会渲染成列表模式
+   */
+  listEndDay?: dayjs.Dayjs;
+  /**
+   * 列表模式的月份类名
+   */
+  monthCls?: string;
 }
 
 export default ({
@@ -77,22 +85,30 @@ export default ({
   dotWrapCls,
   limit = 14,
   renderDate = day => day.get('date'),
+  listEndDay,
+  monthCls,
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
     useMemo(() => current || dayjs(), [current]),
   );
+  const startDay = useMemo(() => {
+    return listEndDay ? dayjs().set('date', 1) : dayjs();
+  }, [listEndDay]);
+  limit = useMemo(() => {
+    return listEndDay ? listEndDay.diff(dayjs(), 'day') + 1 : limit;
+  }, [limit, listEndDay]);
   const days = useMemo(
     () =>
       new Array(limit).fill(0).map((_, index) =>
         dayjs(
-          dayjs()
-            .subtract(dayjs().day(), 'day')
+          startDay
+            .subtract(startDay.day(), 'day')
             .add(index, 'day')
             .format('YYYY-MM-DD'),
         ),
       ),
-    [limit],
+    [limit, startDay],
   );
   return (
     <View className={classNames(styles.calendar, className)}>
@@ -108,36 +124,65 @@ export default ({
       {days.map((day, index) => {
         const dot = renderDot?.(day, index);
         const active = day.isSame(selected, 'date');
+        const renderEmpty = (before = false) => {
+          const length = before ? day.weekday() : 7 - day.weekday() - 1;
+          return new Array(length).fill(0).map((_, i) => (
+            <View
+              className={classNames(itemCls, styles.item)}
+              key={i}
+              style={{
+                marginRight: !before && i === length - 1 ? 0 : undefined,
+              }}
+            />
+          ));
+        };
         return (
-          <View
-            onTap={() => {
-              setSelected(day);
-              onChange?.(day);
-            }}
-            style={{
-              marginRight: (index + 1) % 7 === 0 ? 0 : undefined,
-            }}
-            className={classNames(styles.item, itemCls, {
-              [classNames(styles.disable, disableItemCls)]: renderDisable(day),
-              [classNames(styles.active, activeItemCls)]: active,
-            })}
-            key={index}
-          >
-            {renderDate(day)}
-            <View className={classNames(styles.dotWrap, dotWrapCls)}>
-              {dot === true ? (
-                <View
-                  className={classNames(styles.dot, dotCls, {
-                    [classNames(styles.activeDot, activeDotCls)]: active,
-                  })}
-                >
-                  {dot}
+          <React.Fragment key={index}>
+            {day.date() === 1 && listEndDay && (
+              <>
+                <View className={classNames(styles.month, monthCls)}>
+                  {day.format('YYYY年MM月')}
                 </View>
-              ) : (
-                dot
-              )}
+                {renderEmpty(true)}
+              </>
+            )}
+            <View
+              onTap={() => {
+                setSelected(day);
+                onChange?.(day);
+              }}
+              style={{
+                marginRight: day.weekday() === 6 ? 0 : undefined,
+              }}
+              className={classNames(styles.item, itemCls, {
+                [classNames(styles.disable, disableItemCls)]: renderDisable(
+                  day,
+                ),
+                [classNames(styles.active, activeItemCls)]: active,
+              })}
+            >
+              {renderDate(day)}
+              <View className={classNames(styles.dotWrap, dotWrapCls)}>
+                {dot === true ? (
+                  <View
+                    className={classNames(styles.dot, dotCls, {
+                      [classNames(styles.activeDot, activeDotCls)]: active,
+                    })}
+                  >
+                    {dot}
+                  </View>
+                ) : (
+                  dot
+                )}
+              </View>
             </View>
-          </View>
+            {listEndDay &&
+              day.month() !==
+                dayjs(day)
+                  .add(1, 'day')
+                  .month() &&
+              renderEmpty(false)}
+          </React.Fragment>
         );
       })}
     </View>
