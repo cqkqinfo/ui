@@ -119,7 +119,7 @@ export default ({
           style: {
             [vertical ? 'marginBottom' : 'marginRight']:
               index + 1 === filterChildren?.length ||
-              (ignoreNum && index % ignoreNum === 0)
+              (ignoreNum && index && index % ignoreNum === 0)
                 ? undefined
                 : typeof size === 'number'
                 ? rpxToPx(size)
