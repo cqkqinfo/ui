@@ -52,9 +52,9 @@ const Inner = ({
 };
 
 export default ({
-  getImg,
   validator,
-  titleCls,
+  showTip = true,
+  ...props
 }: {
   /**
    * 获取图形验证码
@@ -68,6 +68,15 @@ export default ({
    * 弹窗title类名
    */
   titleCls?: string;
+  /**
+   * 验证码类名
+   */
+  imgCls?: string;
+  /**
+   * 显示
+   * @default true
+   */
+  showTip?: boolean;
 }) =>
   new Promise((resolve, reject) => {
     let value = '';
@@ -77,25 +86,30 @@ export default ({
       <Inner
         onChange={v => (value = v)}
         setReset={fn => (reset = fn)}
-        getImg={getImg}
-        titleCls={titleCls}
+        {...props}
       />,
       [
         {
           text: '确定',
           onPress: async () => {
-            showLoading({ title: '校验中' });
+            if (showTip) {
+              showLoading({ title: '校验中' });
+            }
             return validator(value)
               .then(() => {
-                hideLoading();
                 reset();
-                showToast({ title: '校验成功' });
+                if (showTip) {
+                  hideLoading();
+                  showToast({ title: '校验成功' });
+                }
                 resolve(undefined);
                 mode.close();
               })
               .catch(() => {
-                hideLoading();
-                showToast({ title: '校验失败请重试', icon: 'none' });
+                if (showTip) {
+                  hideLoading();
+                  showToast({ title: '校验失败请重试', icon: 'none' });
+                }
                 reset();
                 return Promise.reject();
               });
