@@ -70,6 +70,10 @@ export interface Props {
    * 列表模式的月份类名
    */
   monthCls?: string;
+  /**
+   * 开始时间，默认今天
+   */
+  startDay?: dayjs.Dayjs;
 }
 
 export default ({
@@ -87,14 +91,15 @@ export default ({
   renderDate = day => day.get('date'),
   listEndDay,
   monthCls,
+  startDay: outStartDay,
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
     useMemo(() => current || dayjs(), [current]),
   );
   const startDay = useMemo(() => {
-    return listEndDay ? dayjs().set('date', 1) : dayjs();
-  }, [listEndDay]);
+    return listEndDay ? dayjs().set('date', 1) : outStartDay || dayjs();
+  }, [listEndDay, outStartDay]);
   limit = useMemo(() => {
     return listEndDay ? listEndDay.diff(dayjs(), 'day') + 1 : limit;
   }, [limit, listEndDay]);

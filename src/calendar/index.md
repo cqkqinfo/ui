@@ -62,7 +62,7 @@ export default () => {
         }
       />
       <PartTitle>渲染范围</PartTitle>
-      <Calendar limit={35} />
+      <Calendar limit={35} startDay={dayjs().set('date', 1)} />
     </Space>
   );
 };
