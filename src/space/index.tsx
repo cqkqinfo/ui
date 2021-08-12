@@ -63,6 +63,10 @@ export interface Props
    */
   flexWrap?: Property.FlexWrap;
   hidden?: boolean;
+  /**
+   * 在一行第几个时不设置size
+   */
+  ignoreNum?: number;
 }
 
 export default ({
@@ -78,6 +82,7 @@ export default ({
   alignSelf,
   alignItems,
   flex,
+  ignoreNum,
   ...props
 }: Props) => {
   const filterChildren = (children instanceof Array ? children : [children])
@@ -113,7 +118,8 @@ export default ({
           key: index,
           style: {
             [vertical ? 'marginBottom' : 'marginRight']:
-              index + 1 === filterChildren?.length
+              index + 1 === filterChildren?.length ||
+              (ignoreNum && index % ignoreNum === 0)
                 ? undefined
                 : typeof size === 'number'
                 ? rpxToPx(size)
