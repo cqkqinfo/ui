@@ -10,8 +10,10 @@ export interface Props extends SwiperProps {
 export default ({ items, className, style }: Props) => {
   return (
     <Swiper className={className} style={style}>
-      {items.map(({ node }, index) => (
-        <SwiperSlide key={index}>{node}</SwiperSlide>
+      {items.map(({ node, className, style }, index) => (
+        <SwiperSlide key={index} className={className} style={style}>
+          {node}
+        </SwiperSlide>
       ))}
     </Swiper>
   );
