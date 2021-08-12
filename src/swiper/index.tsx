@@ -7,9 +7,9 @@ export interface Props extends SwiperProps {
   items: (SwiperItemProps & { node: React.ReactNode })[];
 }
 
-export default ({ items, className, style }: Props) => {
+export default ({ items, className, style, ...props }: Props) => {
   return (
-    <Swiper className={className} style={style}>
+    <Swiper className={className} style={style} {...(props as any)}>
       {items.map(({ node, className, style }, index) => (
         <SwiperSlide key={index} className={className} style={style}>
           {node}
