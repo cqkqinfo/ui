@@ -16,11 +16,13 @@ const Inner = ({
   onChange,
   setReset,
   titleCls,
+  imgCls,
 }: {
   getImg: () => Promise<string>;
   onChange: (v: string) => void;
   setReset: (getImg: () => Promise<string>) => void;
   titleCls?: string;
+  imgCls?: string;
 }) => {
   const { data: src, handle } = usePromise(getImg);
   setReset(handle);
@@ -35,7 +37,7 @@ const Inner = ({
           placeholder={'请输入验证码'}
           onChange={(v = '') => onChange(v)}
         />
-        <Image src={src} className={styles.img} />
+        <Image src={src} className={classNames(styles.img, imgCls)} />
         <ColorText
           className={styles.text}
           onTap={() => {
