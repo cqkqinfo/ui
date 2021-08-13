@@ -19,6 +19,10 @@ export default () => (
   <Space vertical size={'10px'}>
     <PartTitle>基本用法</PartTitle>
     <Swiper
+      interval={500}
+      autoplay
+      indicatorDots
+      style={{ width: '100vw' }}
       items={Object.values(CommonImg).map(img => ({
         node: <img src={img} style={{ width: '100vw', height: '30vh' }} />,
       }))}
