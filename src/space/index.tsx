@@ -91,7 +91,7 @@ export default ({
       i?.type?.toString() === 'Symbol(react.fragment)' ? i.props.children : i,
     )
     ?.flat(3)
-    ?.filter?.(i => i);
+    ?.filter?.(i => ![undefined, true, false].includes(i));
   return (
     <View
       style={{
