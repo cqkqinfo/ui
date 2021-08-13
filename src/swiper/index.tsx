@@ -6,6 +6,7 @@ import 'swiper/components/pagination/pagination.less';
 // import Swiper core and required modules
 import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import styles from './index.module.less';
+import classNames from 'classnames';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
@@ -30,7 +31,10 @@ export default ({
       pagination={
         indicatorDots
           ? {
-              bulletActiveClass: styles.active,
+              bulletActiveClass: classNames(
+                'swiper-pagination-bullet-active',
+                styles.active,
+              ),
             }
           : false
       }
