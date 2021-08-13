@@ -4,12 +4,12 @@ import ImportCDNJS from 'import-cdn-js';
 import { envVersion } from '../get-version';
 import './index.less';
 
-export default () => {
-  if (
-    ['develop', 'trial'].includes(envVersion) ||
+export default (
+  showDebug = ['develop', 'trial'].includes(envVersion) ||
     window.location.hostname === '122.9.36.145' ||
-    window.location.href.includes('isDebug=true')
-  ) {
+    window.location.href.includes('isDebug=true'),
+) => {
+  if (showDebug) {
     ImportCDNJS('//cdn.bootcss.com/eruda/1.4.4/eruda.min.js', 'eruda').then(
       (eruda: any) => {
         eruda.init();
