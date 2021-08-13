@@ -32,7 +32,7 @@ export default ({
           ? {
               bulletActiveClass: styles.active,
             }
-          : undefined
+          : false
       }
       autoplay={autoplay ? { delay: interval } : undefined}
     >

@@ -21,7 +21,6 @@ export default () => (
     <Swiper
       interval={500}
       autoplay
-      indicatorDots
       style={{ width: '100vw' }}
       items={Object.values(CommonImg).map(img => ({
         node: <img src={img} style={{ width: '100vw', height: '30vh' }} />,
