@@ -80,6 +80,7 @@ const names = [
   'kq-bofang',
   'kq-zanting',
   'kq-caidan',
+  'kq-time',
   'kq-shouye',
   'kq-tag',
 ];
