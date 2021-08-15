@@ -59,4 +59,8 @@ export default {
    * 医保卡
    */
   ybk: 'https://z3.ax1x.com/2021/06/18/Rpal9I.png',
+  /**
+   * 默认头像
+   */
+  mrtx: 'https://z3.ax1x.com/2021/08/15/fcTryq.png',
 };
