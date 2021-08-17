@@ -38,7 +38,9 @@ export default ({
             }
           : false
       }
-      autoplay={autoplay ? { delay: interval } : undefined}
+      autoplay={
+        autoplay ? { delay: interval, disableOnInteraction: false } : undefined
+      }
     >
       {items.map(({ node, className, style }, index) => (
         <SwiperSlide key={index} className={className} style={style}>
