@@ -149,7 +149,7 @@ export default ({
                 style={{ display: after || showError ? undefined : 'none' }}
               >
                 {showError ? (
-                  <Icon size={16} name={'kq-tip'} color={'#ED4E56'} />
+                  <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
                 ) : (
                   after
                 )}

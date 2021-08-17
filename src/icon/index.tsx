@@ -29,22 +29,26 @@ export default ({
 }: Props) => {
   const id = useId();
   const width2 = useViewSize(id).width;
-  const width = typeof size === 'number' ? rpxToPx(size / 2) : width2;
+  const isNumber = typeof size === 'number';
   return (
     <View
       className={classNames(styles.wrap, className)}
       {...props}
       id={id}
-      style={{ width: size, height: size, ...style }}
+      style={{
+        width: isNumber ? rpxToPx(+size) : size,
+        height: isNumber ? rpxToPx(+size) : size,
+        ...style,
+      }}
     >
       <NeedWrap
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
       >
-        {width && (
+        {width2 && (
           <Icon
             name={name}
-            size={width}
+            size={width2}
             color={color}
             className={styles.icon}
           />
