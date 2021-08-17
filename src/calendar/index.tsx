@@ -4,6 +4,9 @@ import { View } from 'remax/one';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { useEffectState } from 'parsec-hooks';
+import weekday from 'dayjs/plugin/weekday';
+
+dayjs.extend(weekday);
 
 const weeks = ['日', '一', '二', '三', '四', '五', '六'];
 
