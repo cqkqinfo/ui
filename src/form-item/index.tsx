@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { View, ViewProps } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
@@ -7,14 +7,25 @@ import NeedWrap from '../need-wrap';
 import Input from '../re-input';
 import classNames from 'classnames';
 import Icon from '../icon';
-import { useEffectState } from 'parsec-hooks';
+import { useDebounceEffect } from 'ahooks';
 import formRules from '../form-rules';
+import platform from '../get-platform';
 
 const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
-  const [myProps] = useEffectState(props, {
-    wait: 0,
-  });
-  return <View {...myProps} children={props.children} />;
+  const [myProps, setMyProps] = useState(props);
+  useDebounceEffect(
+    () => {
+      setMyProps(props);
+    },
+    [props],
+    { wait: 0 },
+  );
+  return (
+    <View
+      {...myProps}
+      children={platform === 'web' ? props.children : myProps.children}
+    />
+  );
 };
 
 export default ({
