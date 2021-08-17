@@ -83,6 +83,7 @@ const names = [
   'kq-time',
   'kq-shouye',
   'kq-tag',
+  'kq-fenge',
 ];
 
 export default () => (
