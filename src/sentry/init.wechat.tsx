@@ -1,5 +1,7 @@
 import * as Sentry from 'sentry-miniapp';
 import { Severity } from '@sentry/types';
+import { getUpdateManager } from 'remax/wechat';
+import showModal from '../show-modal';
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
@@ -80,3 +82,12 @@ setInterval(() => {
     form = to;
   }
 }, 500);
+
+const updateManager = getUpdateManager();
+updateManager.onUpdateReady(() => {
+  showModal({
+    title: '更新提示',
+    content: '新版本已经准备好，即将重启应用。',
+    showCancel: false,
+  }).then(updateManager.applyUpdate);
+});
