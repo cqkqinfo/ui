@@ -56,12 +56,12 @@ export default ({
   onMaxError,
   onError,
   beforeUpload = () => true,
-  value,
+  value = [],
   onChange,
 }: Props) => {
   return (
     <View className={classNames(styles.uploadImg)}>
-      {(value || []).map((item, index) => (
+      {value.map((item, index) => (
         <View className={classNames(styles.uploadImgItem)} key={index}>
           <Image
             className={classNames(styles.uploadImgItemImage)}
@@ -75,24 +75,25 @@ export default ({
             name="kq-clear2"
             color="#EA5328"
             onTap={() => {
-              const temp = value ? [...value] : [];
+              const temp = [...value];
               temp.splice(index, 1);
               onChange && onChange([...temp]);
             }}
           />
         </View>
       ))}
-      {((value && value.length < length) || !value) && (
+      {value.length < length && (
         <View
           className={classNames(styles.uploadImgIcon)}
           onTap={() => {
-            if (value && value.length >= length) {
+            if (value.length >= length) {
               return;
             }
             selectFiles({
               multiple,
               accept: 'image/*',
             }).then(async data => {
+              const tempData: string[] = [];
               for (const file of data) {
                 const maxErrFn = () => maxSize && file.size > maxSize;
                 try {
@@ -114,17 +115,18 @@ export default ({
                     tempFile = result;
                   }
 
-                  uploadFn(tempFile)
+                  await uploadFn(tempFile)
                     .then(url => {
-                      const temp = value ? [...value] : [];
-                      temp.push(url);
-                      onChange && onChange([...temp]);
+                      tempData.push(url);
                     })
                     .catch(onError);
                 } catch (e) {
                   onError && onError('beforeUpload');
                 }
               }
+
+              const temp = [...value, ...tempData].slice(0, length);
+              onChange && onChange([...temp]);
             });
           }}
         >

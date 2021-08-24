@@ -12,9 +12,8 @@ group:
 全平台图片上传组件
 
 ```tsx
-import React from 'react';
-import { UploadImg, Space, PartTitle } from '@kqinfo/ui';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { UploadImg, showToast, Space, PartTitle } from '@kqinfo/ui';
 
 export default () => {
   const [value, setValue] = useState<string[]>([
@@ -29,9 +28,10 @@ export default () => {
       <UploadImg
         value={value}
         length={5}
+        multiple={true}
         maxSize={1 * 1024 * 1024}
         onMaxError={() => {
-          console.log('文件过大');
+          showToast({ title: '文件过大' });
         }}
         multiple={true}
         uploadFn={async file => {
