@@ -4,7 +4,7 @@ import './init';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
-  init: ({ beforeSend, ...options } = {}) => {
+  init: (options = {}) => {
     if (
       process.env.REMAX_PLATFORM === 'wechat'
         ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -14,26 +14,7 @@ const newSentry: typeof Sentry = {
     ) {
       Sentry.init({
         integrations: [new Sentry.Integrations.GlobalHandlers()],
-        beforeSend(event, hint) {
-          /* tslint:disable:no-string-literal only-arrow-functions */
-          const isNonErrorException =
-            event.exception?.values?.[0]?.value?.startsWith(
-              'Non-Error exception captured',
-            ) ||
-            (hint?.originalException as any)?.message?.startsWith(
-              'Non-Error exception captured',
-            );
-          /* tslint:enable:no-string-literal only-arrow-functions */
-
-          if (isNonErrorException) {
-            // We want to ignore those kind of errors
-            return null;
-          }
-          if (beforeSend) {
-            return beforeSend(event, hint);
-          }
-          return event;
-        },
+        ignoreErrors: ['Non-Error exception captured'],
 
         // Set tracesSampleRate to 1.0 to capture 100%
         // of transactions for performance monitoring.
