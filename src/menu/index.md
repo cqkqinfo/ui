@@ -20,6 +20,7 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Menu
       onSelect={console.log}
+      onChange={console.log}
       data={[
         {
           name: '科室1',
