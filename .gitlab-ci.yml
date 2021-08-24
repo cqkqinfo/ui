@@ -19,6 +19,7 @@ build_app:
     CI: "true"
     BUILD_CMD: yarn docs:build  #打包的命令
     TEST_CMD: yarn test:coverage  #测试的命令
+  interruptible: true
   script:
     - echo $PREPARE_CMD
     - $PREPARE_CMD
