@@ -45,7 +45,7 @@ interface Props {
   /**
    * onChange事件
    */
-  onChange?: (value: string[]) => void;
+  onChange?: (value?: string[]) => void;
 }
 
 export default ({
