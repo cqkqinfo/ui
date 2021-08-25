@@ -3,8 +3,8 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 数据展示
-  path: /data-display
+  title: 数据录入
+  path: /data-entry
 ---
 
 ## UploadImg 图片上传组件
@@ -28,12 +28,11 @@ export default () => {
       <UploadImg
         value={value}
         length={5}
-        multiple={true}
+        multiple
         maxSize={1 * 1024 * 1024}
         onMaxError={() => {
           showToast({ title: '文件过大' });
         }}
-        multiple={true}
         uploadFn={async file => {
           return 'https://z3.ax1x.com/2021/04/12/cBYWwT.png';
         }}
