@@ -2,7 +2,7 @@ import getCurrentPage from '../get-current-page';
 import React, { useEffect, useRef, useState } from 'react';
 import Sheet, { SheetInstance } from '../sheet';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import Space from '../space';
 
 export interface ShowOptions {
