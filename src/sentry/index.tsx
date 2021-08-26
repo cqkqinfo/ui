@@ -14,7 +14,10 @@ const newSentry: typeof Sentry = {
     ) {
       Sentry.init({
         integrations: [new Sentry.Integrations.GlobalHandlers()],
-        ignoreErrors: ['Non-Error exception captured'],
+        ignoreErrors: [
+          'Non-Error exception captured',
+          'promise rejection captured',
+        ],
 
         // Set tracesSampleRate to 1.0 to capture 100%
         // of transactions for performance monitoring.
