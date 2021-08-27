@@ -67,7 +67,7 @@ export default ({
             className={classNames(styles.uploadImgItemImage)}
             src={item}
             onTap={() => {
-              previewImage({ urls: [item] });
+              previewImage({ urls: value, current: item });
             }}
           />
           <Icon
