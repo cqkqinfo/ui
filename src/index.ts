@@ -351,3 +351,7 @@ export { default as ScrollView } from './scroll-view';
  * 全平台图片上传组件
  */
 export { default as UploadImg } from './upload-img';
+/**
+ * 图片
+ */
+export { default as Image } from './image';

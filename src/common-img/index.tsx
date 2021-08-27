@@ -63,4 +63,8 @@ export default {
    * 默认头像
    */
   mrtx: 'https://z3.ax1x.com/2021/08/15/fcTryq.png',
+  /**
+   * 占位图
+   */
+  zwt: 'https://z3.ax1x.com/2021/08/27/hMVapd.png',
 };
