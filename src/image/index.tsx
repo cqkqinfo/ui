@@ -20,7 +20,7 @@ export default ({
   placeholder = commonImg.zwt,
   src = placeholder ? placeholder : '',
   onTap,
-  preview = true,
+  preview = false,
   onError,
   ...props
 }: Props) => {
