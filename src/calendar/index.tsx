@@ -155,6 +155,10 @@ export default ({
               </>
             )}
             <View
+              wechat-aria-role={'button'}
+              wechat-aria-label={day.format('MM月DD日')}
+              wechat-aria-selected={active}
+              wechat-aria-disabled={renderDisable(day)}
               onTap={() => {
                 setSelected(day);
                 onChange?.(day);
