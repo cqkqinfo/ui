@@ -2591,9 +2591,10 @@
     react-router-dom "5.2.0"
     regenerator-runtime "0.13.5"
 
-"@umijs/preset-dumi@1.1.16":
-  version "1.1.16"
-  resolved "https://registry.npmjs.org/@umijs/preset-dumi/-/preset-dumi-1.1.16.tgz#5ffd26bd582bc441a0a6f4fe657057fc3a849ae9"
+"@umijs/preset-dumi@1.1.26":
+  version "1.1.26"
+  resolved "https://registry.npmjs.org/@umijs/preset-dumi/-/preset-dumi-1.1.26.tgz#864bb0b004816df6cb985ab1f1557646cc67e94f"
+  integrity sha512-z4Gh3K0oSobWdTAjZochy9c6J2qkWFTkPDLCPOiDfB9zUACErAFVqSJ+trKbC7UvdEQ18y2u2wY/j2Jf+5MQeg==
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -2609,7 +2610,7 @@
     copy-text-to-clipboard "^2.2.0"
     deepmerge "^4.2.2"
     dumi-assets-types "1.0.0"
-    dumi-theme-default "1.0.16"
+    dumi-theme-default "1.1.9"
     enhanced-resolve "^4.1.1"
     github-slugger "^1.3.0"
     hast-util-has-property "^1.0.4"
@@ -2618,11 +2619,13 @@
     hast-util-to-html "^7.1.1"
     hast-util-to-string "^1.0.2"
     hosted-git-info "^3.0.2"
+    ignore "^5.1.8"
     js-yaml "^3.13.1"
+    lodash.throttle "^4.1.1"
     lz-string "^1.4.4"
-    react-docgen-typescript "^1.20.5"
+    react-docgen-typescript-dumi-tmp "^1.22.1-0"
     rehype-autolink-headings "^4.0.0"
-    rehype-mathjax-dumi-tmp "^3.1.1-0"
+    rehype-mathjax "^3.1.0"
     rehype-remove-comments "^4.0.2"
     rehype-stringify "^8.0.0"
     remark-frontmatter "^3.0.0"
@@ -5380,29 +5383,32 @@ dumi-assets-types@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/dumi-assets-types/-/dumi-assets-types-1.0.0.tgz#d5368cb11045b203bf1ef1080e553b2287a2ec81"
 
-dumi-theme-default@1.0.16:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/dumi-theme-default/-/dumi-theme-default-1.0.16.tgz#8c844cc2cdb8c98db95c5189772b0b9d2a74669e"
+dumi-theme-default@1.1.9:
+  version "1.1.9"
+  resolved "https://registry.npmjs.org/dumi-theme-default/-/dumi-theme-default-1.1.9.tgz#e7aad356b5ecafcd3a8e2e57ddd811197527e397"
+  integrity sha512-wO1+qDlW8ZOEiFI5ZS00X60vsJ++7aHd7CbxfyrF5eMAm7T37Izi0iKDNoQtKzZrb8OThNAkCh+DVubindfDXA==
   dependencies:
     prism-react-renderer "^1.1.1"
     prismjs "^1.21.0"
     rc-tabs "^11.7.1"
 
-dumi-theme-mobile@^1.0.10:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/dumi-theme-mobile/-/dumi-theme-mobile-1.0.16.tgz#8a76bf3a102fca2054c73979898f251b0340bb10"
+dumi-theme-mobile@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.npmjs.org/dumi-theme-mobile/-/dumi-theme-mobile-1.1.9.tgz#1843741d26c72dad7dcc94483771f278b42c329b"
+  integrity sha512-9MGtW1227CG6alm+ztGbTKwdbGdbuBO/KBSS5HkeXPLfY+Mvqn3lpGJXZUTXSjO/xEcOo8RauUbgzvY8Wo8xRA==
   dependencies:
-    dumi-theme-default "1.0.16"
+    dumi-theme-default "1.1.9"
     f2-touchemulator "^0.0.1"
     lodash.debounce "^4.0.8"
     qrcode.react "^1.0.0"
     umi-hd "^5.0.1"
 
-dumi@^1.0.13:
-  version "1.1.16"
-  resolved "https://registry.npmjs.org/dumi/-/dumi-1.1.16.tgz#a4c5966c91f5143f1e992c48686323c15450cc04"
+dumi@^1.1.26:
+  version "1.1.26"
+  resolved "https://registry.npmjs.org/dumi/-/dumi-1.1.26.tgz#7247ed9fd66ae7ac81b07e21c99d9fd89f5cf6a9"
+  integrity sha512-gnr8I4MhdeePEjg2Yt90jK90SJIDRC64wHqoN89c63aWWW2kNcs3c069uizBy8ZQcHqeRJxa3KJE0w+FslmVOA==
   dependencies:
-    "@umijs/preset-dumi" "1.1.16"
+    "@umijs/preset-dumi" "1.1.26"
     umi "^3.0.0"
 
 duplexer3@^0.1.4:
@@ -7316,7 +7322,7 @@ ignore@^4.0.3, ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.npmjs.org/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
-ignore@^5.0.5, ignore@^5.1.4:
+ignore@^5.0.5, ignore@^5.1.4, ignore@^5.1.8:
   version "5.1.8"
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
 
@@ -9047,13 +9053,15 @@ markdown-table@^2.0.0:
   dependencies:
     repeat-string "^1.0.0"
 
-mathjax-full@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.npmjs.org/mathjax-full/-/mathjax-full-3.1.2.tgz#53ac5b38252379d515d60e99092672b42725bf6a"
+mathjax-full@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/mathjax-full/-/mathjax-full-3.2.0.tgz#e53269842a943d4df10502937518991268996c5c"
+  integrity sha512-D2EBNvUG+mJyhn+M1C858k0f2Fc4KxXvbEX2WCMXroV10212JwfYqaBJ336ECBSz5X9L5LRoamxb7AJtg3KaJA==
   dependencies:
     esm "^3.2.25"
+    mhchemparser "^4.1.0"
     mj-context-menu "^0.6.1"
-    speech-rule-engine "^3.1.1"
+    speech-rule-engine "^3.3.3"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -9221,6 +9229,11 @@ merge2@^1.2.3, merge2@^1.3.0:
 methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
+
+mhchemparser@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/mhchemparser/-/mhchemparser-4.1.1.tgz#a2142fdab37a02ec8d1b48a445059287790becd5"
+  integrity sha512-R75CUN6O6e1t8bgailrF1qPq+HhVeFTM3XQ0uzI+mXTybmphy3b6h4NbLOYhemViQ3lUs+6CKRkC3Ws1TlYREA==
 
 micromark-extension-frontmatter@^0.2.0:
   version "0.2.2"
@@ -11741,9 +11754,10 @@ react-autosize-textarea@^7.0.0:
     line-height "^0.3.1"
     prop-types "^15.5.6"
 
-react-docgen-typescript@^1.20.5:
-  version "1.22.0"
-  resolved "https://registry.npmjs.org/react-docgen-typescript/-/react-docgen-typescript-1.22.0.tgz#00232c8e8e47f4437cac133b879b3e9437284bee"
+react-docgen-typescript-dumi-tmp@^1.22.1-0:
+  version "1.22.1-0"
+  resolved "https://registry.npmjs.org/react-docgen-typescript-dumi-tmp/-/react-docgen-typescript-dumi-tmp-1.22.1-0.tgz#6f452de05c5c114a6e1dd60b34930afaa7ae39a0"
+  integrity sha512-wjuAm1yj+ZZucovow2VF0MXkH2SGZ+squZxfNdnam3oyUbHy/xZaU1ZabCn7rY+13ZFx0/NLda+ZuBgF3g8vBA==
 
 react-dom@16.x:
   version "16.14.0"
@@ -12054,15 +12068,16 @@ rehype-autolink-headings@^4.0.0:
     hast-util-is-element "^1.0.0"
     unist-util-visit "^2.0.0"
 
-rehype-mathjax-dumi-tmp@^3.1.1-0:
-  version "3.1.1-0"
-  resolved "https://registry.npmjs.org/rehype-mathjax-dumi-tmp/-/rehype-mathjax-dumi-tmp-3.1.1-0.tgz#56958ebfdf089c39fe629f8fe0b423253d5f9679"
+rehype-mathjax@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/rehype-mathjax/-/rehype-mathjax-3.1.0.tgz#d0282243bf68f3f18dd63a062e0f8c45662ecc26"
+  integrity sha512-Pmz92Y56lBFmDjFc9nIdrKu1xzKSBYevcwKiKiG7b5JJg74q1E62nRSbPEm37vXaXn7Bn25iRsWcP39bJKkMxg==
   dependencies:
     "@types/mathjax" "^0.0.36"
     hast-util-from-dom "^3.0.0"
     hast-util-to-text "^2.0.0"
     jsdom "^16.0.0"
-    mathjax-full "3.1.2"
+    mathjax-full "^3.0.0"
     unist-util-visit "^2.0.0"
 
 rehype-remove-comments@^4.0.2:
@@ -13099,9 +13114,10 @@ spdy@^4.0.2:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
-speech-rule-engine@^3.1.1:
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/speech-rule-engine/-/speech-rule-engine-3.2.0.tgz#6313ae0f8596519fa8dfc3ef01beae6b6cca312f"
+speech-rule-engine@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.npmjs.org/speech-rule-engine/-/speech-rule-engine-3.3.3.tgz#781ed03cbcf3279f94d1d80241025ea954c6d571"
+  integrity sha512-0exWw+0XauLjat+f/aFeo5T8SiDsO1JtwpY3qgJE4cWt+yL/Stl0WP4VNDWdh7lzGkubUD9lWP4J1ASnORXfyQ==
   dependencies:
     commander ">=7.0.0"
     wicked-good-xpath "^1.3.0"

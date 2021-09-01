@@ -20,7 +20,9 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Button
       onTap={() => {
-        axios.get('/components/utils/axios').then(console.log);
+        axios
+          .get('/components/utils/axios')
+          .then(v => alert(JSON.stringify(v)));
       }}
       type={'priary'}
     >

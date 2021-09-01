@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { Space, ActionSheet, PartTitle, Button } from '@kqinfo/ui';
+import { Space, ActionSheet, PartTitle, Button, showModal } from '@kqinfo/ui';
 
 export default () => {
   return (
@@ -28,7 +28,9 @@ export default () => {
               { label: '操作项1', value: 1 },
               { label: '操作项2', value: 2 },
             ],
-          }).then(console.log);
+          }).then(({ label, value }) =>
+            showModal({ title: label, content: `value: ${value}` }),
+          );
         }}
       >
         显示

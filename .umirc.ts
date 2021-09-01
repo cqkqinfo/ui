@@ -8,7 +8,11 @@ export default defineConfig({
   logo: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',
   outputPath: 'docs-dist',
   mode: 'site',
-  // more config: https://d.umijs.org/config
+  theme: {
+    '@primary-color': '#2780da',
+  },
+  webpack5: {},
+  fastRefresh: {},
   extraBabelPlugins: [
     [
       'babel-plugin-import',

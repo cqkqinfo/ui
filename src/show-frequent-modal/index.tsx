@@ -37,7 +37,11 @@ const Inner = ({
           placeholder={'请输入验证码'}
           onChange={(v = '') => onChange(v)}
         />
-        <Image src={src} className={classNames(styles.img, imgCls)} />
+        <Image
+          mode={'aspectFit'}
+          src={src}
+          className={classNames(styles.img, imgCls)}
+        />
         <ColorText
           className={styles.text}
           onTap={() => {
