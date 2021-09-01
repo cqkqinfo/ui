@@ -9,7 +9,7 @@ export default defineConfig({
   outputPath: 'docs-dist',
   mode: 'site',
   theme: {
-    '@primary-color': '#2780da',
+    '@c-primary': '#2780da',
   },
   webpack5: {},
   fastRefresh: {},
