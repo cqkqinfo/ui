@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Swiper, Space, PartTitle, CommonImg } from '@kqinfo/ui';
+import { Swiper, Space, PartTitle, CommonImg, Image } from '@kqinfo/ui';
 
 export default () => (
   <Space vertical size={'10px'}>
@@ -23,7 +23,7 @@ export default () => (
       autoplay
       style={{ width: '100vw' }}
       items={Object.values(CommonImg).map(img => ({
-        node: <img src={img} style={{ width: '100vw', height: '30vh' }} />,
+        node: <Image src={img} style={{ width: '100vw', height: '30vh' }} />,
       }))}
     />
   </Space>

@@ -121,7 +121,7 @@ export default ({ className }: Props) => {
               (item, index) => (
                 <Icon
                   color={active === index ? brandPrimary : '#BBBBBB'}
-                  size={20}
+                  size={40}
                   className={styles.footerIcon}
                   name={item as any}
                   onTap={() => {
