@@ -11,8 +11,6 @@ export default defineConfig({
   theme: {
     '@c-primary': '#2780da',
   },
-  webpack5: {},
-  fastRefresh: {},
   extraBabelPlugins: [
     [
       'babel-plugin-import',
