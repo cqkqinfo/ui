@@ -10,7 +10,9 @@ const newSentry: typeof Sentry = {
         ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           __wxConfig.envVersion !== 'develop'
-        : !window.location.host.includes('localhost')
+        : process.env.REMAX_PLATFORM === 'web'
+        ? !window.location.host.includes('localhost')
+        : false
     ) {
       Sentry.init({
         integrations: [new Sentry.Integrations.GlobalHandlers()],
