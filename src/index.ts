@@ -359,3 +359,7 @@ export { default as Image } from './image';
  * 索引选择器
  */
 export { default as Indexes } from './indexes';
+/**
+ * 水印
+ */
+export { default as WaterMark } from './water-mark';
