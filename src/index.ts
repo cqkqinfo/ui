@@ -355,3 +355,7 @@ export { default as UploadImg } from './upload-img';
  * 图片
  */
 export { default as Image } from './image';
+/**
+ * 水印
+ */
+export { default as WaterMark } from './water-mark';
