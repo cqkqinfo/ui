@@ -8,7 +8,6 @@ export const getWH = (id: string) =>
       .select(`#${id}`)
       .boundingClientRect()
       .exec(ret => {
-        console.log(ret);
         return ret;
       });
   });
@@ -27,7 +26,6 @@ export default (id: string) => {
       .select(`#${id}`)
       .boundingClientRect()
       .exec((data: any) => {
-        console.log(data);
         const ret = data[0] || {};
         if (ret && (ret?.width !== wh.width || ret?.height !== wh.height)) {
           if (count === countRef.current) {
