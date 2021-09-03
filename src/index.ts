@@ -355,3 +355,7 @@ export { default as UploadImg } from './upload-img';
  * 图片
  */
 export { default as Image } from './image';
+/**
+ * 索引选择器
+ */
+export { default as Indexes } from './indexes';

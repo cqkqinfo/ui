@@ -10213,6 +10213,11 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
+pinyin-pro@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.npmjs.org/pinyin-pro/-/pinyin-pro-3.3.1.tgz#c8582b258e398e68b5275c984b94f5c154e075dd"
+  integrity sha512-v7xr7/sx3zHk011k3nEZqx4sb9rd29WA0bNUPZ0jkjHC+g3/kzZGOKC2NL/DoDCCR6jREv4aUq/dKOHMR3eJ/w==
+
 pirates@^4.0.0, pirates@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/pirates/-/pirates-4.0.1.tgz#643a92caf894566f91b2b986d2c66950a8e2fb87"
