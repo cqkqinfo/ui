@@ -84,6 +84,7 @@ const names = [
   'kq-shouye',
   'kq-tag',
   'kq-fenge',
+  'kq-zhengque',
 ];
 
 export default () => (
