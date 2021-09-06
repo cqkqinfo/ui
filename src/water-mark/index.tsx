@@ -107,12 +107,6 @@ export default (props: WaterMarkProps) => {
     const canvasHeight = `${pxToRpx((gapY + height) * ratio)}rpx`;
     const canvasOffsetLeft = offsetLeft || gapX / 2;
     const canvasOffsetTop = offsetTop || gapY / 2;
-    console.log('ratio', ratio);
-    console.log('canvasWidth', canvasWidth);
-    console.log('canvasHeight', canvasHeight);
-    console.log('canvasOffsetLeft', canvasOffsetLeft);
-    console.log('canvasOffsetLeft', canvasOffsetLeft);
-    console.log('canvasOffsetTop', canvasOffsetTop);
 
     canvas.setAttribute('width', canvasWidth);
     canvas.setAttribute('height', canvasHeight);
@@ -161,7 +155,6 @@ export default (props: WaterMarkProps) => {
     fontSize,
   ]);
 
-  console.log('base64Url', base64Url);
   return (
     <View
       style={{
