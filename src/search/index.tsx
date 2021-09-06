@@ -55,6 +55,7 @@ export default ({
           placeholderStyle={{ color: '#999999' }}
           onChange={handleChange}
           value={value2}
+          confirmType={'search'}
           {...props}
         />
         <View
