@@ -31,13 +31,15 @@ Component({
       this.triggerEvent('change', value);
     },
   },
-  onBlur(e) {
-    this.triggerEvent('blur', e);
-  },
-  onFocus(e) {
-    this.triggerEvent('focus', e);
-  },
-  onConfirm(e) {
-    this.triggerEvent('confirm', e);
+  methods: {
+    onBlur(e) {
+      this.triggerEvent('blur', e);
+    },
+    onFocus(e) {
+      this.triggerEvent('focus', e);
+    },
+    onConfirm(e) {
+      this.triggerEvent('confirm', e);
+    },
   },
 });
