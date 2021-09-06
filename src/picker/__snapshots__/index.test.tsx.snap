@@ -7,6 +7,7 @@ exports[`picker选择器 城市选择 1`] = `
   <div>
     <div>
       <div
+        class="picker-children"
         extra="北京市,市辖区,东城区"
       >
         <div>
@@ -23,6 +24,7 @@ exports[`picker选择器 渲染 1`] = `
   <div>
     <div>
       <div
+        class="picker-children"
         extra="请选择"
       >
         显示

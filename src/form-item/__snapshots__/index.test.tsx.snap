@@ -104,7 +104,7 @@ exports[`表单项 渲染 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"

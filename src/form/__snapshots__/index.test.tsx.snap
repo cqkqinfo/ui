@@ -41,7 +41,7 @@ exports[`表单 card模式 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入姓名"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -96,7 +96,7 @@ exports[`表单 card模式 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -155,7 +155,7 @@ exports[`表单 cell模式 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入姓名"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -205,7 +205,7 @@ exports[`表单 cell模式 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -269,7 +269,7 @@ exports[`表单 两端对齐 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入姓名"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -324,7 +324,7 @@ exports[`表单 两端对齐 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -388,7 +388,7 @@ exports[`表单 渲染 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入姓名"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
@@ -443,7 +443,7 @@ exports[`表单 渲染 1`] = `
           style="justify-content: flex-end;"
         >
           <input
-            class="input"
+            class="web input"
             placeholder="请输入手机号"
             placeholderstyle="[object Object]"
             toutiao-selection-end="999"
