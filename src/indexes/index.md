@@ -19,7 +19,7 @@ import { View } from 'remax/one';
 export default () => {
   return (
     <Indexes
-      style={{ height: '100vh' }}
+      style={{ height: '98vh' }}
       renderItem={({ name }) => ({
         index: name,
         node: (

@@ -60,13 +60,13 @@ export default ({ identifier, export: expt }: IApiComponentProps) => {
               .map(row => (
                 <tr key={row.identifier}>
                   <td>{row.identifier}</td>
-                  <td>{row.description || '--'}</td>
+                  <td>{row.description || '-'}</td>
                   <td>
                     <code>{row.type}</code>
                   </td>
                   <td>
                     <code>
-                      {row.default || (row.required && texts.required) || '--'}
+                      {row.default || (row.required && texts.required) || '-'}
                     </code>
                   </td>
                 </tr>
