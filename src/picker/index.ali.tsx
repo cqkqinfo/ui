@@ -9,9 +9,17 @@ const getList = (data: Props['data']): any =>
   }));
 
 export default (props: Props) => {
-  const { title, data, onChange, children, childrenCls } = useProps(props);
+  const {
+    title,
+    data,
+    onChange,
+    children,
+    childrenCls,
+    ...newProps
+  } = useProps(props);
   return (
     <View
+      {...newProps}
       className={childrenCls}
       onTap={() =>
         multiLevelSelect({

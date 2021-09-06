@@ -21,6 +21,7 @@ export default (props: Props) => {
     end,
     childrenCls,
     mode = 'multiSelector',
+    ...newProps
   } = useProps(props);
   const getData = useCallback(
     (data: PickerData[] | PickerData[][], index: number) =>
@@ -70,6 +71,7 @@ export default (props: Props) => {
 
   return (
     <Picker
+      {...newProps}
       range-key={'label'}
       mode={mode}
       start={start}
