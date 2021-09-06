@@ -188,7 +188,12 @@ export default () => {
         <PartTitle>Form1</PartTitle>
         <Form cell>
           <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
-          <FormItem label={'性别'} name={'sex'} rules={[{ required: true }]}>
+          <FormItem
+            after={<Icon name={'kq-right'} color={'#666'} />}
+            label={'性别'}
+            name={'sex'}
+            rules={[{ required: true }]}
+          >
             <Picker
               data={[
                 { value: '男', label: '男' },
@@ -229,6 +234,105 @@ export default () => {
         </Button>
       </Space>
     </Form>
+  );
+};
+```
+
+### 当作详情展示
+
+```tsx
+import React, { useEffect, useState } from 'react';
+import {
+  Space,
+  Form,
+  FormItem,
+  Button,
+  PartTitle,
+  Shadow,
+  Icon,
+  addressOptions,
+  Loading,
+  Page,
+  Picker,
+  TransferChange,
+} from '@kqinfo/ui';
+
+export default () => {
+  const [form] = Form.useForm();
+  const [values, setValues] = useState<any>();
+  useEffect(() => {
+    setTimeout(() => {
+      setValues({
+        name: '小明',
+        sex: '男',
+        idCard: '511xxxxxxxxxxxxxxx',
+        city: '重庆市-市辖区-渝北区',
+      });
+    }, 3000);
+  }, []);
+  const [readOnly, setReadOnly] = useState(true);
+  return (
+    <Space vertical size={'10px'}>
+      {!values && <Loading />}
+      <Form
+        form={form}
+        requiredMark={!readOnly}
+        cell
+        onFinish={() => {
+          setReadOnly(!readOnly);
+        }}
+        values={values}
+        readOnly={readOnly}
+      >
+        <FormItem label={'姓名'} name={'name'} rules={[{ required: true }]} />
+        <FormItem
+          after={!readOnly && <Icon name={'kq-right'} color={'#666'} />}
+          renderReadOnlyValue={v => v}
+          label={'性别'}
+          name={'sex'}
+          rules={[{ required: true }]}
+        >
+          <Picker
+            data={[
+              { value: '男', label: '男' },
+              { value: '女', label: '女' },
+            ]}
+          >
+            请选择
+          </Picker>
+        </FormItem>
+        <FormItem
+          label={'身份证号'}
+          name={'idCard'}
+          rules={[{ type: 'idCard', required: true }]}
+        />
+        <FormItem
+          label={'地区'}
+          name={'city'}
+          rules={[{ required: true }]}
+          after={!readOnly && <Icon name={'kq-right'} color={'#666'} />}
+          renderReadOnlyValue={v => v}
+        >
+          <TransferChange mode={'city'}>
+            <Picker cols={3} data={addressOptions}>
+              请选择
+            </Picker>
+          </TransferChange>
+        </FormItem>
+      </Form>
+      <Button
+        type={'primary'}
+        onTap={() => {
+          if (readOnly) {
+            setReadOnly(!readOnly);
+          } else {
+            form.submit();
+          }
+        }}
+      >
+        {readOnly ? '编辑' : '保存'}
+      </Button>
+    </Space>
   );
 };
 ```

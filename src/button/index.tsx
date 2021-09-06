@@ -91,7 +91,7 @@ export default ({
 }: Props) => (
   <NeedWrap wrap={Shadow} need={shadow}>
     <View
-      aria-role="button"
+      role="button"
       aria-label={typeof children === 'string' ? children : undefined}
       aria-disabled={disable}
       className={classNames(

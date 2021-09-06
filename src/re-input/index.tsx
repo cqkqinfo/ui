@@ -14,7 +14,7 @@ export default (props: UseInputOption) => {
       className={classNames(styles.web, newProps.className)}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
-      enterkeyhint={newProps.confirmType}
+      enterKeyHint={newProps.confirmType}
     />
   );
 };

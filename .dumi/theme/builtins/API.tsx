@@ -22,7 +22,6 @@ const LOCALE_TEXTS = {
 export default ({ identifier, export: expt }: IApiComponentProps) => {
   const data = useApiData(identifier);
   const texts = LOCALE_TEXTS['zh-CN'];
-  console.log(data);
 
   return (
     <>
