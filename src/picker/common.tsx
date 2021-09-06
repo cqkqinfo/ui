@@ -3,6 +3,7 @@ import { PickerProps } from '@remax/wechat/esm/hostComponents/Picker';
 import React from 'react';
 import { useControllableValue } from 'ahooks';
 import 'array-flat-polyfill';
+import classNames from 'classnames';
 
 export interface Props
   extends Omit<PickerPropsType, 'value' | 'data' | 'onChange'>,
@@ -80,6 +81,7 @@ export const useProps = (props: Props) => {
   };
   return {
     ...newProps,
+    childrenCls: classNames(newProps.childrenCls, 'picker-children'),
     style: undefined,
     children: getChildren(newProps),
   };

@@ -2,6 +2,9 @@ import { Picker, DatePicker } from 'antd-mobile';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { Props, useProps } from './common';
+import { PickerData as _PickerData } from 'antd-mobile/lib/picker/PropsType';
+
+export const PickerData = ({}: _PickerData) => {};
 
 export default (props: Props) => {
   const {

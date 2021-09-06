@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { Props, useProps } from './common';
+import { View } from 'remax/one';
 
 export default (props: Props) => {
   const {
@@ -18,6 +19,7 @@ export default (props: Props) => {
     cols,
     start,
     end,
+    childrenCls,
     mode = 'multiSelector',
   } = useProps(props);
   const getData = useCallback(
@@ -91,7 +93,7 @@ export default (props: Props) => {
           onChange?.(value);
         }
       }}
-      children={children}
+      children={<View className={childrenCls}>{children}</View>}
     />
   );
 };

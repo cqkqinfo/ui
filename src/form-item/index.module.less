@@ -8,6 +8,25 @@
   .children {
     color: #666;
     flex: 1;
+    > div,
+    > view,
+    > Picker {
+      width: 100%;
+      display: flex;
+      justify-content: inherit;
+      height: 70px;
+      align-items: center;
+      :global {
+        .picker-children {
+          display: flex;
+          justify-content: flex-end;
+          width: 100vw;
+          max-width: 50vw;
+          height: 100%;
+          align-items: center;
+        }
+      }
+    }
   }
   .colon {
     padding: 0 10px;
@@ -31,6 +50,10 @@
       input {
         text-align: right;
         flex: 1;
+      }
+      textarea {
+        padding: 20px 0;
+        box-sizing: border-box;
       }
       &.left {
         justify-content: flex-start;
