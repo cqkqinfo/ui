@@ -43,7 +43,6 @@ export default ({
           className={styles.input}
           placeholderStyle={{ color: '#999999' }}
           onChange={handleChange}
-          onConfirm={() => props.onConfirm?.(value2)}
           value={value2}
           {...props}
         />
