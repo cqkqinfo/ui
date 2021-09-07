@@ -1,7 +1,7 @@
 import { View, ViewProps } from 'remax/one';
 import React from 'react';
-import Icon from './one';
-import { IconFontProps } from './wechat';
+import Icon from './one/index';
+import { IconFontProps } from './other';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import useViewSize from '../use-view-size';
@@ -36,8 +36,8 @@ export default ({
       {...props}
       id={id}
       style={{
-        width: isNumber ? rpxToPx(+size) : size,
-        height: isNumber ? rpxToPx(+size) : size,
+        width: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
+        height: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
         ...style,
       }}
     >
@@ -50,6 +50,8 @@ export default ({
             name={name}
             size={width2}
             color={color}
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
             className={styles.icon}
           />
         )}

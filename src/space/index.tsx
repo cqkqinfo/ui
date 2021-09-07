@@ -123,7 +123,7 @@ export default ({
                 ? undefined
                 : typeof size === 'number'
                 ? rpxToPx(size)
-                : size,
+                : size?.toUpperCase(),
             ...props.style,
           },
         });
