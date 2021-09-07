@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { View } from 'remax/one';
 import Icon from '../icon';
-import { IconFontNames } from '../icon/wechat';
+import { IconFontNames } from '../icon/other';
 import provider from '../config-provider';
 import styles from './index.module.less';
 
