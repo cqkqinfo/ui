@@ -363,3 +363,11 @@ export { default as Indexes } from './indexes';
  * 水印
  */
 export { default as WaterMark } from './water-mark';
+/**
+ * 选择文件
+ */
+export { default as selectFiles } from './select-files';
+/**
+ * 上传文件
+ */
+export { default as uploadFile } from './upload-file';
