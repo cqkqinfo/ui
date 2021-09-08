@@ -371,3 +371,7 @@ export { default as selectFiles } from './select-files';
  * 上传文件
  */
 export { default as uploadFile } from './upload-file';
+/**
+ * 跳转小程序
+ */
+export { default as OpenWeapp } from './open-weapp';
