@@ -37,9 +37,6 @@ export default (props: Props) => {
       {...newProps}
       className={childrenCls}
       onTap={() => {
-        console.log(data);
-
-        console.log(getList(data));
         if (mode === 'multiSelector' || cols !== 1) {
           multiLevelSelect({
             title: title as any,
