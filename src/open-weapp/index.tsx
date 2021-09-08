@@ -31,26 +31,42 @@ export default ({
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
+  const tagName = isWx ? 'wx-open-launch-weapp' : 'open-weapp';
   return (
     <View
       {...props}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
       dangerouslySetInnerHTML={{
-        __html: isWx
-          ? `
-        <wx-open-launch-weapp
+        __html: `<${tagName}
           className='${className}'
           id="${id}"
           username="${username}"
           path="${path}"
         >
-          <template>
+          <template id='open-weapp'>
             ${childrenHtml}
           </template>
-        </wx-open-launch-weapp>`
-          : childrenHtml,
+        </${tagName}>`,
       }}
     />
   );
 };
+
+// Create a class for the element
+class OpenWeapp extends HTMLElement {
+  constructor() {
+    super();
+
+    const templateElem = document.getElementById(
+      'open-weapp',
+    ) as HTMLTemplateElement;
+    if (templateElem) {
+      const content = templateElem.content.cloneNode(true);
+      this.appendChild(content);
+    }
+  }
+}
+
+// Define the new element
+customElements.define('open-weapp', OpenWeapp);
