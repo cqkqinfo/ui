@@ -3,10 +3,19 @@ import { multiLevelSelect, View, datePicker, optionsSelect } from 'remax/ali';
 import { Props, useProps } from './common';
 
 const getList = (data: Props['data']): any =>
-  data?.flat().map(({ children, label }: any) => ({
-    name: label,
-    subList: getList(children),
-  }));
+  data?.flat().map(({ children, label }: any) => {
+    const subList = getList(children);
+    if (subList) {
+      return {
+        name: label,
+        subList,
+      };
+    } else {
+      return {
+        name: label,
+      };
+    }
+  });
 
 export default (props: Props) => {
   const {
@@ -28,6 +37,9 @@ export default (props: Props) => {
       {...newProps}
       className={childrenCls}
       onTap={() => {
+        console.log(data);
+
+        console.log(getList(data));
         if (mode === 'multiSelector' || cols !== 1) {
           multiLevelSelect({
             title: title as any,
@@ -46,17 +58,17 @@ export default (props: Props) => {
           });
         }
         if (mode === 'selector' && cols === 1) {
-          const list = getList(data);
+          const newData = data as { label: string; value: string }[];
           optionsSelect({
             title: title as any,
-            selectedOneIndex: list.findIndex(
+            selectedOneIndex: newData.findIndex(
               (item: { label: string; value: string }) => item.value === value,
             ),
-            optionsOne: list.map(
+            optionsOne: newData.map(
               (item: { label: string; value: string }) => item.label,
             ),
             success: ({ selectedOneIndex }) => {
-              onChange(list[selectedOneIndex]?.value);
+              onChange(newData[selectedOneIndex]?.value);
             },
           });
         }
