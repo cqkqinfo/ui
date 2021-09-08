@@ -7,6 +7,8 @@ import QR from 'qrcode-base64';
 
 export default ({
   content,
+  lightColor: _,
+  darkColor: __,
   className,
   onSetSrc,
   longTapSave,
@@ -24,5 +26,5 @@ export default ({
   useEffect(() => {
     onSetSrc?.(src);
   }, [onSetSrc, src]);
-  return <Image className={className} src={src} />;
+  return <Image className={className} src={src} {...(restProps as any)} />;
 };
