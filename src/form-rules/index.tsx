@@ -43,7 +43,7 @@ export default {
     return value
       ? value?.length === 18 && IDCard(value.toUpperCase()).isVerified
         ? Promise.resolve()
-        : Promise.reject(new Error('请输入正确的身份证号码'))
+        : Promise.reject(new Error(rule.message || '请输入正确的身份证号码'))
       : rule.required
       ? Promise.reject(new Error('请输入身份证号码'))
       : Promise.resolve();
@@ -52,7 +52,7 @@ export default {
     return value
       ? /^1[3-9][0-9]{9}$/.test(value)
         ? Promise.resolve()
-        : Promise.reject(new Error('请输入正确的手机号'))
+        : Promise.reject(new Error(rule.message || '请输入正确的手机号'))
       : rule.required
       ? Promise.reject(new Error('请输入手机号码'))
       : Promise.resolve();
@@ -63,7 +63,8 @@ export default {
         ? Promise.resolve()
         : Promise.reject(
             new Error(
-              '请设置8-20位密码，至少包含数字、字母、特殊符号中2种，不能有空格',
+              rule.message ||
+                '请设置8-20位密码，至少包含数字、字母、特殊符号中2种，不能有空格',
             ),
           )
       : rule.required
