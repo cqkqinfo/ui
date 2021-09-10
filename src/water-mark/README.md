@@ -3,8 +3,8 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 数据展示
-  path: /data-display
+  title: 通用
+  path: /general
 ---
 
 # WaterMark 水印组件

@@ -359,3 +359,7 @@ export { default as Image } from './image';
  * 水印
  */
 export { default as WaterMark } from './water-mark';
+/**
+ * 骨架屏
+ */
+export { default as Skeleton } from './skeleton';
