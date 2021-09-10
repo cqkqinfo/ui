@@ -364,6 +364,10 @@ export { default as Indexes } from './indexes';
  */
 export { default as WaterMark } from './water-mark';
 /**
+ * 骨架屏
+ */
+export { default as Skeleton } from './skeleton';
+/**
  * 选择文件
  */
 export { default as selectFiles } from './select-files';
