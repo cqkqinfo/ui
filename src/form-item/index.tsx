@@ -77,16 +77,15 @@ export default ({
   rules = rules?.map(item => {
     if (item instanceof Function) return item;
     item = { ...item };
-    if (item.required) {
-      required = true;
-      item.message = item.message || `${strLabel}是必填的`;
-    }
     if (item.type && (formRules as any)[item.type]) {
       item.validator = (formRules as any)[item.type];
       delete item.type;
     }
-    if (item.validator) {
-      delete item.message;
+    if (item.required) {
+      required = true;
+      if (!item.validator) {
+        item.message = item.message || `${strLabel}是必填的`;
+      }
     }
     return item;
   });
