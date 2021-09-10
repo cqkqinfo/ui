@@ -57,14 +57,15 @@ export default ({
 class OpenWeapp extends HTMLElement {
   constructor() {
     super();
-
-    const templateElem = document.getElementById(
-      'open-weapp',
-    ) as HTMLTemplateElement;
-    if (templateElem) {
-      const content = templateElem.content.cloneNode(true);
-      this.appendChild(content);
-    }
+    setTimeout(() => {
+      const templateElem = document.getElementById(
+        'open-weapp',
+      ) as HTMLTemplateElement;
+      if (templateElem) {
+        const content = templateElem.content.cloneNode(true);
+        this.appendChild(content);
+      }
+    });
   }
 }
 
