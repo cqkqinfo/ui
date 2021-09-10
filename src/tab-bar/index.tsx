@@ -18,6 +18,10 @@ export interface TabBarItemProps {
    * 路由索引
    */
   index: number | string;
+  /**
+   * 是否隐藏
+   */
+  hide?: boolean;
 }
 
 export interface TabBarProps {
@@ -65,36 +69,38 @@ const TabBar = (props: TabBarProps) => {
       className={classNames(styles.tabBarWrap, className)}
       style={{ color, ...style }}
     >
-      {items.map(item => {
-        const active = index === item.index;
-        return (
-          <View
-            className={styles.tabBarItem}
-            key={item.index}
-            onTap={() => {
-              setIndex?.(item.index);
-              onChange?.(item.index);
-            }}
-          >
-            <View className={styles.tabBarItem}>
-              {typeof item.icon === 'function'
-                ? item.icon(active)
-                : React.isValidElement(item.icon) &&
-                  React.cloneElement(item.icon, {
-                    color: active ? activeColor : color,
-                  })}
-            </View>
-            <Text
-              style={{ color: index === item.index ? activeColor : color }}
-              className={classNames(styles.tabBarText, {
-                active: index === item.index,
-              })}
+      {items
+        .filter(({ hide }) => !hide)
+        .map(item => {
+          const active = index === item.index;
+          return (
+            <View
+              className={styles.tabBarItem}
+              key={item.index}
+              onTap={() => {
+                setIndex?.(item.index);
+                onChange?.(item.index);
+              }}
             >
-              {item.title}
-            </Text>
-          </View>
-        );
-      })}
+              <View className={styles.tabBarItem}>
+                {typeof item.icon === 'function'
+                  ? item.icon(active)
+                  : React.isValidElement(item.icon) &&
+                    React.cloneElement(item.icon, {
+                      color: active ? activeColor : color,
+                    })}
+              </View>
+              <Text
+                style={{ color: index === item.index ? activeColor : color }}
+                className={classNames(styles.tabBarText, {
+                  active: index === item.index,
+                })}
+              >
+                {item.title}
+              </Text>
+            </View>
+          );
+        })}
     </View>
   );
 };
