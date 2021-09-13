@@ -10,7 +10,7 @@ const newSentry: typeof Sentry = {
         ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           __wxConfig.envVersion !== 'develop'
-        : process.env.REMAX_PLATFORM === 'web'
+        : window
         ? !window.location.host.includes('localhost')
         : false
     ) {
