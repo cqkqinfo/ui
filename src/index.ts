@@ -379,3 +379,7 @@ export { default as uploadFile } from './upload-file';
  * 跳转小程序
  */
 export { default as OpenWeapp } from './open-weapp';
+/**
+ * 扫描二维码
+ */
+export { default as scanCode } from './scan-code';
