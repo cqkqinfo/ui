@@ -3,7 +3,7 @@ import { View } from 'remax/one';
 import { navigateToMiniProgram } from 'remax/wechat';
 import { Props } from './index';
 
-export default ({ appId, path, ...props }: Props) => {
+export default ({ appId, path, onLaunch, ...props }: Props) => {
   return (
     <View
       {...props}
@@ -13,7 +13,7 @@ export default ({ appId, path, ...props }: Props) => {
           navigateToMiniProgram({
             appId,
             path,
-          });
+          }).then(onLaunch);
         }
       }}
     />

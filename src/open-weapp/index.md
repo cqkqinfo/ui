@@ -21,7 +21,7 @@ import { View } from 'remax/one';
 export default () => (
   <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>一般用法</PartTitle>
-    <OpenWeapp onTap={() => alert('模拟成功')}>
+    <OpenWeapp onLaunch={() => alert('模拟成功')}>
       <View
         style={{ width: 100, height: 100, background: '#eee' }}
         path={'pages/index/index'}

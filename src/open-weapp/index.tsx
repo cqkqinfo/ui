@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { View, ViewProps } from 'remax/one';
 import isWx from '../is-wx';
+import { useId } from 'parsec-hooks';
 
 export interface Props extends ViewProps {
   /**
@@ -20,18 +21,36 @@ export interface Props extends ViewProps {
    * 小程序端跳转需要这个，小程序的appId
    */
   appId?: string;
+  /**
+   * 打开成功事件
+   */
+  onLaunch?: (e: any) => void;
 }
 
 export default ({
   children,
   username,
   path,
-  id,
+  id = useId(),
   className,
+  onLaunch,
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
   const tagName = isWx ? 'wx-open-launch-weapp' : 'open-weapp';
+  useEffect(() => {
+    const event = function(e: any) {
+      onLaunch?.(e);
+    };
+    setTimeout(() => {
+      const btn = document.getElementById(id);
+      btn?.addEventListener('launch', event);
+    });
+    return () => {
+      const btn = document.getElementById(id);
+      btn?.removeEventListener('launch', event);
+    };
+  });
   return (
     <View
       {...props}
@@ -62,6 +81,10 @@ class OpenWeapp extends HTMLElement {
         'open-weapp',
       ) as HTMLTemplateElement;
       if (templateElem) {
+        this.onclick = e => {
+          e.stopPropagation();
+          this.dispatchEvent(new CustomEvent('launch', {}));
+        };
         const content = templateElem.content.cloneNode(true);
         this.appendChild(content);
       }
