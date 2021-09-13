@@ -5,7 +5,7 @@ import './index.module.less';
 
 export interface SkeletonParagraphProps {
   rows?: number;
-  width?: number | string | number[] | string[];
+  width?: number | string | (string | number)[];
 }
 
 export interface SkeletonProps {
@@ -56,7 +56,7 @@ export default (props: SkeletonProps) => {
         setRenderStart(false);
       }
     }
-  }, [loading]);
+  }, [fade, loading]);
 
   useEffect(() => {
     if (fade) {
@@ -66,7 +66,7 @@ export default (props: SkeletonProps) => {
         }, 100);
       }
     }
-  }, [loadingEnd]);
+  }, [fade, loadingEnd]);
 
   const rows = useMemo(
     () => (paragraph.rows ? [...new Array(paragraph.rows).keys()] : []),
@@ -90,7 +90,7 @@ export default (props: SkeletonProps) => {
         }
       });
     }
-  }, [paragraph]);
+  }, [paragraph.width, rows.length]);
 
   const prefixCls = 'kq-skeleton';
 

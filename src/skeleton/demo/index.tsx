@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Text } from 'remax/one';
-import { Skeleton, Switch, PartTitle } from '@kqinfo/ui';
+import PartTitle from '../../part-title';
+import Switch from '../../switch';
+import Skeleton from '../index';
 import styles from './index.module.less';
 import { useState } from 'react';
 
@@ -70,7 +72,7 @@ export default () => {
       <PartTitle>Fade</PartTitle>
       <View style={{ height: '200px' }}>
         <View className={styles.action}>
-          <Switch small checked={checked} onChange={handleChangeSwitch} />
+          <Switch value={checked} onChange={handleChangeSwitch} />
         </View>
         <Skeleton fade loading={loading}>
           <View>
