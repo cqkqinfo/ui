@@ -1,10 +1,10 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 统一平台
+  path: /one
 ---
 
 ## showModal 显示确认框

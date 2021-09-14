@@ -1,10 +1,10 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 业务工具
+  path: /business
 ---
 
 ## getPlatform 获取当前平台

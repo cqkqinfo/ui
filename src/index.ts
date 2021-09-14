@@ -228,10 +228,6 @@ export { default as Native } from './native';
  */
 export { default as useViewSize } from './use-view-size';
 /**
- * 常用的请求方法
- */
-export { default as commonApis } from './common-apis';
-/**
  * 弹出层
  */
 export { default as Sheet } from './sheet';

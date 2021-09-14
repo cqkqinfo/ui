@@ -1,10 +1,10 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 业务工具
+  path: /business
 ---
 
 ## axios 统一请求

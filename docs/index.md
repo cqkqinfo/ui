@@ -5,6 +5,8 @@ hero:
   title: Kqinfo UI
   desc: 基于 Remax 全平台 UI 库
   actions:
+    - text: 查看工具
+      link: /utils
     - text: 查看组件
       link: /components
 features:

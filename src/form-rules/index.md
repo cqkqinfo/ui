@@ -1,10 +1,10 @@
 ---
-group:
+nav:
   title: 工具
   path: /utils
-nav:
-  title: 组件
-  path: /components
+group:
+  title: 业务工具
+  path: /business
 ---
 
 ## formRules 表单规则

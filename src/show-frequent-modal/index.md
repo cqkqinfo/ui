@@ -1,10 +1,10 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 业务工具
+  path: /business
 ---
 
 ## showFrequentModal 显示频繁校验
