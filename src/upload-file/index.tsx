@@ -1,3 +1,4 @@
 import { uploadFile } from 'remax/wechat';
 
-export default uploadFile;
+export default (options: WechatMiniprogram.UploadFileOption) =>
+  uploadFile(options);
