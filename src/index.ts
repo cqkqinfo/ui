@@ -379,3 +379,11 @@ export { default as OpenWeapp } from './open-weapp';
  * 扫描二维码
  */
 export { default as scanCode } from './scan-code';
+/**
+ * 选择图片
+ */
+export { default as chooseImage } from './choose-image';
+/**
+ * 图像识别
+ */
+export { default as OCR } from './ocr';
