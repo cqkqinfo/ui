@@ -11,6 +11,7 @@
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "icon": "iconfont-h5 && iconfont-remax --config iconfont.other.json",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
@@ -95,6 +96,7 @@
     "babel-plugin-polyfill-corejs2": "^0.1.10",
     "babel-plugin-polyfill-corejs3": "^0.1.7",
     "babel-plugin-polyfill-regenerator": "^0.1.6",
+    "conventional-changelog-cli": "^2.1.1",
     "dumi": "^1.1.26",
     "dumi-theme-mobile": "^1.1.9",
     "eslint": "^7.22.0",
