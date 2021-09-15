@@ -118,7 +118,7 @@
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^1.19.1",
     "react-iconfont-cli": "^2.0.1",
-    "remax-iconfont-cli": "^1.1.0",
+    "remax-iconfont-cli": "^2.0.1",
     "yorkie": "^2.0.0"
   },
   "files": [

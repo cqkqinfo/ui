@@ -13,22 +13,11 @@ const DEFAULT_STYLE: CSSProperties = {
   display: 'block',
 };
 
-const KqAlbum: FunctionComponent<Props> = ({
-  size,
-  color,
-  style: _style,
-  ...rest
-}) => {
+const KqAlbum: FunctionComponent<Props> = ({ size, color, style: _style, ...rest }) => {
   const style = _style ? { ...DEFAULT_STYLE, ..._style } : DEFAULT_STYLE;
 
   return (
-    <svg
-      viewBox="0 0 1236 1024"
-      width={size + 'px'}
-      height={size + 'px'}
-      style={style}
-      {...rest}
-    >
+    <svg viewBox="0 0 1236 1024" width={size + 'px'} height={size + 'px'} style={style} {...rest}>
       <path
         d="M854.88796479 400.23194027a50.11824427 50.11824427 0 0 0-86.71251733 0l-184.9601856 318.21107306a47.33389653 47.33389653 0 0 1-82.33711467 0l-89.49686507-154.33237013a50.11824427 50.11824427 0 0 0-86.71251733 0l-131.2620672 234.6806656a24.26359467 24.26359467 0 0 0 21.08148373 35.7987456h832.5197184a29.832288 29.832288 0 0 0 26.25241387-44.54954987z m0 0"
         fill={getIconColor(color, 0, '#333333')}

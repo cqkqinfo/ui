@@ -3,7 +3,7 @@
 
 import React, { FunctionComponent } from 'react';
 // @ts-ignore
-import Iconfont_alipay from './alipay/alipay';
+import Iconfont_ali from './ali/ali';
 
 interface Props {
   name:
@@ -70,7 +70,7 @@ const IconFont: FunctionComponent<Props> = props => {
 
   // FIXME: RemaxJs doesn't support pxTransform()
   // @ts-ignore
-  return <Iconfont_alipay name={name} size={size} color={color} />;
+  return <Iconfont_ali name={name} size={size} color={color} />;
 };
 
 IconFont.defaultProps = {

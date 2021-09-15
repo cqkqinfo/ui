@@ -2,7 +2,7 @@
   "symbol_url": "//at.alicdn.com/t/font_2472297_ve11kicqir.js",
   "save_dir": "./src/icon/other",
   "use_typescript": true,
-  "platforms": ["wechat", "alipay"],
+  "platforms": ["wechat", "ali"],
   "use_rpx": false,
   "trim_icon_prefix": "icon",
   "default_icon_size": 18
