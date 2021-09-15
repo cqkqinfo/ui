@@ -1,3 +1,12 @@
+## [1.5.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.16...v1.5.17) (2021-09-15)
+
+### Features
+
+- 更新 icon 组件 ([eb8350d](https://gitlab2.cqkqinfo.com/web/ui/commit/eb8350db631921f1af0016a5911510f4485389fb))
+- 添加 OCR 方法 web/ui[#23](https://gitlab2.cqkqinfo.com/web/ui/issues/23) ([49ccd3b](https://gitlab2.cqkqinfo.com/web/ui/commit/49ccd3bca2ea68747ade8e160abc53a9ebe48f03))
+- 添加更新日志 ([ad61dbf](https://gitlab2.cqkqinfo.com/web/ui/commit/ad61dbf046670b2bf234f7779e8555d0ef12b0b9))
+- 添加选择图片 ([0b1f93f](https://gitlab2.cqkqinfo.com/web/ui/commit/0b1f93fa96d795727f99838a8cec354488aecf88))
+
 ## [1.5.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.15...v1.5.16) (2021-09-13)
 
 ### Bug Fixes
