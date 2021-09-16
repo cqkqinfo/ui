@@ -25,7 +25,6 @@ export interface CheckBoxProps extends ViewProps {
    * onchange方法
    */
   onChange?: (checked: boolean, e?: any, v?: CheckboxValue) => void;
-  onGroupChange?: (v: CheckboxValue[], e?: any) => void;
   /**
    * 选中时的勾选icon颜色
    */
@@ -42,10 +41,20 @@ export interface CheckBoxProps extends ViewProps {
    * 类名
    */
   className?: string;
+  /**
+   * type样式
+   */
+  type?: 'normal' | 'button';
+  /**
+   * disabled
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 const Checkbox = (props: CheckBoxProps) => {
   const {
+    disabled,
     children,
     checked,
     value,
@@ -54,30 +63,45 @@ const Checkbox = (props: CheckBoxProps) => {
     onChange,
     className,
     isRound = false,
+    type = 'normal',
     ...other
   } = props;
   const [myChecked, setMyChecked] = useEffectState(checked);
 
   const handleClick = (e: any) => {
+    if (disabled) {
+      return;
+    }
     onChange?.(!myChecked, e, value);
     setMyChecked(!myChecked);
   };
 
   return (
     <View
-      className={classNames(styles.checkBox, myChecked && activeCls, className)}
+      className={classNames(
+        styles.checkBox,
+        {
+          [styles.annaCheckBox]: type === 'normal',
+          [styles.btn]: type === 'button',
+        },
+        myChecked && type === 'button' && styles.activebtn,
+        myChecked && activeCls,
+        className,
+      )}
       onTap={handleClick}
       {...other}
     >
-      <View
-        className={classNames(
-          styles.box,
-          { [styles.round]: isRound },
-          myChecked && styles.active,
-        )}
-      >
-        {myChecked && <Icon name="kq-yes" color={iconColor} />}
-      </View>
+      {type === 'normal' && (
+        <View
+          className={classNames(
+            styles.box,
+            { [styles.round]: isRound },
+            myChecked && styles.active,
+          )}
+        >
+          {myChecked && <Icon name="kq-yes" color={iconColor} />}
+        </View>
+      )}
       {children}
     </View>
   );
@@ -86,6 +110,7 @@ const Checkbox = (props: CheckBoxProps) => {
 const getCheckboxs = (
   children: React.ReactNode,
   value: CheckboxValue[] = [],
+  disabled?: boolean,
   onChange?: (v?: CheckboxValue[], e?: any) => void,
 ) => {
   const onGroupChange = (checked: any, e: any, v: CheckboxValue) => {
@@ -95,7 +120,7 @@ const getCheckboxs = (
       : val?.concat(v);
     const newValue =
       !Array.isArray(newVal) || newVal.length === 0 ? [] : newVal;
-    onChange?.(newValue, e);
+    !disabled && onChange?.(newValue, e);
   };
   return React.Children.map(children, (checkbox: any) => {
     const p = checkbox?.props || {};
@@ -111,6 +136,7 @@ const getCheckboxs = (
       props: {
         ...checkbox.props,
         checked,
+        disabled,
         onChange: onGroupChange,
       },
     };
@@ -119,13 +145,14 @@ const getCheckboxs = (
 export interface GroupProps extends SpaceProps {
   value?: CheckboxValue[];
   children?: React.ReactNode;
+  disabled: boolean;
   onChange?: (v?: CheckboxValue[]) => void;
 }
 Checkbox.Group = (props: GroupProps) => {
-  const { value = [], children, onChange, ...other } = props;
+  const { value = [], children, disabled = false, onChange, ...other } = props;
   return (
-    <Space flexWrap={'wrap'} {...other}>
-      {getCheckboxs(children, value, onChange)}
+    <Space flexWrap={'wrap'} {...other} className={disabled && styles.disabled}>
+      {getCheckboxs(children, value, disabled, onChange)}
     </Space>
   );
 };
