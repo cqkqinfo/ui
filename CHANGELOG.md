@@ -1,3 +1,10 @@
+## [1.5.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.18...v1.5.19) (2021-09-16)
+
+### Bug Fixes
+
+- radio,checkbox 增加 disabeld 属性和按钮样式 ([43b801a](https://gitlab2.cqkqinfo.com/web/ui/commit/43b801ab7a544c4c7eb5dd4fb758d3bfb2222501))
+- sheet 隐藏，里面 canvas 还是会显示 ([f7cd901](https://gitlab2.cqkqinfo.com/web/ui/commit/f7cd9019e912d25455f97d031165777f39fabd0d))
+
 ## [1.5.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.17...v1.5.18) (2021-09-16)
 
 ### Bug Fixes
