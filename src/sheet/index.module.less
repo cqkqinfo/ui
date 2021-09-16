@@ -8,11 +8,11 @@
   left: 0;
   top: 0;
   transition: all 0.3s, z-index 0s 0.3s;
-  overflow: auto;
+  overflow: hidden;
   pointer-events: none;
 }
 .content {
-  transform: translateY(100vh);
+  transform: translateY(200vh);
   transition: all 0.3s;
   will-change: transform;
   position: absolute;
@@ -26,6 +26,7 @@
   pointer-events: auto;
   z-index: 101;
   opacity: 1;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.3s;
   .content {
