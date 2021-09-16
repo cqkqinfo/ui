@@ -1,5 +1,16 @@
 # 凯桥 UI
 
+[![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Test coverage][codecov-image]][codecov-url] [![npm download][download-image]][download-url]
+
+[npm-image]: https://img.shields.io/npm/v/@kqinfo/ui.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@kqinfo/ui
+[travis-image]: https://img.shields.io/travis/remaxjs/@kqinfo/ui.svg?style=flat-square
+[travis-url]: https://travis-ci.org/remaxjs/@kqinfo/ui
+[codecov-image]: https://codecov.io/gh/remaxjs/@kqinfo/ui/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/remaxjs/@kqinfo/ui
+[download-image]: https://img.shields.io/npm/dm/@kqinfo/ui.svg?style=flat-square
+[download-url]: https://www.npmjs.com/package/@kqinfo/ui
+
 ## 使用
 
 ```bash
@@ -20,30 +31,6 @@ $ yarn add babel-plugin-import -D
 // babel.config.js
 module.exports = {
   plugins: [
-+    [
-+      'import',
-+      {
-+        libraryName: 'parsec-hooks',
-+        camel2DashComponentName: false,
-+        customName: name => {
-+          if (/^(use)/.test(name)) {
-+            return `parsec-hooks/lib/${name
-+              .replace(/^(use)/, '')
-+              .replace(/^\S/, s => s.toLowerCase())}Hooks`;
-+          } else {
-+            return `parsec-hooks/lib/utils/${name}`;
-+          }
-+        }
-+      }
-+    ],
-+    [
-+      'import',
-+      {
-+        libraryName: 'antd-mobile',
-+        style: true
-+      },
-+      'antd-mobile'
-+    ],
 +    [
 +      'import',
 +      {
@@ -68,7 +55,8 @@ module.exports = {
 +  plugins: [
 +   less({
 +     lessOptions: {
-+       modifyVars: { '@brand-primary': '#2780d9' }
++       modifyVars: { '@brand-primary': '#2780d9' },
++       javascriptEnabled: true
 +     }
 +   })
 + ]
@@ -120,6 +108,11 @@ $ yarn link
 ```bash
 $ yarn link @kqinfo/ui
 ```
+
+## 编写测试
+
+- 相关库 [jest](https://jestjs.io/zh-Hans/docs/getting-started) 、[testing-library](https://testing-library.com/docs/react-testing-library/intro)
+- [如何编写测试](https://segmentfault.com/a/1190000022054307)
 
 ## 开发注意项
 

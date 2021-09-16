@@ -1,7 +1,8 @@
-import React, { useMemo, useState, ReactElement, cloneElement } from 'react';
+import React, { useMemo, ReactElement, cloneElement } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
+import { useEffectState } from 'parsec-hooks';
 
 export interface DropDownMenuProps {
   /**
@@ -14,6 +15,14 @@ export interface DropDownMenuProps {
    */
   showModal?: boolean;
   children?: React.ReactNode;
+  /**
+   * 当弹出层隐藏显示的回调
+   */
+  onOpsVisible?: (visible: boolean, index: number) => void;
+  /**
+   * 手动控制所有的弹出层显示的索引
+   */
+  opsVisibleIndex?: number;
 }
 
 function isReactElement(obj: any): obj is ReactElement {
@@ -21,8 +30,14 @@ function isReactElement(obj: any): obj is ReactElement {
 }
 
 export default (props: DropDownMenuProps) => {
-  const { children, className, showModal = true } = props;
-  const [showOptions, setShowOptions] = useState<number>(-1);
+  const {
+    children,
+    className,
+    showModal = true,
+    onOpsVisible,
+    opsVisibleIndex = -1,
+  } = props;
+  const [showOptions, setShowOptions] = useEffectState<number>(opsVisibleIndex);
   const handledChildren = useMemo(
     () =>
       React.Children.map(children, (item, index) => {
@@ -30,7 +45,11 @@ export default (props: DropDownMenuProps) => {
           const childProps = {
             ...item.props,
             onToggle: () => {
-              setShowOptions(prev => (prev === index ? -1 : index));
+              setShowOptions(prev => {
+                const showOptions = prev === index ? -1 : index;
+                onOpsVisible?.(showOptions === index, index);
+                return showOptions;
+              });
             },
             showOptions: showOptions === index,
           };
@@ -38,7 +57,7 @@ export default (props: DropDownMenuProps) => {
         }
         return item;
       }),
-    [children, showOptions],
+    [children, onOpsVisible, setShowOptions, showOptions],
   );
   return (
     <View className={classNames(styles.wrap, className)}>

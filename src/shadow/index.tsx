@@ -1,8 +1,7 @@
 import React from 'react';
 import provider from '../config-provider';
 import rpxToPx from '../rpx-to-px';
-
-const ColorRNA = require('color-rna').default;
+const convert = require('color-convert');
 
 export interface Props {
   children: React.ReactElement;
@@ -14,13 +13,18 @@ export interface Props {
   /**
    * 阴影颜色
    */
-  shadowColor?: string;
+  shadowColor?: string | false;
+  /**
+   * 是否选中
+   */
+  active?: boolean;
 }
 
 export default ({
   children,
   card,
   shadowColor: outShadowColor,
+  active,
   ...props
 }: Props) => {
   const { brandPrimary, shadowColor = brandPrimary } = provider.useContainer();
@@ -29,10 +33,10 @@ export default ({
     ...children.props,
     ...props,
     style: {
+      cursor: active !== undefined ? 'pointer' : undefined,
       ...(card
         ? {
             boxSizing: 'border-box',
-            width: rpxToPx(710),
             backgroundColor: '#fff',
             borderRadius: rpx20,
             padding: `0 ${rpx20}`,
@@ -40,11 +44,12 @@ export default ({
         : {}),
       ...children.props.style,
       ...props.style,
-      boxShadow: `0 0 ${rpx20} rgba(${new ColorRNA(
-        outShadowColor || shadowColor,
-      )
-        .rgb()
-        .join(',')}, 0.15)`,
+      boxShadow:
+        outShadowColor !== false &&
+        `0 0 ${rpx20} rgba(${convert.hex
+          .rgb(outShadowColor || shadowColor)
+          .join(',')}, 0.15)`,
+      border: active ? `1px solid ${outShadowColor || shadowColor}` : undefined,
     },
   });
 };

@@ -1,12 +1,16 @@
 import { defineConfig } from 'dumi';
 
+process.env.REMAX_PLATFORM = 'web';
+
 export default defineConfig({
-  title: '凯桥UI',
+  title: 'Kqinfo UI',
   favicon: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',
   logo: 'https://z3.ax1x.com/2021/04/12/cBYdw8.png',
   outputPath: 'docs-dist',
   mode: 'site',
-  // more config: https://d.umijs.org/config
+  theme: {
+    '@c-primary': '#2780da',
+  },
   extraBabelPlugins: [
     [
       'babel-plugin-import',
@@ -16,11 +20,20 @@ export default defineConfig({
         style: true,
       },
     ],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd',
+    ],
   ],
   extraPostCSSPlugins: [
     require('postcss-plugin-px2rem')({
       rootValue: 100,
-      exclude: /(.dumi)|(antd-mobile)/,
+      exclude: /(.dumi)|(antd)/,
     }),
   ],
 });

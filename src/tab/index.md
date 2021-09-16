@@ -7,7 +7,7 @@ group:
   path: /data-display
 ---
 
-## Tab
+## Tab 标签
 
 切换标签
 
@@ -30,6 +30,19 @@ export default () => (
         { content: '标签1', index: 1 },
         { content: '标签2', index: 2 },
         { content: '标签3', index: 3 },
+      ]}
+    />
+    <PartTitle>card模式</PartTitle>
+    <Tab
+      type={'card'}
+      tabs={[
+        { content: '标签1', index: 1 },
+        { content: '标签2', index: 2 },
+        { content: '标签3', index: 3 },
+        { content: '标签4', index: 4 },
+        { content: '标签5', index: 5 },
+        { content: '标签6', index: 6 },
+        { content: '标签7', index: 7 },
       ]}
     />
   </Space>

@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Icon
+## Icon 图标
 
 图标
 
@@ -28,7 +28,7 @@ const renderItem = (name: string) => (
       border: '1px solid #eee',
     }}
   >
-    <Icon name={name} />
+    <Icon name={name} size={'20px'} color={'#333'} />
     {name}
   </Space>
 );
@@ -45,7 +45,46 @@ const names = [
   'kq-notice',
   'kq-zengjia',
   'kq-right',
+  'kq-tip',
   'kq-jianshao',
+  'kq-xingxing',
+  'kq-xiangji',
+  'kq-voice',
+  'kq-biaoqing',
+  'kq-album',
+  'kq-jia',
+  'kq-filter',
+  'kq-left',
+  'kq-mobile',
+  'kq-keshi',
+  'kq-yiyuan',
+  'kq-home',
+  'kq-tongzhi',
+  'kq-shuaxin',
+  'kq-shoucang',
+  'kq-zan',
+  'kq-eye',
+  'kq-weixin',
+  'kq-yisheng',
+  'kq-chuangzuo',
+  'kq-zhibo',
+  'kq-rili',
+  'kq-jiankang',
+  'kq-kanjian',
+  'kq-bukanjian',
+  'kq-zhuanlan',
+  'kq-shijian',
+  'kq-zan1',
+  'kq-shoucang1',
+  'kq-zhibozhong',
+  'kq-bofang',
+  'kq-zanting',
+  'kq-caidan',
+  'kq-time',
+  'kq-shouye',
+  'kq-tag',
+  'kq-fenge',
+  'kq-zhengque',
 ];
 
 export default () => (

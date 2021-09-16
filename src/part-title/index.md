@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## PartTitle
+## PartTitle 分块标题
 
 分块标题
 
@@ -21,6 +21,9 @@ export default () => (
     <PartTitle required>必填</PartTitle>
     <PartTitle required bold={false}>
       必填细体
+    </PartTitle>
+    <PartTitle required bold={false} full>
+      填充字体颜色
     </PartTitle>
   </Space>
 );

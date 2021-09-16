@@ -13,22 +13,11 @@ const DEFAULT_STYLE: CSSProperties = {
   display: 'block',
 };
 
-const KqMonitor: FunctionComponent<Props> = ({
-  size,
-  color,
-  style: _style,
-  ...rest
-}) => {
+const KqMonitor: FunctionComponent<Props> = ({ size, color, style: _style, ...rest }) => {
   const style = _style ? { ...DEFAULT_STYLE, ..._style } : DEFAULT_STYLE;
 
   return (
-    <svg
-      viewBox="0 0 1098 1024"
-      width={size + 'px'}
-      height={size + 'px'}
-      style={style}
-      {...rest}
-    >
+    <svg viewBox="0 0 1098 1024" width={size + 'px'} height={size + 'px'} style={style} {...rest}>
       <path
         d="M876.643902 252.253659v444.565853c0 17.482927-14.985366 32.468293-32.468292 32.468293H252.253659c-17.482927 0-29.970732-14.985366-29.970732-32.468293V252.253659c0-17.482927 14.985366-32.468293 29.970732-32.468293h594.419512c17.482927 2.497561 29.970732 14.985366 29.970731 32.468293z"
         fill={getIconColor(color, 0, '#333333')}

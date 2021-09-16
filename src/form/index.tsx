@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import RcForm, {
   FormProps,
   useForm,
@@ -13,14 +13,61 @@ import Shadow, { Props as ShadowProps } from '../shadow';
 import NeedWrap from '../need-wrap';
 import { FieldProps } from 'rc-field-form/es/Field';
 import { Property } from 'csstype';
-import { View } from 'remax/one';
+import { ViewProps } from 'remax/one';
+import {
+  RuleType,
+  ValidatorRule,
+  RuleRender,
+  StoreValue,
+  Meta,
+  FormInstance,
+  ValidateErrorEntity,
+} from 'rc-field-form/es/interface';
+import Space from '../space';
+const CircularJSON = require('circular-json');
 
-export const FormStore = createContainer(
-  initialState => ((initialState || {}) as any) as Props<any>,
-);
+export const FormStore = createContainer(initialState => {
+  const [errorFields, setErrorFields] = useState<
+    ValidateErrorEntity['errorFields']
+  >([]);
+  return {
+    ...((initialState || {}) as any),
+    errorFields,
+    setErrorFields,
+  } as Props<any> & {
+    errorFields: ValidateErrorEntity['errorFields'];
+    setErrorFields: (errorFields: ValidateErrorEntity['errorFields']) => void;
+  };
+});
+
+interface BaseRule {
+  enum?: StoreValue[];
+  len?: number;
+  max?: number;
+  message?: string | ReactElement;
+  min?: number;
+  pattern?: RegExp;
+  required?: boolean;
+  transform?: (value: StoreValue) => StoreValue;
+  type?: RuleType | 'phone' | 'idCard' | 'password';
+  whitespace?: boolean;
+  /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
+  validateTrigger?: string | string[];
+}
+type AggregationRule = BaseRule & Partial<ValidatorRule>;
+interface ArrayRule extends Omit<AggregationRule, 'type'> {
+  type: 'array';
+  defaultField?: RuleObject;
+}
+export type RuleObject = AggregationRule | ArrayRule;
+export type Rule = RuleObject | RuleRender;
 
 interface BaseItemProps {
   style?: React.CSSProperties;
+  /**
+   * 校验规则
+   */
+  rules?: Rule[];
   label?: React.ReactNode;
   /**
    * 后面的节点
@@ -71,26 +118,65 @@ interface BaseItemProps {
    * @default right
    */
   labelJustify?: Property.TextAlign;
-}
-
-export interface ItemProps extends FieldProps, BaseItemProps {}
-
-export interface Props<Values = {}>
-  extends Omit<FormProps<Values>, 'className'>,
-    Omit<Pick<ItemProps, keyof BaseItemProps>, 'strLabel' | 'label'> {
+  /**
+   * children的对齐
+   * @default right
+   */
+  childrenAlign?: Property.TextAlign;
+  cell?: boolean;
+  /**
+   * 显示冒号
+   */
+  colon?: React.ReactNode;
   /**
    * label的宽度，建议使用em单位
    */
   labelWidth?: number | string;
   /**
+   * 渲染只读时的值
+   */
+  renderReadOnlyValue?: (value: any, values: any) => React.ReactNode;
+}
+
+export interface ItemProps<Values = {}>
+  extends Omit<FieldProps, 'rules' | 'children'>,
+    BaseItemProps,
+    ViewProps {
+  children?:
+    | React.ReactNode
+    | ((
+        control: any,
+        meta: Meta,
+        form: FormInstance<Values>,
+      ) => React.ReactNode);
+}
+
+export interface Props<Values extends unknown = any>
+  extends Pick<
+      FormProps<Values>,
+      | 'initialValues'
+      | 'form'
+      | 'onValuesChange'
+      | 'onFinishFailed'
+      | 'children'
+      | 'onFinish'
+    >,
+    Omit<
+      Pick<ItemProps<Values>, keyof BaseItemProps>,
+      'strLabel' | 'label' | 'renderReadOnlyValue'
+    > {
+  /**
    * 子项的类名
    */
   itemCls?: string;
   /**
-   * 显示冒号
+   * 子项的样式
    */
-  colon?: React.ReactNode;
-  cell?: boolean;
+  itemStyle?: React.CSSProperties;
+  /**
+   * 子项children的样式
+   */
+  itemChildrenStyle?: React.CSSProperties;
   /**
    * 卡片模式
    * @default true
@@ -99,34 +185,78 @@ export interface Props<Values = {}>
   /**
    * shadow组件的props
    */
-  shadowProps?: ShadowProps;
+  shadowProps?: Omit<ShadowProps, 'children'> | false;
+  /**
+   * 绑定的数据
+   */
+  values?: Values;
 }
 
 const ReForm = ContainerUseWrap(
   FormStore,
-  <Values extends unknown>({
-    card = true,
+  <Values extends {} = any>({
+    card,
     shadowProps,
     cell = false,
     colon = !cell,
+    className,
+    style,
+    values,
     ...props
-  }: Props<Values>) => (
-    <RcForm<Values>
-      component={props => (
-        <NeedWrap
-          need={card && cell}
-          wrap={Shadow as any}
-          wrapProps={{ card: true, ...shadowProps }}
+  }: Props<Values>) => {
+    const { setErrorFields, form } = FormStore.useContainer();
+    const preValues = useRef<Values>();
+    useEffect(() => {
+      if (
+        values &&
+        CircularJSON.stringify(preValues.current) !==
+          CircularJSON.stringify(values)
+      ) {
+        preValues.current = { ...values };
+        form && form.setFieldsValue(values);
+      }
+    }, [form, values]);
+    return (
+      <NeedWrap
+        need={shadowProps !== false && (card === undefined ? cell : card)}
+        wrap={Shadow as any}
+        wrapProps={{ card: true, ...shadowProps }}
+      >
+        <Space
+          style={style}
+          className={className}
+          alignSelf={'stretch'}
+          vertical
         >
-          <View {...props} />
-        </NeedWrap>
-      )}
-      onFinishFailed={(e: any) => {
-        showToast({ title: e.errorFields?.[0].errors?.[0], icon: 'none' });
-      }}
-      {...props}
-    />
-  ),
+          <NeedWrap
+            need={!!form}
+            wrap={RcForm as any}
+            wrapProps={{
+              component: false,
+              ...props,
+              onFinishFailed: (e: any) => {
+                setErrorFields(e.errorFields);
+                if (e.errorFields?.length > 0) {
+                  if (props.onFinishFailed) {
+                    props.onFinishFailed(e);
+                  } else {
+                    showToast({
+                      title: e.errorFields?.[0]?.errors?.[0],
+                      icon: 'none',
+                    });
+                  }
+                } else {
+                  props.onFinishFailed?.(e.values as any);
+                }
+              },
+            }}
+          >
+            {props.children}
+          </NeedWrap>
+        </Space>
+      </NeedWrap>
+    );
+  },
 );
 
 const Form: typeof ReForm & {

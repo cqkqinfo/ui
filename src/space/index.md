@@ -7,7 +7,7 @@ group:
   path: /layout
 ---
 
-## Space
+## Space 布局分割
 
 用于各种布局分割的组件，如果没有效果请确保`children`支持`style`的 prop
 

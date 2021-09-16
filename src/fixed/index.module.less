@@ -1,0 +1,21 @@
+.index {
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 2;
+  &:nth-child(2) {
+    top: 0;
+  }
+  &:last-child {
+    top: initial;
+    bottom: 0;
+  }
+  > .index {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

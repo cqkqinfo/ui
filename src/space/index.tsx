@@ -1,10 +1,11 @@
 import React from 'react';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
 import ViewProps from '@remax/one/esm/hostComponents/View/props';
 import rpxToPx from '../rpx-to-px';
+import 'array-flat-polyfill';
 
 export interface Props
   extends Pick<
@@ -12,6 +13,7 @@ export interface Props
     | 'style'
     | 'onTap'
     | 'className'
+    | 'id'
     | 'onTouchStart'
     | 'onTouchMove'
     | 'onTouchEnd'
@@ -51,15 +53,20 @@ export interface Props
   /**
    * CSS的margin设置
    */
-  margin?: Property.Margin;
+  margin?: Property.Margin | number;
   /**
    * CSS的padding设置
    */
-  padding?: Property.Padding;
+  padding?: Property.Padding | number;
   /**
    * CSS的flexWrap设置
    */
   flexWrap?: Property.FlexWrap;
+  hidden?: boolean;
+  /**
+   * 在一行第几个时不设置size
+   */
+  ignoreNum?: number;
 }
 
 export default ({
@@ -75,6 +82,7 @@ export default ({
   alignSelf,
   alignItems,
   flex,
+  ignoreNum,
   ...props
 }: Props) => {
   const filterChildren = (children instanceof Array ? children : [children])
@@ -83,7 +91,7 @@ export default ({
       i?.type?.toString() === 'Symbol(react.fragment)' ? i.props.children : i,
     )
     ?.flat(3)
-    ?.filter?.(i => i);
+    ?.filter?.(i => ![undefined, true, false].includes(i));
   return (
     <View
       style={{
@@ -110,11 +118,12 @@ export default ({
           key: index,
           style: {
             [vertical ? 'marginBottom' : 'marginRight']:
-              index + 1 === filterChildren?.length
+              index + 1 === filterChildren?.length ||
+              (ignoreNum && index && (index + 1) % ignoreNum === 0)
                 ? undefined
                 : typeof size === 'number'
                 ? rpxToPx(size)
-                : size,
+                : size?.toUpperCase(),
             ...props.style,
           },
         });

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useObserve } from 'parsec-hooks';
+import { View } from 'remax/one';
 
 interface Props {
   onVisible?: () => void;
@@ -20,7 +21,7 @@ export default ({ children, className, onHidden, onVisible }: Props) => {
   }, [visible, onVisible, onHidden]);
   return (
     <div ref={ref} className={className}>
-      {children}
+      {children || <View style={{ height: '1px', width: '1px' }} />}
     </div>
   );
 };

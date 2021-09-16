@@ -5,7 +5,7 @@ stages:
   - production
 
 variables:
-  BUILD_IMAGE: "node:dubnium"
+  BUILD_IMAGE: "node:14"
   GROUP_NAME: kaiqiaoui
   APP_NAME: admin     # 注意：h5端改成mobile, PC端改成site
   PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org  #安装依赖包的命令
@@ -18,9 +18,12 @@ build_app:
   variables:
     CI: "true"
     BUILD_CMD: yarn docs:build  #打包的命令
+    TEST_CMD: yarn test:coverage  #测试的命令
+  interruptible: true
   script:
     - echo $PREPARE_CMD
     - $PREPARE_CMD
+    - $TEST_CMD
     - echo $BUILD_CMD
     - $BUILD_CMD
   artifacts:
@@ -32,7 +35,7 @@ build_app:
       - node_modules/
       - $DIST_PATH/
   only:
-    - /^v[0-9.]+$/
+    - master
   tags:
     - java_test
 
@@ -51,6 +54,6 @@ app:
   dependencies:
     - build_app
   only:
-    - /^v[0-9.]+$/
+    - master
   tags:
     - kq-ui-hw  #runner名称

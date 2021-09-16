@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 
 export type ID = string | number;
@@ -41,7 +41,7 @@ export interface Props {
   /**
    * 当前选择的菜单id
    */
-  onChange?: (id: ID) => void;
+  onChange?: (id: ID, children: MenuItem[]) => void;
   /**
    * 选择了子项后的事件
    */
@@ -64,7 +64,7 @@ export default ({
   return (
     <View className={classNames(styles.menu, className)}>
       <View className={classNames(styles.left, leftCls)}>
-        {data.map(({ id, name }) => (
+        {data.map(({ id, name, children }) => (
           <View
             key={id}
             className={classNames(
@@ -74,7 +74,7 @@ export default ({
             )}
             onTap={() => {
               setSelected(id);
-              onChange?.(id);
+              onChange?.(id, children || []);
             }}
           >
             {name}

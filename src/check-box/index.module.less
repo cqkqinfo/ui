@@ -1,0 +1,35 @@
+@import '../styles/index';
+@light-base: #fff;
+@gray-base: #eeeeee;
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #666666;
+  white-space: nowrap;
+  line-height: 40px;
+  font-size: 30px;
+  &:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+.pic {
+  width: 40px;
+}
+.box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 13px;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+}
+.round {
+  border-radius: 50% !important;
+}
+.active {
+  background-color: @brand-primary;
+}

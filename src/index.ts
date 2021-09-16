@@ -128,6 +128,14 @@ export { default as Radio } from './radio';
  */
 export { default as CheckBox } from './check-box';
 /**
+ * 开关选择器
+ */
+export { default as Switch } from './switch';
+/**
+ * 评分组件
+ */
+export { default as Rate } from './rate';
+/**
  * 通告栏
  */
 export { default as NoticeBar } from './notice-bar';
@@ -143,6 +151,10 @@ export { default as TabBar } from './tab-bar';
  * 表单
  */
 export { default as Form } from './form';
+/**
+ * 温馨提示
+ */
+export { default as Tip } from './tip';
 /**
  * 表单项
  */
@@ -175,3 +187,203 @@ export { default as rpxToPx } from './rpx-to-px';
 //  * 单位转换
 //  */
 // export { default as pxToRpx } from './px-to-rpx';
+/**
+ * 让change事件转移
+ */
+export { default as TransferChange } from './transfer-change';
+/**
+ * 页面组件
+ */
+export { default as Page } from './page';
+/**
+ * 标签组件
+ */
+export { default as Tag } from './tag';
+/**
+ * 列表项
+ */
+export { default as ListItem } from './list-item';
+/**
+ * 背景图
+ */
+export { default as BackgroundImg } from './background-img';
+/**
+ * 分割线
+ */
+export { default as Divider } from './divider';
+/**
+ * 表格
+ */
+export { default as Table } from './table';
+/**
+ * f2图表
+ */
+export { default as F2 } from './f2';
+/**
+ * 反应更快的原生响应组件
+ */
+export { default as Native } from './native';
+/**
+ * 获取元素高度
+ */
+export { default as useViewSize } from './use-view-size';
+/**
+ * 弹出层
+ */
+export { default as Sheet } from './sheet';
+/**
+ * 操作项
+ */
+export { default as ActionSheet } from './action-sheet';
+/**
+ * 固定
+ */
+export { default as Fixed } from './fixed';
+/**
+ * 聊天组件
+ */
+export { default as Chat } from './chat';
+/**
+ * 主题色文字
+ */
+export { default as ColorText } from './color-text';
+/**
+ * 切换器
+ */
+export { default as Swiper } from './swiper';
+/**
+ * sentry错误监控
+ */
+export { default as Sentry } from './sentry';
+/**
+ * h5微信初始化
+ */
+export { default as wxInit } from './wx-init';
+/**
+ * 根据地址获取id
+ */
+export { default as getAddressId } from './get-address-id';
+/**
+ * 加密解密
+ */
+export { default as AES } from './aes';
+/**
+ * 图片预览
+ */
+export { default as previewImage } from './preview-image';
+/**
+ * 获取位置
+ */
+export { default as getLocation } from './get-location';
+/**
+ * 获取本地储存
+ */
+export { default as getStorageSync } from './get-storage-sync';
+/**
+ * 设置本地储存
+ */
+export { default as setStorageSync } from './set-storage-sync';
+/**
+ * 移除本地储存
+ */
+export { default as removeStorageSync } from './remove-storage-sync';
+/**
+ * 清除本地储存
+ */
+export { default as clearStorageSync } from './clear-storage-sync';
+/**
+ * 微信登录
+ */
+export { default as login } from './login';
+/**
+ * 地图组件
+ */
+export { default as Map } from './map';
+/**
+ * 创建地图上下文
+ */
+export { default as createMapContext } from './create-map-context';
+/**
+ * 订阅消息
+ */
+export { default as requestSubscribeMessage } from './request-subscribe-message';
+/**
+ * 平台组件
+ */
+export { default as Platform } from './platform';
+/**
+ * 调试模式
+ */
+export { default as debug } from './debug';
+/**
+ * 获取版本
+ */
+export { default as getVersion } from './get-version';
+/**
+ * 获取平台
+ */
+export { default as getPlatform } from './get-platform';
+/**
+ * 获取描述信息
+ */
+export { default as getAccountInfoSync } from './get-account-info-sync';
+/**
+ * 表单规则
+ */
+export { default as formRules } from './form-rules';
+/**
+ * 拼图验证
+ */
+export { default as Jigsaw } from './jigsaw';
+/**
+ * 显示频繁校验
+ */
+export { default as showFrequentModal } from './show-frequent-modal';
+/**
+ * 滚动视图
+ */
+export { default as ScrollView } from './scroll-view';
+/**
+ * 全平台图片上传组件
+ */
+export { default as UploadImg } from './upload-img';
+/**
+ * 图片
+ */
+export { default as Image } from './image';
+/**
+ * 索引选择器
+ */
+export { default as Indexes } from './indexes';
+/**
+ * 水印
+ */
+export { default as WaterMark } from './water-mark';
+/**
+ * 骨架屏
+ */
+export { default as Skeleton } from './skeleton';
+/**
+ * 选择文件
+ */
+export { default as selectFiles } from './select-files';
+/**
+ * 上传文件
+ */
+export { default as uploadFile } from './upload-file';
+/**
+ * 跳转小程序
+ */
+export { default as OpenWeapp } from './open-weapp';
+/**
+ * 扫描二维码
+ */
+export { default as scanCode } from './scan-code';
+/**
+ * 选择图片
+ */
+export { default as chooseImage } from './choose-image';
+/**
+ * 图像识别
+ */
+export { default as OCR } from './ocr';

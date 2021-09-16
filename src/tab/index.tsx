@@ -1,68 +1,53 @@
 import React from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import { View } from 'remax/one';
 import { useEffectState } from 'parsec-hooks';
 import provider from '../config-provider';
+import { Props } from './types';
+import CardTab from '../card-tab';
 
-export interface Props {
-  /**
-   * 标签项
-   */
-  tabs: { content: React.ReactNode; index: number }[];
-  /**
-   * 样式类名
-   */
-  className?: string;
-  /**
-   * 子项类名
-   */
-  itemCls?: string;
-  /**
-   * 当前tab的索引
-   */
-  current?: number | string;
-  /**
-   * current改变的事件回调
-   */
-  onChange?: (current: number | string) => void;
-  style?: React.CSSProperties;
-  /**
-   * 是否是受控模式
-   */
-  control?: boolean;
-}
-
-export default ({
-  tabs,
-  className,
-  itemCls,
-  current,
-  onChange,
-  control,
-  style,
-}: Props) => {
+export default <T extends unknown>(props: Props<T>) => {
+  const {
+    tabs,
+    className,
+    itemCls,
+    current,
+    onChange,
+    control,
+    type,
+    style,
+    activeItemCls,
+  } = props;
   const { brandPrimary } = provider.useContainer();
-  const firstTabIndex = tabs?.[0].index;
+  const firstTabIndex = tabs?.[0]?.index;
   let [active, setActive] = useEffectState(
-    current || firstTabIndex || undefined,
+    current !== undefined ? current : firstTabIndex || undefined,
   );
   if (control) {
     active = current;
     setActive = onChange as any;
   }
+  const handleChange = (index: T) => {
+    setActive?.(index);
+    onChange?.(index);
+  };
+  if (type === 'card')
+    return <CardTab {...props} current={active} onChange={handleChange} />;
   return (
     <View className={classNames(styles.tab, className)} style={style}>
       {tabs.map(({ content, index }, i) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={i}>
           <View
-            className={classNames(styles.item, itemCls, {
-              [styles.active]: active === index,
-            })}
-            onTap={() => {
-              setActive?.(index);
-              onChange?.(index);
-            }}
+            className={classNames(
+              styles.item,
+              itemCls,
+              active === index && activeItemCls,
+              {
+                [styles.active]: active === index,
+              },
+            )}
+            onTap={() => handleChange(index)}
           >
             {content}
           </View>

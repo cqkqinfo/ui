@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Exceed
+## Exceed 超出组件
 
 超出组件，超出多少行显示省略号
 

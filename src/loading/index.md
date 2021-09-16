@@ -7,7 +7,7 @@ group:
   path: /general
 ---
 
-## Loading
+## Loading 加载中
 
 加载中
 
@@ -34,7 +34,7 @@ export default () => {
         显示全屏 Loading
       </Button>
       <PartTitle>顶部Loading</PartTitle>
-      {loading2 && <Loading top />}
+      {loading2 && <Loading type={'top'} />}
       <Button
         type={'priarmy'}
         onTap={() => {
@@ -46,6 +46,8 @@ export default () => {
       >
         显示顶部 Loading
       </Button>
+      <PartTitle>行内加载</PartTitle>
+      <Loading type={'inline'} />
     </Space>
   );
 };

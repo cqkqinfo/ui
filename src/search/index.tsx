@@ -1,6 +1,6 @@
 import { View } from 'remax/one';
 import React from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';
@@ -19,6 +19,14 @@ interface Props extends InputProps {
    * 图标的颜色
    */
   iconColor?: string;
+  /**
+   * 输入框wrap类名
+   */
+  inputWrapCls?: string;
+  /**
+   * 输入框类名
+   */
+  inputCls?: string;
 }
 
 export default ({
@@ -28,27 +36,32 @@ export default ({
   style,
   btnCls,
   iconColor = '#999999',
+  inputCls,
+  className,
+  inputWrapCls,
   ...props
 }: Props) => {
-  const [value2, setValue] = useEffectState(value, { wait: 300 });
+  const [value2, setValue] = useEffectState(value);
   const handleChange = (e?: string) => {
     setValue(e);
     onChange?.(e);
   };
   return (
-    <View className={styles.wrap} style={style}>
-      <View className={styles.inputWrap}>
+    <View className={classNames(styles.wrap, className)} style={style}>
+      <View className={classNames(styles.inputWrap, inputWrapCls)}>
         <Icon className={styles.icon} color={iconColor} name={'kq-search'} />
         <Input
-          className={styles.input}
+          className={classNames(styles.input, inputCls)}
           placeholderStyle={{ color: '#999999' }}
           onChange={handleChange}
           value={value2}
+          confirmType={'search'}
           {...props}
         />
         <View
           onTap={() => {
             handleChange('');
+            props.onConfirm?.('');
           }}
           style={{ opacity: value2 ? 1 : 0 }}
           className={styles.clear}

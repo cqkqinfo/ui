@@ -1,0 +1,86 @@
+@import '../styles/index';
+
+.chat {
+  background-color: #f6f6f6;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  background-color: #fff;
+  padding: 14px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.headerText {
+  font-size: 22px;
+  color: #333333;
+}
+
+.actionBtn {
+  border: none !important;
+  color: @brand-primary !important;
+  background-color: rgba(@brand-primary, 0.2) !important;
+}
+
+.more {
+  height: 523px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: -523px;
+  width: 100%;
+  border-top: 1px solid #e2e2e2;
+}
+
+.infoCard {
+  width: 710px;
+  height: 302px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 26px 20px;
+}
+
+.scroll {
+  flex: 1;
+}
+
+.footer {
+  background-color: #fff;
+  min-height: 190px;
+  padding: 30px 20px 20px;
+  box-sizing: border-box;
+  width: 750px;
+}
+
+.footerIcon {
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.inputWrap {
+}
+
+.textarea {
+  width: 560px;
+  min-height: 78px;
+  background: rgba(#eeeeee, 0.5) !important;
+  border-radius: 39px;
+  box-sizing: border-box;
+  resize: none;
+  padding: 20px;
+}
+
+.send {
+  min-width: 130px !important;
+  height: 78px !important;
+  background: rgba(@brand-primary, 0.2) !important;
+  border-radius: 39px !important;
+  border: none !important;
+  color: #333333 !important;
+}

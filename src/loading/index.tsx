@@ -1,10 +1,11 @@
 import React from 'react';
 import { View } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import NeedWrap from '../need-wrap';
 import Shadow from '../shadow';
 import Icon from '../icon';
 import provider from '../config-provider';
+import Space from '../space';
 
 export interface Props {
   /**
@@ -13,14 +14,28 @@ export interface Props {
    */
   content?: string;
   /**
-   * 是否是顶部loading
-   * @default false
+   * 类型
+   * @default full
    */
-  top?: boolean;
+  type?: 'top' | 'full' | 'inline';
 }
 
-export default ({ top = false, content = '加载中' }: Props) => {
+export default ({ type, content = '加载中' }: Props) => {
   const { brandPrimary } = provider.useContainer();
+  const top = type === 'top';
+  if (type === 'inline') {
+    return (
+      <Space
+        size={10}
+        className={styles.tip}
+        alignItems={'center'}
+        justify={'center'}
+      >
+        <Icon color={'#CCCCCC'} name={'kq-loading2'} />
+        {content}
+      </Space>
+    );
+  }
   return (
     <View className={!top && styles.mask}>
       <NeedWrap need={top} wrap={Shadow}>

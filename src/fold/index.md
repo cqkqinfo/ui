@@ -7,7 +7,7 @@ group:
   path: /animation
 ---
 
-## Fold
+## Fold 折叠
 
 折叠组件
 
@@ -20,12 +20,12 @@ export default () => {
   return (
     <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>一般用法</PartTitle>
-      <Fold folded={folded}>
-        我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
-      </Fold>
       <Button type={'primary'} onTap={() => setFolded(!folded)}>
         切换
       </Button>
+      <Fold folded={folded}>
+        我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+      </Fold>
     </Space>
   );
 };

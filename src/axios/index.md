@@ -1,13 +1,13 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 业务工具
+  path: /business
 ---
 
-## axios
+## axios 统一请求
 
 使用方法同 [axios 官方仓库](https://github.com/axios/axios)
 
@@ -24,7 +24,9 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Button
       onTap={() => {
-        axios.get('/components/utils/axios').then(console.log);
+        axios
+          .get('/components/utils/axios')
+          .then(v => alert(JSON.stringify(v)));
       }}
       type={'priary'}
     >

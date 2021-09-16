@@ -1,23 +1,26 @@
 import React from 'react';
 import { View, ViewProps } from 'remax/one';
-import styles from './index.less';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
 import Space from '../space';
 import Icon from '../icon';
+import Sentry from '../sentry';
 
 export interface Props
-  extends Pick<
-    ViewProps,
-    | 'style'
-    | 'className'
-    | 'onTap'
-    | 'onTouchStart'
-    | 'onTouchMove'
-    | 'onTouchEnd'
-    | 'onTouchCancel'
-    | 'onLongTap'
+  extends Partial<
+    Pick<
+      ViewProps,
+      | 'style'
+      | 'className'
+      | 'onTap'
+      | 'onTouchStart'
+      | 'onTouchMove'
+      | 'onTouchEnd'
+      | 'onTouchCancel'
+      | 'onLongTap'
+    >
   > {
   children: React.ReactNode;
   /**
@@ -88,6 +91,9 @@ export default ({
 }: Props) => (
   <NeedWrap wrap={Shadow} need={shadow}>
     <View
+      role="button"
+      aria-label={typeof children === 'string' ? children : undefined}
+      aria-disabled={disable}
       className={classNames(
         styles.button,
         className,
@@ -104,8 +110,16 @@ export default ({
         },
       )}
       {...props}
+      onTap={e => {
+        Sentry.addBreadcrumb({
+          category: 'ui.click',
+          message: `点击了${children}`,
+          level: Sentry.Severity.Info,
+        });
+        props.onTap?.(e);
+      }}
     >
-      <Space size={'.5em'} alignItems={'flex-end'}>
+      <Space size={'.5em'} alignItems={'center'}>
         {loading ? (
           <Icon
             name={'kq-loading'}

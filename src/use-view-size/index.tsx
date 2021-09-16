@@ -1,14 +1,23 @@
 import { useSize } from 'ahooks';
+import { useForceUpdate } from 'parsec-hooks';
 import { useEffect } from 'react';
 
-export default (
-  id: string,
-  effect: (data: { width?: number; height?: number }) => void,
-  deps: any[] = [],
-) => {
-  const { width, height } = useSize(() => document.getElementById(id));
+export const getWH = (id: string) =>
+  new Promise<{ width: number; height: number }>(resolve => {
+    const { offsetWidth, offsetHeight } = document.getElementById(id) || {};
+    resolve({
+      width: offsetWidth || 0,
+      height: offsetHeight || 0,
+    });
+  });
+
+export default (id: string) => {
+  const { forceUpdate } = useForceUpdate();
+  const { width, height } = useSize(document.getElementById(id));
   useEffect(() => {
-    effect({ width, height });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width, height, ...deps]);
+    if (height === undefined) {
+      forceUpdate();
+    }
+  }, [width, height, forceUpdate]);
+  return { width, height };
 };

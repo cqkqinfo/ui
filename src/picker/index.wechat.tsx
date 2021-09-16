@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import { Props, useProps } from './common';
+import { View } from 'remax/one';
 
 export default (props: Props) => {
   const {
@@ -18,7 +19,9 @@ export default (props: Props) => {
     cols,
     start,
     end,
+    childrenCls,
     mode = 'multiSelector',
+    ...newProps
   } = useProps(props);
   const getData = useCallback(
     (data: PickerData[] | PickerData[][], index: number) =>
@@ -37,15 +40,28 @@ export default (props: Props) => {
   }, [cols, columnIndex, data, getData]);
   const rangeRef = useRef(range);
   rangeRef.current = range;
+
   useEffect(() => {
     const numbers: number[] = [];
-    new Array(cols).fill(0).forEach((_, index) => {
-      numbers[index] = value?.[index]
-        ? rangeRef.current[index]
-            .flat()
-            .findIndex(({ value: v }) => value?.[index] === v)
-        : 0;
-    });
+    /** 默认值 */
+    if (!value) {
+      setColumnIndex(new Array(cols).fill(0));
+      return;
+    }
+    if (cols === 1 && ['string', 'number'].includes(typeof value)) {
+      numbers[0] = rangeRef.current[0]
+        .flat()
+        .findIndex(({ value: v }) => v === value);
+    } else if (Array.isArray(value)) {
+      new Array(cols).fill(0).forEach((_, index) => {
+        numbers[index] = value?.[index]
+          ? rangeRef.current[index]
+              .flat()
+              .findIndex(({ value: v }) => value?.[index] === v)
+          : 0;
+      });
+    }
+
     setColumnIndex(numbers);
   }, [cols, value]);
 
@@ -55,6 +71,7 @@ export default (props: Props) => {
 
   return (
     <Picker
+      {...newProps}
       range-key={'label'}
       mode={mode}
       start={start}
@@ -73,12 +90,12 @@ export default (props: Props) => {
               (range as any)[index][value[index]]?.value || columnIndex[index],
             );
           });
-          onChange?.(newValues);
+          onChange?.(cols === 1 ? newValues?.[0] : newValues);
         } else {
           onChange?.(value);
         }
       }}
-      children={children}
+      children={<View className={childrenCls}>{children}</View>}
     />
   );
 };

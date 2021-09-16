@@ -1,23 +1,23 @@
 import { View, ViewProps } from 'remax/one';
-import React, { useRef, useState } from 'react';
-import Icon from './one';
-import { IconFontProps } from './wechat';
-import styles from './index.less';
+import React from 'react';
+import Icon from './one/index';
+import { IconFontProps } from './other';
+import styles from './index.module.less';
 import classNames from 'classnames';
 import useViewSize from '../use-view-size';
 import NeedWrap from '../need-wrap';
 import Rotate from '../rotate';
+import { useId } from 'parsec-hooks';
+import rpxToPx from '../rpx-to-px';
 
 export interface Props
   extends ViewProps,
     Pick<IconFontProps, 'name' | 'color'> {
   /**
-   * 图标大小，默认是fontSize的值
+   * 图标大小，默认是fontSize的值，传入number的话请输入rpx的值
    */
   size?: number | string;
 }
-
-let count = 0;
 
 export default ({
   name,
@@ -25,32 +25,36 @@ export default ({
   size = '1em',
   className,
   style,
-  id = `icon${count++}`,
   ...props
 }: Props) => {
-  const idRef = useRef(id);
-  const [{ width = size || 0 }, setWH] = useState<{
-    width?: number;
-    height?: number;
-  }>({});
-  useViewSize(idRef.current, setWH);
+  const id = useId();
+  const width2 = useViewSize(id).width;
+  const isNumber = typeof size === 'number';
   return (
     <View
       className={classNames(styles.wrap, className)}
       {...props}
-      id={idRef.current}
-      style={{ width: size, height: size, ...style }}
+      id={id}
+      style={{
+        width: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
+        height: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
+        ...style,
+      }}
     >
       <NeedWrap
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
       >
-        <Icon
-          name={name}
-          size={width as any}
-          color={color}
-          className={styles.icon}
-        />
+        {width2 && (
+          <Icon
+            name={name}
+            size={width2}
+            color={color}
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            className={styles.icon}
+          />
+        )}
       </NeedWrap>
     </View>
   );

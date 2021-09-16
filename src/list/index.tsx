@@ -1,20 +1,28 @@
-import { useLoadMore } from 'parsec-hooks';
+import { useEffectState, useLoadMore } from 'parsec-hooks';
 import {
   LoadMoreGetListFn,
   LoadMoreOptions,
 } from 'parsec-hooks/lib/loadMoreHooks';
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useMemo,
+  useRef,
+  useCallback,
+  useState,
+} from 'react';
 import Visible from '../visible';
-import Space, { Props as SpaceProps } from '../space';
-import NeedWrap from '../need-wrap';
 import NoData from '../no-data';
 import Loading from '../loading';
+import Button from '../button';
+import Native, { NativeInstance } from '../native';
 
 interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
-  renderItem: (data: D, index: number) => React.ReactNode;
+  renderItem: (data: D, index: number, list: D[]) => React.ReactElement;
   /**
    * 列表接口
    */
@@ -34,13 +42,22 @@ interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    */
   loadingTip?: React.ReactNode;
   /**
-   * space组件的props
+   * 渲染每项的高度，设置后可以开启虚拟滚动，请传入rpx的number值
    */
-  spaceProps?: SpaceProps;
+  renderItemHeight?: (data: D, index: number) => number;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * 类名
+   */
+  className?: string;
 }
 
 const List = forwardRef(
-  <D extends unknown>(
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  <D extends { id: number }>(
     {
       getList,
       renderItem,
@@ -49,35 +66,118 @@ const List = forwardRef(
           // @ts-ignore
           getCurrentPages()[getCurrentPages().length - 1].pageId
         : window.location.pathname,
-      noData = <NoData />,
-      spaceProps,
+      noData = useMemo(() => <NoData />, []),
       noMore,
-      loadingTip = <Loading top />,
+      loadingTip,
+      renderItemHeight,
+      className,
+      style,
+      defaultLimit = 10,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
   ) => {
-    const [loadMoreVisible, setLoadMoreVisible] = useState(false);
-    const { refreshList, list, isEnd, loading } = useLoadMore(getList, {
+    const loadingNativeRef = useRef<NativeInstance>(null);
+    const noLoadingNativeRef = useRef<NativeInstance>(null);
+    const [visible, setVisible] = useState(false);
+    const { refreshList, list, isEnd, error, getNext } = useLoadMore(getList, {
       cacheKey,
+      loadMoreVisible: visible,
+      defaultLimit,
       ...options,
-      loadMoreVisible,
+      customSetLoading: useCallback(loading => {
+        loadingNativeRef.current?.setData?.({ visible: loading });
+        noLoadingNativeRef.current?.setData?.({ visible: !loading });
+      }, []),
     });
+    const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
-    return (
-      <NeedWrap need={!!spaceProps} wrap={Space} wrapProps={spaceProps}>
-        {list.map((data, index) => renderItem(data, index))}
+    useEffect(() => {
+      if (error) {
+        console.error(error);
+      }
+    }, [error]);
+    loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
+      loadingTip,
+    ]);
+    const footer = useMemo(() => {
+      return (
         <Visible
-          onVisible={() => setLoadMoreVisible(true)}
-          onHidden={() => setLoadMoreVisible(false)}
+          onVisible={() => {
+            getNext();
+            setVisible(true);
+          }}
+          onHidden={() => setVisible(false)}
         >
-          {loading
-            ? loadingTip
-            : list.length === 0
-            ? noData || noMore || loadingTip
-            : isEnd && (noMore || noData)}
+          <Native ref={loadingNativeRef}>{loadingTip}</Native>
+          <Native ref={noLoadingNativeRef} initData={{ visible: false }}>
+            {list.length === 0
+              ? noData || noMore || loadingTip
+              : isEnd
+              ? noMore || noData
+              : loadingTip}
+          </Native>
         </Visible>
-      </NeedWrap>
+      );
+    }, [getNext, isEnd, list.length, loadingTip, noData, noMore]);
+    const list2 = useMemo(() => {
+      const result: D[][] = [];
+      list.forEach((_, i) => {
+        if (!(i % defaultLimit)) {
+          result.push([...list].slice(i, i + defaultLimit));
+        }
+      });
+      return result;
+    }, [defaultLimit, list]);
+    return useMemo(
+      () => (
+        <>
+          {showError ? (
+            <Button
+              onTap={() => {
+                setShowError(false);
+                refreshList();
+              }}
+              style={{ margin: '20px auto' }}
+            >
+              加载失败，点击重试
+            </Button>
+          ) : renderItemHeight ? (
+            <>
+              {list2.map((items, index) => {
+                let height = 0;
+                items.forEach((item, i) => {
+                  height += renderItemHeight(item, index * defaultLimit + i);
+                });
+                return (
+                  <Visible key={index} height={height} perf>
+                    {items.map((data, i) =>
+                      renderItem(data, index * defaultLimit + i, list),
+                    )}
+                  </Visible>
+                );
+              })}
+              {footer}
+            </>
+          ) : (
+            <>
+              {list.map((data, index) => renderItem(data, index, list))}
+              {footer}
+            </>
+          )}
+        </>
+      ),
+      [
+        defaultLimit,
+        footer,
+        list,
+        list2,
+        refreshList,
+        renderItem,
+        renderItemHeight,
+        setShowError,
+        showError,
+      ],
     );
   },
 );

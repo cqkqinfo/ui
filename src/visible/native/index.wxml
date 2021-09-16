@@ -1,3 +1,4 @@
-<view id="{{id}}" class="{{className}}">
-    <slot/>
+<view id="{{id}}" style="min-height:{{height}}rpx;min-width:1px;" class="{{className}}">
+    <slot wx:if="{{isShow || !perf}}"/>
 </view>
+

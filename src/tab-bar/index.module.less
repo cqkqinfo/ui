@@ -1,0 +1,33 @@
+.tabBarWrap {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-around;
+  align-items: center;
+  height: 98px;
+  width: 100%;
+  // prettier-ignore
+  border-top: 1PX solid #ececec;
+  z-index: 100;
+  padding-bottom: constant(safe-area-inset-bottom); /*兼容 IOS<11.2*/
+  padding-bottom: env(safe-area-inset-bottom); /*兼容 IOS>11.2*/
+  position: sticky;
+  bottom: 0;
+}
+.tabBarItem {
+  width: 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tabBarImg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+}
+
+.tabBarText {
+  font-size: 26px;
+}

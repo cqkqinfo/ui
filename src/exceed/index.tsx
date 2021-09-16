@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { View, ViewProps, Text } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 
 interface Props extends PropsWithChildren<ViewProps> {
   children: React.ReactNode;
@@ -47,7 +47,7 @@ export default ({
       <Text
         className={classNames(styles.more, moreCls)}
         style={{
-          background: `linear-gradient(-90deg, ${moreBg} 50%, transparent)`,
+          background: `linear-gradient(-90deg, ${moreBg} 50%, rgba(255,255,255,0.001))`,
         }}
       >
         {more}

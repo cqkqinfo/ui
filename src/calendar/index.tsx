@@ -1,20 +1,14 @@
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 import { View } from 'remax/one';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { useEffectState } from 'parsec-hooks';
+import weekday from 'dayjs/plugin/weekday';
+
+dayjs.extend(weekday);
 
 const weeks = ['日', '一', '二', '三', '四', '五', '六'];
-
-const days = new Array(14).fill(0).map((_, index) =>
-  dayjs(
-    dayjs()
-      .subtract(dayjs().day(), 'day')
-      .add(index, 'day')
-      .format('YYYY-MM-DD'),
-  ),
-);
 
 export interface Props {
   /**
@@ -42,6 +36,10 @@ export interface Props {
    */
   dotCls?: string;
   /**
+   * 标记点Wrap的类名
+   */
+  dotWrapCls?: string;
+  /**
    * 选中的日期
    */
   current?: dayjs.Dayjs;
@@ -58,6 +56,27 @@ export interface Props {
    * @default day => day.isBefore(dayjs(), 'date')
    */
   renderDisable?: (day: dayjs.Dayjs) => boolean;
+  /**
+   * 日期范围天数
+   * @default 14
+   */
+  limit?: number;
+  /**
+   * 自定义渲染
+   */
+  renderDate?: (day: dayjs.Dayjs) => React.ReactNode;
+  /**
+   * 设置这个后会渲染成列表模式
+   */
+  listEndDay?: dayjs.Dayjs;
+  /**
+   * 列表模式的月份类名
+   */
+  monthCls?: string;
+  /**
+   * 开始时间，默认今天
+   */
+  startDay?: dayjs.Dayjs;
 }
 
 export default ({
@@ -70,16 +89,40 @@ export default ({
   activeItemCls,
   disableItemCls,
   activeDotCls,
+  dotWrapCls,
+  limit = 14,
+  renderDate = day => day.get('date'),
+  listEndDay,
+  monthCls,
+  startDay: outStartDay,
   dotCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(
     useMemo(() => current || dayjs(), [current]),
   );
+  const startDay = useMemo(() => {
+    return listEndDay ? dayjs().set('date', 1) : outStartDay || dayjs();
+  }, [listEndDay, outStartDay]);
+  limit = useMemo(() => {
+    return listEndDay ? listEndDay.diff(dayjs(), 'day') + 1 : limit;
+  }, [limit, listEndDay]);
+  const days = useMemo(
+    () =>
+      new Array(limit).fill(0).map((_, index) =>
+        dayjs(
+          startDay
+            .subtract(startDay.day(), 'day')
+            .add(index, 'day')
+            .format('YYYY-MM-DD'),
+        ),
+      ),
+    [limit, startDay],
+  );
   return (
     <View className={classNames(styles.calendar, className)}>
       {weeks.map((item, index) => (
         <View
-          className={classNames(styles.item, styles.week)}
+          className={classNames(styles.item, itemCls, styles.week)}
           key={item}
           style={{ marginRight: index === 6 ? 0 : undefined }}
         >
@@ -89,36 +132,69 @@ export default ({
       {days.map((day, index) => {
         const dot = renderDot?.(day, index);
         const active = day.isSame(selected, 'date');
+        const renderEmpty = (before = false) => {
+          const length = before ? day.weekday() : 7 - day.weekday() - 1;
+          return new Array(length).fill(0).map((_, i) => (
+            <View
+              className={classNames(itemCls, styles.item)}
+              key={i}
+              style={{
+                marginRight: !before && i === length - 1 ? 0 : undefined,
+              }}
+            />
+          ));
+        };
         return (
-          <View
-            onTap={() => {
-              setSelected(day);
-              onChange?.(day);
-            }}
-            style={{
-              marginRight: (index + 1) % 7 === 0 ? 0 : undefined,
-            }}
-            className={classNames(styles.item, itemCls, {
-              [classNames(styles.disable, disableItemCls)]: renderDisable(day),
-              [classNames(styles.active, activeItemCls)]: active,
-            })}
-            key={index}
-          >
-            {day.get('date')}
-            <View className={styles.dotWrap}>
-              {dot === true ? (
-                <View
-                  className={classNames(styles.dot, dotCls, {
-                    [classNames(styles.activeDot, activeDotCls)]: active,
-                  })}
-                >
-                  {dot}
+          <React.Fragment key={index}>
+            {day.date() === 1 && listEndDay && (
+              <>
+                <View className={classNames(styles.month, monthCls)}>
+                  {day.format('YYYY年MM月')}
                 </View>
-              ) : (
-                dot
-              )}
+                {renderEmpty(true)}
+              </>
+            )}
+            <View
+              wechat-aria-role={'button'}
+              wechat-aria-label={day.format('MM月DD日')}
+              wechat-aria-selected={active}
+              wechat-aria-disabled={renderDisable(day)}
+              onTap={() => {
+                setSelected(day);
+                onChange?.(day);
+              }}
+              style={{
+                marginRight: day.weekday() === 6 ? 0 : undefined,
+              }}
+              className={classNames(styles.item, itemCls, {
+                [classNames(styles.disable, disableItemCls)]: renderDisable(
+                  day,
+                ),
+                [classNames(styles.active, activeItemCls)]: active,
+              })}
+            >
+              {renderDate(day)}
+              <View className={classNames(styles.dotWrap, dotWrapCls)}>
+                {dot === true ? (
+                  <View
+                    className={classNames(styles.dot, dotCls, {
+                      [classNames(styles.activeDot, activeDotCls)]: active,
+                    })}
+                  >
+                    {dot}
+                  </View>
+                ) : (
+                  dot
+                )}
+              </View>
             </View>
-          </View>
+            {listEndDay &&
+              day.month() !==
+                dayjs(day)
+                  .add(1, 'day')
+                  .month() &&
+              renderEmpty(false)}
+          </React.Fragment>
         );
       })}
     </View>

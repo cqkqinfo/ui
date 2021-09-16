@@ -2,9 +2,10 @@
 import React, { useMemo } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 import Icon from '../icon';
 import Fold from '../fold';
+import { IconNames } from '../icon/web';
 
 export interface DropDownMenuIremProps {
   /**
@@ -37,6 +38,20 @@ export interface DropDownMenuIremProps {
       value: any;
     },
   ) => void;
+  icon?: IconNames;
+  /**
+   * 箭头的类名
+   */
+  arrowsCls?: string;
+  /**
+   * 箭头的颜色
+   */
+  arrowsColor?: string;
+  arrowsSize?: number;
+  /**
+   * 自定义点击事件，如果返回false，不响应展开折叠
+   */
+  onTap?: () => boolean | void;
 }
 
 export default (props: DropDownMenuIremProps) => {
@@ -46,6 +61,11 @@ export default (props: DropDownMenuIremProps) => {
     showOptions,
     title,
     value,
+    icon,
+    arrowsCls,
+    arrowsColor = '#bbb',
+    arrowsSize,
+    onTap,
     onChange,
     children,
   } = props as DropDownMenuIremProps & {
@@ -56,9 +76,7 @@ export default (props: DropDownMenuIremProps) => {
   };
 
   const selectItem = useMemo(() => {
-    if (options) {
-      return options.find(item => item.value === value) || options[0];
-    }
+    return options?.find(item => item.value === value);
   }, [options, value]);
 
   return (
@@ -69,18 +87,30 @@ export default (props: DropDownMenuIremProps) => {
         props.className,
       )}
       onTap={() => {
-        onToggle?.();
+        if (onTap) {
+          // 如果返回false，不响应展开折叠
+          if (onTap() !== false) {
+            onToggle?.();
+          }
+        } else {
+          onToggle?.();
+        }
       }}
     >
       <View className={styles.flexCenter}>
-        {title || selectItem?.text}
+        {selectItem?.text || title}
         <Icon
-          name={'kq-down'}
-          color={'#bbb'}
-          className={classNames(styles.icon, { [styles.rotate]: showOptions })}
+          size={arrowsSize}
+          name={icon || 'kq-down'}
+          color={arrowsColor}
+          className={classNames(
+            styles.icon,
+            { [styles.rotate]: showOptions },
+            arrowsCls,
+          )}
         />
       </View>
-      <Fold folded={!showOptions} className={styles.down}>
+      <Fold folded={!showOptions} className={styles.down} maxHeight={'50vh'}>
         {options?.map(item => {
           return (
             <View

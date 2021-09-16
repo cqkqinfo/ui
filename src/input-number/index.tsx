@@ -3,7 +3,7 @@ import { View, Text, ViewProps } from 'remax/one';
 import provider from '../config-provider';
 import cls from 'classnames';
 import Icon from '../icon';
-import styles from './index.less';
+import styles from './index.module.less';
 
 export interface Props
   extends Pick<
@@ -82,11 +82,11 @@ export interface Props
   /**
    * 数字的样式
    */
-  numerCls?: string;
+  numberCls?: string;
   /**
    * 禁用时数字的样式
    */
-  numerDisabledCls?: string;
+  numberDisabledCls?: string;
 }
 
 export default ({
@@ -99,8 +99,8 @@ export default ({
   iconColor,
   className,
   iconCls,
-  numerCls,
-  numerDisabledCls,
+  numberCls,
+  numberDisabledCls,
   onChange,
   formatValue = a => a,
   unit,
@@ -168,8 +168,8 @@ export default ({
         color={minDisabled ? disabledColor : iconSelectColor}
       />
       <Text
-        className={cls(styles.number, numerCls, {
-          [numerDisabledCls || '']: minDisabled && maxDisabled,
+        className={cls(styles.number, numberCls, {
+          [numberDisabledCls || '']: minDisabled && maxDisabled,
         })}
       >
         {formatValue(realVal.toFixed(precision))}

@@ -1,16 +1,12 @@
 import React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
-import styles from './index.less';
+import styles from './index.module.less';
 import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
+import configStore from '../config-provider';
 
 export interface RadioProps {
-  /**
-   * radio禁止
-   * @default false
-   */
-  disabled?: boolean;
   /**
    * radio内容
    * @default label
@@ -64,12 +60,12 @@ export interface RadioProps {
 }
 
 const Radio = (props: RadioProps) => {
+  const { brandPrimary } = configStore.useContainer();
   const {
-    disabled,
     children,
     checked,
     value,
-    activeBackgroundColor = '#277fd9',
+    activeBackgroundColor = brandPrimary,
     backgroundColor = '#eeeeee',
     color = '#000',
     activeColor = '#fff',
@@ -79,6 +75,7 @@ const Radio = (props: RadioProps) => {
     activeCls,
     type = 'normal',
   } = props;
+  const [myChecked, setMyChecked] = useEffectState(checked);
   return (
     <View
       className={classNames(
@@ -88,28 +85,32 @@ const Radio = (props: RadioProps) => {
           [styles.radio]: type === 'normal',
           [styles.btn]: type === 'button',
         },
-        checked && classNames(activeCls, type === 'button' && styles.btnActive),
-        disabled && styles.disabled,
+        myChecked &&
+          classNames(activeCls, type === 'button' && styles.btnActive),
       )}
       style={{
         background:
           type !== 'button'
             ? 'none'
-            : checked
+            : myChecked
             ? activeBackgroundColor
             : backgroundColor,
-        color: type !== 'button' ? 'none' : checked ? activeColor : color,
+        color: type !== 'button' ? 'none' : myChecked ? activeColor : color,
         ...style,
       }}
-      onTap={e => !disabled && onChange?.(!checked, value)}
+      onTap={e => {
+        onChange?.(!myChecked, value);
+        setMyChecked(!myChecked);
+      }}
     >
       {type === 'normal' && (
         <View
           className={classNames(styles.dot, {
-            [styles.dotCheck]: checked,
+            [styles.dotCheck]: myChecked,
           })}
           style={{
-            borderColor: checked ? activeBackgroundColor : 'transparent',
+            borderColor: myChecked ? activeBackgroundColor : '#eee',
+            borderWidth: myChecked ? undefined : 1,
             background: activeColor,
           }}
         />
@@ -120,7 +121,6 @@ const Radio = (props: RadioProps) => {
 };
 
 export interface GroupProps {
-  disabled?: boolean;
   value?: string | number;
   children?: React.ReactNode;
   direction?: Property.FlexDirection;
@@ -131,12 +131,11 @@ export interface GroupProps {
 
 const getRadios = (
   children: React.ReactNode,
-  disabled?: boolean,
   value?: string | number,
   onChange?: (v: string | number) => void,
 ) => {
   const onGroupChange = (checked: boolean, v: string | number) => {
-    !disabled && onChange?.(v);
+    onChange?.(v);
   };
   return React.Children.map(children, radio => {
     const newRadio = radio;
@@ -156,18 +155,10 @@ const getRadios = (
 };
 
 Radio.Group = (props: GroupProps) => {
-  const {
-    disabled,
-    value,
-    children,
-    direction,
-    onChange,
-    style,
-    className,
-  } = props;
+  const { value, children, direction, onChange, style, className } = props;
   const [v, setV] = useEffectState(value);
 
-  const radios = getRadios(children, disabled, v, (...arg) => {
+  const radios = getRadios(children, v, (...arg) => {
     setV(arg[0]);
     onChange?.(...arg);
   });
@@ -178,11 +169,7 @@ Radio.Group = (props: GroupProps) => {
         flexDirection: direction,
         ...style,
       }}
-      className={classNames(
-        className,
-        styles.group,
-        disabled && styles.disabled,
-      )}
+      className={classNames(className, styles.group)}
     >
       {radios}
     </View>

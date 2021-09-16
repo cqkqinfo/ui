@@ -1,13 +1,13 @@
 ---
 nav:
-  title: 组件
-  path: /components
-group:
   title: 工具
   path: /utils
+group:
+  title: 统一平台
+  path: /one
 ---
 
-## showLoading
+## showLoading 显示加载
 
 显示加载
 
