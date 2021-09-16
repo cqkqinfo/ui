@@ -1,3 +1,9 @@
+## [1.5.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.19...v1.5.20) (2021-09-16)
+
+### Reverts
+
+- 去掉 picker 宽度 ([7e668bc](https://gitlab2.cqkqinfo.com/web/ui/commit/7e668bca36a8efe7d7426186196bf114726f6da8))
+
 ## [1.5.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.18...v1.5.19) (2021-09-16)
 
 ### Bug Fixes
