@@ -7,6 +7,11 @@ import { useEffectState } from 'parsec-hooks';
 
 export interface RadioProps {
   /**
+   * radio禁止
+   * @default false
+   */
+  disabled?: boolean;
+  /**
    * radio内容
    * @default label
    */
@@ -60,6 +65,7 @@ export interface RadioProps {
 
 const Radio = (props: RadioProps) => {
   const {
+    disabled,
     children,
     checked,
     value,
@@ -83,6 +89,7 @@ const Radio = (props: RadioProps) => {
           [styles.btn]: type === 'button',
         },
         checked && classNames(activeCls, type === 'button' && styles.btnActive),
+        disabled && styles.disabled,
       )}
       style={{
         background:
@@ -94,7 +101,7 @@ const Radio = (props: RadioProps) => {
         color: type !== 'button' ? 'none' : checked ? activeColor : color,
         ...style,
       }}
-      onTap={e => onChange?.(!checked, value)}
+      onTap={e => !disabled && onChange?.(!checked, value)}
     >
       {type === 'normal' && (
         <View
@@ -113,6 +120,7 @@ const Radio = (props: RadioProps) => {
 };
 
 export interface GroupProps {
+  disabled?: boolean;
   value?: string | number;
   children?: React.ReactNode;
   direction?: Property.FlexDirection;
@@ -123,11 +131,12 @@ export interface GroupProps {
 
 const getRadios = (
   children: React.ReactNode,
+  disabled?: boolean,
   value?: string | number,
   onChange?: (v: string | number) => void,
 ) => {
   const onGroupChange = (checked: boolean, v: string | number) => {
-    onChange?.(v);
+    !disabled && onChange?.(v);
   };
   return React.Children.map(children, radio => {
     const newRadio = radio;
@@ -147,10 +156,18 @@ const getRadios = (
 };
 
 Radio.Group = (props: GroupProps) => {
-  const { value, children, direction, onChange, style, className } = props;
+  const {
+    disabled,
+    value,
+    children,
+    direction,
+    onChange,
+    style,
+    className,
+  } = props;
   const [v, setV] = useEffectState(value);
 
-  const radios = getRadios(children, v, (...arg) => {
+  const radios = getRadios(children, disabled, v, (...arg) => {
     setV(arg[0]);
     onChange?.(...arg);
   });
@@ -161,7 +178,11 @@ Radio.Group = (props: GroupProps) => {
         flexDirection: direction,
         ...style,
       }}
-      className={classNames(className, styles.group)}
+      className={classNames(
+        className,
+        styles.group,
+        disabled && styles.disabled,
+      )}
     >
       {radios}
     </View>

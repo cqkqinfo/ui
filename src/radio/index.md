@@ -57,7 +57,11 @@ export default () => {
         ))}
       </Radio.Group>
       <PartTitle>一个选项占一行</PartTitle>
-      <Radio.Group value={checkValue} onChange={v => setCheckValue(v)}>
+      <Radio.Group
+        value={checkValue}
+        onChange={v => setCheckValue(v)}
+        direction="column"
+      >
         {[
           { value: '1', label: '西瓜' },
           { value: '2', label: '香蕉' },
@@ -67,7 +71,7 @@ export default () => {
           { value: '6', label: '甘蔗' },
           { value: '7', label: '火龙果' },
         ].map((item: any) => (
-          <Radio value={item.value} key={item.value} style={{ width: '100%' }}>
+          <Radio value={item.value} key={item.value}>
             {item.label}
           </Radio>
         ))}
