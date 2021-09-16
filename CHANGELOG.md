@@ -1,3 +1,14 @@
+## [1.5.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.17...v1.5.18) (2021-09-16)
+
+### Bug Fixes
+
+- bug ([ed220a3](https://gitlab2.cqkqinfo.com/web/ui/commit/ed220a383be9876fe1fd76cd2de1b38b4ceaeda9))
+- check,radio ([c76684e](https://gitlab2.cqkqinfo.com/web/ui/commit/c76684e7ee24e8fcfaa83c61fc8de2810b41a7d1))
+
+### Features
+
+- 小程序跳转组件修改 ([b5545e7](https://gitlab2.cqkqinfo.com/web/ui/commit/b5545e75e08161e964bc7a070683bd9390a8d070))
+
 ## [1.5.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.16...v1.5.17) (2021-09-15)
 
 ### Features
