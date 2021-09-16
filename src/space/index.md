@@ -42,6 +42,29 @@ export default () => (
       </Space>
       <Space style={{ marginRight: 10 }}>操作</Space>
     </Space>
+    <PartTitle>网格布局</PartTitle>
+    <Space ignoreNum={4} flexWrap={'wrap'} size={'14px'}>
+      {new Array(6).fill(0).map((_, i) => (
+        <Space
+          vertical
+          style={{ width: '21%' }}
+          size={'10px'}
+          alignItems={'center'}
+        >
+          <Space
+            style={{ width: '100%', height: '50px', background: '#eee' }}
+          />
+          <Space
+            style={{
+              width: '100%',
+              height: '10px',
+              background: '#eee',
+              marginBottom: '20px',
+            }}
+          />
+        </Space>
+      ))}
+    </Space>
   </Space>
 );
 ```
