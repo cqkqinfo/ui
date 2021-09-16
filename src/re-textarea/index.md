@@ -18,7 +18,7 @@ import { ReTextarea, Space, PartTitle } from '@kqinfo/ui';
 export default () => (
   <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>基本使用</PartTitle>
-    <ReTextarea placeholder={'请输入'} showCount maxLength={100} />
+    <ReTextarea placeholder={'请输入'} />
   </Space>
 );
 ```
