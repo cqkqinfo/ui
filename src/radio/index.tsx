@@ -57,11 +57,17 @@ export interface RadioProps {
    * 选择的类名
    */
   activeCls?: string;
+  /**
+   * disabled
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 const Radio = (props: RadioProps) => {
   const { brandPrimary } = configStore.useContainer();
   const {
+    disabled,
     children,
     checked,
     value,
@@ -87,6 +93,7 @@ const Radio = (props: RadioProps) => {
         },
         myChecked &&
           classNames(activeCls, type === 'button' && styles.btnActive),
+        disabled && styles.disabled,
       )}
       style={{
         background:
@@ -99,8 +106,11 @@ const Radio = (props: RadioProps) => {
         ...style,
       }}
       onTap={e => {
-        onChange?.(!myChecked, value);
-        setMyChecked(!myChecked);
+        if (!disabled) {
+          console.log('chd', disabled);
+          onChange?.(!myChecked, value);
+          setMyChecked(!myChecked);
+        }
       }}
     >
       {type === 'normal' && (
@@ -127,18 +137,24 @@ export interface GroupProps {
   onChange?: (v: string | number) => void;
   style?: React.CSSProperties;
   className?: string;
+  disabled?: boolean;
 }
 
 const getRadios = (
   children: React.ReactNode,
   value?: string | number,
+  disabled?: boolean,
   onChange?: (v: string | number) => void,
 ) => {
   const onGroupChange = (checked: boolean, v: string | number) => {
+    if (disabled) {
+      return;
+    }
     onChange?.(v);
   };
   return React.Children.map(children, radio => {
     const newRadio = radio;
+
     let checked = false;
     if (newRadio && React.isValidElement(newRadio) && newRadio.props) {
       checked =
@@ -147,7 +163,12 @@ const getRadios = (
           newRadio.props.value === false) &&
         newRadio.props.value === value;
       return (
-        <Radio {...newRadio.props} checked={checked} onChange={onGroupChange} />
+        <Radio
+          {...newRadio.props}
+          checked={checked}
+          disabled={disabled}
+          onChange={onGroupChange}
+        />
       );
     }
     return newRadio;
@@ -155,10 +176,18 @@ const getRadios = (
 };
 
 Radio.Group = (props: GroupProps) => {
-  const { value, children, direction, onChange, style, className } = props;
+  const {
+    value,
+    children,
+    direction,
+    onChange,
+    disabled = false,
+    style,
+    className,
+  } = props;
   const [v, setV] = useEffectState(value);
 
-  const radios = getRadios(children, v, (...arg) => {
+  const radios = getRadios(children, v, disabled, (...arg) => {
     setV(arg[0]);
     onChange?.(...arg);
   });
@@ -169,7 +198,11 @@ Radio.Group = (props: GroupProps) => {
         flexDirection: direction,
         ...style,
       }}
-      className={classNames(className, styles.group)}
+      className={classNames(
+        className,
+        styles.group,
+        disabled && styles.disabled,
+      )}
     >
       {radios}
     </View>
