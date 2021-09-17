@@ -11,7 +11,12 @@ Component({
     content: String,
     visible: Boolean,
   },
-  // onInit() {
-  //   this.triggerEvent('this', this);
-  // },
+  onInit() {
+    console.log(111);
+    this.triggerEvent('this', this);
+  },
+  didMount() {
+    console.log(2222);
+    this.triggerEvent('this', this);
+  },
 });

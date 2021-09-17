@@ -46,6 +46,7 @@ export default forwardRef<NativeInstance, Props>(
         style={style}
         visible={visible}
         bindthis={({ detail }: any) => {
+          console.log(detail);
           detail.setData(dataRef.current);
           setRef(detail);
         }}
