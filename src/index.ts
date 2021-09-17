@@ -387,3 +387,7 @@ export { default as chooseImage } from './choose-image';
  * 图像识别
  */
 export { default as OCR } from './ocr';
+/**
+ * 设置剪切板
+ */
+export { default as setClipboardData } from './set-clipboard-data';
