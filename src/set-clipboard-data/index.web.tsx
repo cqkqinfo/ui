@@ -9,8 +9,6 @@ export default ({ data }: Options) =>
     btn.setAttribute('data-clipboard-text', data);
     document.body.appendChild(btn);
     const clipboard = new ClipboardJS('.btn');
-    btn.click();
-
     clipboard.on('success', function(e) {
       e.clearSelection();
       resolve({});
@@ -19,4 +17,5 @@ export default ({ data }: Options) =>
       console.error('Action:', e.action);
       console.error('Trigger:', e.trigger);
     });
+    btn.click();
   });
