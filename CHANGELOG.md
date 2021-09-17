@@ -1,3 +1,9 @@
+## [1.5.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.20...v1.5.21) (2021-09-17)
+
+### Features
+
+- 添加设置剪切板方法 ([10c214e](https://gitlab2.cqkqinfo.com/web/ui/commit/10c214e492a5d4838486293679d5f88576573c4a))
+
 ## [1.5.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.19...v1.5.20) (2021-09-16)
 
 ### Reverts
