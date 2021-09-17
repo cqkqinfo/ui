@@ -1,3 +1,9 @@
+## [1.5.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.22...v1.5.23) (2021-09-17)
+
+### Features
+
+- 富文本兼容阿里 ([4996c18](https://gitlab2.cqkqinfo.com/web/ui/commit/4996c18723c87f818b0e515a1e4023fd22093093))
+
 ## [1.5.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.21...v1.5.22) (2021-09-17)
 
 ### Bug Fixes
