@@ -1,3 +1,13 @@
+## [1.5.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.21...v1.5.22) (2021-09-17)
+
+### Bug Fixes
+
+- 设置剪切板第一次不会触发成功 ([bec5d4d](https://gitlab2.cqkqinfo.com/web/ui/commit/bec5d4dc98a07bb4bb68878529345543344d2ebe))
+
+### Features
+
+- transfer-change 支持自动格式逗号分割 ([cd96515](https://gitlab2.cqkqinfo.com/web/ui/commit/cd96515a4c2eec75309a75c6869fbf655d983974))
+
 ## [1.5.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.20...v1.5.21) (2021-09-17)
 
 ### Features
