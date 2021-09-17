@@ -26,7 +26,7 @@ import {
   Picker,
   Icon,
 } from '@kqinfo/ui';
-import { DatePicker } from 'antd';
+import { DatePicker, Select } from 'antd';
 
 export default () => {
   const [form] = Form.useForm();
@@ -94,6 +94,18 @@ export default () => {
           <FormItem label={'日期'} name={'date'} initialValue={'2021-08-24'}>
             <TransferChange mode={'date'}>
               <DatePicker />
+            </TransferChange>
+          </FormItem>
+        </Form>
+        <PartTitle>自动格式化逗号分割</PartTitle>
+        <Form cell>
+          <FormItem label={'标签'} name={'tags'} initialValue={'a,b,c'}>
+            <TransferChange mode={'split'}>
+              <Select
+                style={{ width: '100%' }}
+                placeholder="请输入标签，回车键确认"
+                mode="tags"
+              />
             </TransferChange>
           </FormItem>
         </Form>

@@ -23,7 +23,7 @@ export default ({
   /**
    * 内置模式
    */
-  mode?: 'array' | 'date' | 'time' | 'JSON' | 'city';
+  mode?: 'array' | 'split' | 'date' | 'time' | 'JSON' | 'city';
   /**
    * 当mode是date时可以用
    */
@@ -32,6 +32,9 @@ export default ({
   if (value !== undefined) {
     if (mode === 'array') {
       value = [value];
+    }
+    if (mode === 'split') {
+      value = value ? value.split(',') : undefined;
     } else if (mode === 'date') {
       value = value && dayjs(value, dateFormat);
     } else if (mode === 'time') {
@@ -50,6 +53,8 @@ export default ({
       }
       if (mode === 'array') {
         value = value[0];
+      } else if (mode === 'split') {
+        value = value.join(',');
       } else if (mode === 'date') {
         value = value && dayjs(value).format(dateFormat);
       } else if (mode === 'time') {
