@@ -5,18 +5,24 @@ Component({
     styleIsolation: 'apply-shared',
   },
   props: {
-    id: String,
-    style: String,
-    className: String,
-    content: String,
-    visible: Boolean,
+    id: '',
+    onThis: data => {
+      console.log(data);
+    },
+    style: '',
+    className: '',
+    content: '',
+    visible: false,
   },
-  onInit() {
-    console.log(111);
-    this.triggerEvent('this', this);
+  data: {
+    visible: false,
+    className: '',
+    style: '',
+    content: '',
   },
   didMount() {
-    console.log(2222);
-    this.triggerEvent('this', this);
+    const { onThis, ...props } = this.props;
+    this.setData(props);
+    this.props.onThis(this);
   },
 });
