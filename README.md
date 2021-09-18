@@ -123,3 +123,7 @@ $ yarn link @kqinfo/ui
 - 不要用图片当`icon`
 - 尽量暴露节点的`class`，缩写用`cls`，比如暴露子项类名就用`itemCls`
 - 例子尽量写多点
+
+## 钉钉交流群
+
+<img width="320" src="https://z3.ax1x.com/2021/09/18/4l7gmT.jpg">
