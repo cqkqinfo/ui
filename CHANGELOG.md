@@ -1,3 +1,11 @@
+## [1.5.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.23...v1.5.24) (2021-09-18)
+
+### Features
+
+- native-ali 组件修改 ([c0b70ae](https://gitlab2.cqkqinfo.com/web/ui/commit/c0b70ae3426c7813888c6e229bfa2981a9f79be5))
+- 阿里 native ([ecc1f4b](https://gitlab2.cqkqinfo.com/web/ui/commit/ecc1f4b2cb9af697fdafa60e98482e9fd7727955))
+- 阿里富文本 ([559ff86](https://gitlab2.cqkqinfo.com/web/ui/commit/559ff8659a1806ecc3210ae363cd86bc525b9cf6))
+
 ## [1.5.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.22...v1.5.23) (2021-09-17)
 
 ### Features
