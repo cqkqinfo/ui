@@ -32,8 +32,7 @@ export default forwardRef<NativeInstance, Props>(
         class-name={className}
         style={style}
         visible={visible}
-        bindthis={({ detail }: any) => {
-          detail.setData(dataRef.current);
+        onThis={(detail: any) => {
           setRef(detail);
         }}
       >
@@ -45,8 +44,7 @@ export default forwardRef<NativeInstance, Props>(
         class-name={className}
         style={style}
         visible={visible}
-        bindthis={({ detail }: any) => {
-          detail.setData(dataRef.current);
+        onThis={(detail: any) => {
           setRef(detail);
         }}
       >
