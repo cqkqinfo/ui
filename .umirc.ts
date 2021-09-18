@@ -11,6 +11,8 @@ export default defineConfig({
   theme: {
     '@c-primary': '#2780da',
   },
+  base: '/ui/',
+  publicPath: '/ui/',
   extraBabelPlugins: [
     [
       'babel-plugin-import',
