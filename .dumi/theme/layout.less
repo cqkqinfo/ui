@@ -1,0 +1,94 @@
+body {
+  @media only screen and (min-width: 768px) {
+    .__dumi-default-navbar {
+      box-shadow: 0 2px 8px #f0f1f2;
+      padding: 0 40px;
+      nav {
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+      .__dumi-default-search {
+        flex: 1;
+        margin-left: 40px;
+        .__dumi-default-search-input {
+          height: 40px;
+          border-radius: 4px;
+          width: 400px;
+        }
+      }
+    }
+    .__dumi-default-navbar-logo {
+      height: 32px;
+      padding-left: 60px;
+      overflow: hidden;
+      color: #000000d9;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.18px;
+      white-space: nowrap;
+      text-decoration: none;
+      line-height: 32px;
+      width: 240px;
+      box-sizing: border-box;
+    }
+    .__dumi-default-menu-inner {
+      overflow: hidden;
+      &:hover {
+        overflow: auto;
+      }
+    }
+  }
+  .__dumi-default-menu {
+    padding-top: 30px !important;
+    @media only screen and (min-width: 768px) {
+      width: 280px !important;
+    }
+  }
+  .__dumi-default-menu-list {
+    > li {
+      > a {
+        padding-left: 40px !important;
+      }
+    }
+    ul {
+      margin-left: 40px !important;
+      a {
+        font-size: 14px;
+      }
+    }
+    .active {
+      background: none !important;
+    }
+  }
+  .__dumi-default-layout[data-site-mode='true'][data-show-sidemenu='true'] {
+    padding-left: 320px;
+    padding-top: 100px;
+  }
+  .__dumi-default-code-block {
+    background-color: #fcfcfc;
+  }
+  .markdown {
+    color: rgba(0, 0, 0, 0.85);
+    table th,
+    table td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 13px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+  .__dumi-default-layout-hero a:last-child button {
+    background-color: #2780da;
+  }
+  .__dumi-default-layout-features + .__dumi-default-layout-content {
+  }
+}

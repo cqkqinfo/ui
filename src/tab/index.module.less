@@ -1,0 +1,34 @@
+@import '../styles/index';
+
+.tab {
+  display: inline-flex;
+  width: max-content;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  white-space: nowrap;
+}
+
+.item {
+  min-width: 153px;
+  height: 100%;
+  color: @brand-primary;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.active {
+  background: @brand-primary;
+  color: #fff;
+}
+
+.slice {
+  width: 28px;
+  height: 100%;
+}

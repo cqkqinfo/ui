@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radio 渲染 1`] = `
+<body>
+  <div>
+    <div
+      class="group"
+    >
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        西瓜
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        香蕉
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        苹果
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        桔子
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        芒果
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        甘蔗
+      </div>
+      <div
+        class="container radio"
+        style="background: none;"
+      >
+        <div
+          class="dot"
+          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+        />
+        火龙果
+      </div>
+    </div>
+  </div>
+</body>
+`;
