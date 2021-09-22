@@ -34,11 +34,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install
         run: yarn install --frozen-lockfile
-      - name: build
-        run: yarn build
       - run: yarn test
         if: ${{ !matrix.coverage }}
       - run: yarn test:coverage
         if: ${{ matrix.coverage }}
+      - name: build
+        run: yarn build
       - uses: codecov/codecov-action@v1
         if: ${{ matrix.coverage }}
