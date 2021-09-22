@@ -76,7 +76,7 @@ export default ({
 class OpenWeapp extends HTMLElement {
   constructor() {
     super();
-    setTimeout(() => {
+    const fn = () => {
       const templateElem = document.getElementById(
         'open-weapp',
       ) as HTMLTemplateElement;
@@ -87,8 +87,11 @@ class OpenWeapp extends HTMLElement {
         };
         const content = templateElem.content.cloneNode(true);
         this.appendChild(content);
+      } else {
+        fn();
       }
-    });
+    };
+    fn();
   }
 }
 
