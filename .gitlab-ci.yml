@@ -3,6 +3,7 @@ stages:
   - alpha
   - staging
   - production
+  - publish
 
 variables:
   BUILD_IMAGE: "node:14"
@@ -55,5 +56,19 @@ app:
     - build_app
   only:
     - master
+  tags:
+    - kq-ui-hw  #runner名称
+
+publish:
+  stage: publish
+  script:
+    - yarn
+    - yarn build
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - npm publish
+  dependencies:
+    - build_app
+  only:
+    - /^v.*$/
   tags:
     - kq-ui-hw  #runner名称
