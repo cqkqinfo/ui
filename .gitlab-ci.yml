@@ -6,20 +6,20 @@ stages:
   - publish
 
 variables:
-  BUILD_IMAGE: "node:14"
+  BUILD_IMAGE: 'node:14'
   GROUP_NAME: kaiqiaoui
-  APP_NAME: admin     # 注意：h5端改成mobile, PC端改成site
-  PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org  #安装依赖包的命令
-  DIST_PATH: docs-dist  #打包结果的路径
+  APP_NAME: admin # 注意：h5端改成mobile, PC端改成site
+  PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org #安装依赖包的命令
+  DIST_PATH: docs-dist #打包结果的路径
 
 ##------------- production阶段 -------------
 build_app:
   stage: build
   image: $BUILD_IMAGE
   variables:
-    CI: "true"
-    BUILD_CMD: yarn docs:build  #打包的命令
-    TEST_CMD: yarn test:coverage  #测试的命令
+    CI: 'true'
+    BUILD_CMD: yarn docs:build #打包的命令
+    TEST_CMD: yarn test:coverage #测试的命令
   interruptible: true
   script:
     - echo $PREPARE_CMD
@@ -57,18 +57,28 @@ app:
   only:
     - master
   tags:
-    - kq-ui-hw  #runner名称
+    - kq-ui-hw #runner名称
 
 publish:
   stage: publish
+  image: $BUILD_IMAGE
+  variables:
+    CI: 'true'
+  interruptible: true
   script:
     - yarn
     - yarn build
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm publish
-  dependencies:
-    - build_app
+  artifacts:
+    paths:
+      - $DIST_PATH/
+    expire_in: 2 hours
+  cache:
+    paths:
+      - node_modules/
+      - $DIST_PATH/
+  tags:
+    - java_test
   only:
     - /^v.*$/
-  tags:
-    - kq-ui-hw  #runner名称
