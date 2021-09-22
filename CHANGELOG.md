@@ -1,3 +1,9 @@
+## [1.6.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.0...v1.6.1) (2021-09-22)
+
+### Features
+
+- 支付方式修改 ([0673510](https://gitlab2.cqkqinfo.com/web/ui/commit/0673510397974fa7dd8b86d8d000ac637596908c))
+
 # [1.6.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.24...v1.6.0) (2021-09-18)
 
 ## [1.5.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.5.23...v1.5.24) (2021-09-18)
