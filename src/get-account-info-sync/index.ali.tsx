@@ -4,4 +4,4 @@ const obj = { envVersion: 'develop' };
 
 getRunScene().then(({ envVersion }) => (obj.envVersion = envVersion));
 
-export default { miniProgram: obj };
+export default () => ({ miniProgram: obj });
