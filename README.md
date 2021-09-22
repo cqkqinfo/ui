@@ -5,7 +5,7 @@
 [npm-image]: https://img.shields.io/npm/v/@kqinfo/ui.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/@kqinfo/ui
 [codecov-image]: https://codecov.io/gh/cqkqinfo/ui/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/cqkqinfo/cqkqinfo/ui
+[codecov-url]: https://codecov.io/gh/cqkqinfo/ui
 [download-image]: https://img.shields.io/npm/dm/@kqinfo/ui.svg?style=flat-square
 [download-url]: https://www.npmjs.com/package/@kqinfo/ui
 
