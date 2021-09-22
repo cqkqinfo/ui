@@ -1,13 +1,11 @@
 # 凯桥 UI
 
-[![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Test coverage][codecov-image]][codecov-url] [![npm download][download-image]][download-url]
+[![NPM version][npm-image]][npm-url] [![Test coverage][codecov-image]][codecov-url] [![npm download][download-image]][download-url]
 
 [npm-image]: https://img.shields.io/npm/v/@kqinfo/ui.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/@kqinfo/ui
-[travis-image]: https://img.shields.io/travis/remaxjs/@kqinfo/ui.svg?style=flat-square
-[travis-url]: https://travis-ci.org/remaxjs/@kqinfo/ui
-[codecov-image]: https://codecov.io/gh/remaxjs/@kqinfo/ui/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/remaxjs/@kqinfo/ui
+[codecov-image]: https://codecov.io/gh/cqkqinfo/ui/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/cqkqinfo/cqkqinfo/ui
 [download-image]: https://img.shields.io/npm/dm/@kqinfo/ui.svg?style=flat-square
 [download-url]: https://www.npmjs.com/package/@kqinfo/ui
 
