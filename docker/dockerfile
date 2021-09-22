@@ -1,6 +1,0 @@
-FROM nginx
-
-ADD docker/conf.d/default.conf /etc/nginx/conf.d/
-ADD docker/conf.d/gzip.conf /etc/nginx/conf.d/
-ADD _dist.d/ /usr/share/nginx/html/
-CMD nginx -t

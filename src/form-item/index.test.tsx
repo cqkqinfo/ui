@@ -99,14 +99,14 @@ describe('表单项', () => {
   it('身份证验证', () =>
     validator({
       type: 'idCard',
-      value: '511602199808247696',
+      value: '110101192009229415',
       label: '身份证号码',
     }));
 
   it('手机号验证', () =>
     validator({
       type: 'phone',
-      value: '18580027047',
+      value: '18580000000',
       label: '手机号',
     }));
 });
