@@ -9,7 +9,7 @@ variables:
   BUILD_IMAGE: 'node:14'
   GROUP_NAME: kaiqiaoui
   APP_NAME: admin # 注意：h5端改成mobile, PC端改成site
-  PREPARE_CMD: yarn --registry=https://registry.npm.taobao.org #安装依赖包的命令
+  PREPARE_CMD: yarn #安装依赖包的命令
   DIST_PATH: docs-dist #打包结果的路径
 
 ##------------- production阶段 -------------
