@@ -124,4 +124,4 @@ $ yarn link @kqinfo/ui
 
 ## 钉钉交流群
 
-<img width="320" src="https://z3.ax1x.com/2021/09/18/4l7gmT.jpg">
+<img width="320" src="https://kq-static.oss-cn-beijing.aliyuncs.com/common-img/IMG_8025.JPG">
