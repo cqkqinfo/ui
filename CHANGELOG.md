@@ -1,3 +1,13 @@
+## [1.6.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.19...v1.6.20) (2021-09-23)
+
+### Bug Fixes
+
+- 文档上 open-weapp 空白 ([d04fd88](https://gitlab2.cqkqinfo.com/web/ui/commit/d04fd88e042dcda8aa404ed978549f304a164130))
+
+### Features
+
+- 发布私有包 ([a623942](https://gitlab2.cqkqinfo.com/web/ui/commit/a6239423d3654f48878eb28f3277db151d19135e))
+
 ## [1.6.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.18...v1.6.19) (2021-09-23)
 
 ### Features
