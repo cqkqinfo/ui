@@ -64,11 +64,13 @@ publish:
   image: $BUILD_IMAGE
   variables:
     CI: 'true'
+    NPM_TOKEN: $NPM_TOKEN
   interruptible: true
   script:
     - yarn
     - yarn build
-    - echo "//gitlab2.cqkqinfo.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
+    - npm config set registry https://registry.npmjs.org/
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
     - npm publish
   artifacts:
     paths:
