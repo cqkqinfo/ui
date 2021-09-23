@@ -1,3 +1,3 @@
 import { removeStorageSync } from 'remax/ali';
 
-export default removeStorageSync;
+export default (key: string) => removeStorageSync({ key });
