@@ -1,3 +1,9 @@
+## [1.6.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.21...v1.6.22) (2021-09-23)
+
+### Features
+
+- tip 支持节点 ([894831f](https://gitlab2.cqkqinfo.com/web/ui/commit/894831f274606e863f875e899db908b89cc4a85d))
+
 ## [1.6.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.20...v1.6.21) (2021-09-23)
 
 ### Features
