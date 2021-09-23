@@ -68,7 +68,9 @@ publish:
   script:
     - yarn
     - yarn build
-    - npm config set registry https://registry.npmjs.org/
+    - npm config set @foo:registry https://gitlab2.cqkqinfo.com/api/v4/packages/npm/
+    - npm config set '//gitlab2.cqkqinfo.com/api/v4/projects/657/packages/npm/:_authToken' "${CI_JOB_TOKEN}"
+    - npm config set '//gitlab2.cqkqinfo.com/api/v4/packages/npm/:_authToken' "${CI_JOB_TOKEN}"
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm publish
   artifacts:
