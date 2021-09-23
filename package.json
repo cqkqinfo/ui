@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.6.6",
+  "version": "1.6.8",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -23,7 +23,7 @@
     "pre-commit": "lint-staged"
   },
   "publishConfig": {
-    "@kqinfo:registry":"https://gitlab2.cqkqinfo.com/api/v4/projects/657/packages/npm/"
+    "@kqinfo:registry": "https://gitlab2.cqkqinfo.com/api/v4/projects/657/packages/npm/"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
