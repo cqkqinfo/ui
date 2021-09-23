@@ -1,3 +1,9 @@
+## [1.6.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.23...v1.6.24) (2021-09-23)
+
+### Reverts
+
+- Revert "chore: 删除无用代码" ([ba9898b](https://gitlab2.cqkqinfo.com/web/ui/commit/ba9898b7130546f5b30dc0cdbd5f98f849539b4f))
+
 ## [1.6.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.22...v1.6.23) (2021-09-23)
 
 ### Features
