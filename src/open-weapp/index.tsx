@@ -58,6 +58,7 @@ export default ({
       // @ts-ignore
       dangerouslySetInnerHTML={{
         __html: `<${tagName}
+          key='${+new Date()}'
           className='${className}'
           id="${id}"
           username="${username}"
