@@ -23,7 +23,7 @@
     "pre-commit": "lint-staged"
   },
   "publishConfig": {
-    "@kqinfo:registry": "https://gitlab2.cqkqinfo.com/api/v4/projects/657/packages/npm/"
+    "@kqinfo:registry": "https://registry.npmjs.org/"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
