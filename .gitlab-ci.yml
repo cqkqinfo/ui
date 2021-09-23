@@ -67,11 +67,11 @@ publish:
     NPM_TOKEN: $NPM_TOKEN
   interruptible: true
   script:
-    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'
+    - echo //registry.npmjs.org/:_authToken=${NPM_TOKEN}
     - yarn
     - yarn build
     - npm config set registry https://registry.npmjs.org/
-    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
     - npm publish
   artifacts:
     paths:
