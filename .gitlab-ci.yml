@@ -69,9 +69,6 @@ publish:
   script:
     - yarn
     - yarn build
-    - echo "@kqinfo:registry=https://gitlab2.cqkqinfo.com/api/v4/packages/npm/" > .npmrc
-    - echo "//gitlab2.cqkqinfo.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
-    - echo "//gitlab2.cqkqinfo.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
     - npm publish
   artifacts:
     paths:
