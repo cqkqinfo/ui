@@ -1,3 +1,9 @@
+## [1.6.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.18...v1.6.19) (2021-09-23)
+
+### Features
+
+- 模拟微信开放标签真实表现 ([c354e7c](https://gitlab2.cqkqinfo.com/web/ui/commit/c354e7cf3a027b5d25137a40b0bce503c3f528b6))
+
 ## [1.6.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.17...v1.6.18) (2021-09-23)
 
 ### Bug Fixes
