@@ -37,7 +37,7 @@ export interface Props extends SpacePrpos {
    * 图标
    * @default kq-tip
    */
-  icon?: string;
+  icon?: React.ReactNode;
 }
 
 export default ({
@@ -46,8 +46,14 @@ export default ({
   titleCls,
   title = '温馨提示：',
   iconCls,
-  icon,
   iconColor = '#FABD52',
+  icon = (
+    <Icon
+      color={iconColor}
+      name={'kq-tip'}
+      className={classNames(iconCls, styles.icon)}
+    />
+  ),
   ...props
 }: Props) => {
   return (
@@ -57,13 +63,7 @@ export default ({
       margin={`${rpxToPx(18)}px 0 0`}
       {...props}
     >
-      {icon || (
-        <Icon
-          color={iconColor}
-          name={'kq-tip'}
-          className={classNames(iconCls, styles.icon)}
-        />
-      )}
+      {icon}
       <Space size={17} vertical style={{ width: rpxToPx(666) }}>
         <View className={classNames(styles.title, titleCls)}>{title}</View>
         <View className={classNames(textCls, styles.text)}>
