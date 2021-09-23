@@ -70,6 +70,7 @@ publish:
     - yarn
     - yarn build
     - npm config set registry https://registry.npmjs.org/
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm publish
   artifacts:
     paths:
