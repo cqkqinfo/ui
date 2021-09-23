@@ -1,3 +1,9 @@
+## [1.6.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.12...v1.6.13) (2021-09-23)
+
+### Bug Fixes
+
+- ci ([72bdfbb](https://gitlab2.cqkqinfo.com/web/ui/commit/72bdfbb58c60057f6f023f6d2e2b17c21298e04d))
+
 ## [1.6.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.11...v1.6.12) (2021-09-23)
 
 ### Bug Fixes
