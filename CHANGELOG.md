@@ -1,3 +1,9 @@
+## [1.6.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.20...v1.6.21) (2021-09-23)
+
+### Features
+
+- 发布私有包 ([d531a74](https://gitlab2.cqkqinfo.com/web/ui/commit/d531a74076055c3bcfaa6d801d5d6d68c5974bac))
+
 ## [1.6.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.19...v1.6.20) (2021-09-23)
 
 ### Bug Fixes
