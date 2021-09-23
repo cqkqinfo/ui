@@ -54,11 +54,11 @@ export default ({
   return (
     <View
       {...props}
-      key={+new Date()}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
       dangerouslySetInnerHTML={{
         __html: `<${tagName}
+          key='${+new Date()}'
           className='${className}'
           id="${id}"
           username="${username}"
