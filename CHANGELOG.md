@@ -1,3 +1,10 @@
+## [1.6.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.22...v1.6.23) (2021-09-23)
+
+### Features
+
+- storage 支持阿里 ([c73583a](https://gitlab2.cqkqinfo.com/web/ui/commit/c73583a131ff148d53b6b4d84db1ee10b70dad02))
+- storage 支持阿里 ([382eb84](https://gitlab2.cqkqinfo.com/web/ui/commit/382eb849719aff56a6b2eaf4c0a056aa0b26038d))
+
 ## [1.6.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.21...v1.6.22) (2021-09-23)
 
 ### Features
