@@ -54,6 +54,7 @@ export default ({
   return (
     <View
       {...props}
+      key={+new Date()}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
       dangerouslySetInnerHTML={{
@@ -76,22 +77,17 @@ export default ({
 class OpenWeapp extends HTMLElement {
   constructor() {
     super();
-    const fn = () => {
-      const templateElem = document.getElementById(
-        'open-weapp',
-      ) as HTMLTemplateElement;
-      if (templateElem) {
-        this.onclick = e => {
-          e.stopPropagation();
-          this.dispatchEvent(new CustomEvent('launch', {}));
-        };
-        const content = templateElem.content.cloneNode(true);
-        this.appendChild(content);
-      } else {
-        fn();
-      }
-    };
-    fn();
+    const templateElem = document.getElementById(
+      'open-weapp',
+    ) as HTMLTemplateElement;
+    if (templateElem) {
+      this.onclick = e => {
+        e.stopPropagation();
+        this.dispatchEvent(new CustomEvent('launch', {}));
+      };
+      const content = templateElem.content.cloneNode(true);
+      this.appendChild(content);
+    }
   }
 }
 
