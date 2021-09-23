@@ -1,3 +1,9 @@
+## [1.6.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.17...v1.6.18) (2021-09-23)
+
+### Bug Fixes
+
+- 日历列表模式，最后一排样式错误 ([69a0755](https://gitlab2.cqkqinfo.com/web/ui/commit/69a0755b4bfa4e5ad296884108ce41878b2f10ac))
+
 ## [1.6.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.16...v1.6.17) (2021-09-23)
 
 ### Bug Fixes
