@@ -1,3 +1,10 @@
+## [1.6.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.10...v1.6.11) (2021-09-23)
+
+### Bug Fixes
+
+- ci ([0424807](https://gitlab2.cqkqinfo.com/web/ui/commit/04248078d579ab1f051b59d11881d341e9b57c13))
+- open-weapp 有可能不显示 ([7f4696d](https://gitlab2.cqkqinfo.com/web/ui/commit/7f4696d6c823419d9f19d4216af381c24f623737))
+
 ## [1.6.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.9...v1.6.10) (2021-09-23)
 
 ### Bug Fixes
