@@ -81,12 +81,29 @@ class OpenWeapp extends HTMLElement {
       'open-weapp',
     ) as HTMLTemplateElement;
     if (templateElem) {
-      this.onclick = e => {
-        e.stopPropagation();
-        this.dispatchEvent(new CustomEvent('launch', {}));
-      };
       const content = templateElem.content.cloneNode(true);
-      this.appendChild(content);
+      const iframe = document.createElement('iframe');
+      iframe.style.verticalAlign = 'top';
+      iframe.setAttribute('frameborder', 'no');
+      this.appendChild(iframe);
+      const newWindow = iframe.contentWindow;
+      if (newWindow) {
+        const wrap = document.createElement('div');
+        wrap.style.display = 'inline-block';
+        wrap.onclick = e => {
+          e.stopPropagation();
+          this.dispatchEvent(new CustomEvent('launch', {}));
+        };
+        const wrap2 = document.createElement('div');
+        wrap2.appendChild(content);
+        wrap.appendChild(wrap2);
+        newWindow.document.body.appendChild(wrap);
+        newWindow.document.body.style.margin = '0px';
+        setTimeout(() => {
+          iframe.style.width = wrap.offsetWidth + 1 + 'px';
+          iframe.style.height = wrap.offsetHeight + 1 + 'px';
+        });
+      }
     }
   }
 }
