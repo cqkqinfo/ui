@@ -189,10 +189,11 @@ export default ({
               </View>
             </View>
             {listEndDay &&
-              day.month() !==
+              (day.month() !==
                 dayjs(day)
                   .add(1, 'day')
-                  .month() &&
+                  .month() ||
+                days.length === index + 1) &&
               renderEmpty(false)}
           </React.Fragment>
         );
