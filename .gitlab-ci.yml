@@ -69,8 +69,9 @@ publish:
   script:
     - yarn
     - yarn build
-    - npm config set registry https://registry.npmjs.org/
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - echo "@foo:registry=https://gitlab2.cqkqinfo.com/api/v4/packages/npm/" > .npmrc
+    - echo "//gitlab2.cqkqinfo.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
+    - echo "//gitlab2.cqkqinfo.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
     - npm publish
   artifacts:
     paths:
