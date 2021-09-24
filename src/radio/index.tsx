@@ -107,9 +107,8 @@ const Radio = (props: RadioProps) => {
       }}
       onTap={e => {
         if (!disabled) {
-          console.log('chd', disabled);
-          onChange?.(!myChecked, value);
           setMyChecked(!myChecked);
+          onChange?.(!myChecked, !myChecked ? value : undefined);
         }
       }}
     >
@@ -150,6 +149,7 @@ const getRadios = (
     if (disabled) {
       return;
     }
+    console.log(v);
     onChange?.(v);
   };
   return React.Children.map(children, radio => {
