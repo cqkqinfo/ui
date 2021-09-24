@@ -149,7 +149,6 @@ const getRadios = (
     if (disabled) {
       return;
     }
-    console.log(v);
     onChange?.(v);
   };
   return React.Children.map(children, radio => {
