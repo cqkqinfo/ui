@@ -1,3 +1,5 @@
+## [1.6.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.24...v1.6.25) (2021-09-24)
+
 ## [1.6.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.23...v1.6.24) (2021-09-23)
 
 ### Reverts
