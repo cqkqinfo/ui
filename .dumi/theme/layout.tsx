@@ -17,7 +17,7 @@ export default ({ children, ...props }: any) => (
             marginTop: 100,
           }}
         >
-          Copyright <CopyrightCircleOutlined /> 凯桥前端部
+          Copyright <CopyrightCircleOutlined /> 重庆凯桥信息技术有限公司
         </div>
       </>
     }
