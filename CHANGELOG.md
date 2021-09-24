@@ -1,3 +1,9 @@
+## [1.6.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.25...v1.6.26) (2021-09-24)
+
+### Features
+
+- Radio 可以点击清除值 ([69bf48c](https://gitlab2.cqkqinfo.com/web/ui/commit/69bf48cad8ccf00f089dcea31b7711368b617f35))
+
 ## [1.6.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.24...v1.6.25) (2021-09-24)
 
 ## [1.6.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.23...v1.6.24) (2021-09-23)
