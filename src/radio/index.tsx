@@ -107,9 +107,8 @@ const Radio = (props: RadioProps) => {
       }}
       onTap={e => {
         if (!disabled) {
-          console.log('chd', disabled);
-          onChange?.(!myChecked, value);
           setMyChecked(!myChecked);
+          onChange?.(!myChecked, !myChecked ? value : undefined);
         }
       }}
     >
