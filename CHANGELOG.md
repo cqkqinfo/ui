@@ -1,3 +1,9 @@
+## [1.6.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.26...v1.6.27) (2021-09-26)
+
+### Features
+
+- 添加版本变量 ([9c5b2b7](https://gitlab2.cqkqinfo.com/web/ui/commit/9c5b2b7b9f3d95e8d849be927fc4a912c31ce7fe))
+
 ## [1.6.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.25...v1.6.26) (2021-09-24)
 
 ### Features
