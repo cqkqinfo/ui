@@ -391,3 +391,7 @@ export { default as OCR } from './ocr';
  * 设置剪切板
  */
 export { default as setClipboardData } from './set-clipboard-data';
+/**
+ * 版本变量
+ */
+export { default as versionVariable } from './version-variable';
