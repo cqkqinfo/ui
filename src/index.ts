@@ -371,3 +371,7 @@ export { default as chooseImage } from './choose-image';
  * 设置剪切板
  */
 export { default as setClipboardData } from './set-clipboard-data';
+/**
+ * 版本变量
+ */
+export { default as versionVariable } from './version-variable';
