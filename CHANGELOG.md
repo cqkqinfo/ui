@@ -1,3 +1,9 @@
+## [1.6.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.27...v1.6.28) (2021-09-27)
+
+### Features
+
+- 默认开启 adjustPosition ([7117b1a](https://gitlab2.cqkqinfo.com/web/ui/commit/7117b1a14931c925288306a18bbeda572e0cd08e))
+
 ## [1.6.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.26...v1.6.27) (2021-09-26)
 
 ### Features
