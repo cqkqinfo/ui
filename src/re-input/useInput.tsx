@@ -60,6 +60,7 @@ export default ({
   ...props
 }: UseInputOption) => {
   return {
+    adjustPosition: true,
     ...props,
     value,
     className: classNames(styles.input, className),
