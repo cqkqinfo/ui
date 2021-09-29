@@ -2,7 +2,7 @@ import React from 'react';
 import { Props } from '../tab/types';
 import Space from '../space';
 import styles from './index.module.less';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import classNames from 'classnames';
 import ScrollView from '../scroll-view';
 
@@ -15,7 +15,7 @@ export default <T extends unknown>({
   style,
   activeItemCls,
 }: Props<T>) => {
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
   return (
     <ScrollView
       scrollX

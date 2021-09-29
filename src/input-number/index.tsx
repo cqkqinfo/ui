@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { View, Text, ViewProps } from 'remax/one';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import cls from 'classnames';
 import Icon from '../icon';
 import styles from './index.module.less';
@@ -107,7 +107,7 @@ export default ({
   disabled,
   ...restProps
 }: Props) => {
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
 
   const [showVal, setShowVal] = useState<number>(defaultValue);
   /** 显示的值 */
