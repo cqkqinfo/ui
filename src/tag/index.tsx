@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ViewProps } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 const convert = require('color-convert');
 
 export interface Props extends React.PropsWithChildren<ViewProps> {
@@ -24,7 +24,7 @@ export interface Props extends React.PropsWithChildren<ViewProps> {
 }
 
 export default ({ className, color, ghost, block, ...props }: Props) => {
-  const { brandPrimary, shadowColor = brandPrimary } = provider.useContainer();
+  const { brandPrimary, shadowColor = brandPrimary } = useConfig();
   const showColor = color || shadowColor;
   return (
     <View

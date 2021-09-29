@@ -3,7 +3,7 @@ import { View } from 'remax/one';
 import styles from './index.module.less';
 import Icon from '../icon';
 import classNames from 'classnames';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 
 export interface Props {
   /**
@@ -68,7 +68,7 @@ export default ({
   activeColor = '#FCFFC7',
   defaultColor,
 }: Props) => {
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
   if (type === 'dashed') {
     return (
       <View

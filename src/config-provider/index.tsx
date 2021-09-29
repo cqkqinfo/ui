@@ -1,4 +1,5 @@
 import createContainer from 'parsec-hooks/lib/createContainer';
+import React from 'react';
 
 export interface GlobalConfig {
   /**
@@ -11,9 +12,19 @@ export interface GlobalConfig {
   shadowColor?: string;
 }
 
-export default createContainer<GlobalConfig, GlobalConfig>(
+export const {
+  Provider: ConfigProvider,
+  useContainer: useConfig,
+} = createContainer<GlobalConfig, GlobalConfig>(
   ({ brandPrimary = '#2780d9', ...config } = {} as GlobalConfig) => ({
     brandPrimary,
     ...config,
   }),
+);
+
+export default ({
+  children,
+  ...props
+}: GlobalConfig & { children: React.ReactNode }) => (
+  <ConfigProvider initialState={props} children={children} />
 );

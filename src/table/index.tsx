@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Shadow, { Props as ShadowProps } from '../shadow';
@@ -112,7 +112,7 @@ export default <T extends unknown>({
   align,
   ...props
 }: Props<T>) => {
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   const isBetween = align === 'between';
   const getJustify = (i: number) =>
     isBetween

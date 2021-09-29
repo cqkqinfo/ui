@@ -3,7 +3,7 @@ import Space from '../space';
 import React from 'react';
 import styles from './index.module.less';
 import classNames from 'classnames';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
 
 export interface Props {
@@ -37,7 +37,7 @@ export default ({
   offsetX = 0,
   ...props
 }: Props) => {
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   return (
     <Space className={classNames(styles.part, className)} {...props}>
       <Space flex={1} style={{ margin: `0 ${rpxToPx(offsetX)}px` }}>
