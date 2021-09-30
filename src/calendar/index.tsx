@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { useEffectState } from 'parsec-hooks';
 import weekday from 'dayjs/plugin/weekday';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 
 dayjs.extend(weekday);
 

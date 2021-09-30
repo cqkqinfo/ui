@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 
 export type ID = string | number;
 
