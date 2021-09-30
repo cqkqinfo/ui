@@ -53,7 +53,7 @@ export default () => {
             inputWrapStyle={{ background: '#fff' }}
             btnStyle={{
               background: elderly ? '#fff' : undefined,
-              color: '#2780D9',
+              color: elderly ? '#2780D9' : '#fff',
             }}
             placeholder={'请输入搜索内容'}
           />
