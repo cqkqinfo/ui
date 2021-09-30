@@ -11,7 +11,10 @@ export default defineConfig({
   theme: {
     '@c-primary': '#2780da',
   },
-  navs: [{ title: 'GitLab', path: 'https://gitlab2.cqkqinfo.com/kqinfo/ui' }],
+  navs: [
+    null,
+    { title: 'GitLab', path: 'https://gitlab2.cqkqinfo.com/kqinfo/ui' },
+  ],
   extraBabelPlugins: [
     [
       'babel-plugin-import',
