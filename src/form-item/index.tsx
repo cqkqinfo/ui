@@ -10,6 +10,7 @@ import Icon from '../icon';
 import formRules from '../form-rules';
 import platform from '../get-platform';
 import { useEffectState } from 'parsec-hooks';
+import { useConfig } from '@/config-provider';
 
 const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
   const [myProps] = useEffectState(props, {
@@ -47,6 +48,7 @@ export default ({
   labelJustify: outLabelJustify = 'right',
   childrenAlign: outChildrenAlign = 'right',
   renderReadOnlyValue,
+  elderly: outElderly = useConfig().elderly,
   ...props
 }: ItemProps) => {
   const store = FormStore.useContainer();
@@ -63,6 +65,7 @@ export default ({
     readOnly = outReadOnly,
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
+    elderly = outElderly,
     noStyle = outNoStyle,
     childrenAlign = outChildrenAlign,
     card,
@@ -166,6 +169,7 @@ export default ({
                   styles.item,
                   itemCls,
                   showError && styles.error,
+                  elderly && styles.elderly,
                   className,
                   {
                     [styles.cell]: cell,

@@ -10,6 +10,10 @@ export interface GlobalConfig {
    * 阴影组件的颜色
    */
   shadowColor?: string;
+  /**
+   * 适应老模式
+   */
+  elderly?: boolean;
 }
 
 export const {

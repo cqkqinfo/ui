@@ -13,10 +13,10 @@ group:
 
 ```tsx
 import React from 'react';
-import { Space, PartTitle } from '@kqinfo/ui';
+import { Space, PartTitle, Button } from '@kqinfo/ui';
 
 export default () => (
-  <Space vertical size={'10px'} alignItems={'flex-start'}>
+  <Space vertical size={'10px'} alignItems={'stretch'}>
     <PartTitle>一般用法</PartTitle>
     <PartTitle required>必填</PartTitle>
     <PartTitle required bold={false}>
@@ -24,6 +24,14 @@ export default () => (
     </PartTitle>
     <PartTitle required bold={false} full>
       填充字体颜色
+    </PartTitle>
+    <PartTitle
+      required
+      bold={false}
+      full
+      action={<Button type={'action'}>操作</Button>}
+    >
+      操作按钮
     </PartTitle>
   </Space>
 );

@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
+import { useConfig } from '@/config-provider';
 
 export type ID = string | number;
 
@@ -46,6 +47,10 @@ export interface Props {
    * 选择了子项后的事件
    */
   onSelect?: (item: MenuItem) => void;
+  /**
+   * 适老模式，开启后尺寸会变大
+   */
+  elderly?: boolean;
 }
 
 export default ({
@@ -57,12 +62,15 @@ export default ({
   rightItemCls,
   current = data?.[0]?.id,
   onSelect,
+  elderly = useConfig().elderly,
   onChange,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
   const right = data.find(({ id }) => id === selected)?.children || [];
   return (
-    <View className={classNames(styles.menu, className)}>
+    <View
+      className={classNames(styles.menu, className, elderly && styles.elderly)}
+    >
       <View className={classNames(styles.left, leftCls)}>
         {data.map(({ id, name, children }) => (
           <View
