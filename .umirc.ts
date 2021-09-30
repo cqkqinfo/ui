@@ -13,6 +13,7 @@ export default defineConfig({
   },
   base: '/ui/',
   publicPath: '/ui/',
+  navs: [{ title: 'GitHub', path: 'https://github.com/cqkqinfo/ui' }],
   extraBabelPlugins: [
     [
       'babel-plugin-import',
