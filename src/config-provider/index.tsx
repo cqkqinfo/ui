@@ -30,5 +30,12 @@ export default ({
   children,
   ...props
 }: GlobalConfig & { children: React.ReactNode }) => (
-  <ConfigProvider initialState={props} children={children} />
+  <ConfigProvider
+    initialState={props}
+    children={
+      React.isValidElement(children)
+        ? React.cloneElement(children, { ...children.props, ...props })
+        : children
+    }
+  />
 );

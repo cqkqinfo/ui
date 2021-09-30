@@ -7,7 +7,7 @@ sidemenu: false
 
 ## 适老模式
 
-整个布局将更适合老年人使用，已经支持部分组件
+配置[ConfigProvider](/components/config/config-provider)，整个布局将更适合老年人使用，已经支持部分组件
 
 ```tsx
 import React, { useRef } from 'react';
