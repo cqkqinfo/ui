@@ -5,6 +5,7 @@ import Icon from '../icon';
 import React from 'react';
 import rpxToPx from '../rpx-to-px';
 import classNames from 'classnames';
+import { useConfig } from '@/config-provider';
 
 export interface Props extends SpacePrpos {
   /**
@@ -38,6 +39,10 @@ export interface Props extends SpacePrpos {
    * @default kq-tip
    */
   icon?: React.ReactNode;
+  /**
+   * 适老模式，开启后尺寸会变大
+   */
+  elderly?: boolean;
 }
 
 export default ({
@@ -47,6 +52,7 @@ export default ({
   title = '温馨提示：',
   iconCls,
   iconColor = '#FABD52',
+  className,
   icon = (
     <Icon
       color={iconColor}
@@ -54,6 +60,7 @@ export default ({
       className={classNames(iconCls, styles.icon)}
     />
   ),
+  elderly = useConfig().elderly,
   ...props
 }: Props) => {
   return (
@@ -62,6 +69,7 @@ export default ({
       alignSelf={'stretch'}
       margin={`${rpxToPx(18)}px 0 0`}
       {...props}
+      className={classNames(className, elderly && styles.elderly)}
     >
       {icon}
       <Space size={17} vertical style={{ width: rpxToPx(666) }}>

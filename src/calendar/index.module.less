@@ -77,3 +77,40 @@
   background-color: #eee;
   margin-bottom: 20px;
 }
+
+.elderly {
+  .item {
+    width: 107px;
+    height: 126px;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    margin: 0;
+    background-color: rgba(@brand-primary, 0.1);
+    font-weight: bold;
+    color: #666666;
+    font-size: 40px;
+    &.active {
+      background-color: @brand-primary;
+      color: #fff;
+      .dotWrap {
+        color: #fff;
+      }
+    }
+    &.disable {
+      background-color: rgba(#999999, 0.15);
+    }
+    &.empty {
+      background-color: #fff;
+    }
+    &.week {
+      background-color: #fff;
+      font-size: 40px;
+    }
+  }
+  .month {
+    background: #2780d9;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}

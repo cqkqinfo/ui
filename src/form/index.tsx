@@ -136,6 +136,10 @@ interface BaseItemProps {
    * 渲染只读时的值
    */
   renderReadOnlyValue?: (value: any, values: any) => React.ReactNode;
+  /**
+   * 适老模式，开启后尺寸会变大
+   */
+  elderly?: boolean;
 }
 
 export interface ItemProps<Values = {}>
