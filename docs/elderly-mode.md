@@ -10,7 +10,7 @@ sidemenu: false
 配置[ConfigProvider](/components/config/config-provider)，整个布局将更适合老年人使用，已经支持部分组件
 
 ```tsx
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ReInput,
   Space,
@@ -29,6 +29,7 @@ import {
   Tip,
   Radio,
   Search,
+  Switch,
   addressOptions,
 } from '@kqinfo/ui';
 import { SheetInstance } from '@kqinfo/ui/es/sheet';
@@ -37,9 +38,12 @@ import dayjs from 'dayjs';
 export default () => {
   const [form] = Form.useForm();
   const sheetRef = useRef<SheetInstance>(null);
+  const [elderly, setElderly] = useState(true);
   return (
-    <ConfigProvider elderly>
+    <ConfigProvider elderly={elderly}>
       <Space vertical size={'10px'} alignItems={'stretch'}>
+        <PartTitle>对比开关</PartTitle>
+        <Switch value={elderly} onChange={setElderly} fontSize={12} />
         <Space
           style={{ background: '#2780D9', padding: '10px 0' }}
           justify={'center'}
@@ -47,7 +51,10 @@ export default () => {
           <Search
             showBtn
             inputWrapStyle={{ background: '#fff' }}
-            btnStyle={{ background: '#fff', color: '#2780D9' }}
+            btnStyle={{
+              background: elderly ? '#fff' : undefined,
+              color: '#2780D9',
+            }}
             placeholder={'请输入搜索内容'}
           />
         </Space>
