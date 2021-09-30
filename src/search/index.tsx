@@ -5,7 +5,7 @@ import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';
 import classNames from 'classnames';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 
 interface Props extends InputProps {
   /**

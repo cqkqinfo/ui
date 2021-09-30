@@ -5,7 +5,7 @@ import Icon from '../icon';
 import React from 'react';
 import rpxToPx from '../rpx-to-px';
 import classNames from 'classnames';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 
 export interface Props extends SpacePrpos {
   /**

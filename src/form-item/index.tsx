@@ -10,7 +10,7 @@ import Icon from '../icon';
 import formRules from '../form-rules';
 import platform from '../get-platform';
 import { useEffectState } from 'parsec-hooks';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 
 const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
   const [myProps] = useEffectState(props, {
