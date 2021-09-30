@@ -1,3 +1,9 @@
+## [1.7.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.0...v1.7.1) (2021-09-30)
+
+### Bug Fixes
+
+- 绝对路径引起打包失败 ([ae14fba](https://gitlab2.cqkqinfo.com/web/ui/commit/ae14fba6d80a3c17b1043d2ce46ce5050db0cc34))
+
 # [1.7.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.28...v1.7.0) (2021-09-30)
 
 ### Features
