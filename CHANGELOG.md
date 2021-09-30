@@ -1,3 +1,10 @@
+## [1.7.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.1...v1.7.2) (2021-09-30)
+
+### Bug Fixes
+
+- AES 路径 ([64d3c86](https://gitlab2.cqkqinfo.com/web/ui/commit/64d3c864632a1f349a1347ba4d1f7a2d3b95df59))
+- 文档适老模式关闭搜索按钮文字不显示 ([f9d7f38](https://gitlab2.cqkqinfo.com/web/ui/commit/f9d7f381bca8110b7de9fa32d514f2d356882fe1))
+
 ## [1.7.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.0...v1.7.1) (2021-09-30)
 
 ### Bug Fixes
