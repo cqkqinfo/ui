@@ -1,3 +1,9 @@
+# [1.7.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.28...v1.7.0) (2021-09-30)
+
+### Features
+
+- 添加大量组件适老模式 ([95af0f7](https://gitlab2.cqkqinfo.com/web/ui/commit/95af0f7ff7904a99cf00a3d83077207a049534ac))
+
 ## [1.6.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.6.27...v1.6.28) (2021-09-27)
 
 ### Features
