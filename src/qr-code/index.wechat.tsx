@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useEffect, useMemo } from 'react';
-import { Image } from 'remax/wechat';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { Image } from 'remax/one';
+import dayjs, { Dayjs } from 'dayjs';
 import QrCodeProps from './common';
 // @ts-ignore
 import QR from 'qrcode-base64';
@@ -25,13 +26,19 @@ export default ({
   useEffect(() => {
     onSetSrc?.(src);
   }, [onSetSrc, src]);
+  const timer = useRef<Dayjs>();
   return (
     <Image
       className={className}
       src={src}
       mode="aspectFill"
-      onLongTap={() => {
-        if (longTapSave) {
+      onTouchStart={() => longTapSave && (timer.current = dayjs(new Date()))}
+      onTouchEnd={() => {
+        if (
+          longTapSave &&
+          timer.current &&
+          dayjs(new Date()).diff(timer.current, 'second') > 2
+        ) {
           // @ts-ignore
           const path = `${wx.env.USER_DATA_PATH}/${+new Date()}.png`;
           return getFileSystemManager().writeFile({

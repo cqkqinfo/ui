@@ -1,4 +1,4 @@
-import { ImageProps } from 'remax/wechat';
+import { ImageProps } from 'remax/one';
 
 export default interface QrCodeProps extends ImageProps {
   /**
