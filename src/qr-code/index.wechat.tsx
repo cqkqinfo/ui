@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useMemo } from 'react';
 import { Image } from 'remax/wechat';
-import QrCodeProps from './common';
+import { WechatIndex } from './common';
 // @ts-ignore
 import QR from 'qrcode-base64';
 import { getFileSystemManager, saveImageToPhotosAlbum } from 'remax/wechat';
@@ -12,7 +12,7 @@ export default ({
   onSetSrc,
   longTapSave,
   ...restProps
-}: QrCodeProps) => {
+}: WechatIndex) => {
   const src = useMemo(
     () =>
       QR.drawImg(content, {
