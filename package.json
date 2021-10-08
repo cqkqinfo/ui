@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -11,6 +11,7 @@
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "icon": "iconfont-h5 && iconfont-remax --config iconfont.other.json",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
