@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Image } from 'remax/one';
 // @ts-ignore
 import QRCode from 'qrcode';
-import { OneIndex } from './common';
+import QrCodeProps from './common';
 import { usePromise } from 'parsec-hooks';
 
 export default ({
@@ -13,13 +13,13 @@ export default ({
   onSetSrc,
   longTapSave,
   ...restProps
-}: OneIndex) => {
+}: QrCodeProps) => {
   const { data: src } = usePromise<any, string>(
     ({
       lightColor,
       darkColor,
       content,
-    }: Pick<OneIndex, 'lightColor' | 'darkColor' | 'content'>) =>
+    }: Pick<QrCodeProps, 'lightColor' | 'darkColor' | 'content'>) =>
       QRCode.toDataURL(content, {
         errorCorrectionLevel: 'H',
         type: 'image/jpeg',
