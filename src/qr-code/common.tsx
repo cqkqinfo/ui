@@ -1,6 +1,7 @@
-import { ImageProps } from 'remax/wechat';
+import { ImageProps } from 'remax/one';
+import { ImageProps as WechatImageProps } from 'remax/wechat';
 
-export default interface QrCodeProps extends ImageProps {
+type QrCodeProps = {
   /**
    * 二维码内容
    */
@@ -21,4 +22,6 @@ export default interface QrCodeProps extends ImageProps {
    * 长按保存
    */
   longTapSave?: boolean;
-}
+};
+export type OneIndex = QrCodeProps & ImageProps;
+export type WechatIndex = QrCodeProps & WechatImageProps;
