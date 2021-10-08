@@ -7,6 +7,7 @@ import NeedWrap from '../need-wrap';
 import Space from '../space';
 import Icon from '../icon';
 import Sentry from '../sentry';
+import { useConfig } from '../config-provider';
 
 export interface Props
   extends Partial<
@@ -72,6 +73,10 @@ export interface Props
    * @default false
    */
   loading?: boolean;
+  /**
+   * 适老模式，开启后不同type的按钮文字和尺寸都会变大
+   */
+  elderly?: boolean;
 }
 
 export default ({
@@ -86,6 +91,7 @@ export default ({
   block = true,
   ghost = false,
   loading = false,
+  elderly = useConfig().elderly,
   disable,
   ...props
 }: Props) => (
@@ -105,8 +111,9 @@ export default ({
           [styles.block]: block,
           [styles.loading]: loading,
           [styles.round]: round,
-          [styles.bold]: bold,
+          [styles.bold]: bold || elderly,
           [styles.noBorder]: type === 'default' && shadow,
+          [styles.elderly]: elderly,
         },
       )}
       {...props}

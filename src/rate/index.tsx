@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { View } from 'remax/one';
 import Icon from '../icon';
 import { IconFontNames } from '../icon/other';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import styles from './index.module.less';
 
 interface Props {
@@ -82,7 +82,7 @@ export default ({
   renderItem,
 }: Props) => {
   const [innerVal, setInnerVal] = useState<number>(defaultValue);
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
 
   const showVal = useMemo(() => (value !== undefined ? value : innerVal), [
     value,

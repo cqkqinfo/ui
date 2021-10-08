@@ -8,7 +8,7 @@ import Divider from '../divider';
 import Textarea from '../re-textarea';
 import Icon from '../icon';
 import Native, { NativeInstance } from '../native';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 import { selectFiles } from 'parsec-hooks';
 import InfoCard from './InfoCard';
 import Voice from './voice';
@@ -23,7 +23,7 @@ export default ({ className }: Props) => {
   const mainStyle =
     'display:flex;flex:1;flex-direction: column;transition: all 0.3s;position: relative;overflow: hidden;';
   const [active, setActive] = useState<number>();
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   //================"更多"模块的ref================//
   const voiceMore = useRef<NativeInstance>(null);
   const emojiMore = useRef<NativeInstance>(null);

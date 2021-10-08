@@ -1,5 +1,5 @@
 import React from 'react';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
 const convert = require('color-convert');
 
@@ -27,7 +27,7 @@ export default ({
   active,
   ...props
 }: Props) => {
-  const { brandPrimary, shadowColor = brandPrimary } = provider.useContainer();
+  const { brandPrimary, shadowColor = brandPrimary } = useConfig();
   const rpx20 = rpxToPx(20) + 'px';
   return React.cloneElement(children, {
     ...children.props,

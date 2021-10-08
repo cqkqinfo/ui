@@ -5,6 +5,7 @@ import Input, { Props as InputProps } from '../re-input';
 import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';
 import classNames from 'classnames';
+import { useConfig } from '../config-provider';
 
 interface Props extends InputProps {
   /**
@@ -27,6 +28,18 @@ interface Props extends InputProps {
    * 输入框类名
    */
   inputCls?: string;
+  /**
+   * 适老模式，开启后不同type的按钮文字和尺寸都会变大
+   */
+  elderly?: boolean;
+  /**
+   * 搜索按钮样式
+   */
+  btnStyle?: React.CSSProperties;
+  /**
+   * 输入框wrap样式
+   */
+  inputWrapStyle?: React.CSSProperties;
 }
 
 export default ({
@@ -36,9 +49,12 @@ export default ({
   style,
   btnCls,
   iconColor = '#999999',
+  inputWrapStyle,
   inputCls,
   className,
   inputWrapCls,
+  elderly = useConfig().elderly,
+  btnStyle,
   ...props
 }: Props) => {
   const [value2, setValue] = useEffectState(value);
@@ -47,8 +63,14 @@ export default ({
     onChange?.(e);
   };
   return (
-    <View className={classNames(styles.wrap, className)} style={style}>
-      <View className={classNames(styles.inputWrap, inputWrapCls)}>
+    <View
+      className={classNames(styles.wrap, className, elderly && styles.elderly)}
+      style={style}
+    >
+      <View
+        className={classNames(styles.inputWrap, inputWrapCls)}
+        style={inputWrapStyle}
+      >
         <Icon className={styles.icon} color={iconColor} name={'kq-search'} />
         <Input
           className={classNames(styles.input, inputCls)}
@@ -73,6 +95,7 @@ export default ({
         <View
           className={classNames(styles.btn, btnCls)}
           onTap={() => props.onConfirm?.(value2)}
+          style={btnStyle}
         >
           搜索
         </View>

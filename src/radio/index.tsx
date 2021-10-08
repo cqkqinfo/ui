@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
-import configStore from '../config-provider';
+import { useConfig } from '../config-provider';
 
 export interface RadioProps {
   /**
@@ -65,7 +65,7 @@ export interface RadioProps {
 }
 
 const Radio = (props: RadioProps) => {
-  const { brandPrimary } = configStore.useContainer();
+  const { brandPrimary } = useConfig();
   const {
     disabled,
     children,

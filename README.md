@@ -69,7 +69,7 @@ module.exports = {
 
 const App = (props) => {
 -  return props.children;
-+  return <ConfigProvider.Provider initialState={{brandPrimary: '#2780d9'}}>{props.children}</ConfigProvider.Provider>;
++  return <ConfigProvider brandPrimary={'#2780d9'}>{props.children}</ConfigProvider>;
 };
 ```
 

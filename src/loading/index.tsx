@@ -4,7 +4,7 @@ import styles from './index.module.less';
 import NeedWrap from '../need-wrap';
 import Shadow from '../shadow';
 import Icon from '../icon';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import Space from '../space';
 
 export interface Props {
@@ -21,7 +21,7 @@ export interface Props {
 }
 
 export default ({ type, content = '加载中' }: Props) => {
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
   const top = type === 'top';
   if (type === 'inline') {
     return (

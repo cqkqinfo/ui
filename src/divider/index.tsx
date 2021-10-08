@@ -1,7 +1,7 @@
 import React from 'react';
 import Space, { Props as SpaceProps } from '../space';
 import rpxToPx from '../rpx-to-px';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 
 export default ({
   children,
@@ -14,7 +14,7 @@ export default ({
    */
   color?: string;
 }) => {
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   const showColor = color || brandPrimary;
   const line = (
     <Space

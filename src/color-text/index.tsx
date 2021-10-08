@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TextProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 
 export default ({
   underline,
@@ -21,7 +21,7 @@ export default ({
     color?: string;
   }
 >) => {
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   return (
     <Text
       {...props}

@@ -1,9 +1,9 @@
-import { View } from 'remax/one';
+import { View, Text } from 'remax/one';
 import Space from '../space';
 import React from 'react';
 import styles from './index.module.less';
 import classNames from 'classnames';
-import ConfigProvider from '../config-provider';
+import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
 
 export interface Props {
@@ -26,6 +26,14 @@ export interface Props {
    * 左边偏移量，rpx单位
    */
   offsetX?: number;
+  /**
+   * 适老模式，开启后尺寸会变大
+   */
+  elderly?: boolean;
+  /**
+   * 标题右侧操作
+   */
+  action?: React.ReactNode;
 }
 
 export default ({
@@ -35,14 +43,20 @@ export default ({
   bold = true,
   full,
   offsetX = 0,
+  elderly = useConfig().elderly,
+  action,
   ...props
 }: Props) => {
-  const { brandPrimary } = ConfigProvider.useContainer();
+  const { brandPrimary } = useConfig();
   return (
-    <Space className={classNames(styles.part, className)} {...props}>
+    <Space
+      className={classNames(styles.part, className, elderly && styles.elderly)}
+      alignItems={'center'}
+      {...props}
+    >
       <Space flex={1} style={{ margin: `0 ${rpxToPx(offsetX)}px` }}>
         <View className={styles.block} />
-        <View
+        <Text
           className={styles.title}
           style={{
             fontWeight: bold ? 'bold' : 'normal',
@@ -50,9 +64,10 @@ export default ({
           }}
         >
           {children}
-        </View>
+        </Text>
+        {required && <Text className={styles.mark}>*</Text>}
       </Space>
-      {required && <View className={styles.mark}>*</View>}
+      {action}
     </Space>
   );
 };

@@ -266,7 +266,7 @@ export { default as getAddressId } from './get-address-id';
 /**
  * 加密解密
  */
-export { default as AES } from './aes';
+export { default as AES } from './a-e-s';
 /**
  * 图片预览
  */

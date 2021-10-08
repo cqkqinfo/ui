@@ -3,7 +3,7 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 import { View } from 'remax/one';
 import { useEffectState } from 'parsec-hooks';
-import provider from '../config-provider';
+import { useConfig } from '../config-provider';
 import { Props } from './types';
 import CardTab from '../card-tab';
 
@@ -19,7 +19,7 @@ export default <T extends unknown>(props: Props<T>) => {
     style,
     activeItemCls,
   } = props;
-  const { brandPrimary } = provider.useContainer();
+  const { brandPrimary } = useConfig();
   const firstTabIndex = tabs?.[0]?.index;
   let [active, setActive] = useEffectState(
     current !== undefined ? current : firstTabIndex || undefined,
