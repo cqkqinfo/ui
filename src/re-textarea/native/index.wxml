@@ -5,7 +5,7 @@
   model:value="{{value}}"
   bindfocus="onFocus"
   bindblur="bindblur"
-  placeholder="{{placeholder}}"
+  placeholder="{{value ? '' : placeholder}}"
   placeholder-style="{{placeholderStyle}}"
   bindconfirm="onConfirm"
   auto-height="{{autoHeight}}"
