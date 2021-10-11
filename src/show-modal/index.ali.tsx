@@ -19,7 +19,7 @@ const fn = ({
     title,
     content,
     buttonText: confirmText,
-  });
+  }).then(() => Promise.resolve({ confirm: true }));
 };
 
 export default fn;
