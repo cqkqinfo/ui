@@ -375,3 +375,7 @@ export { default as setClipboardData } from './set-clipboard-data';
  * 版本变量
  */
 export { default as versionVariable } from './version-variable';
+/**
+ * 确认弹出层
+ */
+export { default as AffirmSheet } from './affirm-sheet';
