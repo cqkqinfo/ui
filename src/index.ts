@@ -399,3 +399,7 @@ export { default as versionVariable } from './version-variable';
  * 用户授权
  */
 export { default as UserAuthorization } from './user-authorization';
+/**
+ * 确认弹出层
+ */
+export { default as AffirmSheet } from './affirm-sheet';
