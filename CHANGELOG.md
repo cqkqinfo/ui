@@ -1,3 +1,9 @@
+## [1.7.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.5...v1.7.6) (2021-10-11)
+
+### Features
+
+- swiper 兼容小程序 ([f63480a](https://gitlab2.cqkqinfo.com/web/ui/commit/f63480aa13f1893ed99fdd0ff46081f52cb03b75))
+
 ## [1.7.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.4...v1.7.5) (2021-10-11)
 
 ### Bug Fixes
