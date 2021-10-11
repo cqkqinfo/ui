@@ -1,3 +1,9 @@
+## [1.7.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.4...v1.7.5) (2021-10-11)
+
+### Bug Fixes
+
+- 不能直接获取 inputNumber 显示的值 ([61434a1](https://gitlab2.cqkqinfo.com/web/ui/commit/61434a1651b8413d43e27f60770748d48139a538))
+
 ## [1.7.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.3...v1.7.4) (2021-10-11)
 
 ### Bug Fixes
