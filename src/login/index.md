@@ -30,6 +30,10 @@ login({
      * web上的体验版或者正式版会返回openId，开发版会返回undefined，可以设置一个默认开发用的openId
      */
     openId,
+    /**
+     * 阿里小程序将返回authCode
+     */
+    authCode,
   }) => {},
 );
 ```
