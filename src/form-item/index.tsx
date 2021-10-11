@@ -31,6 +31,7 @@ export default ({
   className,
   after,
   rules = [],
+  elderly: outElderly = useConfig().elderly,
   vertical: outVertical,
   children,
   requiredMark: outRequiredMark,
@@ -41,14 +42,13 @@ export default ({
   labelCls: outLabelCls,
   afterCls: outAfterCls,
   cell: outCell,
-  colon: outColon,
+  colon: outColon = outElderly,
   childrenCls: outChildrenCls,
   labelWidth: outLabelWidth,
   style,
-  labelJustify: outLabelJustify = 'right',
-  childrenAlign: outChildrenAlign = 'right',
+  labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
+  childrenAlign: outChildrenAlign = outElderly ? 'left' : 'right',
   renderReadOnlyValue,
-  elderly: outElderly = useConfig().elderly,
   ...props
 }: ItemProps) => {
   const store = FormStore.useContainer();
