@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, ViewProps } from 'remax/one';
 import { useConfig } from '../config-provider';
 import cls from 'classnames';
@@ -158,6 +158,14 @@ export default ({
     onChange?.(value);
     setShowVal(value);
   };
+
+  const initRef = useRef(true);
+  useEffect(() => {
+    if (initRef.current && realVal !== undefined && onChange) {
+      initRef.current = false;
+      onChange?.(realVal);
+    }
+  }, [onChange, realVal]);
 
   return (
     <View className={cls(styles.wrap, className)} {...restProps}>
