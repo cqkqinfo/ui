@@ -1,3 +1,9 @@
+## [1.7.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.3...v1.7.4) (2021-10-11)
+
+### Bug Fixes
+
+- ali 小程序 alert 进行 confirm 参数适配 ([3e5ba24](https://gitlab2.cqkqinfo.com/web/ui/commit/3e5ba2450574b54aaaeab421b6f498bd31050ff7))
+
 ## [1.7.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.1...v1.7.2) (2021-09-30)
 
 ### Bug Fixes
