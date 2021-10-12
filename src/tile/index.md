@@ -9,7 +9,7 @@ group:
 
 ## Tile 功能磁贴
 
-功能磁贴
+功能磁贴，一般在适老模式上使用
 
 ```tsx
 import React from 'react';
@@ -49,6 +49,29 @@ export default () => {
             }
           />
         </Space>
+      </Space>
+      <PartTitle>子标题</PartTitle>
+      <Space size={'10px'} alignItems="stretch">
+        <Tile
+          image={`https://smp.med.gzhc365.com/views/fe-his-app/images/home/doctor-old.png`}
+          title={'凯小桥|主治医生'}
+          subtitle={'心脑血管科'}
+          size={'large'}
+          tag={'历史医生'}
+          backgroundColor={'#5686E9'}
+          vertical
+          light
+        />
+        <Tile
+          image={`https://smp.med.gzhc365.com/views/fe-his-app/images/home/dept-old.png`}
+          title={'心脑血管疾病科'}
+          subtitle={'冠心病、心绞痛'}
+          size={'large'}
+          tag={'历史科室'}
+          backgroundColor={'#00B8A9'}
+          vertical
+          light
+        />
       </Space>
       <PartTitle>列表用法</PartTitle>
       <Space vertical size={'10px'}>
