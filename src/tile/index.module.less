@@ -1,0 +1,89 @@
+.tile {
+  position: relative;
+  border-radius: 20px;
+  padding: 26px 20px;
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.tag {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background: linear-gradient(90deg, #ff7075, #ff3865);
+  border-radius: 22px;
+  color: #fff4d9;
+  padding: 0 11px;
+  font-size: 30px;
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+  &:after {
+    display: block;
+    width: 1px;
+    height: 1px;
+    border: solid transparent;
+    border-width: 14px 24px;
+    position: absolute;
+    content: '';
+    bottom: -9px;
+    right: 0;
+    border-right-color: #ff3865;
+  }
+}
+
+.text {
+  font-weight: bold;
+  color: #333;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.avatar {
+  min-width: 118px;
+  min-height: 118px;
+  background: rgba(254, 255, 255, 0.85);
+  border-radius: 50%;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.large {
+  .avatar {
+    min-width: 167px;
+    min-height: 167px;
+    .img {
+      width: 130px;
+      height: 130px;
+    }
+  }
+  .text {
+    font-size: 50px;
+  }
+}
+
+.small {
+  padding: 11px 27px;
+  .avatar {
+    background: none;
+    min-width: auto;
+    min-height: auto;
+    .img {
+      width: 98px;
+      height: 98px;
+    }
+  }
+  .text {
+    flex: 1;
+  }
+}

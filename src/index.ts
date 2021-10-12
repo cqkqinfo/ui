@@ -379,3 +379,7 @@ export { default as versionVariable } from './version-variable';
  * 确认弹出层
  */
 export { default as AffirmSheet } from './affirm-sheet';
+/**
+ * 功能磁贴
+ */
+export { default as Tile } from './tile';
