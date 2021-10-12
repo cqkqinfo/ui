@@ -1,6 +1,6 @@
 import { useId, useImportCDN } from 'parsec-hooks';
 import React, { useEffect, useRef, useState } from 'react';
-import { MapProps } from '@remax/wechat/esm/hostComponents/Map';
+import { MapProps } from 'remax/wechat';
 import { View } from 'remax/one';
 import { getWH } from '../use-view-size';
 

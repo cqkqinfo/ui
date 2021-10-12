@@ -13,10 +13,6 @@
     "declaration": true,
     "skipLibCheck": true,
     "types": ["@types/jest", "@types/node", "./typings/global"],
-    "paths": {
-      "@/*": ["src/*"],
-      "@@/*": ["src/.umi/*"]
-    },
     "allowSyntheticDefaultImports": true
   },
   "exclude": [

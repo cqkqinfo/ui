@@ -4,7 +4,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'react-app',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: ['@typescript-eslint', 'react'],
   rules: {
@@ -16,5 +16,6 @@ module.exports = {
     'import/no-anonymous-default-export': 'off',
     'react-hooks/rules-of-hooks': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-  }
+    '@typescript-eslint/no-empty-function': 'off',
+  },
 };
