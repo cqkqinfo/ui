@@ -16,11 +16,11 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
-  background: linear-gradient(90deg, #ff7075, #ff3865);
+  background: linear-gradient(90deg, #ff7075 25%, #ff3865);
   border-radius: 22px;
   color: #fff4d9;
   padding: 0 11px;
-  font-size: 30px;
+  font-size: 32px;
   .content {
     position: relative;
     z-index: 2;
@@ -39,10 +39,16 @@
   }
 }
 
-.text {
+.title {
   font-weight: bold;
   color: #333;
   font-size: 42px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 36px;
+  color: #fff9c7;
   line-height: 1.2;
 }
 
@@ -67,8 +73,11 @@
       height: 130px;
     }
   }
-  .text {
+  .title {
     font-size: 50px;
+    &.smallTitle {
+      font-size: 40px;
+    }
   }
 }
 
@@ -83,7 +92,6 @@
       height: 98px;
     }
   }
-  .text {
-    flex: 1;
+  .title {
   }
 }

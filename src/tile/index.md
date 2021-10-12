@@ -21,7 +21,7 @@ export default () => {
       <PartTitle>一般用法</PartTitle>
       <Space size={'10px'} alignItems="stretch">
         <Tile
-          text={'预约挂号'}
+          title={'预约挂号'}
           tag={'热门推荐'}
           light
           size={'large'}
@@ -33,7 +33,7 @@ export default () => {
         />
         <Space size={'10px'} vertical flex={1}>
           <Tile
-            text={'门诊缴费'}
+            title={'门诊缴费'}
             light
             backgroundColor={'#ebaa57'}
             image={
@@ -41,7 +41,7 @@ export default () => {
             }
           />
           <Tile
-            text={'住院缴费'}
+            title={'住院缴费'}
             light
             backgroundColor={'#EA7C62'}
             image={
@@ -53,14 +53,14 @@ export default () => {
       <PartTitle>列表用法</PartTitle>
       <Space vertical size={'10px'}>
         <Tile
-          text={'预约挂号'}
+          title={'预约挂号'}
           size={'small'}
           image={
             'https://smp.med.gzhc365.com/views/fe-his-app/images/home/yygh-old.png'
           }
         />
         <Tile
-          text={'报告查询'}
+          title={'报告查询'}
           size={'small'}
           image={
             'https://smp.med.gzhc365.com/views/fe-his-app/images/home/bgcx-old.png'

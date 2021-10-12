@@ -14,7 +14,11 @@ export interface Props extends SpaceProps {
   /**
    * 文字
    */
-  text?: React.ReactNode;
+  title: React.ReactNode;
+  /**
+   * 子标题
+   */
+  subtitle?: React.ReactNode;
   /**
    * 图片
    */
@@ -34,7 +38,8 @@ export interface Props extends SpaceProps {
 }
 
 export default ({
-  text,
+  title,
+  subtitle,
   backgroundColor = `rgba(${convert.hex
     .rgb(useConfig().brandPrimary)
     .join(',')}, 0.15)`,
@@ -43,6 +48,7 @@ export default ({
   light,
   size,
   tag,
+  vertical,
   ...props
 }: Props) => {
   return (
@@ -51,8 +57,11 @@ export default ({
       alignItems="center"
       className={classNames(styles.tile, size && styles[size])}
       flex={1}
-      size={size === 'large' ? 46 : size === 'small' ? 43 : 18}
+      size={
+        size === 'large' ? (subtitle ? 36 : 46) : size === 'small' ? 43 : 18
+      }
       {...props}
+      vertical={vertical}
       style={{ backgroundColor, ...style }}
     >
       {tag && (
@@ -65,12 +74,20 @@ export default ({
           <Image src={image} className={styles.img} mode="aspectFit" />
         </Space>
       )}
-      <Text
-        className={styles.text}
-        style={{ color: light ? '#fff' : undefined }}
+      <Space
+        vertical
+        size={15}
+        alignItems={vertical ? 'center' : undefined}
+        flex={vertical ? undefined : 1}
       >
-        {text}
-      </Text>
+        <Text
+          className={classNames(styles.title, subtitle && styles.smallTitle)}
+          style={{ color: light ? '#fff' : undefined }}
+        >
+          {title}
+        </Text>
+        {subtitle && <Text className={styles.subtitle}>{subtitle}</Text>}
+      </Space>
     </Space>
   );
 };
