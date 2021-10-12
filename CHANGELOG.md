@@ -1,3 +1,20 @@
+## [1.7.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.6...v1.7.7) (2021-10-12)
+
+### Bug Fixes
+
+- 模拟器文字输入会重叠 ([73b7fe6](https://gitlab2.cqkqinfo.com/web/ui/commit/73b7fe6334f4b827332e0d0bc6c151e8bcb35eb2))
+
+### Features
+
+- 功能磁贴添加自标题 ([ec2f088](https://gitlab2.cqkqinfo.com/web/ui/commit/ec2f08860fd18cc7c6b2298ab736843088818a7b))
+- 添加功能磁贴 ([068e4be](https://gitlab2.cqkqinfo.com/web/ui/commit/068e4be62a2013c4e32eaec8296c89ff67eda9e9))
+- 添加用户授权组件 ([dd7a20c](https://gitlab2.cqkqinfo.com/web/ui/commit/dd7a20c6cf669909105108abda78dbd63fbaa552))
+- 添加确认弹出层 ([7e91a31](https://gitlab2.cqkqinfo.com/web/ui/commit/7e91a310ab23edbd058d95f48826963d0b717f25))
+
+### Performance Improvements
+
+- 优化表单适老化样式 ([65e37bc](https://gitlab2.cqkqinfo.com/web/ui/commit/65e37bcae6fced3a036ec223b174ac57f04ff923))
+
 ## [1.7.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.5...v1.7.6) (2021-10-11)
 
 ### Features
