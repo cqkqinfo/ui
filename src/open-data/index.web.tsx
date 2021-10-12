@@ -1,4 +1,4 @@
-import { OpenDataProps } from '@remax/wechat/esm/hostComponents/OpenData';
+import { OpenDataProps } from 'remax/wechat';
 import { Image } from 'remax/one';
 import commonImg from '../common-img';
 import React from 'react';

@@ -5,7 +5,7 @@ import styles from './index.module.less';
 import Space from '../space';
 import ColorText from '../color-text';
 import Button, { Props as ButtonProps } from '../button';
-import { useConfig } from '@/config-provider';
+import { useConfig } from '../config-provider';
 import classNames from 'classnames';
 
 export interface ShowOptions {

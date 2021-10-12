@@ -34,7 +34,7 @@ export default ({
               '//ih.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig?platformId=2214',
             data,
           )
-          .then(({ data: { data } }) => {
+          .then(({ data: { data } }: any) => {
             config = {
               debug: false,
               beta: true,
