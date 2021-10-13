@@ -1,3 +1,14 @@
+## [1.7.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.9...v1.7.10) (2021-10-13)
+
+### Bug Fixes
+
+- ci ([adfc7a6](https://gitlab2.cqkqinfo.com/web/ui/commit/adfc7a61bd0cdcc4b6b08d63e3a170b1163882d4))
+
+### Features
+
+- colorText 支持设置文字属性 ([3743102](https://gitlab2.cqkqinfo.com/web/ui/commit/3743102e995af7ceb9e12c7bead92aabc5ec2a25))
+- picker 支持 datetime 类型选择 ([09f66a9](https://gitlab2.cqkqinfo.com/web/ui/commit/09f66a9edf2d1d34a499cc11852bc5774746d2d9))
+
 ## [1.7.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.8...v1.7.9) (2021-10-13)
 
 ### Bug Fixes
