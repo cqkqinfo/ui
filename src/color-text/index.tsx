@@ -8,6 +8,8 @@ export default ({
   underline,
   style,
   color,
+  fontSize,
+  fontWeight,
   ...props
 }: React.PropsWithChildren<
   TextProps & {
@@ -19,6 +21,14 @@ export default ({
      * 自定义颜色
      */
     color?: string;
+    /**
+     * 字体大小
+     */
+    fontSize?: string;
+    /**
+     * 字重
+     */
+    fontWeight?: React.CSSProperties['fontWeight'];
   }
 >) => {
   const { brandPrimary } = useConfig();
@@ -34,6 +44,8 @@ export default ({
         {
           color: color || brandPrimary,
           textUnderlineColor: color || brandPrimary,
+          fontSize,
+          fontWeight,
           ...style,
         } as any
       }
