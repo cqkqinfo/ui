@@ -44,6 +44,7 @@ export default ({
   cell: outCell,
   colon: outColon = outElderly,
   childrenCls: outChildrenCls,
+  colonCls: outColonCls,
   labelWidth: outLabelWidth,
   style,
   labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
@@ -57,6 +58,7 @@ export default ({
     itemCls,
     childrenCls = outChildrenCls,
     colon = outColon,
+    colonCls = outColonCls,
     cell = outCell,
     afterCls = outAfterCls,
     requiredMark = outRequiredMark === undefined ? true : outRequiredMark,
@@ -93,18 +95,23 @@ export default ({
     return item;
   });
   const inputFocus = useRef(false);
+  const isUndefinedChildren = children === undefined;
   children = useMemo(
     () =>
-      children === undefined ? (
+      isUndefinedChildren ? (
         name ? (
-          <Input placeholder={`请输入${strLabel}`} />
+          readOnly ? (
+            children
+          ) : (
+            <Input placeholder={`请输入${strLabel}`} />
+          )
         ) : (
           <View />
         )
       ) : (
         children
       ),
-    [children, name, strLabel],
+    [children, isUndefinedChildren, name, readOnly, strLabel],
   );
   const renderField = (node = children) => (
     <NeedWrap
@@ -222,7 +229,9 @@ export default ({
                     ) : (
                       colon === true
                     )) ? (
-                      <View className={styles.colon}>:</View>
+                      <View className={classNames(styles.colon, colonCls)}>
+                        :
+                      </View>
                     ) : (
                       colon
                     )}
