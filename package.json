@@ -41,7 +41,6 @@
     "ahooks": "^2.10.11",
     "antd-mobile": "^2.3.4",
     "array-flat-polyfill": "^1.0.1",
-    "axios": "^0.22.0",
     "axios-ali-adapter": "^0.0.4",
     "axios-wechat-adapter": "^0.0.8",
     "base64-js": "^1.5.1",
@@ -53,7 +52,6 @@
     "color-convert": "^2.0.1",
     "create-api-hooks": "^0.0.30",
     "crypto-js": "^4.0.0",
-    "dayjs": "^1.10.7",
     "import-cdn-js": "^0.0.2",
     "jigsaw-captcha-js": "^1.0.0",
     "jsbarcode": "^3.11.3",
@@ -73,6 +71,8 @@
     "wxbarcode": "^1.0.2"
   },
   "peerDependencies": {
+    "axios": "^0.x",
+    "dayjs": "^1.x",
     "react": "^16.x",
     "react-dom": "^16.x",
     "remax": "^2.x"
