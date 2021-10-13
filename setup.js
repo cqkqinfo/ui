@@ -9,9 +9,9 @@ React.createElement = (...arg) => {
   return reCreateFn(...arg);
 };
 
-jest.mock('@remax/runtime/cjs/stopPullDownRefresh', () => {
-  return () => {};
-});
+// jest.mock('@remax/runtime/cjs/stopPullDownRefresh', () => {
+//   return () => {};
+// });
 
 // mock mini program getApp api
 const app = createAppConfig(undefined);
