@@ -129,6 +129,10 @@ interface BaseItemProps {
    */
   colon?: React.ReactNode;
   /**
+   * 冒号的类名
+   */
+  colonCls?: string;
+  /**
    * label的宽度，建议使用em单位
    */
   labelWidth?: number | string;
