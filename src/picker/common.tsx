@@ -7,7 +7,19 @@ import classNames from 'classnames';
 
 export interface Props
   extends Omit<PickerPropsType, 'value' | 'data' | 'onChange'>,
-    Pick<PickerProps, 'mode' | 'start' | 'end'> {
+    Pick<PickerProps, 'start' | 'end'> {
+  /**
+   * 1.0.0
+   * 选择器类型
+   *
+   * selector	普通选择器
+   * multiSelector	多列选择器
+   * time	时间选择器
+   * date	日期选择器
+   * region	省市区选择器
+   * datetime	日期加时分选择
+   */
+  mode?: 'selector' | 'multiSelector' | 'time' | 'date' | 'region' | 'datetime';
   data?: PickerData[] | PickerData[][];
   /**
    * 传入方法可以自定义渲染
@@ -70,6 +82,7 @@ export const getChildren = ({
 export const useProps = (props: Props) => {
   const [value, onChange] = useControllableValue<Props['value']>(props);
   const { data = [], cols = 1, title = '选择', renderValue = true } = props;
+
   const newProps = {
     ...props,
     renderValue,

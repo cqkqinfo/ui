@@ -25,6 +25,10 @@ export default () => (
     <Picker mode={'date'}>
       <Button type={'primary'}>显示</Button>
     </Picker>
+    <PartTitle>日期加时分选择</PartTitle>
+    <Picker mode={'datetime'}>
+      <Button type={'primary'}>显示</Button>
+    </Picker>
     <PartTitle>时间选择</PartTitle>
     <Picker mode={'time'}>
       <Button type={'primary'}>显示</Button>
