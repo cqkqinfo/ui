@@ -9,6 +9,46 @@ import React, {
 } from 'react';
 import { Props, useProps } from './common';
 import { View } from 'remax/one';
+import dayjs from 'dayjs';
+
+const dateTimeData = new Array(1).fill(0).map((_, i) => {
+  const y = dayjs()
+    .add(i, 'y')
+    .year();
+  return {
+    value: y,
+    label: y + '年',
+    children: new Array(12 - dayjs().get('month')).fill(0).map((_, i) => {
+      const m = i + 1 + dayjs().get('month');
+      return {
+        label: m + '月',
+        children: new Array(
+          dayjs(`${y}-${m}`)
+            .endOf('month')
+            .date(),
+        )
+          .fill(0)
+          .map((_, i) => {
+            const d = i + 1;
+            return {
+              label: d + '日',
+              children: new Array(24).fill(0).map((_, i) => {
+                const h = i + 1;
+                return {
+                  label: (h < 10 ? '0' + h : h) + '时',
+                  children: new Array(60).fill(0).map((_, i) => {
+                    return {
+                      label: (i < 10 ? '0' + i : i) + '分',
+                    };
+                  }),
+                };
+              }),
+            };
+          }),
+      };
+    }),
+  };
+});
 
 export default (props: Props) => {
   const {
@@ -68,22 +108,73 @@ export default (props: Props) => {
   const isDateOrTimeMode = useMemo(() => {
     return ['date', 'time'].includes(mode);
   }, [mode]);
+  const [, mIndex = 0, dIndex = 0, hIndex = 0] = columnIndex;
+  const isDatetime = mode === 'datetime';
+  const minuteData = useMemo(() => {
+    if (!isDatetime) return [];
+    const y = dateTimeData[0].label;
+    const m = dateTimeData[0].children.map(({ label }) => label);
+    const d = dateTimeData[0].children[mIndex].children
+      .filter(
+        (_, i) =>
+          m[mIndex] !== dayjs().get('month') + 1 + '月' ||
+          i + 1 >= dayjs().get('date'),
+      )
+      .map(({ label }) => label);
+    const h = dateTimeData[0].children[0].children[0].children
+      .filter(
+        (_, i) =>
+          d[dIndex] !== dayjs().get('date') + '日' || i + 1 >= dayjs().get('h'),
+      )
+      .map(({ label }) => label);
+    const mm = dateTimeData[0].children[0].children[0].children[0].children
+      .filter(
+        (_, i) =>
+          h[hIndex] !== dayjs().get('hour') + '时' ||
+          i + 1 >= dayjs().get('minute'),
+      )
+      .map(({ label }) => label);
+    return [[y], m, d, h, mm];
+  }, [dIndex, hIndex, isDatetime, mIndex]);
+  console.log(minuteData);
 
   return (
     <Picker
       {...newProps}
-      range-key={'label'}
-      mode={mode}
+      range-key={isDatetime ? undefined : 'label'}
+      mode={isDatetime ? 'multiSelector' : (mode as any)}
       start={start}
       end={end}
-      range={range}
+      range={isDatetime ? minuteData : range}
       value={!isDateOrTimeMode ? columnIndex : value}
       onColumnChange={({ detail: { column, value } }) => {
         columnIndex[column] = value;
         setColumnIndex([...columnIndex]);
       }}
       onChange={({ detail: { value } }) => {
-        if (value && !isDateOrTimeMode) {
+        if (isDatetime) {
+          onChange?.(
+            dayjs(
+              value
+                .map((item: any, i: number) => {
+                  const str = minuteData[i][item];
+                  if (str.includes('日')) {
+                    return str.replace('日', ' ');
+                  }
+                  return (
+                    str.replace(/\W$/, '') +
+                    (i < value.length - 1
+                      ? i < value.length - 2
+                        ? '-'
+                        : ':'
+                      : '')
+                  );
+                })
+                .join(''),
+              'YYYY-M-D HH:mm',
+            ).format('YYYY-MM-DD HH:mm'),
+          );
+        } else if (value && !isDateOrTimeMode) {
           const newValues: any[] = [];
           new Array(cols).fill(0).forEach((_, index) => {
             newValues.push(

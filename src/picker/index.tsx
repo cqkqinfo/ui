@@ -58,7 +58,15 @@ export default (props: Props) => {
       maxDate={end ? dayjs(end).toDate() : undefined}
       value={tranformedDateValue}
       onChange={e => {
-        onChange(dayjs(e).format(mode === 'date' ? 'YYYY-MM-DD' : 'HH:mm'));
+        onChange(
+          dayjs(e).format(
+            mode === 'datetime'
+              ? 'YYYY-MM-DD HH:mm'
+              : mode === 'date'
+              ? 'YYYY-MM-DD'
+              : 'HH:mm',
+          ),
+        );
       }}
       {...(other as any)}
     >
