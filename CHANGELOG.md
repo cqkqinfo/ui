@@ -1,3 +1,14 @@
+## [1.7.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.8...v1.7.9) (2021-10-13)
+
+### Bug Fixes
+
+- picker label 过长显示不全 ([1e84acf](https://gitlab2.cqkqinfo.com/web/ui/commit/1e84acf8e3d2828be3557210326ba68167470fd0))
+- 只读模式不生效 ([4daad7b](https://gitlab2.cqkqinfo.com/web/ui/commit/4daad7b8af5736671bc8c89b1f6d43ffe3dfd19b))
+
+### Features
+
+- 添加表单项冒号类名 ([bee5671](https://gitlab2.cqkqinfo.com/web/ui/commit/bee567101a9f44a3747ef3fd8fcfa6cf6f593bbb))
+
 ## [1.7.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.7...v1.7.8) (2021-10-12)
 
 ## [1.7.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.6...v1.7.7) (2021-10-12)
