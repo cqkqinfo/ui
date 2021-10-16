@@ -11,6 +11,9 @@ export default defineConfig({
   theme: {
     '@c-primary': '#2780da',
   },
+  alias: {
+    'react-native': 'react-native-web',
+  },
   navs: [
     null,
     { title: 'GitLab', path: 'https://gitlab2.cqkqinfo.com/kqinfo/ui' },
