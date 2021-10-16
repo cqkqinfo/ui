@@ -123,7 +123,9 @@ export default ({
                 ? undefined
                 : typeof size === 'number'
                 ? rpxToPx(size)
-                : size?.toUpperCase(),
+                : process.env.REMAX_PLATFORM === 'wechat'
+                ? size?.toUpperCase()
+                : size,
             ...props.style,
           },
         });
