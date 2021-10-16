@@ -11,6 +11,9 @@ export default defineConfig({
   theme: {
     '@c-primary': '#2780da',
   },
+  alias: {
+    'react-native': 'react-native-web',
+  },
   base: '/ui/',
   publicPath: '/ui/',
   navs: [null, { title: 'GitHub', path: 'https://github.com/cqkqinfo/ui' }],

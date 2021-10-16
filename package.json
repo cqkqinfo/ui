@@ -120,6 +120,7 @@
     "react-iconfont-cli": "^2.0.1",
     "react-native": "^0.66.0",
     "react-native-iconfont-cli": "^2.2.4",
+    "react-native-web": "^0.17.5",
     "remax": "^2.15.6",
     "remax-iconfont-cli": "^2.0.1",
     "yorkie": "^2.0.0"
