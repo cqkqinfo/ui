@@ -190,21 +190,20 @@ export default ({
                 styles.item,
                 itemCls,
                 renderProps?.className,
-                {
-                  [classNames(styles.disable, disableItemCls)]: renderDisable(
-                    day,
-                  ),
-                  [classNames(styles.active, activeItemCls)]: active,
-                },
+                renderDisable(day) &&
+                  classNames(styles.disable, disableItemCls),
+                active && classNames(styles.active, activeItemCls),
               )}
             >
               {renderDate(day)}
               <View className={classNames(styles.dotWrap, dotWrapCls)}>
                 {dot === true ? (
                   <View
-                    className={classNames(styles.dot, dotCls, {
-                      [classNames(styles.activeDot, activeDotCls)]: active,
-                    })}
+                    className={classNames(
+                      styles.dot,
+                      dotCls,
+                      active && classNames(styles.activeDot, activeDotCls),
+                    )}
                   >
                     {dot}
                   </View>
