@@ -4,7 +4,7 @@ import Visible from './native';
 import React from 'react';
 import { View } from 'remax/wechat';
 
-interface Props {
+export interface Props {
   onVisible?: () => void;
   onHidden?: () => void;
   className?: string;
