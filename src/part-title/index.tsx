@@ -54,7 +54,13 @@ export default ({
       alignItems={'center'}
       {...props}
     >
-      <Space flex={1} style={{ margin: `0 ${rpxToPx(offsetX)}px` }}>
+      <Space
+        flex={1}
+        style={{
+          marginLeft: `${rpxToPx(offsetX)}px`,
+          marginRight: `${rpxToPx(offsetX)}px`,
+        }}
+      >
         <View className={styles.block} />
         <Text
           className={styles.title}
