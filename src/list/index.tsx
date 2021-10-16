@@ -18,7 +18,7 @@ import Loading from '../loading';
 import Button from '../button';
 import Native, { NativeInstance } from '../native';
 
-interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
+export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
