@@ -1,8 +1,8 @@
 {
   "symbol_url": "//at.alicdn.com/t/font_2472297_ve11kicqir.js",
-  "local_svgs": "./localSvgs",
-  "save_dir": "./src/icon/rn",
+  "save_dir": "./src/icon/web",
   "use_typescript": true,
+  "use_rpx": false,
   "trim_icon_prefix": "icon",
   "default_icon_size": 18
 }
