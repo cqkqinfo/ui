@@ -19,7 +19,9 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  border-left: 5px solid transparent;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: transparent;
   &:active {
     background-color: #eee;
   }
@@ -46,6 +48,7 @@
 .left {
   background: #f0f3f6;
   overflow-y: scroll;
+  flex-direction: column;
 }
 
 .right {
