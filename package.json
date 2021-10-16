@@ -12,7 +12,7 @@
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "icon": "iconfont-h5 && iconfont-remax --config iconfont.other.json",
+    "icon": "iconfont-h5 --config iconfont.web.json && iconfont-remax --config iconfont.other.json && iconfont-rn --config iconfont.json",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -33,6 +33,7 @@
   "dependencies": {
     "@antv/f2": "^3.8.10-beta.1",
     "@sentry/react": "^6.7.1",
+    "@sentry/react-native": "^3.1.1",
     "@sentry/tracing": "^6.7.1",
     "@types/aes-js": "^3.1.1",
     "@types/classnames": "^2.3.1",
@@ -64,6 +65,9 @@
     "qrcode-base64": "^1.0.1",
     "qs": "^6.10.1",
     "rc-field-form": "^1.21.2",
+    "react-native-component-inview": "^1.0.2",
+    "react-native-rotate-view": "^1.1.1",
+    "react-native-svg": "^12.1.1",
     "react-photo-view": "^0.5.2",
     "sentry-miniapp": "^0.11.1",
     "swiper": "^6.7.0",
@@ -81,6 +85,7 @@
     "@testing-library/react": "^11.2.6",
     "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.65.7",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@umijs/test": "^3.0.5",
@@ -113,6 +118,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-iconfont-cli": "^2.0.1",
+    "react-native": "^0.66.0",
+    "react-native-iconfont-cli": "^2.2.4",
     "remax": "^2.15.6",
     "remax-iconfont-cli": "^2.0.1",
     "yorkie": "^2.0.0"
