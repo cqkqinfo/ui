@@ -90,9 +90,10 @@ export default ({
             >
               <View className={classNames(styles.circleWrap)}>
                 <View
-                  className={classNames(styles.circle, {
-                    [styles.activeCircle]: active,
-                  })}
+                  className={classNames(
+                    styles.circle,
+                    active && styles.activeCircle,
+                  )}
                 >
                   {active && (
                     <View className={styles.iconWrap}>
@@ -101,11 +102,7 @@ export default ({
                   )}
                 </View>
               </View>
-              <View
-                className={classNames({
-                  [styles.activeText]: active,
-                })}
-              >
+              <View className={classNames(active && styles.activeText)}>
                 {text || item}
               </View>
               {i < items.length - 1 && (
