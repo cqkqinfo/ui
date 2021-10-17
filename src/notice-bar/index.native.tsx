@@ -7,37 +7,9 @@ import Space from '../space';
 import Icon from '../icon';
 import { useId } from 'parsec-hooks';
 import PxToRpx from '../px-to-rpx';
+import { NoticeBarProps } from './index';
+import LinearGradient from 'react-native-linear-gradient';
 
-export interface NoticeBarProps {
-  /**
-   * 自定义样式名
-   */
-  className?: string;
-  /**
-   * 行内样式
-   */
-  style?: React.CSSProperties;
-  /**
-   * 背景色
-   */
-  background?: string;
-  /**
-   * 设置图标,传null就是不显示
-   */
-  icon?: React.ReactNode;
-  /**
-   * 设置左侧标题
-   */
-  title?: React.ReactNode;
-  /**
-   * 文字颜色
-   */
-  color?: string;
-  /**
-   * 消息项
-   */
-  children?: React.ReactNode;
-}
 const NoticeBar = (props: NoticeBarProps) => {
   const {
     className,
