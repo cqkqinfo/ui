@@ -80,10 +80,8 @@ const Checkbox = (props: CheckBoxProps) => {
     <View
       className={classNames(
         styles.checkBox,
-        {
-          [styles.annaCheckBox]: type === 'normal',
-          [styles.btn]: type === 'button',
-        },
+        type === 'normal' && styles.annaCheckBox,
+        type === 'button' && styles.btn,
         myChecked && type === 'button' && styles.activebtn,
         myChecked && activeCls,
         className,
@@ -95,7 +93,7 @@ const Checkbox = (props: CheckBoxProps) => {
         <View
           className={classNames(
             styles.box,
-            { [styles.round]: isRound },
+            isRound && styles.round,
             myChecked && styles.active,
           )}
         >
