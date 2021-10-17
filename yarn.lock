@@ -2248,6 +2248,15 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@react-native-community/art@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.nlark.com/@react-native-community/art/download/@react-native-community/art-1.2.0.tgz#386d95393f6042d9006f9d4bc6063fb898794460"
+  integrity sha1-OG2VOT9gQtkAb51LxgY/uJh5RGA=
+  dependencies:
+    art "^0.10.3"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+
 "@react-native-community/cli-debugger-ui@^6.0.0-rc.0":
   version "6.0.0-rc.0"
   resolved "https://registry.nlark.com/@react-native-community/cli-debugger-ui/download/@react-native-community/cli-debugger-ui-6.0.0-rc.0.tgz#774378626e4b70f5e1e2e54910472dcbaffa1536"
@@ -4549,6 +4558,11 @@ arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
+
+art@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.nlark.com/art/download/art-0.10.3.tgz#b01d84a968ccce6208df55a733838c96caeeaea2"
+  integrity sha1-sB2EqWjMzmII31WnM4OMlsrurqI=
 
 asap@~2.0.3, asap@~2.0.6:
   version "2.0.6"
@@ -10379,6 +10393,11 @@ jsbarcode@^3.11.3:
   version "3.11.4"
   resolved "https://registry.npmjs.org/jsbarcode/-/jsbarcode-3.11.4.tgz#00dfe90329af94269ac0808b0858206aa3a71416"
 
+jsbarcode@^3.8.0:
+  version "3.11.5"
+  resolved "https://registry.nlark.com/jsbarcode/download/jsbarcode-3.11.5.tgz#390b3efd0271f35b9d68c7b8af6e972445969014"
+  integrity sha1-OQs+/QJx81udaMe4r26XJEWWkBQ=
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -14352,6 +14371,14 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-barcode-builder@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.nlark.com/react-native-barcode-builder/download/react-native-barcode-builder-2.0.0.tgz#17e898de7325c9b2fffd6e5e0be3760a05571115"
+  integrity sha1-F+iY3nMlybL//W5eC+N2CgVXERU=
+  dependencies:
+    "@react-native-community/art" "^1.2.0"
+    jsbarcode "^3.8.0"
+
 react-native-codegen@^0.0.7:
   version "0.0.7"
   resolved "https://registry.npmmirror.com/react-native-codegen/download/react-native-codegen-0.0.7.tgz#86651c5c5fec67a8077ef7f4e36f7ed459043e14"
@@ -14390,6 +14417,14 @@ react-native-linear-gradient@^2.5.6:
   version "2.5.6"
   resolved "https://registry.nlark.com/react-native-linear-gradient/download/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha1-liFcvF7HoBJHogiQiIqnW4NNRKA=
+
+react-native-qrcode-svg@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.nlark.com/react-native-qrcode-svg/download/react-native-qrcode-svg-6.1.1.tgz#19dd15545b1cbcfc1b2738af170e9fd0f1d4d8a0"
+  integrity sha1-Gd0VVFscvPwbJzivFw6f0PHU2KA=
+  dependencies:
+    prop-types "^15.7.2"
+    qrcode "^1.4.4"
 
 react-native-rotate-view@^1.1.1:
   version "1.1.1"
