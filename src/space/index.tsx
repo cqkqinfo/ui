@@ -105,9 +105,11 @@ export default ({
         flexWrap,
         ...style,
       }}
-      className={classNames(styles.space, className, {
-        [styles.vertical]: vertical,
-      })}
+      className={classNames(
+        styles.space,
+        className,
+        vertical && styles.vertical,
+      )}
       {...props}
     >
       {filterChildren?.map?.((item, index) => {
