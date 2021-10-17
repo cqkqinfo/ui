@@ -43,9 +43,7 @@ export default <T extends unknown>(props: Props<T>) => {
               styles.item,
               itemCls,
               active === index && activeItemCls,
-              {
-                [styles.active]: active === index,
-              },
+              active === index && styles.active,
             )}
             onTap={() => handleChange(index)}
           >
