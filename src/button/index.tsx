@@ -105,16 +105,14 @@ export default ({
         className,
         styles[size],
         styles[type],
-        {
-          [styles.ghost]: ghost,
-          [styles.disable]: disable,
-          [styles.block]: block,
-          [styles.loading]: loading,
-          [styles.round]: round,
-          [styles.bold]: bold || elderly,
-          [styles.noBorder]: type === 'default' && shadow,
-          [styles.elderly]: elderly,
-        },
+        ghost && styles.ghost,
+        disable && styles.disable,
+        block && styles.block,
+        loading && styles.loading,
+        round && styles.round,
+        bold || (elderly && styles.bold),
+        type === 'default' && shadow && styles.noBorder,
+        elderly && styles.elderly,
       )}
       {...props}
       onTap={e => {
