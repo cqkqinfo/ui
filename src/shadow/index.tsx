@@ -39,7 +39,8 @@ export default ({
             boxSizing: 'border-box',
             backgroundColor: '#fff',
             borderRadius: rpx20,
-            padding: `0 ${rpx20}`,
+            paddingLeft: rpx20,
+            paddingRight: rpx20,
           }
         : {}),
       ...children.props.style,
