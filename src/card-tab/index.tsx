@@ -24,7 +24,7 @@ export default <T extends unknown>({
       scrollIntoView={`tab${current}`}
       scrollWithAnimation
     >
-      <Space flex={1} justify={'space-between'}>
+      <Space flex={1} justify={'space-between'} style={{ width: '100%' }}>
         {tabs.map(({ content, index }, i) => {
           const active = current === index;
           return (
@@ -34,7 +34,7 @@ export default <T extends unknown>({
               className={classNames(
                 styles.item,
                 itemCls,
-                active && activeItemCls,
+                active && classNames(activeItemCls, styles.active),
               )}
               alignItems={'center'}
               justify={'center'}
@@ -42,14 +42,6 @@ export default <T extends unknown>({
               onTap={() => {
                 onChange?.(index);
               }}
-              style={
-                active
-                  ? {
-                      color: brandPrimary,
-                      borderColor: brandPrimary,
-                    }
-                  : {}
-              }
             >
               {content}
             </Space>
