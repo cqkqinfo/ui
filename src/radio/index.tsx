@@ -87,10 +87,8 @@ const Radio = (props: RadioProps) => {
       className={classNames(
         className,
         styles.container,
-        {
-          [styles.radio]: type === 'normal',
-          [styles.btn]: type === 'button',
-        },
+        type === 'normal' && styles.radio,
+        type === 'button' && styles.btn,
         myChecked &&
           classNames(activeCls, type === 'button' && styles.btnActive),
         disabled && styles.disabled,
@@ -114,9 +112,7 @@ const Radio = (props: RadioProps) => {
     >
       {type === 'normal' && (
         <View
-          className={classNames(styles.dot, {
-            [styles.dotCheck]: myChecked,
-          })}
+          className={classNames(styles.dot, myChecked && styles.dotCheck)}
           style={{
             borderColor: myChecked ? activeBackgroundColor : '#eee',
             borderWidth: myChecked ? undefined : 1,
