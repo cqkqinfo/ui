@@ -51,6 +51,10 @@ export interface Props {
    * 适老模式，开启后尺寸会变大
    */
   elderly?: boolean;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
 }
 
 export default ({
@@ -64,12 +68,14 @@ export default ({
   onSelect,
   elderly = useConfig().elderly,
   onChange,
+  style,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
   const right = data.find(({ id }) => id === selected)?.children || [];
   return (
     <View
       className={classNames(styles.menu, className, elderly && styles.elderly)}
+      style={style}
     >
       <View className={classNames(styles.left, leftCls)}>
         {data.map(({ id, name, children }) => (
