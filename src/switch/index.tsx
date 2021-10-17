@@ -86,16 +86,20 @@ export default ({
     <View
       onTap={handleChecked}
       style={computedStyle}
-      className={cls(styles.wrap, className, {
-        [styles.checked]: showChecked,
-        [styles.unchecked]: !showChecked,
-      })}
+      className={cls(
+        styles.wrap,
+        className,
+        showChecked && styles.checked,
+        !showChecked && styles.unchecked,
+      )}
     >
       <View
-        className={cls(styles.circle, circleCls, {
-          [styles.circleSelect]: showChecked,
-          [styles.circleUnselect]: !showChecked,
-        })}
+        className={cls(
+          styles.circle,
+          circleCls,
+          showChecked && styles.circleSelect,
+          !showChecked && styles.circleUnselect,
+        )}
       />
     </View>
   );
