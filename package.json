@@ -66,6 +66,8 @@
     "qs": "^6.10.1",
     "rc-field-form": "^1.21.2",
     "react-native-component-inview": "^1.0.2",
+    "react-native-drop-shadow": "^0.0.2",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-rotate-view": "^1.1.1",
     "react-native-svg": "^12.1.1",
     "react-photo-view": "^0.5.2",
