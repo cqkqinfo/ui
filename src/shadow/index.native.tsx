@@ -27,18 +27,6 @@ export default ({
             outShadowColor !== false &&
             `rgb(${convert.hex.rgb(outShadowColor || shadowColor).join(',')})`,
           shadowOpacity: 0.15,
-          ...(card
-            ? {
-                boxSizing: 'border-box',
-                backgroundColor: '#fff',
-                borderRadius: rpx20,
-                paddingLeft: rpx20,
-                paddingRight: rpx20,
-              }
-            : {}),
-          ...props.style,
-          borderWidth: active ? 1 : undefined,
-          borderColor: outShadowColor || shadowColor,
         } as any
       }
     >
@@ -53,6 +41,18 @@ export default ({
               style: {
                 backgroundColor:
                   (children as any).props.style?.background || '#fff',
+                ...(card
+                  ? {
+                      boxSizing: 'border-box',
+                      backgroundColor: '#fff',
+                      borderRadius: rpx20,
+                      paddingLeft: rpx20,
+                      paddingRight: rpx20,
+                    }
+                  : {}),
+                ...props.style,
+                borderWidth: active ? 1 : undefined,
+                borderColor: outShadowColor || shadowColor,
                 ...(children as any).props.style,
               },
             })
