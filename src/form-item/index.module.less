@@ -5,56 +5,6 @@
   position: relative;
   color: #333;
   font-size: 30px;
-  .children {
-    color: #666;
-    flex: 1;
-    :global {
-      .picker-children {
-        display: flex;
-        justify-content: flex-end;
-        //width: 100vw;
-        //max-width: 50vw;
-        height: 70px;
-        align-items: center;
-        white-space: break-spaces;
-      }
-    }
-  }
-  .colon {
-    padding: 0 10px;
-    display: inline-block;
-    position: relative;
-    top: -2px;
-  }
-  &.cell {
-    min-height: 88px;
-    justify-content: space-between;
-    &:not(:last-child) {
-      border-bottom: 1px solid #e2e2e2;
-    }
-    .label {
-      margin-right: 20px;
-    }
-    .children {
-      display: flex;
-      justify-content: space-between;
-      textarea,
-      input {
-        text-align: right;
-        flex: 1;
-      }
-      textarea {
-        padding: 20px 0;
-        box-sizing: border-box;
-      }
-      &.left {
-        justify-content: flex-start;
-        input {
-          text-align: left;
-        }
-      }
-    }
-  }
   &.vertical {
     flex-direction: column;
     align-items: flex-start;
@@ -75,14 +25,67 @@
       }
     }
   }
-  &.error {
-    color: #ed4e56;
-    .children {
-      color: #ed4e56 !important;
+}
+
+.error {
+  color: #ed4e56;
+  //.children {
+  //  color: #ed4e56 !important;
+  //}
+  //.label {
+  //  color: #ed4e56;
+  //}
+}
+
+.children {
+  color: #666;
+  flex: 1;
+  :global {
+    .picker-children {
+      display: flex;
+      justify-content: flex-end;
+      //width: 100vw;
+      //max-width: 50vw;
+      height: 70px;
+      align-items: center;
+      white-space: break-spaces;
     }
-    .label {
-      color: #ed4e56;
-    }
+  }
+}
+.colon {
+  padding: 0 10px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+}
+
+.cell {
+  min-height: 88px;
+  justify-content: space-between;
+  &:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+  }
+}
+.cell-label {
+  margin-right: 20px;
+}
+.cell-children {
+  display: flex;
+  justify-content: space-between;
+  textarea,
+  input {
+    text-align: right;
+    flex: 1;
+  }
+  textarea {
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+}
+.cell-children-left {
+  justify-content: flex-start;
+  input {
+    text-align: left;
   }
 }
 

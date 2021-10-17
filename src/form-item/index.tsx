@@ -48,7 +48,7 @@ export default ({
   labelWidth: outLabelWidth,
   style,
   labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
-  childrenAlign: outChildrenAlign = outElderly ? 'left' : 'right',
+  childrenAlign: outChildrenAlign,
   renderReadOnlyValue,
   ...props
 }: ItemProps) => {
@@ -69,7 +69,7 @@ export default ({
     labelStyle = outLabelStyle,
     elderly = outElderly,
     noStyle = outNoStyle,
-    childrenAlign = outChildrenAlign,
+    childrenAlign = cell ? outChildrenAlign || 'right' : 'left',
     card,
     itemStyle,
     itemChildrenStyle,
@@ -178,11 +178,9 @@ export default ({
                   showError && styles.error,
                   elderly && styles.elderly,
                   className,
-                  {
-                    [styles.cell]: cell,
-                    [styles.card]: card,
-                    [styles.vertical]: vertical,
-                  },
+                  cell && styles.cell,
+                  card && styles.card,
+                  vertical && styles.vertical,
                 )}
                 style={{ ...style, ...itemStyle }}
                 {...props}
@@ -214,6 +212,7 @@ export default ({
                       }}
                       className={classNames(
                         styles.label,
+                        cell && styles['cell-label'],
                         labelCls,
                         outLabelCls,
                       )}
@@ -241,7 +240,8 @@ export default ({
                 <View
                   className={classNames(
                     styles.children,
-                    childrenAlign === 'left' && styles.left,
+                    cell && styles['cell-children'],
+                    childrenAlign === 'left' && styles['cell-children-left'],
                     childrenCls,
                     outChildrenCls,
                   )}
