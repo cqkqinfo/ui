@@ -14366,6 +14366,13 @@ react-native-component-inview@^1.0.2:
   resolved "https://registry.npmmirror.com/react-native-component-inview/download/react-native-component-inview-1.0.2.tgz#da2140bb6c89f40706695ffaed2efbb007f491e7"
   integrity sha1-2iFAu2yJ9AcGaV/67S77sAf0kec=
 
+react-native-drop-shadow@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmmirror.com/react-native-drop-shadow/download/react-native-drop-shadow-0.0.2.tgz#79843b95aab391d5b5faff8b6df007dfaad753e7"
+  integrity sha1-eYQ7laqzkdW1+v+LbfAH36rXU+c=
+  dependencies:
+    logkitty "^0.7.1"
+
 react-native-iconfont-cli@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npmmirror.com/react-native-iconfont-cli/download/react-native-iconfont-cli-2.2.4.tgz#9bc3b18653105950646f8e5f5fcde9f8835d76f3"
@@ -14378,6 +14385,11 @@ react-native-iconfont-cli@^2.2.4:
     minimist "^1.2.5"
     mkdirp "^0.5.1"
     tslib "^1.10.0"
+
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.nlark.com/react-native-linear-gradient/download/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha1-liFcvF7HoBJHogiQiIqnW4NNRKA=
 
 react-native-rotate-view@^1.1.1:
   version "1.1.1"
