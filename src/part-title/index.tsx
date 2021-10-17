@@ -34,6 +34,10 @@ export interface Props {
    * 标题右侧操作
    */
   action?: React.ReactNode;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
 }
 
 export default ({
@@ -60,6 +64,7 @@ export default ({
           marginLeft: `${rpxToPx(offsetX)}px`,
           marginRight: `${rpxToPx(offsetX)}px`,
         }}
+        alignItems={'center'}
       >
         <View className={styles.block} />
         <Text
