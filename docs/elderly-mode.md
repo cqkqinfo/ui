@@ -149,6 +149,7 @@ export default () => {
         >
           提交
         </Button>
+        <Button type={'attract'}>醒目按钮</Button>
         <Button onTap={() => sheetRef.current?.setVisible(true)}>
           日期选择
         </Button>
