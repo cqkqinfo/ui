@@ -4,12 +4,12 @@
   height: 98px;
   min-height: 98px;
   background: @brand-primary;
+  border: 1px solid @brand-primary;
   border-radius: 20px;
   box-sizing: border-box;
   display: inline-flex;
   font-size: 36px;
   color: #ffffff;
-  border: 1px solid @brand-primary;
   justify-content: center;
   align-items: center;
   line-height: 36px;
@@ -30,9 +30,18 @@
   width: 100%;
 }
 
+.attract {
+  background: @brand-attract;
+  border: 1px solid @brand-attract;
+}
+
 .ghost {
   background-color: transparent;
   color: @brand-primary;
+}
+
+.attract-ghost {
+  color: @brand-attract;
 }
 
 .round {
@@ -79,6 +88,10 @@
 .noBorder {
   border: none;
   color: @brand-primary;
+}
+
+.attract-noBorder {
+  color: @brand-attract;
 }
 
 .elderly {
