@@ -14,13 +14,7 @@ export interface Props extends React.PropsWithChildren<ViewProps> {
   run?: boolean;
 }
 
-export default ({
-  className,
-  angle = 360,
-  run = true,
-  style,
-  ...props
-}: Props) => {
+export default ({ className, angle, run = true, style, ...props }: Props) => {
   return (
     <View
       style={{
