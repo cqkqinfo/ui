@@ -43,7 +43,7 @@ export interface Props
    * 类型
    * @default default
    */
-  type?: 'default' | 'primary';
+  type?: 'default' | 'primary' | 'attract';
   /**
    * 镂空
    * @default false
@@ -106,12 +106,14 @@ export default ({
         styles[size],
         styles[type],
         ghost && styles.ghost,
+        ghost && styles[`${type}-ghost`],
         disable && styles.disable,
         block && styles.block,
         loading && styles.loading,
         round && styles.round,
         bold || (elderly && styles.bold),
         type === 'default' && shadow && styles.noBorder,
+        type === 'default' && shadow && styles[`${type}-noBorder`],
         elderly && styles.elderly,
       )}
       {...props}
