@@ -59,6 +59,8 @@ export default ({
     childrenCls = outChildrenCls,
     colon = outColon,
     colonCls = outColonCls,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     cell = outCell,
     afterCls = outAfterCls,
     requiredMark = outRequiredMark === undefined ? true : outRequiredMark,
@@ -170,6 +172,7 @@ export default ({
                 )}
               </LazyUpdate>
             );
+            const labelArr = typeof label === 'string' ? [...label] : undefined;
             return (
               <LazyUpdate
                 className={classNames(
@@ -201,7 +204,12 @@ export default ({
                     )}
                     <View
                       style={{
-                        minWidth: labelWidth,
+                        [labelArr &&
+                        (labelWidth + '').includes('em') &&
+                        +((labelWidth + '').match(/\d+/) as any)[0].length <=
+                          labelArr.length
+                          ? 'width'
+                          : 'minWidth']: labelWidth,
                         justifyContent:
                           labelJustify === 'right'
                             ? 'flex-end'
@@ -217,9 +225,11 @@ export default ({
                         outLabelCls,
                       )}
                     >
-                      {typeof label === 'string'
-                        ? [...label].map((item, index) => (
-                            <View key={index}>{item}</View>
+                      {labelArr
+                        ? labelArr.map((item, index) => (
+                            <View key={index} style={{ width: '1em' }}>
+                              {item}
+                            </View>
                           ))
                         : label}
                     </View>
