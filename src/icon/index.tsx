@@ -30,20 +30,27 @@ export default ({
   const id = useId();
   const width2 = useViewSize(id).width;
   const isNumber = typeof size === 'number';
+  const wh = isNumber ? rpxToPx(+size) : (size + '').toUpperCase();
   return (
     <View
       className={classNames(styles.wrap, className)}
       {...props}
       id={id}
       style={{
-        width: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
-        height: isNumber ? rpxToPx(+size) : (size + '').toUpperCase(),
+        width: wh,
+        height: wh,
         ...style,
       }}
     >
       <NeedWrap
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
+        wrapProps={{
+          style: {
+            width: wh,
+            height: wh,
+          },
+        }}
       >
         {width2 && (
           <Icon

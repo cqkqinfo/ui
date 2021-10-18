@@ -34,6 +34,7 @@ export default ({
       <NeedWrap
         wrap={Rotate}
         need={['kq-loading', 'kq-loading2'].includes(name)}
+        wrapProps={{ run: true, width: width2, height: width2 }}
       >
         {width2 && (
           <Icon
