@@ -5,7 +5,7 @@ exports[`表单项 渲染 1`] = `
   <div>
     <div
       class="space vertical"
-      style="line-height: 1; padding: 0px 10px; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
         class="item cell"
@@ -21,25 +21,33 @@ exports[`表单项 渲染 1`] = `
             *
           </div>
           <div
-            class="label"
+            class="label cell-label"
             style="justify-content: flex-end;"
           >
-            <div>
+            <div
+              style="width: 1em;"
+            >
               号
             </div>
-            <div>
+            <div
+              style="width: 1em;"
+            >
               码
             </div>
-            <div>
+            <div
+              style="width: 1em;"
+            >
               类
             </div>
-            <div>
+            <div
+              style="width: 1em;"
+            >
               型
             </div>
           </div>
         </div>
         <div
-          class="children"
+          class="children cell-children"
           style="justify-content: flex-end;"
         >
           <div
@@ -85,22 +93,28 @@ exports[`表单项 渲染 1`] = `
             *
           </div>
           <div
-            class="label"
+            class="label cell-label"
             style="justify-content: flex-end;"
           >
-            <div>
+            <div
+              style="width: 1em;"
+            >
               手
             </div>
-            <div>
+            <div
+              style="width: 1em;"
+            >
               机
             </div>
-            <div>
+            <div
+              style="width: 1em;"
+            >
               号
             </div>
           </div>
         </div>
         <div
-          class="children"
+          class="children cell-children"
           style="justify-content: flex-end;"
         >
           <input
