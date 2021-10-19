@@ -6,6 +6,7 @@ import { useEffectState } from 'parsec-hooks';
 import Icon from '../icon';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
+import getPlatform from '../get-platform';
 
 interface Props extends InputProps {
   /**
@@ -62,6 +63,18 @@ export default ({
     setValue(e);
     onChange?.(e);
   };
+  const icon = (
+    <View
+      onTap={() => {
+        handleChange('');
+        props.onConfirm?.('');
+      }}
+      style={{ opacity: value2 ? 1 : 0 }}
+      className={styles.clear}
+    >
+      <Icon name={'kq-clear2'} color={iconColor} />
+    </View>
+  );
   return (
     <View
       className={classNames(styles.wrap, className, elderly && styles.elderly)}
@@ -80,16 +93,7 @@ export default ({
           confirmType={'search'}
           {...props}
         />
-        <View
-          onTap={() => {
-            handleChange('');
-            props.onConfirm?.('');
-          }}
-          style={{ opacity: value2 ? 1 : 0 }}
-          className={styles.clear}
-        >
-          <Icon name={'kq-clear2'} color={iconColor} />
-        </View>
+        {getPlatform === 'native' ? value2 && icon : icon}
       </View>
       {showBtn && (
         <View
