@@ -1,3 +1,18 @@
+const obj = {};
+const throttle = (id, fn, delay) => {
+  const { valid = true } = obj[id] || {};
+  if (!obj[id]) {
+    obj[id] = {};
+  }
+  obj[id].fn = fn;
+  if (!valid) return;
+  obj[id].valid = false;
+  setTimeout(() => {
+    obj[id].fn();
+    obj[id].valid = true;
+  }, delay);
+};
+
 /* eslint-disable */
 // eslint-disable-next-line no-undef
 Component({
@@ -28,7 +43,18 @@ Component({
   },
   observers: {
     value: function(value) {
-      this.triggerEvent('change', value);
+      throttle(
+        this.data.myId,
+        () => {
+          this.triggerEvent('change', value);
+        },
+        1000,
+      );
+    },
+  },
+  lifetimes: {
+    ready() {
+      this.setData({ myId: Math.random() });
     },
   },
   methods: {
