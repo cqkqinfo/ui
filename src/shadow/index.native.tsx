@@ -27,6 +27,7 @@ export default ({
             outShadowColor !== false &&
             `rgb(${convert.hex.rgb(outShadowColor || shadowColor).join(',')})`,
           shadowOpacity: 0.15,
+          shadowRadius: 5,
         } as any
       }
     >
