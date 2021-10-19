@@ -4,7 +4,7 @@ export interface Props {
   /**
    * 需要显示的平台
    */
-  platform: ('web' | 'wechat' | 'ali' | 'toutiao')[];
+  platform: ('web' | 'wechat' | 'ali' | 'toutiao' | 'native')[];
   children?: any;
 }
 
