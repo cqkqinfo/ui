@@ -1,3 +1,15 @@
+## [1.8.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.1...v1.8.2) (2021-10-19)
+
+### Bug Fixes
+
+- search 在 rn 不显示清除 ([0911c55](https://gitlab2.cqkqinfo.com/web/ui/commit/0911c55272dc5016ae6203c9c3ff3658c12f2b94))
+- 日历换行 ([8b213f1](https://gitlab2.cqkqinfo.com/web/ui/commit/8b213f1eadf96a2914741ae54747c843fdf71e12))
+- 阴影组件在 rn 显示太小 ([5586aab](https://gitlab2.cqkqinfo.com/web/ui/commit/5586aabe85d90ac40aea6564d31a7fa4ba3ed5d5))
+
+### Features
+
+- 平台添加 native ([0628355](https://gitlab2.cqkqinfo.com/web/ui/commit/06283551de1406e3e7382102cfad150789f732cf))
+
 ## [1.8.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.0...v1.8.1) (2021-10-19)
 
 # [1.8.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.7.11...v1.8.0) (2021-10-18)
