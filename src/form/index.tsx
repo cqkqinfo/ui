@@ -259,7 +259,7 @@ const ReForm = ContainerUseWrap(
               },
             }}
           >
-            {props.children}
+            <Space vertical>{props.children}</Space>
           </NeedWrap>
         </Space>
       </NeedWrap>
