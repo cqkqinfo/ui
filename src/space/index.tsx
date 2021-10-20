@@ -117,6 +117,7 @@ export default ({
         const props = (item as any).props;
         return React.cloneElement(item as any, {
           ...props,
+          __isLast: index === filterChildren.length - 1,
           key: index,
           style: {
             [vertical ? 'marginBottom' : 'marginRight']:
