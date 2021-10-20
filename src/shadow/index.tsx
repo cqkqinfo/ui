@@ -15,6 +15,11 @@ export interface Props {
    */
   shadowColor?: string | false;
   /**
+   * 阴影半径
+   * @default 20
+   */
+  shadowRadius?: number;
+  /**
    * 是否选中
    */
   active?: boolean;
@@ -25,6 +30,7 @@ export default ({
   card,
   shadowColor: outShadowColor,
   active,
+  shadowRadius = 20,
   ...props
 }: Props) => {
   const { brandPrimary, shadowColor = brandPrimary } = useConfig();
@@ -47,7 +53,7 @@ export default ({
       ...props.style,
       boxShadow:
         outShadowColor !== false &&
-        `0 0 ${rpx20} rgba(${convert.hex
+        `0 0 ${rpxToPx(shadowRadius)}px rgba(${convert.hex
           .rgb(outShadowColor || shadowColor)
           .join(',')}, 0.15)`,
       border: active ? `1px solid ${outShadowColor || shadowColor}` : undefined,
