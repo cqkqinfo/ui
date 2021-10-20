@@ -1,3 +1,13 @@
+## [1.8.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.2...v1.8.3) (2021-10-20)
+
+### Features
+
+- form 样式兼容 rn ([6f68fde](https://gitlab2.cqkqinfo.com/web/ui/commit/6f68fde765ee0655dd424daab0e78e60479b6771))
+- form 样式兼容 rn ([29c526f](https://gitlab2.cqkqinfo.com/web/ui/commit/29c526f6e499b9a82adbfc8bbd3c849e67c2a95a))
+- shadow 支持设置阴影大小 ([64bef5f](https://gitlab2.cqkqinfo.com/web/ui/commit/64bef5f21c71494d8ca2d4079cb1e0655b71a2b8))
+- switch 样式兼容 rn ([4878f9b](https://gitlab2.cqkqinfo.com/web/ui/commit/4878f9ba787e71e19d0498cfd345eeb8acdf810c))
+- 下拉菜单兼容 rn ([1364789](https://gitlab2.cqkqinfo.com/web/ui/commit/13647897ea1d8e3e2ff15aa4e2dfc5e4adb60836))
+
 ## [1.8.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.1...v1.8.2) (2021-10-19)
 
 ### Bug Fixes
