@@ -1,3 +1,9 @@
+## [1.8.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.3...v1.8.4) (2021-10-20)
+
+### Bug Fixes
+
+- 日历列表模式会显示上个月的日期 ([cd3930e](https://gitlab2.cqkqinfo.com/web/ui/commit/cd3930e068e37b3e502f7d9269c5dfde3108fb7f))
+
 ## [1.8.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.2...v1.8.3) (2021-10-20)
 
 ### Features
