@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import Icon from '../icon';
 import Fold from '../fold';
+import Rotate from '../rotate';
+import Space from '../space';
 import { IconNames } from '../icon/web';
 
 export interface DropDownMenuIremProps {
@@ -52,6 +54,10 @@ export interface DropDownMenuIremProps {
    * 自定义点击事件，如果返回false，不响应展开折叠
    */
   onTap?: () => boolean | void;
+  /**
+   * 标题类名
+   */
+  titleCls?: string;
 }
 
 export default (props: DropDownMenuIremProps) => {
@@ -67,6 +73,7 @@ export default (props: DropDownMenuIremProps) => {
     arrowsSize,
     onTap,
     onChange,
+    titleCls,
     children,
   } = props as DropDownMenuIremProps & {
     /**内部传参 */
@@ -97,19 +104,17 @@ export default (props: DropDownMenuIremProps) => {
         }
       }}
     >
-      <View className={styles.flexCenter}>
+      <Space size={10} className={classNames(titleCls, styles.flexCenter)}>
         {selectItem?.text || title}
-        <Icon
-          size={arrowsSize}
-          name={icon || 'kq-down'}
-          color={arrowsColor}
-          className={classNames(
-            styles.icon,
-            { [styles.rotate]: showOptions },
-            arrowsCls,
-          )}
-        />
-      </View>
+        <Rotate run={showOptions} angle={180}>
+          <Icon
+            size={arrowsSize}
+            name={icon || 'kq-down'}
+            color={arrowsColor}
+            className={classNames(styles.icon, arrowsCls)}
+          />
+        </Rotate>
+      </Space>
       <Fold folded={!showOptions} className={styles.down} maxHeight={'50vh'}>
         {options?.map(item => {
           return (
@@ -122,8 +127,8 @@ export default (props: DropDownMenuIremProps) => {
                 styles.downSelect,
                 styles.flexCenter,
                 props.itemCls,
-                classNames(props.itemSelectCls, styles.select) &&
-                  item.value === value,
+                item.value === value &&
+                  classNames(props.itemSelectCls, styles.select),
               )}
             >
               {item.text}
