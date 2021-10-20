@@ -162,6 +162,9 @@ export default ({
           ));
         };
         const renderProps = renderItemProps?.(day);
+        if (listEndDay && day.month() === startDay.month() - 1) {
+          return null;
+        }
         return (
           <React.Fragment key={index}>
             {day.date() === 1 && listEndDay && (
