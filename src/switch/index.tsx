@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View } from 'remax/one';
 import cls from 'classnames';
 import styles from './index.module.less';
+import Shadow from '../shadow';
 
 interface Props {
   /**
@@ -93,14 +94,16 @@ export default ({
         !showChecked && styles.unchecked,
       )}
     >
-      <View
-        className={cls(
-          styles.circle,
-          circleCls,
-          showChecked && styles.circleSelect,
-          !showChecked && styles.circleUnselect,
-        )}
-      />
+      <Shadow shadowColor={'rgb(0, 0, 0, 0.7)'} shadowRadius={10}>
+        <View
+          className={cls(
+            styles.circle,
+            circleCls,
+            showChecked && styles.circleSelect,
+            !showChecked && styles.circleUnselect,
+          )}
+        />
+      </Shadow>
     </View>
   );
 };
