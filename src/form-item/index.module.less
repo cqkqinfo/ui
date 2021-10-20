@@ -62,9 +62,7 @@
 .cell {
   min-height: 88px;
   justify-content: space-between;
-  &:not(:last-child) {
-    border-bottom: 1px solid #e2e2e2;
-  }
+  border-bottom: 1px solid #e2e2e2;
 }
 .cell-label {
   margin-right: 20px;
@@ -72,9 +70,9 @@
 .cell-children {
   display: flex;
   justify-content: space-between;
+  text-align: right;
   textarea,
   input {
-    text-align: right;
     flex: 1;
   }
   textarea {

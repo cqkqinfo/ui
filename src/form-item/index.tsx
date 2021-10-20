@@ -185,7 +185,11 @@ export default ({
                   card && styles.card,
                   vertical && styles.vertical,
                 )}
-                style={{ ...style, ...itemStyle }}
+                style={{
+                  borderBottom: (props as any)['__isLast'] ? 0 : undefined,
+                  ...itemStyle,
+                  ...style,
+                }}
                 {...props}
               >
                 {label && (
@@ -206,8 +210,8 @@ export default ({
                       style={{
                         [labelArr &&
                         (labelWidth + '').includes('em') &&
-                        +((labelWidth + '').match(/\d+/) as any)[0].length <=
-                          labelArr.length
+                        labelArr.length <=
+                          +((labelWidth + '').match(/\d+/) as any)[0]
                           ? 'width'
                           : 'minWidth']: labelWidth,
                         justifyContent:

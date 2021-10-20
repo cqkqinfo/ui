@@ -62,7 +62,7 @@ export default () => {
             请选择
           </Picker>
         </FormItem>
-        <FormItem label={'详情地区'} name={'area'}>
+        <FormItem label={'详细地区'} name={'area'}>
           <ReTextarea placeholder={'请输入地区'} />
         </FormItem>
       </Form>
