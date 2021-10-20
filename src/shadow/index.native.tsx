@@ -11,6 +11,7 @@ export default ({
   children,
   card,
   shadowColor: outShadowColor,
+  shadowRadius = 20,
   active,
   ...props
 }: Props) => {
@@ -27,7 +28,7 @@ export default ({
             outShadowColor !== false &&
             `rgb(${convert.hex.rgb(outShadowColor || shadowColor).join(',')})`,
           shadowOpacity: 0.15,
-          shadowRadius: 5,
+          shadowRadius: shadowRadius / 4,
         } as any
       }
     >
