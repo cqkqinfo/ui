@@ -8,133 +8,138 @@ exports[`表单项 渲染 1`] = `
       style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
-        class="item cell"
-        initialvalue="1"
+        class="space vertical"
+        style="line-height: 1;"
       >
         <div
-          class="labelWrap"
+          class="item cell"
+          initialvalue="1"
         >
           <div
-            class="mark"
-            style="opacity: 0;"
+            class="labelWrap"
           >
-            *
+            <div
+              class="mark"
+              style="opacity: 0;"
+            >
+              *
+            </div>
+            <div
+              class="label cell-label"
+              style="justify-content: flex-end;"
+            >
+              <div
+                style="width: 1em;"
+              >
+                号
+              </div>
+              <div
+                style="width: 1em;"
+              >
+                码
+              </div>
+              <div
+                style="width: 1em;"
+              >
+                类
+              </div>
+              <div
+                style="width: 1em;"
+              >
+                型
+              </div>
+            </div>
           </div>
           <div
-            class="label cell-label"
+            class="children cell-children"
             style="justify-content: flex-end;"
           >
             <div
-              style="width: 1em;"
-            >
-              号
-            </div>
-            <div
-              style="width: 1em;"
-            >
-              码
-            </div>
-            <div
-              style="width: 1em;"
-            >
-              类
-            </div>
-            <div
-              style="width: 1em;"
-            >
-              型
-            </div>
-          </div>
-        </div>
-        <div
-          class="children cell-children"
-          style="justify-content: flex-end;"
-        >
-          <div
-            class="group"
-          >
-            <div
-              class="container radio"
-              style="background: none;"
+              class="group"
             >
               <div
-                class="dot"
-                style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
-              />
-              身份证
-            </div>
-            <div
-              class="container radio"
-              style="background: none;"
-            >
+                class="container radio"
+                style="background: none;"
+              >
+                <div
+                  class="dot"
+                  style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+                />
+                身份证
+              </div>
               <div
-                class="dot"
-                style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
-              />
-              手机号
+                class="container radio"
+                style="background: none;"
+              >
+                <div
+                  class="dot"
+                  style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+                />
+                手机号
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="after"
-          style="display: none;"
-        />
-      </div>
-      <div
-        class="item cell"
-      >
-        <div
-          class="labelWrap"
-        >
-          <div
-            class="mark"
-            style="opacity: 1;"
-          >
-            *
           </div>
           <div
-            class="label cell-label"
-            style="justify-content: flex-end;"
-          >
-            <div
-              style="width: 1em;"
-            >
-              手
-            </div>
-            <div
-              style="width: 1em;"
-            >
-              机
-            </div>
-            <div
-              style="width: 1em;"
-            >
-              号
-            </div>
-          </div>
-        </div>
-        <div
-          class="children cell-children"
-          style="justify-content: flex-end;"
-        >
-          <input
-            class="web input"
-            placeholder="请输入手机号"
-            placeholderstyle="[object Object]"
-            toutiao-selection-end="999"
-            toutiao-selection-start="999"
-            value=""
-            wechat-confirm-type="done"
-            wechat-cursor-spacing="0"
-            wechat-placeholder-class="input-placeholder"
-            wechat-selection-end="-1"
-            wechat-selection-start="-1"
+            class="after"
+            style="display: none;"
           />
         </div>
         <div
-          class="after"
-          style="display: none;"
-        />
+          class="item cell"
+        >
+          <div
+            class="labelWrap"
+          >
+            <div
+              class="mark"
+              style="opacity: 1;"
+            >
+              *
+            </div>
+            <div
+              class="label cell-label"
+              style="justify-content: flex-end;"
+            >
+              <div
+                style="width: 1em;"
+              >
+                手
+              </div>
+              <div
+                style="width: 1em;"
+              >
+                机
+              </div>
+              <div
+                style="width: 1em;"
+              >
+                号
+              </div>
+            </div>
+          </div>
+          <div
+            class="children cell-children"
+            style="justify-content: flex-end;"
+          >
+            <input
+              class="web input"
+              placeholder="请输入手机号"
+              placeholderstyle="[object Object]"
+              toutiao-selection-end="999"
+              toutiao-selection-start="999"
+              value=""
+              wechat-confirm-type="done"
+              wechat-cursor-spacing="0"
+              wechat-placeholder-class="input-placeholder"
+              wechat-selection-end="-1"
+              wechat-selection-start="-1"
+            />
+          </div>
+          <div
+            class="after"
+            style="display: none;"
+          />
+        </div>
       </div>
     </div>
   </div>
