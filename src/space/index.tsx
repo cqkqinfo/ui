@@ -1,25 +1,31 @@
 import React from 'react';
-import { View } from 'remax/one';
+import { View, ViewProps } from 'remax/one';
+import { ViewProps as WechatViewProps } from 'remax/wechat';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
-import ViewProps from '@remax/one/esm/hostComponents/View/props';
 import rpxToPx from '../rpx-to-px';
+import NeedWrap from '../need-wrap';
+import Animated from '../animated';
 import 'array-flat-polyfill';
 
 export interface Props
   extends Pick<
-    ViewProps,
-    | 'style'
-    | 'onTap'
-    | 'className'
-    | 'id'
-    | 'onTouchStart'
-    | 'onTouchMove'
-    | 'onTouchEnd'
-    | 'onTouchCancel'
-    | 'onLongTap'
-  > {
+      ViewProps,
+      | 'style'
+      | 'onTap'
+      | 'className'
+      | 'id'
+      | 'onTouchStart'
+      | 'onTouchMove'
+      | 'onTouchEnd'
+      | 'onTouchCancel'
+      | 'onLongTap'
+    >,
+    Pick<
+      WechatViewProps,
+      'onAnimationIteration' | 'onAnimationStart' | 'onAnimationEnd'
+    > {
   /**
    * 是否垂直
    * @default false
@@ -67,6 +73,10 @@ export interface Props
    * 在一行第几个时不设置size
    */
   ignoreNum?: number;
+  /**
+   * 由createAnimation创建的动画对象
+   */
+  animation?: WechatMiniprogram.Animation;
 }
 
 export default ({
@@ -83,6 +93,7 @@ export default ({
   alignItems,
   flex,
   ignoreNum,
+  animation,
   ...props
 }: Props) => {
   const filterChildren = (children instanceof Array ? children : [children])
@@ -93,46 +104,52 @@ export default ({
     ?.flat(3)
     ?.filter?.(i => ![undefined, true, false].includes(i));
   return (
-    <View
-      style={{
-        lineHeight: vertical ? 1 : undefined,
-        flex,
-        justifyContent: justify,
-        margin,
-        padding,
-        alignSelf,
-        alignItems,
-        flexWrap,
-        ...style,
-      }}
-      className={classNames(
-        styles.space,
-        className,
-        vertical && styles.vertical,
-      )}
-      {...props}
+    <NeedWrap
+      wrap={Animated.View}
+      need={!!animation}
+      wrapProps={animation as any}
     >
-      {filterChildren?.map?.((item, index) => {
-        item = React.isValidElement(item) ? item : <View>{item}</View>;
-        const props = (item as any).props;
-        return React.cloneElement(item as any, {
-          ...props,
-          __isLast: index === filterChildren.length - 1,
-          key: index,
-          style: {
-            [vertical ? 'marginBottom' : 'marginRight']:
-              index + 1 === filterChildren?.length ||
-              (ignoreNum && index && (index + 1) % ignoreNum === 0)
-                ? undefined
-                : typeof size === 'number'
-                ? rpxToPx(size)
-                : process.env.REMAX_PLATFORM === 'wechat'
-                ? size?.toUpperCase()
-                : size,
-            ...props.style,
-          },
-        });
-      })}
-    </View>
+      <View
+        style={{
+          lineHeight: vertical ? 1 : undefined,
+          flex,
+          justifyContent: justify,
+          margin,
+          padding,
+          alignSelf,
+          alignItems,
+          flexWrap,
+          ...style,
+        }}
+        className={classNames(
+          styles.space,
+          className,
+          vertical && styles.vertical,
+        )}
+        {...props}
+      >
+        {filterChildren?.map?.((item, index) => {
+          item = React.isValidElement(item) ? item : <View>{item}</View>;
+          const props = (item as any).props;
+          return React.cloneElement(item as any, {
+            ...props,
+            __isLast: index === filterChildren.length - 1,
+            key: index,
+            style: {
+              [vertical ? 'marginBottom' : 'marginRight']:
+                index + 1 === filterChildren?.length ||
+                (ignoreNum && index && (index + 1) % ignoreNum === 0)
+                  ? undefined
+                  : typeof size === 'number'
+                  ? rpxToPx(size)
+                  : process.env.REMAX_PLATFORM === 'wechat'
+                  ? size?.toUpperCase()
+                  : size,
+              ...props.style,
+            },
+          });
+        })}
+      </View>
+    </NeedWrap>
   );
 };

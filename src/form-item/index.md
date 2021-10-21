@@ -14,7 +14,7 @@ nav:
 `FormItem` 的所有 `props` 都可以在 `Form` 组件上统一设置
 
 ```tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ReInput,
   Space,
@@ -26,12 +26,16 @@ import {
   Button,
   Form,
   Radio,
-  addressOptions,
+  getAddressOptions,
 } from '@kqinfo/ui';
 
 export default () => {
   const [form] = Form.useForm();
   const [form2] = Form.useForm();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <Space vertical size={'10px'}>
       <PartTitle>基本使用</PartTitle>

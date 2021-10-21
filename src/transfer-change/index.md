@@ -12,7 +12,7 @@ nav:
 转换和转移`change`事件
 
 ```tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Tag,
   Space,
@@ -22,7 +22,7 @@ import {
   ReInput,
   TransferChange,
   Button,
-  addressOptions,
+  getAddressOptions,
   Picker,
   Icon,
 } from '@kqinfo/ui';
@@ -30,6 +30,10 @@ import { DatePicker, Select } from 'antd';
 
 export default () => {
   const [form] = Form.useForm();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <Form
       form={form}

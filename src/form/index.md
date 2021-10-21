@@ -12,7 +12,7 @@ group:
 表单组件
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Space,
   Form,
@@ -21,13 +21,17 @@ import {
   PartTitle,
   Shadow,
   Icon,
-  addressOptions,
+  getAddressOptions,
   Page,
   Picker,
 } from '@kqinfo/ui';
 
 const Demo = (props: any) => {
   const [form] = Form.useForm();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <Space alignItems={'stretch'} vertical style={props.style}>
       <Form form={form} onFinish={console.log} {...props}>
