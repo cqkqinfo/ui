@@ -1,9 +1,14 @@
-import { CascaderOptionType, options } from '../address-options';
+import getAddressOptions from '../get-address-options';
+import { PickerData } from 'antd-mobile/lib/picker/PropsType';
+
+let options: PickerData[] = [];
+
+getAddressOptions().then(values => (options = values));
 
 export default (arr: Array<string | number> = []) => {
   const strArr: string[] = [];
   let index = 0;
-  const fn = (options: CascaderOptionType[]) =>
+  const fn = (options: PickerData[]) =>
     options.find(({ value, label, children }) => {
       const is = value === arr[index];
       if (is) {

@@ -407,3 +407,11 @@ export { default as AffirmSheet } from './affirm-sheet';
  * 功能磁贴
  */
 export { default as Tile } from './tile';
+/**
+ * 创建动画实例
+ */
+export { default as createAnimation } from './create-animation';
+/**
+ * 异步获取城市数据
+ */
+export { default as getAddressOptions } from './get-address-options';
