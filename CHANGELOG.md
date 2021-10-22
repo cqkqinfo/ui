@@ -1,3 +1,14 @@
+## [1.8.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.4...v1.8.5) (2021-10-22)
+
+### Bug Fixes
+
+- web 端图标打包失败 ([7bb35a9](https://gitlab2.cqkqinfo.com/web/ui/commit/7bb35a99077edc7fe07c8aabf0a41edd64ebdcee))
+
+### Features
+
+- 添加 createAnimation ([d9ca713](https://gitlab2.cqkqinfo.com/web/ui/commit/d9ca7133456abaf58645cf892d7095635d4547f6))
+- 添加 getAddressOptions 异步方法获取城市数据 ([6295342](https://gitlab2.cqkqinfo.com/web/ui/commit/62953424fc55f0bc90c82bcea3be34ce0afdb2de))
+
 ## [1.8.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.3...v1.8.4) (2021-10-20)
 
 ### Bug Fixes
