@@ -1,31 +1,33 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import React, { FunctionComponent } from 'react';
-import { ViewProps } from 'react-native';
-import { Svg, GProps, Path } from 'react-native-svg';
+import React, { CSSProperties, SVGAttributes, FunctionComponent } from 'react';
 import { getIconColor } from './helper';
 
-interface Props extends GProps, ViewProps {
+interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
   size?: number;
   color?: string | string[];
 }
 
-let KqKanjian: FunctionComponent<Props> = ({ size, color, ...rest }) => {
+const DEFAULT_STYLE: CSSProperties = {
+  display: 'block',
+};
+
+const KqKanjian: FunctionComponent<Props> = ({ size, color, style: _style, ...rest }) => {
+  const style = _style ? { ...DEFAULT_STYLE, ..._style } : DEFAULT_STYLE;
+
   return (
-    <Svg viewBox="0 0 1649 1024" width={size} height={size} {...rest}>
-      <Path
+    <svg viewBox="0 0 1649 1024" width={size + 'px'} height={size + 'px'} style={style} {...rest}>
+      <path
         d="M1287.93124864 858.54257844c-138.92592281 87.56866219-298.51741031 133.69953469-461.20206562 133.32622125-162.68465531 0.37331344-322.27614281-45.75755906-461.20206656-133.32622125C232.62753927 774.9470375 124.63329927 655.00676844 53.4370977 511.97439781c71.24953312-143.03237062 179.2704375-262.97263969 312.17001469-346.59484594C504.50636989 77.837555 664.07119209 31.7066825 826.72918302 32.05333063c162.65799001-0.37331344 322.22281219 45.78422438 461.12206969 133.32622124C1420.77749614 248.97509281 1528.82506583 368.88869657 1600.02126833 511.97439781c-71.16953719 143.05903594-179.19044156 262.999305-312.09001969 346.56818063zM826.72918302 192.01813156c-170.84422031 0-309.31683469 143.24569219-309.31683469 319.95626625 0.23998687 176.5772475 138.57927469 319.66294875 309.31683469 319.92960188 170.84422031 0 309.31683469-143.24569219 309.31683375-319.92960188 0-176.71057406-138.47261344-319.95626625-309.31683375-319.95626625z m0 479.92106719c-85.4087775 0-154.65841689-71.62284656-154.65841688-159.96480094 0-88.36861969 69.24963938-159.99146625 154.65841688-159.99146625s154.65841689 71.62284656 154.65841687 159.99146625c0 88.34195438-69.24963938 159.96480094-154.65841687 159.96480094z"
         fill={getIconColor(color, 0, '#CCCCCC')}
       />
-    </Svg>
+    </svg>
   );
 };
 
 KqKanjian.defaultProps = {
   size: 18,
 };
-
-KqKanjian = React.memo ? React.memo(KqKanjian) : KqKanjian;
 
 export default KqKanjian;

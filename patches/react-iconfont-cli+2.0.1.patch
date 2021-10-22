@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-iconfont-cli/libs/getConfig.js b/node_modules/react-iconfont-cli/libs/getConfig.js
+index e082028..9acc260 100644
+--- a/node_modules/react-iconfont-cli/libs/getConfig.js
++++ b/node_modules/react-iconfont-cli/libs/getConfig.js
+@@ -10,7 +10,7 @@ exports.getConfig = function () {
+     if (cacheConfig) {
+         return cacheConfig;
+     }
+-    var targetFile = path_1.default.resolve('iconfont.json');
++    var targetFile = path_1.default.resolve('iconfont.web.json');
+     if (!fs_1.default.existsSync(targetFile)) {
+         console.warn(colors_1.default.red('File "iconfont.json" doesn\'t exist, did you forget to generate it?'));
+         process.exit(1);

@@ -1,31 +1,33 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import React, { FunctionComponent } from 'react';
-import { ViewProps } from 'react-native';
-import { Svg, GProps, Path } from 'react-native-svg';
+import React, { CSSProperties, SVGAttributes, FunctionComponent } from 'react';
 import { getIconColor } from './helper';
 
-interface Props extends GProps, ViewProps {
+interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
   size?: number;
   color?: string | string[];
 }
 
-let KqAdd: FunctionComponent<Props> = ({ size, color, ...rest }) => {
+const DEFAULT_STYLE: CSSProperties = {
+  display: 'block',
+};
+
+const KqAdd: FunctionComponent<Props> = ({ size, color, style: _style, ...rest }) => {
+  const style = _style ? { ...DEFAULT_STYLE, ..._style } : DEFAULT_STYLE;
+
   return (
-    <Svg viewBox="0 0 1024 1024" width={size} height={size} {...rest}>
-      <Path
+    <svg viewBox="0 0 1024 1024" width={size + 'px'} height={size + 'px'} style={style} {...rest}>
+      <path
         d="M583.55791267 440.44208733L583.55791267 11.42977713 440.44208733 11.42977713 440.44208733 440.44208733 11.42977713 440.44208733 11.42977713 583.55791267 440.44208733 583.55791267 440.44208733 1012.57022287 583.55791267 1012.57022287 583.55791267 583.55791267 1012.57022287 583.55791267 1012.57022287 440.44208733Z"
         fill={getIconColor(color, 0, '#333333')}
       />
-    </Svg>
+    </svg>
   );
 };
 
 KqAdd.defaultProps = {
   size: 18,
 };
-
-KqAdd = React.memo ? React.memo(KqAdd) : KqAdd;
 
 export default KqAdd;
