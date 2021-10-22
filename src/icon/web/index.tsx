@@ -1,9 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import React, { FunctionComponent } from 'react';
-import { ViewProps } from 'react-native';
-import { GProps } from 'react-native-svg';
+import React, { SVGAttributes, FunctionComponent } from 'react';
 import KqZhengque from './KqZhengque';
 import KqFenge from './KqFenge';
 import KqTag from './KqTag';
@@ -58,184 +56,129 @@ import KqSearch from './KqSearch';
 import KqDown from './KqDown';
 import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
-export { default as KqZhengque } from './KqZhengque';
-export { default as KqFenge } from './KqFenge';
-export { default as KqTag } from './KqTag';
-export { default as KqShouye } from './KqShouye';
-export { default as KqCaidan } from './KqCaidan';
-export { default as KqZanting } from './KqZanting';
-export { default as KqBofang } from './KqBofang';
-export { default as KqZhibozhong } from './KqZhibozhong';
-export { default as KqShoucang1 } from './KqShoucang1';
-export { default as KqZan1 } from './KqZan1';
-export { default as KqShijian } from './KqShijian';
-export { default as KqZhuanlan } from './KqZhuanlan';
-export { default as KqZhizhen } from './KqZhizhen';
-export { default as KqTime } from './KqTime';
-export { default as KqBukanjian } from './KqBukanjian';
-export { default as KqKanjian } from './KqKanjian';
-export { default as KqJiankang } from './KqJiankang';
-export { default as KqRili } from './KqRili';
-export { default as KqZhibo } from './KqZhibo';
-export { default as KqChuangzuo } from './KqChuangzuo';
-export { default as KqYisheng } from './KqYisheng';
-export { default as KqWeixin } from './KqWeixin';
-export { default as KqEye } from './KqEye';
-export { default as KqZan } from './KqZan';
-export { default as KqShoucang } from './KqShoucang';
-export { default as KqShuaxin } from './KqShuaxin';
-export { default as KqTongzhi } from './KqTongzhi';
-export { default as KqHome } from './KqHome';
-export { default as KqYiyuan } from './KqYiyuan';
-export { default as KqKeshi } from './KqKeshi';
-export { default as KqMobile } from './KqMobile';
-export { default as KqLeft } from './KqLeft';
-export { default as KqFilter } from './KqFilter';
-export { default as KqJia } from './KqJia';
-export { default as KqAlbum } from './KqAlbum';
-export { default as KqBiaoqing } from './KqBiaoqing';
-export { default as KqVoice } from './KqVoice';
-export { default as KqXiangji } from './KqXiangji';
-export { default as KqXingxing } from './KqXingxing';
-export { default as KqTip } from './KqTip';
-export { default as KqJianshao } from './KqJianshao';
-export { default as KqZengjia } from './KqZengjia';
-export { default as KqRight } from './KqRight';
-export { default as KqHomeSolid } from './KqHomeSolid';
-export { default as KqMonitor } from './KqMonitor';
-export { default as KqNotice } from './KqNotice';
-export { default as KqAdd } from './KqAdd';
-export { default as KqClear } from './KqClear';
-export { default as KqClear2 } from './KqClear2';
-export { default as KqYes } from './KqYes';
-export { default as KqSearch } from './KqSearch';
-export { default as KqDown } from './KqDown';
-export { default as KqLoading2 } from './KqLoading2';
-export { default as KqLoading } from './KqLoading';
 
 export type IconNames = 'kq-zhengque' | 'kq-fenge' | 'kq-tag' | 'kq-shouye' | 'kq-caidan' | 'kq-zanting' | 'kq-bofang' | 'kq-zhibozhong' | 'kq-shoucang1' | 'kq-zan1' | 'kq-shijian' | 'kq-zhuanlan' | 'kq-zhizhen' | 'kq-time' | 'kq-bukanjian' | 'kq-kanjian' | 'kq-jiankang' | 'kq-rili' | 'kq-zhibo' | 'kq-chuangzuo' | 'kq-yisheng' | 'kq-weixin' | 'kq-eye' | 'kq-zan' | 'kq-shoucang' | 'kq-shuaxin' | 'kq-tongzhi' | 'kq-home' | 'kq-yiyuan' | 'kq-keshi' | 'kq-mobile' | 'kq-left' | 'kq-filter' | 'kq-jia' | 'kq-album' | 'kq-biaoqing' | 'kq-voice' | 'kq-xiangji' | 'kq-xingxing' | 'kq-tip' | 'kq-jianshao' | 'kq-zengjia' | 'kq-right' | 'kq-home-solid' | 'kq-monitor' | 'kq-notice' | 'kq-add' | 'kq-clear' | 'kq-clear2' | 'kq-yes' | 'kq-search' | 'kq-down' | 'kq-loading2' | 'kq-loading';
 
-interface Props extends GProps, ViewProps {
+interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
   name: IconNames;
   size?: number;
   color?: string | string[];
 }
 
-let IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
+const IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
     case 'kq-zhengque':
-      return <KqZhengque key="1" {...rest} />;
+      return <KqZhengque {...rest} />;
     case 'kq-fenge':
-      return <KqFenge key="2" {...rest} />;
+      return <KqFenge {...rest} />;
     case 'kq-tag':
-      return <KqTag key="3" {...rest} />;
+      return <KqTag {...rest} />;
     case 'kq-shouye':
-      return <KqShouye key="4" {...rest} />;
+      return <KqShouye {...rest} />;
     case 'kq-caidan':
-      return <KqCaidan key="5" {...rest} />;
+      return <KqCaidan {...rest} />;
     case 'kq-zanting':
-      return <KqZanting key="6" {...rest} />;
+      return <KqZanting {...rest} />;
     case 'kq-bofang':
-      return <KqBofang key="7" {...rest} />;
+      return <KqBofang {...rest} />;
     case 'kq-zhibozhong':
-      return <KqZhibozhong key="8" {...rest} />;
+      return <KqZhibozhong {...rest} />;
     case 'kq-shoucang1':
-      return <KqShoucang1 key="9" {...rest} />;
+      return <KqShoucang1 {...rest} />;
     case 'kq-zan1':
-      return <KqZan1 key="10" {...rest} />;
+      return <KqZan1 {...rest} />;
     case 'kq-shijian':
-      return <KqShijian key="11" {...rest} />;
+      return <KqShijian {...rest} />;
     case 'kq-zhuanlan':
-      return <KqZhuanlan key="12" {...rest} />;
+      return <KqZhuanlan {...rest} />;
     case 'kq-zhizhen':
-      return <KqZhizhen key="13" {...rest} />;
+      return <KqZhizhen {...rest} />;
     case 'kq-time':
-      return <KqTime key="14" {...rest} />;
+      return <KqTime {...rest} />;
     case 'kq-bukanjian':
-      return <KqBukanjian key="15" {...rest} />;
+      return <KqBukanjian {...rest} />;
     case 'kq-kanjian':
-      return <KqKanjian key="16" {...rest} />;
+      return <KqKanjian {...rest} />;
     case 'kq-jiankang':
-      return <KqJiankang key="17" {...rest} />;
+      return <KqJiankang {...rest} />;
     case 'kq-rili':
-      return <KqRili key="18" {...rest} />;
+      return <KqRili {...rest} />;
     case 'kq-zhibo':
-      return <KqZhibo key="19" {...rest} />;
+      return <KqZhibo {...rest} />;
     case 'kq-chuangzuo':
-      return <KqChuangzuo key="20" {...rest} />;
+      return <KqChuangzuo {...rest} />;
     case 'kq-yisheng':
-      return <KqYisheng key="21" {...rest} />;
+      return <KqYisheng {...rest} />;
     case 'kq-weixin':
-      return <KqWeixin key="22" {...rest} />;
+      return <KqWeixin {...rest} />;
     case 'kq-eye':
-      return <KqEye key="23" {...rest} />;
+      return <KqEye {...rest} />;
     case 'kq-zan':
-      return <KqZan key="24" {...rest} />;
+      return <KqZan {...rest} />;
     case 'kq-shoucang':
-      return <KqShoucang key="25" {...rest} />;
+      return <KqShoucang {...rest} />;
     case 'kq-shuaxin':
-      return <KqShuaxin key="26" {...rest} />;
+      return <KqShuaxin {...rest} />;
     case 'kq-tongzhi':
-      return <KqTongzhi key="27" {...rest} />;
+      return <KqTongzhi {...rest} />;
     case 'kq-home':
-      return <KqHome key="28" {...rest} />;
+      return <KqHome {...rest} />;
     case 'kq-yiyuan':
-      return <KqYiyuan key="29" {...rest} />;
+      return <KqYiyuan {...rest} />;
     case 'kq-keshi':
-      return <KqKeshi key="30" {...rest} />;
+      return <KqKeshi {...rest} />;
     case 'kq-mobile':
-      return <KqMobile key="31" {...rest} />;
+      return <KqMobile {...rest} />;
     case 'kq-left':
-      return <KqLeft key="32" {...rest} />;
+      return <KqLeft {...rest} />;
     case 'kq-filter':
-      return <KqFilter key="33" {...rest} />;
+      return <KqFilter {...rest} />;
     case 'kq-jia':
-      return <KqJia key="34" {...rest} />;
+      return <KqJia {...rest} />;
     case 'kq-album':
-      return <KqAlbum key="35" {...rest} />;
+      return <KqAlbum {...rest} />;
     case 'kq-biaoqing':
-      return <KqBiaoqing key="36" {...rest} />;
+      return <KqBiaoqing {...rest} />;
     case 'kq-voice':
-      return <KqVoice key="37" {...rest} />;
+      return <KqVoice {...rest} />;
     case 'kq-xiangji':
-      return <KqXiangji key="38" {...rest} />;
+      return <KqXiangji {...rest} />;
     case 'kq-xingxing':
-      return <KqXingxing key="39" {...rest} />;
+      return <KqXingxing {...rest} />;
     case 'kq-tip':
-      return <KqTip key="40" {...rest} />;
+      return <KqTip {...rest} />;
     case 'kq-jianshao':
-      return <KqJianshao key="41" {...rest} />;
+      return <KqJianshao {...rest} />;
     case 'kq-zengjia':
-      return <KqZengjia key="42" {...rest} />;
+      return <KqZengjia {...rest} />;
     case 'kq-right':
-      return <KqRight key="43" {...rest} />;
+      return <KqRight {...rest} />;
     case 'kq-home-solid':
-      return <KqHomeSolid key="44" {...rest} />;
+      return <KqHomeSolid {...rest} />;
     case 'kq-monitor':
-      return <KqMonitor key="45" {...rest} />;
+      return <KqMonitor {...rest} />;
     case 'kq-notice':
-      return <KqNotice key="46" {...rest} />;
+      return <KqNotice {...rest} />;
     case 'kq-add':
-      return <KqAdd key="47" {...rest} />;
+      return <KqAdd {...rest} />;
     case 'kq-clear':
-      return <KqClear key="48" {...rest} />;
+      return <KqClear {...rest} />;
     case 'kq-clear2':
-      return <KqClear2 key="49" {...rest} />;
+      return <KqClear2 {...rest} />;
     case 'kq-yes':
-      return <KqYes key="50" {...rest} />;
+      return <KqYes {...rest} />;
     case 'kq-search':
-      return <KqSearch key="51" {...rest} />;
+      return <KqSearch {...rest} />;
     case 'kq-down':
-      return <KqDown key="52" {...rest} />;
+      return <KqDown {...rest} />;
     case 'kq-loading2':
-      return <KqLoading2 key="53" {...rest} />;
+      return <KqLoading2 {...rest} />;
     case 'kq-loading':
-      return <KqLoading key="54" {...rest} />;
+      return <KqLoading {...rest} />;
+
   }
 
   return null;
 };
-
-IconFont = React.memo ? React.memo(IconFont) : IconFont;
 
 export default IconFont;

@@ -1,35 +1,37 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import React, { FunctionComponent } from 'react';
-import { ViewProps } from 'react-native';
-import { Svg, GProps, Path } from 'react-native-svg';
+import React, { CSSProperties, SVGAttributes, FunctionComponent } from 'react';
 import { getIconColor } from './helper';
 
-interface Props extends GProps, ViewProps {
+interface Props extends Omit<SVGAttributes<SVGElement>, 'color'> {
   size?: number;
   color?: string | string[];
 }
 
-let KqZhibo: FunctionComponent<Props> = ({ size, color, ...rest }) => {
+const DEFAULT_STYLE: CSSProperties = {
+  display: 'block',
+};
+
+const KqZhibo: FunctionComponent<Props> = ({ size, color, style: _style, ...rest }) => {
+  const style = _style ? { ...DEFAULT_STYLE, ..._style } : DEFAULT_STYLE;
+
   return (
-    <Svg viewBox="0 0 1024 1024" width={size} height={size} {...rest}>
-      <Path
+    <svg viewBox="0 0 1024 1024" width={size + 'px'} height={size + 'px'} style={style} {...rest}>
+      <path
         d="M904.429985 265.75703H704.799992L931.759984 42.555038c9.772-9.604 9.905-25.341999 0.29-35.114998-9.627-9.798-25.340999-9.943-35.113999-0.291L633.972995 265.75703H400.286004L137.323015 7.14904c-9.761-9.604-25.475999-9.482-35.114999 0.291-9.615 9.773-9.482 25.510999 0.291 35.114998l226.959991 223.201992H119.911015c-55.557998 0-100.761996 45.177998-100.761996 100.736996v556.768978C19.150019 978.820002 64.353017 1024 119.911015 1024H904.429985c55.558998 0 100.749996-45.178998 100.749996-100.736996v-556.769978c-0.001-55.557998-45.190998-100.735996-100.749996-100.735996z m51.082998 657.505974c0 28.154999-22.916999 51.070998-51.083998 51.070998H119.910015c-28.179999 0-51.095998-22.915999-51.095998-51.070998v-556.769978c0-28.153999 22.916999-51.069998 51.095998-51.069998h784.51797c28.166999 0 51.083998 22.915999 51.083998 51.069998v556.769978z"
         fill={getIconColor(color, 0, '#333333')}
       />
-      <Path
+      <path
         d="M695.545993 626.290016L394.863005 452.680022a24.942999 24.942999 0 0 0-24.831999 0 24.828999 24.828999 0 0 0-12.417 21.509999v347.196987c0 8.875 4.73 17.071999 12.417 21.509999a24.916999 24.916999 0 0 0 12.416999 3.322c4.292 0 8.573-1.115 12.416-3.322L695.545993 669.310014a24.828999 24.828999 0 0 0 12.416999-21.509999c0-8.876-4.729-17.072999-12.416999-21.509999zM407.280004 778.36701V517.21002l226.184991 130.589995L407.280004 778.36501z"
         fill={getIconColor(color, 1, '#333333')}
       />
-    </Svg>
+    </svg>
   );
 };
 
 KqZhibo.defaultProps = {
   size: 18,
 };
-
-KqZhibo = React.memo ? React.memo(KqZhibo) : KqZhibo;
 
 export default KqZhibo;
