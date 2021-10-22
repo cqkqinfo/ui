@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, ViewProps } from 'remax/one';
-import { ViewProps as WechatViewProps } from 'remax/wechat';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
@@ -11,21 +10,17 @@ import 'array-flat-polyfill';
 
 export interface Props
   extends Pick<
-      ViewProps,
-      | 'style'
-      | 'onTap'
-      | 'className'
-      | 'id'
-      | 'onTouchStart'
-      | 'onTouchMove'
-      | 'onTouchEnd'
-      | 'onTouchCancel'
-      | 'onLongTap'
-    >,
-    Pick<
-      WechatViewProps,
-      'onAnimationIteration' | 'onAnimationStart' | 'onAnimationEnd'
-    > {
+    ViewProps,
+    | 'style'
+    | 'onTap'
+    | 'className'
+    | 'id'
+    | 'onTouchStart'
+    | 'onTouchMove'
+    | 'onTouchEnd'
+    | 'onTouchCancel'
+    | 'onLongTap'
+  > {
   /**
    * 是否垂直
    * @default false
@@ -76,7 +71,7 @@ export interface Props
   /**
    * 由createAnimation创建的动画对象
    */
-  animation?: WechatMiniprogram.Animation;
+  animation?: any;
 }
 
 export default ({
