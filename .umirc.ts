@@ -16,7 +16,7 @@ export default defineConfig({
   },
   base: '/ui/',
   publicPath: '/ui/',
-  navs: [null, { title: 'GitHub', path: 'https://github.com/cqkqinfo/ui' }],
+  navs: [null, { title: 'GitHub', path: 'https://github.com/cqkqinfo/ui' }, { title: 'RN模版', path: 'https://github.com/cqkqinfo/remax-react-native-template.git' }],
   extraBabelPlugins: [
     [
       'babel-plugin-import',
