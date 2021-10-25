@@ -82,6 +82,7 @@
     "dayjs": "^1.x",
     "react": "^16.x",
     "react-dom": "^16.x",
+    "react-native-web": "^0.17.5",
     "remax": "^2.x"
   },
   "devDependencies": {
