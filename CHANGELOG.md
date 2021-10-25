@@ -1,3 +1,9 @@
+## [1.8.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.5...v1.8.6) (2021-10-25)
+
+### Bug Fixes
+
+- rn button 宽度始终 100% ([5a8ac61](https://gitlab2.cqkqinfo.com/web/ui/commit/5a8ac61cee2f301345ca3d0f16999b2fd582184a))
+
 ## [1.8.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.4...v1.8.5) (2021-10-22)
 
 ### Bug Fixes
