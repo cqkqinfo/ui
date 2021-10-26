@@ -121,7 +121,17 @@ export default ({
       wrap={Field as any}
       wrapProps={{ rules, name, ...props }}
     >
-      {node}
+      {node instanceof Function
+        ? (...arg: any) => {
+            const result = (node as any)(...arg);
+            return React.isValidElement(result)
+              ? React.cloneElement(result, {
+                  ...(result as any).props,
+                  ...props,
+                })
+              : result;
+          }
+        : node}
     </NeedWrap>
   );
   return (
