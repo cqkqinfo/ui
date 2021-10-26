@@ -194,6 +194,9 @@ export default () => {
                     }
                   : {}
               }
+              onChange={() => {
+                sheetRef.current?.setVisible(false);
+              }}
               renderDot={(day, index) =>
                 dayjs()
                   .add(3, 'day')
