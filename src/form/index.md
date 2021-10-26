@@ -87,7 +87,7 @@ export default () => {
 ### 多个 Form 统一管理
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Space,
   Form,
@@ -96,7 +96,7 @@ import {
   PartTitle,
   Shadow,
   Icon,
-  addressOptions,
+  getAddressOptions,
   Page,
   Picker,
   TransferChange,
@@ -104,6 +104,10 @@ import {
 
 export default () => {
   const [form] = Form.useForm();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <Form form={form} onFinish={console.log}>
       <Space vertical size={'10px'}>
@@ -165,7 +169,7 @@ import {
   PartTitle,
   Shadow,
   Icon,
-  addressOptions,
+  getAddressOptions,
   Loading,
   Page,
   Picker,
@@ -175,6 +179,10 @@ import {
 export default () => {
   const [form] = Form.useForm();
   const [values, setValues] = useState<any>();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       setValues({
@@ -254,7 +262,7 @@ import {
   PartTitle,
   Shadow,
   Icon,
-  addressOptions,
+  getAddressOptions,
   Loading,
   Page,
   Picker,
@@ -264,6 +272,10 @@ import {
 export default () => {
   const [form] = Form.useForm();
   const [values, setValues] = useState<any>();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       setValues({

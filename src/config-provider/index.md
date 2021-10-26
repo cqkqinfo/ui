@@ -12,7 +12,7 @@ group:
 全局配置
 
 ```tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ConfigProvider,
   Space,
@@ -21,15 +21,19 @@ import {
   Shadow,
   Form,
   FormItem,
-  addressOptions,
   Picker,
   Icon,
   ReTextarea,
+  getAddressOptions,
 } from '@kqinfo/ui';
 import { Image } from 'remax/one';
 
 export default () => {
   const [form] = Form.useForm();
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <Space vertical size={'10px'} alignItems={'flex-start'}>
       <PartTitle>主题色</PartTitle>
