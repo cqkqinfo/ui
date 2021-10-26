@@ -37,12 +37,14 @@ cities.forEach((city: CascaderOptionType) => {
   }
 });
 
-export const options: CascaderOptionType[] = provinces.map(
-  (province: CascaderOptionType) => ({
-    label: province.name,
-    value: province.code,
-    children: province.children,
-  }),
+export const options: CascaderOptionType[] = JSON.parse(
+  JSON.stringify(
+    provinces.map((province: CascaderOptionType) => ({
+      label: province.name,
+      value: province.code,
+      children: province.children,
+    })),
+  ),
 );
 
 export default options as PickerData[];

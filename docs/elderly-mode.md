@@ -10,7 +10,7 @@ sidemenu: false
 配置[ConfigProvider](/components/config/config-provider)，整个布局将更适合老年人使用，已经支持部分组件
 
 ```tsx
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   ReInput,
   Space,
@@ -30,7 +30,7 @@ import {
   Radio,
   Search,
   Switch,
-  addressOptions,
+  getAddressOptions,
   AffirmSheet,
 } from '@kqinfo/ui';
 import { SheetInstance } from '@kqinfo/ui/es/sheet';
@@ -40,6 +40,10 @@ export default () => {
   const [form] = Form.useForm();
   const sheetRef = useRef<SheetInstance>(null);
   const [elderly, setElderly] = useState(true);
+  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  useEffect(() => {
+    getAddressOptions().then(options => setAddressOptions(options));
+  }, []);
   return (
     <ConfigProvider elderly={elderly}>
       <AffirmSheet />
