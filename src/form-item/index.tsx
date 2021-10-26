@@ -196,7 +196,7 @@ export default ({
                   vertical && styles.vertical,
                 )}
                 style={{
-                  borderBottom: (props as any)['__isLast'] ? 0 : undefined,
+                  borderBottom: (props as any)['data-is-last'] ? 0 : undefined,
                   ...itemStyle,
                   ...style,
                 }}
