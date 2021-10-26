@@ -1,3 +1,14 @@
+## [1.8.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.9...v1.8.11) (2021-10-26)
+
+### Bug Fixes
+
+- web 端 space 未知 prop 报错 ([668631d](https://gitlab2.cqkqinfo.com/web/ui/commit/668631d5b8ebc6909d49b26ac10a6afcd353ef49))
+- 不能安装 ([4d5d7d0](https://gitlab2.cqkqinfo.com/web/ui/commit/4d5d7d0b3e00b0794605046fc83c3e7b51bd0e42))
+
+### Features
+
+- 日历添加 style 属性 ([9eab7db](https://gitlab2.cqkqinfo.com/web/ui/commit/9eab7dba9ffc3fb9df7b1e4deef2b5045cbfb88d))
+
 ## [1.8.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.9...v1.8.10) (2021-10-26)
 
 ### Bug Fixes
