@@ -40,7 +40,7 @@ export default () => (
           showToast({ title: '成功' });
         })
       }
-      type={'priary'}
+      type={'primary'}
     >
       显示弹窗，正确验证码123
     </Button>

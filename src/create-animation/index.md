@@ -42,7 +42,7 @@ export default () => {
             .translateX((Math.random() * 1000) % 300)
             .opacity(Math.random());
         }}
-        type={'priary'}
+        type={'primary'}
       >
         位移
       </Button>

@@ -30,7 +30,7 @@ export default () => (
       onTap={() => {
         console.log(getAccountInfoSync());
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取描述信息
     </Button>

@@ -20,7 +20,7 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Button
       onTap={() => showModal({ title: '提示', content: '内容' })}
-      type={'priary'}
+      type={'primary'}
     >
       显示
     </Button>

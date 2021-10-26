@@ -31,7 +31,7 @@ export default () => (
           .then(({ name, no }) => console.log({ name, no }))
           .catch(() => showToast({ icon: 'none', title: '暂不能演示' }));
       }}
-      type={'priary'}
+      type={'primary'}
     >
       身份证识别
     </Button>

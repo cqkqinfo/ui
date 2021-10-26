@@ -28,7 +28,7 @@ export default () => (
       onTap={() => {
         setStorageSync('date', new Date().toString());
       }}
-      type={'priary'}
+      type={'primary'}
     >
       设置数据
     </Button>

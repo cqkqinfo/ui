@@ -28,7 +28,7 @@ export default () => (
       onTap={() => {
         removeStorageSync('date');
       }}
-      type={'priary'}
+      type={'primary'}
     >
       移除数据
     </Button>

@@ -22,7 +22,7 @@ export default () => (
       onTap={() => {
         selectFiles({}).then(data => alert(data[0].name));
       }}
-      type={'priary'}
+      type={'primary'}
     >
       选择文件
     </Button>

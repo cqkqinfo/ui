@@ -18,7 +18,7 @@ import { showToast, Button, Space, PartTitle } from '@kqinfo/ui';
 export default () => (
   <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>一般用法</PartTitle>
-    <Button onTap={() => showToast({ title: '显示成功' })} type={'priary'}>
+    <Button onTap={() => showToast({ title: '显示成功' })} type={'primary'}>
       显示
     </Button>
   </Space>

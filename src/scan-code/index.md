@@ -22,7 +22,7 @@ export default () => (
       onTap={() => {
         scanCode().then(data => alert(JSON.stringify(data)));
       }}
-      type={'priary'}
+      type={'primary'}
     >
       开始扫描
     </Button>
