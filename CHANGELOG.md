@@ -1,3 +1,16 @@
+## [1.8.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.8...v1.8.9) (2021-10-26)
+
+### Bug Fixes
+
+- 微信端不能上传图片 ([32a6ddc](https://gitlab2.cqkqinfo.com/web/ui/commit/32a6ddcc7e761cd963c32f5f6d8a00316b61a988))
+- 校验错误字体颜色不变红 ([44d401f](https://gitlab2.cqkqinfo.com/web/ui/commit/44d401ffa208f6dcb64f871e27064084b41d8fc2))
+- 表单项最后一个会有下边框 ([f0b8c7d](https://gitlab2.cqkqinfo.com/web/ui/commit/f0b8c7d3d5aa7bea6ad44e10ef862f7398f83710))
+
+### Features
+
+- 搜索组件适老化图标更改 ([5a33fb8](https://gitlab2.cqkqinfo.com/web/ui/commit/5a33fb86cfaa86f8c6a204df1c05d6d4720df066))
+- 添加图标 ([ea22ef8](https://gitlab2.cqkqinfo.com/web/ui/commit/ea22ef8bb22a369b670a40142e63ee8e033fdf2e))
+
 ## [1.8.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.7...v1.8.8) (2021-10-26)
 
 ### Bug Fixes
