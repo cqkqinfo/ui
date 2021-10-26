@@ -10,6 +10,7 @@
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
+    "postinstall": "patch-package",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "icon": "iconfont-h5 --config iconfont.web.json && iconfont-remax --config iconfont.other.json && iconfont-rn --config iconfont.json",
