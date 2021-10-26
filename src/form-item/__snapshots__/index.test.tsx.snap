@@ -13,6 +13,7 @@ exports[`表单项 渲染 1`] = `
       >
         <div
           class=""
+          data-is-last="false"
           initialvalue="1"
         >
           <div>
@@ -84,6 +85,8 @@ exports[`表单项 渲染 1`] = `
         </div>
         <div
           class=""
+          data-is-last="true"
+          style="border-bottom: 0;"
         >
           <div>
             <div
