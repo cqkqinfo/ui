@@ -86,6 +86,7 @@ export interface Props {
    * 适老模式，开启后尺寸会变大
    */
   elderly?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default ({
@@ -107,6 +108,7 @@ export default ({
   elderly = useConfig().elderly,
   renderItemProps,
   dotCls,
+  ...props
 }: Props) => {
   const [selected, setSelected] = useEffectState(
     useMemo(() => current || dayjs(), [current]),
@@ -136,6 +138,7 @@ export default ({
         className,
         elderly && styles.elderly,
       )}
+      {...props}
     >
       {weeks.map((item, index) => (
         <View
