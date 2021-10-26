@@ -27,16 +27,6 @@
   }
 }
 
-.error {
-  color: #ed4e56;
-  //.children {
-  //  color: #ed4e56 !important;
-  //}
-  //.label {
-  //  color: #ed4e56;
-  //}
-}
-
 .children {
   color: #666;
   flex: 1;
@@ -106,6 +96,23 @@
   display: inline-block;
   position: absolute;
   left: -0.5em;
+}
+
+.error {
+  color: #ed4e56;
+  .label {
+    color: #ed4e56;
+  }
+  .children {
+    color: #ed4e56;
+  }
+  input,
+  textarea {
+    color: #ed4e56;
+    &::placeholder {
+      color: #ed4e56;
+    }
+  }
 }
 
 .elderly {
