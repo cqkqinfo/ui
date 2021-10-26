@@ -48,7 +48,7 @@ Component({
         () => {
           this.triggerEvent('change', value);
         },
-        1000,
+        500,
       );
     },
   },
