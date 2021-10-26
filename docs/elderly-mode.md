@@ -181,6 +181,7 @@ export default () => {
             </Space>
             {/*设置listEndDay会变为列表模式*/}
             <Calendar
+              style={{ flex: 1, overflow: 'auto' }}
               listEndDay={dayjs().add(8, 'month')}
               renderItemProps={(day, index) =>
                 dayjs()
