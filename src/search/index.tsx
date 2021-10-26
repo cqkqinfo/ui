@@ -87,7 +87,11 @@ export default ({
         className={classNames(styles.inputWrap, inputWrapCls)}
         style={inputWrapStyle}
       >
-        <Icon className={styles.icon} color={iconColor} name={'kq-search'} />
+        <Icon
+          className={styles.icon}
+          color={iconColor}
+          name={elderly ? 'kq-sousuo' : 'kq-search'}
+        />
         <Input
           className={classNames(styles.input, inputCls)}
           placeholderStyle={{ color: '#999999' }}
