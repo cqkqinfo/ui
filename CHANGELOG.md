@@ -1,3 +1,23 @@
+## [1.8.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.6...v1.8.7) (2021-10-26)
+
+### Bug Fixes
+
+- action button 太宽 ([6e3eb4d](https://gitlab2.cqkqinfo.com/web/ui/commit/6e3eb4d2ed124b577199884f8d918dd64ed22a13))
+- 一开始会触发 change 事件 ([36375dc](https://gitlab2.cqkqinfo.com/web/ui/commit/36375dc3c1124fe43315c4f9af468dba21d3432e))
+- 名称过长时磁贴图片被挤压 ([6158e8e](https://gitlab2.cqkqinfo.com/web/ui/commit/6158e8e731336f56f4db18abcc4712af82bfbd00))
+- 搜索清除按钮会挡住一部分宽度 ([6a142f1](https://gitlab2.cqkqinfo.com/web/ui/commit/6a142f1521471b3025d72dd5f377b01f395cd4cf))
+- 搜索组件获取值不及时 ([8004d34](https://gitlab2.cqkqinfo.com/web/ui/commit/8004d3403df32029e522d6d083debfee64415ce7))
+- 适老模式错误不显示红色 ([e340c8e](https://gitlab2.cqkqinfo.com/web/ui/commit/e340c8ef2a684987dd6210bcbb4f1924066ccf8e))
+
+### Features
+
+- 上传图片支持显示 loading 状态 ([e986a62](https://gitlab2.cqkqinfo.com/web/ui/commit/e986a625420caabf35c2c8dbfc10839bc7644a5f))
+- 日历头部可以固定定位 ([1b5cf95](https://gitlab2.cqkqinfo.com/web/ui/commit/1b5cf958b9ef0028b58a48e5b75b1ce2e1880e2a))
+
+### Performance Improvements
+
+- 优化 textarea 性能 ([00d64b4](https://gitlab2.cqkqinfo.com/web/ui/commit/00d64b4dfd5b5269a977c2b66faa2d7e9c112590))
+
 ## [1.8.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.5...v1.8.6) (2021-10-25)
 
 ### Bug Fixes
