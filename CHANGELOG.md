@@ -1,3 +1,9 @@
+## [1.8.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.7...v1.8.8) (2021-10-26)
+
+### Bug Fixes
+
+- web 端打包失败 ([4b90dbc](https://gitlab2.cqkqinfo.com/web/ui/commit/4b90dbcddeea8888cb6afdb47dfe7671d676e491))
+
 ## [1.8.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.6...v1.8.7) (2021-10-26)
 
 ### Bug Fixes
