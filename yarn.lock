@@ -14500,8 +14500,8 @@ react-native-swipeout@^2.2.2:
 
 react-native-web@^0.17.5:
   version "0.17.5"
-  resolved "https://registry.npmmirror.com/react-native-web/download/react-native-web-0.17.5.tgz#2c27452b4654fb098c3c412cb04c379add1015a6"
-  integrity sha1-LCdFK0ZU+wmMPEEssEw3mt0QFaY=
+  resolved "https://registry.npmjs.org/react-native-web/-/react-native-web-0.17.5.tgz#2c27452b4654fb098c3c412cb04c379add1015a6"
+  integrity sha512-pdieIZi2/YeVTaOuIaeaLC6FMkk8h3pvPNruedH+6cWiE15Oz6BGjJ+5IafdXEyiipb1Y0+QuecW81fa3DVM4g==
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.7.0"
