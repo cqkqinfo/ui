@@ -1,8 +1,8 @@
 import { View, Text, Image } from '@remax/one';
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.less';
-import { selectFiles } from 'parsec-hooks';
+import { selectFiles, useRefState, useStateRef } from 'parsec-hooks';
 import Icon from '../icon';
 import previewImage from '../preview-image';
 
@@ -59,34 +59,45 @@ export default ({
   value = [],
   onChange,
 }: Props) => {
+  const [loadingArr, setLoadingArr, loadingArrRef] = useRefState<string[]>([]);
+  const valueRef = useStateRef(value);
   return (
     <View className={classNames(styles.uploadImg)}>
-      {value.map((item, index) => (
-        <View className={classNames(styles.uploadImgItem)} key={index}>
-          <Image
-            className={classNames(styles.uploadImgItemImage)}
-            src={item}
-            onTap={() => {
-              previewImage({ urls: value, current: item });
-            }}
-          />
-          <Icon
-            className={classNames(styles.uploadImgItemDelete)}
-            name="kq-clear2"
-            color="#EA5328"
-            onTap={() => {
-              const temp = [...value];
-              temp.splice(index, 1);
-              onChange && onChange([...temp]);
-            }}
-          />
-        </View>
-      ))}
-      {value.length < length && (
+      {[...value, ...loadingArr].map((item, index) => {
+        const loading = loadingArr.includes(item);
+        return (
+          <View className={classNames(styles.uploadImgItem)} key={index}>
+            <Image
+              className={classNames(styles.uploadImgItemImage)}
+              src={item}
+              onTap={() => {
+                previewImage({ urls: value, current: item });
+              }}
+            />
+            {loading ? (
+              <View className={styles.loading}>
+                <Icon name={'kq-loading'} color={'#fff'} />
+              </View>
+            ) : (
+              <Icon
+                className={classNames(styles.uploadImgItemDelete)}
+                name="kq-clear2"
+                color="#EA5328"
+                onTap={() => {
+                  const temp = [...value];
+                  temp.splice(index, 1);
+                  onChange && onChange([...temp]);
+                }}
+              />
+            )}
+          </View>
+        );
+      })}
+      {value.length + loadingArr.length < length && (
         <View
           className={classNames(styles.uploadImgIcon)}
           onTap={() => {
-            if (value.length >= length) {
+            if (valueRef.current.length >= length) {
               return;
             }
             selectFiles({
@@ -114,9 +125,19 @@ export default ({
                   } else {
                     tempFile = result;
                   }
+                  const fileUrl =
+                    tempFile instanceof File
+                      ? URL.createObjectURL(tempFile)
+                      : tempFile;
+                  setLoadingArr([...loadingArrRef.current, fileUrl]);
 
                   await uploadFn(tempFile)
                     .then(url => {
+                      loadingArrRef.current.splice(
+                        loadingArrRef.current.findIndex(i => i === fileUrl),
+                        1,
+                      );
+                      setLoadingArr([...loadingArrRef.current]);
                       tempData.push(url);
                     })
                     .catch(onError);
@@ -125,7 +146,7 @@ export default ({
                 }
               }
 
-              const temp = [...value, ...tempData].slice(0, length);
+              const temp = [...valueRef.current, ...tempData].slice(0, length);
               onChange && onChange([...temp]);
             });
           }}

@@ -31,11 +31,15 @@ export default () => {
         multiple
         maxSize={1 * 1024 * 1024}
         onMaxError={() => {
-          showToast({ title: '文件过大' });
+          showToast({ title: '文件过大', icon: 'none' });
         }}
-        uploadFn={async file => {
-          return 'https://z3.ax1x.com/2021/04/12/cBYWwT.png';
-        }}
+        uploadFn={file =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve(URL.createObjectURL(file));
+            }, 10000);
+          })
+        }
         onChange={value => {
           setValue(value);
         }}
