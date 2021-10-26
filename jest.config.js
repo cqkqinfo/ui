@@ -14,6 +14,9 @@ module.exports = {
     ],
   },
   transformIgnorePatterns: ['node_modules/(?!(.*(remax|hex-rgb).*))'],
+  moduleNameMapper: {
+    '^react-native$': 'react-native-web',
+  },
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/example/',
