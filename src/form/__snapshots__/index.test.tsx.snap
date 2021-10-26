@@ -4,27 +4,25 @@ exports[`表单 card模式 1`] = `
 <body>
   <div>
     <div
-      class="space vertical"
+      class=""
       style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
-        class="space vertical"
+        class=""
         style="line-height: 1;"
       >
         <div
-          class="item card"
+          class=""
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 0;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -39,17 +37,17 @@ exports[`表单 card模式 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -63,25 +61,23 @@ exports[`表单 card模式 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
         <div
-          class="item card"
+          class=""
           style="border-bottom: 0;"
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 1;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -101,17 +97,17 @@ exports[`表单 card模式 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -125,7 +121,7 @@ exports[`表单 card模式 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
@@ -139,27 +135,25 @@ exports[`表单 cell模式 1`] = `
 <body>
   <div>
     <div
-      class="space vertical"
+      class=""
       style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
-        class="space vertical"
+        class=""
         style="line-height: 1;"
       >
         <div
-          class="item cell"
+          class=""
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 0;"
             >
               *
             </div>
             <div
-              class="label cell-label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -175,11 +169,11 @@ exports[`表单 cell模式 1`] = `
             </div>
           </div>
           <div
-            class="children cell-children"
+            class=""
             style="justify-content: flex-end;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -193,25 +187,23 @@ exports[`表单 cell模式 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
         <div
-          class="item cell"
+          class=""
           style="border-bottom: 0;"
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 1;"
             >
               *
             </div>
             <div
-              class="label cell-label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -232,11 +224,11 @@ exports[`表单 cell模式 1`] = `
             </div>
           </div>
           <div
-            class="children cell-children"
+            class=""
             style="justify-content: flex-end;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -250,7 +242,7 @@ exports[`表单 cell模式 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
@@ -264,27 +256,25 @@ exports[`表单 两端对齐 1`] = `
 <body>
   <div>
     <div
-      class="space vertical"
+      class=""
       style="line-height: 1; align-self: stretch;"
     >
       <div
-        class="space vertical"
+        class=""
         style="line-height: 1;"
       >
         <div
-          class="item"
+          class=""
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 0;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="width: 3em; justify-content: space-between;"
             >
               <div
@@ -299,17 +289,17 @@ exports[`表单 两端对齐 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -323,25 +313,23 @@ exports[`表单 两端对齐 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
         <div
-          class="item"
+          class=""
           style="border-bottom: 0;"
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 1;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="width: 3em; justify-content: space-between;"
             >
               <div
@@ -361,17 +349,17 @@ exports[`表单 两端对齐 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -385,7 +373,7 @@ exports[`表单 两端对齐 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
@@ -399,27 +387,25 @@ exports[`表单 渲染 1`] = `
 <body>
   <div>
     <div
-      class="space vertical"
+      class=""
       style="line-height: 1; align-self: stretch;"
     >
       <div
-        class="space vertical"
+        class=""
         style="line-height: 1;"
       >
         <div
-          class="item"
+          class=""
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 0;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -434,17 +420,17 @@ exports[`表单 渲染 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -458,25 +444,23 @@ exports[`表单 渲染 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>
         <div
-          class="item"
+          class=""
           style="border-bottom: 0;"
         >
-          <div
-            class="labelWrap"
-          >
+          <div>
             <div
-              class="mark"
+              class=""
               style="opacity: 1;"
             >
               *
             </div>
             <div
-              class="label"
+              class=""
               style="justify-content: flex-end;"
             >
               <div
@@ -496,17 +480,17 @@ exports[`表单 渲染 1`] = `
               </div>
             </div>
             <div
-              class="colon"
+              class=""
             >
               :
             </div>
           </div>
           <div
-            class="children cell-children-left"
+            class=""
             style="justify-content: flex-start;"
           >
             <input
-              class="web input"
+              class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -520,7 +504,7 @@ exports[`表单 渲染 1`] = `
             />
           </div>
           <div
-            class="after"
+            class=""
             style="display: none;"
           />
         </div>

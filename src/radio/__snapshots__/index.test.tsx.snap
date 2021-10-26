@@ -4,74 +4,74 @@ exports[`radio 渲染 1`] = `
 <body>
   <div>
     <div
-      class="group"
+      class=""
     >
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         西瓜
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         香蕉
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         苹果
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         桔子
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         芒果
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         甘蔗
       </div>
       <div
-        class="container radio"
+        class=""
         style="background: none;"
       >
         <div
-          class="dot"
+          class=""
           style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
         />
         火龙果
