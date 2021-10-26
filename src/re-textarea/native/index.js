@@ -43,13 +43,16 @@ Component({
   },
   observers: {
     value: function(value) {
-      throttle(
-        this.data.myId,
-        () => {
-          this.triggerEvent('change', value);
-        },
-        500,
-      );
+      if (this.data.changed || value) {
+        this.setData({ changed: true });
+        throttle(
+          this.data.myId,
+          () => {
+            this.triggerEvent('change', value);
+          },
+          500,
+        );
+      }
     },
   },
   lifetimes: {
