@@ -30,6 +30,11 @@
   color: #9a9a9a;
   font-weight: normal;
   margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 0;
 }
 
 .disable {
@@ -69,6 +74,7 @@
 .month {
   width: 750px;
   height: 60px;
+  z-index: 1;
   display: flex;
   align-items: center;
   font-size: 30px;
@@ -77,9 +83,15 @@
   padding: 0 20px;
   background-color: #eee;
   margin-bottom: 20px;
+  position: sticky;
+  top: 75px;
 }
 
 .elderly {
+  .month {
+    margin-bottom: 0;
+    top: 126px;
+  }
   .item {
     width: 107px;
     height: 126px;
