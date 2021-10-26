@@ -53,7 +53,7 @@ export default ({
 }: Props) => {
   return (
     <Space
-      justify="center"
+      justify={subtitle ? undefined : 'center'}
       alignItems="center"
       className={classNames(styles.tile, size && styles[size])}
       flex={1}
