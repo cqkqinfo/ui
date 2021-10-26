@@ -69,7 +69,10 @@ export default ({
         handleChange('');
         props.onConfirm?.('');
       }}
-      style={{ opacity: value2 ? 1 : 0 }}
+      style={{
+        opacity: value2 ? 1 : 0,
+        position: value2 ? undefined : 'absolute',
+      }}
       className={styles.clear}
     >
       <Icon name={'kq-clear2'} color={iconColor} />
