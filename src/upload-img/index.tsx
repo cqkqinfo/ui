@@ -5,6 +5,7 @@ import styles from './index.module.less';
 import { selectFiles, useRefState, useStateRef } from 'parsec-hooks';
 import Icon from '../icon';
 import previewImage from '../preview-image';
+import getPlatform from '../get-platform';
 
 interface Props {
   /**
@@ -125,8 +126,8 @@ export default ({
                   } else {
                     tempFile = result;
                   }
-                  const fileUrl =
-                    tempFile instanceof File
+                  const fileUrl: any =
+                    getPlatform === 'web' && tempFile instanceof File
                       ? URL.createObjectURL(tempFile)
                       : tempFile;
                   setLoadingArr([...loadingArrRef.current, fileUrl]);
@@ -142,6 +143,7 @@ export default ({
                     })
                     .catch(onError);
                 } catch (e) {
+                  console.log(e);
                   onError && onError('beforeUpload');
                 }
               }
@@ -158,7 +160,7 @@ export default ({
           />
         </View>
       )}
-      {!value?.length && (
+      {!(value?.length + loadingArr.length) && (
         <View className={classNames(styles.promptText)}>
           <Text className={classNames(styles.promptText1)}>添加图片</Text>
           <Text className={classNames(styles.promptText2)}>
