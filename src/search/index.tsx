@@ -91,7 +91,10 @@ export default ({
         <Input
           className={classNames(styles.input, inputCls)}
           placeholderStyle={{ color: '#999999' }}
-          onChange={handleChange}
+          onChange={v => {
+            setValue(v);
+            handleChange(v);
+          }}
           value={value2}
           confirmType={'search'}
           {...props}
