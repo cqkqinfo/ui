@@ -28,7 +28,7 @@ export default () => (
       onTap={() => {
         getStorageSync('date');
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取数据
     </Button>

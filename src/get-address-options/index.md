@@ -22,7 +22,7 @@ export default () => (
       onTap={() => {
         getAddressOptions().then(v => alert(JSON.stringify(v)));
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取
     </Button>

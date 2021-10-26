@@ -22,7 +22,7 @@ export default () => (
       onTap={() => {
         console.log(getVersion);
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取版本号
     </Button>

@@ -42,7 +42,7 @@ export default () => (
           }),
         );
       }}
-      type={'priary'}
+      type={'primary'}
     >
       上传
     </Button>

@@ -28,7 +28,7 @@ export default () => (
       onTap={() => {
         clearStorageSync();
       }}
-      type={'priary'}
+      type={'primary'}
     >
       清除数据
     </Button>

@@ -30,7 +30,7 @@ export default () => (
           showToast({ title: '设置成功' }),
         );
       }}
-      type={'priary'}
+      type={'primary'}
     >
       设置剪切板
     </Button>

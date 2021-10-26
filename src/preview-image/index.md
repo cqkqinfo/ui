@@ -29,7 +29,7 @@ export default () => (
           ],
         })
       }
-      type={'priary'}
+      type={'primary'}
     >
       显示
     </Button>

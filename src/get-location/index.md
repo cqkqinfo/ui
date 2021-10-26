@@ -31,7 +31,7 @@ export default () => (
           showModal({ title: '成功', content: JSON.stringify(v) }),
         );
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取位置
     </Button>

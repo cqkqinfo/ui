@@ -20,7 +20,7 @@ export default () => (
     <PartTitle>一般用法</PartTitle>
     <Button
       onTap={() => chooseImage().then(data => alert(JSON.stringify(data)))}
-      type={'priary'}
+      type={'primary'}
     >
       选择
     </Button>

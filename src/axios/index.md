@@ -28,7 +28,7 @@ export default () => (
           .get('/components/utils/axios')
           .then(v => alert(JSON.stringify(v)));
       }}
-      type={'priary'}
+      type={'primary'}
     >
       网络请求
     </Button>

@@ -22,7 +22,7 @@ export default () => (
       onTap={() => {
         console.log(getPlatform);
       }}
-      type={'priary'}
+      type={'primary'}
     >
       获取平台
     </Button>

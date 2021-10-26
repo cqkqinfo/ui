@@ -23,7 +23,7 @@ export default () => (
         showLoading({ title: '加载中...' });
         setTimeout(hideLoading, 3000);
       }}
-      type={'priary'}
+      type={'primary'}
     >
       显示
     </Button>
