@@ -57,7 +57,7 @@ export default () => {
               background: elderly ? '#fff' : undefined,
               color: elderly ? '#2780D9' : '#fff',
             }}
-            placeholder={'请输入搜索内容'}
+            placeholder={'请输入医生或者科室名称查询'}
           />
         </Space>
         <Menu
