@@ -7,6 +7,7 @@ import Iconfont_wechat from './wechat/wechat';
 
 interface Props {
   name:
+    | 'kq-sousuo'
     | 'kq-zhengque'
     | 'kq-fenge'
     | 'kq-tag'

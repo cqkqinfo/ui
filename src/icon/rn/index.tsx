@@ -4,6 +4,7 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 import { GProps } from 'react-native-svg';
+import KqSousuo from './KqSousuo';
 import KqZhengque from './KqZhengque';
 import KqFenge from './KqFenge';
 import KqTag from './KqTag';
@@ -58,6 +59,7 @@ import KqSearch from './KqSearch';
 import KqDown from './KqDown';
 import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
+export { default as KqSousuo } from './KqSousuo';
 export { default as KqZhengque } from './KqZhengque';
 export { default as KqFenge } from './KqFenge';
 export { default as KqTag } from './KqTag';
@@ -114,6 +116,7 @@ export { default as KqLoading2 } from './KqLoading2';
 export { default as KqLoading } from './KqLoading';
 
 export type IconNames =
+  | 'kq-sousuo'
   | 'kq-zhengque'
   | 'kq-fenge'
   | 'kq-tag'
@@ -177,114 +180,116 @@ interface Props extends GProps, ViewProps {
 
 let IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-sousuo':
+      return <KqSousuo key="1" {...rest} />;
     case 'kq-zhengque':
-      return <KqZhengque key="1" {...rest} />;
+      return <KqZhengque key="2" {...rest} />;
     case 'kq-fenge':
-      return <KqFenge key="2" {...rest} />;
+      return <KqFenge key="3" {...rest} />;
     case 'kq-tag':
-      return <KqTag key="3" {...rest} />;
+      return <KqTag key="4" {...rest} />;
     case 'kq-shouye':
-      return <KqShouye key="4" {...rest} />;
+      return <KqShouye key="5" {...rest} />;
     case 'kq-caidan':
-      return <KqCaidan key="5" {...rest} />;
+      return <KqCaidan key="6" {...rest} />;
     case 'kq-zanting':
-      return <KqZanting key="6" {...rest} />;
+      return <KqZanting key="7" {...rest} />;
     case 'kq-bofang':
-      return <KqBofang key="7" {...rest} />;
+      return <KqBofang key="8" {...rest} />;
     case 'kq-zhibozhong':
-      return <KqZhibozhong key="8" {...rest} />;
+      return <KqZhibozhong key="9" {...rest} />;
     case 'kq-shoucang1':
-      return <KqShoucang1 key="9" {...rest} />;
+      return <KqShoucang1 key="10" {...rest} />;
     case 'kq-zan1':
-      return <KqZan1 key="10" {...rest} />;
+      return <KqZan1 key="11" {...rest} />;
     case 'kq-shijian':
-      return <KqShijian key="11" {...rest} />;
+      return <KqShijian key="12" {...rest} />;
     case 'kq-zhuanlan':
-      return <KqZhuanlan key="12" {...rest} />;
+      return <KqZhuanlan key="13" {...rest} />;
     case 'kq-zhizhen':
-      return <KqZhizhen key="13" {...rest} />;
+      return <KqZhizhen key="14" {...rest} />;
     case 'kq-time':
-      return <KqTime key="14" {...rest} />;
+      return <KqTime key="15" {...rest} />;
     case 'kq-bukanjian':
-      return <KqBukanjian key="15" {...rest} />;
+      return <KqBukanjian key="16" {...rest} />;
     case 'kq-kanjian':
-      return <KqKanjian key="16" {...rest} />;
+      return <KqKanjian key="17" {...rest} />;
     case 'kq-jiankang':
-      return <KqJiankang key="17" {...rest} />;
+      return <KqJiankang key="18" {...rest} />;
     case 'kq-rili':
-      return <KqRili key="18" {...rest} />;
+      return <KqRili key="19" {...rest} />;
     case 'kq-zhibo':
-      return <KqZhibo key="19" {...rest} />;
+      return <KqZhibo key="20" {...rest} />;
     case 'kq-chuangzuo':
-      return <KqChuangzuo key="20" {...rest} />;
+      return <KqChuangzuo key="21" {...rest} />;
     case 'kq-yisheng':
-      return <KqYisheng key="21" {...rest} />;
+      return <KqYisheng key="22" {...rest} />;
     case 'kq-weixin':
-      return <KqWeixin key="22" {...rest} />;
+      return <KqWeixin key="23" {...rest} />;
     case 'kq-eye':
-      return <KqEye key="23" {...rest} />;
+      return <KqEye key="24" {...rest} />;
     case 'kq-zan':
-      return <KqZan key="24" {...rest} />;
+      return <KqZan key="25" {...rest} />;
     case 'kq-shoucang':
-      return <KqShoucang key="25" {...rest} />;
+      return <KqShoucang key="26" {...rest} />;
     case 'kq-shuaxin':
-      return <KqShuaxin key="26" {...rest} />;
+      return <KqShuaxin key="27" {...rest} />;
     case 'kq-tongzhi':
-      return <KqTongzhi key="27" {...rest} />;
+      return <KqTongzhi key="28" {...rest} />;
     case 'kq-home':
-      return <KqHome key="28" {...rest} />;
+      return <KqHome key="29" {...rest} />;
     case 'kq-yiyuan':
-      return <KqYiyuan key="29" {...rest} />;
+      return <KqYiyuan key="30" {...rest} />;
     case 'kq-keshi':
-      return <KqKeshi key="30" {...rest} />;
+      return <KqKeshi key="31" {...rest} />;
     case 'kq-mobile':
-      return <KqMobile key="31" {...rest} />;
+      return <KqMobile key="32" {...rest} />;
     case 'kq-left':
-      return <KqLeft key="32" {...rest} />;
+      return <KqLeft key="33" {...rest} />;
     case 'kq-filter':
-      return <KqFilter key="33" {...rest} />;
+      return <KqFilter key="34" {...rest} />;
     case 'kq-jia':
-      return <KqJia key="34" {...rest} />;
+      return <KqJia key="35" {...rest} />;
     case 'kq-album':
-      return <KqAlbum key="35" {...rest} />;
+      return <KqAlbum key="36" {...rest} />;
     case 'kq-biaoqing':
-      return <KqBiaoqing key="36" {...rest} />;
+      return <KqBiaoqing key="37" {...rest} />;
     case 'kq-voice':
-      return <KqVoice key="37" {...rest} />;
+      return <KqVoice key="38" {...rest} />;
     case 'kq-xiangji':
-      return <KqXiangji key="38" {...rest} />;
+      return <KqXiangji key="39" {...rest} />;
     case 'kq-xingxing':
-      return <KqXingxing key="39" {...rest} />;
+      return <KqXingxing key="40" {...rest} />;
     case 'kq-tip':
-      return <KqTip key="40" {...rest} />;
+      return <KqTip key="41" {...rest} />;
     case 'kq-jianshao':
-      return <KqJianshao key="41" {...rest} />;
+      return <KqJianshao key="42" {...rest} />;
     case 'kq-zengjia':
-      return <KqZengjia key="42" {...rest} />;
+      return <KqZengjia key="43" {...rest} />;
     case 'kq-right':
-      return <KqRight key="43" {...rest} />;
+      return <KqRight key="44" {...rest} />;
     case 'kq-home-solid':
-      return <KqHomeSolid key="44" {...rest} />;
+      return <KqHomeSolid key="45" {...rest} />;
     case 'kq-monitor':
-      return <KqMonitor key="45" {...rest} />;
+      return <KqMonitor key="46" {...rest} />;
     case 'kq-notice':
-      return <KqNotice key="46" {...rest} />;
+      return <KqNotice key="47" {...rest} />;
     case 'kq-add':
-      return <KqAdd key="47" {...rest} />;
+      return <KqAdd key="48" {...rest} />;
     case 'kq-clear':
-      return <KqClear key="48" {...rest} />;
+      return <KqClear key="49" {...rest} />;
     case 'kq-clear2':
-      return <KqClear2 key="49" {...rest} />;
+      return <KqClear2 key="50" {...rest} />;
     case 'kq-yes':
-      return <KqYes key="50" {...rest} />;
+      return <KqYes key="51" {...rest} />;
     case 'kq-search':
-      return <KqSearch key="51" {...rest} />;
+      return <KqSearch key="52" {...rest} />;
     case 'kq-down':
-      return <KqDown key="52" {...rest} />;
+      return <KqDown key="53" {...rest} />;
     case 'kq-loading2':
-      return <KqLoading2 key="53" {...rest} />;
+      return <KqLoading2 key="54" {...rest} />;
     case 'kq-loading':
-      return <KqLoading key="54" {...rest} />;
+      return <KqLoading key="55" {...rest} />;
   }
 
   return null;

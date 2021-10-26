@@ -7,6 +7,7 @@ import Iconfont_ali from './ali/ali';
 
 interface Props {
   name:
+    | 'kq-sousuo'
     | 'kq-zhengque'
     | 'kq-fenge'
     | 'kq-tag'
