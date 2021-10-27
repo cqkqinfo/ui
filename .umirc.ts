@@ -26,6 +26,7 @@ export default defineConfig({
         libraryDirectory: 'es',
         style: true,
       },
+      'antd-mobile',
     ],
     [
       'babel-plugin-import',
@@ -38,9 +39,11 @@ export default defineConfig({
     ],
   ],
   extraPostCSSPlugins: [
-    require('postcss-plugin-px2rem')({
-      rootValue: 100,
-      exclude: /(.dumi)|(antd)/,
+    require('postcss-unit-transforms')({
+      multiple: (fileName: string) => {
+        return /(.dumi)|(antd)/.test(fileName) ? 1 : 0.5;
+      },
+      targetUnits: 'px',
     }),
   ],
 });

@@ -1,0 +1,107 @@
+diff --git a/node_modules/dumi-theme-mobile/es/layouts/demo.js b/node_modules/dumi-theme-mobile/es/layouts/demo.js
+index 0f3bcd0..ef58b09 100644
+--- a/node_modules/dumi-theme-mobile/es/layouts/demo.js
++++ b/node_modules/dumi-theme-mobile/es/layouts/demo.js
+@@ -38,7 +38,7 @@ var MobileDemoLayout = function MobileDemoLayout(_ref) {
+   var _ref2$hd$rules = _ref2$hd.rules,
+       rules = _ref2$hd$rules === void 0 ? [{
+     mode: 'vw',
+-    options: [100, 750]
++    options: [100, 400]
+   }] : _ref2$hd$rules;
+   useEffect(function () {
+     // Simulate the touch event of mobile terminal
+diff --git a/node_modules/dumi-theme-mobile/src/components/Device.less b/node_modules/dumi-theme-mobile/src/components/Device.less
+index c5326b6..4327f21 100644
+--- a/node_modules/dumi-theme-mobile/src/components/Device.less
++++ b/node_modules/dumi-theme-mobile/src/components/Device.less
+@@ -1,12 +1,15 @@
+ @import (reference) '../style/variables.less';
+ 
+ .gen-device-style(@scale) {
+-  width: @s-device-width * @scale;
+-  min-width: @s-device-width * @scale;
+-  height: @s-device-width * @scale * @s-device-ratio;
+-  box-shadow: 0 0 0 @s-device-border-width * @scale #090a0d,
+-    0 0 0 @s-device-shell-width * @scale #9fa3a8,
+-    0 4px 20px @s-device-shell-width * @scale rgba(0, 0, 0, 0.1);
++  width: @s-device-width;
++  min-width: @s-device-width;
++  height: @s-device-height;
++  box-shadow: 0 0 0 @s-device-border-width #090a0d,
++    0 0 0 @s-device-shell-width #9fa3a8,
++    0 4px 20px @s-device-shell-width rgba(0, 0, 0, 0.1);
++  transform: scale(@scale);
++  margin-left: @s-content-margin * @scale - (@s-device-width - @s-device-width * @scale);
++  transform-origin: right top;
+ }
+ 
+ .@{prefix}-device {
+@@ -14,20 +17,19 @@
+   top: @s-device-gap-top;
+   display: flex;
+   flex-direction: column;
+-  margin-left: @s-content-margin;
+   width: @s-device-width;
+   min-width: @s-device-width;
+-  height: @s-device-width * @s-device-ratio;
++  height: @s-device-height;
+   border-radius: 32px;
+   overflow: hidden;
+-  .gen-device-style(1);
++  .gen-device-style(.9);
+ 
+   @media only screen and (max-width: 1440px) {
+-    .gen-device-style(0.9);
++    .gen-device-style(0.85);
+   }
+ 
+   @media only screen and (max-width: 1360px) {
+-    .gen-device-style(0.8);
++    .gen-device-style(0.75);
+   }
+ 
+   @media only screen and (max-width: 960px) {
+diff --git a/node_modules/dumi-theme-mobile/src/layouts/demo.tsx b/node_modules/dumi-theme-mobile/src/layouts/demo.tsx
+index c748f1d..4e0aa5c 100644
+--- a/node_modules/dumi-theme-mobile/src/layouts/demo.tsx
++++ b/node_modules/dumi-theme-mobile/src/layouts/demo.tsx
+@@ -16,11 +16,13 @@ const HD_MODES = {
+   vh,
+ };
+ 
++console.log(22);
++
+ const MobileDemoLayout: React.FC<IRouteComponentProps> = ({ children }) => {
+   const { config } = useContext(context);
+   const target = useRef<HTMLDivElement>(null);
+   const {
+-    hd: { rules = [{ mode: 'vw', options: [100, 750] }] } = {},
++    hd: { rules = [{ mode: 'vw', options: [100, 500] }] } = {},
+   } = config.theme as IThemeConfig;
+ 
+   useEffect(() => {
+diff --git a/node_modules/dumi-theme-mobile/src/style/layout.less b/node_modules/dumi-theme-mobile/src/style/layout.less
+index f17b6b0..13c86f8 100644
+--- a/node_modules/dumi-theme-mobile/src/style/layout.less
++++ b/node_modules/dumi-theme-mobile/src/style/layout.less
+@@ -31,6 +31,6 @@
+ 
+ @media only screen and (max-width: 500px) {
+   .@{prefix}-mobile-demo-layout {
+-    padding: 0.16rem;
++    padding: 10px;
+   }
+ }
+diff --git a/node_modules/dumi-theme-mobile/src/style/variables.less b/node_modules/dumi-theme-mobile/src/style/variables.less
+index 95baa3b..fc08453 100644
+--- a/node_modules/dumi-theme-mobile/src/style/variables.less
++++ b/node_modules/dumi-theme-mobile/src/style/variables.less
+@@ -8,5 +8,6 @@
+ @s-device-gap-top: 36px;
+ @s-device-border-width: 14px;
+ @s-device-shell-width: @s-device-border-width + 2px;
+-@s-device-width: 320px;
++@s-device-width: 375px;
++@s-device-height: 755px;
+ @s-device-ratio: 19.5 / 9;
