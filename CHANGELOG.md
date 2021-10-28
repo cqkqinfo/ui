@@ -1,3 +1,13 @@
+## [1.8.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.11...v1.8.12) (2021-10-28)
+
+### Bug Fixes
+
+- 获取城市数据没有返回市、区 ([d243892](https://gitlab2.cqkqinfo.com/web/ui/commit/d2438927752ea2c0096b8dc29346d74ffbe2d3c1))
+
+### Features
+
+- space 支持 ref ([899b950](https://gitlab2.cqkqinfo.com/web/ui/commit/899b950a8a395634991daa6c54597ec7f36ca94f))
+
 ## [1.8.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.9...v1.8.11) (2021-10-26)
 
 ### Bug Fixes
