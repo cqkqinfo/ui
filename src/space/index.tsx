@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
@@ -74,77 +74,85 @@ export interface Props
   animation?: any;
 }
 
-export default ({
-  style,
-  children = [<View />, <View />],
-  size,
-  className,
-  margin,
-  padding,
-  vertical,
-  flexWrap,
-  justify,
-  alignSelf,
-  alignItems,
-  flex,
-  ignoreNum,
-  animation,
-  ...props
-}: Props) => {
-  const filterChildren = (children instanceof Array ? children : [children])
-    .flat(3)
-    ?.map((i: any) =>
-      i?.type?.toString() === 'Symbol(react.fragment)' ? i.props.children : i,
-    )
-    ?.flat(3)
-    ?.filter?.(i => ![undefined, true, false].includes(i));
-  return (
-    <NeedWrap
-      wrap={Animated.View}
-      need={!!animation}
-      wrapProps={animation as any}
-    >
-      <View
-        style={{
-          lineHeight: vertical ? 1 : undefined,
-          flex,
-          justifyContent: justify,
-          margin,
-          padding,
-          alignSelf,
-          alignItems,
-          flexWrap,
-          ...style,
-        }}
-        className={classNames(
-          styles.space,
-          className,
-          vertical && styles.vertical,
-        )}
-        {...props}
+export default forwardRef(
+  (
+    {
+      style,
+      children = [<View />, <View />],
+      size,
+      className,
+      margin,
+      padding,
+      vertical,
+      flexWrap,
+      justify,
+      alignSelf,
+      alignItems,
+      flex,
+      ignoreNum,
+      animation,
+      ...props
+    }: Props,
+    ref,
+  ) => {
+    const filterChildren = (children instanceof Array ? children : [children])
+      .flat(3)
+      ?.map((i: any) =>
+        i?.type?.toString() === 'Symbol(react.fragment)' ? i.props.children : i,
+      )
+      ?.flat(3)
+      ?.filter?.(i => ![undefined, true, false].includes(i));
+    return (
+      <NeedWrap
+        wrap={Animated.View}
+        need={!!animation}
+        wrapProps={animation as any}
       >
-        {filterChildren?.map?.((item, index) => {
-          item = React.isValidElement(item) ? item : <View>{item}</View>;
-          const props = (item as any).props;
-          return React.cloneElement(item as any, {
-            ...props,
-            'data-is-last': index === filterChildren.length - 1,
-            key: index,
-            style: {
-              [vertical ? 'marginBottom' : 'marginRight']:
-                index + 1 === filterChildren?.length ||
-                (ignoreNum && index && (index + 1) % ignoreNum === 0)
-                  ? undefined
-                  : typeof size === 'number'
-                  ? rpxToPx(size)
-                  : process.env.REMAX_PLATFORM === 'wechat'
-                  ? size?.toUpperCase()
-                  : size,
-              ...props.style,
-            },
-          });
-        })}
-      </View>
-    </NeedWrap>
-  );
-};
+        <View
+          style={{
+            lineHeight: vertical ? 1 : undefined,
+            flex,
+            justifyContent: justify,
+            margin,
+            padding,
+            alignSelf,
+            alignItems,
+            flexWrap,
+            ...style,
+          }}
+          className={classNames(
+            styles.space,
+            className,
+            vertical && styles.vertical,
+          )}
+          {...props}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          ref={ref}
+        >
+          {filterChildren?.map?.((item, index) => {
+            item = React.isValidElement(item) ? item : <View>{item}</View>;
+            const props = (item as any).props;
+            return React.cloneElement(item as any, {
+              ...props,
+              'data-is-last': index === filterChildren.length - 1,
+              key: index,
+              style: {
+                [vertical ? 'marginBottom' : 'marginRight']:
+                  index + 1 === filterChildren?.length ||
+                  (ignoreNum && index && (index + 1) % ignoreNum === 0)
+                    ? undefined
+                    : typeof size === 'number'
+                    ? rpxToPx(size)
+                    : process.env.REMAX_PLATFORM === 'wechat'
+                    ? size?.toUpperCase()
+                    : size,
+                ...props.style,
+              },
+            });
+          })}
+        </View>
+      </NeedWrap>
+    );
+  },
+);
