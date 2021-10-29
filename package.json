@@ -91,6 +91,7 @@
     "remax": "^2.x"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@testing-library/react": "^11.2.6",
     "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.23",

@@ -3472,6 +3472,13 @@
   "PartTitle": [
     {
       "default": null,
+      "description": "子元素",
+      "required": false,
+      "identifier": "children",
+      "type": "ReactNode"
+    },
+    {
+      "default": null,
       "description": "显示必填的星号",
       "required": false,
       "identifier": "required",

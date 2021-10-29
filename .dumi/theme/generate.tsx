@@ -1,6 +1,18 @@
 import React, { forwardRef, useMemo, useState } from 'react';
 import { ReactSortable } from 'react-sortablejs';
-import { Space, Button, NoData, Form, FormItem } from '@kqinfo/ui';
+import {
+  Space,
+  Button,
+  NoData,
+  Form,
+  FormItem,
+  BarCode,
+  PartTitle,
+  Icon,
+  Image,
+  TransferChange,
+  CommonImg,
+} from '@kqinfo/ui';
 import {
   Card,
   Form as AntForm,
@@ -9,8 +21,10 @@ import {
   Select,
   Radio,
   Tabs as AntTabs,
+  Tooltip,
 } from 'antd';
 import types from './types.json';
+import { DeleteOutlined } from '@ant-design/icons';
 
 type TypeKeys = keyof typeof types;
 
@@ -79,24 +93,38 @@ const SortableItem = ({
       }}
       {...props}
     >
-      {list.map(({ id, type, props }) => {
+      {list.map(({ id, type, props }, index) => {
         const { component: Com, initProps } = TypeObj[type];
         return (
-          <div
+          <Tooltip
             key={id}
-            onClick={e => {
-              e.stopPropagation();
-              onSetId?.(id);
-              onSetType?.(type);
-            }}
-            style={
-              currentId === id ? { border: '1px solid #2780d9' } : undefined
+            title={
+              <DeleteOutlined
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  list.splice(index, 1);
+                  setList([...list]);
+                }}
+              />
             }
           >
-            <div style={{ pointerEvents: 'none' }}>
-              <Com {...initProps} {...props} {...outProps[id]} />
+            <div
+              onClick={e => {
+                e.stopPropagation();
+                onSetId?.(id);
+                onSetType?.(type);
+              }}
+              style={
+                currentId === id ? { border: '1px solid #2780d9' } : undefined
+              }
+            >
+              <div
+                style={{ pointerEvents: type !== 'Space' ? 'none' : undefined }}
+              >
+                <Com {...initProps} {...props} {...outProps[id]} />
+              </div>
             </div>
-          </div>
+          </Tooltip>
         );
       })}
     </ReactSortable>
@@ -107,13 +135,6 @@ const TypeObj: any = {
   Button: { component: Button, initProps: { children: '按钮' } },
   Space: {
     component: SortableItem,
-    initProps: {
-      children: (
-        <Space padding={'10px'} justify={'center'}>
-          拖拽到此处
-        </Space>
-      ),
-    },
   },
   Form: {
     component: Form,
@@ -132,7 +153,13 @@ const TypeObj: any = {
       ),
     },
   },
-  FormItem: { component: FormItem, initProps: { label: '标签', name: 'temp' } },
+  BarCode: { component: BarCode, initProps: { content: '233' } },
+  Image: {
+    component: BarCode,
+    initProps: { src: CommonImg.doctor, style: { width: 100, height: 100 } },
+  },
+  Icon: { component: Icon, initProps: { name: 'kq-search' } },
+  PartTitle: { component: PartTitle, initProps: { children: '标题' } },
 };
 
 export default () => {
@@ -143,11 +170,14 @@ export default () => {
     { id: 1, type: 'Button', text: '按钮' },
     { id: 2, type: 'Space', text: '布局' },
     { id: 3, type: 'Form', text: '表单' },
-    { id: 4, type: 'FormItem', text: '表单项' },
+    { id: 4, type: 'BarCode', text: '条形码' },
+    // { id: 5, type: 'Image', text: '图片' },
+    { id: 6, type: 'Icon', text: '图标' },
+    { id: 7, type: 'PartTitle', text: '块标题' },
   ]);
   return (
     <Space size={'20px'}>
-      <Space>
+      <Space style={{ position: 'sticky', top: 70, alignSelf: 'flex-start' }}>
         <Card title={'组件'}>
           <ReactSortable
             list={list}
@@ -242,9 +272,20 @@ export default () => {
                   )}
               </AntTabs.TabPane>
               <AntTabs.TabPane key={2} tab={'样式设置'}>
-                {/*<AntForm.Item label={'宽度'}>*/}
-                {/*  <Input />*/}
-                {/*</AntForm.Item>*/}
+                <AntForm.Item noStyle name={'style'}>
+                  <TransferChange>
+                    {(onChange, value) => (
+                      <AntForm onValuesChange={onChange} initialValues={value}>
+                        <AntForm.Item label={'宽度'} name={'width'}>
+                          <Input />
+                        </AntForm.Item>
+                        <AntForm.Item label={'高度'} name={'height'}>
+                          <Input />
+                        </AntForm.Item>
+                      </AntForm>
+                    )}
+                  </TransferChange>
+                </AntForm.Item>
               </AntTabs.TabPane>
             </AntTabs>
           </AntForm>
