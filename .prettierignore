@@ -6,3 +6,7 @@ package.json
 .umi-production
 .umi-test
 src/icon/web
+src/icon/rn
+src/icon/other
+es
+lib
