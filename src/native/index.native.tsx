@@ -13,8 +13,6 @@ export default forwardRef<NativeInstance, Props>(
       setData,
     });
     useImperativeHandle(ref, () => returns, [returns]);
-    return (
-      <View style={{ display: visible ? undefined : 'none' }}>{children}</View>
-    );
+    return <View>{visible ? children : null}</View>;
   },
 );
