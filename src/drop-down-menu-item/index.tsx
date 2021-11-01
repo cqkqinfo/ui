@@ -87,56 +87,63 @@ export default (props: DropDownMenuIremProps) => {
   }, [options, value]);
 
   return (
-    <View
-      className={classNames(
-        styles.downItem,
-        styles.flexCenter,
-        props.className,
-      )}
-      onTap={() => {
-        if (onTap) {
-          // 如果返回false，不响应展开折叠
-          if (onTap() !== false) {
-            onToggle?.();
-          }
-        } else {
-          onToggle?.();
-        }
-      }}
-    >
-      <Space size={10} className={classNames(titleCls, styles.flexCenter)}>
-        {selectItem?.text || title}
-        <Rotate run={showOptions} angle={180}>
-          <Icon
-            size={arrowsSize}
-            name={icon || 'kq-down'}
-            color={arrowsColor}
-            className={classNames(styles.icon, arrowsCls)}
-          />
-        </Rotate>
-      </Space>
+    <>
       <Fold folded={!showOptions} className={styles.down} maxHeight={'50vh'}>
-        {options?.map(item => {
-          return (
-            <View
-              key={item.value}
-              onTap={() => {
-                onChange?.(item.value, item);
-              }}
-              className={classNames(
-                styles.downSelect,
-                styles.flexCenter,
-                props.itemCls,
-                item.value === value &&
-                  classNames(props.itemSelectCls, styles.select),
-              )}
-            >
-              {item.text}
-            </View>
-          );
-        })}
+        <Space vertical style={{ width: '100%' }}>
+          {options?.map(item => {
+            return (
+              <View
+                key={item.value}
+                onTap={() => {
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  onToggle?.(-1);
+                  onChange?.(item.value, item);
+                }}
+                className={classNames(
+                  styles.downSelect,
+                  styles.flexCenter,
+                  props.itemCls,
+                  item.value === value &&
+                    classNames(props.itemSelectCls, styles.select),
+                )}
+              >
+                {item.text}
+              </View>
+            );
+          })}
+        </Space>
         {children}
       </Fold>
-    </View>
+      <View
+        className={classNames(
+          styles.downItem,
+          styles.flexCenter,
+          props.className,
+        )}
+        onTap={() => {
+          if (onTap) {
+            // 如果返回false，不响应展开折叠
+            if (onTap() !== false) {
+              onToggle?.();
+            }
+          } else {
+            onToggle?.();
+          }
+        }}
+      >
+        <Space size={10} className={classNames(styles.flexCenter, titleCls)}>
+          {selectItem?.text || title}
+          <Rotate run={showOptions} angle={180}>
+            <Icon
+              size={arrowsSize}
+              name={icon || 'kq-down'}
+              color={arrowsColor}
+              className={classNames(styles.icon, arrowsCls)}
+            />
+          </Rotate>
+        </Space>
+      </View>
+    </>
   );
 };

@@ -62,9 +62,11 @@ export default (props: DropDownMenuProps) => {
     [children, onOpsVisible, setShowOptions, showOptions],
   );
   return (
-    <View className={classNames(styles.wrap, className)} style={style}>
-      {handledChildren}
+    <>
       {showOptions !== -1 && showModal && <View className={styles.modal} />}
-    </View>
+      <View className={classNames(styles.wrap, className)} style={style}>
+        {handledChildren}
+      </View>
+    </>
   );
 };
