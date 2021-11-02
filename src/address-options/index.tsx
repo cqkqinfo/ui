@@ -1,7 +1,11 @@
-import provinces from 'china-division/dist/provinces.json';
-import cities from 'china-division/dist/cities.json';
-import areas from 'china-division/dist/areas.json';
+import _provinces from 'china-division/dist/provinces.json';
+import _cities from 'china-division/dist/cities.json';
+import _areas from 'china-division/dist/areas.json';
 import { PickerData } from 'antd-mobile/lib/picker/PropsType';
+
+const provinces = JSON.parse(JSON.stringify(_provinces)) as typeof _provinces;
+const cities = JSON.parse(JSON.stringify(_cities)) as typeof _cities;
+const areas = JSON.parse(JSON.stringify(_areas)) as typeof _areas;
 
 export interface CascaderOptionType {
   value?: string;
