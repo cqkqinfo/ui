@@ -16,6 +16,7 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "icon": "iconfont-h5 --config iconfont.web.json && iconfont-remax --config iconfont.other.json && iconfont-rn --config iconfont.json",
     "test": "umi-test",
+    "cypress:open": "cypress open",
     "test:coverage": "umi-test --coverage"
   },
   "main": "lib/index.js",
@@ -91,6 +92,7 @@
     "remax": "^2.x"
   },
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.0.0",
     "@ant-design/icons": "^4.7.0",
     "@testing-library/react": "^11.2.6",
     "@types/crypto-js": "^4.0.1",
@@ -106,11 +108,13 @@
     "babel-plugin-polyfill-corejs3": "^0.1.7",
     "babel-plugin-polyfill-regenerator": "^0.1.6",
     "conventional-changelog-cli": "^2.1.1",
+    "cypress": "^8.7.0",
     "dumi": "^1.1.26",
     "dumi-theme-mobile": "^1.1.9",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.1",
