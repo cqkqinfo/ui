@@ -45,7 +45,7 @@ fs.readdirSync('./src').forEach(path => {
   }
 });
 fs.writeFile(
-  './.dumi/theme/generate/types.json',
+  './.dumi/theme/types.json',
   JSON.stringify(types, null, '\t'),
   () => {},
 );
