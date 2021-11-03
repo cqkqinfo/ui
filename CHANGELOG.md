@@ -1,3 +1,20 @@
+## [1.8.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.12...v1.8.13) (2021-11-03)
+
+### Bug Fixes
+
+- rn native 不能设置 visible ([d730870](https://gitlab2.cqkqinfo.com/web/ui/commit/d73087092dd8a0f9822c6a391139174929cdc841))
+- rn visible 多次触发 ([0874c7a](https://gitlab2.cqkqinfo.com/web/ui/commit/0874c7a9b032c53a56575d76a43747cdad3363d3))
+- rn 下拉菜单背景显示不正常 ([ce7fb12](https://gitlab2.cqkqinfo.com/web/ui/commit/ce7fb127671b1ba1e795c7430f1679710aa1d72f))
+- 城市数据格式化错乱 ([21a4436](https://gitlab2.cqkqinfo.com/web/ui/commit/21a44369a39b8533ac9ba02078d40ac362ade80d))
+- 获取城市数据没有返回市、区 ([725a842](https://gitlab2.cqkqinfo.com/web/ui/commit/725a842cf79397e198b1bd56e17dda9c6030bffb))
+
+### Features
+
+- space 支持 ref ([453aa43](https://gitlab2.cqkqinfo.com/web/ui/commit/453aa4358ba26f4562c2a6414d5bc720105849e9))
+- 支持拖拽组件生成布局 ([3b1b27b](https://gitlab2.cqkqinfo.com/web/ui/commit/3b1b27b5f75789682e78057bb2628be92b5c664a))
+- 生成代码添加可拖拽组件，支持删除 ([b7d0a3c](https://gitlab2.cqkqinfo.com/web/ui/commit/b7d0a3cbd4b3012247ddd54e4ff5865249b1f126))
+- 防止 web 重复显示 modal ([183dbcf](https://gitlab2.cqkqinfo.com/web/ui/commit/183dbcf6a4bc168e9facd2f8d3d291163d334366))
+
 ## [1.8.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.11...v1.8.12) (2021-10-28)
 
 ### Bug Fixes
