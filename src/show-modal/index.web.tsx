@@ -1,5 +1,7 @@
 import { Modal } from 'antd-mobile';
 
+let modal: any;
+
 const fn = ({
   title = '提示',
   cancelText = '取消',
@@ -16,7 +18,12 @@ const fn = ({
       text: cancelText,
       onPress: () => resolve({ confirm: false }),
     };
-    Modal.alert(title, content, showCancel ? [cancel, confirm] : [confirm]);
+    modal?.close?.();
+    modal = Modal.alert(
+      title,
+      content,
+      showCancel ? [cancel, confirm] : [confirm],
+    );
   });
 
 export default fn;
