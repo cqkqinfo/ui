@@ -12,7 +12,13 @@
     "resolveJsonModule": true,
     "declaration": true,
     "skipLibCheck": true,
-    "types": ["@types/jest", "@types/node", "./typings/global"],
+    "types": [
+      "@types/jest",
+      "@types/node",
+      "./typings/global",
+      "cypress",
+      "@4tw/cypress-drag-drop"
+    ],
     "allowSyntheticDefaultImports": true
   },
   "exclude": [

@@ -5,8 +5,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'react-app',
     'plugin:prettier/recommended',
+    'plugin:cypress/recommended',
   ],
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'cypress'],
   rules: {
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
