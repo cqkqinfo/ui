@@ -19,7 +19,10 @@
       "cypress",
       "@4tw/cypress-drag-drop"
     ],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@kqinfo/ui": ["src"]
+    }
   },
   "exclude": [
     "node_modules",
