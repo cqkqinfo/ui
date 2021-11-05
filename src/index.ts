@@ -447,3 +447,7 @@ export { default as useFaceVerify } from './use-face-verify';
  * 人脸识别
  */
 export { default as FaceVerify } from './face-verify';
+/**
+ * 患者健康卡
+ */
+export { default as HealthCard } from './health-card';

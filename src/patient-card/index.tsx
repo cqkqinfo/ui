@@ -37,7 +37,6 @@ export default ({
   onTap,
   className,
 }: Props) => {
-  const ref = useRef<SheetInstance>(null);
   return (
     <Space
       vertical
@@ -45,31 +44,6 @@ export default ({
       className={classNames(styles.card, className)}
       onTap={onTap}
     >
-      <Sheet ref={ref} center>
-        <Space
-          vertical
-          size={20}
-          className={styles.modal}
-          alignItems={'center'}
-        >
-          <Space>
-            {patientName}丨{patCardNo}
-          </Space>
-          <QrCode content={patCardNo || ''} className={styles.modalImg} />
-          <Space alignSelf={'stretch'}>
-            <Button
-              ghost
-              type={'primary'}
-              onTap={() => {
-                ref.current?.setVisible(false);
-                showTabBar();
-              }}
-            >
-              关闭
-            </Button>
-          </Space>
-        </Space>
-      </Sheet>
       <BackgroundImg
         img={`https://tihs.cqkqinfo.com/patients/p40009-his/images/jzk.png`}
         className={styles.jzk}
@@ -97,13 +71,18 @@ export default ({
               className={styles.qrcode}
               onTap={(e: any) => {
                 e.stopPropagation();
-                ref.current?.setVisible(true);
+                // ref.current?.setVisible(true);
                 hideTabBar();
               }}
               justify="center"
               alignItems="center"
             >
-              <QrCode content={patCardNo || ''} className={styles.qrcodeImg} />
+              <QrCode
+                showModal
+                modalTitle={`${patientName}丨${patCardNo}`}
+                content={patCardNo || ''}
+                className={styles.qrcodeImg}
+              />
             </Space>
           </Space>
           <Space justify="center" className={styles.hospital}>
