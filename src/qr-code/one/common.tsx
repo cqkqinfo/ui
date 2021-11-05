@@ -21,4 +21,12 @@ export default interface QrCodeProps extends ImageProps {
    * 长按保存
    */
   longTapSave?: boolean;
+  /**
+   * 点击显示弹窗
+   */
+  showModal?: boolean;
+  /**
+   * 弹窗标题
+   */
+  modalTitle?: React.ReactNode;
 }
