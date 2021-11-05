@@ -395,3 +395,23 @@ export { default as getAddressOptions } from './get-address-options';
  * 使用文字转语音
  */
 export { default as useTTS } from './use-t-t-s';
+/**
+ * 患者就诊卡
+ */
+export { default as PatientCard } from './patient-card';
+/**
+ * 隐藏底部栏
+ */
+export { default as hideTabBar } from './hide-tab-bar';
+/**
+ * 显示底部栏
+ */
+export { default as showTabBar } from './show-tab-bar';
+/**
+ * 隐藏回到首页按钮
+ */
+export { default as hideAppHomeButton } from './hide-app-home-button';
+/**
+ * 跳转到小程序
+ */
+export { default as navigateToMiniProgram } from './navigate-to-mini-program';
