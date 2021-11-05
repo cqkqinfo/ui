@@ -391,3 +391,7 @@ export { default as createAnimation } from './create-animation';
  * 异步获取城市数据
  */
 export { default as getAddressOptions } from './get-address-options';
+/**
+ * 使用文字转语音
+ */
+export { default as useTTS } from './use-t-t-s';
