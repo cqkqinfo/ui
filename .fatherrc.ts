@@ -42,6 +42,14 @@ export default {
     [
       'import',
       {
+        libraryName: '@kqinfo/ui',
+        libraryDirectory: 'es',
+      },
+      '@kqinfo/ui',
+    ],
+    [
+      'import',
+      {
         libraryName: 'ahooks',
         camel2DashComponentName: false,
         libraryDirectory: 'es',
