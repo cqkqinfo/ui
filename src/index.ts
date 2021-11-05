@@ -439,3 +439,11 @@ export { default as hideAppHomeButton } from './hide-app-home-button';
  * 跳转到小程序
  */
 export { default as navigateToMiniProgram } from './navigate-to-mini-program';
+/**
+ * 人脸识别hooks
+ */
+export { default as useFaceVerify } from './use-face-verify';
+/**
+ * 人脸识别
+ */
+export { default as FaceVerify } from './face-verify';
