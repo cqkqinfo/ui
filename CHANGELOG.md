@@ -1,3 +1,18 @@
+## [1.8.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.13...v1.8.14) (2021-11-08)
+
+### Bug Fixes
+
+- 文档报错 ([f151800](https://gitlab2.cqkqinfo.com/web/ui/commit/f151800b3758b245ee71f82021baddffe7eef4d8))
+
+### Features
+
+- 二维码支持显示弹窗 ([ec70293](https://gitlab2.cqkqinfo.com/web/ui/commit/ec702931766f7568cc4fb1ad49cd7dac37e59842))
+- 添加 TTS，文字转语音工具 ([5e9a5a9](https://gitlab2.cqkqinfo.com/web/ui/commit/5e9a5a9c0c85134a0d32c4f34ac1f35bae46aea8))
+- 添加人脸识别组件 ([199faae](https://gitlab2.cqkqinfo.com/web/ui/commit/199faae456bf96b87a3da16d6de904fa8031bf61))
+- 添加健康卡组件 ([4bc8b32](https://gitlab2.cqkqinfo.com/web/ui/commit/4bc8b32af3000472527dbd392a92e0ce4eb0549b))
+- 添加很多统一平台 api ([d3596e0](https://gitlab2.cqkqinfo.com/web/ui/commit/d3596e0ef9b47c52e3d830fdd3228d4cdf7370e0))
+- 添加患者就诊卡 ([fe0f1a5](https://gitlab2.cqkqinfo.com/web/ui/commit/fe0f1a518514420161807632cfe45d6270592bca))
+
 ## [1.8.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.12...v1.8.13) (2021-11-03)
 
 ### Bug Fixes
