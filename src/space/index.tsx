@@ -133,22 +133,23 @@ export default forwardRef(
           {filterChildren?.map?.((item, index) => {
             item = React.isValidElement(item) ? item : <View>{item}</View>;
             const props = (item as any).props;
+            const style = {
+              [vertical ? 'marginBottom' : 'marginRight']:
+                index + 1 === filterChildren?.length ||
+                (ignoreNum && index && (index + 1) % ignoreNum === 0)
+                  ? undefined
+                  : typeof size === 'number'
+                  ? rpxToPx(size)
+                  : process.env.REMAX_PLATFORM === 'wechat'
+                  ? size?.toUpperCase()
+                  : size,
+              ...props.style,
+            };
             return React.cloneElement(item as any, {
               ...props,
               'data-is-last': index === filterChildren.length - 1,
-              key: index,
-              style: {
-                [vertical ? 'marginBottom' : 'marginRight']:
-                  index + 1 === filterChildren?.length ||
-                  (ignoreNum && index && (index + 1) % ignoreNum === 0)
-                    ? undefined
-                    : typeof size === 'number'
-                    ? rpxToPx(size)
-                    : process.env.REMAX_PLATFORM === 'wechat'
-                    ? size?.toUpperCase()
-                    : size,
-                ...props.style,
-              },
+              key: index + JSON.stringify(style),
+              style,
             });
           })}
         </View>
