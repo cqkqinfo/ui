@@ -1,3 +1,9 @@
+## [1.8.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.15...v1.8.16) (2021-11-11)
+
+### Features
+
+- list renderItem 返回 refreshList 方法 ([e44791e](https://gitlab2.cqkqinfo.com/web/ui/commit/e44791e77568f114454dc317a5b3b6cf0041a86f))
+
 ## [1.8.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.14...v1.8.15) (2021-11-10)
 
 ### Bug Fixes
