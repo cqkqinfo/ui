@@ -22,7 +22,12 @@ export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
    * 渲染子项
    */
-  renderItem: (data: D, index: number, list: D[]) => React.ReactElement;
+  renderItem: (
+    data: D,
+    index: number,
+    list: D[],
+    refreshList: () => void,
+  ) => React.ReactElement;
   /**
    * 列表接口
    */
@@ -152,7 +157,12 @@ const List = forwardRef(
                 return (
                   <Visible key={index} height={height} perf>
                     {items.map((data, i) =>
-                      renderItem(data, index * defaultLimit + i, list),
+                      renderItem(
+                        data,
+                        index * defaultLimit + i,
+                        list,
+                        refreshList,
+                      ),
                     )}
                   </Visible>
                 );
@@ -161,7 +171,9 @@ const List = forwardRef(
             </>
           ) : (
             <>
-              {list.map((data, index) => renderItem(data, index, list))}
+              {list.map((data, index) =>
+                renderItem(data, index, list, refreshList),
+              )}
               {footer}
             </>
           )}
