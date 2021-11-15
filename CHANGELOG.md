@@ -1,3 +1,9 @@
+## [1.8.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.16...v1.8.17) (2021-11-15)
+
+### Bug Fixes
+
+- swiper onChange 不触发 ([eda2c63](https://gitlab2.cqkqinfo.com/web/ui/commit/eda2c630fe13048004b5b40bbfaad6be0e908aef))
+
 ## [1.8.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.15...v1.8.16) (2021-11-11)
 
 ### Features
