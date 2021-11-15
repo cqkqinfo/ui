@@ -22,6 +22,7 @@ export default () => (
       interval={1000}
       indicatorDots
       autoplay
+      onChange={console.log}
       style={{ width: '100vw', height: '30vh' }}
       items={Object.values(CommonImg).map(img => ({
         node: <Image src={img} style={{ width: '100vw', height: '30vh' }} />,

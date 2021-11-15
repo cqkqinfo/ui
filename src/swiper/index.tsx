@@ -1,10 +1,10 @@
 import React from 'react';
 import { SwiperProps, SwiperItemProps } from 'remax/wechat';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.less';
-import 'swiper/components/pagination/pagination.less';
+import 'swiper/modules/pagination/pagination.less';
 // import Swiper core and required modules
-import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import styles from './index.module.less';
 import classNames from 'classnames';
 
@@ -22,12 +22,16 @@ export default ({
   autoplay,
   interval = 3000,
   indicatorDots,
+  onChange,
   ...props
 }: Props) => {
   return (
     <Swiper
       className={className}
       style={style}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onSlideChange={e => onChange?.({ detail: { current: e.activeIndex } })}
       pagination={
         indicatorDots
           ? {
