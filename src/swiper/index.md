@@ -43,7 +43,7 @@ export default () => {
           node: <Image src={img} style={{ width: 100, height: 100 }} />,
         }))}
       />
-      <Space sizee={'10px'}>
+      <Space size={'10px'}>
         <Button onTap={() => setCurrent(current - 1)}>上一张</Button>
         <Button onTap={() => setCurrent(current + 1)}>下一张</Button>
       </Space>
