@@ -24,7 +24,7 @@ export interface Props
   /**
    * 传入方法可以自定义渲染
    */
-  children?: React.ReactNode | ((result: any) => React.ReactNode);
+  children?: React.ReactNode | ((result: any, value?: any) => React.ReactNode);
   /**
    * 是否根据value渲染children
    */
@@ -66,7 +66,7 @@ export const getChildren = ({
       .join('-') || value;
   const result = renderValue ? render || children : children;
   return children instanceof Function
-    ? children(render)
+    ? children(render, value)
     : React.isValidElement(children)
     ? React.cloneElement(children, {
         ...children.props,
