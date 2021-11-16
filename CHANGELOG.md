@@ -1,3 +1,9 @@
+## [1.8.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.17...v1.8.18) (2021-11-16)
+
+### Features
+
+- picker children 可以接收 value ([823741c](https://gitlab2.cqkqinfo.com/web/ui/commit/823741ce3dac5990ae22627a44a778d3808add2c))
+
 ## [1.8.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.16...v1.8.17) (2021-11-15)
 
 ### Bug Fixes
