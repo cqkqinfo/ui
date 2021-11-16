@@ -1,3 +1,9 @@
+## [1.8.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.18...v1.8.19) (2021-11-16)
+
+### Features
+
+- swiper 可以自己控制 ([1231452](https://gitlab2.cqkqinfo.com/web/ui/commit/12314520653e7032d27295c6f148b7b6a06dbf5c))
+
 ## [1.8.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.17...v1.8.18) (2021-11-16)
 
 ### Features
