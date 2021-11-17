@@ -1,3 +1,9 @@
+## [1.8.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.19...v1.8.20) (2021-11-17)
+
+### Bug Fixes
+
+- 表单项最后一项会有底部边框 ([f734599](https://gitlab2.cqkqinfo.com/web/ui/commit/f734599f7981ec35711c1948798968a843bf1bf0))
+
 ## [1.8.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.18...v1.8.19) (2021-11-16)
 
 ### Features
