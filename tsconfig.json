@@ -13,6 +13,9 @@
     "declaration": true,
     "skipLibCheck": true,
     "types": ["@types/jest", "@types/node", "./typings/global"],
+    "paths": {
+      "@kqinfo/ui": ["src"]
+    },
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
