@@ -396,10 +396,6 @@ export { default as getAddressOptions } from './get-address-options';
  */
 export { default as useTTS } from './use-t-t-s';
 /**
- * 患者就诊卡
- */
-export { default as PatientCard } from './patient-card';
-/**
  * 隐藏底部栏
  */
 export { default as hideTabBar } from './hide-tab-bar';
