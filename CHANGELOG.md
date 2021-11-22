@@ -1,3 +1,9 @@
+## [1.8.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.20...v1.8.21) (2021-11-22)
+
+### Bug Fixes
+
+- 父级是垂直 flex 布局按钮会被撑大 ([eb6b652](https://gitlab2.cqkqinfo.com/web/ui/commit/eb6b652656b0ff230d3e37759832b8aa60981fff))
+
 ## [1.8.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.19...v1.8.20) (2021-11-17)
 
 ### Bug Fixes
