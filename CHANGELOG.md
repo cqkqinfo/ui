@@ -1,3 +1,14 @@
+## [1.8.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.21...v1.8.22) (2021-11-23)
+
+### Bug Fixes
+
+- tabbar 被挤压 ([2fde6d2](https://gitlab2.cqkqinfo.com/web/ui/commit/2fde6d23d80d5cf3eb0792c351e9ff28b2c0f096))
+
+### Features
+
+- 弹出层组件适配 rn ([6ff48c2](https://gitlab2.cqkqinfo.com/web/ui/commit/6ff48c21f648bcc59c91fde3fc8a08afab2e409c))
+- 超出组件适配 rn ([53dc6d3](https://gitlab2.cqkqinfo.com/web/ui/commit/53dc6d36c84ed37779e919f80fa7a903ac736bf7))
+
 ## [1.8.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.20...v1.8.21) (2021-11-22)
 
 ### Bug Fixes
