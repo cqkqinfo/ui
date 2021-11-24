@@ -198,6 +198,11 @@ export interface Props<Values extends unknown = any>
    * 绑定的数据
    */
   values?: Values;
+  /**
+   * 支持嵌套表单统一管理
+   * @default true
+   */
+  nestedForm?: boolean;
 }
 
 const ReForm = ContainerUseWrap(
@@ -207,6 +212,7 @@ const ReForm = ContainerUseWrap(
     shadowProps,
     cell = false,
     colon = !cell,
+    nestedForm = true,
     className,
     style,
     values,
@@ -237,7 +243,7 @@ const ReForm = ContainerUseWrap(
           vertical
         >
           <NeedWrap
-            need={!!form}
+            need={!!form || !nestedForm}
             wrap={RcForm as any}
             wrapProps={{
               component: false,
