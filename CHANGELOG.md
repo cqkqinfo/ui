@@ -1,3 +1,14 @@
+## [1.8.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.22...v1.8.23) (2021-11-24)
+
+### Bug Fixes
+
+- 表单 name 为 0 时不显示 children ([e674ae7](https://gitlab2.cqkqinfo.com/web/ui/commit/e674ae7e8e7b4a5ca543a843f60237903c084467))
+
+### Features
+
+- form 支持作为表单项 ([7841ea4](https://gitlab2.cqkqinfo.com/web/ui/commit/7841ea47a472a099e0ac730d9e5d1662e7ecd243))
+- 表单添加 nestedForm 属性 ([e24738a](https://gitlab2.cqkqinfo.com/web/ui/commit/e24738a8b0589e54eaa5115d2a70a1864bcffe5b))
+
 ## [1.8.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.21...v1.8.22) (2021-11-23)
 
 ### Bug Fixes
