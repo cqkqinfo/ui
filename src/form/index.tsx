@@ -221,7 +221,11 @@ const ReForm = ContainerUseWrap(
     values = value,
     ...props
   }: Props<Values>) => {
-    const { setErrorFields, form } = FormStore.useContainer();
+    const [myForm] = Form.useForm();
+    const {
+      setErrorFields,
+      form = !nestedForm ? myForm : undefined,
+    } = FormStore.useContainer();
     const preValues = useRef<Values>();
     useEffect(() => {
       if (
@@ -246,10 +250,11 @@ const ReForm = ContainerUseWrap(
           vertical
         >
           <NeedWrap
-            need={!!form || !nestedForm}
+            need={!!form}
             wrap={RcForm as any}
             wrapProps={{
               component: false,
+              form,
               ...props,
               onValuesChange: (...arg: any) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
