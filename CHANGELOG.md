@@ -1,3 +1,9 @@
+## [1.8.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.23...v1.8.24) (2021-11-24)
+
+### Bug Fixes
+
+- form 作为表单项不能回填值 ([6d79cf9](https://gitlab2.cqkqinfo.com/web/ui/commit/6d79cf9e3df41fecb8c304f7917ffea61a18a679))
+
 ## [1.8.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.22...v1.8.23) (2021-11-24)
 
 ### Bug Fixes
