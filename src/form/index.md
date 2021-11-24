@@ -250,6 +250,67 @@ export default () => {
 };
 ```
 
+### 动态增减表单
+
+```tsx
+import React, { useEffect, useState } from 'react';
+import {
+  Space,
+  Form,
+  FormItem,
+  Button,
+  PartTitle,
+  Shadow,
+  Icon,
+  getAddressOptions,
+  Loading,
+  Page,
+  Picker,
+  TransferChange,
+} from '@kqinfo/ui';
+
+export default () => {
+  const [form] = Form.useForm();
+  return (
+    <Space vertical size={'10px'}>
+      <Form form={form} onFinish={console.log}>
+        <Form.List name={'list'}>
+          {(fields, { add, remove }) => (
+            <Space vertical size={'10px'}>
+              {fields.map((field, index) => (
+                <FormItem
+                  {...field}
+                  label={`表单${index}`}
+                  rules={[{ required: true }]}
+                  after={
+                    <Icon name={'kq-clear2'} onTap={() => remove(index)} />
+                  }
+                />
+              ))}
+              <Button
+                onTap={() => {
+                  add();
+                }}
+              >
+                添加
+              </Button>
+            </Space>
+          )}
+        </Form.List>
+      </Form>
+      <Button
+        type={'primary'}
+        onTap={() => {
+          form.submit();
+        }}
+      >
+        提交
+      </Button>
+    </Space>
+  );
+};
+```
+
 ### 当作详情展示
 
 ```tsx
