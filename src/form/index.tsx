@@ -215,7 +215,10 @@ const ReForm = ContainerUseWrap(
     nestedForm = true,
     className,
     style,
-    values,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    value,
+    values = value,
     ...props
   }: Props<Values>) => {
     const { setErrorFields, form } = FormStore.useContainer();
@@ -248,6 +251,14 @@ const ReForm = ContainerUseWrap(
             wrapProps={{
               component: false,
               ...props,
+              onValuesChange: (...arg: any) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                props.onValuesChange?.(...arg);
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                props.onChange?.(arg[1]);
+              },
               onFinishFailed: (e: any) => {
                 setErrorFields(e.errorFields);
                 if (e.errorFields?.length > 0) {
