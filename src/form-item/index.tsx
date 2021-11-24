@@ -101,7 +101,7 @@ export default ({
   children = useMemo(
     () =>
       isUndefinedChildren ? (
-        name ? (
+        name !== undefined ? (
           readOnly ? (
             children
           ) : (
@@ -281,7 +281,7 @@ export default ({
                     <>
                       <Field shouldUpdate>
                         {(_, __, { getFieldValue, getFieldsValue }) =>
-                          (name &&
+                          (name !== undefined &&
                             (renderReadOnlyValue
                               ? renderReadOnlyValue(
                                   getFieldValue(name),
