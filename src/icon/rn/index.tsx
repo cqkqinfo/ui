@@ -4,6 +4,7 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 import { GProps } from 'react-native-svg';
+import KqXihuan from './KqXihuan';
 import KqSousuo from './KqSousuo';
 import KqZhengque from './KqZhengque';
 import KqFenge from './KqFenge';
@@ -59,6 +60,7 @@ import KqSearch from './KqSearch';
 import KqDown from './KqDown';
 import KqLoading2 from './KqLoading2';
 import KqLoading from './KqLoading';
+export { default as KqXihuan } from './KqXihuan';
 export { default as KqSousuo } from './KqSousuo';
 export { default as KqZhengque } from './KqZhengque';
 export { default as KqFenge } from './KqFenge';
@@ -115,62 +117,7 @@ export { default as KqDown } from './KqDown';
 export { default as KqLoading2 } from './KqLoading2';
 export { default as KqLoading } from './KqLoading';
 
-export type IconNames =
-  | 'kq-sousuo'
-  | 'kq-zhengque'
-  | 'kq-fenge'
-  | 'kq-tag'
-  | 'kq-shouye'
-  | 'kq-caidan'
-  | 'kq-zanting'
-  | 'kq-bofang'
-  | 'kq-zhibozhong'
-  | 'kq-shoucang1'
-  | 'kq-zan1'
-  | 'kq-shijian'
-  | 'kq-zhuanlan'
-  | 'kq-zhizhen'
-  | 'kq-time'
-  | 'kq-bukanjian'
-  | 'kq-kanjian'
-  | 'kq-jiankang'
-  | 'kq-rili'
-  | 'kq-zhibo'
-  | 'kq-chuangzuo'
-  | 'kq-yisheng'
-  | 'kq-weixin'
-  | 'kq-eye'
-  | 'kq-zan'
-  | 'kq-shoucang'
-  | 'kq-shuaxin'
-  | 'kq-tongzhi'
-  | 'kq-home'
-  | 'kq-yiyuan'
-  | 'kq-keshi'
-  | 'kq-mobile'
-  | 'kq-left'
-  | 'kq-filter'
-  | 'kq-jia'
-  | 'kq-album'
-  | 'kq-biaoqing'
-  | 'kq-voice'
-  | 'kq-xiangji'
-  | 'kq-xingxing'
-  | 'kq-tip'
-  | 'kq-jianshao'
-  | 'kq-zengjia'
-  | 'kq-right'
-  | 'kq-home-solid'
-  | 'kq-monitor'
-  | 'kq-notice'
-  | 'kq-add'
-  | 'kq-clear'
-  | 'kq-clear2'
-  | 'kq-yes'
-  | 'kq-search'
-  | 'kq-down'
-  | 'kq-loading2'
-  | 'kq-loading';
+export type IconNames = 'kq-xihuan' | 'kq-sousuo' | 'kq-zhengque' | 'kq-fenge' | 'kq-tag' | 'kq-shouye' | 'kq-caidan' | 'kq-zanting' | 'kq-bofang' | 'kq-zhibozhong' | 'kq-shoucang1' | 'kq-zan1' | 'kq-shijian' | 'kq-zhuanlan' | 'kq-zhizhen' | 'kq-time' | 'kq-bukanjian' | 'kq-kanjian' | 'kq-jiankang' | 'kq-rili' | 'kq-zhibo' | 'kq-chuangzuo' | 'kq-yisheng' | 'kq-weixin' | 'kq-eye' | 'kq-zan' | 'kq-shoucang' | 'kq-shuaxin' | 'kq-tongzhi' | 'kq-home' | 'kq-yiyuan' | 'kq-keshi' | 'kq-mobile' | 'kq-left' | 'kq-filter' | 'kq-jia' | 'kq-album' | 'kq-biaoqing' | 'kq-voice' | 'kq-xiangji' | 'kq-xingxing' | 'kq-tip' | 'kq-jianshao' | 'kq-zengjia' | 'kq-right' | 'kq-home-solid' | 'kq-monitor' | 'kq-notice' | 'kq-add' | 'kq-clear' | 'kq-clear2' | 'kq-yes' | 'kq-search' | 'kq-down' | 'kq-loading2' | 'kq-loading';
 
 interface Props extends GProps, ViewProps {
   name: IconNames;
@@ -180,116 +127,118 @@ interface Props extends GProps, ViewProps {
 
 let IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'kq-xihuan':
+      return <KqXihuan key="1" {...rest} />;
     case 'kq-sousuo':
-      return <KqSousuo key="1" {...rest} />;
+      return <KqSousuo key="2" {...rest} />;
     case 'kq-zhengque':
-      return <KqZhengque key="2" {...rest} />;
+      return <KqZhengque key="3" {...rest} />;
     case 'kq-fenge':
-      return <KqFenge key="3" {...rest} />;
+      return <KqFenge key="4" {...rest} />;
     case 'kq-tag':
-      return <KqTag key="4" {...rest} />;
+      return <KqTag key="5" {...rest} />;
     case 'kq-shouye':
-      return <KqShouye key="5" {...rest} />;
+      return <KqShouye key="6" {...rest} />;
     case 'kq-caidan':
-      return <KqCaidan key="6" {...rest} />;
+      return <KqCaidan key="7" {...rest} />;
     case 'kq-zanting':
-      return <KqZanting key="7" {...rest} />;
+      return <KqZanting key="8" {...rest} />;
     case 'kq-bofang':
-      return <KqBofang key="8" {...rest} />;
+      return <KqBofang key="9" {...rest} />;
     case 'kq-zhibozhong':
-      return <KqZhibozhong key="9" {...rest} />;
+      return <KqZhibozhong key="10" {...rest} />;
     case 'kq-shoucang1':
-      return <KqShoucang1 key="10" {...rest} />;
+      return <KqShoucang1 key="11" {...rest} />;
     case 'kq-zan1':
-      return <KqZan1 key="11" {...rest} />;
+      return <KqZan1 key="12" {...rest} />;
     case 'kq-shijian':
-      return <KqShijian key="12" {...rest} />;
+      return <KqShijian key="13" {...rest} />;
     case 'kq-zhuanlan':
-      return <KqZhuanlan key="13" {...rest} />;
+      return <KqZhuanlan key="14" {...rest} />;
     case 'kq-zhizhen':
-      return <KqZhizhen key="14" {...rest} />;
+      return <KqZhizhen key="15" {...rest} />;
     case 'kq-time':
-      return <KqTime key="15" {...rest} />;
+      return <KqTime key="16" {...rest} />;
     case 'kq-bukanjian':
-      return <KqBukanjian key="16" {...rest} />;
+      return <KqBukanjian key="17" {...rest} />;
     case 'kq-kanjian':
-      return <KqKanjian key="17" {...rest} />;
+      return <KqKanjian key="18" {...rest} />;
     case 'kq-jiankang':
-      return <KqJiankang key="18" {...rest} />;
+      return <KqJiankang key="19" {...rest} />;
     case 'kq-rili':
-      return <KqRili key="19" {...rest} />;
+      return <KqRili key="20" {...rest} />;
     case 'kq-zhibo':
-      return <KqZhibo key="20" {...rest} />;
+      return <KqZhibo key="21" {...rest} />;
     case 'kq-chuangzuo':
-      return <KqChuangzuo key="21" {...rest} />;
+      return <KqChuangzuo key="22" {...rest} />;
     case 'kq-yisheng':
-      return <KqYisheng key="22" {...rest} />;
+      return <KqYisheng key="23" {...rest} />;
     case 'kq-weixin':
-      return <KqWeixin key="23" {...rest} />;
+      return <KqWeixin key="24" {...rest} />;
     case 'kq-eye':
-      return <KqEye key="24" {...rest} />;
+      return <KqEye key="25" {...rest} />;
     case 'kq-zan':
-      return <KqZan key="25" {...rest} />;
+      return <KqZan key="26" {...rest} />;
     case 'kq-shoucang':
-      return <KqShoucang key="26" {...rest} />;
+      return <KqShoucang key="27" {...rest} />;
     case 'kq-shuaxin':
-      return <KqShuaxin key="27" {...rest} />;
+      return <KqShuaxin key="28" {...rest} />;
     case 'kq-tongzhi':
-      return <KqTongzhi key="28" {...rest} />;
+      return <KqTongzhi key="29" {...rest} />;
     case 'kq-home':
-      return <KqHome key="29" {...rest} />;
+      return <KqHome key="30" {...rest} />;
     case 'kq-yiyuan':
-      return <KqYiyuan key="30" {...rest} />;
+      return <KqYiyuan key="31" {...rest} />;
     case 'kq-keshi':
-      return <KqKeshi key="31" {...rest} />;
+      return <KqKeshi key="32" {...rest} />;
     case 'kq-mobile':
-      return <KqMobile key="32" {...rest} />;
+      return <KqMobile key="33" {...rest} />;
     case 'kq-left':
-      return <KqLeft key="33" {...rest} />;
+      return <KqLeft key="34" {...rest} />;
     case 'kq-filter':
-      return <KqFilter key="34" {...rest} />;
+      return <KqFilter key="35" {...rest} />;
     case 'kq-jia':
-      return <KqJia key="35" {...rest} />;
+      return <KqJia key="36" {...rest} />;
     case 'kq-album':
-      return <KqAlbum key="36" {...rest} />;
+      return <KqAlbum key="37" {...rest} />;
     case 'kq-biaoqing':
-      return <KqBiaoqing key="37" {...rest} />;
+      return <KqBiaoqing key="38" {...rest} />;
     case 'kq-voice':
-      return <KqVoice key="38" {...rest} />;
+      return <KqVoice key="39" {...rest} />;
     case 'kq-xiangji':
-      return <KqXiangji key="39" {...rest} />;
+      return <KqXiangji key="40" {...rest} />;
     case 'kq-xingxing':
-      return <KqXingxing key="40" {...rest} />;
+      return <KqXingxing key="41" {...rest} />;
     case 'kq-tip':
-      return <KqTip key="41" {...rest} />;
+      return <KqTip key="42" {...rest} />;
     case 'kq-jianshao':
-      return <KqJianshao key="42" {...rest} />;
+      return <KqJianshao key="43" {...rest} />;
     case 'kq-zengjia':
-      return <KqZengjia key="43" {...rest} />;
+      return <KqZengjia key="44" {...rest} />;
     case 'kq-right':
-      return <KqRight key="44" {...rest} />;
+      return <KqRight key="45" {...rest} />;
     case 'kq-home-solid':
-      return <KqHomeSolid key="45" {...rest} />;
+      return <KqHomeSolid key="46" {...rest} />;
     case 'kq-monitor':
-      return <KqMonitor key="46" {...rest} />;
+      return <KqMonitor key="47" {...rest} />;
     case 'kq-notice':
-      return <KqNotice key="47" {...rest} />;
+      return <KqNotice key="48" {...rest} />;
     case 'kq-add':
-      return <KqAdd key="48" {...rest} />;
+      return <KqAdd key="49" {...rest} />;
     case 'kq-clear':
-      return <KqClear key="49" {...rest} />;
+      return <KqClear key="50" {...rest} />;
     case 'kq-clear2':
-      return <KqClear2 key="50" {...rest} />;
+      return <KqClear2 key="51" {...rest} />;
     case 'kq-yes':
-      return <KqYes key="51" {...rest} />;
+      return <KqYes key="52" {...rest} />;
     case 'kq-search':
-      return <KqSearch key="52" {...rest} />;
+      return <KqSearch key="53" {...rest} />;
     case 'kq-down':
-      return <KqDown key="53" {...rest} />;
+      return <KqDown key="54" {...rest} />;
     case 'kq-loading2':
-      return <KqLoading2 key="54" {...rest} />;
+      return <KqLoading2 key="55" {...rest} />;
     case 'kq-loading':
-      return <KqLoading key="55" {...rest} />;
+      return <KqLoading key="56" {...rest} />;
   }
 
   return null;
