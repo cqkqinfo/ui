@@ -1,3 +1,9 @@
+## [1.8.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.24...v1.8.25) (2021-11-29)
+
+### Features
+
+- 添加喜欢图标 ([0ba4e8e](https://gitlab2.cqkqinfo.com/web/ui/commit/0ba4e8e32b2be6c98887f5c2bc0b12568df064e4))
+
 ## [1.8.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.23...v1.8.24) (2021-11-24)
 
 ### Bug Fixes
