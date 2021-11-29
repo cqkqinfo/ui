@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default (props: any) => {
-  return <canvas {...props} />;
-};
+export default React.forwardRef((props: any, ref) => {
+  return <canvas {...props} ref={ref} />;
+});
