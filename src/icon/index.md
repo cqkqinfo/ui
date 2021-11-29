@@ -86,6 +86,7 @@ const names = [
   'kq-fenge',
   'kq-zhengque',
   'kq-sousuo',
+  'kq-xihuan',
 ];
 
 export default () => (
