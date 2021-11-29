@@ -1,3 +1,9 @@
+## [1.8.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.25...v1.8.26) (2021-11-29)
+
+### Features
+
+- f2 支持 rn ([866fc68](https://gitlab2.cqkqinfo.com/web/ui/commit/866fc68f249ed266304f5aaab546e8a1f4d97041))
+
 ## [1.8.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.24...v1.8.25) (2021-11-29)
 
 ### Features
