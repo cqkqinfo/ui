@@ -14,6 +14,7 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       onScrollToUpper,
       children,
       className,
+      scrollWithAnimation,
       scrollY,
       ...props
     },
@@ -23,9 +24,11 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       const target =
         scrollIntoView && document.querySelector(`#${scrollIntoView}`);
       if (target) {
-        target.scrollIntoView(false);
+        target.scrollIntoView(
+          scrollWithAnimation ? { behavior: 'smooth', block: 'center' } : false,
+        );
       }
-    }, [scrollIntoView]);
+    }, [scrollIntoView, scrollWithAnimation]);
     return (
       <div
         className={classNames(className, styles.scroll)}
