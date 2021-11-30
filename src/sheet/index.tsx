@@ -1,5 +1,5 @@
-import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
-import Native from '../native';
+import React, { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
+import Native, { NativeInstance } from '../native';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import { useRefState } from 'parsec-hooks';
@@ -21,12 +21,19 @@ export interface SheetInstance {
 
 export default forwardRef<SheetInstance, SheetProps>(
   ({ children, className, contentCls, center }, ref) => {
-    const [sheetInstance, setSheetInstance, sheetInstanceRef] = useRefState<
-      SheetInstance
-    >({
-      setVisible: () => {},
+    const nativeRef = useRef<NativeInstance>(null);
+    const sheetInstanceRef = useRef<SheetInstance>({
+      setVisible: visible => {
+        return nativeRef.current?.setData({
+          className: classNames(
+            styles.sheet,
+            className,
+            visible && styles.show,
+          ),
+        });
+      },
     });
-    useImperativeHandle(ref, () => sheetInstance, [sheetInstance]);
+    useImperativeHandle(ref, () => sheetInstanceRef.current);
     const content = useMemo(
       () => (
         <Space
@@ -43,27 +50,13 @@ export default forwardRef<SheetInstance, SheetProps>(
     return useMemo(
       () => (
         <Native
-          ref={ref => {
-            if (ref) {
-              setSheetInstance({
-                setVisible: visible => {
-                  return ref.setData({
-                    className: classNames(
-                      styles.sheet,
-                      className,
-                      visible && styles.show,
-                    ),
-                  });
-                },
-              });
-            }
-          }}
+          ref={nativeRef}
           initData={{ className: classNames(styles.sheet, className) }}
         >
           {content}
         </Native>
       ),
-      [className, content, setSheetInstance],
+      [className, content],
     );
   },
 );
