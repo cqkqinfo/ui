@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import React from 'react';
-import { useId } from 'parsec-hooks';
+import { useId, useRefState } from 'parsec-hooks';
 
 export interface Data {
   /**
@@ -34,9 +34,11 @@ export interface Props {
 
 export default forwardRef<NativeInstance, Props>(
   ({ initData = {}, children }, ref) => {
-    const [returns, setReturns] = useState<NativeInstance>({
+    const [returns, setReturns, returnsRef] = useRefState<NativeInstance>({
       data: initData,
-      setData: () => {},
+      setData: data => {
+        returnsRef.current.setData(data);
+      },
     });
     useImperativeHandle(ref, () => returns, [returns]);
     const id = useId();
