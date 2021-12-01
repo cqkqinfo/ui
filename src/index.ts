@@ -451,3 +451,7 @@ export { default as FaceVerify } from './face-verify';
  * 患者健康卡
  */
 export { default as HealthCard } from './health-card';
+/**
+ * 患者健康卡
+ */
+export { default as saveImageToPhotosAlbum } from './save-image-to-photos-album';
