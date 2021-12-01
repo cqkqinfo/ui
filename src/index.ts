@@ -411,3 +411,7 @@ export { default as hideAppHomeButton } from './hide-app-home-button';
  * 跳转到小程序
  */
 export { default as navigateToMiniProgram } from './navigate-to-mini-program';
+/**
+ * 保存图片到相册
+ */
+export { default as saveImageToPhotosAlbum } from './save-image-to-photos-album';
