@@ -224,9 +224,9 @@ export { default as F2 } from './f2';
  */
 export { default as Native } from './native';
 /**
- * 获取元素高度
+ * 获取元素布局
  */
-export { default as useViewSize } from './use-view-size';
+export { default as useViewLayout } from './use-view-layout';
 /**
  * 弹出层
  */

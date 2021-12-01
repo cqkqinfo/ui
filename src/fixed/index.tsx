@@ -2,8 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
-import useViewSize from '../use-view-size';
-import { useId } from 'parsec-hooks';
+import useViewLayout from '../use-view-layout';
 
 interface Props extends PropsWithChildren<ViewProps> {
   placeholder?: boolean;
@@ -15,12 +14,11 @@ export default ({
   className,
   ...props
 }: Props) => {
-  const id = useId();
-  const { width } = useViewSize(id);
+  const { width, ...arg } = useViewLayout();
   return (
     <>
       {placeholder && (
-        <View className={styles.index} id={id}>
+        <View className={styles.index} {...arg}>
           {children}
         </View>
       )}

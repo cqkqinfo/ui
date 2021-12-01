@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, ViewProps } from 'remax/one';
-import { getWH } from '../use-view-size';
+import { getWH } from '../use-view-layout';
 import { useRerenderCallback } from 'parsec-hooks';
 
 export interface Props extends ViewProps {

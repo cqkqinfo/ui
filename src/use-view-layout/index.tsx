@@ -1,6 +1,6 @@
 import { useSize } from 'ahooks';
 import { useForceUpdate } from 'parsec-hooks';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const getWH = (id: string) =>
   new Promise<{ width: number; height: number }>(resolve => {
@@ -11,13 +11,15 @@ export const getWH = (id: string) =>
     });
   });
 
-export default (id: string) => {
+export default () => {
   const { forceUpdate } = useForceUpdate();
-  const { width, height } = useSize(document.getElementById(id));
+  const ref = useRef<HTMLElement>(null);
+  const { width, height } = useSize(ref.current);
+  const { offsetTop: y, offsetLeft: x } = ref.current || {};
   useEffect(() => {
     if (height === undefined) {
       forceUpdate();
     }
   }, [width, height, forceUpdate]);
-  return { width, height };
+  return { width, height, ref, y, x };
 };
