@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createSelectorQuery } from 'remax/ali';
+import { useId } from 'parsec-hooks';
 
 export const getWH = (id: string) =>
   new Promise(resolve => {
@@ -12,12 +13,15 @@ export const getWH = (id: string) =>
       });
   });
 
-export default (id: string) => {
+export default () => {
   const [wh, setWH] = useState<{
     width?: number;
     height?: number;
+    x?: number;
+    y?: number;
   }>({});
   const countRef = useRef(0);
+  const id = useId();
   useEffect(() => {
     const query = createSelectorQuery();
     const count = countRef.current + 1;
@@ -29,10 +33,11 @@ export default (id: string) => {
         const ret = data[0] || {};
         if (ret && (ret?.width !== wh.width || ret?.height !== wh.height)) {
           if (count === countRef.current) {
-            setWH(ret);
+            const { width, height, left, top } = data;
+            setWH({ width, height, x: left, y: top });
           }
         }
       });
   });
-  return wh;
+  return { ...wh, id };
 };

@@ -4,10 +4,9 @@ import Icon from './one/index';
 import { IconFontProps } from './other';
 import styles from './index.module.less';
 import classNames from 'classnames';
-import useViewSize from '../use-view-size';
+import useViewLayout from '../use-view-layout';
 import NeedWrap from '../need-wrap';
 import Rotate from '../rotate';
-import { useId } from 'parsec-hooks';
 import rpxToPx from '../rpx-to-px';
 
 export interface Props
@@ -27,15 +26,14 @@ export default ({
   style,
   ...props
 }: Props) => {
-  const id = useId();
-  const width2 = useViewSize(id).width;
+  const { width: width2, ...arg } = useViewLayout();
   const isNumber = typeof size === 'number';
   const wh = isNumber ? rpxToPx(+size) : (size + '').toUpperCase();
   return (
     <View
       className={classNames(styles.wrap, className)}
       {...props}
-      id={id}
+      {...arg}
       style={{
         width: wh,
         height: wh,

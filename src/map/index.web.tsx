@@ -2,7 +2,7 @@ import { useId, useImportCDN } from 'parsec-hooks';
 import React, { useEffect, useRef, useState } from 'react';
 import { MapProps } from 'remax/wechat';
 import { View } from 'remax/one';
-import { getWH } from '../use-view-size';
+import { getWH } from '../use-view-layout';
 
 export default ({
   latitude,

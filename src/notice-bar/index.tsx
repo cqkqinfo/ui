@@ -2,10 +2,9 @@ import React from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
-import useViewSize from '../use-view-size';
+import useViewLayout from '../use-view-layout';
 import Space from '../space';
 import Icon from '../icon';
-import { useId } from 'parsec-hooks';
 import PxToRpx from '../px-to-rpx';
 
 export interface NoticeBarProps {
@@ -48,10 +47,8 @@ const NoticeBar = (props: NoticeBarProps) => {
     title,
     children,
   } = props;
-  const innerId = useId();
-  const { width: innerW = 0 } = useViewSize(innerId);
-  const contentId = useId();
-  const { width: contentW = 0 } = useViewSize(contentId);
+  const { width: innerW = 0, ...arg1 } = useViewLayout();
+  const { width: contentW = 0, ...arg2 } = useViewLayout();
   return (
     <View
       className={classNames(styles.noticeBarBox, className)}
@@ -59,10 +56,10 @@ const NoticeBar = (props: NoticeBarProps) => {
     >
       {React.isValidElement(icon) && React.cloneElement(icon as any, { color })}
       {title && <View className={styles.noticeBarTitle}>{title}：</View>}
-      <View id={contentId} className={styles.noticeContent}>
+      <View {...arg2} className={styles.noticeContent}>
         <View
           className={styles.noticeInner}
-          id={innerId}
+          {...arg1}
           style={{
             animationDuration: `${(PxToRpx(innerW) || 0) / 30}s`,
             paddingLeft: contentW + 'PX',
