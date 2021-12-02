@@ -1,3 +1,17 @@
+## [1.8.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.26...v1.8.27) (2021-12-02)
+
+### Bug Fixes
+
+- ios scrollView 动画不生效 ([fab99b0](https://gitlab2.cqkqinfo.com/web/ui/commit/fab99b0bed2aadc349b2f85ad4f2b4ba3f579299))
+- native 一进入界面就设置会不生效 ([c29d100](https://gitlab2.cqkqinfo.com/web/ui/commit/c29d10072c6d2e3a96dc4d59edc09572bef9bbfc))
+- useViewLayout xy 取值错误 ([d584b76](https://gitlab2.cqkqinfo.com/web/ui/commit/d584b7605817328ce11282171bfc670b2b52418c))
+
+### Features
+
+- scrollView web 支持 scrollWithAnimation ([5e3fc9c](https://gitlab2.cqkqinfo.com/web/ui/commit/5e3fc9cad0644804c44cf3d3729893d5aad68374))
+- 新增保存到相册方法 ([9614314](https://gitlab2.cqkqinfo.com/web/ui/commit/9614314f1a9f1e0134257b21463e1c680764386a))
+- 预览图片兼容 rn ([f2adcf3](https://gitlab2.cqkqinfo.com/web/ui/commit/f2adcf33c7438c8321478537f036b030e0e62d10))
+
 ## [1.8.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.25...v1.8.26) (2021-11-29)
 
 ### Features
