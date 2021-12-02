@@ -4,6 +4,11 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import Visible from '../visible';
 import Space from '../space';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import smoothscroll from 'smoothscroll-polyfill';
+
+smoothscroll.polyfill();
 
 export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
   (
@@ -15,6 +20,7 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       children,
       className,
       scrollWithAnimation,
+      showScrollbar = true,
       scrollY,
       ...props
     },
@@ -31,7 +37,11 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
     }, [scrollIntoView, scrollWithAnimation]);
     return (
       <div
-        className={classNames(className, styles.scroll)}
+        className={classNames(
+          className,
+          styles.scroll,
+          !showScrollbar && styles.hideBar,
+        )}
         children={children}
         {...(props as any)}
         onClick={onTap}

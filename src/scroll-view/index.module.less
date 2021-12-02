@@ -1,8 +1,12 @@
 .scroll {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.scroll::-webkit-scrollbar {
-  width: 0 !important;
-  height: 0 !important;
+.hideBar {
+  &.scroll::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+  }
 }
