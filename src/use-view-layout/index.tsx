@@ -15,7 +15,7 @@ export default () => {
   const { forceUpdate } = useForceUpdate();
   const ref = useRef<HTMLElement>(null);
   const { width, height } = useSize(ref.current);
-  const { offsetTop: y, offsetLeft: x } = ref.current || {};
+  const { y, x } = ref.current?.getBoundingClientRect() || {};
   useEffect(() => {
     if (height === undefined) {
       forceUpdate();
