@@ -83,6 +83,7 @@
     "react-photo-view": "^0.5.2",
     "react-sortablejs": "^6.0.0",
     "sentry-miniapp": "^0.11.1",
+    "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.14.0",
     "swiper": "^7.2.0",
     "weixin-js-sdk": "^1.6.0",
