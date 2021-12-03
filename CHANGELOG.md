@@ -1,3 +1,9 @@
+## [1.8.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.27...v1.8.28) (2021-12-03)
+
+### Bug Fixes
+
+- image rn 总是点击半透明 ([9b3cdc0](https://gitlab2.cqkqinfo.com/web/ui/commit/9b3cdc0757594ea2e3c4795a3909c0bcad1972ba))
+
 ## [1.8.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.26...v1.8.27) (2021-12-02)
 
 ### Bug Fixes
