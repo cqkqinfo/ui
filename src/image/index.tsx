@@ -30,12 +30,16 @@ export default ({
       src={src1}
       mode={'aspectFill'}
       {...props}
-      onTap={e => {
-        if (preview) {
-          previewImage({ urls: [src] });
-        }
-        onTap?.(e);
-      }}
+      onTap={
+        preview || onTap
+          ? e => {
+              if (preview) {
+                previewImage({ urls: [src] });
+              }
+              onTap?.(e);
+            }
+          : undefined
+      }
       onError={e => {
         if (placeholder) {
           setSrc1(placeholder);
