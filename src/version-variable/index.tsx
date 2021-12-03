@@ -8,9 +8,9 @@ export default <D extends unknown>(obj: {
   /**
    * 体验版变量
    */
-  trial: D;
+  trial?: D;
   /**
    * 正式版变量
    */
-  release: D;
-}) => obj[envVersion];
+  release?: D;
+}) => obj[envVersion] || obj['develop'];
