@@ -5,7 +5,6 @@ exports[`图标 渲染 1`] = `
   <div>
     <div
       class=""
-      id="id0"
     />
   </div>
 </body>

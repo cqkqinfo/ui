@@ -7,6 +7,6 @@ describe('屏幕宽度', () => {
   });
 
   it('wechat平台', () => {
-    expect(wechatScreenWidth).toEqual(750);
+    expect(wechatScreenWidth).toEqual(375);
   });
 });
