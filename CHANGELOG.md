@@ -1,3 +1,16 @@
+## [1.8.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.29...v1.8.30) (2021-12-04)
+
+### Bug Fixes
+
+- icon 在不同平台大小表现不一致 ([dd6f923](https://gitlab2.cqkqinfo.com/web/ui/commit/dd6f9237be2c99ce1d9424d2b01e73ec000cf35a))
+- icon 报 NAN 错误 ([063ebfd](https://gitlab2.cqkqinfo.com/web/ui/commit/063ebfd3be0ab404aea853802b0e0a33c4093b20))
+- setValues 有延迟 ([07893b0](https://gitlab2.cqkqinfo.com/web/ui/commit/07893b007229380f3e20975129b133c58bc9d87e))
+- 当 children 是 null 时没有过滤 ([77d824e](https://gitlab2.cqkqinfo.com/web/ui/commit/77d824e07b3f9ed2285b40801d624c08bf171fda))
+
+### Performance Improvements
+
+- 优化 icon 性能 ([9f8ef00](https://gitlab2.cqkqinfo.com/web/ui/commit/9f8ef00f777d3c432c8931ac0ede0eb8f2e0439c))
+
 ## [1.8.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.28...v1.8.29) (2021-12-03)
 
 ## [1.8.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.27...v1.8.28) (2021-12-03)
