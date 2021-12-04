@@ -1,7 +1,6 @@
-import { getSystemInfoSync } from 'remax/wechat';
+import screenWidth from '../screen-width';
 
 export default (px?: number) => {
   if (!px) return px;
-  const { screenWidth } = getSystemInfoSync();
-  return (750 / (screenWidth * 2)) * px * 2;
+  return ((screenWidth / 375) * px) / 2;
 };

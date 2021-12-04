@@ -23,12 +23,12 @@ const renderItem = (name: string) => (
     vertical
     style={{
       background: '#fff',
-      width: 100,
-      height: 100,
+      width: '30vw',
+      height: '30vw',
       border: '1px solid #eee',
     }}
   >
-    <Icon name={name} size={'20px'} color={'#333'} />
+    <Icon name={name} size={40} color={'#333'} />
     {name}
   </Space>
 );
