@@ -1,4 +1,10 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import React, {
+  ReactElement,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import RcForm, {
   FormProps,
   useForm,
@@ -227,7 +233,7 @@ const ReForm = ContainerUseWrap(
       form = !nestedForm ? myForm : undefined,
     } = FormStore.useContainer();
     const preValues = useRef<Values>();
-    useEffect(() => {
+    useLayoutEffect(() => {
       if (
         values &&
         CircularJSON.stringify(preValues.current) !==
