@@ -54,7 +54,9 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
                 ? rpxToPx(+width2.toString().replace('PX', ''))
                 : getPlatform === 'wechat' && size
                 ? pxToRpx(+width2)
-                : +width2
+                : typeof width2 === 'string'
+                ? undefined
+                : width2
             }
             color={color}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
