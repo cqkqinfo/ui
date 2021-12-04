@@ -101,7 +101,7 @@ export default forwardRef(
         i?.type?.toString() === 'Symbol(react.fragment)' ? i.props.children : i,
       )
       ?.flat(3)
-      ?.filter?.(i => ![undefined, true, false].includes(i));
+      ?.filter?.(i => ![undefined, true, false, null].includes(i));
     return (
       <NeedWrap
         wrap={Animated.View}
