@@ -8,6 +8,8 @@ import useViewLayout from '../use-view-layout';
 import NeedWrap from '../need-wrap';
 import Rotate from '../rotate';
 import rpxToPx from '../rpx-to-px';
+import pxToRpx from '../px-to-rpx';
+import getPlatform from '../get-platform';
 
 export interface Props
   extends ViewProps,
@@ -50,6 +52,8 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
             size={
               width2.toString().includes('PX')
                 ? rpxToPx(+width2.toString().replace('PX', ''))
+                : getPlatform === 'wechat' && size
+                ? pxToRpx(+width2)
                 : +width2
             }
             color={color}
