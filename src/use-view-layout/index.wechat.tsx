@@ -11,7 +11,7 @@ export const getWH = (id: string) =>
     query.exec();
   });
 
-export default () => {
+export default ({ run = true }: { run?: boolean } = {}) => {
   const [wh, setWH] = useState<{
     width?: number;
     height?: number;
@@ -21,18 +21,20 @@ export default () => {
   const countRef = useRef(0);
   const id = useId();
   useEffect(() => {
-    const query = createSelectorQuery();
-    const count = countRef.current + 1;
-    countRef.current = count;
-    query.select(`#${id}`).boundingClientRect(data => {
-      if (data && (data.width !== wh.width || data.height !== wh.height)) {
-        if (count === countRef.current) {
-          const { width, height, left, top } = data;
-          setWH({ width, height, x: left, y: top });
+    if (run) {
+      const query = createSelectorQuery();
+      const count = countRef.current + 1;
+      countRef.current = count;
+      query.select(`#${id}`).boundingClientRect(data => {
+        if (data && (data.width !== wh.width || data.height !== wh.height)) {
+          if (count === countRef.current) {
+            const { width, height, left, top } = data;
+            setWH({ width, height, x: left, y: top });
+          }
         }
-      }
-    });
-    query.exec();
+      });
+      query.exec();
+    }
   });
   return { ...wh, id };
 };

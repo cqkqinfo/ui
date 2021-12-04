@@ -9,10 +9,13 @@ import { useCallback, useState } from 'react';
 //     });
 //   });
 
-export default () => {
+export default ({ run = true }: { run?: boolean } = {}) => {
   const [wh, setWh] = useState({});
   return {
     ...wh,
+    /**
+     * 暂不支持根据run自动获取
+     */
     onLayout: useCallback(e => setWh(e.nativeEvent.layout), []),
   };
 };
