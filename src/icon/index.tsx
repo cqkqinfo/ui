@@ -18,17 +18,11 @@ export interface Props
   size?: number | string;
 }
 
-export default ({
-  name,
-  color,
-  size = '1em',
-  className,
-  style,
-  ...props
-}: Props) => {
-  const { width: width2, ...arg } = useViewLayout();
-  const isNumber = typeof size === 'number';
-  const wh = isNumber ? rpxToPx(+size) : (size + '').toUpperCase();
+export default ({ name, color, size, className, style, ...props }: Props) => {
+  const innerSize = size || '1em';
+  const isNumber = typeof innerSize === 'number';
+  const wh = isNumber ? rpxToPx(+innerSize) : (innerSize + '').toUpperCase();
+  const { width: width2 = wh, ...arg } = useViewLayout({ run: !size });
   return (
     <View
       className={classNames(styles.wrap, className)}
@@ -53,7 +47,11 @@ export default ({
         {width2 && (
           <Icon
             name={name}
-            size={width2}
+            size={
+              width2.toString().includes('PX')
+                ? rpxToPx(+width2.toString().replace('PX', ''))
+                : +width2
+            }
             color={color}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
