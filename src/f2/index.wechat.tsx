@@ -28,12 +28,29 @@ export default ({
   const [chart, initChart] = useState<Chart<DataRecord>>();
   const canvasRef = useRef<any>();
   useEffect(() => {
-    // 高清设置
-    const chart = new F2.Chart({
-      context: canvasRef.current.getContext('2d'),
-      ...initParams,
-    });
-    initChart(chart);
+    const canvasNode = createSelectorQuery().select(`#${id}`);
+    canvasNode
+      .fields({
+        node: true,
+        size: true,
+      })
+      .exec(res => {
+        const { node, width, height } = res[0];
+        const context = node.getContext('2d');
+        const pixelRatio = getSystemInfoSync().pixelRatio;
+        // 高清设置
+        node.width = width * pixelRatio;
+        node.height = height * pixelRatio;
+        const chart = new F2.Chart({
+          context,
+          width,
+          height,
+          pixelRatio,
+          ...initParams,
+        });
+        initChart(chart);
+        canvasRef.current = chart.get('el');
+      });
   }, [id, initParams]);
   const dataRef = useRef<typeof data>();
   useEffect(() => {
@@ -43,13 +60,12 @@ export default ({
     chart.source(data, recordScale);
     setChart(chart);
     chart.render();
-  }, [chart, data, setChart]);
+  }, [chart, data, recordScale, setChart]);
   return (
     <Canvas
       id={id}
       style={style}
       className={className}
-      ref={canvasRef}
       onTouchStart={(e: any) => {
         const canvasEl = canvasRef.current;
         if (!canvasEl) return;
