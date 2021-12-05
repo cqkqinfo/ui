@@ -415,3 +415,7 @@ export { default as navigateToMiniProgram } from './navigate-to-mini-program';
  * 保存图片到相册
  */
 export { default as saveImageToPhotosAlbum } from './save-image-to-photos-album';
+/**
+ * px转rpx
+ */
+export { default as pxToRpx } from './px-to-rpx';
