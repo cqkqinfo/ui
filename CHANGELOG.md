@@ -1,3 +1,10 @@
+## [1.8.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.30...v1.8.31) (2021-12-05)
+
+### Bug Fixes
+
+- f2 微信报错 ([3c53eb5](https://gitlab2.cqkqinfo.com/web/ui/commit/3c53eb51927bb45f08d1bc0a00ba79eddd6808c8))
+- test ([1f90ea1](https://gitlab2.cqkqinfo.com/web/ui/commit/1f90ea11599324baa58b87103a156370bfa2c702))
+
 ## [1.8.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.29...v1.8.30) (2021-12-04)
 
 ### Bug Fixes
