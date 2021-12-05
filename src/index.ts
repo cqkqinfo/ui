@@ -452,6 +452,10 @@ export { default as FaceVerify } from './face-verify';
  */
 export { default as HealthCard } from './health-card';
 /**
- * 患者健康卡
+ * 保存到相册
  */
 export { default as saveImageToPhotosAlbum } from './save-image-to-photos-album';
+/**
+ * px转rpx
+ */
+export { default as pxToRpx } from './px-to-rpx';
