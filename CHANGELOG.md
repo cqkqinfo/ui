@@ -1,3 +1,5 @@
+## [1.8.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.31...v1.8.32) (2021-12-06)
+
 ## [1.8.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.30...v1.8.31) (2021-12-05)
 
 ### Bug Fixes
