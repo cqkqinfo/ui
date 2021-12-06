@@ -1,1 +1,1 @@
-export default window.innerWidth > 375 ? 375 : window.innerWidth;
+export default window.innerWidth;
