@@ -1,3 +1,9 @@
+## [1.8.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.32...v1.8.33) (2021-12-07)
+
+### Bug Fixes
+
+- web sentry 无法触发 ([6acb30a](https://gitlab2.cqkqinfo.com/web/ui/commit/6acb30ad55ee5f3afeb9cd742d0205f615fdf052))
+
 ## [1.8.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.31...v1.8.32) (2021-12-06)
 
 ## [1.8.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.30...v1.8.31) (2021-12-05)
