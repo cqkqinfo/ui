@@ -1,3 +1,9 @@
+## [1.8.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.45...v1.8.46) (2021-12-08)
+
+### Bug Fixes
+
+- 小程序编译失败 ([f9efd35](https://gitlab2.cqkqinfo.com/web/ui/commit/f9efd35c18468214db5599e0371d204c1a70dd16))
+
 ## [1.8.45](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.34...v1.8.45) (2021-12-08)
 
 ### Bug Fixes
