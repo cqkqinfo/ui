@@ -65,18 +65,20 @@ export const getChildren = ({
       .map((data: any) => data.label)
       .join('-') || value;
   const result = renderValue ? render || children : children;
-  return children instanceof Function
-    ? children(render, value)
-    : React.isValidElement(children)
-    ? React.cloneElement(children, {
-        ...children.props,
-        children: result,
-        style: {
-          ...style,
-          ...children.props?.style,
-        },
-      })
-    : result;
+  return (
+    (children instanceof Function
+      ? children(render, value)
+      : React.isValidElement(children)
+      ? React.cloneElement(children, {
+          ...children.props,
+          children: result,
+          style: {
+            ...style,
+            ...children.props?.style,
+          },
+        })
+      : result) || '请选择'
+  );
 };
 
 export const useProps = (props: Props) => {
