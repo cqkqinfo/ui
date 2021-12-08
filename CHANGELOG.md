@@ -1,3 +1,13 @@
+## [1.8.47](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.46...v1.8.47) (2021-12-08)
+
+### Features
+
+- picker 默认请选择 children ([39f24d3](https://gitlab2.cqkqinfo.com/web/ui/commit/39f24d3df298743d56cebaaa8d7b55dfdf90cf69))
+
+### Performance Improvements
+
+- 优化 input 性能 ([bdfaa5d](https://gitlab2.cqkqinfo.com/web/ui/commit/bdfaa5df9e931662f968b36181afadc1f5031367))
+
 ## [1.8.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.45...v1.8.46) (2021-12-08)
 
 ### Bug Fixes
