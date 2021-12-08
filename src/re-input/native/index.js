@@ -41,8 +41,17 @@ Component({
     confirmHold: Boolean,
     showConfirmBar: Boolean,
   },
+  data: {
+    myValue: undefined,
+    isFocus: false,
+  },
   observers: {
     value: function(value) {
+      if (!this.data.isFocus) {
+        this.setData({ myValue: value });
+      }
+    },
+    myValue: function(value) {
       if (this.data.changed || value) {
         this.setData({ changed: true });
         throttle(
@@ -62,9 +71,11 @@ Component({
   },
   methods: {
     onBlur(e) {
+      this.setData({ isFocus: false });
       this.triggerEvent('blur', e);
     },
     onFocus(e) {
+      this.setData({ isFocus: true });
       this.triggerEvent('focus', e);
     },
     onConfirm(e) {
