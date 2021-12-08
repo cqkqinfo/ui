@@ -1,3 +1,9 @@
+## [1.8.34](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.33...v1.8.34) (2021-12-08)
+
+### Performance Improvements
+
+- 优化 picker 可选择区域 ([b99580d](https://gitlab2.cqkqinfo.com/web/ui/commit/b99580db0adc1ba6ce6279986b4fa37f37394426))
+
 ## [1.8.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.32...v1.8.33) (2021-12-07)
 
 ### Bug Fixes
