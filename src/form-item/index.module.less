@@ -31,10 +31,16 @@
   color: #666;
   flex: 1;
   :global {
+    div:not(div[class]) {
+      width: 100%;
+    }
+    picker {
+      width: 100%;
+    }
     .picker-children {
       display: flex;
       justify-content: flex-end;
-      //width: 100vw;
+      width: 100%;
       //max-width: 50vw;
       height: 70px;
       align-items: center;
