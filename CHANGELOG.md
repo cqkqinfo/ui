@@ -1,3 +1,9 @@
+## [1.8.45](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.34...v1.8.45) (2021-12-08)
+
+### Bug Fixes
+
+- 小程序编译失败 ([0a5464e](https://gitlab2.cqkqinfo.com/web/ui/commit/0a5464e55b023d4f6786f7bcd98bf477943a7a61))
+
 ## [1.8.34](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.33...v1.8.34) (2021-12-08)
 
 ### Performance Improvements
