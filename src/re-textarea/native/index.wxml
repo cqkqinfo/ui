@@ -2,7 +2,7 @@
   class="{{className}}"
   id="{{id}}"
   style="{{style}}"
-  model:value="{{value}}"
+  model:value="{{myValue}}"
   bindfocus="onFocus"
   bindblur="bindblur"
   placeholder="{{value ? '' : placeholder}}"
