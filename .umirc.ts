@@ -36,6 +36,26 @@ export default defineConfig({
       },
       'antd',
     ],
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'parsec-hooks',
+        camel2DashComponentName: false,
+        customName: (name: string) => {
+          if (name === 'ContainerUseWrap') {
+            return `parsec-hooks/lib/${name}`;
+          }
+          if (/^(use)/.test(name)) {
+            return `parsec-hooks/lib/${name
+              .replace(/^(use)/, '')
+              .replace(/^\S/, s => s.toLowerCase())}Hooks`;
+          } else {
+            return `parsec-hooks/lib/utils/${name}`;
+          }
+        },
+      },
+      'parsec-hooks',
+    ],
   ],
   extraPostCSSPlugins: [
     require('postcss-unit-transforms')({
