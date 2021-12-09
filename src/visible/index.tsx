@@ -2,11 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { useInViewport } from 'ahooks';
 import { View } from 'remax/one';
 
-interface Props {
+export interface Props {
   onVisible?: () => void;
   onHidden?: () => void;
   className?: string;
   children?: React.ReactNode;
+  /**
+   * 优化性能
+   */
+  perf?: boolean;
+  height?: number;
 }
 
 export default ({ children, className, onHidden, onVisible }: Props) => {
