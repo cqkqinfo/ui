@@ -3,18 +3,7 @@
 import Visible from './native';
 import React from 'react';
 import { View } from 'remax/wechat';
-
-export interface Props {
-  onVisible?: () => void;
-  onHidden?: () => void;
-  className?: string;
-  children?: React.ReactNode;
-  /**
-   * 优化性能
-   */
-  perf?: boolean;
-  height?: number;
-}
+import { Props } from './index';
 
 export default ({
   children,
