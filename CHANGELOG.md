@@ -1,3 +1,9 @@
+## [1.8.48](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.47...v1.8.48) (2021-12-09)
+
+### Features
+
+- 添加 switchVariable ([d6ffa45](https://gitlab2.cqkqinfo.com/web/ui/commit/d6ffa4552871468d3011d4098aecec8b1c1675db))
+
 ## [1.8.47](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.46...v1.8.47) (2021-12-08)
 
 ### Features
