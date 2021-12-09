@@ -1,18 +1,19 @@
-export default (obj: {
+/* eslint-disable @typescript-eslint/ban-types */
+export default <T extends unknown>(obj: {
   /**
    * 默认变量
    */
-  default?: any;
-  [key: string]: any;
-}) => (v: string) => {
+  default?: T extends object ? Partial<T> : T;
+  [key: string]: (T extends object ? Partial<T> : T) | undefined;
+}) => (v: keyof typeof obj) => {
   const defaultValue = obj['default'];
   const value = obj[v] || defaultValue;
-  if (typeof value === 'object' && defaultValue) {
-    Object.keys(defaultValue).forEach(key => {
+  if (typeof value === 'object' && typeof defaultValue === 'object') {
+    Object.keys(defaultValue as any).forEach(key => {
       if ((value as any)[key] === undefined) {
         (value as any)[key] = (defaultValue as any)[key];
       }
     });
   }
-  return value;
+  return value as T;
 };
