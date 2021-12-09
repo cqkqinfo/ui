@@ -459,3 +459,7 @@ export { default as saveImageToPhotosAlbum } from './save-image-to-photos-album'
  * px转rpx
  */
 export { default as pxToRpx } from './px-to-rpx';
+/**
+ * 切换变量
+ */
+export { default as switchVariable } from './switch-variable';

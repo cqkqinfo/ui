@@ -4,13 +4,13 @@ export default <D extends unknown>(obj: {
   /**
    * 开发版变量
    */
-  develop: D;
+  develop: Partial<D>;
   /**
    * 体验版变量
    */
-  trial?: D;
+  trial?: Partial<D>;
   /**
    * 正式版变量
    */
-  release?: D;
+  release?: Partial<D>;
 }) => obj[envVersion] || obj['develop'];
