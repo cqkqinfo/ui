@@ -1,3 +1,10 @@
 :host {
   width: 100%;
 }
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
