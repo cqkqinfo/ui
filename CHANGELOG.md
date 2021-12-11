@@ -1,3 +1,9 @@
+## [1.8.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.52...v1.8.53) (2021-12-11)
+
+### Bug Fixes
+
+- placeholder 样式不生效 ([1b51a78](https://gitlab2.cqkqinfo.com/web/ui/commit/1b51a781945544cd75974f05f174252071f31a0b))
+
 ## [1.8.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.51...v1.8.52) (2021-12-11)
 
 ### Bug Fixes
