@@ -1,3 +1,10 @@
+## [1.8.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.51...v1.8.52) (2021-12-11)
+
+### Bug Fixes
+
+- ci ([e89f115](https://gitlab2.cqkqinfo.com/web/ui/commit/e89f115662467e733ddfaf0a9c5658c9cb0ca7e6))
+- 小程序 placeholder 会浮动 ([6e92a4d](https://gitlab2.cqkqinfo.com/web/ui/commit/6e92a4d0474652be0afe569e18c51e9d15d4607f))
+
 ## [1.8.51](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.50...v1.8.51) (2021-12-09)
 
 ## [1.8.50](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.49...v1.8.50) (2021-12-09)
