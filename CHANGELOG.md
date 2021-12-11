@@ -1,21 +1,3 @@
-## [1.8.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.54...v1.8.55) (2021-12-13)
-
-### Bug Fixes
-
-- input 不能清空 ([0566f74](https://gitlab2.cqkqinfo.com/web/ui/commit/0566f7470a754147d22b2fc7831286dc4ba594ae))
-
-## [1.8.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.53...v1.8.54) (2021-12-13)
-
-### Bug Fixes
-
-- input 不能点击 ([300a033](https://gitlab2.cqkqinfo.com/web/ui/commit/300a033920d1a64ef5ddeeadc47aede9bdf4fb25))
-
-## [1.8.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.52...v1.8.53) (2021-12-11)
-
-### Bug Fixes
-
-- placeholder 样式不生效 ([1b51a78](https://gitlab2.cqkqinfo.com/web/ui/commit/1b51a781945544cd75974f05f174252071f31a0b))
-
 ## [1.8.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.51...v1.8.52) (2021-12-11)
 
 ### Bug Fixes
