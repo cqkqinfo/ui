@@ -82,8 +82,11 @@
 }
 .cell-children-left {
   justify-content: flex-start;
-  input {
-    text-align: left;
+  :global {
+    input,
+    .placeholder {
+      text-align: left;
+    }
   }
 }
 
@@ -120,6 +123,11 @@
     color: #ed4e56;
     &::placeholder {
       color: #ed4e56;
+    }
+  }
+  :global {
+    .placeholder {
+      color: #ed4e56 !important;
     }
   }
 }
