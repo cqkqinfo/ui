@@ -1,70 +1,72 @@
+const url = 'https://kq-static.oss-cn-beijing.aliyuncs.com/ui/';
+
 export default {
   /**
    * 暂无排班
    */
-  calendar: 'https://z3.ax1x.com/2021/04/12/cBYfTU.png',
+  calendar: `${url}calendar.png`,
   /**
    * 医生
    */
-  doctor: 'https://z3.ax1x.com/2021/04/12/cBY4kF.png',
+  doctor: `${url}doctor.png`,
   /**
    * 女医生
    */
-  doctor2: 'https://z3.ax1x.com/2021/04/13/cruEHH.png',
+  doctor2: `${url}doctor2.png`,
   /**
    * 医院
    */
-  hospital: 'https://z3.ax1x.com/2021/04/12/cBYWwT.png',
+  hospital: `${url}hospital.png`,
   /**
    * 电子健康卡
    */
-  healthCard: 'https://z3.ax1x.com/2021/04/12/cDKgDe.png',
+  healthCard: `${url}healthCard.png`,
   /**
    * 团队
    */
-  team: 'https://z3.ax1x.com/2021/04/13/cru8bQ.png',
+  team: `${url}team.png`,
   /**
    * 女人
    */
-  woman: 'https://z3.ax1x.com/2021/05/28/2FFTv4.png',
+  woman: `${url}woman.png`,
   /**
    * 男人
    */
-  man: 'https://z3.ax1x.com/2021/05/28/2FFXUx.png',
+  man: `${url}man.png`,
   /**
    * 出生证
    */
-  csz: 'https://z3.ax1x.com/2021/06/18/RpJIit.png',
+  csz: `${url}csz.png`,
   /**
    * 户口所在页
    */
-  hkb: 'https://z3.ax1x.com/2021/06/18/RpJhdA.png',
+  hkb: `${url}hkb.png`,
   /**
    * 户口增减页
    */
-  hkb2: 'https://z3.ax1x.com/2021/06/18/RpJoJP.png',
+  hkb2: `${url}hkb2.png`,
   /**
    * 手持身份证
    */
-  scsfz: 'https://z3.ax1x.com/2021/06/18/RpJ4II.png',
+  scsfz: `${url}scsfz.png`,
   /**
    * 身份证正面
    */
-  sfzzm: 'https://z3.ax1x.com/2021/06/18/RpYI0J.png',
+  sfzzm: `${url}sfzzm.png`,
   /**
    * 身份证反面
    */
-  sfzfm: 'https://z3.ax1x.com/2021/06/18/RpYo79.png',
+  sfzfm: `${url}sfzfm.png`,
   /**
    * 医保卡
    */
-  ybk: 'https://z3.ax1x.com/2021/06/18/Rpal9I.png',
+  ybk: `${url}ybk.png`,
   /**
    * 默认头像
    */
-  mrtx: 'https://z3.ax1x.com/2021/08/15/fcTryq.png',
+  mrtx: `${url}mrtx.png`,
   /**
    * 占位图
    */
-  zwt: 'https://z3.ax1x.com/2021/08/27/hMVapd.png',
+  zwt: `${url}zwt.png`,
 };
