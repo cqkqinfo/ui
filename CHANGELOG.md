@@ -1,3 +1,9 @@
+## [1.8.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.54...v1.8.55) (2021-12-13)
+
+### Bug Fixes
+
+- input 不能清空 ([0566f74](https://gitlab2.cqkqinfo.com/web/ui/commit/0566f7470a754147d22b2fc7831286dc4ba594ae))
+
 ## [1.8.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.53...v1.8.54) (2021-12-13)
 
 ### Bug Fixes
