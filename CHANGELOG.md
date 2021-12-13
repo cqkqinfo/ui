@@ -1,3 +1,9 @@
+## [1.8.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.53...v1.8.54) (2021-12-13)
+
+### Bug Fixes
+
+- input 不能点击 ([300a033](https://gitlab2.cqkqinfo.com/web/ui/commit/300a033920d1a64ef5ddeeadc47aede9bdf4fb25))
+
 ## [1.8.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.52...v1.8.53) (2021-12-11)
 
 ### Bug Fixes
