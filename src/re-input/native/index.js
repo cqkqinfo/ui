@@ -47,7 +47,7 @@ Component({
   },
   observers: {
     value: function(value) {
-      if (!this.data.isFocus) {
+      if (!this.data.isFocus || !value) {
         this.setData({ myValue: value });
       }
     },
