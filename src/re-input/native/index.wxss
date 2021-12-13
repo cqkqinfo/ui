@@ -8,4 +8,5 @@
   transform: translateY(-50%);
   width: 100%;
   text-align: inherit;
+  pointer-events: none;
 }
