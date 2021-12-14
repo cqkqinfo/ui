@@ -1,3 +1,9 @@
+## [1.8.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.55...v1.8.56) (2021-12-14)
+
+### Bug Fixes
+
+- 修复 animate 支付宝环境下抱错 ([7028c01](https://gitlab2.cqkqinfo.com/web/ui/commit/7028c01f9a2f095fe1896a5d155317f158ff77a6))
+
 ## [1.8.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.54...v1.8.55) (2021-12-13)
 
 ### Bug Fixes
