@@ -386,7 +386,7 @@ export { default as chooseImage } from './choose-image';
 /**
  * 图像识别
  */
-export { default as OCR } from './ocr';
+export { default as OCR } from './o-c-r';
 /**
  * 设置剪切板
  */

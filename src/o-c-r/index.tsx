@@ -3,6 +3,16 @@ import uploadFile from '../upload-file';
 import chooseImage from '../choose-image';
 import showToast from '../show-toast';
 
+export interface IdnoInfoType {
+  address: string;
+  birth: string;
+  name: string;
+  nationality: string;
+  num: string;
+  request_id: string;
+  sex: string;
+}
+
 export default async ({
   basicPlatformToken,
 }: {
@@ -23,11 +33,16 @@ export default async ({
       file,
     },
   }).then(({ data }: any) => {
-    const ocr: { name: string; num: string } = JSON.parse(data).data;
+    let ocr;
+    if (typeof data === 'string') {
+      ocr = JSON.parse(data).data;
+    } else {
+      ocr = data;
+    }
     if (!ocr) {
       showToast({ title: '请上传清晰正确的身份证照片', icon: 'none' });
       return Promise.reject();
     }
-    return ocr;
+    return ocr as IdnoInfoType;
   });
 };
