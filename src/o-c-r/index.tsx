@@ -36,7 +36,6 @@ export default async ({
   });
   hideLoading();
   let ocr;
-  console.log('--------', Object.prototype.toString.call(res));
   if (Object.prototype.toString.call(res) === '[object String]') {
     ocr = JSON.parse(res).data.data;
     console.log('ocr', ocr);
@@ -45,6 +44,5 @@ export default async ({
     showToast({ title: '请上传清晰正确的身份证照片', icon: 'none' });
     return Promise.reject();
   }
-  console.log('++++', ocr);
-  return (Promise.resolve(ocr) as unknown) as IdnoInfoType;
+  return ocr as IdnoInfoType;
 };
