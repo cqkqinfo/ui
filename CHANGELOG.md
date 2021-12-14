@@ -1,3 +1,9 @@
+## [1.8.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.56...v1.8.57) (2021-12-14)
+
+### Features
+
+- 更新 OCR 组件 ([0868bd7](https://gitlab2.cqkqinfo.com/web/ui/commit/0868bd73a724487ba1b451ae383372c51c63dbaf))
+
 ## [1.8.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.55...v1.8.56) (2021-12-14)
 
 ### Bug Fixes
