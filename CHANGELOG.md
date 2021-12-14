@@ -1,3 +1,15 @@
+## [1.8.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.56...v1.8.57) (2021-12-14)
+
+### Features
+
+- 更新 OCR 组件 ([0868bd7](https://gitlab2.cqkqinfo.com/web/ui/commit/0868bd73a724487ba1b451ae383372c51c63dbaf))
+
+## [1.8.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.55...v1.8.56) (2021-12-14)
+
+### Bug Fixes
+
+- 修复 animate 支付宝环境下抱错 ([7028c01](https://gitlab2.cqkqinfo.com/web/ui/commit/7028c01f9a2f095fe1896a5d155317f158ff77a6))
+
 ## [1.8.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.54...v1.8.55) (2021-12-13)
 
 ### Bug Fixes
