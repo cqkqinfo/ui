@@ -1,0 +1,4 @@
+<view animation="{{animation}}" bindtransitionend="animationEnd">
+    <slot/>
+</view>
+
