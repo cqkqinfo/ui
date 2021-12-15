@@ -1,3 +1,9 @@
+## [1.8.58](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.57...v1.8.58) (2021-12-15)
+
+### Bug Fixes
+
+- space 不过滤空字符串 ([ce1817f](https://gitlab2.cqkqinfo.com/web/ui/commit/ce1817f4f8d091972e4dcb34bbcbc868b5b3b5e0))
+
 ## [1.8.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.56...v1.8.57) (2021-12-14)
 
 ### Features
