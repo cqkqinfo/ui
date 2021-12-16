@@ -2,6 +2,7 @@ import showLoading from '../show-loading';
 import uploadFile from '../upload-file';
 import chooseImage from '../choose-image';
 import showToast from '../show-toast';
+import hideLoading from '../hide-loading';
 
 export interface IdnoInfoType {
   address: string;
@@ -25,24 +26,23 @@ export default async ({
     tempFilePaths: [file],
   } = await chooseImage({ count: 1 });
   showLoading({ title: '识别中...' });
-  await uploadFile({
+  const res: any = await uploadFile({
     url: `https://wx.cqkqinfo.com/basicapi/basic/ocr/ocrImage?basic_token=${basicPlatformToken}`,
     name: 'file',
     filePath: file,
     formData: {
       file,
     },
-  }).then(({ data }: any) => {
-    let ocr;
-    if (typeof data === 'string') {
-      ocr = JSON.parse(data).data;
-    } else {
-      ocr = data;
-    }
-    if (!ocr) {
-      showToast({ title: '请上传清晰正确的身份证照片', icon: 'none' });
-      return Promise.reject();
-    }
-    return ocr as IdnoInfoType;
   });
+  hideLoading();
+  let ocr;
+  if (Object.prototype.toString.call(res) === '[object String]') {
+    ocr = JSON.parse(res).data.data;
+    console.log('ocr', ocr);
+  }
+  if (!ocr) {
+    showToast({ title: '请上传清晰正确的身份证照片', icon: 'none' });
+    return Promise.reject();
+  }
+  return ocr as IdnoInfoType;
 };
