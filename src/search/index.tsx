@@ -7,6 +7,7 @@ import Icon from '../icon';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import getPlatform from '../get-platform';
+import classnames from 'classnames';
 
 interface Props extends InputProps {
   /**
@@ -71,7 +72,6 @@ export default ({
       }}
       style={{
         opacity: value2 ? 1 : 0,
-        position: value2 ? undefined : 'absolute',
       }}
       className={styles.clear}
     >
@@ -89,7 +89,9 @@ export default ({
       >
         <Icon
           className={styles.icon}
-          color={iconColor}
+          color={classnames(iconColor, {
+            [styles.iconColorWeb]: getPlatform === 'web',
+          })}
           name={elderly ? 'kq-sousuo' : 'kq-search'}
         />
         <Input

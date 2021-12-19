@@ -1,3 +1,6 @@
-export const envVersion = '';
+import { getRunScene } from 'remax/ali';
 
-export default undefined;
+export default async () => {
+  const { envVersion } = await getRunScene();
+  return envVersion;
+};
