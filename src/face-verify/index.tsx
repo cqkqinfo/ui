@@ -10,7 +10,7 @@ export interface Props extends Options {
   /**
    * 成功事件
    */
-  onSuccess?: () => {};
+  onSuccess?: () => void;
 }
 
 export default ({ onSuccess, ...options }: Props) => {
