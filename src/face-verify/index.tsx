@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, navigateBack } from 'remax/one';
+import { View, Image, Text } from 'remax/one';
 import { Button, useFaceVerify } from '@kqinfo/ui';
 import styles from './index.module.less';
 import { useTitle } from 'parsec-hooks';
@@ -37,7 +37,7 @@ export default ({ onSuccess, ...options }: Props) => {
         )}
       </View>
       {faceVerifyStatus === FaceVerifyStatus.成功 ? (
-        <Button type="primary" onTap={() => navigateBack()}>
+        <Button type="primary" onTap={() => onSuccess?.()}>
           人脸认证成功，点击返回
         </Button>
       ) : (
