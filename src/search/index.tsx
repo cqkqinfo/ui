@@ -50,7 +50,7 @@ export default ({
   onChange,
   style,
   btnCls,
-  iconColor = '#999999',
+  iconColor = '#ccc',
   inputWrapStyle,
   inputCls,
   className,
@@ -88,10 +88,10 @@ export default ({
         style={inputWrapStyle}
       >
         <Icon
-          className={styles.icon}
-          color={classnames(iconColor, {
+          className={classnames(styles.icon, {
             [styles.iconColorWeb]: getPlatform === 'web',
           })}
+          color={iconColor}
           name={elderly ? 'kq-sousuo' : 'kq-search'}
         />
         <Input
