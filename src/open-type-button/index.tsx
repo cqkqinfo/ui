@@ -2,12 +2,12 @@ import { View, ViewProps } from 'remax/one';
 import React from 'react';
 
 export interface GetUserInfoData {
-  encryptedData: string;
-  errMsg: string;
-  iv: string;
-  rawData: string;
-  signature: string;
-  userInfo: string;
+  encryptedData?: string;
+  errMsg?: string;
+  iv?: string;
+  rawData?: string;
+  signature?: string;
+  userInfo?: string;
 }
 
 export interface Props extends React.PropsWithChildren<ViewProps> {

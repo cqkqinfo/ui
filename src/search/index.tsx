@@ -7,6 +7,7 @@ import Icon from '../icon';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import getPlatform from '../get-platform';
+import classnames from 'classnames';
 
 interface Props extends InputProps {
   /**
@@ -49,7 +50,7 @@ export default ({
   onChange,
   style,
   btnCls,
-  iconColor = '#999999',
+  iconColor = '#ccc',
   inputWrapStyle,
   inputCls,
   className,
@@ -71,7 +72,6 @@ export default ({
       }}
       style={{
         opacity: value2 ? 1 : 0,
-        position: value2 ? undefined : 'absolute',
       }}
       className={styles.clear}
     >
@@ -88,7 +88,9 @@ export default ({
         style={inputWrapStyle}
       >
         <Icon
-          className={styles.icon}
+          className={classnames(styles.icon, {
+            [styles.iconColorWeb]: getPlatform === 'web',
+          })}
           color={iconColor}
           name={elderly ? 'kq-sousuo' : 'kq-search'}
         />

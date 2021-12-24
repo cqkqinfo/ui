@@ -9,7 +9,6 @@ import login, { LoginData } from '../login';
 import ColorText from '../color-text';
 import Image from '../image';
 import styles from './index.module.less';
-import { useTitle } from 'parsec-hooks';
 
 export interface Props {
   /**
@@ -48,7 +47,6 @@ export default ({
 }: Props) => {
   const [check, setCheck] = useState(true);
   const [btnCheck, setBtcCheck] = useState(true);
-  useTitle('用户授权');
   return (
     <View className={styles.page}>
       <View className={styles.title}>{hisName}授权</View>

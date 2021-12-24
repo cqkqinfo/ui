@@ -8,6 +8,7 @@ interface ConfigData {
   timestamp: number;
   nonceStr: string;
   signature: string;
+  openTagList?: string[];
 }
 
 export default ({
@@ -46,6 +47,7 @@ export default ({
       wx.config({
         ...config,
         jsApiList: [...Object.keys(wx), 'requestWxFacePictureVerify'],
+        openTagList: configData?.openTagList || ['wx-open-launch-weapp'],
       });
       Sentry.setExtra('wxConfig', config);
       wx.error((res: any) => {
