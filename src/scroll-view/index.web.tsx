@@ -1,5 +1,11 @@
 import { ScrollViewProps } from 'remax/wechat';
-import React, { PropsWithChildren, useEffect, forwardRef } from 'react';
+import React, {
+  PropsWithChildren,
+  useEffect,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from 'react';
 import classNames from 'classnames';
 import styles from './index.module.less';
 import Visible from '../visible';
@@ -21,6 +27,8 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       className,
       scrollWithAnimation,
       showScrollbar = true,
+      onScroll,
+      scrollLeft,
       scrollY,
       ...props
     },
@@ -35,6 +43,12 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
         );
       }
     }, [scrollIntoView, scrollWithAnimation]);
+    const domRef = useRef<HTMLDivElement>(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useImperativeHandle(ref, () => domRef.current as any, [domRef.current]);
+    useEffect(() => {
+      domRef.current?.scrollTo({ left: scrollLeft as any });
+    }, [scrollLeft]);
     return (
       <div
         className={classNames(
@@ -43,9 +57,12 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
           !showScrollbar && styles.hideBar,
         )}
         children={children}
+        onMouseUp={props.onTouchEnd}
+        onMouseDown={props.onTouchStart}
         {...(props as any)}
+        onScroll={({ target }) => onScroll?.({ detail: target } as any)}
         onClick={onTap}
-        ref={ref}
+        ref={domRef}
       >
         <Space flex={1} justify={'space-between'} vertical={scrollY}>
           <Visible onVisible={() => onScrollToUpper?.({} as any)} />
