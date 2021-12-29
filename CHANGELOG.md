@@ -1,3 +1,13 @@
+## [1.8.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.59...v1.8.60) (2021-12-29)
+
+### Bug Fixes
+
+- web 滚动视图事件 ([341fd9c](https://gitlab2.cqkqinfo.com/web/ui/commit/341fd9c082fb672142b75f06981157d075ba0967))
+
+### Features
+
+- 添加滑动操作组件 ([4b6b525](https://gitlab2.cqkqinfo.com/web/ui/commit/4b6b52512a2ab6688f0891665583191466877375))
+
 ## [1.8.59](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.58...v1.8.59) (2021-12-24)
 
 ### Bug Fixes
