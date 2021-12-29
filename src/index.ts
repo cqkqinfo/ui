@@ -423,3 +423,7 @@ export { default as pxToRpx } from './px-to-rpx';
  * 切换变量
  */
 export { default as switchVariable } from './switch-variable';
+/**
+ * 滑动操作
+ */
+export { default as SwipeAction } from './swipe-action';
