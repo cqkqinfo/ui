@@ -48,13 +48,35 @@ export default () => (
       醒目色
     </Button>
     <PartTitle>大小</PartTitle>
-    <Space size={'10px'}>
+    <Space size={'10px'} flexWrap={'wrap'}>
       <Button size={'small'} block={false}>
         小号
       </Button>
       <Button type={'primary'} size={'action'} block={false}>
         操作按钮，大小跟小号差不多
       </Button>
+      <Button type={'primary'} size={'tiny'} block={false}>
+        最小的按钮
+      </Button>
+    </Space>
+    <PartTitle>Group</PartTitle>
+    <Space size={'10px'} flexWrap={'wrap'}>
+      <Button.Group>
+        <Button type={'primary'} size={'small'}>
+          提交
+        </Button>
+        <Button type={'attract'} size={'small'}>
+          返回
+        </Button>
+      </Button.Group>
+      <Button.Group>
+        <Button round type={'primary'} size={'small'}>
+          提交
+        </Button>
+        <Button round type={'attract'} size={'small'}>
+          返回
+        </Button>
+      </Button.Group>
     </Space>
     <PartTitle>加载中</PartTitle>
     <Button loading>默认</Button>
