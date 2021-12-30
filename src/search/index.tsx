@@ -8,8 +8,9 @@ import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import getPlatform from '../get-platform';
 import classnames from 'classnames';
+import { NeedWrap, Shadow } from '@kqinfo/ui';
 
-interface Props extends InputProps {
+export interface Props extends InputProps {
   /**
    * 显示搜索按钮
    */
@@ -42,6 +43,10 @@ interface Props extends InputProps {
    * 输入框wrap样式
    */
   inputWrapStyle?: React.CSSProperties;
+  /**
+   * 阴影
+   */
+  shadow?: boolean;
 }
 
 export default ({
@@ -57,6 +62,7 @@ export default ({
   inputWrapCls,
   elderly = useConfig().elderly,
   btnStyle,
+  shadow,
   ...props
 }: Props) => {
   const [value2, setValue] = useEffectState(value);
@@ -83,30 +89,32 @@ export default ({
       className={classNames(styles.wrap, className, elderly && styles.elderly)}
       style={style}
     >
-      <View
-        className={classNames(styles.inputWrap, inputWrapCls)}
-        style={inputWrapStyle}
-      >
-        <Icon
-          className={classnames(styles.icon, {
-            [styles.iconColorWeb]: getPlatform === 'web',
-          })}
-          color={iconColor}
-          name={elderly ? 'kq-sousuo' : 'kq-search'}
-        />
-        <Input
-          className={classNames(styles.input, inputCls)}
-          placeholderStyle={{ color: '#999999' }}
-          onChange={v => {
-            setValue(v);
-            handleChange(v);
-          }}
-          value={value2}
-          confirmType={'search'}
-          {...props}
-        />
-        {getPlatform === 'native' ? value2 && icon : icon}
-      </View>
+      <NeedWrap wrap={Shadow} need={!!shadow}>
+        <View
+          className={classNames(styles.inputWrap, inputWrapCls)}
+          style={inputWrapStyle}
+        >
+          <Icon
+            className={classnames(styles.icon, {
+              [styles.iconColorWeb]: getPlatform === 'web',
+            })}
+            color={iconColor}
+            name={elderly ? 'kq-sousuo' : 'kq-search'}
+          />
+          <Input
+            className={classNames(styles.input, inputCls)}
+            placeholderStyle={{ color: '#999999' }}
+            onChange={v => {
+              setValue(v);
+              handleChange(v);
+            }}
+            value={value2}
+            confirmType={'search'}
+            {...props}
+          />
+          {getPlatform === 'native' ? value2 && icon : icon}
+        </View>
+      </NeedWrap>
       {showBtn && (
         <View
           className={classNames(styles.btn, btnCls)}

@@ -1,3 +1,35 @@
+## [1.8.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.60...v1.8.61) (2021-12-30)
+
+### Features
+
+- search 添加 shadow 属性 ([27530e1](https://gitlab2.cqkqinfo.com/web/ui/commit/27530e15c72f801eee0148a5d4b1efdf0cfd8e16))
+- 添加 Button.Group ([601bffc](https://gitlab2.cqkqinfo.com/web/ui/commit/601bffc0e56e51bafb0dbbbdf166ac135a4f096f))
+
+## [1.8.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.59...v1.8.60) (2021-12-29)
+
+### Bug Fixes
+
+- web 滚动视图事件 ([341fd9c](https://gitlab2.cqkqinfo.com/web/ui/commit/341fd9c082fb672142b75f06981157d075ba0967))
+
+### Features
+
+- 添加滑动操作组件 ([4b6b525](https://gitlab2.cqkqinfo.com/web/ui/commit/4b6b52512a2ab6688f0891665583191466877375))
+
+## [1.8.59](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.58...v1.8.59) (2021-12-24)
+
+### Bug Fixes
+
+- 修复 OCR 没有返回数据 ([a4e5c3a](https://gitlab2.cqkqinfo.com/web/ui/commit/a4e5c3aa613f341766a0b940ff595cdcac88f4d4))
+- 修复 OCR 没有返回数据 ([643bf98](https://gitlab2.cqkqinfo.com/web/ui/commit/643bf9883ed1b0fc302df0117ca565539fd4f658))
+- 修复人脸识别成功没有调用 onSuccess 事件 ([262817b](https://gitlab2.cqkqinfo.com/web/ui/commit/262817bca72ae649b2810a96c090a88c9049537a))
+
+### Features
+
+- background-img 新增 preview 属性 ([379a07b](https://gitlab2.cqkqinfo.com/web/ui/commit/379a07b3882eff3d5356640aaaf5f4f3f7733620))
+- 兼容 preview-iamge、swiper 支付宝环境 ([7c04bfa](https://gitlab2.cqkqinfo.com/web/ui/commit/7c04bfa69b795ec5d21d54e961c4eb21e6c5b56d))
+- 新增 choose-image、open-data、naviagte-to-mini-program、scroll-view、upload-file、user-authorization 支付环小程序支持 ([14a6bcd](https://gitlab2.cqkqinfo.com/web/ui/commit/14a6bcd2bb9cd20ae1ed927bd78854842cdb8eb6))
+- 更新 search、clipboard、wx-init、get-version、get-current-page、scroll-view 支持支付宝 ([38fdd63](https://gitlab2.cqkqinfo.com/web/ui/commit/38fdd635a39c62fc7fb4b0932f3591c071aee437))
+
 ## [1.8.58](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.57...v1.8.58) (2021-12-15)
 
 ### Bug Fixes

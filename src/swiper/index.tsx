@@ -42,8 +42,10 @@ export default ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       onSlideChange={e => onChange?.({ detail: { current: e.activeIndex } })}
-      centeredSlides
+      // centeredSlides
       slidesPerView={displayMultipleItems}
+      slideToClickedSlide
+      resistanceRatio={0}
       pagination={
         indicatorDots
           ? {
