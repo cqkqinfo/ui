@@ -4,7 +4,7 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 import Shadow from '../shadow';
 import NeedWrap from '../need-wrap';
-import Space from '../space';
+import Space, { Props as SpaceProps } from '../space';
 import Icon from '../icon';
 import Sentry from '../sentry';
 import { useConfig } from '../config-provider';
@@ -33,7 +33,7 @@ export interface Props
    * 按钮大小
    * @default normal
    */
-  size?: 'normal' | 'small' | 'action';
+  size?: 'normal' | 'small' | 'action' | 'tiny';
   /**
    * 阴影
    * @default false
@@ -79,7 +79,7 @@ export interface Props
   elderly?: boolean;
 }
 
-export default ({
+const Button = ({
   children,
   className,
   size = 'normal',
@@ -140,3 +140,9 @@ export default ({
     </View>
   </NeedWrap>
 );
+
+Button.Group = ({ className, ...props }: SpaceProps) => {
+  return <Space className={classNames(className, styles.group)} {...props} />;
+};
+
+export default Button;
