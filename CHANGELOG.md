@@ -1,3 +1,10 @@
+## [1.8.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.61...v1.8.62) (2021-12-30)
+
+### Bug Fixes
+
+- picker dateTime 值不能回填 ([dcc447a](https://gitlab2.cqkqinfo.com/web/ui/commit/dcc447a3eb9041cffc69d8a4db25e4bc08a839ce))
+- search 图标无法清除值 ([f7a27b5](https://gitlab2.cqkqinfo.com/web/ui/commit/f7a27b54f15dd72075760e6facf193c29a38d351))
+
 ## [1.8.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.60...v1.8.61) (2021-12-30)
 
 ### Features
