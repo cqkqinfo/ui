@@ -69,18 +69,7 @@ export default (props: Props) => {
     [],
   );
   const [columnIndex, setColumnIndex] = useState<number[]>([]);
-  const range = useMemo(() => {
-    const range: (PickerData[] | PickerData[][])[] = [];
-    new Array(cols).fill(0).forEach((_, index) => {
-      range.push(
-        index === 0 ? data : getData(range[index - 1], columnIndex[index - 1]),
-      );
-    });
-    return range;
-  }, [cols, columnIndex, data, getData]);
-  const rangeRef = useRef(range);
-  rangeRef.current = range;
-
+  const isDatetime = mode === 'datetime';
   useEffect(() => {
     const numbers: number[] = [];
     /** 默认值 */
@@ -88,28 +77,38 @@ export default (props: Props) => {
       setColumnIndex(new Array(cols).fill(0));
       return;
     }
-    if (cols === 1 && ['string', 'number'].includes(typeof value)) {
+    if (isDatetime) {
+      let newValue: any = value;
+      newValue = newValue
+        .split(/-|\s|:/)
+        .map(
+          (str: any, i: any) =>
+            `${str}${['年', '月', '日', '时', '分', '分'][i]}`,
+        );
+      newValue.forEach((v: any, i: any) => {
+        numbers[i] = rangeRef.current[i].findIndex((value: any) => v === value);
+      });
+    } else if (cols === 1 && ['string', 'number'].includes(typeof value)) {
       numbers[0] = rangeRef.current[0]
         .flat()
-        .findIndex(({ value: v }) => v === value);
+        .findIndex(({ value: v }: any) => v === value);
     } else if (Array.isArray(value)) {
       new Array(cols).fill(0).forEach((_, index) => {
         numbers[index] = value?.[index]
           ? rangeRef.current[index]
               .flat()
-              .findIndex(({ value: v }) => value?.[index] === v)
+              .findIndex(({ value: v }: any) => value?.[index] === v)
           : 0;
       });
     }
 
     setColumnIndex(numbers);
-  }, [cols, value]);
+  }, [cols, isDatetime, value]);
 
   const isDateOrTimeMode = useMemo(() => {
     return ['date', 'time'].includes(mode);
   }, [mode]);
   const [, mIndex = 0, dIndex = 0, hIndex = 0] = columnIndex;
-  const isDatetime = mode === 'datetime';
   const minuteData = useMemo(() => {
     if (!isDatetime) return [];
     const y = dateTimeData[0].label;
@@ -136,7 +135,17 @@ export default (props: Props) => {
       .map(({ label }) => label);
     return [[y], m, d, h, mm];
   }, [dIndex, hIndex, isDatetime, mIndex]);
-  console.log(minuteData);
+  const range = useMemo(() => {
+    const range: (PickerData[] | PickerData[][])[] = [];
+    new Array(cols).fill(0).forEach((_, index) => {
+      range.push(
+        index === 0 ? data : getData(range[index - 1], columnIndex[index - 1]),
+      );
+    });
+    return isDatetime ? minuteData : range;
+  }, [cols, columnIndex, data, getData, isDatetime, minuteData]);
+  const rangeRef = useRef(range);
+  rangeRef.current = range;
 
   return (
     <Picker
@@ -149,6 +158,7 @@ export default (props: Props) => {
       value={!isDateOrTimeMode ? columnIndex : value}
       onColumnChange={({ detail: { column, value } }) => {
         columnIndex[column] = value;
+        console.log(column, value);
         setColumnIndex([...columnIndex]);
       }}
       onChange={({ detail: { value } }) => {
