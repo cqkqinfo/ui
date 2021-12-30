@@ -1,3 +1,10 @@
+## [1.8.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.60...v1.8.61) (2021-12-30)
+
+### Features
+
+- search 添加 shadow 属性 ([27530e1](https://gitlab2.cqkqinfo.com/web/ui/commit/27530e15c72f801eee0148a5d4b1efdf0cfd8e16))
+- 添加 Button.Group ([601bffc](https://gitlab2.cqkqinfo.com/web/ui/commit/601bffc0e56e51bafb0dbbbdf166ac135a4f096f))
+
 ## [1.8.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.59...v1.8.60) (2021-12-29)
 
 ### Bug Fixes
