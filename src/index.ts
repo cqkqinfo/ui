@@ -423,3 +423,7 @@ export { default as switchVariable } from './switch-variable';
  * 滑动操作
  */
 export { default as SwipeAction } from './swipe-action';
+/**
+ * 金额
+ */
+export { default as Price } from './price';
