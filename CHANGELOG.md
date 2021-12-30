@@ -1,3 +1,10 @@
+## [1.8.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.62...v1.8.63) (2021-12-30)
+
+### Features
+
+- 添加二维码图标 ([295c18d](https://gitlab2.cqkqinfo.com/web/ui/commit/295c18da4b3417d09b071a77d774a3d55c5865ca))
+- 添加金额组件 ([8cda4b1](https://gitlab2.cqkqinfo.com/web/ui/commit/8cda4b176f5fe50e81bfa3e86e4a17bb2f701a09))
+
 ## [1.8.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.61...v1.8.62) (2021-12-30)
 
 ### Bug Fixes
