@@ -12,6 +12,7 @@
   pointer-events: none;
 }
 .content {
+  //transform: translateY(200vh);
   transition: all 0.3s;
   will-change: transform;
   position: absolute;
@@ -22,20 +23,16 @@
   overflow: auto;
 }
 .bottom {
-  transform: translateY(200vh);
-  //margin-top: 200vh;
+  margin-top: 200vh;
 }
 .top {
-  transform: translateY(-200vh);
-  //margin-bottom: 200vh;
+  margin-bottom: 200vh;
 }
 .left {
-  transform: translateX(200vh);
-  //margin-right: 200vw;
+  margin-right: 200vw;
 }
 .right {
-  transform: translateX(-200vh);
-  //margin-left: 200vw;
+  margin-left: 200vw;
 }
 .show {
   pointer-events: auto;
@@ -45,7 +42,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.3s;
   .content {
-    transform: translateY(0) translateX(0);
-    //margin: 0;
+    //transform: translateY(0);
+    margin: 0;
   }
 }
