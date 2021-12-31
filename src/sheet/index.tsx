@@ -1,9 +1,20 @@
-import React, { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
+import React, {
+  ForwardedRef,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import Native, { NativeInstance } from '../native';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import Space from '../space';
 import { switchVariable } from '@kqinfo/ui';
+import ColorText from '../color-text';
+import Button from '../button';
+import getCurrentPage from '../get-current-page';
 
 export interface SheetProps {
   children: React.ReactNode;
@@ -24,7 +35,7 @@ export interface SheetInstance {
   setVisible: (visible: boolean) => void;
 }
 
-export default forwardRef<SheetInstance, SheetProps>(
+const Sheet = forwardRef<SheetInstance, SheetProps>(
   ({ children, className, direction = 'bottom', contentCls, center }, ref) => {
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
@@ -76,5 +87,48 @@ export default forwardRef<SheetInstance, SheetProps>(
       ),
       [className, content],
     );
+  },
+);
+
+export default Sheet;
+
+export interface SheetWrapInstance {
+  promiseRef: { resolve: (data?: any) => {}; reject: (data?: any) => {} };
+  sheetRef: SheetInstance | null;
+}
+
+export const SheetWrap = forwardRef(
+  (
+    {
+      data,
+      children,
+      setOptions,
+    }: {
+      children: React.ReactNode;
+      setOptions: (options: any) => void;
+      data: { [page: string]: (options: any) => Promise<any> };
+    },
+    ref: ForwardedRef<SheetWrapInstance>,
+  ) => {
+    const page = getCurrentPage();
+    const sheetRef = useRef<SheetInstance>(null);
+    const [promiseFn, setPromiseFn] = useState<any>({
+      resolve: () => {},
+      reject: () => {},
+    });
+    useEffect(() => {
+      data[page] = options =>
+        new Promise((resolve, reject) => {
+          setOptions(options);
+          sheetRef.current?.setVisible(true);
+          setPromiseFn({ reject, resolve });
+        });
+    }, [data, page, setOptions]);
+    useImperativeHandle(
+      ref,
+      () => ({ promiseRef: promiseFn, sheetRef: sheetRef.current }),
+      [promiseFn],
+    );
+    return <Sheet ref={sheetRef}>{children}</Sheet>;
   },
 );
