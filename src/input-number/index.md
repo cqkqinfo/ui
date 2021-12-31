@@ -35,6 +35,11 @@ export default () => {
       <PartTitle>自定义禁用颜色</PartTitle>
       <InputNumber disabled />
       <InputNumber disabled disabledColor="#ccc" />
+      <PartTitle>自定义按钮</PartTitle>
+      <InputNumber
+        addBtn={({ handleAdd }) => <Space onTap={handleAdd}>+</Space>}
+        subBtn={({ handleSub }) => <Space onTap={handleSub}>-</Space>}
+      />
     </Space>
   );
 };
