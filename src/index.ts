@@ -471,3 +471,7 @@ export { default as SwipeAction } from './swipe-action';
  * 金额
  */
 export { default as Price } from './price';
+/**
+ * 弹窗
+ */
+export { default as Modal } from './modal';
