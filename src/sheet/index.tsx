@@ -12,8 +12,6 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 import Space from '../space';
 import { switchVariable } from '@kqinfo/ui';
-import ColorText from '../color-text';
-import Button from '../button';
 import getCurrentPage from '../get-current-page';
 
 export interface SheetProps {
@@ -103,11 +101,12 @@ export const SheetWrap = forwardRef(
       data,
       children,
       setOptions,
+      ...props
     }: {
       children: React.ReactNode;
       setOptions: (options: any) => void;
       data: { [page: string]: (options: any) => Promise<any> };
-    },
+    } & SheetProps,
     ref: ForwardedRef<SheetWrapInstance>,
   ) => {
     const page = getCurrentPage();
@@ -129,6 +128,10 @@ export const SheetWrap = forwardRef(
       () => ({ promiseRef: promiseFn, sheetRef: sheetRef.current }),
       [promiseFn],
     );
-    return <Sheet ref={sheetRef}>{children}</Sheet>;
+    return (
+      <Sheet ref={sheetRef} {...props}>
+        {children}
+      </Sheet>
+    );
   },
 );
