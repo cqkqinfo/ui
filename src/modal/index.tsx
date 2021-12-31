@@ -33,11 +33,6 @@ export interface ShowOptions {
    * 自定义footer
    */
   footer?: React.ReactNode;
-}
-
-const data: SheetWrapData = {};
-
-export interface Props {
   /**
    * 标题类名
    */
@@ -68,15 +63,9 @@ export interface Props {
   bodyCls?: string;
 }
 
-const Modal = ({
-  contentCls,
-  okCls,
-  className,
-  titleCls,
-  bodyCls,
-  footerCls,
-  btnCls,
-}: Props) => {
+const data: SheetWrapData = {};
+
+const Modal = () => {
   const [
     {
       title,
@@ -84,6 +73,13 @@ const Modal = ({
       okText = '确定',
       content,
       showCancel = true,
+      contentCls,
+      okCls,
+      className,
+      titleCls,
+      bodyCls,
+      footerCls,
+      btnCls,
       footer = (
         <Space
           className={classNames(styles.footer, footerCls)}
