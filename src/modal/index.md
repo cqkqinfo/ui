@@ -57,6 +57,18 @@ export default () => {
       >
         显示
       </Button>
+      <Button
+        type={'primary'}
+        onTap={() =>
+          Modal.show({
+            title: '手动隐藏',
+            content: <Button onTap={() => Modal.hide()}>隐藏</Button>,
+            footer: null,
+          })
+        }
+      >
+        手动隐藏
+      </Button>
     </Space>
   );
 };
