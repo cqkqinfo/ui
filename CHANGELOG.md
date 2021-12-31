@@ -1,3 +1,12 @@
+## [1.8.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.63...v1.8.64) (2021-12-31)
+
+### Features
+
+- inputNumber 支持自定义渲染按钮 ([6b725d7](https://gitlab2.cqkqinfo.com/web/ui/commit/6b725d7609cff3373c392efacedb2560a3516e7f))
+- sheet 支持手动隐藏 ([9bc7eeb](https://gitlab2.cqkqinfo.com/web/ui/commit/9bc7eebf8ebb7707aeae400c1b37963001495e9e))
+- 弹出层支持方向 ([20e16ba](https://gitlab2.cqkqinfo.com/web/ui/commit/20e16bac750cfa2d2904f430661066383f1798c3))
+- 添加 modal 组件 ([a7d14fc](https://gitlab2.cqkqinfo.com/web/ui/commit/a7d14fc893124ab815984c641e3d4c8a2304731d))
+
 ## [1.8.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.62...v1.8.63) (2021-12-30)
 
 ### Features
