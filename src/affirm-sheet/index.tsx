@@ -1,6 +1,6 @@
 import getCurrentPage from '../get-current-page';
 import React, { useRef, useState } from 'react';
-import { SheetWrap, SheetWrapInstance } from '../sheet';
+import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
 import styles from './index.module.less';
 import Space from '../space';
 import ColorText from '../color-text';
@@ -38,9 +38,7 @@ export interface ShowOptions {
   content: React.ReactNode;
 }
 
-const data: {
-  [route: string]: (options: ShowOptions) => Promise<undefined>;
-} = {};
+const data: SheetWrapData = {};
 
 const AffirmSheet = ({
   elderly = useConfig().elderly,
@@ -100,7 +98,12 @@ const AffirmSheet = ({
 
 AffirmSheet.show = (options: ShowOptions) => {
   const page = getCurrentPage();
-  return data[page](options);
+  return data[page].fn(options);
+};
+
+AffirmSheet.hide = () => {
+  const page = getCurrentPage();
+  return data[page].setVisible?.(false);
 };
 
 export default AffirmSheet;

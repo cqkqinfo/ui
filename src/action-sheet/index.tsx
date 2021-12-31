@@ -1,6 +1,6 @@
 import getCurrentPage from '../get-current-page';
 import React, { useRef, useState } from 'react';
-import { SheetWrap, SheetWrapInstance } from '../sheet';
+import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import Space from '../space';
@@ -9,11 +9,7 @@ export interface ShowOptions {
   items: { label: React.ReactNode; value: string | number }[];
 }
 
-const data: {
-  [route: string]: (
-    options: ShowOptions,
-  ) => Promise<ShowOptions['items'][number]>;
-} = {};
+const data: SheetWrapData = {};
 
 const ActionSheet = () => {
   const [options, setOptions] = useState<{ items: ShowOptions['items'] }>({
@@ -55,7 +51,12 @@ const ActionSheet = () => {
 
 ActionSheet.show = (options: ShowOptions) => {
   const page = getCurrentPage();
-  return data[page](options);
+  return data[page].fn(options);
+};
+
+ActionSheet.hide = () => {
+  const page = getCurrentPage();
+  return data[page].setVisible?.(false);
 };
 
 export default ActionSheet;

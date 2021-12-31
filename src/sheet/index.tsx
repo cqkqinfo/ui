@@ -95,6 +95,12 @@ export interface SheetWrapInstance {
   sheetRef: SheetInstance | null;
 }
 
+export interface SheetWrapData {
+  [page: string]: {
+    fn: (options: any) => Promise<any>;
+    setVisible?: (visible: boolean) => void;
+  };
+}
 export const SheetWrap = forwardRef(
   (
     {
@@ -105,7 +111,7 @@ export const SheetWrap = forwardRef(
     }: {
       children: React.ReactNode;
       setOptions: (options: any) => void;
-      data: { [page: string]: (options: any) => Promise<any> };
+      data: SheetWrapData;
     } & SheetProps,
     ref: ForwardedRef<SheetWrapInstance>,
   ) => {
@@ -116,12 +122,15 @@ export const SheetWrap = forwardRef(
       reject: () => {},
     });
     useEffect(() => {
-      data[page] = options =>
-        new Promise((resolve, reject) => {
-          setOptions(options);
-          sheetRef.current?.setVisible(true);
-          setPromiseFn({ reject, resolve });
-        });
+      data[page] = {
+        fn: options =>
+          new Promise((resolve, reject) => {
+            setOptions(options);
+            sheetRef.current?.setVisible(true);
+            setPromiseFn({ reject, resolve });
+          }),
+        setVisible: sheetRef.current?.setVisible,
+      };
     }, [data, page, setOptions]);
     useImperativeHandle(
       ref,
