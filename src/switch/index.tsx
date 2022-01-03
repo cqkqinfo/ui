@@ -1,8 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { View } from 'remax/one';
 import cls from 'classnames';
 import styles from './index.module.less';
 import Shadow from '../shadow';
+import { Native } from '@kqinfo/ui';
+import { NativeInstance } from '../native';
 
 interface Props {
   /**
@@ -63,10 +65,21 @@ export default ({
     checked,
   ]);
 
+  const getCls = (checked?: boolean) =>
+    cls(
+      styles.circle,
+      circleCls,
+      checked && styles.circleSelect,
+      !checked && styles.circleUnselect,
+    );
+
+  const nativeRef = useRef<NativeInstance>(null);
+
   const handleChecked = () => {
     if (disabled) {
       return;
     }
+    nativeRef.current?.setData({ className: getCls(!showChecked) });
     setChecked(!showChecked);
     onChange?.(!showChecked);
   };
@@ -95,14 +108,7 @@ export default ({
       )}
     >
       <Shadow shadowColor={'rgb(0, 0, 0, 0.7)'} shadowRadius={10}>
-        <View
-          className={cls(
-            styles.circle,
-            circleCls,
-            showChecked && styles.circleSelect,
-            !showChecked && styles.circleUnselect,
-          )}
-        />
+        <Native ref={nativeRef} initData={{ className: getCls(showChecked) }} />
       </Shadow>
     </View>
   );
