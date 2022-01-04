@@ -1,3 +1,13 @@
+## [1.8.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.64...v1.8.65) (2022-01-04)
+
+### Features
+
+- picker dateTime 支持 start 和 end ([07fb8f6](https://gitlab2.cqkqinfo.com/web/ui/commit/07fb8f6f3134c43b17843e91af213209acee98bf))
+
+### Performance Improvements
+
+- 优化 switch 性能 ([a59fbb6](https://gitlab2.cqkqinfo.com/web/ui/commit/a59fbb61683e3bf4d157c52b884bd8642648eb34))
+
 ## [1.8.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.63...v1.8.64) (2021-12-31)
 
 ### Features
