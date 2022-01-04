@@ -1,3 +1,13 @@
+## [1.8.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.65...v1.8.66) (2022-01-04)
+
+### Features
+
+- 分割线支持设置 lineCls ([84dacf0](https://gitlab2.cqkqinfo.com/web/ui/commit/84dacf0ec4d2b2d822b1cd5dc0759f9dfc5685a7))
+
+### Performance Improvements
+
+- 优化 FormItem 性能 ([a854f0c](https://gitlab2.cqkqinfo.com/web/ui/commit/a854f0c27ed61db704b8a56aab94d5221a4e89a8))
+
 ## [1.8.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.64...v1.8.65) (2022-01-04)
 
 ### Features
