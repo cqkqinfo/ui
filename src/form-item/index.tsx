@@ -161,7 +161,9 @@ export default ({
                       children.props.onBlur?.(...e);
                   },
                   onChange: (...arg: any) => {
-                    control.onChange(...arg);
+                    setTimeout(() => {
+                      control.onChange(...arg);
+                    });
                     if (React.isValidElement(children)) {
                       children.props.onChange?.(...arg);
                     }
