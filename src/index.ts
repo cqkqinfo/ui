@@ -431,3 +431,7 @@ export { default as Price } from './price';
  * 弹窗
  */
 export { default as Modal } from './modal';
+/**
+ * 删除
+ */
+export { default as Del } from './del';
