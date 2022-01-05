@@ -11,13 +11,10 @@
 
 .leftItem {
   width: 324px;
-  height: 98px;
   font-size: 30px;
   font-weight: bold;
   color: #333333;
-  padding-left: 55px;
-  display: flex;
-  align-items: center;
+  padding: 34px 0 34px 55px;
   box-sizing: border-box;
   border-left-width: 5px;
   border-left-style: solid;
@@ -27,9 +24,21 @@
   }
 }
 
+.leftItemItem {
+  min-height: 98px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+
 .leftActive {
   background-color: #fff;
   border-left-color: @brand-primary;
+}
+
+.leftItemActive {
+  color: @brand-primary;
 }
 
 .rightItem {
