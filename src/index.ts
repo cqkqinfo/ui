@@ -435,3 +435,7 @@ export { default as Modal } from './modal';
  * 删除
  */
 export { default as Del } from './del';
+/**
+ * 时间线
+ */
+export { default as TimeLine } from './time-line';
