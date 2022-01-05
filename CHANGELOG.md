@@ -1,3 +1,13 @@
+## [1.8.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.68...v1.8.69) (2022-01-05)
+
+### Features
+
+- 添加时间线组件 ([66c0521](https://gitlab2.cqkqinfo.com/web/ui/commit/66c0521cf37b7203770e60b3fc28ece468730055))
+
+### Reverts
+
+- Revert "perf: 优化 FormItem 性能" ([1756a98](https://gitlab2.cqkqinfo.com/web/ui/commit/1756a9845765af002bf247c0b138a4b2dae4ad03))
+
 ## [1.8.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.67...v1.8.68) (2022-01-05)
 
 ### Bug Fixes
