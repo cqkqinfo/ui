@@ -65,13 +65,16 @@ export default ({
   data,
   leftItemCls,
   rightItemCls,
-  current = data?.[0]?.children?.[0]?.id || data?.[0]?.id,
+  current = data?.[0]?.children?.[0]?.children
+    ? data?.[0]?.children?.[0]?.id
+    : data?.[0]?.id,
   onSelect,
   elderly = useConfig().elderly,
   onChange,
   style,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
+  console.log(selected, data.map(item => [item, item.children]).flat(3));
   const right = useMemo(() => {
     return (
       data
