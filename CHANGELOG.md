@@ -1,3 +1,9 @@
+## [1.8.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.67...v1.8.68) (2022-01-05)
+
+### Bug Fixes
+
+- menu 一级菜单初始选择值 ([48eec9e](https://gitlab2.cqkqinfo.com/web/ui/commit/48eec9e1308cd4ea34a25eec582de8110923d0ec))
+
 ## [1.8.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.66...v1.8.67) (2022-01-05)
 
 ### Bug Fixes
