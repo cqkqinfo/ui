@@ -1,3 +1,15 @@
+## [1.8.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.66...v1.8.67) (2022-01-05)
+
+### Bug Fixes
+
+- fixed 宽度不对 ([691468e](https://gitlab2.cqkqinfo.com/web/ui/commit/691468e429e86251754089f766ba7b0a09001f88))
+- radio className 无效 ([8233d09](https://gitlab2.cqkqinfo.com/web/ui/commit/8233d09b55a3dc1af2ce4a813b9b1758ff96dee2))
+
+### Features
+
+- menu 支持多级 ([7a37905](https://gitlab2.cqkqinfo.com/web/ui/commit/7a37905a1d705b016a6e51c7d80666abe6c04099))
+- 新增 del 删除组件 ([21f59f2](https://gitlab2.cqkqinfo.com/web/ui/commit/21f59f2ad650caa1eef9451a7ea27b682b220db7))
+
 ## [1.8.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.65...v1.8.66) (2022-01-04)
 
 ### Features
