@@ -1,3 +1,13 @@
+## [1.8.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.69...v1.8.70) (2022-01-06)
+
+### Bug Fixes
+
+- button group 下的按钮宽度 ([ebb4897](https://gitlab2.cqkqinfo.com/web/ui/commit/ebb4897333f7e5e4c2e5656a9a0686ff0c313163))
+
+### Features
+
+- tab 支持 containerCls ([f19a274](https://gitlab2.cqkqinfo.com/web/ui/commit/f19a274b5b7b0bf1a3526d08707fdbb00dafb8a8))
+
 ## [1.8.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.68...v1.8.69) (2022-01-05)
 
 ### Features
