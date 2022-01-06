@@ -81,7 +81,8 @@ export default ({
         className={classNames(bigDecimal && bigCls, decimalCls)}
         style={bigDecimal ? bigStyle : {}}
       >
-        .{decimal}
+        {str.includes('.') ? '.' : ''}
+        {decimal}
       </Space>
     </Space>
   );
