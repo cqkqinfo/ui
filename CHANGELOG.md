@@ -1,3 +1,13 @@
+## [1.8.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.70...v1.8.71) (2022-01-06)
+
+### Bug Fixes
+
+- price len 设置为 0 还是显示小数点 ([5a40d94](https://gitlab2.cqkqinfo.com/web/ui/commit/5a40d944047acfc82dc40bd1685cb8aaf27030b8))
+
+### Features
+
+- 添加更多统一平台工具 ([43662b8](https://gitlab2.cqkqinfo.com/web/ui/commit/43662b8354c1a17d132aed17924f18efd822d0e9))
+
 ## [1.8.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.69...v1.8.70) (2022-01-06)
 
 ### Bug Fixes
