@@ -18,6 +18,7 @@ export default <T extends unknown>(props: Props<T>) => {
     type,
     style,
     activeItemCls,
+    containerCls,
   } = props;
   const { brandPrimary } = useConfig();
   const firstTabIndex = tabs?.[0]?.index;
