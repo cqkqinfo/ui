@@ -1,3 +1,9 @@
+## [1.8.72](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.71...v1.8.72) (2022-01-06)
+
+### Bug Fixes
+
+- ci ([fc745a5](https://gitlab2.cqkqinfo.com/web/ui/commit/fc745a572b1672a8bae2a081c7b159587a610e73))
+
 ## [1.8.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.70...v1.8.71) (2022-01-06)
 
 ### Bug Fixes
