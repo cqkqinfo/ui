@@ -14,6 +14,10 @@ export interface Props<T> {
    */
   itemCls?: string;
   /**
+   * 外部容器类名
+   */
+  containerCls?: string;
+  /**
    * 当前子项类名
    */
   activeItemCls?: string;
