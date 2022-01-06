@@ -6,10 +6,10 @@ export default ({
   url,
 }: WechatMiniprogram.UploadFileOption) => {
   const formData = new FormData();
-  Object.keys(data).forEach(key => {
-    formData.append(key, data[key]);
+  Object.keys(data as any).forEach(key => {
+    formData.append(key, (data as any)[key]);
   });
-  formData.append(name, data.file, data.file.name);
+  formData.append(name, (data as any).file, (data as any).file.name);
   return axios
     .post(url, formData, {
       headers: { Accept: '*/*' },

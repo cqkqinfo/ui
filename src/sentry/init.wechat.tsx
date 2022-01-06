@@ -51,7 +51,7 @@ Page = options => {
           callback?.(...arg);
         });
       };
-      options['onLoad']?.call(this, ...arg);
+      (options as any)['onLoad']?.call(this, ...arg);
     },
   });
 };
