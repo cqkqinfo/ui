@@ -17,6 +17,7 @@
       "@types/node",
       "./typings/global",
       "cypress",
+      "miniprogram-api-typings",
       "@4tw/cypress-drag-drop"
     ],
     "allowSyntheticDefaultImports": true,
