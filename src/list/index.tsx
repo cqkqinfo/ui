@@ -16,6 +16,8 @@ import Visible from '../visible';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Button from '../button';
+import { Props as SpaceProps } from '../space';
+import { NeedWrap, Space } from '@kqinfo/ui';
 import Native, { NativeInstance } from '../native';
 
 export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
@@ -58,6 +60,10 @@ export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
    * 类名
    */
   className?: string;
+  /**
+   * space组件配置
+   */
+  space?: Omit<SpaceProps, 'children'>;
 }
 
 const List = forwardRef(
@@ -78,6 +84,7 @@ const List = forwardRef(
       className,
       style,
       defaultLimit = 10,
+      space,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -136,7 +143,7 @@ const List = forwardRef(
     }, [defaultLimit, list]);
     return useMemo(
       () => (
-        <>
+        <NeedWrap wrap={space ? Space : React.Fragment} wrapProps={space} need>
           {showError ? (
             <Button
               onTap={() => {
@@ -177,7 +184,7 @@ const List = forwardRef(
               {footer}
             </>
           )}
-        </>
+        </NeedWrap>
       ),
       [
         defaultLimit,
@@ -189,6 +196,7 @@ const List = forwardRef(
         renderItemHeight,
         setShowError,
         showError,
+        space,
       ],
     );
   },
