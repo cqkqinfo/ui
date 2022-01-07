@@ -1,3 +1,14 @@
+## [1.8.73](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.72...v1.8.73) (2022-01-07)
+
+### Features
+
+- list 支持设置 space ([0e33d28](https://gitlab2.cqkqinfo.com/web/ui/commit/0e33d285877ae4ed4b1661defeaccb9be379ff9c))
+- 选择父级菜单才显示子菜单 ([e4d0734](https://gitlab2.cqkqinfo.com/web/ui/commit/e4d0734cfcfe5b5985fef383ed2bef5e04d67667))
+
+### Performance Improvements
+
+- 优化跳转小程序组件逻辑 ([1ad79a3](https://gitlab2.cqkqinfo.com/web/ui/commit/1ad79a3c90a9a1d834b638f7be5b87823c21d748))
+
 ## [1.8.72](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.71...v1.8.72) (2022-01-06)
 
 ### Bug Fixes
