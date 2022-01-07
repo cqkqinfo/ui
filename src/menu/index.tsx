@@ -74,7 +74,6 @@ export default ({
   style,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
-  console.log(selected, data.map(item => [item, item.children]).flat(3));
   const right = useMemo(() => {
     return (
       data
@@ -116,7 +115,7 @@ export default ({
               }}
             >
               {name}
-              {haveChildren && (
+              {haveChildren && active && (
                 <Space vertical key={id}>
                   {children?.map(({ name, id }) => (
                     <View
