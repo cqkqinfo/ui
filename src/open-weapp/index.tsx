@@ -33,7 +33,7 @@ export default ({
   path,
   id = useId(),
   className,
-  onLaunch,
+  onLaunch = () => console.log(`跳转到：${path}`),
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
@@ -58,13 +58,13 @@ export default ({
       // @ts-ignore
       dangerouslySetInnerHTML={{
         __html: `<${tagName}
-          key='${+new Date()}'
+          key='${Math.random()}'
           className='${className}'
           id="${id}"
           username="${username}"
           path="${path}"
         >
-          <template id='open-weapp'>
+          <template class='open-weapp'>
             ${childrenHtml}
           </template>
         </${tagName}>`,
@@ -77,8 +77,8 @@ export default ({
 class OpenWeapp extends HTMLElement {
   constructor() {
     super();
-    const templateElem = document.getElementById(
-      'open-weapp',
+    const templateElem = document.querySelector(
+      `#${this.id} .open-weapp`,
     ) as HTMLTemplateElement;
     if (templateElem) {
       const content = templateElem.content.cloneNode(true);

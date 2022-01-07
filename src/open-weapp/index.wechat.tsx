@@ -1,15 +1,26 @@
 import React from 'react';
 import { View } from 'remax/one';
-import { navigateToMiniProgram } from 'remax/wechat';
+import {
+  navigateToMiniProgram,
+  navigateTo,
+  getAccountInfoSync,
+} from 'remax/wechat';
 import { Props } from './index';
 
-export default ({ appId, path, onLaunch, ...props }: Props) => {
+export default ({
+  appId = getAccountInfoSync().miniProgram.appId,
+  path,
+  onLaunch,
+  ...props
+}: Props) => {
   return (
     <View
       {...props}
       onTap={e => {
         props.onTap?.(e);
-        if (appId) {
+        if (appId === getAccountInfoSync().miniProgram.appId && path) {
+          navigateTo({ url: path }).then(onLaunch);
+        } else {
           navigateToMiniProgram({
             appId,
             path,
