@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import { View, ViewProps } from 'remax/one';
-import styles from './index.module.less';
 import classNames from 'classnames';
 import { Property } from 'csstype';
 import rpxToPx from '../rpx-to-px';
@@ -118,13 +117,12 @@ export default forwardRef(
             alignSelf,
             alignItems,
             flexWrap,
+            display: 'flex',
+            boxSizing: 'border-box',
+            flexDirection: vertical ? 'column' : undefined,
             ...style,
           }}
-          className={classNames(
-            styles.space,
-            className,
-            vertical && styles.vertical,
-          )}
+          className={classNames(className)}
           {...props}
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
