@@ -1,3 +1,9 @@
+console.error(
+  '你没有开启按需加载，如果遇到问题，请参考 https://cqkqinfo.github.io/ui/#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD 进行配置',
+);
+/**
+ * 选择器
+ */
 export { default as Picker } from './picker';
 /**
  * 城市数据
