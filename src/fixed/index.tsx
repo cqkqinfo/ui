@@ -18,7 +18,7 @@ export default ({
   return (
     <>
       {placeholder && (
-        <View className={styles.index} {...arg}>
+        <View className={classNames(styles.index, className)} {...arg}>
           {children}
         </View>
       )}
@@ -26,7 +26,7 @@ export default ({
         <View
           className={classNames(styles.fixed, className)}
           {...props}
-          style={{ width, ...props.style }}
+          style={{ width: `${width}PX`, ...props.style }}
         >
           <View className={styles.index}>{children}</View>
         </View>

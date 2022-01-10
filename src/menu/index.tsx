@@ -1,9 +1,10 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
+import { Space } from '@kqinfo/ui';
 
 export type ID = string | number;
 
@@ -64,36 +65,79 @@ export default ({
   data,
   leftItemCls,
   rightItemCls,
-  current = data?.[0]?.id,
+  current = data?.[0]?.children?.[0]?.children
+    ? data?.[0]?.children?.[0]?.id
+    : data?.[0]?.id,
   onSelect,
   elderly = useConfig().elderly,
   onChange,
   style,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
-  const right = data.find(({ id }) => id === selected)?.children || [];
+  const right = useMemo(() => {
+    return (
+      data
+        .map(item => [item, item.children])
+        .flat(3)
+        .find(item => item?.id === selected)?.children || []
+    );
+  }, [data, selected]);
   return (
     <View
       className={classNames(styles.menu, className, elderly && styles.elderly)}
       style={style}
     >
       <View className={classNames(styles.left, leftCls)}>
-        {data.map(({ id, name, children }) => (
-          <View
-            key={id}
-            className={classNames(
-              styles.leftItem,
-              leftItemCls,
-              selected === id && styles.leftActive,
-            )}
-            onTap={() => {
-              setSelected(id);
-              onChange?.(id, children || []);
-            }}
-          >
-            {name}
-          </View>
-        ))}
+        {data.map(({ id, name, children }) => {
+          const active =
+            (selected === id && styles.leftActive) ||
+            children?.some(({ id }) => id === selected);
+          const haveChildren = children?.some(({ children }) => children);
+          return (
+            <Space
+              vertical
+              size={30}
+              key={id}
+              className={classNames(
+                styles.leftItem,
+                leftItemCls,
+                active && styles.leftActive,
+              )}
+              onTap={() => {
+                if (haveChildren && children?.[0]) {
+                  const first = children[0];
+                  setSelected(first.id);
+                  onChange?.(first.id, first.children || []);
+                } else {
+                  setSelected(id);
+                  onChange?.(id, children || []);
+                }
+              }}
+            >
+              {name}
+              {haveChildren && active && (
+                <Space vertical key={id}>
+                  {children?.map(({ name, id }) => (
+                    <View
+                      className={classNames(
+                        styles.leftItemItem,
+                        selected === id && styles.leftItemActive,
+                      )}
+                      key={id}
+                      onTap={e => {
+                        e.stopPropagation();
+                        setSelected(id);
+                        onChange?.(id, children || []);
+                      }}
+                    >
+                      {name}
+                    </View>
+                  ))}
+                </Space>
+              )}
+            </Space>
+          );
+        })}
       </View>
       <View className={classNames(styles.right, rightCls)}>
         {right.map((item, i) => (

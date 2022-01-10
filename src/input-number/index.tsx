@@ -1,9 +1,16 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { View, Text, ViewProps } from 'remax/one';
 import { useConfig } from '../config-provider';
 import cls from 'classnames';
-import Icon from '../icon';
+import { Icon, Native } from '@kqinfo/ui';
 import styles from './index.module.less';
+import { NativeInstance } from '../native';
 
 export interface Props
   extends Pick<
@@ -87,6 +94,20 @@ export interface Props
    * 禁用时数字的样式
    */
   numberDisabledCls?: string;
+  /**
+   * 自定义增加按钮
+   */
+  addBtn?: (data: {
+    disabled: boolean;
+    handleAdd: () => void;
+  }) => React.ReactNode;
+  /**
+   * 自定义减少按钮
+   */
+  subBtn?: (data: {
+    disabled: boolean;
+    handleSub: () => void;
+  }) => React.ReactNode;
 }
 
 export default ({
@@ -105,6 +126,8 @@ export default ({
   formatValue = a => a,
   unit,
   disabled,
+  addBtn,
+  subBtn,
   ...restProps
 }: Props) => {
   const { brandPrimary } = useConfig();
@@ -141,12 +164,31 @@ export default ({
     return Number(val.toFixed(precision || 0));
   };
 
+  const nativeRef = useRef<NativeInstance>(null);
+
+  const setText = useCallback(
+    (value: number) => {
+      nativeRef.current?.setData({
+        content: formatValue(value.toFixed(precision)),
+      });
+    },
+    [formatValue, precision],
+  );
+
+  const handleChange = useCallback(
+    (value: number) => {
+      setText(value);
+      onChange?.(value);
+    },
+    [onChange, setText],
+  );
+
   const handleAdd = () => {
     if (maxDisabled) {
       return;
     }
     const value = formatResult(realVal + step);
-    onChange?.(value);
+    handleChange(value);
     setShowVal(value);
   };
 
@@ -155,7 +197,7 @@ export default ({
       return;
     }
     const value = formatResult(realVal - step);
-    onChange?.(value);
+    handleChange(value);
     setShowVal(value);
   };
 
@@ -163,32 +205,43 @@ export default ({
   useEffect(() => {
     if (initRef.current && realVal !== undefined && onChange) {
       initRef.current = false;
-      onChange?.(realVal);
+      handleChange(realVal);
     }
-  }, [onChange, realVal]);
+  }, [handleChange, onChange, realVal]);
 
   return (
     <View className={cls(styles.wrap, className)} {...restProps}>
-      <Icon
-        name="kq-jianshao"
-        onTap={handleSubtract}
-        className={cls(styles.icon, iconCls)}
-        color={minDisabled ? disabledColor : iconSelectColor}
-      />
-      <Text
+      {typeof subBtn === 'function' ? (
+        subBtn({ disabled: minDisabled, handleSub: handleSubtract })
+      ) : (
+        <Icon
+          name="kq-jianshao"
+          onTap={handleSubtract}
+          className={cls(styles.icon, iconCls)}
+          color={minDisabled ? disabledColor : iconSelectColor}
+        />
+      )}
+      <View
         className={cls(styles.number, numberCls, {
           [numberDisabledCls || '']: minDisabled && maxDisabled,
         })}
       >
-        {formatValue(realVal.toFixed(precision))}
+        <Native
+          ref={nativeRef}
+          initData={{ content: formatValue(realVal.toFixed(precision)) }}
+        />
         <Text className={styles.unit}>{unit}</Text>
-      </Text>
-      <Icon
-        name="kq-zengjia"
-        onTap={handleAdd}
-        className={cls(styles.icon, iconCls)}
-        color={maxDisabled ? disabledColor : iconSelectColor}
-      />
+      </View>
+      {typeof addBtn === 'function' ? (
+        addBtn({ disabled: maxDisabled, handleAdd })
+      ) : (
+        <Icon
+          name="kq-zengjia"
+          onTap={handleAdd}
+          className={cls(styles.icon, iconCls)}
+          color={maxDisabled ? disabledColor : iconSelectColor}
+        />
+      )}
     </View>
   );
 };

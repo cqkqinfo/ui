@@ -157,14 +157,11 @@ const getRadios = (
           newRadio.props.value === 0 ||
           newRadio.props.value === false) &&
         newRadio.props.value === value;
-      return (
-        <Radio
-          {...newRadio.props}
-          checked={checked}
-          disabled={disabled}
-          onChange={onGroupChange}
-        />
-      );
+      return React.cloneElement(newRadio, {
+        checked,
+        disabled,
+        onChange: onGroupChange,
+      });
     }
     return newRadio;
   });

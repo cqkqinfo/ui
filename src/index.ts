@@ -467,3 +467,31 @@ export { default as switchVariable } from './switch-variable';
  * 滑动操作
  */
 export { default as SwipeAction } from './swipe-action';
+/**
+ * 金额
+ */
+export { default as Price } from './price';
+/**
+ * 弹窗
+ */
+export { default as Modal } from './modal';
+/**
+ * 删除
+ */
+export { default as Del } from './del';
+/**
+ * 时间线
+ */
+export { default as TimeLine } from './time-line';
+/**
+ * 显示操作
+ */
+export { default as showActionSheet } from './show-action-sheet';
+/**
+ * 设置导航栏颜色
+ */
+export { default as setNavigationBarColor } from './set-navigation-bar-color';
+/**
+ * 设置导航栏标题
+ */
+export { default as setNavigationBarTitle } from './set-navigation-bar-title';

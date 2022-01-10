@@ -1,6 +1,6 @@
 import getCurrentPage from '../get-current-page';
-import React, { useEffect, useRef, useState } from 'react';
-import Sheet, { SheetInstance } from '../sheet';
+import React, { useRef, useState } from 'react';
+import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
 import styles from './index.module.less';
 import Space from '../space';
 import ColorText from '../color-text';
@@ -38,9 +38,7 @@ export interface ShowOptions {
   content: React.ReactNode;
 }
 
-const data: {
-  [route: string]: (options: ShowOptions) => Promise<undefined>;
-} = {};
+const data: SheetWrapData = {};
 
 const AffirmSheet = ({
   elderly = useConfig().elderly,
@@ -50,7 +48,6 @@ const AffirmSheet = ({
    */
   elderly?: boolean;
 }) => {
-  const page = getCurrentPage();
   const [
     {
       title = '提示',
@@ -62,18 +59,9 @@ const AffirmSheet = ({
     },
     setOptions,
   ] = useState<ShowOptions>({} as any);
-  const ref = useRef<SheetInstance>(null);
-  const promiseRef = useRef<any>({ resolve: () => {}, reject: () => {} });
-  useEffect(() => {
-    data[page] = options =>
-      new Promise((resolve, reject) => {
-        setOptions(options);
-        ref.current?.setVisible(true);
-        promiseRef.current = { reject, resolve };
-      });
-  }, [page]);
+  const ref = useRef<SheetWrapInstance>(null);
   return (
-    <Sheet ref={ref}>
+    <SheetWrap ref={ref} setOptions={setOptions} data={data}>
       <Space
         vertical
         className={classNames(styles.wrap, elderly && styles.elderly)}
@@ -86,8 +74,8 @@ const AffirmSheet = ({
             ghost
             {...okProps}
             onTap={() => {
-              promiseRef.current.reject();
-              ref.current?.setVisible(false);
+              ref.current?.promiseRef.reject();
+              ref.current?.sheetRef?.setVisible(false);
             }}
           >
             {cancelText}
@@ -96,21 +84,26 @@ const AffirmSheet = ({
             type={'primary'}
             {...cancelProps}
             onTap={() => {
-              promiseRef.current.resolve();
-              ref.current?.setVisible(false);
+              ref.current?.promiseRef.resolve();
+              ref.current?.sheetRef?.setVisible(false);
             }}
           >
             {okText}
           </Button>
         </Space>
       </Space>
-    </Sheet>
+    </SheetWrap>
   );
 };
 
 AffirmSheet.show = (options: ShowOptions) => {
   const page = getCurrentPage();
-  return data[page](options);
+  return data[page].fn(options);
+};
+
+AffirmSheet.hide = () => {
+  const page = getCurrentPage();
+  return data[page].setVisible?.(false);
 };
 
 export default AffirmSheet;

@@ -1,3 +1,117 @@
+## [1.8.74](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.73...v1.8.74) (2022-01-10)
+
+### Bug Fixes
+
+- dashed step 样式不能自定义 ([abf4f01](https://gitlab2.cqkqinfo.com/web/ui/commit/abf4f017554b6948f139e460ede19fb8ef08d67c))
+
+## [1.8.73](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.72...v1.8.73) (2022-01-07)
+
+### Features
+
+- list 支持设置 space ([0e33d28](https://gitlab2.cqkqinfo.com/web/ui/commit/0e33d285877ae4ed4b1661defeaccb9be379ff9c))
+- 选择父级菜单才显示子菜单 ([e4d0734](https://gitlab2.cqkqinfo.com/web/ui/commit/e4d0734cfcfe5b5985fef383ed2bef5e04d67667))
+
+### Performance Improvements
+
+- 优化跳转小程序组件逻辑 ([1ad79a3](https://gitlab2.cqkqinfo.com/web/ui/commit/1ad79a3c90a9a1d834b638f7be5b87823c21d748))
+
+## [1.8.72](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.71...v1.8.72) (2022-01-06)
+
+### Bug Fixes
+
+- ci ([fc745a5](https://gitlab2.cqkqinfo.com/web/ui/commit/fc745a572b1672a8bae2a081c7b159587a610e73))
+
+## [1.8.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.70...v1.8.71) (2022-01-06)
+
+### Bug Fixes
+
+- price len 设置为 0 还是显示小数点 ([5a40d94](https://gitlab2.cqkqinfo.com/web/ui/commit/5a40d944047acfc82dc40bd1685cb8aaf27030b8))
+
+### Features
+
+- 添加更多统一平台工具 ([43662b8](https://gitlab2.cqkqinfo.com/web/ui/commit/43662b8354c1a17d132aed17924f18efd822d0e9))
+
+## [1.8.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.69...v1.8.70) (2022-01-06)
+
+### Bug Fixes
+
+- button group 下的按钮宽度 ([ebb4897](https://gitlab2.cqkqinfo.com/web/ui/commit/ebb4897333f7e5e4c2e5656a9a0686ff0c313163))
+
+### Features
+
+- tab 支持 containerCls ([f19a274](https://gitlab2.cqkqinfo.com/web/ui/commit/f19a274b5b7b0bf1a3526d08707fdbb00dafb8a8))
+
+## [1.8.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.68...v1.8.69) (2022-01-05)
+
+### Features
+
+- 添加时间线组件 ([66c0521](https://gitlab2.cqkqinfo.com/web/ui/commit/66c0521cf37b7203770e60b3fc28ece468730055))
+
+### Reverts
+
+- Revert "perf: 优化 FormItem 性能" ([1756a98](https://gitlab2.cqkqinfo.com/web/ui/commit/1756a9845765af002bf247c0b138a4b2dae4ad03))
+
+## [1.8.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.67...v1.8.68) (2022-01-05)
+
+### Bug Fixes
+
+- menu 一级菜单初始选择值 ([48eec9e](https://gitlab2.cqkqinfo.com/web/ui/commit/48eec9e1308cd4ea34a25eec582de8110923d0ec))
+
+## [1.8.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.66...v1.8.67) (2022-01-05)
+
+### Bug Fixes
+
+- fixed 宽度不对 ([691468e](https://gitlab2.cqkqinfo.com/web/ui/commit/691468e429e86251754089f766ba7b0a09001f88))
+- radio className 无效 ([8233d09](https://gitlab2.cqkqinfo.com/web/ui/commit/8233d09b55a3dc1af2ce4a813b9b1758ff96dee2))
+
+### Features
+
+- menu 支持多级 ([7a37905](https://gitlab2.cqkqinfo.com/web/ui/commit/7a37905a1d705b016a6e51c7d80666abe6c04099))
+- 新增 del 删除组件 ([21f59f2](https://gitlab2.cqkqinfo.com/web/ui/commit/21f59f2ad650caa1eef9451a7ea27b682b220db7))
+
+## [1.8.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.65...v1.8.66) (2022-01-04)
+
+### Features
+
+- 分割线支持设置 lineCls ([84dacf0](https://gitlab2.cqkqinfo.com/web/ui/commit/84dacf0ec4d2b2d822b1cd5dc0759f9dfc5685a7))
+
+### Performance Improvements
+
+- 优化 FormItem 性能 ([a854f0c](https://gitlab2.cqkqinfo.com/web/ui/commit/a854f0c27ed61db704b8a56aab94d5221a4e89a8))
+
+## [1.8.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.64...v1.8.65) (2022-01-04)
+
+### Features
+
+- picker dateTime 支持 start 和 end ([07fb8f6](https://gitlab2.cqkqinfo.com/web/ui/commit/07fb8f6f3134c43b17843e91af213209acee98bf))
+
+### Performance Improvements
+
+- 优化 switch 性能 ([a59fbb6](https://gitlab2.cqkqinfo.com/web/ui/commit/a59fbb61683e3bf4d157c52b884bd8642648eb34))
+
+## [1.8.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.63...v1.8.64) (2021-12-31)
+
+### Features
+
+- inputNumber 支持自定义渲染按钮 ([6b725d7](https://gitlab2.cqkqinfo.com/web/ui/commit/6b725d7609cff3373c392efacedb2560a3516e7f))
+- sheet 支持手动隐藏 ([9bc7eeb](https://gitlab2.cqkqinfo.com/web/ui/commit/9bc7eebf8ebb7707aeae400c1b37963001495e9e))
+- 弹出层支持方向 ([20e16ba](https://gitlab2.cqkqinfo.com/web/ui/commit/20e16bac750cfa2d2904f430661066383f1798c3))
+- 添加 modal 组件 ([a7d14fc](https://gitlab2.cqkqinfo.com/web/ui/commit/a7d14fc893124ab815984c641e3d4c8a2304731d))
+
+## [1.8.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.62...v1.8.63) (2021-12-30)
+
+### Features
+
+- 添加二维码图标 ([295c18d](https://gitlab2.cqkqinfo.com/web/ui/commit/295c18da4b3417d09b071a77d774a3d55c5865ca))
+- 添加金额组件 ([8cda4b1](https://gitlab2.cqkqinfo.com/web/ui/commit/8cda4b176f5fe50e81bfa3e86e4a17bb2f701a09))
+
+## [1.8.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.61...v1.8.62) (2021-12-30)
+
+### Bug Fixes
+
+- picker dateTime 值不能回填 ([dcc447a](https://gitlab2.cqkqinfo.com/web/ui/commit/dcc447a3eb9041cffc69d8a4db25e4bc08a839ce))
+- search 图标无法清除值 ([f7a27b5](https://gitlab2.cqkqinfo.com/web/ui/commit/f7a27b54f15dd72075760e6facf193c29a38d351))
+
 ## [1.8.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.60...v1.8.61) (2021-12-30)
 
 ### Features

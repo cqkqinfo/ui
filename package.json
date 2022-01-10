@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.8.61",
+  "version": "1.8.74",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -64,7 +64,7 @@
     "jigsaw-captcha-js": "^1.0.0",
     "jsbarcode": "^3.11.3",
     "mini-html-parser2": "^0.3.0",
-    "parsec-hooks": "^0.0.158",
+    "parsec-hooks": "^0.0.159",
     "password-validator": "^5.1.1",
     "patch-package": "^6.4.7",
     "pinyin-pro": "^3.3.1",
