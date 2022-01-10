@@ -5,11 +5,11 @@ exports[`表单 card模式 1`] = `
   <div>
     <div
       class=""
-      style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      style="line-height: 1; align-self: stretch; display: flex; box-sizing: border-box; flex-direction: column; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
         class=""
-        style="line-height: 1;"
+        style="line-height: 1; display: flex; box-sizing: border-box; flex-direction: column;"
       >
         <div
           class=""
@@ -138,11 +138,11 @@ exports[`表单 cell模式 1`] = `
   <div>
     <div
       class=""
-      style="line-height: 1; align-self: stretch; box-sizing: border-box; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
+      style="line-height: 1; align-self: stretch; display: flex; box-sizing: border-box; flex-direction: column; background-color: rgb(255, 255, 255); border-radius: 10px; padding-left: 10px; padding-right: 10px; box-shadow: 0 0 10px rgba(39,128,217, 0.15);"
     >
       <div
         class=""
-        style="line-height: 1;"
+        style="line-height: 1; display: flex; box-sizing: border-box; flex-direction: column;"
       >
         <div
           class=""
@@ -261,11 +261,11 @@ exports[`表单 两端对齐 1`] = `
   <div>
     <div
       class=""
-      style="line-height: 1; align-self: stretch;"
+      style="line-height: 1; align-self: stretch; display: flex; box-sizing: border-box; flex-direction: column;"
     >
       <div
         class=""
-        style="line-height: 1;"
+        style="line-height: 1; display: flex; box-sizing: border-box; flex-direction: column;"
       >
         <div
           class=""
@@ -394,11 +394,11 @@ exports[`表单 渲染 1`] = `
   <div>
     <div
       class=""
-      style="line-height: 1; align-self: stretch;"
+      style="line-height: 1; align-self: stretch; display: flex; box-sizing: border-box; flex-direction: column;"
     >
       <div
         class=""
-        style="line-height: 1;"
+        style="line-height: 1; display: flex; box-sizing: border-box; flex-direction: column;"
       >
         <div
           class=""

@@ -40,6 +40,7 @@ export default ({
               debug: false,
               beta: true,
               ...data,
+              url: decodeURIComponent(data.url),
               nonceStr: data.noncestr,
             };
           });
