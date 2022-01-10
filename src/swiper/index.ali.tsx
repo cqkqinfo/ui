@@ -28,7 +28,12 @@ export default ({
       {...props}
     >
       {items.map(({ node, className, style, ...prpos }, index) => (
-        <SwiperItem className={className} style={style} {...prpos}>
+        <SwiperItem
+          className={className}
+          style={style}
+          {...prpos}
+          key={String(index)}
+        >
           {node}
         </SwiperItem>
       ))}
