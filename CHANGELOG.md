@@ -1,3 +1,9 @@
+## [1.8.80](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.79...v1.8.80) (2022-01-10)
+
+### Bug Fixes
+
+- 不能跳转小程序 ([807dade](https://gitlab2.cqkqinfo.com/web/ui/commit/807dadea2ee9486ece1308797645384622964ae4))
+
 ## [1.8.79](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.78...v1.8.79) (2022-01-10)
 
 ## [1.8.78](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.77...v1.8.78) (2022-01-10)
