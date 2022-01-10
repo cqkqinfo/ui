@@ -1,3 +1,10 @@
+## [1.8.76](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.75...v1.8.76) (2022-01-10)
+
+### Features
+
+- 添加按需加载警告 ([2dd8631](https://gitlab2.cqkqinfo.com/web/ui/commit/2dd8631b9d95ca4a44fac0883f13a68ea84990df))
+- 添加新的图标 ([fe7bb17](https://gitlab2.cqkqinfo.com/web/ui/commit/fe7bb17c48348e9c9fb04bfd53d2d6b5494a5b91))
+
 ## [1.8.75](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.74...v1.8.75) (2022-01-10)
 
 ## [1.8.74](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.73...v1.8.74) (2022-01-10)
