@@ -85,7 +85,11 @@ export default ({
               onTap={() => {
                 onChoose?.(i + 1);
               }}
-              className={styles.dashedItem}
+              className={classNames(
+                itemCls,
+                styles.dashedItem,
+                active && activeItemCls,
+              )}
               style={{ width }}
             >
               <View className={classNames(styles.circleWrap)}>
@@ -110,9 +114,7 @@ export default ({
                   className={classNames(
                     styles.dashedLine,
                     active && activeLineCls,
-                    {
-                      [styles.activeLine]: active,
-                    },
+                    active && styles.activeLine,
                   )}
                 />
               )}
