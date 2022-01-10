@@ -54,6 +54,7 @@ export default ({
   });
   return (
     <View
+      onTap={() => console.log(username)}
       {...props}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
