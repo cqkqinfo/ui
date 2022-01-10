@@ -1,3 +1,9 @@
+## [1.8.74](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.73...v1.8.74) (2022-01-10)
+
+### Bug Fixes
+
+- dashed step 样式不能自定义 ([abf4f01](https://gitlab2.cqkqinfo.com/web/ui/commit/abf4f017554b6948f139e460ede19fb8ef08d67c))
+
 ## [1.8.73](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.72...v1.8.73) (2022-01-07)
 
 ### Features
