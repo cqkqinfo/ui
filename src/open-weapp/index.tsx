@@ -55,6 +55,7 @@ export default ({
   return (
     <View
       onTap={() => console.log(username)}
+      key={Math.random()}
       {...props}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
