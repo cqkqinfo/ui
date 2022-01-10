@@ -34,6 +34,7 @@ export default ({
   id = useId(),
   className,
   onLaunch = () => console.log(`跳转到：${path}`),
+  appId,
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
@@ -62,6 +63,7 @@ export default ({
           className='${className}'
           id="${id}"
           username="${username}"
+          appId="${appId}"
           path="${path}"
         >
           <template class='open-weapp'>
