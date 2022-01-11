@@ -33,11 +33,11 @@ export default () => {
         const ret = data[0] || {};
         if (ret && (ret?.width !== wh.width || ret?.height !== wh.height)) {
           if (count === countRef.current) {
-            const { width, height, left, top } = data;
+            const { width, height, left, top } = ret;
             setWH({ width, height, x: left, y: top });
           }
         }
       });
-  });
+  }, [id, wh]);
   return { ...wh, id };
 };
