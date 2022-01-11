@@ -1,3 +1,10 @@
+## [1.8.83](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.82...v1.8.83) (2022-01-11)
+
+### Bug Fixes
+
+- input 不能重复赋值 ([7783fbc](https://gitlab2.cqkqinfo.com/web/ui/commit/7783fbc6b53f41ff2d4f98e489d4371df00c47f8))
+- open-weapp 会在小程序会重复提示 ([d263513](https://gitlab2.cqkqinfo.com/web/ui/commit/d263513077342d224615cc3f7444f30fc9378a74))
+
 ## [1.8.82](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.81...v1.8.82) (2022-01-11)
 
 ### Features
