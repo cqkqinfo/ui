@@ -501,3 +501,15 @@ export { default as setNavigationBarColor } from './set-navigation-bar-color';
  * 设置导航栏标题
  */
 export { default as setNavigationBarTitle } from './set-navigation-bar-title';
+/**
+ * 获取系统信息
+ */
+export { default as useGetSystemInfoSync } from './use-get-system-info-sync';
+/**
+ * 获取安全区域
+ */
+export { default as useSafeArea } from './use-safe-area';
+/**
+ * 设置标题
+ */
+export { default as useTitle } from './use-title';

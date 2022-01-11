@@ -1,3 +1,26 @@
+## [1.8.83](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.82...v1.8.83) (2022-01-11)
+
+### Bug Fixes
+
+- input 不能重复赋值 ([7783fbc](https://gitlab2.cqkqinfo.com/web/ui/commit/7783fbc6b53f41ff2d4f98e489d4371df00c47f8))
+- open-weapp 会在小程序会重复提示 ([d263513](https://gitlab2.cqkqinfo.com/web/ui/commit/d263513077342d224615cc3f7444f30fc9378a74))
+
+## [1.8.82](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.81...v1.8.82) (2022-01-11)
+
+### Features
+
+- 添加 useTitle ([dab84db](https://gitlab2.cqkqinfo.com/web/ui/commit/dab84db554b6860b6a14eccac993ec6d5d6d2aa5))
+
+## [1.8.81](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.80...v1.8.81) (2022-01-11)
+
+### Bug Fixes
+
+- versionVariable 类型 ([dcf77fb](https://gitlab2.cqkqinfo.com/web/ui/commit/dcf77fb4504530e13851cca485acd0a22f2db68d))
+
+### Features
+
+- 添加 useSafeArea ([ce4dd76](https://gitlab2.cqkqinfo.com/web/ui/commit/ce4dd76dd6d0598300d966505dc63de55cfb992a))
+
 ## [1.8.80](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.79...v1.8.80) (2022-01-10)
 
 ### Bug Fixes
