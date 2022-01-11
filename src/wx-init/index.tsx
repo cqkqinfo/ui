@@ -20,9 +20,7 @@ export default ({
 }) =>
   new Promise((resolve, reject) => {
     const data = new FormData();
-    const url = encodeURIComponent(
-      window.location.href.split('#')[0] || window.location.href,
-    );
+    const url = window.location.href.split('#')[0] || window.location.href;
     data.append('url', url);
     const init = async () => {
       let config: any;

@@ -34,6 +34,7 @@ export default ({
   id = useId(),
   className,
   onLaunch = () => console.log(`跳转到：${path}`),
+  appId,
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
@@ -53,6 +54,8 @@ export default ({
   });
   return (
     <View
+      onTap={() => console.log(username)}
+      key={Math.random()}
       {...props}
       /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
       // @ts-ignore
@@ -62,6 +65,7 @@ export default ({
           className='${className}'
           id="${id}"
           username="${username}"
+          appId="${appId}"
           path="${path}"
         >
           <template class='open-weapp'>
