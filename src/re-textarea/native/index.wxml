@@ -4,7 +4,7 @@
   style="{{style}}"
   model:value="{{myValue}}"
   bindfocus="onFocus"
-  bindblur="bindblur"
+  bindblur="onBlur"
   placeholder="{{value ? '' : placeholder}}"
   placeholder-style="{{placeholderStyle}}"
   bindconfirm="onConfirm"
