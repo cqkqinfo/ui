@@ -465,3 +465,7 @@ export { default as useGetSystemInfoSync } from './use-get-system-info-sync';
  * 获取安全区域
  */
 export { default as useSafeArea } from './use-safe-area';
+/**
+ * 设置标题
+ */
+export { default as useTitle } from './use-title';
