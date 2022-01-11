@@ -18,13 +18,15 @@ export default ({
       {...props}
       onTap={e => {
         props.onTap?.(e);
-        if (appId === getAccountInfoSync().miniProgram.appId && path) {
-          navigateTo({ url: path }).then(onLaunch);
-        } else {
-          navigateToMiniProgram({
-            appId,
-            path,
-          }).then(onLaunch);
+        if (path) {
+          if (appId === getAccountInfoSync().miniProgram.appId) {
+            navigateTo({ url: path }).then(onLaunch);
+          } else {
+            navigateToMiniProgram({
+              appId,
+              path,
+            }).then(onLaunch);
+          }
         }
       }}
     />
