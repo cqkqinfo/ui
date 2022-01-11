@@ -1,3 +1,9 @@
+## [1.8.82](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.81...v1.8.82) (2022-01-11)
+
+### Features
+
+- 添加 useTitle ([dab84db](https://gitlab2.cqkqinfo.com/web/ui/commit/dab84db554b6860b6a14eccac993ec6d5d6d2aa5))
+
 ## [1.8.81](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.80...v1.8.81) (2022-01-11)
 
 ### Bug Fixes
