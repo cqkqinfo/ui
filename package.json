@@ -82,6 +82,7 @@
     "react-native-web": "^0.17.5",
     "react-photo-view": "^0.5.2",
     "react-sortablejs": "^6.0.0",
+    "safe-area-insets": "^1.4.1",
     "sentry-miniapp": "^0.11.1",
     "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.14.0",
