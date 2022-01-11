@@ -1,3 +1,13 @@
+## [1.8.81](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.80...v1.8.81) (2022-01-11)
+
+### Bug Fixes
+
+- versionVariable 类型 ([dcf77fb](https://gitlab2.cqkqinfo.com/web/ui/commit/dcf77fb4504530e13851cca485acd0a22f2db68d))
+
+### Features
+
+- 添加 useSafeArea ([ce4dd76](https://gitlab2.cqkqinfo.com/web/ui/commit/ce4dd76dd6d0598300d966505dc63de55cfb992a))
+
 ## [1.8.80](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.79...v1.8.80) (2022-01-10)
 
 ### Bug Fixes
