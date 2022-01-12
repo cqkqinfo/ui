@@ -1,3 +1,9 @@
+## [1.8.84](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.83...v1.8.84) (2022-01-12)
+
+### Features
+
+- 添加 useWebSocket ([ef6bd75](https://gitlab2.cqkqinfo.com/web/ui/commit/ef6bd75b18e9ea1cdf94ba3f95d1d997b93dbcfa))
+
 ## [1.8.83](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.82...v1.8.83) (2022-01-11)
 
 ### Bug Fixes
