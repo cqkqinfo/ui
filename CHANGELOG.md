@@ -1,3 +1,9 @@
+## [1.8.90](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.89...v1.8.90) (2022-01-12)
+
+### Bug Fixes
+
+- useWebSocket web 端报错 ([5c18d12](https://gitlab2.cqkqinfo.com/web/ui/commit/5c18d121e43d20c0abd5bee0e295e499fa961560))
+
 ## [1.8.89](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.88...v1.8.89) (2022-01-12)
 
 ### Bug Fixes
