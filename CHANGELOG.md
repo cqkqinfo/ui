@@ -1,3 +1,9 @@
+## [1.8.92](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.91...v1.8.92) (2022-01-12)
+
+### Performance Improvements
+
+- 优化 fold 样式 ([16cdbf7](https://gitlab2.cqkqinfo.com/web/ui/commit/16cdbf78b906499a1846c1af80cd2149e4576c29))
+
 ## [1.8.91](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.90...v1.8.91) (2022-01-12)
 
 ### Bug Fixes
