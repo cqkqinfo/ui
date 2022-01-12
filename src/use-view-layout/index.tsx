@@ -14,7 +14,7 @@ export const getWH = (id: string) =>
 export default ({ run = true }: { run?: boolean } = {}) => {
   const { forceUpdate } = useForceUpdate();
   const ref = useRef<HTMLElement>(null);
-  const { width, height } = useSize(run ? ref.current : null);
+  const { width = 0, height = 0 } = useSize(run ? ref.current : null) || {};
   const { y, x } = ref.current?.getBoundingClientRect() || {};
   useEffect(() => {
     if (height === undefined && run) {

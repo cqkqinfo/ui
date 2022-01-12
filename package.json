@@ -45,7 +45,7 @@
     "@types/classnames": "^2.3.1",
     "@types/qs": "^6.9.7",
     "aes-js": "^3.1.2",
-    "ahooks": "^2.10.11",
+    "ahooks": "^3.1.5",
     "antd-mobile": "^2.3.4",
     "array-flat-polyfill": "^1.0.1",
     "axios-ali-adapter": "^0.0.4",
