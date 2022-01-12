@@ -5,31 +5,29 @@ import Space from '../space';
 // @ts-ignore
 import wxbarcode from 'wxbarcode';
 import BarCodeProps from './common';
-import pxToRpx from '../px-to-rpx';
-export default ({ content, style, ...props }: BarCodeProps) => {
+import classNames from 'classnames';
+import styles from './index.module.less';
+import { useViewLayout } from '@kqinfo/ui';
+export default ({ content, className, ...props }: BarCodeProps) => {
   const [canvasId] = useState('canvasId' + Math.floor(Math.random() * 100));
+  const { width = 0, height = 0, ...arg } = useViewLayout();
   useEffect(() => {
-    const query = createSelectorQuery();
-    query.select(`#${canvasId}`).boundingClientRect((data: any) => {
-      wxbarcode.barcode(
-        canvasId,
-        content,
-        pxToRpx(data?.width),
-        pxToRpx(data?.height),
-      );
-    });
-    query.exec();
-  }, [content, canvasId, style?.width, style?.height]);
+    wxbarcode.barcode(canvasId, content, width * 2, height * 2);
+  }, [content, canvasId, width, height]);
   return (
     <Space
       vertical
       alignItems={'center'}
       id={canvasId}
       size={'10px'}
-      style={{ background: '#fff', ...style }}
       {...props}
+      className={classNames(styles.wrap, className)}
     >
-      <Canvas canvasId={canvasId} style={{ width: '100%', height: '100%' }} />
+      <Canvas
+        {...arg}
+        canvasId={canvasId}
+        style={{ width: '100%', height: '100%' }}
+      />
       {content}
     </Space>
   );
