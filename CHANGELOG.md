@@ -1,3 +1,9 @@
+## [1.8.91](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.90...v1.8.91) (2022-01-12)
+
+### Bug Fixes
+
+- 条形码样式 ([e108cb6](https://gitlab2.cqkqinfo.com/web/ui/commit/e108cb674463c5628134eb66fddf7b6d8b20411b))
+
 ## [1.8.90](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.89...v1.8.90) (2022-01-12)
 
 ### Bug Fixes
