@@ -9,7 +9,7 @@ group:
 
 ## useSafeArea 获取安全区域
 
-获取元素布局
+获取安全区域
 
 ```tsx
 import React, { useState } from 'react';
