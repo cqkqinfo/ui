@@ -1,3 +1,9 @@
+## [1.8.89](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.88...v1.8.89) (2022-01-12)
+
+### Bug Fixes
+
+- 小程序 use-web-socket 报错 ([92c8c34](https://gitlab2.cqkqinfo.com/web/ui/commit/92c8c34aee1bc4830434f38247656d8fa2ac592e))
+
 ## [1.8.88](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.87...v1.8.88) (2022-01-12)
 
 ### Bug Fixes
