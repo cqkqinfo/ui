@@ -1,3 +1,10 @@
+## [1.8.86](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.85...v1.8.86) (2022-01-12)
+
+### Bug Fixes
+
+- 修复 use-view-layout 支付宝环境获取不到宽高导致 noticeBar 失效 ([4c4a905](https://gitlab2.cqkqinfo.com/web/ui/commit/4c4a90532b9aa6aa1dda5e476183277a00f3c433))
+- 支付宝环境下修复 fold 折叠不起，icon、formItem 样式展示 ([511d2ef](https://gitlab2.cqkqinfo.com/web/ui/commit/511d2ef2a5ae82893d93fbf94bdf97e79594881e))
+
 ## [1.8.85](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.84...v1.8.85) (2022-01-12)
 
 ### Bug Fixes
