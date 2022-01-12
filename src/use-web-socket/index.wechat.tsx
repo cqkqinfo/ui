@@ -1,4 +1,4 @@
-import { useWebSocket } from 'ahooks';
+import useWebSocket from './useWebSocket';
 import { Options } from 'ahooks/lib/useWebSocket';
 import { connectSocket } from 'remax/wechat';
 

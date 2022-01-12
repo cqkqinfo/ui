@@ -1,3 +1,3 @@
-import { useWebSocket } from 'ahooks';
+import useWebSocket from './useWebSocket';
 
 export default useWebSocket;
