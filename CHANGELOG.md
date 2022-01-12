@@ -1,3 +1,9 @@
+## [1.8.85](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.84...v1.8.85) (2022-01-12)
+
+### Bug Fixes
+
+- 图标不显示 ([77ec70e](https://gitlab2.cqkqinfo.com/web/ui/commit/77ec70ecd16b00dc189284b2e274e16f57273ee3))
+
 ## [1.8.84](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.83...v1.8.84) (2022-01-12)
 
 ### Features
