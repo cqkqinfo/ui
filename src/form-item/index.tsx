@@ -176,11 +176,7 @@ export default ({
                 style={{ display: after || showError ? undefined : 'none' }}
               >
                 {showError ? (
-                  <Icon
-                    size={platform === 'ali' ? 16 : 32}
-                    name={'kq-tip'}
-                    color={'#ED4E56'}
-                  />
+                  <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
                 ) : (
                   after
                 )}
