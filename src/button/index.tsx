@@ -61,7 +61,7 @@ export interface Props
    * 禁用
    * @default false
    */
-  disable?: boolean;
+  disabled?: boolean;
   /**
    * 是否是圆形按钮
    * @default false
@@ -91,14 +91,14 @@ const Button = ({
   ghost = false,
   loading = false,
   elderly = useConfig().elderly,
-  disable,
+  disabled,
   ...props
 }: Props) => (
   <NeedWrap wrap={Shadow} need={shadow}>
     <View
       role="button"
       aria-label={typeof children === 'string' ? children : undefined}
-      aria-disabled={disable}
+      aria-disabled={disabled}
       className={classNames(
         styles.button,
         className,
@@ -106,7 +106,7 @@ const Button = ({
         styles[type],
         ghost && styles.ghost,
         ghost && styles[`${type}-ghost`],
-        disable && styles.disable,
+        disabled && styles.disable,
         block && styles.block,
         loading && styles.loading,
         round && styles.round,
