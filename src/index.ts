@@ -469,3 +469,7 @@ export { default as useSafeArea } from './use-safe-area';
  * 设置标题
  */
 export { default as useTitle } from './use-title';
+/**
+ * 跨端webSocket
+ */
+export { default as useWebSocket } from './use-web-socket';
