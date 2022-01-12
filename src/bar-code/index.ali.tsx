@@ -5,11 +5,13 @@ import Space from '../space';
 // @ts-ignore
 import { barcode } from './_utils';
 import BarCodeProps from './common';
+import styles from './index.module.less';
+import classNames from 'classnames';
 export default ({
   content,
   width = 680,
   height = 200,
-  style,
+  className,
   ...props
 }: BarCodeProps) => {
   const [canvasId] = useState('canvasId' + Math.floor(Math.random() * 100));
@@ -25,8 +27,8 @@ export default ({
       vertical
       alignItems={'center'}
       size={'10px'}
-      style={{ background: '#fff', ...style }}
       {...props}
+      className={classNames(styles.wrap, className)}
     >
       <Canvas id={canvasId} style={{ width, height }} />
       {content}
