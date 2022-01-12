@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect, useRef, useState } from 'react';
 import { useLatest, useMemoizedFn, useUnmount } from 'ahooks';
+import { getPlatform } from '@kqinfo/ui';
 
 export enum ReadyState {
   Connecting = 0,
@@ -87,14 +88,15 @@ export default function useWebSocket(
       websocketRef.current?.close();
     }
 
-    websocketRef.current = new ((wx as any)?.WebSocket || WebSocket)(
-      socketUrl,
-      protocols,
-    );
+    websocketRef.current = new (getPlatform === 'wechat'
+      ? (wx as any).WebSocket
+      : WebSocket)(socketUrl, protocols);
     setReadyState(ReadyState.Connecting);
 
-    // @ts-ignore
-    websocketRef.current?.onerror = event => {
+    if (!websocketRef.current) {
+      return;
+    }
+    websocketRef.current.onerror = event => {
       if (unmountedRef.current) {
         return;
       }
@@ -102,8 +104,8 @@ export default function useWebSocket(
       onErrorRef.current?.(event);
       setReadyState(websocketRef.current?.readyState || ReadyState.Closed);
     };
-    // @ts-ignore
-    websocketRef.current?.onopen = event => {
+
+    websocketRef.current.onopen = event => {
       if (unmountedRef.current) {
         return;
       }
@@ -111,8 +113,8 @@ export default function useWebSocket(
       reconnectTimesRef.current = 0;
       setReadyState(websocketRef.current?.readyState || ReadyState.Open);
     };
-    // @ts-ignore
-    websocketRef.current?.onmessage = (
+
+    websocketRef.current.onmessage = (
       message: WebSocketEventMap['message'],
     ) => {
       if (unmountedRef.current) {
@@ -121,8 +123,8 @@ export default function useWebSocket(
       onMessageRef.current?.(message);
       setLatestMessage(message);
     };
-    // @ts-ignore
-    websocketRef.current?.onclose = event => {
+
+    websocketRef.current.onclose = event => {
       if (unmountedRef.current) {
         return;
       }
@@ -132,7 +134,7 @@ export default function useWebSocket(
     };
   };
 
-  const sendMessage: WebSocket['send'] = message => {
+  const sendMessage: WebSocket['send'] = (message: any) => {
     if (readyState === ReadyState.Open) {
       websocketRef.current?.send(message);
     } else {
