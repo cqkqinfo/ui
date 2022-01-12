@@ -75,7 +75,7 @@ export default ({
               });
           }}
         >
-          <Button type={'primary'} disable={!check || !btnCheck}>
+          <Button type={'primary'} disabled={!check || !btnCheck}>
             立即登录
           </Button>
         </OpenTypeButton>
