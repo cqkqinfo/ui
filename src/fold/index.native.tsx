@@ -21,7 +21,7 @@ export default ({
       }}
       style={{
         transition: 'all .3s',
-        overflow: 'hidden',
+        overflow: folded ? 'hidden' : undefined,
         ...(folded
           ? { maxHeight: 0 }
           : {
