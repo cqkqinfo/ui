@@ -1,3 +1,10 @@
+## [1.8.94](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.93...v1.8.94) (2022-01-13)
+
+### Features
+
+- tabBar 使用安全区域 ([2eead56](https://gitlab2.cqkqinfo.com/web/ui/commit/2eead56be3e7f54c8f95163249b3fdc4716e0738))
+- 导出 getCurrentPage ([8d7ff28](https://gitlab2.cqkqinfo.com/web/ui/commit/8d7ff2857e46355cbc35475bde78f078b1dfe463))
+
 ## [1.8.93](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.92...v1.8.93) (2022-01-13)
 
 ### Bug Fixes
