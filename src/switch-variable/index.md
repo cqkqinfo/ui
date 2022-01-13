@@ -21,6 +21,7 @@ const getDeliveryStatus = switchVariable({
   default: '待发货',
   1: '待寄出',
   2: '待揽收',
+  '3,4': '已完成', // 多个值同个状态用','分割
 });
 
 const getStatusText = (orderStatus?: string, deliveryStatus?: string) =>
@@ -37,6 +38,8 @@ export default () => {
       <Button>{getStatusText('1')}</Button>
       <PartTitle>待寄出</PartTitle>
       <Button>{getStatusText('2', '1')}</Button>
+      <PartTitle>已完成</PartTitle>
+      <Button>{getStatusText('2', '3')}</Button>
     </Space>
   );
 };
