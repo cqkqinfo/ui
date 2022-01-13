@@ -1,3 +1,13 @@
+## [1.8.93](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.92...v1.8.93) (2022-01-13)
+
+### Bug Fixes
+
+- check-box disabled 是必填 ([a250d81](https://gitlab2.cqkqinfo.com/web/ui/commit/a250d81e900ce89745b6d66d1667b9e045cfe504))
+
+### Features
+
+- switchVariable 支持多个值同个状态 ([7858f7c](https://gitlab2.cqkqinfo.com/web/ui/commit/7858f7c7f4ff9946da0f089f477a99e6dc1d8245))
+
 ## [1.8.92](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.91...v1.8.92) (2022-01-12)
 
 ### Performance Improvements
