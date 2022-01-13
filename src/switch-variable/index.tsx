@@ -7,7 +7,15 @@ export default <T extends unknown>(obj: {
   [key: string]: (T extends object ? Partial<T> : T) | undefined;
 }) => (v: keyof typeof obj) => {
   const defaultValue = obj['default'];
-  const value = obj[v] || defaultValue;
+  let value = defaultValue;
+  Object.keys(obj).forEach(key => {
+    key.split(',').forEach(item => {
+      // eslint-disable-next-line eqeqeq
+      if (item == v) {
+        value = obj[key];
+      }
+    });
+  });
   if (typeof value === 'object' && typeof defaultValue === 'object') {
     Object.keys(defaultValue as any).forEach(key => {
       if ((value as any)[key] === undefined) {
