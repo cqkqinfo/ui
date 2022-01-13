@@ -143,7 +143,7 @@ const getCheckboxs = (
 export interface GroupProps extends SpaceProps {
   value?: CheckboxValue[];
   children?: React.ReactNode;
-  disabled: boolean;
+  disabled?: boolean;
   onChange?: (v?: CheckboxValue[]) => void;
 }
 Checkbox.Group = (props: GroupProps) => {
