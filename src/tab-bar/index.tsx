@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
+import { useSafeArea } from '@kqinfo/ui';
 
 export interface TabBarItemProps {
   /**
@@ -64,10 +65,11 @@ const TabBar = (props: TabBarProps) => {
     onChange,
   } = props;
   const [index, setIndex] = useEffectState(current || items?.[0].index);
+  const { bottomHeight } = useSafeArea();
   return (
     <View
       className={classNames(styles.tabBarWrap, className)}
-      style={{ color, ...style }}
+      style={{ color, paddingBottom: `${bottomHeight}PX`, ...style }}
     >
       {items
         .filter(({ hide }) => !hide)
