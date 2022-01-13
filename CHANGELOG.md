@@ -1,3 +1,9 @@
+## [1.8.95](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.94...v1.8.95) (2022-01-13)
+
+### Features
+
+- 添加垃圾桶图标 ([9884982](https://gitlab2.cqkqinfo.com/web/ui/commit/98849824da93460706e1fb34c076ca4513453a59))
+
 ## [1.8.94](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.93...v1.8.94) (2022-01-13)
 
 ### Features
