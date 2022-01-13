@@ -517,3 +517,7 @@ export { default as useTitle } from './use-title';
  * 跨端webSocket
  */
 export { default as useWebSocket } from './use-web-socket';
+/**
+ * 获取当前页面路径
+ */
+export { default as getCurrentPage } from './get-current-page';
