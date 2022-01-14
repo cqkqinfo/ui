@@ -33,10 +33,32 @@ export default () => {
       title: '我的',
     },
   ];
+  const tabData2 = [
+    {
+      icon: <Icon name={'kq-search'} />,
+      index: 0,
+      title: '首页',
+    },
+    {
+      icon: () => (
+        <Space style={{ transform: 'translateY(-30%)' }}>
+          <Icon name={'kq-zengjia'} color={'#2780d9'} size={100} />
+        </Space>
+      ),
+      index: 1,
+    },
+    {
+      icon: <Icon name={'kq-down'} />,
+      index: 2,
+      title: '我的',
+    },
+  ];
   return (
     <Space vertical size={'10px'}>
       <PartTitle>一般用法</PartTitle>
-      <TabBar items={tabData}></TabBar>
+      <TabBar items={tabData} />
+      <PartTitle>自定义渲染</PartTitle>
+      <TabBar items={tabData2} />
     </Space>
   );
 };
