@@ -47,8 +47,11 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useImperativeHandle(ref, () => domRef.current as any, [domRef.current]);
     useEffect(() => {
-      domRef.current?.scrollTo({ left: scrollLeft as any });
-    }, [scrollLeft]);
+      domRef.current?.scrollTo({
+        left: scrollLeft as any,
+        behavior: scrollWithAnimation ? 'smooth' : undefined,
+      });
+    }, [scrollLeft, scrollWithAnimation]);
     return (
       <div
         className={classNames(
