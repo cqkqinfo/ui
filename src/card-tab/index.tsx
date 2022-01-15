@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Props } from '../tab/types';
 import Space from '../space';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import ScrollView from '../scroll-view';
+import { getLayout } from '../use-view-layout';
+import { useViewLayout } from '@kqinfo/ui';
 
 export default <T extends unknown>({
   tabs,
@@ -15,13 +17,28 @@ export default <T extends unknown>({
   containerCls,
   activeItemCls,
 }: Props<T>) => {
+  const scrollYRef = useRef(0);
+  const [{ width: aWidth = 0, x: aX = 0 }, setActiveLayout] = useState<{
+    width?: number;
+    x?: number;
+  }>({ width: 0, x: 0 });
+  useEffect(() => {
+    const active = tabs.find(({ index }) => index === current);
+    if (active) {
+      getLayout(`tab${active.index}`).then(setActiveLayout);
+    }
+  }, [current, tabs]);
+  const { width: wrapWidth = 0, ...arg } = useViewLayout();
+  const scrollLeft = scrollYRef.current + aX - wrapWidth / 2 + aWidth / 2;
   return (
     <ScrollView
       scrollX
+      scrollLeft={scrollLeft}
       className={classNames(styles.tab, className)}
       style={style}
-      scrollIntoView={`tab${current}`}
+      onScroll={e => (scrollYRef.current = e.detail.scrollLeft)}
       scrollWithAnimation
+      {...arg}
     >
       <Space
         flex={1}
@@ -31,6 +48,7 @@ export default <T extends unknown>({
       >
         {tabs.map(({ content, index }, i) => {
           const active = current === index;
+          const id = `tab${index}`;
           return (
             <Space
               flex={1}
@@ -42,7 +60,7 @@ export default <T extends unknown>({
               )}
               alignItems={'center'}
               justify={'center'}
-              id={`tab${index}`}
+              id={id}
               onTap={() => {
                 onChange?.(index);
               }}
