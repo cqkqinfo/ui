@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { createSelectorQuery } from 'remax/ali';
 import { useId } from 'parsec-hooks';
 
-export const getWH = (id: string) =>
+export const getLayout = (id: string) =>
   new Promise(resolve => {
     const query = createSelectorQuery();
     query
       .select(`#${id}`)
       .boundingClientRect()
-      .exec(ret => {
-        return ret;
+      .exec(({ left: x, top: y, ...ret }: any) => {
+        return { x, y, ...ret };
       });
   });
 

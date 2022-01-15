@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, ViewProps } from 'remax/one';
-import { getWH } from '../use-view-layout';
+import { getLayout } from '../use-view-layout';
 import { useRerenderCallback } from 'parsec-hooks';
 
 export interface Props extends ViewProps {
@@ -30,7 +30,7 @@ export default ({
   useEffect(() => {
     setMaxHeight(undefined);
     rerenderCallback(() => {
-      getWH(id).then(({ height }) => {
+      getLayout(id).then(({ height }) => {
         setMaxHeight(height);
       });
     });

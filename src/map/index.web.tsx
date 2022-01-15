@@ -2,7 +2,7 @@ import { useId, useImportCDN } from 'parsec-hooks';
 import React, { useEffect, useRef, useState } from 'react';
 import { MapProps } from 'remax/wechat';
 import { View } from 'remax/one';
-import { getWH } from '../use-view-layout';
+import { getLayout } from '../use-view-layout';
 
 export default ({
   latitude,
@@ -101,7 +101,7 @@ export default ({
   }, [map, markers, onMarkerClick, tMap]);
   const [height, setHeight] = useState<number>();
   useEffect(() => {
-    getWH(id).then(({ height }) => {
+    getLayout(id).then(({ height }) => {
       setHeight(height);
     });
   }, [id]);
