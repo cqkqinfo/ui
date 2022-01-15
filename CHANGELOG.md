@@ -1,3 +1,9 @@
+## [1.8.96](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.95...v1.8.96) (2022-01-15)
+
+### Features
+
+- cardTab 居中选择 tab ([b4a91c4](https://gitlab2.cqkqinfo.com/web/ui/commit/b4a91c430be20c4282a4f8bbda7760edadffbb3d))
+
 ## [1.8.95](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.94...v1.8.95) (2022-01-13)
 
 ### Features
