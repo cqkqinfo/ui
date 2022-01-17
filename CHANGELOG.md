@@ -1,3 +1,10 @@
+## [1.8.98](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.97...v1.8.98) (2022-01-17)
+
+### Bug Fixes
+
+- cardTab 进入页面会滚动一点距离 ([1dfe8e4](https://gitlab2.cqkqinfo.com/web/ui/commit/1dfe8e4e8d00ee79bc419008d9600c7bc5b94858))
+- datetime picker 有可能会报 includes 错误 ([f9f9d77](https://gitlab2.cqkqinfo.com/web/ui/commit/f9f9d774504c5dcdb3298ed852176f8af38bbbe2))
+
 ## [1.8.97](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.96...v1.8.97) (2022-01-17)
 
 ### Features
