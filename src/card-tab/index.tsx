@@ -25,7 +25,9 @@ export default <T extends unknown>({
   useEffect(() => {
     const active = tabs.find(({ index }) => index === current);
     if (active) {
-      getLayout(`tab${active.index}`).then(setActiveLayout);
+      setTimeout(() => {
+        getLayout(`tab${active.index}`).then(setActiveLayout);
+      });
     }
   }, [current, tabs]);
   const { width: wrapWidth = 0, ...arg } = useViewLayout();
@@ -33,7 +35,7 @@ export default <T extends unknown>({
   return (
     <ScrollView
       scrollX
-      scrollLeft={scrollLeft}
+      scrollLeft={tabs.length ? scrollLeft : undefined}
       className={classNames(styles.tab, className)}
       style={style}
       onScroll={e => (scrollYRef.current = e.detail.scrollLeft)}
