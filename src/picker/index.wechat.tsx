@@ -181,7 +181,7 @@ export default (props: Props) => {
               value
                 .map((item: any, i: number) => {
                   const str = minuteData[i][item];
-                  if (str.includes('日')) {
+                  if (str?.includes('日')) {
                     return str.replace('日', ' ');
                   }
                   return (
