@@ -1,3 +1,9 @@
+## [1.8.97](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.96...v1.8.97) (2022-01-17)
+
+### Features
+
+- 添加地址图标 ([6ff60a1](https://gitlab2.cqkqinfo.com/web/ui/commit/6ff60a12f548cac34c8abe0e780e92981bf3949e))
+
 ## [1.8.96](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.95...v1.8.96) (2022-01-15)
 
 ### Features
