@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { IApiComponentProps } from 'dumi/theme';
 import { useApiData } from 'dumi/theme';
 
@@ -22,10 +22,34 @@ const LOCALE_TEXTS = {
 export default ({ identifier, export: expt }: IApiComponentProps) => {
   const data = useApiData(identifier);
   const texts = LOCALE_TEXTS['zh-CN'];
+  const filterData = useMemo(
+    () =>
+      data[expt]
+        ?.filter(({ identifier }) => !identifier.includes('aria-'))
+        .filter(
+          ({ identifier }) =>
+            ![
+              'hoverClassName',
+              'hoverStartTime',
+              'hoverStayTime',
+              'role',
+              'dataset',
+              'onTap',
+              'onTouchStart',
+              'onTouchMove',
+              'onTouchEnd',
+              'onTouchCancel',
+              'onLongTap',
+              'slot',
+              'id',
+            ].includes(identifier),
+        ) || [],
+    [data],
+  );
 
-  return (
-    <>
-      {data && (
+  const renderTable = useCallback(
+    (data: typeof filterData) =>
+      !!data.length && (
         <table style={{ marginTop: 24 }}>
           <thead>
             <tr>
@@ -36,42 +60,39 @@ export default ({ identifier, export: expt }: IApiComponentProps) => {
             </tr>
           </thead>
           <tbody>
-            {data[expt]
-              ?.filter(({ identifier }) => !identifier.includes('aria-'))
-              .filter(
-                ({ identifier }) =>
-                  ![
-                    'hoverClassName',
-                    'hoverStartTime',
-                    'hoverStayTime',
-                    'role',
-                    'dataset',
-                    'onTap',
-                    'onTouchStart',
-                    'onTouchMove',
-                    'onTouchEnd',
-                    'onTouchCancel',
-                    'onLongTap',
-                    'slot',
-                    'id',
-                  ].includes(identifier),
-              )
-              .map(row => (
-                <tr key={row.identifier}>
-                  <td>{row.identifier}</td>
-                  <td>{row.description || '-'}</td>
-                  <td>
-                    <code>{row.type}</code>
-                  </td>
-                  <td>
-                    <code>
-                      {row.default || (row.required && texts.required) || '-'}
-                    </code>
-                  </td>
-                </tr>
-              ))}
+            {data.map(row => (
+              <tr key={row.identifier}>
+                <td>{row.identifier}</td>
+                <td>{row.description || '-'}</td>
+                <td>
+                  <code>{row.type}</code>
+                </td>
+                <td>
+                  <code>
+                    {row.default || (row.required && texts.required) || '-'}
+                  </code>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+      ),
+    [],
+  );
+  const clsData = useMemo(
+    () => filterData.filter(({ identifier }) => identifier.includes('Cls')),
+    [filterData],
+  );
+  return (
+    <>
+      {data && (
+        <>
+          {renderTable(
+            filterData.filter(({ identifier }) => !identifier.includes('Cls')),
+          )}
+          {!!clsData.length && <h3>自定义类名</h3>}
+          {renderTable(clsData)}
+        </>
       )}
     </>
   );
