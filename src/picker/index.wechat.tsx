@@ -112,11 +112,24 @@ export default (props: Props) => {
     const range: (PickerData[] | PickerData[][])[] = [];
     new Array(cols).fill(0).forEach((_, index) => {
       range.push(
-        index === 0 ? data : getData(range[index - 1], columnIndex[index - 1]),
+        index === 0
+          ? data
+          : getData(
+              range[index - 1],
+              columnIndex[index - 1] === -1
+                ? range[index - 1]
+                    .flat()
+                    .findIndex(({ children = [] }) =>
+                      children.some(({ value: v }) =>
+                        value instanceof Array ? v === value[index] : false,
+                      ),
+                    )
+                : columnIndex[index - 1],
+            ),
       );
     });
     return isDatetime ? minuteData : range;
-  }, [cols, columnIndex, data, getData, isDatetime, minuteData]);
+  }, [cols, columnIndex, data, getData, isDatetime, minuteData, value]);
   const rangeRef = useRef(range);
   rangeRef.current = range;
   useEffect(() => {
