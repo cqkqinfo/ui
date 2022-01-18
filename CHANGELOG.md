@@ -1,3 +1,9 @@
+## [1.8.100](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.99...v1.8.100) (2022-01-18)
+
+### Features
+
+- 日历支持范围选择 ([f580ae0](https://gitlab2.cqkqinfo.com/web/ui/commit/f580ae06237c7ee82315b37facfb35977d7e443b))
+
 ## [1.8.99](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.98...v1.8.99) (2022-01-18)
 
 ### Features
