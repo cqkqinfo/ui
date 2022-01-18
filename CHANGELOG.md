@@ -1,3 +1,9 @@
+## [1.8.102](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.101...v1.8.102) (2022-01-18)
+
+### Bug Fixes
+
+- picker 回显值，不会滚动到值的位置 ([4a5aa6c](https://gitlab2.cqkqinfo.com/web/ui/commit/4a5aa6cde932e8f1022b34258b7b0d854d30dedc))
+
 ## [1.8.101](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.100...v1.8.101) (2022-01-18)
 
 ### Features
