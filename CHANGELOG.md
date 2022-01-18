@@ -1,3 +1,11 @@
+## [1.8.101](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.100...v1.8.101) (2022-01-18)
+
+### Features
+
+- 二维码支持手动显示 ([6d1a525](https://gitlab2.cqkqinfo.com/web/ui/commit/6d1a5256bd19516f5872f95e7a5cce665d753120))
+- 日历添加 weekCls 类名 ([8871140](https://gitlab2.cqkqinfo.com/web/ui/commit/8871140f9c6136acacb59aa2508ace61e01a4dcd))
+- 添加左右图标 ([8cd89d2](https://gitlab2.cqkqinfo.com/web/ui/commit/8cd89d2eed109aa174f35f36f5a0ef8f511ad7c0))
+
 ## [1.8.100](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.99...v1.8.100) (2022-01-18)
 
 ### Features
