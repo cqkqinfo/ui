@@ -1,3 +1,9 @@
+## [1.8.99](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.98...v1.8.99) (2022-01-18)
+
+### Features
+
+- uploadImg 提供更多自定义项 ([6b58e60](https://gitlab2.cqkqinfo.com/web/ui/commit/6b58e609fdaa42d08cc7d4a1d564a44663e2bba9))
+
 ## [1.8.98](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.97...v1.8.98) (2022-01-17)
 
 ### Bug Fixes
