@@ -92,6 +92,8 @@ const names = [
   'kq-xia',
   'kq-shanchu',
   'kq-dizhi',
+  'kq-zuo',
+  'kq-you',
 ];
 
 export default () => (
