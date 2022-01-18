@@ -11,6 +11,8 @@ dayjs.extend(weekday);
 
 const weeks = ['日', '一', '二', '三', '四', '五', '六'];
 
+type Current = dayjs.Dayjs | [dayjs.Dayjs | undefined, dayjs.Dayjs | undefined];
+
 export interface Props {
   /**
    * 样式类名
@@ -41,13 +43,17 @@ export interface Props {
    */
   dotWrapCls?: string;
   /**
-   * 选中的日期
+   * 日期范围选择
    */
-  current?: dayjs.Dayjs;
+  range?: boolean;
   /**
-   * 选中的日期改变的事件
+   * 选中的日期，range为true是返回的是数组
    */
-  onChange?: (day: dayjs.Dayjs) => void;
+  current?: Current;
+  /**
+   * 选中的日期改变的事件，range为true是返回的是数组
+   */
+  onChange?: (day: Current) => void;
   /**
    * 渲染标记点，返回false不显示，可以返回一个元素可以自定义显示
    */
@@ -108,10 +114,14 @@ export default ({
   elderly = useConfig().elderly,
   renderItemProps,
   dotCls,
+  range,
   ...props
 }: Props) => {
-  const [selected, setSelected] = useEffectState(
-    useMemo(() => current || dayjs(), [current]),
+  const [selected, setSelected] = useEffectState<Current>(
+    useMemo(() => current || (range ? [dayjs(), undefined] : dayjs()), [
+      current,
+      range,
+    ]),
   );
   const startDay = useMemo(() => {
     return listEndDay ? dayjs().set('date', 1) : outStartDay || dayjs();
@@ -151,7 +161,14 @@ export default ({
       ))}
       {days.map((day, index) => {
         const dot = renderDot?.(day, index);
-        const active = day.isSame(selected, 'date');
+        const [start, end] = selected instanceof Array ? selected : [];
+        const inRange = day.isAfter(start) && day.isBefore(end) && range;
+        const isStart = day.isSame(start, 'date') && range;
+        const isEnd = day.isSame(end, 'date') && range && end;
+        const active =
+          selected instanceof Array
+            ? isStart || isEnd || inRange
+            : day.isSame(selected, 'date');
         const renderEmpty = (before = false) => {
           const length = before ? day.weekday() : 7 - day.weekday() - 1;
           return new Array(length).fill(0).map((_, i) => (
@@ -185,11 +202,26 @@ export default ({
               wechat-aria-disabled={renderDisable(day)}
               {...renderProps}
               onTap={() => {
-                setSelected(day);
-                onChange?.(day);
+                if (range) {
+                  const [start, end] = selected as any;
+                  let current: Current;
+                  if (start && end) {
+                    current = [day, undefined];
+                  } else if (start && dayjs(start).isBefore(day)) {
+                    current = [start, day];
+                  } else {
+                    current = [day, undefined];
+                  }
+                  setSelected(current);
+                  onChange?.(current);
+                } else {
+                  setSelected(day);
+                  onChange?.(day);
+                }
               }}
               style={{
                 marginRight: day.weekday() === 6 ? 0 : undefined,
+                borderRight: day.weekday() === 6 ? 0 : undefined,
                 ...renderProps?.style,
               }}
               className={classNames(
@@ -199,6 +231,9 @@ export default ({
                 renderDisable(day) &&
                   classNames(styles.disable, disableItemCls),
                 active && classNames(styles.active, activeItemCls),
+                inRange && classNames(styles.inRange),
+                isEnd && classNames(styles.end),
+                isStart && end && classNames(styles.start),
               )}
             >
               {renderDate(day)}
