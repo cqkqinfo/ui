@@ -20,7 +20,7 @@
   margin-right: 30px;
   position: relative;
   margin-bottom: 28px;
-  box-sizing: border-box;
+  box-sizing: content-box;
   &:active {
     background: #f0f4fd;
   }
@@ -45,6 +45,22 @@
 .active {
   color: #fff;
   background: @brand-primary;
+}
+
+.inRange {
+  border-radius: 0;
+  border-right: 30px solid @brand-primary;
+  margin-right: 0;
+}
+
+.end {
+  border-radius: 0 37.5px 37.5px 0;
+}
+
+.start {
+  border-radius: 37.5px 0 0 37.5px;
+  border-right: 30px solid @brand-primary;
+  margin-right: 0;
 }
 
 .dotWrap {

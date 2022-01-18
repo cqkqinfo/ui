@@ -25,6 +25,8 @@ export default () => {
       <Calendar
         renderDate={day => `${day.get('month') + 1}/${day.get('date')}`}
       />
+      <PartTitle>范围选择</PartTitle>
+      <Calendar range current={[dayjs(), dayjs().add(7, 'd')]} />
       <PartTitle>列表模式</PartTitle>
       <Button
         type={'primary'}
