@@ -93,6 +93,10 @@ export interface Props {
    */
   elderly?: boolean;
   style?: React.CSSProperties;
+  /**
+   * 星期的类名
+   */
+  weekCls?: string;
 }
 
 export default ({
@@ -115,6 +119,7 @@ export default ({
   renderItemProps,
   dotCls,
   range,
+  weekCls,
   ...props
 }: Props) => {
   const [selected, setSelected] = useEffectState<Current>(
@@ -152,7 +157,7 @@ export default ({
     >
       {weeks.map((item, index) => (
         <View
-          className={classNames(styles.item, itemCls, styles.week)}
+          className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
           style={{ marginRight: index === 6 ? 0 : undefined }}
         >
