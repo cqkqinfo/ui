@@ -99,6 +99,10 @@ export interface Props {
    * 星期的类名
    */
   weekCls?: string;
+  /**
+   * 被范围选择项的类名
+   */
+  rangeActiveCls?: string;
 }
 
 export default ({
@@ -122,6 +126,7 @@ export default ({
   dotCls,
   range,
   weekCls,
+  rangeActiveCls,
   ...props
 }: Props) => {
   const [selected, setSelected] = useEffectState<Current>(
@@ -153,9 +158,16 @@ export default ({
     (day: dayjs.Dayjs) => {
       const selected = selectedRef.current;
       const [start, end] = selected instanceof Array ? selected : [];
-      const inRange = !!(day.isAfter(start) && day.isBefore(end) && range);
       const isStart = !!(day.isSame(start, 'date') && range);
       const isEnd = !!(day.isSame(end, 'date') && range && end);
+      const inRange = !!(
+        day.isAfter(start) &&
+        day.isBefore(end) &&
+        range &&
+        end &&
+        !isEnd
+      );
+      const disabled = renderDisable(day);
       const active =
         selected instanceof Array
           ? isStart || isEnd || inRange
@@ -168,34 +180,40 @@ export default ({
         isStart,
         active,
         inRange,
+        disabled,
       };
     },
-    [range, renderItemProps, selectedRef],
+    [range, renderDisable, renderItemProps, selectedRef],
   );
   const getItemNativeData = useCallback(
     (day: dayjs.Dayjs) => {
-      const { renderProps, end, isEnd, isStart, active, inRange } = getItemArg(
-        day,
-      );
+      const {
+        renderProps,
+        end,
+        isEnd,
+        isStart,
+        active,
+        inRange,
+        disabled,
+      } = getItemArg(day);
       return {
         style: {
           marginRight: day.weekday() === 6 ? '0PX' : undefined,
-          borderRight: day.weekday() === 6 ? '0PX' : undefined,
           ...renderProps?.style,
         },
         className: classNames(
           styles.item,
           itemCls,
           renderProps?.className,
-          renderDisable(day) && classNames(styles.disable, disableItemCls),
+          disabled && classNames(styles.disable, disableItemCls),
           active && classNames(styles.active, activeItemCls),
-          inRange && classNames(styles.inRange),
+          inRange && classNames(styles.rangeActive, rangeActiveCls),
           isEnd && classNames(styles.end),
           isStart && end && classNames(styles.start),
         ),
       };
     },
-    [activeItemCls, disableItemCls, getItemArg, itemCls, renderDisable],
+    [activeItemCls, disableItemCls, getItemArg, itemCls, rangeActiveCls],
   );
   const nativeRefArrRef = useRef<
     { day: dayjs.Dayjs; native: NativeInstance | null }[]
