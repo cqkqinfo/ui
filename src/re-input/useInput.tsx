@@ -1,7 +1,9 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { InputProps, TextareaProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
+import { useConfig } from '../config-provider';
+import { SheetContent } from '../sheet';
 
 export interface UseInputOption
   extends Omit<InputProps & TextareaProps, 'onConfirm' | 'onInput'> {
@@ -57,11 +59,15 @@ export default ({
   className,
   placeholderStyle,
   value,
+  disabled,
   ...props
 }: UseInputOption) => {
+  const inSheet = useContext(SheetContent);
+  const { isShowSheet } = useConfig();
   return {
     adjustPosition: true,
     ...props,
+    disabled: disabled || (isShowSheet && !inSheet),
     value,
     className: classNames(styles.input, className),
     placeholderStyle: {
