@@ -5,6 +5,8 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 17px 0;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .item {
@@ -47,20 +49,35 @@
   background: @brand-primary;
 }
 
-.inRange {
+.rangeActive {
   border-radius: 0;
-  border-right: 30px solid @brand-primary;
-  margin-right: 0;
+  background: none !important;
+  color: #343434;
+  &:after {
+    display: block;
+    width: 250%;
+    height: 100%;
+    background-color: lighten(@brand-primary, 45%);
+    content: '';
+    position: absolute;
+    left: -80%;
+    top: 0;
+    z-index: -1;
+  }
 }
 
 .end {
-  border-radius: 0 37.5px 37.5px 0;
+  border-radius: 50%;
+  border: 0;
+  background-color: @brand-primary;
+  color: #fff;
 }
 
 .start {
-  border-radius: 37.5px 0 0 37.5px;
-  border-right: 30px solid @brand-primary;
-  margin-right: 0;
+  border-radius: 50%;
+  border: 0;
+  background-color: @brand-primary;
+  color: #fff;
 }
 
 .dotWrap {
