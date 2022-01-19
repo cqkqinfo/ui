@@ -1,3 +1,17 @@
+## [1.8.103](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.102...v1.8.103) (2022-01-19)
+
+### Features
+
+- modal 暴露 style ([5e30f53](https://gitlab2.cqkqinfo.com/web/ui/commit/5e30f53e1d3dd99db4e70f7cccb6efb860d01437))
+- native 支持 onTap 事件和 style 对象 ([270252e](https://gitlab2.cqkqinfo.com/web/ui/commit/270252e8435c4ab56ab811e2061e347ef3c7fa31))
+
+### Performance Improvements
+
+- 优化 cell label 样式 ([056fb90](https://gitlab2.cqkqinfo.com/web/ui/commit/056fb904e5a7dc432e824009af6a2baa5795c24c))
+- 优化 cell vertical label 样式 ([7269020](https://gitlab2.cqkqinfo.com/web/ui/commit/72690200ccef1b67c53f6ab56bf71c22aa03c576))
+- 优化日历性能 ([e04b0be](https://gitlab2.cqkqinfo.com/web/ui/commit/e04b0bee7fc7d03e486692c885f4bfc39dbd42f5))
+- 优化日历选择后的样式 ([f60cbda](https://gitlab2.cqkqinfo.com/web/ui/commit/f60cbdad8f27b83cf01a230d8dcff7978de77ad1))
+
 ## [1.8.102](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.101...v1.8.102) (2022-01-18)
 
 ### Bug Fixes
