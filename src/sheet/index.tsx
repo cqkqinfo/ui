@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  createContext,
 } from 'react';
 import Native, { NativeInstance } from '../native';
 import styles from './index.module.less';
@@ -13,6 +14,7 @@ import classNames from 'classnames';
 import Space from '../space';
 import { switchVariable } from '@kqinfo/ui';
 import getCurrentPage from '../get-current-page';
+import { useConfig } from '../config-provider';
 
 export interface SheetProps {
   children: React.ReactNode;
@@ -33,8 +35,11 @@ export interface SheetInstance {
   setVisible: (visible: boolean) => void;
 }
 
+export const SheetContent = createContext(false);
+
 const Sheet = forwardRef<SheetInstance, SheetProps>(
   ({ children, className, direction = 'bottom', contentCls, center }, ref) => {
+    const { setIsShowSheet } = useConfig();
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
       setVisible: visible => {
@@ -47,30 +52,50 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
         });
       },
     });
-    useImperativeHandle(ref, () => sheetInstanceRef.current);
+    useImperativeHandle(ref, () => ({
+      ...sheetInstanceRef.current,
+      setVisible: visible => {
+        setIsShowSheet?.(visible);
+        sheetInstanceRef.current.setVisible(visible);
+      },
+    }));
+    useEffect(() => {
+      return () => {
+        setIsShowSheet?.(false);
+      };
+    }, [setIsShowSheet]);
     const content = useMemo(
       () => (
-        <Space
-          className={classNames(styles.content, contentCls, styles[direction])}
-          onTap={() => sheetInstanceRef.current.setVisible(false)}
-          justify={switchVariable({
-            default: 'center',
-            left: 'flex-start',
-            right: 'flex-end',
-          })(direction)}
-          alignItems={
-            center
-              ? 'center'
-              : switchVariable({
-                  bottom: 'flex-end',
-                  default: 'flex-start',
-                })(direction)
-          }
-        >
-          <Space onTap={e => e.stopPropagation()}>{children}</Space>
-        </Space>
+        <SheetContent.Provider value={true}>
+          <Space
+            className={classNames(
+              styles.content,
+              contentCls,
+              styles[direction],
+            )}
+            onTap={() => {
+              setIsShowSheet?.(false);
+              sheetInstanceRef.current.setVisible(false);
+            }}
+            justify={switchVariable({
+              default: 'center',
+              left: 'flex-start',
+              right: 'flex-end',
+            })(direction)}
+            alignItems={
+              center
+                ? 'center'
+                : switchVariable({
+                    bottom: 'flex-end',
+                    default: 'flex-start',
+                  })(direction)
+            }
+          >
+            <Space onTap={e => e.stopPropagation()}>{children}</Space>
+          </Space>
+        </SheetContent.Provider>
       ),
-      [center, children, contentCls, direction],
+      [center, children, contentCls, direction, setIsShowSheet],
     );
     return useMemo(
       () => (
