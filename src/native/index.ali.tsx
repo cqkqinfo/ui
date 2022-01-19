@@ -17,6 +17,7 @@ export default forwardRef<NativeInstance, Props>(
       children,
       flex,
       initData: { visible = true, className, style, content } = {},
+      onTap,
     },
     ref,
   ) => {
@@ -35,6 +36,9 @@ export default forwardRef<NativeInstance, Props>(
         onThis={(detail: any) => {
           setRef(detail);
         }}
+        onTap={(detail: any) => {
+          onTap?.(detail);
+        }}
       >
         {children}
       </FlexNative>
@@ -46,6 +50,9 @@ export default forwardRef<NativeInstance, Props>(
         visible={visible}
         onThis={(detail: any) => {
           setRef(detail);
+        }}
+        onTap={(detail: any) => {
+          onTap?.(detail);
         }}
       >
         {children}

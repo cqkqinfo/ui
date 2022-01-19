@@ -1,10 +1,10 @@
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import React from 'react';
 import { NativeInstance, Props } from './index';
-import { View } from 'react-native';
+import { View } from 'remax/one';
 
 export default forwardRef<NativeInstance, Props>(
-  ({ initData = {}, children }, ref) => {
+  ({ initData = {}, children, onTap }, ref) => {
     const [{ style, content, className, visible }, setData] = useState(
       initData,
     );
@@ -13,6 +13,6 @@ export default forwardRef<NativeInstance, Props>(
       setData,
     });
     useImperativeHandle(ref, () => returns, [returns]);
-    return <View>{visible ? children : null}</View>;
+    return <View onTap={onTap}>{visible ? children : null}</View>;
   },
 );
