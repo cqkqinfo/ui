@@ -27,6 +27,7 @@ export interface SheetProps {
    * @default bottom
    */
   direction?: 'left' | 'top' | 'right' | 'bottom';
+  onClose?: () => void;
 }
 
 export interface SheetInstance {
@@ -34,7 +35,10 @@ export interface SheetInstance {
 }
 
 const Sheet = forwardRef<SheetInstance, SheetProps>(
-  ({ children, className, direction = 'bottom', contentCls, center }, ref) => {
+  (
+    { children, className, direction = 'bottom', contentCls, center, onClose },
+    ref,
+  ) => {
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
       setVisible: visible => {
@@ -52,7 +56,10 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
       () => (
         <Space
           className={classNames(styles.content, contentCls, styles[direction])}
-          onTap={() => sheetInstanceRef.current.setVisible(false)}
+          onTap={() => {
+            sheetInstanceRef.current.setVisible(false);
+            onClose?.();
+          }}
           justify={switchVariable({
             default: 'center',
             left: 'flex-start',
@@ -70,7 +77,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           <Space onTap={e => e.stopPropagation()}>{children}</Space>
         </Space>
       ),
-      [center, children, contentCls, direction],
+      [center, children, contentCls, direction, onClose],
     );
     return useMemo(
       () => (
