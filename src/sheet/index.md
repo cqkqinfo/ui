@@ -9,7 +9,7 @@ group:
 
 ## Sheet 弹出层
 
-弹出层
+弹出层，防止了微信的 input 点击穿透的 bug
 
 ```tsx
 import React, { useRef, useState } from 'react';

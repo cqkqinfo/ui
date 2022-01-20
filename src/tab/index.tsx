@@ -22,8 +22,8 @@ export default <T extends unknown>(props: Props<T>) => {
   } = props;
   const { brandPrimary } = useConfig();
   const firstTabIndex = tabs?.[0]?.index;
-  let [active, setActive] = useEffectState(
-    current !== undefined ? current : firstTabIndex || undefined,
+  let [active, setActive] = useEffectState<undefined | T>(
+    current !== undefined ? current : firstTabIndex,
   );
   if (control) {
     active = current;

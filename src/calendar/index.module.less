@@ -5,6 +5,8 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 17px 0;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .item {
@@ -20,7 +22,7 @@
   margin-right: 30px;
   position: relative;
   margin-bottom: 28px;
-  box-sizing: border-box;
+  box-sizing: content-box;
   &:active {
     background: #f0f4fd;
   }
@@ -45,6 +47,37 @@
 .active {
   color: #fff;
   background: @brand-primary;
+}
+
+.rangeActive {
+  border-radius: 0;
+  background: none !important;
+  color: #343434;
+  &:after {
+    display: block;
+    width: 250%;
+    height: 100%;
+    background-color: lighten(@brand-primary, 45%);
+    content: '';
+    position: absolute;
+    left: -80%;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+.end {
+  border-radius: 50%;
+  border: 0;
+  background-color: @brand-primary;
+  color: #fff;
+}
+
+.start {
+  border-radius: 50%;
+  border: 0;
+  background-color: @brand-primary;
+  color: #fff;
 }
 
 .dotWrap {

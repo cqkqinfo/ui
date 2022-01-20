@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { createSelectorQuery } from 'remax/wechat';
 import { useId } from 'parsec-hooks';
 
-export const getWH = (id: string) =>
+export const getLayout = (id: string) =>
   new Promise(resolve => {
     const query = createSelectorQuery();
-    query.select(`#${id}`).boundingClientRect(data => {
-      resolve(data);
-    });
+    query
+      .select(`#${id}`)
+      .boundingClientRect(({ left: x, top: y, ...data }) => {
+        resolve({ ...data, x, y });
+      });
     query.exec();
   });
 

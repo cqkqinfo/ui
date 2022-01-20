@@ -1,12 +1,14 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import React from 'react';
 import { useId, useRefState } from 'parsec-hooks';
+import { TapEvent } from '@remax/one/esm/types';
+import plainStyle from '@remax/one/esm/useWebPlaceholderStyle/plainStyle';
 
 export interface Data {
   /**
    * 行内样式
    */
-  style?: string;
+  style?: string | React.CSSProperties;
   content?: string | number;
   className?: string;
   /**
@@ -30,10 +32,11 @@ export interface Props {
    * flex模式
    */
   flex?: boolean;
+  onTap?: (event: TapEvent) => void;
 }
 
 export default forwardRef<NativeInstance, Props>(
-  ({ initData = {}, children }, ref) => {
+  ({ initData = {}, children, onTap }, ref) => {
     const [returns, setReturns, returnsRef] = useRefState<NativeInstance>({
       data: initData,
       setData: data => {
@@ -59,7 +62,10 @@ export default forwardRef<NativeInstance, Props>(
                   content = returns.data.content,
                   className = (returns.data.className = ''),
                 } = newData;
-                dom.setAttribute('style', style);
+                dom.setAttribute(
+                  'style',
+                  typeof style === 'object' ? plainStyle(style) : style,
+                );
                 dom.hidden = !visible;
                 if (content !== undefined) {
                   dom.innerText = content + '';
@@ -75,6 +81,7 @@ export default forwardRef<NativeInstance, Props>(
             }
           }
         }}
+        onClick={onTap as any}
       >
         {children}
       </div>

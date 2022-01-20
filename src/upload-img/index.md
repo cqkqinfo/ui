@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { UploadImg, showToast, Space, PartTitle } from '@kqinfo/ui';
+import { UploadImg, showToast, Space, PartTitle, Button } from '@kqinfo/ui';
 
 export default () => {
   const [value, setValue] = useState<string[]>([
@@ -39,6 +39,32 @@ export default () => {
               resolve(URL.createObjectURL(file));
             }, 10000);
           })
+        }
+        onChange={value => {
+          setValue(value);
+        }}
+      />
+      <PartTitle>自定义按钮</PartTitle>
+      <UploadImg
+        value={value}
+        length={5}
+        multiple
+        maxSize={1 * 1024 * 1024}
+        onMaxError={() => {
+          showToast({ title: '文件过大', icon: 'none' });
+        }}
+        tip={'请上传'}
+        uploadFn={file =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve(URL.createObjectURL(file));
+            }, 10000);
+          })
+        }
+        addBtn={
+          <Button type={'action'} block={false}>
+            上传
+          </Button>
         }
         onChange={value => {
           setValue(value);

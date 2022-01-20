@@ -47,6 +47,34 @@ interface Props {
    * onChange事件
    */
   onChange?: (value?: string[]) => void;
+  /**
+   * 自定义添加按钮
+   */
+  addBtn?: React.ReactElement;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * 没有数据时的提示
+   */
+  tip?: React.ReactNode;
+  /**
+   * 上传项类名
+   */
+  itemCls?: string;
+  /**
+   * 类名
+   */
+  className?: string;
+  /**
+   * 自定义删除图标
+   */
+  delIcon?: React.ReactNode;
+  /**
+   * 删除图标类名
+   */
+  delIconCls?: string;
 }
 
 export default ({
@@ -59,15 +87,32 @@ export default ({
   beforeUpload = () => true,
   value = [],
   onChange,
+  addBtn,
+  style,
+  delIcon = <Icon name="kq-clear2" color="#EA5328" />,
+  tip = (
+    <View className={classNames(styles.promptText)}>
+      <Text className={classNames(styles.promptText1)}>添加图片</Text>
+      <Text className={classNames(styles.promptText2)}>
+        请上传高清原图，最多上传{length}张
+      </Text>
+    </View>
+  ),
+  className,
+  delIconCls,
+  itemCls,
 }: Props) => {
   const [loadingArr, setLoadingArr, loadingArrRef] = useRefState<string[]>([]);
   const valueRef = useStateRef(value);
   return (
-    <View className={classNames(styles.uploadImg)}>
+    <View className={classNames(styles.uploadImg, className)} style={style}>
       {[...value, ...loadingArr].map((item, index) => {
         const loading = loadingArr.includes(item);
         return (
-          <View className={classNames(styles.uploadImgItem)} key={index}>
+          <View
+            className={classNames(styles.uploadImgItem, itemCls)}
+            key={index}
+          >
             <Image
               className={classNames(styles.uploadImgItemImage)}
               src={item}
@@ -80,23 +125,22 @@ export default ({
                 <Icon name={'kq-loading'} color={'#fff'} />
               </View>
             ) : (
-              <Icon
-                className={classNames(styles.uploadImgItemDelete)}
-                name="kq-clear2"
-                color="#EA5328"
+              <View
+                className={classNames(styles.uploadImgItemDelete, delIconCls)}
                 onTap={() => {
                   const temp = [...value];
                   temp.splice(index, 1);
                   onChange && onChange([...temp]);
                 }}
-              />
+              >
+                {delIcon}
+              </View>
             )}
           </View>
         );
       })}
       {value.length + loadingArr.length < length && (
         <View
-          className={classNames(styles.uploadImgIcon)}
           onTap={() => {
             if (valueRef.current.length >= length) {
               return;
@@ -153,21 +197,18 @@ export default ({
             });
           }}
         >
-          <Icon
-            className={classNames(styles.uploadImgIconAdd)}
-            name="kq-add"
-            color="#999999"
-          />
+          {addBtn || (
+            <View className={classNames(styles.uploadImgIcon)}>
+              <Icon
+                className={classNames(styles.uploadImgIconAdd)}
+                name="kq-add"
+                color="#999999"
+              />
+            </View>
+          )}
         </View>
       )}
-      {!(value?.length + loadingArr.length) && (
-        <View className={classNames(styles.promptText)}>
-          <Text className={classNames(styles.promptText1)}>添加图片</Text>
-          <Text className={classNames(styles.promptText2)}>
-            请上传高清原图，最多上传{length}张
-          </Text>
-        </View>
-      )}
+      {!(value?.length + loadingArr.length) && tip}
     </View>
   );
 };

@@ -1,4 +1,4 @@
-<view wx:if="{{visible}}" id="{{id}}" style="{{style}}" class="{{className}}">
+<view wx:if="{{visible}}" id="{{id}}" style="{{style}}" class="{{className}}" bindblur="onTap">
   {{content}}
   <slot/>
 </view>

@@ -1,3 +1,68 @@
+## [1.8.104](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.103...v1.8.104) (2022-01-19)
+
+### Features
+
+- 防止 sheet 弹出时会有 input 点击穿透的情况 ([df19d1c](https://gitlab2.cqkqinfo.com/web/ui/commit/df19d1c348d61525fbc1ecf87b5419c52abe3cb1))
+
+## [1.8.103](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.102...v1.8.103) (2022-01-19)
+
+### Features
+
+- modal 暴露 style ([5e30f53](https://gitlab2.cqkqinfo.com/web/ui/commit/5e30f53e1d3dd99db4e70f7cccb6efb860d01437))
+- native 支持 onTap 事件和 style 对象 ([270252e](https://gitlab2.cqkqinfo.com/web/ui/commit/270252e8435c4ab56ab811e2061e347ef3c7fa31))
+
+### Performance Improvements
+
+- 优化 cell label 样式 ([056fb90](https://gitlab2.cqkqinfo.com/web/ui/commit/056fb904e5a7dc432e824009af6a2baa5795c24c))
+- 优化 cell vertical label 样式 ([7269020](https://gitlab2.cqkqinfo.com/web/ui/commit/72690200ccef1b67c53f6ab56bf71c22aa03c576))
+- 优化日历性能 ([e04b0be](https://gitlab2.cqkqinfo.com/web/ui/commit/e04b0bee7fc7d03e486692c885f4bfc39dbd42f5))
+- 优化日历选择后的样式 ([f60cbda](https://gitlab2.cqkqinfo.com/web/ui/commit/f60cbdad8f27b83cf01a230d8dcff7978de77ad1))
+
+## [1.8.102](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.101...v1.8.102) (2022-01-18)
+
+### Bug Fixes
+
+- picker 回显值，不会滚动到值的位置 ([4a5aa6c](https://gitlab2.cqkqinfo.com/web/ui/commit/4a5aa6cde932e8f1022b34258b7b0d854d30dedc))
+
+## [1.8.101](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.100...v1.8.101) (2022-01-18)
+
+### Features
+
+- 二维码支持手动显示 ([6d1a525](https://gitlab2.cqkqinfo.com/web/ui/commit/6d1a5256bd19516f5872f95e7a5cce665d753120))
+- 日历添加 weekCls 类名 ([8871140](https://gitlab2.cqkqinfo.com/web/ui/commit/8871140f9c6136acacb59aa2508ace61e01a4dcd))
+- 添加左右图标 ([8cd89d2](https://gitlab2.cqkqinfo.com/web/ui/commit/8cd89d2eed109aa174f35f36f5a0ef8f511ad7c0))
+
+## [1.8.100](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.99...v1.8.100) (2022-01-18)
+
+### Features
+
+- 日历支持范围选择 ([f580ae0](https://gitlab2.cqkqinfo.com/web/ui/commit/f580ae06237c7ee82315b37facfb35977d7e443b))
+
+## [1.8.99](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.98...v1.8.99) (2022-01-18)
+
+### Features
+
+- uploadImg 提供更多自定义项 ([6b58e60](https://gitlab2.cqkqinfo.com/web/ui/commit/6b58e609fdaa42d08cc7d4a1d564a44663e2bba9))
+
+## [1.8.98](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.97...v1.8.98) (2022-01-17)
+
+### Bug Fixes
+
+- cardTab 进入页面会滚动一点距离 ([1dfe8e4](https://gitlab2.cqkqinfo.com/web/ui/commit/1dfe8e4e8d00ee79bc419008d9600c7bc5b94858))
+- datetime picker 有可能会报 includes 错误 ([f9f9d77](https://gitlab2.cqkqinfo.com/web/ui/commit/f9f9d774504c5dcdb3298ed852176f8af38bbbe2))
+
+## [1.8.97](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.96...v1.8.97) (2022-01-17)
+
+### Features
+
+- 添加地址图标 ([6ff60a1](https://gitlab2.cqkqinfo.com/web/ui/commit/6ff60a12f548cac34c8abe0e780e92981bf3949e))
+
+## [1.8.96](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.95...v1.8.96) (2022-01-15)
+
+### Features
+
+- cardTab 居中选择 tab ([b4a91c4](https://gitlab2.cqkqinfo.com/web/ui/commit/b4a91c430be20c4282a4f8bbda7760edadffbb3d))
+
 ## [1.8.95](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.94...v1.8.95) (2022-01-13)
 
 ### Features

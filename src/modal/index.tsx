@@ -4,6 +4,7 @@ import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
 import styles from './index.module.less';
 import Space from '../space';
 import classNames from 'classnames';
+import rpxToPx from '../rpx-to-px';
 
 export interface ShowOptions {
   /**
@@ -61,6 +62,19 @@ export interface ShowOptions {
    * 弹窗主体类名
    */
   bodyCls?: string;
+  /**
+   * 弹窗样式
+   */
+  wrapStyle?: React.CSSProperties;
+  /**
+   * 主体样式
+   */
+  bodyStyle?: React.CSSProperties;
+  /**
+   * 默认转为单位rpx
+   * @default 80vw
+   */
+  width?: number;
 }
 
 const data: SheetWrapData = {};
@@ -80,6 +94,9 @@ const Modal = () => {
       bodyCls,
       footerCls,
       btnCls,
+      wrapStyle,
+      bodyStyle,
+      width,
       footer = (
         <Space
           className={classNames(styles.footer, footerCls)}
@@ -119,11 +136,16 @@ const Modal = () => {
   const ref = useRef<SheetWrapInstance>(null);
   return (
     <SheetWrap ref={ref} setOptions={setOptions} data={data} center>
-      <Space vertical className={classNames(styles.wrap, className)}>
+      <Space
+        vertical
+        className={classNames(styles.wrap, className)}
+        style={{ width: width ? rpxToPx(width) : undefined, ...wrapStyle }}
+      >
         <Space
           className={classNames(styles.body, bodyCls)}
           vertical
           alignItems={'stretch'}
+          style={bodyStyle}
         >
           <Space
             className={classNames(styles.title, titleCls)}

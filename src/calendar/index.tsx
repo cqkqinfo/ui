@@ -2,14 +2,18 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { View, ViewProps } from 'remax/one';
 import dayjs from 'dayjs';
-import React, { useMemo } from 'react';
-import { useEffectState } from 'parsec-hooks';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { useEffectState, useStateRef } from 'parsec-hooks';
 import weekday from 'dayjs/plugin/weekday';
 import { useConfig } from '../config-provider';
+import { Native } from '@kqinfo/ui';
+import { NativeInstance } from '../native';
 
 dayjs.extend(weekday);
 
 const weeks = ['日', '一', '二', '三', '四', '五', '六'];
+
+type Current = dayjs.Dayjs | [dayjs.Dayjs | undefined, dayjs.Dayjs | undefined];
 
 export interface Props {
   /**
@@ -41,13 +45,17 @@ export interface Props {
    */
   dotWrapCls?: string;
   /**
-   * 选中的日期
+   * 日期范围选择
    */
-  current?: dayjs.Dayjs;
+  range?: boolean;
   /**
-   * 选中的日期改变的事件
+   * 选中的日期，range为true是返回的是数组
    */
-  onChange?: (day: dayjs.Dayjs) => void;
+  current?: Current;
+  /**
+   * 选中的日期改变的事件，range为true是返回的是数组
+   */
+  onChange?: (day: Current) => void;
   /**
    * 渲染标记点，返回false不显示，可以返回一个元素可以自定义显示
    */
@@ -87,6 +95,14 @@ export interface Props {
    */
   elderly?: boolean;
   style?: React.CSSProperties;
+  /**
+   * 星期的类名
+   */
+  weekCls?: string;
+  /**
+   * 被范围选择项的类名
+   */
+  rangeActiveCls?: string;
 }
 
 export default ({
@@ -108,11 +124,18 @@ export default ({
   elderly = useConfig().elderly,
   renderItemProps,
   dotCls,
+  range,
+  weekCls,
+  rangeActiveCls,
   ...props
 }: Props) => {
-  const [selected, setSelected] = useEffectState(
-    useMemo(() => current || dayjs(), [current]),
+  const [selected, setSelected] = useEffectState<Current>(
+    useMemo(() => current || (range ? [dayjs(), undefined] : dayjs()), [
+      current,
+      range,
+    ]),
   );
+  const selectedRef = useStateRef(selected);
   const startDay = useMemo(() => {
     return listEndDay ? dayjs().set('date', 1) : outStartDay || dayjs();
   }, [listEndDay, outStartDay]);
@@ -131,6 +154,71 @@ export default ({
       ),
     [limit, startDay],
   );
+  const getItemArg = useCallback(
+    (day: dayjs.Dayjs) => {
+      const selected = selectedRef.current;
+      const [start, end] = selected instanceof Array ? selected : [];
+      const isStart = !!(day.isSame(start, 'date') && range);
+      const isEnd = !!(day.isSame(end, 'date') && range && end);
+      const inRange = !!(
+        day.isAfter(start) &&
+        day.isBefore(end) &&
+        range &&
+        end &&
+        !isEnd
+      );
+      const disabled = renderDisable(day);
+      const active =
+        selected instanceof Array
+          ? isStart || isEnd || inRange
+          : day.isSame(selected, 'date');
+      const renderProps = renderItemProps?.(day);
+      return {
+        renderProps,
+        end,
+        isEnd,
+        isStart,
+        active,
+        inRange,
+        disabled,
+      };
+    },
+    [range, renderDisable, renderItemProps, selectedRef],
+  );
+  const getItemNativeData = useCallback(
+    (day: dayjs.Dayjs) => {
+      const {
+        renderProps,
+        end,
+        isEnd,
+        isStart,
+        active,
+        inRange,
+        disabled,
+      } = getItemArg(day);
+      return {
+        style: {
+          marginRight: day.weekday() === 6 ? '0PX' : undefined,
+          ...renderProps?.style,
+        },
+        className: classNames(
+          styles.item,
+          itemCls,
+          renderProps?.className,
+          disabled && classNames(styles.disable, disableItemCls),
+          active && classNames(styles.active, activeItemCls),
+          inRange && classNames(styles.rangeActive, rangeActiveCls),
+          isEnd && classNames(styles.end),
+          isStart && end && classNames(styles.start),
+        ),
+      };
+    },
+    [activeItemCls, disableItemCls, getItemArg, itemCls, rangeActiveCls],
+  );
+  const nativeRefArrRef = useRef<
+    { day: dayjs.Dayjs; native: NativeInstance | null }[]
+  >([]);
+  nativeRefArrRef.current = [];
   return (
     <View
       className={classNames(
@@ -142,7 +230,7 @@ export default ({
     >
       {weeks.map((item, index) => (
         <View
-          className={classNames(styles.item, itemCls, styles.week)}
+          className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
           style={{ marginRight: index === 6 ? 0 : undefined }}
         >
@@ -151,7 +239,7 @@ export default ({
       ))}
       {days.map((day, index) => {
         const dot = renderDot?.(day, index);
-        const active = day.isSame(selected, 'date');
+        const { renderProps, active } = getItemArg(day);
         const renderEmpty = (before = false) => {
           const length = before ? day.weekday() : 7 - day.weekday() - 1;
           return new Array(length).fill(0).map((_, i) => (
@@ -164,7 +252,6 @@ export default ({
             />
           ));
         };
-        const renderProps = renderItemProps?.(day);
         if (listEndDay && day.month() === startDay.month() - 1) {
           return null;
         }
@@ -178,28 +265,33 @@ export default ({
                 {renderEmpty(true)}
               </>
             )}
-            <View
-              wechat-aria-role={'button'}
-              wechat-aria-label={day.format('MM月DD日')}
-              wechat-aria-selected={active}
-              wechat-aria-disabled={renderDisable(day)}
+            <Native
               {...renderProps}
               onTap={() => {
-                setSelected(day);
-                onChange?.(day);
+                if (range) {
+                  const [start, end] = selected as any;
+                  let current: Current;
+                  if (start && end) {
+                    current = [day, undefined];
+                  } else if (start && dayjs(start).isBefore(day)) {
+                    current = [start, day];
+                  } else {
+                    current = [day, undefined];
+                  }
+                  setSelected(current);
+                  selectedRef.current = current;
+                  onChange?.(current);
+                } else {
+                  setSelected(day);
+                  selectedRef.current = day;
+                  onChange?.(day);
+                }
+                nativeRefArrRef.current.forEach(({ day, native }) =>
+                  native?.setData(getItemNativeData(day)),
+                );
               }}
-              style={{
-                marginRight: day.weekday() === 6 ? 0 : undefined,
-                ...renderProps?.style,
-              }}
-              className={classNames(
-                styles.item,
-                itemCls,
-                renderProps?.className,
-                renderDisable(day) &&
-                  classNames(styles.disable, disableItemCls),
-                active && classNames(styles.active, activeItemCls),
-              )}
+              initData={getItemNativeData(day)}
+              ref={native => nativeRefArrRef.current.push({ day, native })}
             >
               {renderDate(day)}
               <View className={classNames(styles.dotWrap, dotWrapCls)}>
@@ -217,7 +309,7 @@ export default ({
                   dot
                 )}
               </View>
-            </View>
+            </Native>
             {listEndDay &&
               (day.month() !==
                 dayjs(day)
