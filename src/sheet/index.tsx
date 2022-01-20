@@ -29,6 +29,7 @@ export interface SheetProps {
    * @default bottom
    */
   direction?: 'left' | 'top' | 'right' | 'bottom';
+  onClose?: () => void;
 }
 
 export interface SheetInstance {
@@ -38,7 +39,10 @@ export interface SheetInstance {
 export const SheetContent = createContext(false);
 
 const Sheet = forwardRef<SheetInstance, SheetProps>(
-  ({ children, className, direction = 'bottom', contentCls, center }, ref) => {
+  (
+    { children, className, direction = 'bottom', contentCls, center, onClose },
+    ref,
+  ) => {
     const { setIsShowSheet } = useConfig();
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
@@ -76,6 +80,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             onTap={() => {
               setIsShowSheet?.(false);
               sheetInstanceRef.current.setVisible(false);
+              onClose?.();
             }}
             justify={switchVariable({
               default: 'center',
@@ -95,7 +100,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           </Space>
         </SheetContent.Provider>
       ),
-      [center, children, contentCls, direction, setIsShowSheet],
+      [center, children, contentCls, direction, onClose, setIsShowSheet],
     );
     return useMemo(
       () => (
