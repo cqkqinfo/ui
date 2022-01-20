@@ -1,3 +1,9 @@
+## [1.8.105](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.104...v1.8.105) (2022-01-20)
+
+### Bug Fixes
+
+- ci ([ce1f890](https://gitlab2.cqkqinfo.com/web/ui/commit/ce1f890a903e29f01794e4a8cf506115982ac53a))
+
 ## [1.8.104](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.103...v1.8.104) (2022-01-19)
 
 ### Features
