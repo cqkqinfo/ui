@@ -35,7 +35,9 @@ Component({
   },
   methods: {
     onTap(e) {
-      this.triggerEvent('tap', e);
+      if (this.props.onTap) {
+        this.props.onTap(e);
+      }
     },
   },
 });

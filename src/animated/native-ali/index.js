@@ -10,7 +10,7 @@ Component({
   },
   methods: {
     animationEnd: function(e) {
-      this.triggerEvent('end', e);
+      console.log(this, 'animated-ali', e);
     },
   },
 });
