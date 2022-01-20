@@ -5,11 +5,13 @@ import Native from './native';
 import FlexNative from './flex-native';
 import React, {
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react';
 import { NativeInstance, Props, Data } from './index';
+import { usePrevious } from 'parsec-hooks';
 
 export default forwardRef<NativeInstance, Props>(
   (
@@ -17,6 +19,7 @@ export default forwardRef<NativeInstance, Props>(
       children,
       flex,
       initData: { visible = true, className, style, content } = {},
+      initData,
       onTap,
     },
     ref,
@@ -27,6 +30,15 @@ export default forwardRef<NativeInstance, Props>(
       setData: data => (dataRef.current = data),
     });
     useImperativeHandle(ref, () => thisRef, [thisRef]);
+    const preInitData = usePrevious(initData);
+    useEffect(() => {
+      if (
+        JSON.stringify(preInitData) !== JSON.stringify(initData) &&
+        initData
+      ) {
+        thisRef.setData(initData);
+      }
+    }, [initData, preInitData, thisRef]);
     return flex ? (
       <FlexNative
         content={content}
