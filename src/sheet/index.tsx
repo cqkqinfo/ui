@@ -12,7 +12,7 @@ import Native, { NativeInstance } from '../native';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import Space from '../space';
-import { switchVariable } from '@kqinfo/ui';
+import switchVariable from '../switch-variable';
 import getCurrentPage from '../get-current-page';
 import { useConfig } from '../config-provider';
 
