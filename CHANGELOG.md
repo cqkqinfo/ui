@@ -1,3 +1,9 @@
+## [1.8.106](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.105...v1.8.106) (2022-01-20)
+
+### Bug Fixes
+
+- 日历 renderDisabled 不及时 ([0030f30](https://gitlab2.cqkqinfo.com/web/ui/commit/0030f3065921ea0ca37831278068bc5b490419bb))
+
 ## [1.8.105](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.104...v1.8.105) (2022-01-20)
 
 ### Bug Fixes
