@@ -1,3 +1,22 @@
+## [1.8.107](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.106...v1.8.107) (2022-01-24)
+
+### Features
+
+- 更新包 ([2bbb6e8](https://gitlab2.cqkqinfo.com/web/ui/commit/2bbb6e8728909471d7720a27dec5b6b4f293deb7))
+- 菜单支持自定义更多类名 ([c458bdd](https://gitlab2.cqkqinfo.com/web/ui/commit/c458bdd27c9112fca3b018b9deb2ff8f3367b155))
+
+## [1.8.106](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.105...v1.8.106) (2022-01-20)
+
+### Bug Fixes
+
+- 日历 renderDisabled 不及时 ([0030f30](https://gitlab2.cqkqinfo.com/web/ui/commit/0030f3065921ea0ca37831278068bc5b490419bb))
+
+## [1.8.105](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.104...v1.8.105) (2022-01-20)
+
+### Bug Fixes
+
+- ci ([ce1f890](https://gitlab2.cqkqinfo.com/web/ui/commit/ce1f890a903e29f01794e4a8cf506115982ac53a))
+
 ## [1.8.104](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.103...v1.8.104) (2022-01-19)
 
 ### Features
