@@ -25,6 +25,14 @@ export interface Props {
    */
   leftItemCls?: string;
   /**
+   * 左边子项选中类名
+   */
+  leftActiveCls?: string;
+  /**
+   * 左边子项的子项选中类名
+   */
+  leftChildrenActiveCls?: string;
+  /**
    * 右边布局的类名
    */
   rightCls?: string;
@@ -64,6 +72,8 @@ export default ({
   rightCls,
   data,
   leftItemCls,
+  leftChildrenActiveCls,
+  leftActiveCls,
   rightItemCls,
   current = data?.[0]?.children?.[0]?.children
     ? data?.[0]?.children?.[0]?.id
@@ -101,7 +111,7 @@ export default ({
               className={classNames(
                 styles.leftItem,
                 leftItemCls,
-                active && styles.leftActive,
+                active && classNames(styles.leftActive, leftActiveCls),
               )}
               onTap={() => {
                 if (haveChildren && children?.[0]) {
@@ -121,7 +131,11 @@ export default ({
                     <View
                       className={classNames(
                         styles.leftItemItem,
-                        selected === id && styles.leftItemActive,
+                        selected === id &&
+                          classNames(
+                            styles.leftItemActive,
+                            leftChildrenActiveCls,
+                          ),
                       )}
                       key={id}
                       onTap={e => {
