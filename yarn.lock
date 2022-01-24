@@ -3398,6 +3398,15 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
+"@types/react@^17.0.38":
+  version "17.0.38"
+  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
 "@types/resolve@1.17.1":
   version "1.17.1"
   resolved "https://registry.npmjs.org/@types/resolve/-/resolve-1.17.1.tgz#3afd6ad8967c77e4376c598a82ddd58f46ec45d6"
@@ -12674,10 +12683,10 @@ parse5@6.0.1, parse5@^6.0.0:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
 
-parsec-hooks@^0.0.159:
-  version "0.0.159"
-  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-0.0.159.tgz#641cfa7217fa95e5cb5502822692f82a6e564532"
-  integrity sha512-SMwVE3XtXu+zTKEToXn6GXsk/kMY5WgMcnXoj979xMn7ISlHrzE0UJZ27YUHiOdZPDCBXvqoz20H892iHGKYTw==
+parsec-hooks@^0.0.160:
+  version "0.0.160"
+  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-0.0.160.tgz#705a40d86dcd56b50e64935065cc0adb0e11ed9b"
+  integrity sha512-loPwUWYI8Bj6y+NuOvAZboHPHJZs+DBEBtN9ljjMmsw6iJJLZ0EWj89uXUNaUaJbYhz78ABggrJPIN0fZnXV3A==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"

@@ -85,6 +85,7 @@ const List = forwardRef(
       style,
       defaultLimit = 10,
       space,
+      needGet,
       ...options
     }: Props<D>,
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
@@ -96,6 +97,7 @@ const List = forwardRef(
       cacheKey,
       loadMoreVisible: visible,
       defaultLimit,
+      needGet,
       ...options,
       customSetLoading: useCallback(loading => {
         loadingNativeRef.current?.setData?.({ visible: loading });
@@ -121,8 +123,10 @@ const List = forwardRef(
           }}
           onHidden={() => setVisible(false)}
         >
-          <Native ref={loadingNativeRef}>{loadingTip}</Native>
-          <Native ref={noLoadingNativeRef} initData={{ visible: false }}>
+          <Native ref={loadingNativeRef} initData={{ visible: needGet }}>
+            {loadingTip}
+          </Native>
+          <Native ref={noLoadingNativeRef} initData={{ visible: !needGet }}>
             {list.length === 0
               ? noData || noMore || loadingTip
               : isEnd
@@ -131,7 +135,7 @@ const List = forwardRef(
           </Native>
         </Visible>
       );
-    }, [getNext, isEnd, list.length, loadingTip, noData, noMore]);
+    }, [getNext, isEnd, list.length, loadingTip, needGet, noData, noMore]);
     const list2 = useMemo(() => {
       const result: D[][] = [];
       list.forEach((_, i) => {
