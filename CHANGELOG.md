@@ -1,3 +1,15 @@
+## [1.8.110](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.108...v1.8.110) (2022-01-25)
+
+### Bug Fixes
+
+- list loading 显示 ([8d0fc3e](https://gitlab2.cqkqinfo.com/web/ui/commit/8d0fc3e256d90afad9079d1d590045342899f027))
+
+### Features
+
+- price 不是有效数字时返回 0 ([224d0d8](https://gitlab2.cqkqinfo.com/web/ui/commit/224d0d873dadaf031aba2c4292e8983401b7ba24))
+- scroll 支持隐藏滚动条 ([af973d3](https://gitlab2.cqkqinfo.com/web/ui/commit/af973d3001d20b0bcf92368cbee97b0f23f7eeb4))
+- swiper 支持线状指示器 ([4346ba8](https://gitlab2.cqkqinfo.com/web/ui/commit/4346ba88e46ea27c1841fdbf001cea4692571cf8))
+
 ## [1.8.109](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.108...v1.8.109) (2022-01-25)
 
 ### Bug Fixes
