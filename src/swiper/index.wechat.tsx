@@ -1,10 +1,9 @@
 import React from 'react';
-import { Swiper, SwiperItem, SwiperProps, SwiperItemProps } from 'remax/wechat';
+import { Swiper, SwiperItem, View } from 'remax/wechat';
 import { useConfig } from '../config-provider';
-
-export interface Props extends SwiperProps {
-  items: (SwiperItemProps & { node: React.ReactNode })[];
-}
+import LineDots from './LineDots';
+import { useControllableValue } from 'ahooks';
+import { Props } from './index';
 
 export default ({
   items,
@@ -14,24 +13,54 @@ export default ({
   interval = 3000,
   indicatorDots,
   indicatorColor = useConfig().brandPrimary,
+  current,
+  onChange,
+  lineDotsCls,
   ...props
 }: Props) => {
+  const [myCurrent, myOnChange] = useControllableValue(
+    current === undefined
+      ? {
+          onChange,
+        }
+      : {
+          onChange,
+          value: { detail: { current } },
+        },
+  );
+  const currentNum = myCurrent?.detail?.current;
   return (
-    <Swiper
-      className={className}
-      style={style}
-      autoplay={autoplay}
-      interval={interval}
-      indicatorColor={indicatorColor}
-      indicatorDots={indicatorDots}
-      indicatorActiveColor={'rgba(0,0,0,0.2)'}
-      {...props}
-    >
-      {items.map(({ node, className, style, ...prpos }, index) => (
-        <SwiperItem key={index} className={className} style={style} {...prpos}>
-          {node}
-        </SwiperItem>
-      ))}
-    </Swiper>
+    <View style={{ position: 'relative' }}>
+      <Swiper
+        className={className}
+        style={style}
+        autoplay={autoplay}
+        interval={interval}
+        current={currentNum}
+        indicatorColor={indicatorColor}
+        onChange={myOnChange}
+        indicatorDots={indicatorDots === true}
+        indicatorActiveColor={'rgba(0,0,0,0.2)'}
+        {...props}
+      >
+        {items.map(({ node, className, style, ...prpos }, index) => (
+          <SwiperItem
+            key={index}
+            className={className}
+            style={style}
+            {...prpos}
+          >
+            {node}
+          </SwiperItem>
+        ))}
+      </Swiper>
+      {indicatorDots === 'line' && (
+        <LineDots
+          current={currentNum}
+          length={items.length}
+          className={lineDotsCls}
+        />
+      )}
+    </View>
   );
 };
