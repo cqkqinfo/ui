@@ -1,3 +1,13 @@
+## [1.8.109](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.108...v1.8.109) (2022-01-25)
+
+### Bug Fixes
+
+- list loading 显示 ([257ba0a](https://gitlab2.cqkqinfo.com/web/ui/commit/257ba0a8c54adff3fb886a902683c0f2fe2b39bc))
+
+### Features
+
+- swiper 支持线状指示器 ([db43b37](https://gitlab2.cqkqinfo.com/web/ui/commit/db43b378b29c1049dc92e950194c00ee5cd33766))
+
 ## [1.8.108](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.107...v1.8.108) (2022-01-25)
 
 ### Bug Fixes
