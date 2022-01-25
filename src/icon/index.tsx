@@ -46,7 +46,7 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
           },
         }}
       >
-        {width2 && (
+        {!!width2 && (
           <Icon
             name={name}
             size={
