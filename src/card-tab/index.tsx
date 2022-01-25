@@ -22,13 +22,19 @@ export default <T extends unknown>({
     width?: number;
     x?: number;
   }>({ width: 0, x: 0 });
+  const initRef = useRef(true);
   useEffect(() => {
     const active = tabs.find(({ index }) => index === current);
-    if (active) {
-      setTimeout(() => {
-        getLayout(`tab${active.index}`).then(setActiveLayout);
-      });
-    }
+    const timer = setTimeout(
+      () => {
+        if (active) {
+          getLayout(`tab${active.index}`).then(setActiveLayout);
+          initRef.current = false;
+        }
+      },
+      initRef.current ? 500 : 0,
+    );
+    return () => clearTimeout(timer);
   }, [current, tabs]);
   const { width: wrapWidth = 0, ...arg } = useViewLayout();
   const scrollLeft = scrollYRef.current + aX - wrapWidth / 2 + aWidth / 2;
