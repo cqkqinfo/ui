@@ -1,3 +1,9 @@
+## [1.8.111](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.110...v1.8.111) (2022-01-25)
+
+### Features
+
+- 新增 downTime 倒计时组件 ([14fe66c](https://gitlab2.cqkqinfo.com/web/ui/commit/14fe66c58aacd435a69ba4c54e7849f6639c2ecb))
+
 ## [1.8.110](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.108...v1.8.110) (2022-01-25)
 
 ### Bug Fixes
