@@ -477,3 +477,7 @@ export { default as useWebSocket } from './use-web-socket';
  * 获取当前页面路径
  */
 export { default as getCurrentPage } from './get-current-page';
+/**
+ * 倒计时
+ */
+export { default as DownTime } from './down-time';
