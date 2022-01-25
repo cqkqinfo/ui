@@ -1,3 +1,11 @@
+## [1.8.108](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.107...v1.8.108) (2022-01-25)
+
+### Bug Fixes
+
+- cardTab 进入页面会滚动一点距离 ([25e8141](https://gitlab2.cqkqinfo.com/web/ui/commit/25e8141ceeae53671cf1564e7a2bc855e75ee768))
+- list 有概率出现重复请求 ([1682d5c](https://gitlab2.cqkqinfo.com/web/ui/commit/1682d5ce059492b417c53c8bbff495581380b1eb))
+- 图标显示成 0 ([88365d7](https://gitlab2.cqkqinfo.com/web/ui/commit/88365d71834b22b612d2f42f381205f6a4999606))
+
 ## [1.8.107](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.106...v1.8.107) (2022-01-24)
 
 ### Features
