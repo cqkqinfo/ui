@@ -114,6 +114,10 @@ const List = forwardRef(
     loadingTip = useMemo(() => loadingTip || <Loading type={'inline'} />, [
       loadingTip,
     ]);
+    useEffect(() => {
+      loadingNativeRef.current?.setData?.({ visible: needGet });
+      noLoadingNativeRef.current?.setData?.({ visible: !needGet });
+    }, [needGet]);
     const footer = useMemo(() => {
       return (
         <Visible
@@ -123,10 +127,8 @@ const List = forwardRef(
           }}
           onHidden={() => setVisible(false)}
         >
-          <Native ref={loadingNativeRef} initData={{ visible: needGet }}>
-            {loadingTip}
-          </Native>
-          <Native ref={noLoadingNativeRef} initData={{ visible: !needGet }}>
+          <Native ref={loadingNativeRef}>{loadingTip}</Native>
+          <Native ref={noLoadingNativeRef}>
             {list.length === 0
               ? noData || noMore || loadingTip
               : isEnd
@@ -135,7 +137,7 @@ const List = forwardRef(
           </Native>
         </Visible>
       );
-    }, [getNext, isEnd, list.length, loadingTip, needGet, noData, noMore]);
+    }, [getNext, isEnd, list.length, loadingTip, noData, noMore]);
     const list2 = useMemo(() => {
       const result: D[][] = [];
       list.forEach((_, i) => {
