@@ -4,7 +4,11 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './index.module.less';
 
-export default ({ className, showScrollbar, ...props }: ScrollViewProps) => (
+export default ({
+  className,
+  showScrollbar,
+  ...props
+}: React.PropsWithChildren<ScrollViewProps>) => (
   <ScrollView
     {...props}
     className={classNames(className, showScrollbar === false && styles.hideBar)}
