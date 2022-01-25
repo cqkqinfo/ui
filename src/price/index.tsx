@@ -58,7 +58,8 @@ export default ({
   bigCls,
   ...props
 }: Props) => {
-  const str = getPrice(price, len);
+  let str = getPrice(price, len);
+  str = +str ? str : '0';
   const [integer, decimal] = str.split('.');
   const bigStyle = { fontSize: `${bigScale}em` };
   return (
@@ -76,7 +77,6 @@ export default ({
       <Space className={classNames(bigCls, integerCls)} style={bigStyle}>
         {integer}
       </Space>
-
       <Space
         className={classNames(bigDecimal && bigCls, decimalCls)}
         style={bigDecimal ? bigStyle : {}}
