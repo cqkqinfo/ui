@@ -25,20 +25,20 @@ export default () => {
         indicatorDots
         autoplay
         onChange={console.log}
-        style={{ width: '100vw', height: '30vh' }}
+        style={{ width: '100%', height: '30vh' }}
         items={Object.values(CommonImg).map(img => ({
-          node: <Image src={img} style={{ width: '100vw', height: '30vh' }} />,
+          node: <Image src={img} style={{ width: '100%', height: '30vh' }} />,
         }))}
       />
       <PartTitle>自定义配置</PartTitle>
       <Swiper
         interval={1000}
-        indicatorDots
+        indicatorDots={'line'}
         autoplay
-        onChange={({ detail: { current } }) => setCurrent(current)}
         displayMultipleItems={3}
+        onChange={({ detail: { current } }) => setCurrent(current)}
         current={current}
-        style={{ width: '100vw', height: '30vh' }}
+        style={{ width: '100%', height: '30vh' }}
         items={Object.values(CommonImg).map(img => ({
           node: <Image src={img} style={{ width: 100, height: 100 }} />,
         }))}

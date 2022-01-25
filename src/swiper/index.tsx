@@ -8,12 +8,22 @@ import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import { Swiper as SwiperClass } from 'swiper/types';
+import LineDots from './LineDots';
+import { useControllableValue } from 'ahooks';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
 
-export interface Props extends SwiperProps {
+export interface Props extends Omit<SwiperProps, 'indicatorDots'> {
   items: (SwiperItemProps & { node: React.ReactNode })[];
+  /**
+   * 显示指示器，默认是点状，可以设置为线状
+   */
+  indicatorDots?: boolean | 'line';
+  /**
+   * 线状指示器类名
+   */
+  lineDotsCls?: string;
 }
 
 export default ({
@@ -25,15 +35,25 @@ export default ({
   indicatorDots,
   onChange,
   displayMultipleItems = 1,
-  current = 0,
+  current,
+  lineDotsCls,
   ...props
 }: Props) => {
-  useEffect(() => {}, []);
+  const [myCurrent, myOnChange] = useControllableValue(
+    current === undefined
+      ? {
+          onChange,
+        }
+      : {
+          onChange,
+          value: { detail: { current } },
+        },
+  );
   const [swiperRef, setSwiperRef] = useState<SwiperClass>();
   useEffect(() => {
-    if (!swiperRef) return;
-    swiperRef.slideTo(current);
-  }, [current, swiperRef]);
+    if (!swiperRef || !myCurrent) return;
+    swiperRef.slideTo(myCurrent?.detail?.current);
+  }, [myCurrent, swiperRef]);
   return (
     <Swiper
       onSwiper={setSwiperRef}
@@ -41,13 +61,15 @@ export default ({
       style={style}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      onSlideChange={e => onChange?.({ detail: { current: e.activeIndex } })}
+      onSlideChange={e => {
+        myOnChange({ detail: { current: e.activeIndex } });
+      }}
       // centeredSlides
       slidesPerView={displayMultipleItems}
       slideToClickedSlide
       resistanceRatio={0}
       pagination={
-        indicatorDots
+        indicatorDots === true
           ? {
               bulletActiveClass: classNames(
                 'swiper-pagination-bullet-active',
@@ -65,6 +87,13 @@ export default ({
           {node}
         </SwiperSlide>
       ))}
+      {indicatorDots === 'line' && (
+        <LineDots
+          length={items.length}
+          current={myCurrent?.detail?.current || 0}
+          className={lineDotsCls}
+        />
+      )}
     </Swiper>
   );
 };
