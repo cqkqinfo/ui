@@ -40,22 +40,65 @@ export default (props: Props) => {
   }, [value, mode]);
 
   const [visible, setVisible] = useState(false);
+  const isTimeMode = mode === 'time';
+
+  const timeData = useMemo(() => {
+    if (!isTimeMode) return [];
+    const [startH, startM] = start?.split(':') || [];
+    const [endH, endM] = end?.split(':') || [];
+    return new Array(24)
+      .fill(0)
+      .map((_, i) => {
+        const value = i < 10 ? `0${i}` : `${i}`;
+        const currentH = +value;
+        return {
+          label: `${value}时`,
+          value,
+          children: new Array(60)
+            .fill(0)
+            .map((_, j) => {
+              const value = j < 10 ? `0${j}` : `${j}`;
+              return {
+                label: `${value}分`,
+                value,
+              };
+            })
+            .filter(
+              ({ value }) =>
+                !start || currentH !== +startH || +startM <= +value,
+            )
+            .filter(
+              ({ value }) => !end || currentH !== +endH || +endM <= +value,
+            ),
+        };
+      })
+      .filter(({ value }) => !start || +startH <= +value)
+      .filter(({ value }) => !end || +endH >= +value);
+  }, [end, isTimeMode, start]);
 
   return (
     <>
       <div className={childrenCls} onClick={() => setVisible(true)}>
         {children}
       </div>
-      {mode === 'selector' ? (
+      {mode === 'selector' || isTimeMode ? (
         <CascadePicker
-          options={data}
+          options={isTimeMode ? timeData : data}
           visible={visible}
           onClose={() => {
             setVisible(false);
           }}
-          value={tranformedPickValue as any}
+          value={
+            isTimeMode
+              ? value && `${value}`.split(':')
+              : (tranformedPickValue as any)
+          }
           onConfirm={e => {
-            onChange((cols === 1 ? e?.[0] : e) as any);
+            if (isTimeMode) {
+              onChange(e?.join(':'));
+            } else {
+              onChange((cols === 1 ? e?.[0] : e) as any);
+            }
           }}
           {...other}
         />
@@ -64,8 +107,6 @@ export default (props: Props) => {
           precision={
             (mode === 'datetime'
               ? 'minute'
-              : mode === 'time'
-              ? 'hour'
               : mode === 'date'
               ? 'day'
               : mode) as any
