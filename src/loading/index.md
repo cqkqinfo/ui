@@ -23,7 +23,7 @@ export default () => {
       <PartTitle>全屏Loading</PartTitle>
       {loading1 && <Loading />}
       <Button
-        type={'priarmy'}
+        type={'primary'}
         onTap={() => {
           setLoading1(true);
           setTimeout(() => {
@@ -36,7 +36,7 @@ export default () => {
       <PartTitle>顶部Loading</PartTitle>
       {loading2 && <Loading type={'top'} />}
       <Button
-        type={'priarmy'}
+        type={'primary'}
         onTap={() => {
           setLoading2(true);
           setTimeout(() => {
