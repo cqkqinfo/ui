@@ -1,3 +1,9 @@
+## [1.9.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.0...v1.9.1) (2022-01-26)
+
+### Bug Fixes
+
+- showActionsSheet 不能关闭 ([95e6172](https://gitlab2.cqkqinfo.com/web/ui/commit/95e6172df9f0b8b114138e2200607e0f7e4ca995))
+
 # [1.9.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.112...v1.9.0) (2022-01-26)
 
 ### Features
