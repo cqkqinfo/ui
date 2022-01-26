@@ -481,3 +481,7 @@ export { default as getCurrentPage } from './get-current-page';
  * 倒计时
  */
 export { default as DownTime } from './down-time';
+/**
+ * 兼容全平台的window对象
+ */
+export { default as window } from './window';
