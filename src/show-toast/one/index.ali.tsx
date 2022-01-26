@@ -1,15 +1,16 @@
 import { showToast } from 'remax/ali';
+import { Options } from './index.wechat';
 
-export interface Options {
-  title: string;
-  icon?: 'success' | 'none';
-  mask?: boolean;
-  duration?: number;
-}
-
-export default (options: Options) =>
-  showToast({
-    content: options.title,
-    type: options.icon,
-    duration: options.duration,
+export default ({ title, icon, duration = 3000 }: Options) =>
+  new Promise(resolve => {
+    showToast({
+      type: icon,
+      content: title,
+      duration,
+      success: () => {
+        setTimeout(() => {
+          resolve('');
+        }, duration);
+      },
+    });
   });
