@@ -1,7 +1,7 @@
 import _provinces from 'china-division/dist/provinces.json';
 import _cities from 'china-division/dist/cities.json';
 import _areas from 'china-division/dist/areas.json';
-import { PickerData } from 'antd-mobile/lib/picker/PropsType';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 const provinces = JSON.parse(JSON.stringify(_provinces)) as typeof _provinces;
 const cities = JSON.parse(JSON.stringify(_cities)) as typeof _cities;
@@ -51,4 +51,4 @@ export const options: CascaderOptionType[] = JSON.parse(
   ),
 );
 
-export default options as PickerData[];
+export default options as CascadePickerOption[];

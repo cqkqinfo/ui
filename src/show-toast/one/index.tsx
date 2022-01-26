@@ -3,10 +3,11 @@ import { Options } from './index.wechat';
 
 export default ({ icon = 'success', title, duration, mask = false }: Options) =>
   new Promise(resolve => {
-    if (icon === 'none') {
-      Toast.show(title, duration, mask);
-      setTimeout(resolve, duration);
-    } else {
-      Toast.success(title, duration, () => resolve(''), mask);
-    }
+    Toast.show({
+      icon: icon === 'none' ? undefined : 'success',
+      content: title,
+      duration,
+      maskClickable: mask,
+      afterClose: () => resolve(''),
+    });
   });

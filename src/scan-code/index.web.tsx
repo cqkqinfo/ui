@@ -16,14 +16,12 @@ export default () =>
         },
       });
     } else {
-      ActionSheet.showActionSheetWithOptions(
-        {
-          options: ['拍摄', '从相册选取', '取消'],
-          cancelButtonIndex: 2,
-          // title: 'title',
-          maskClosable: true,
-        },
-        index => {
+      const sheet = ActionSheet.show({
+        actions: ['拍摄', '从相册选取'].map(text => ({
+          text,
+          key: text,
+        })),
+        onAction: (_, index) => {
           if (index === 0) {
             const el = document.createElement('video');
             el.style.width = '100vw';
@@ -50,7 +48,10 @@ export default () =>
               });
             });
           }
+          sheet.close();
         },
-      );
+        cancelText: '取消',
+        // title: 'title',
+      });
     }
   });

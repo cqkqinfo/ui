@@ -6,6 +6,7 @@ import rpxToPx from '../rpx-to-px';
 import NeedWrap from '../need-wrap';
 import Animated from '../animated';
 import 'array-flat-polyfill';
+import '../_init';
 
 export interface Props
   extends Pick<

@@ -1,12 +1,13 @@
-import { PickerData, PickerPropsType } from 'antd-mobile/lib/picker/PropsType';
 import { PickerProps } from 'remax/wechat';
 import React from 'react';
 import { useControllableValue } from 'ahooks';
 import 'array-flat-polyfill';
 import classNames from 'classnames';
+import { PickerProps as AntPickerProps } from 'antd-mobile/es/components/picker';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 export interface Props
-  extends Omit<PickerPropsType, 'value' | 'data' | 'onChange'>,
+  extends Omit<AntPickerProps, 'value' | 'data' | 'onChange' | 'children'>,
     Pick<PickerProps, 'start' | 'end'> {
   /**
    * 1.0.0
@@ -20,7 +21,14 @@ export interface Props
    * datetime	日期加时分选择
    */
   mode?: 'selector' | 'multiSelector' | 'time' | 'date' | 'region' | 'datetime';
-  data?: PickerData[] | PickerData[][];
+  /**
+   * 显示列数
+   */
+  cols?: number;
+  /**
+   * 选项数据
+   */
+  data?: CascadePickerOption[];
   /**
    * 传入方法可以自定义渲染
    */
@@ -43,7 +51,7 @@ export interface Props
   onChange?: (v?: string | number | (string | number)[]) => void;
 }
 
-const dataFlat = (data: PickerData[] | PickerData[][]): PickerData[] =>
+const dataFlat = (data: CascadePickerOption[]): CascadePickerOption[] =>
   data
     .flat(3)
     .map(item => (item.children ? [item, ...dataFlat(item.children)] : [item]))

@@ -1,6 +1,6 @@
 import { Toast } from 'antd-mobile';
 
 export default () => {
-  Toast.hide();
+  Toast.clear();
   return Promise.resolve();
 };

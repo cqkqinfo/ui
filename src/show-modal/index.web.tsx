@@ -1,4 +1,4 @@
-import { Modal } from 'antd-mobile';
+import { Dialog } from 'antd-mobile';
 
 let modal: any;
 
@@ -10,20 +10,15 @@ const fn = ({
   content = undefined,
 }) =>
   new Promise((resolve, reject) => {
-    const confirm = {
-      text: confirmText,
-      onPress: () => resolve({ confirm: true }),
-    };
-    const cancel = {
-      text: cancelText,
-      onPress: () => resolve({ confirm: false }),
-    };
     modal?.close?.();
-    modal = Modal.alert(
+    modal = Dialog[showCancel ? 'confirm' : 'alert']({
       title,
       content,
-      showCancel ? [cancel, confirm] : [confirm],
-    );
+      cancelText,
+      confirmText,
+      onCancel: () => resolve({ confirm: false }),
+      onConfirm: () => resolve({ confirm: false }),
+    });
   });
 
 export default fn;

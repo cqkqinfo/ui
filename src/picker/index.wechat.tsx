@@ -1,5 +1,5 @@
 import { Picker } from 'remax/wechat';
-import { PickerData } from 'antd-mobile/lib/picker/PropsType';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 import React, {
   useCallback,
   useEffect,
@@ -25,7 +25,7 @@ export default (props: Props) => {
     ...newProps
   } = useProps(props);
   const getData = useCallback(
-    (data: PickerData[] | PickerData[][], index: number) =>
+    (data: CascadePickerOption[] | CascadePickerOption[][], index: number) =>
       data.flat()[index]?.children || [],
     [],
   );
@@ -109,7 +109,7 @@ export default (props: Props) => {
     return [ys, ms, ds, hs, mms];
   }, [dIndex, end, hIndex, isDatetime, mIndex, mmIndex, start, yIndex]);
   const range = useMemo(() => {
-    const range: (PickerData[] | PickerData[][])[] = [];
+    const range: (CascadePickerOption[] | CascadePickerOption[][])[] = [];
     new Array(cols).fill(0).forEach((_, index) => {
       range.push(
         index === 0
@@ -171,7 +171,7 @@ export default (props: Props) => {
   }, [mode]);
   return (
     <Picker
-      {...newProps}
+      {...(newProps as any)}
       range-key={isDatetime ? undefined : 'label'}
       mode={isDatetime ? 'multiSelector' : (mode as any)}
       start={start}
