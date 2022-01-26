@@ -2,6 +2,12 @@
 
 exports[`表单 card模式 1`] = `
 <body>
+  <div
+    class="adm-px-tester"
+  />
+  <div
+    class="adm-px-tester"
+  />
   <div>
     <div
       class=""
@@ -135,6 +141,12 @@ exports[`表单 card模式 1`] = `
 
 exports[`表单 cell模式 1`] = `
 <body>
+  <div
+    class="adm-px-tester"
+  />
+  <div
+    class="adm-px-tester"
+  />
   <div>
     <div
       class=""
@@ -258,6 +270,12 @@ exports[`表单 cell模式 1`] = `
 
 exports[`表单 两端对齐 1`] = `
 <body>
+  <div
+    class="adm-px-tester"
+  />
+  <div
+    class="adm-px-tester"
+  />
   <div>
     <div
       class=""
@@ -391,6 +409,12 @@ exports[`表单 两端对齐 1`] = `
 
 exports[`表单 渲染 1`] = `
 <body>
+  <div
+    class="adm-px-tester"
+  />
+  <div
+    class="adm-px-tester"
+  />
   <div>
     <div
       class=""
