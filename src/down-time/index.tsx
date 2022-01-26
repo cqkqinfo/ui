@@ -32,9 +32,10 @@ export default ({ targetDate, format, style, className }: Props) => {
   const ref = useRef<NativeInstance>(null);
   useEffect(() => {
     if (!targetDate) return;
-    const timer = setInterval(() => {
+    const fn = () =>
       ref.current?.setData({ content: format(getDownCount(targetDate)) });
-    }, 1000);
+    fn();
+    const timer = setInterval(fn, 1000);
     return () => clearInterval(timer);
   }, [format, targetDate]);
   return <Native ref={ref} initData={{ style, className }} />;
