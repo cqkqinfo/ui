@@ -6,6 +6,7 @@ import Shadow from '../shadow';
 import Icon from '../icon';
 import { useConfig } from '../config-provider';
 import Space from '../space';
+import { rpxToPx } from '@kqinfo/ui';
 
 export interface Props {
   /**
@@ -31,7 +32,7 @@ export default ({ type, content = '加载中' }: Props) => {
         alignItems={'center'}
         justify={'center'}
       >
-        <Icon color={'#CCCCCC'} name={'kq-loading2'} />
+        <Icon size={30} color={'#CCCCCC'} name={'kq-loading2'} />
         {content}
       </Space>
     );
@@ -43,7 +44,7 @@ export default ({ type, content = '加载中' }: Props) => {
           <Icon
             name={top ? 'kq-loading' : 'kq-loading2'}
             color={top ? brandPrimary : '#fff'}
-            className={top ? styles.topIcon : styles.fullIcon}
+            size={top ? 50 : 80}
           />
           {!top && <View className={styles.text}>{content}</View>}
         </View>
