@@ -1,3 +1,9 @@
+# [1.9.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.112...v1.9.0) (2022-01-26)
+
+### Features
+
+- 升级 antd-mobile 到 v5 ([ae67d27](https://gitlab2.cqkqinfo.com/web/ui/commit/ae67d2778c2a3fdf1cdbc7b18f3f7ea59b66431c))
+
 ## [1.8.112](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.8.111...v1.8.112) (2022-01-25)
 
 ### Bug Fixes
