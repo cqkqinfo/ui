@@ -2,6 +2,12 @@
 
 exports[`表单项 渲染 1`] = `
 <body>
+  <div
+    class="adm-px-tester"
+  />
+  <div
+    class="adm-px-tester"
+  />
   <div>
     <div
       class=""

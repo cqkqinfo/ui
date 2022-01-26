@@ -13,7 +13,9 @@ module.exports = {
       'onError',
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!(.*(remax|hex-rgb).*))'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(.*(remax|hex-rgb|antd-mobile).*))',
+  ],
   moduleNameMapper: {
     '^react-native$': 'react-native-web',
   },
