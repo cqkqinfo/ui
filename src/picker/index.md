@@ -49,8 +49,8 @@ export default () => {
       <PartTitle>自定义Data</PartTitle>
       <Picker
         data={[
-          { value: 1, label: '大明' },
-          { value: 2, label: '小红' },
+          { value: '1', label: '大明' },
+          { value: '2', label: '小红' },
         ]}
       >
         <Button type={'primary'}>显示</Button>

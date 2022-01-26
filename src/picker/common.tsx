@@ -7,7 +7,10 @@ import { PickerProps as AntPickerProps } from 'antd-mobile/es/components/picker'
 import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 export interface Props
-  extends Omit<AntPickerProps, 'value' | 'data' | 'onChange' | 'children'>,
+  extends Omit<
+      AntPickerProps,
+      'value' | 'data' | 'onChange' | 'children' | 'columns'
+    >,
     Pick<PickerProps, 'start' | 'end'> {
   /**
    * 1.0.0
