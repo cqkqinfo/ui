@@ -1,3 +1,9 @@
+## [1.9.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.3...v1.9.4) (2022-01-26)
+
+### Bug Fixes
+
+- 列表连续请求 ([78f99a5](https://gitlab2.cqkqinfo.com/web/ui/commit/78f99a5eb2ff6a45b53e333c00a586b1f2c43a83))
+
 ## [1.9.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.2...v1.9.3) (2022-01-26)
 
 ### Bug Fixes
