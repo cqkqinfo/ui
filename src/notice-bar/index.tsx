@@ -48,7 +48,7 @@ const NoticeBar = (props: NoticeBarProps) => {
     children,
   } = props;
   const { width: innerW = 0, ...arg1 } = useViewLayout();
-  const { width: contentW = 0, ...arg2 } = useViewLayout();
+  const { width: contentW = 999, ...arg2 } = useViewLayout();
   return (
     <View
       className={classNames(styles.noticeBarBox, className)}
