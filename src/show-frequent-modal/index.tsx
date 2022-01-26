@@ -1,6 +1,6 @@
 import Space from '../space';
 import React from 'react';
-import { Modal } from 'antd-mobile';
+import { Dialog } from 'antd-mobile';
 import { Image } from 'remax/one';
 import Input from '../re-input';
 import ColorText from '../color-text';
@@ -85,40 +85,36 @@ export default ({
   new Promise((resolve, reject) => {
     let value = '';
     let reset = () => {};
-    const mode = Modal.alert(
-      null,
-      <Inner
-        onChange={v => (value = v)}
-        setReset={fn => (reset = fn)}
-        {...props}
-      />,
-      [
-        {
-          text: '确定',
-          onPress: async () => {
+    Dialog.alert({
+      confirmText: '确定',
+      content: (
+        <Inner
+          onChange={v => (value = v)}
+          setReset={fn => (reset = fn)}
+          {...props}
+        />
+      ),
+      onConfirm: async () => {
+        if (showTip) {
+          showLoading({ title: '校验中' });
+        }
+        return validator(value)
+          .then(() => {
+            reset();
             if (showTip) {
-              showLoading({ title: '校验中' });
+              hideLoading();
+              showToast({ title: '校验成功' });
             }
-            return validator(value)
-              .then(() => {
-                reset();
-                if (showTip) {
-                  hideLoading();
-                  showToast({ title: '校验成功' });
-                }
-                resolve(undefined);
-                mode.close();
-              })
-              .catch(() => {
-                if (showTip) {
-                  hideLoading();
-                  showToast({ title: '校验失败请重试', icon: 'none' });
-                }
-                reset();
-                return Promise.reject();
-              });
-          },
-        },
-      ],
-    );
+            resolve(undefined);
+          })
+          .catch(() => {
+            if (showTip) {
+              hideLoading();
+              showToast({ title: '校验失败请重试', icon: 'none' });
+            }
+            reset();
+            return Promise.reject();
+          });
+      },
+    });
   });

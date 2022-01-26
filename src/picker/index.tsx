@@ -1,10 +1,10 @@
-import { Picker, DatePicker } from 'antd-mobile';
+import { CascadePicker, DatePicker } from 'antd-mobile';
 import dayjs from 'dayjs';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Props, useProps } from './common';
-import { PickerData as _PickerData } from 'antd-mobile/lib/picker/PropsType';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
-export const PickerData = ({}: _PickerData) => {};
+export const PickerData = ({}: CascadePickerOption) => {};
 
 export default (props: Props) => {
   const {
@@ -39,38 +39,57 @@ export default (props: Props) => {
     return void 0;
   }, [value, mode]);
 
-  return mode === 'selector' ? (
-    <Picker
-      data={data}
-      cols={cols}
-      value={tranformedPickValue}
-      onChange={e => {
-        onChange(cols === 1 ? e?.[0] : e);
-      }}
-      {...other}
-    >
-      <div className={childrenCls}>{children}</div>
-    </Picker>
-  ) : (
-    <DatePicker
-      mode={mode as any}
-      minDate={start ? dayjs(start).toDate() : undefined}
-      maxDate={end ? dayjs(end).toDate() : undefined}
-      value={tranformedDateValue}
-      onChange={e => {
-        onChange(
-          dayjs(e).format(
-            mode === 'datetime'
-              ? 'YYYY-MM-DD HH:mm'
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <>
+      <div className={childrenCls} onClick={() => setVisible(true)}>
+        {children}
+      </div>
+      {mode === 'selector' ? (
+        <CascadePicker
+          options={data}
+          visible={visible}
+          onClose={() => {
+            setVisible(false);
+          }}
+          value={tranformedPickValue as any}
+          onConfirm={e => {
+            onChange((cols === 1 ? e?.[0] : e) as any);
+          }}
+          {...other}
+        />
+      ) : (
+        <DatePicker
+          precision={
+            (mode === 'datetime'
+              ? 'minute'
+              : mode === 'time'
+              ? 'hour'
               : mode === 'date'
-              ? 'YYYY-MM-DD'
-              : 'HH:mm',
-          ),
-        );
-      }}
-      {...(other as any)}
-    >
-      <div className={childrenCls}>{children}</div>
-    </DatePicker>
+              ? 'day'
+              : mode) as any
+          }
+          min={start ? dayjs(start).toDate() : undefined}
+          max={end ? dayjs(end).toDate() : undefined}
+          value={tranformedDateValue}
+          visible={visible}
+          onClose={() => {
+            setVisible(false);
+          }}
+          onConfirm={e => {
+            onChange(
+              dayjs(e).format(
+                mode === 'datetime'
+                  ? 'YYYY-MM-DD HH:mm'
+                  : mode === 'date'
+                  ? 'YYYY-MM-DD'
+                  : 'HH:mm',
+              ),
+            );
+          }}
+        />
+      )}
+    </>
   );
 };

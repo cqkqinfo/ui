@@ -25,8 +25,8 @@ export default {
       'import',
       {
         libraryName: 'antd-mobile',
-        libraryDirectory: 'es',
-        style: true,
+        libraryDirectory: 'es/components',
+        style: false,
       },
       'antd-mobile',
     ],

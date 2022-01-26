@@ -1,6 +1,6 @@
 import _provinces from 'china-division/dist/provinces.json';
 import _cities from 'china-division/dist/cities.json';
-import { PickerData } from 'antd-mobile/lib/picker/PropsType';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 import axios from '../axios';
 
 const provinces = JSON.parse(JSON.stringify(_provinces)) as typeof _provinces;
@@ -63,5 +63,5 @@ export default async () => {
       children: province.children,
     }));
   }
-  return JSON.parse(JSON.stringify(options)) as PickerData[];
+  return JSON.parse(JSON.stringify(options)) as CascadePickerOption[];
 };
