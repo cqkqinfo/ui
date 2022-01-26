@@ -13,11 +13,13 @@ export default ({
   className?: string;
 }) => {
   return (
-    <View className={classNames(styles.lineWrap, className)}>
-      <View
-        className={styles.line}
-        style={{ marginLeft: `${33 * (current / (length - 1))}%` }}
-      />
-    </View>
+    !!(length - 1) && (
+      <View className={classNames(styles.lineWrap, className)}>
+        <View
+          className={styles.line}
+          style={{ marginLeft: `${33 * (current / (length - 1))}%` }}
+        />
+      </View>
+    )
   );
 };
