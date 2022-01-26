@@ -1,3 +1,10 @@
+## [1.9.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.1...v1.9.2) (2022-01-26)
+
+### Bug Fixes
+
+- loading 图标大小异常 ([9166ccf](https://gitlab2.cqkqinfo.com/web/ui/commit/9166ccf985a7b42b2f984560dcace2c9b8f72f3e))
+- picker 类型报错 ([c86d15d](https://gitlab2.cqkqinfo.com/web/ui/commit/c86d15db60fc8a02f5513193acf3b733e769ef6b))
+
 ## [1.9.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.0...v1.9.1) (2022-01-26)
 
 ### Bug Fixes
