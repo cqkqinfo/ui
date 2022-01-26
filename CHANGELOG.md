@@ -1,3 +1,15 @@
+## [1.9.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.4...v1.9.5) (2022-01-26)
+
+### Bug Fixes
+
+- ci ([ad793c5](https://gitlab2.cqkqinfo.com/web/ui/commit/ad793c52b7eefa0ecb6491474d4c2ad2e6e48d78))
+- 倒计时会延迟一秒显示 ([ae074ab](https://gitlab2.cqkqinfo.com/web/ui/commit/ae074ab3439d7e769e6c187026bd71ade061b999))
+- 通知栏内容闪动 ([631ad3a](https://gitlab2.cqkqinfo.com/web/ui/commit/631ad3a5e990735a8664c49d5fc1caa3e7ea50f9))
+
+### Features
+
+- swiper 没有多余子项时不显示 line 指示器 ([ed676f1](https://gitlab2.cqkqinfo.com/web/ui/commit/ed676f1276fc41c4009a13ed12577010dbd34524))
+
 ## [1.9.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.3...v1.9.4) (2022-01-26)
 
 ### Bug Fixes
