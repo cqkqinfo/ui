@@ -17,7 +17,7 @@ const fn = ({
       cancelText,
       confirmText,
       onCancel: () => resolve({ confirm: false }),
-      onConfirm: () => resolve({ confirm: false }),
+      onConfirm: () => resolve({ confirm: true }),
     });
   });
 
