@@ -16,7 +16,7 @@ export interface Props {
 
 export default ({ children, className, onHidden, onVisible }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const visible = useInViewport(ref);
+  const [visible] = useInViewport(ref);
   useEffect(() => {
     if (visible) {
       onVisible?.();

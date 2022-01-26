@@ -88,16 +88,13 @@ const List = forwardRef(
     ref: React.Ref<{ refreshList: (retainList?: boolean) => Promise<void> }>,
   ) => {
     const [visible, setVisible] = useState(false);
-    const { refreshList, list, isEnd, error, getNext, loading } = useLoadMore(
-      getList,
-      {
-        cacheKey,
-        loadMoreVisible: visible,
-        defaultLimit,
-        needGet,
-        ...options,
-      },
-    );
+    const { refreshList, list, isEnd, error, loading } = useLoadMore(getList, {
+      cacheKey,
+      loadMoreVisible: visible,
+      defaultLimit,
+      needGet,
+      ...options,
+    });
     const [showError, setShowError] = useEffectState(error);
     useImperativeHandle(ref, () => ({ refreshList }));
     useEffect(() => {
@@ -112,19 +109,22 @@ const List = forwardRef(
       return (
         <Visible
           onVisible={() => {
-            getNext();
             setVisible(true);
           }}
-          onHidden={() => setVisible(false)}
+          onHidden={() => {
+            setVisible(false);
+          }}
         >
           {loading
             ? loadingTip
             : list.length === 0
             ? noData || noMore || loadingTip
-            : isEnd && (noMore || noData)}
+            : isEnd
+            ? noMore || noData
+            : loadingTip}
         </Visible>
       );
-    }, [getNext, isEnd, list.length, loading, loadingTip, noData, noMore]);
+    }, [isEnd, list.length, loading, loadingTip, noData, noMore]);
     const list2 = useMemo(() => {
       const result: D[][] = [];
       list.forEach((_, i) => {
