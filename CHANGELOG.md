@@ -1,3 +1,13 @@
+## [1.9.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.10...v1.9.11) (2022-01-27)
+
+### Bug Fixes
+
+- ci ([b1a2183](https://gitlab2.cqkqinfo.com/web/ui/commit/b1a2183c464d36d9ab5d2301d3d4959bb91b2346))
+
+### Features
+
+- configProvider 添加 shadowRadius ([017434f](https://gitlab2.cqkqinfo.com/web/ui/commit/017434f1a6b91c0da2411c9c17d90a38313c1ce2))
+
 ## [1.9.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.9...v1.9.10) (2022-01-27)
 
 ### Bug Fixes
