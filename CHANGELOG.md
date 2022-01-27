@@ -1,3 +1,9 @@
+## [1.9.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.7...v1.9.8) (2022-01-27)
+
+### Bug Fixes
+
+- showToast 图标显示 ([3e6ee31](https://gitlab2.cqkqinfo.com/web/ui/commit/3e6ee316d6c9adcf392d96f810b84e8ae56b0539))
+
 ## [1.9.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.6...v1.9.7) (2022-01-26)
 
 ## [1.9.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.5...v1.9.6) (2022-01-26)
