@@ -11,6 +11,11 @@ export interface GlobalConfig {
    */
   shadowColor?: string;
   /**
+   * 阴影组件的半径，默认rpx单位
+   * @default 20
+   */
+  shadowRadius?: number;
+  /**
    * 适应老模式
    */
   elderly?: boolean;
@@ -28,11 +33,18 @@ export const {
   Provider: ConfigProvider,
   useContainer: useConfig,
 } = createContainer<GlobalConfig, GlobalConfig>(
-  ({ brandPrimary = '#2780d9', ...config } = {} as GlobalConfig) => {
+  (
+    {
+      brandPrimary = '#2780d9',
+      shadowRadius = 20,
+      ...config
+    } = {} as GlobalConfig,
+  ) => {
     const [isShowSheet, setIsShowSheet] = useState(false);
     return {
       brandPrimary,
       isShowSheet,
+      shadowRadius,
       setIsShowSheet,
       ...config,
     };
