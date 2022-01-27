@@ -30,10 +30,14 @@ export default ({
   card,
   shadowColor: outShadowColor,
   active,
-  shadowRadius = 20,
+  shadowRadius: outShadowRadius,
   ...props
 }: Props) => {
-  const { brandPrimary, shadowColor = brandPrimary } = useConfig();
+  const {
+    brandPrimary,
+    shadowColor = brandPrimary,
+    shadowRadius = (outShadowRadius = 20),
+  } = useConfig();
   const rpx20 = rpxToPx(20) + 'px';
   return React.cloneElement(children, {
     ...children.props,
