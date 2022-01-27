@@ -29,6 +29,10 @@ export interface Props
    */
   cols?: number;
   /**
+   * 禁用状态
+   */
+  disabled?: boolean;
+  /**
    * 选项数据
    */
   data?: CascadePickerOption[];

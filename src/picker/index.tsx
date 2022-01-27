@@ -17,6 +17,7 @@ export default (props: Props) => {
     start,
     end,
     childrenCls,
+    disabled,
     ...other
   } = useProps(props);
 
@@ -78,7 +79,14 @@ export default (props: Props) => {
 
   return (
     <>
-      <div className={childrenCls} onClick={() => setVisible(true)}>
+      <div
+        className={childrenCls}
+        onClick={() => {
+          if (!disabled) {
+            setVisible(true);
+          }
+        }}
+      >
         {children}
       </div>
       {mode === 'selector' || isTimeMode ? (

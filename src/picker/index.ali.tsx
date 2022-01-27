@@ -29,6 +29,7 @@ export default (props: Props) => {
     start,
     end,
     childrenCls,
+    disabled,
     ...newProps
   } = useProps(props);
 
@@ -37,7 +38,7 @@ export default (props: Props) => {
       {...newProps}
       className={childrenCls}
       onTap={() => {
-        if (mode === 'multiSelector' || cols !== 1) {
+        if (!disabled && (mode === 'multiSelector' || cols !== 1)) {
           multiLevelSelect({
             title: title as any,
             name: '',
