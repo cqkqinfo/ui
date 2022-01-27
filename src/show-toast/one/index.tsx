@@ -9,7 +9,7 @@ export default ({
 }: Options) =>
   new Promise(resolve => {
     Toast.show({
-      icon,
+      icon: icon === 'none' ? undefined : icon,
       content: title,
       duration,
       maskClickable: mask,
