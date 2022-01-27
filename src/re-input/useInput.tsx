@@ -4,7 +4,7 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import { SheetContent } from '../sheet';
-import { getPlatform } from '@kqinfo/ui';
+import getPlatform from '../get-platform';
 
 export interface UseInputOption
   extends Omit<InputProps & TextareaProps, 'onConfirm' | 'onInput'> {
