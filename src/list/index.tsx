@@ -136,7 +136,7 @@ const List = forwardRef(
     }, [defaultLimit, list]);
     return useMemo(
       () => (
-        <NeedWrap wrap={space ? Space : React.Fragment} wrapProps={space} need>
+        <NeedWrap wrap={Space} wrapProps={space} need={!!space}>
           {showError ? (
             <Button
               onTap={() => {

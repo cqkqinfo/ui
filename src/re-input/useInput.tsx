@@ -4,6 +4,7 @@ import styles from './index.module.less';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import { SheetContent } from '../sheet';
+import { getPlatform } from '@kqinfo/ui';
 
 export interface UseInputOption
   extends Omit<InputProps & TextareaProps, 'onConfirm' | 'onInput'> {
@@ -64,7 +65,7 @@ export default ({
 }: UseInputOption) => {
   const inSheet = useContext(SheetContent);
   const { isShowSheet } = useConfig();
-  return {
+  const newProps = {
     adjustPosition: true,
     ...props,
     disabled: disabled || (isShowSheet && !inSheet),
@@ -86,4 +87,11 @@ export default ({
     ),
     onConfirm: useCallback(() => onConfirm?.(value), [onConfirm, value]),
   };
+  if (getPlatform === 'web') {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete newProps.adjustPosition;
+    delete newProps.confirmType;
+  }
+  return newProps;
 };
