@@ -1,3 +1,13 @@
+## [1.9.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.8...v1.9.9) (2022-01-27)
+
+### Bug Fixes
+
+- picker 不能用 disabled ([285d593](https://gitlab2.cqkqinfo.com/web/ui/commit/285d59326c30b9411901b066514a730ba6120fa9))
+
+### Features
+
+- 使用 antd-mobile 高清方案 ([233e710](https://gitlab2.cqkqinfo.com/web/ui/commit/233e710abfd4fc4d83ec7b77fdac783e5f181622))
+
 ## [1.9.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.7...v1.9.8) (2022-01-27)
 
 ### Bug Fixes
