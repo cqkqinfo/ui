@@ -7,6 +7,7 @@ import NeedWrap from '../need-wrap';
 import Space, { Props as SpaceProps } from '../space';
 import Icon from '../icon';
 import { useConfig } from '../config-provider';
+import '../_init';
 
 export interface Props
   extends Partial<
