@@ -8,6 +8,7 @@ import Space, { Props as SpaceProps } from '../space';
 import Icon from '../icon';
 import Sentry from '../sentry';
 import { useConfig } from '../config-provider';
+import '../_init';
 
 export interface Props
   extends Partial<
