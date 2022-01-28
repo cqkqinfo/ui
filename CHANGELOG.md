@@ -1,3 +1,9 @@
+## [1.9.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.11...v1.9.12) (2022-01-28)
+
+### Bug Fixes
+
+- h5 picker 异常 ([3bf7b2b](https://gitlab2.cqkqinfo.com/web/ui/commit/3bf7b2b6f5c335c789dafceb6e7c65f736adb230))
+
 ## [1.9.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.10...v1.9.11) (2022-01-27)
 
 ### Bug Fixes
