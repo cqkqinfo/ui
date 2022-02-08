@@ -14,10 +14,6 @@ export default ({ title, icon, mask, duration = 3000 }: Options) =>
       title,
       duration,
       mask,
-      success: () => {
-        setTimeout(() => {
-          resolve('');
-        }, duration);
-      },
+      success: () => resolve(''),
     });
   });
