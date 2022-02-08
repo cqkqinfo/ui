@@ -1,3 +1,13 @@
+## [1.9.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.12...v1.9.13) (2022-02-08)
+
+### Bug Fixes
+
+- Rate 自定义样式后 gutter 不生效 ([def66ce](https://gitlab2.cqkqinfo.com/web/ui/commit/def66ce84310a9cf1e37842c4f3a9a33f0870145))
+
+### Features
+
+- reTextarea placeholder 自定义实现 ([4c6619e](https://gitlab2.cqkqinfo.com/web/ui/commit/4c6619e937da299c1fe3634e5d4a9e79fa4c2b2f))
+
 ## [1.9.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.11...v1.9.12) (2022-01-28)
 
 ### Bug Fixes
