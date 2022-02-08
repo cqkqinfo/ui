@@ -1,11 +1,3 @@
 :host {
   width: 100%;
 }
-
-.placeholder {
-  position: absolute;
-  top: .1em;
-  width: 100%;
-  text-align: inherit;
-  pointer-events: none;
-}
