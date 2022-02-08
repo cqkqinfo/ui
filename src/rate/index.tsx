@@ -122,19 +122,28 @@ export default ({
   return (
     <View className={styles.wrap}>
       {new Array(maxValue).fill(1).map((_, index) => {
+        const itemStyle = { marginRight: index !== maxValue - 1 ? gutter : 0 };
         if (renderItem) {
-          return renderNode({
+          const result = renderNode({
             index,
             maxValue,
             actived: index + 1 <= showVal,
           });
+          return React.isValidElement(result)
+            ? React.cloneElement(result, {
+                style: {
+                  ...itemStyle,
+                  ...result.props.style,
+                },
+              })
+            : result;
         }
         return (
           <Icon
             key={index}
             size={size}
             name={iconName}
-            style={{ marginRight: index !== maxValue - 1 ? gutter : 0 }}
+            style={itemStyle}
             onTap={() => handleChange(index + 1)}
             color={
               index + 1 <= showVal ? activeColor || brandPrimary : defaultColor
