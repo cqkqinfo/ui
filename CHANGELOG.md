@@ -1,3 +1,9 @@
+## [1.9.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.13...v1.9.14) (2022-02-09)
+
+### Reverts
+
+- Revert "feat: reTextarea placeholder 自定义实现" ([bd6c4ac](https://gitlab2.cqkqinfo.com/web/ui/commit/bd6c4aca0eb37de12d8ae6ca3d295540e875ac4e))
+
 ## [1.9.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.12...v1.9.13) (2022-02-08)
 
 ### Bug Fixes
