@@ -22,11 +22,11 @@ export interface GlobalConfig {
   /**
    * 保留字段，防止sheet显示时input点击穿透时用的
    */
-  isShowSheet?: boolean;
+  isShowSheetPage?: string;
   /**
    * 保留字段，防止sheet显示时input点击穿透时用的
    */
-  setIsShowSheet?: (visible: boolean) => void;
+  setIsShowSheetPage?: (showSheetPage: string) => void;
 }
 
 export const {
