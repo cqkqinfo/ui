@@ -1,3 +1,9 @@
+## [1.9.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.15...v1.9.16) (2022-02-10)
+
+### Bug Fixes
+
+- 弹出层后其他页面的 input 失效 ([fca73f9](https://gitlab2.cqkqinfo.com/web/ui/commit/fca73f9303fc89540564fd3092069e7ce3b581d8))
+
 ## [1.9.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.14...v1.9.15) (2022-02-10)
 
 ### Bug Fixes
