@@ -12,7 +12,7 @@ import Native, { NativeInstance } from '../native';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import Space from '../space';
-import { switchVariable } from '@kqinfo/ui';
+import switchVariable from '../switch-variable';
 import getCurrentPage from '../get-current-page';
 import { useConfig } from '../config-provider';
 
@@ -29,6 +29,7 @@ export interface SheetProps {
    * @default bottom
    */
   direction?: 'left' | 'top' | 'right' | 'bottom';
+  onClose?: () => void;
 }
 
 export interface SheetInstance {
@@ -38,8 +39,11 @@ export interface SheetInstance {
 export const SheetContent = createContext(false);
 
 const Sheet = forwardRef<SheetInstance, SheetProps>(
-  ({ children, className, direction = 'bottom', contentCls, center }, ref) => {
-    const { setIsShowSheet } = useConfig();
+  (
+    { children, className, direction = 'bottom', contentCls, center, onClose },
+    ref,
+  ) => {
+    const { setIsShowSheetPage } = useConfig();
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
       setVisible: visible => {
@@ -52,18 +56,19 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
         });
       },
     });
+    const currentPage = getCurrentPage();
     useImperativeHandle(ref, () => ({
       ...sheetInstanceRef.current,
       setVisible: visible => {
-        setIsShowSheet?.(visible);
+        setIsShowSheetPage?.(visible ? currentPage : '');
         sheetInstanceRef.current.setVisible(visible);
       },
     }));
     useEffect(() => {
       return () => {
-        setIsShowSheet?.(false);
+        setIsShowSheetPage?.('');
       };
-    }, [setIsShowSheet]);
+    }, [setIsShowSheetPage]);
     const content = useMemo(
       () => (
         <SheetContent.Provider value={true}>
@@ -74,8 +79,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
               styles[direction],
             )}
             onTap={() => {
-              setIsShowSheet?.(false);
+              setIsShowSheetPage?.('');
               sheetInstanceRef.current.setVisible(false);
+              onClose?.();
             }}
             justify={switchVariable({
               default: 'center',
@@ -95,7 +101,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           </Space>
         </SheetContent.Provider>
       ),
-      [center, children, contentCls, direction, setIsShowSheet],
+      [center, children, contentCls, direction, onClose, setIsShowSheetPage],
     );
     return useMemo(
       () => (
