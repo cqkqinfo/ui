@@ -529,3 +529,7 @@ export { default as DownTime } from './down-time';
  * 兼容全平台的window对象
  */
 export { default as window } from './window';
+/**
+ * 视频
+ */
+export { default as Video } from './video';
