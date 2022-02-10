@@ -1,3 +1,17 @@
+## [1.9.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.14...v1.9.15) (2022-02-10)
+
+### Bug Fixes
+
+- 下拉菜单图标大小会变化 ([bf7f8ab](https://gitlab2.cqkqinfo.com/web/ui/commit/bf7f8ab3c9441d7a9d916ae963d6d2f22fc42056))
+
+### Features
+
+- 添加视频组件 ([e8ee928](https://gitlab2.cqkqinfo.com/web/ui/commit/e8ee9288e65312fb12532d48745b1c2c7a20a4a7))
+
+### Performance Improvements
+
+- 上传图片添加边框 ([46a156c](https://gitlab2.cqkqinfo.com/web/ui/commit/46a156c8ef3467e91b93e09623eae7ec9ca431e8))
+
 ## [1.9.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.13...v1.9.14) (2022-02-09)
 
 ### Reverts
