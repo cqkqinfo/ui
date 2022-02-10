@@ -8,6 +8,7 @@ import Fold from '../fold';
 import Rotate from '../rotate';
 import Space from '../space';
 import { IconNames } from '../icon/web';
+import rpxToPx from '../rpx-to-px';
 
 export interface DropDownMenuIremProps {
   /**
@@ -70,7 +71,7 @@ export default (props: DropDownMenuIremProps) => {
     icon,
     arrowsCls,
     arrowsColor = '#bbb',
-    arrowsSize,
+    arrowsSize = rpxToPx(28),
     onTap,
     onChange,
     titleCls,
