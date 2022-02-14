@@ -1,3 +1,9 @@
+## [1.9.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.17...v1.9.18) (2022-02-14)
+
+### Bug Fixes
+
+- picker 不能设置 style ([0c83474](https://gitlab2.cqkqinfo.com/web/ui/commit/0c8347403395757c0dcaab5441aa3f23f7139ce4))
+
 ## [1.9.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.16...v1.9.17) (2022-02-14)
 
 ### Features
