@@ -1,3 +1,12 @@
+## [1.9.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.18...v1.9.19) (2022-02-14)
+
+### Features
+
+- 新增车牌号输入键盘 ([36756ee](https://gitlab2.cqkqinfo.com/web/ui/commit/36756eea29ce7e43fe235ef3e2ca922711e54dd5))
+- 新增车牌号输入键盘 ([909fc9f](https://gitlab2.cqkqinfo.com/web/ui/commit/909fc9fff2fee1f5186a0f2436bd8614b449be4e))
+- 新增车牌号输入键盘 ([23b1fe4](https://gitlab2.cqkqinfo.com/web/ui/commit/23b1fe4f886b3c81bcbdaf081dbde91380a20c45))
+- 新增车牌号输入键盘 ([e9c80e9](https://gitlab2.cqkqinfo.com/web/ui/commit/e9c80e943b116b90fa1affbd95f8fcf38c13d704))
+
 ## [1.9.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.17...v1.9.18) (2022-02-14)
 
 ### Bug Fixes
