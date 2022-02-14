@@ -4,12 +4,12 @@ nav:
   path: /components
 group:
   title: 数据展示
-  path: /data-display
+  path: /general
 ---
 
 ## Video 视频
 
-轮播图
+视频
 
 ```tsx
 import React, { useState } from 'react';
