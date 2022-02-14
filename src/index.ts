@@ -489,3 +489,7 @@ export { default as window } from './window';
  * 视频
  */
 export { default as Video } from './video';
+/**
+ * 网页视图
+ */
+export { default as WebView } from './webView';
