@@ -5,7 +5,7 @@ import {
   withNativeProps,
 } from 'antd-mobile/es/utils/native-props';
 import { mergeProps } from 'antd-mobile/es/utils/with-default-props';
-import { useMemo, useRef, TouchEvent, MouseEvent, useState } from 'react';
+import { useMemo, useRef, TouchEvent, MouseEvent } from 'react';
 import { useMemoizedFn } from 'ahooks';
 import { Popup, SafeArea } from 'antd-mobile';
 import { Icon, Rotate } from '@kqinfo/ui';
@@ -149,7 +149,7 @@ const LicenseKeyBoard: React.FC<LicenseKeyBoardProps> = p => {
             title="CLOSE"
           >
             <Rotate angle={90}>
-              <Icon name={'kq-right'} size={35} color={'#999999'} />
+              <Icon name={'kq-right'} size={32} color={'#999999'} />
             </Rotate>
           </span>
         )}
@@ -211,7 +211,7 @@ const LicenseKeyBoard: React.FC<LicenseKeyBoardProps> = p => {
         role="button"
       >
         {key === 'BACKSPACE' ? (
-          <Icon name={'kq-shanchu'} size={38} />
+          <Icon name={'kq-shanchu'} size={36} />
         ) : key === 'OK' ? (
           confirmText ? (
             confirmText
