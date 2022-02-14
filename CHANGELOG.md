@@ -1,3 +1,9 @@
+## [1.9.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.16...v1.9.17) (2022-02-14)
+
+### Features
+
+- 添加 webView 组件 ([14fa797](https://gitlab2.cqkqinfo.com/web/ui/commit/14fa797c14515ccc5f6c26881aea6fae1c3c66eb))
+
 ## [1.9.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.15...v1.9.16) (2022-02-10)
 
 ### Bug Fixes
