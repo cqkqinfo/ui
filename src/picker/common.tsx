@@ -112,7 +112,7 @@ export const useProps = (props: Props) => {
   return {
     ...newProps,
     childrenCls: classNames(newProps.childrenCls, 'picker-children'),
-    style: undefined,
+    // style: undefined,
     children: getChildren(newProps),
   };
 };
