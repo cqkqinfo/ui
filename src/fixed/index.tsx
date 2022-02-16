@@ -3,6 +3,7 @@ import { View, ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
 import useViewLayout from '../use-view-layout';
+import screenWidth from '../screen-width';
 
 interface Props extends PropsWithChildren<ViewProps> {
   placeholder?: boolean;
@@ -14,7 +15,7 @@ export default ({
   className,
   ...props
 }: Props) => {
-  const { width, ...arg } = useViewLayout();
+  const { width = screenWidth, ...arg } = useViewLayout();
   return (
     <>
       {placeholder && (

@@ -43,7 +43,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
     { children, className, direction = 'bottom', contentCls, center, onClose },
     ref,
   ) => {
-    const { setIsShowSheet } = useConfig();
+    const { setIsShowSheetPage } = useConfig();
     const nativeRef = useRef<NativeInstance>(null);
     const sheetInstanceRef = useRef<SheetInstance>({
       setVisible: visible => {
@@ -56,18 +56,19 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
         });
       },
     });
+    const currentPage = getCurrentPage();
     useImperativeHandle(ref, () => ({
       ...sheetInstanceRef.current,
       setVisible: visible => {
-        setIsShowSheet?.(visible);
+        setIsShowSheetPage?.(visible ? currentPage : '');
         sheetInstanceRef.current.setVisible(visible);
       },
     }));
     useEffect(() => {
       return () => {
-        setIsShowSheet?.(false);
+        setIsShowSheetPage?.('');
       };
-    }, [setIsShowSheet]);
+    }, [setIsShowSheetPage]);
     const content = useMemo(
       () => (
         <SheetContent.Provider value={true}>
@@ -78,7 +79,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
               styles[direction],
             )}
             onTap={() => {
-              setIsShowSheet?.(false);
+              setIsShowSheetPage?.('');
               sheetInstanceRef.current.setVisible(false);
               onClose?.();
             }}
@@ -100,7 +101,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           </Space>
         </SheetContent.Provider>
       ),
-      [center, children, contentCls, direction, onClose, setIsShowSheet],
+      [center, children, contentCls, direction, onClose, setIsShowSheetPage],
     );
     return useMemo(
       () => (

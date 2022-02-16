@@ -529,3 +529,16 @@ export { default as DownTime } from './down-time';
  * 兼容全平台的window对象
  */
 export { default as window } from './window';
+/**
+ * 视频
+ */
+export { default as Video } from './video';
+/**
+ * 网页视图
+ */
+export { default as WebView } from './webView';
+
+/**
+ * 车牌号码输入键盘
+ */
+export { default as LicenseKeyBoard } from './license-key-board';

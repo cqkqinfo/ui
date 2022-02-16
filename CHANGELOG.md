@@ -1,3 +1,71 @@
+## [1.9.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.19...v1.9.20) (2022-02-16)
+
+### Bug Fixes
+
+- fixed 组件有可能不显示 ([32a06fc](https://gitlab2.cqkqinfo.com/web/ui/commit/32a06fcec7b5cb52d16c9d1050ddd0f2d19fa8db))
+
+### Features
+
+- action-sheet 支持 title ([8f39ae3](https://gitlab2.cqkqinfo.com/web/ui/commit/8f39ae380ce1d28dade0097c7cf49cc183e7432f))
+- checkBox 添加 boxCls ([bbf0c3a](https://gitlab2.cqkqinfo.com/web/ui/commit/bbf0c3a9ec4b72e8c05dcf32a32bc12742de983f))
+
+## [1.9.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.18...v1.9.19) (2022-02-14)
+
+### Features
+
+- 新增车牌号输入键盘 ([36756ee](https://gitlab2.cqkqinfo.com/web/ui/commit/36756eea29ce7e43fe235ef3e2ca922711e54dd5))
+- 新增车牌号输入键盘 ([909fc9f](https://gitlab2.cqkqinfo.com/web/ui/commit/909fc9fff2fee1f5186a0f2436bd8614b449be4e))
+- 新增车牌号输入键盘 ([23b1fe4](https://gitlab2.cqkqinfo.com/web/ui/commit/23b1fe4f886b3c81bcbdaf081dbde91380a20c45))
+- 新增车牌号输入键盘 ([e9c80e9](https://gitlab2.cqkqinfo.com/web/ui/commit/e9c80e943b116b90fa1affbd95f8fcf38c13d704))
+
+## [1.9.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.17...v1.9.18) (2022-02-14)
+
+### Bug Fixes
+
+- picker 不能设置 style ([0c83474](https://gitlab2.cqkqinfo.com/web/ui/commit/0c8347403395757c0dcaab5441aa3f23f7139ce4))
+
+## [1.9.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.16...v1.9.17) (2022-02-14)
+
+### Features
+
+- 添加 webView 组件 ([14fa797](https://gitlab2.cqkqinfo.com/web/ui/commit/14fa797c14515ccc5f6c26881aea6fae1c3c66eb))
+
+## [1.9.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.15...v1.9.16) (2022-02-10)
+
+### Bug Fixes
+
+- 弹出层后其他页面的 input 失效 ([fca73f9](https://gitlab2.cqkqinfo.com/web/ui/commit/fca73f9303fc89540564fd3092069e7ce3b581d8))
+
+## [1.9.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.14...v1.9.15) (2022-02-10)
+
+### Bug Fixes
+
+- 下拉菜单图标大小会变化 ([bf7f8ab](https://gitlab2.cqkqinfo.com/web/ui/commit/bf7f8ab3c9441d7a9d916ae963d6d2f22fc42056))
+
+### Features
+
+- 添加视频组件 ([e8ee928](https://gitlab2.cqkqinfo.com/web/ui/commit/e8ee9288e65312fb12532d48745b1c2c7a20a4a7))
+
+### Performance Improvements
+
+- 上传图片添加边框 ([46a156c](https://gitlab2.cqkqinfo.com/web/ui/commit/46a156c8ef3467e91b93e09623eae7ec9ca431e8))
+
+## [1.9.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.13...v1.9.14) (2022-02-09)
+
+### Reverts
+
+- Revert "feat: reTextarea placeholder 自定义实现" ([bd6c4ac](https://gitlab2.cqkqinfo.com/web/ui/commit/bd6c4aca0eb37de12d8ae6ca3d295540e875ac4e))
+
+## [1.9.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.12...v1.9.13) (2022-02-08)
+
+### Bug Fixes
+
+- Rate 自定义样式后 gutter 不生效 ([def66ce](https://gitlab2.cqkqinfo.com/web/ui/commit/def66ce84310a9cf1e37842c4f3a9a33f0870145))
+
+### Features
+
+- reTextarea placeholder 自定义实现 ([4c6619e](https://gitlab2.cqkqinfo.com/web/ui/commit/4c6619e937da299c1fe3634e5d4a9e79fa4c2b2f))
+
 ## [1.9.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.11...v1.9.12) (2022-01-28)
 
 ### Bug Fixes

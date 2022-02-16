@@ -24,6 +24,7 @@ export default () => {
         type={'primary'}
         onTap={() => {
           ActionSheet.show({
+            title: '请选择',
             items: [
               { label: '操作项1', value: 1 },
               { label: '操作项2', value: 2 },

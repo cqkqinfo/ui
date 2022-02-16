@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { useConfig } from '../config-provider';
 import { SheetContent } from '../sheet';
 import getPlatform from '../get-platform';
+import getCurrentPage from '../get-current-page';
 
 export interface UseInputOption
   extends Omit<InputProps & TextareaProps, 'onConfirm' | 'onInput'> {
@@ -64,11 +65,12 @@ export default ({
   ...props
 }: UseInputOption) => {
   const inSheet = useContext(SheetContent);
-  const { isShowSheet } = useConfig();
+  const { isShowSheetPage } = useConfig();
+  const page = getCurrentPage();
   const newProps = {
     adjustPosition: true,
     ...props,
-    disabled: disabled || (isShowSheet && !inSheet),
+    disabled: disabled || (page === isShowSheetPage && !inSheet),
     value,
     className: classNames(styles.input, className),
     placeholderStyle: {
