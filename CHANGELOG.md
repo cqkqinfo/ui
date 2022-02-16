@@ -1,3 +1,9 @@
+## [1.9.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.23...v1.9.24) (2022-02-16)
+
+### Bug Fixes
+
+- boxActiveCls 无效 ([b0928b8](https://gitlab2.cqkqinfo.com/web/ui/commit/b0928b856284400536971e4d28a3585776e78486))
+
 ## [1.9.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.22...v1.9.23) (2022-02-16)
 
 ### Bug Fixes
