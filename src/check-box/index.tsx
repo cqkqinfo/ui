@@ -42,6 +42,10 @@ export interface CheckBoxProps extends ViewProps {
    */
   className?: string;
   /**
+   * box的类名
+   */
+  boxCls?: string;
+  /**
    * type样式
    */
   type?: 'normal' | 'button';
@@ -62,6 +66,7 @@ const Checkbox = (props: CheckBoxProps) => {
     iconColor = '#ffffff',
     onChange,
     className,
+    boxCls,
     isRound = false,
     type = 'normal',
     ...other
@@ -93,6 +98,7 @@ const Checkbox = (props: CheckBoxProps) => {
         <View
           className={classNames(
             styles.box,
+            boxCls,
             isRound && styles.round,
             myChecked && styles.active,
           )}
