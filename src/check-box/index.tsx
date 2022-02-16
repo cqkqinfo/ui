@@ -46,6 +46,10 @@ export interface CheckBoxProps extends ViewProps {
    */
   boxCls?: string;
   /**
+   * box选中的类名
+   */
+  boxActiveCls?: string;
+  /**
    * type样式
    */
   type?: 'normal' | 'button';
@@ -69,6 +73,7 @@ const Checkbox = (props: CheckBoxProps) => {
     boxCls,
     isRound = false,
     type = 'normal',
+    boxActiveCls,
     ...other
   } = props;
   const [myChecked, setMyChecked] = useEffectState(checked);
@@ -101,6 +106,7 @@ const Checkbox = (props: CheckBoxProps) => {
             boxCls,
             isRound && styles.round,
             myChecked && styles.active,
+            myChecked && styles.boxActiveCls,
           )}
         >
           {myChecked && <Icon name="kq-yes" color={iconColor} />}
