@@ -1,3 +1,9 @@
+## [1.9.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.21...v1.9.22) (2022-02-16)
+
+### Features
+
+- checkbox 添加 boxActiveCls ([c08f8fc](https://gitlab2.cqkqinfo.com/web/ui/commit/c08f8fc4e78b9415cb57b3c2cafa9669b3a18725))
+
 ## [1.9.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.20...v1.9.21) (2022-02-16)
 
 ### Features
