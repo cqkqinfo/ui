@@ -1,3 +1,9 @@
+## [1.9.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.20...v1.9.21) (2022-02-16)
+
+### Features
+
+- uploadImg 支持 sourceType ([be45cc9](https://gitlab2.cqkqinfo.com/web/ui/commit/be45cc91c834d96135eabdb6c73ae3a018fa2c94))
+
 ## [1.9.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.19...v1.9.20) (2022-02-16)
 
 ### Bug Fixes
