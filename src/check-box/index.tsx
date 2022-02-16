@@ -106,7 +106,7 @@ const Checkbox = (props: CheckBoxProps) => {
             boxCls,
             isRound && styles.round,
             myChecked && styles.active,
-            myChecked && styles.boxActiveCls,
+            myChecked && boxActiveCls,
           )}
         >
           {myChecked && <Icon name="kq-yes" color={iconColor} />}
