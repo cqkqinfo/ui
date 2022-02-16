@@ -1,3 +1,14 @@
+## [1.9.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.19...v1.9.20) (2022-02-16)
+
+### Bug Fixes
+
+- fixed 组件有可能不显示 ([32a06fc](https://gitlab2.cqkqinfo.com/web/ui/commit/32a06fcec7b5cb52d16c9d1050ddd0f2d19fa8db))
+
+### Features
+
+- action-sheet 支持 title ([8f39ae3](https://gitlab2.cqkqinfo.com/web/ui/commit/8f39ae380ce1d28dade0097c7cf49cc183e7432f))
+- checkBox 添加 boxCls ([bbf0c3a](https://gitlab2.cqkqinfo.com/web/ui/commit/bbf0c3a9ec4b72e8c05dcf32a32bc12742de983f))
+
 ## [1.9.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.18...v1.9.19) (2022-02-14)
 
 ### Features
