@@ -1,3 +1,9 @@
+## [1.9.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.22...v1.9.23) (2022-02-16)
+
+### Bug Fixes
+
+- fixed 组件有可能不显示 ([aa641a4](https://gitlab2.cqkqinfo.com/web/ui/commit/aa641a4713293b72fea05cbfbceacc71d8728abb))
+
 ## [1.9.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.21...v1.9.22) (2022-02-16)
 
 ### Features
