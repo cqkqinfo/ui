@@ -15,7 +15,7 @@ export default ({
   className,
   ...props
 }: Props) => {
-  const { width = screenWidth, ...arg } = useViewLayout();
+  const { width, ...arg } = useViewLayout();
   return (
     <>
       {placeholder && (
@@ -23,11 +23,11 @@ export default ({
           {children}
         </View>
       )}
-      {width && (
+      {(width || screenWidth) && (
         <View
           className={classNames(styles.fixed, className)}
           {...props}
-          style={{ width: `${width}PX`, ...props.style }}
+          style={{ width: `${width || screenWidth}PX`, ...props.style }}
         >
           <View className={styles.index}>{children}</View>
         </View>
