@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 数据展示
+  title: 通用
   path: /general
 ---
 
