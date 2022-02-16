@@ -75,6 +75,10 @@ interface Props {
    * 删除图标类名
    */
   delIconCls?: string;
+  /**
+   * 只有小程序支持，选择图片的来源
+   */
+  sourceType?: Array<'album' | 'camera'>;
 }
 
 export default ({
@@ -90,6 +94,7 @@ export default ({
   addBtn,
   style,
   delIcon = <Icon name="kq-clear2" color="#EA5328" />,
+  sourceType,
   tip = (
     <View className={classNames(styles.promptText)}>
       <Text className={classNames(styles.promptText1)}>添加图片</Text>
@@ -148,6 +153,7 @@ export default ({
             selectFiles({
               multiple,
               accept: 'image/*',
+              sourceType,
             }).then(async data => {
               const tempData: string[] = [];
               for (const file of data) {

@@ -33,6 +33,7 @@ export default () => {
         onMaxError={() => {
           showToast({ title: '文件过大', icon: 'none' });
         }}
+        // 示例，这里需要换成真实上传方法
         uploadFn={file =>
           new Promise(resolve => {
             setTimeout(() => {
