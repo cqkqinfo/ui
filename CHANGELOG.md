@@ -1,3 +1,9 @@
+## [1.9.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.25...v1.9.26) (2022-02-17)
+
+### Bug Fixes
+
+- ci ([9ac64be](https://gitlab2.cqkqinfo.com/web/ui/commit/9ac64be0c525498ee5a0d6d3e2f6184f0afa0100))
+
 ## [1.9.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.24...v1.9.25) (2022-02-17)
 
 ### Bug Fixes
