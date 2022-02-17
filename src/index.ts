@@ -536,7 +536,7 @@ export { default as Video } from './video';
 /**
  * 网页视图
  */
-export { default as WebView } from './webView';
+export { default as WebView } from './web-view';
 
 /**
  * 车牌号码输入键盘
