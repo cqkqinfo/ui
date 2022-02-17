@@ -1,3 +1,9 @@
+## [1.9.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.24...v1.9.25) (2022-02-17)
+
+### Bug Fixes
+
+- fixed 组件有可能不显示 ([e7c9942](https://gitlab2.cqkqinfo.com/web/ui/commit/e7c9942eec8155fc24979489128d87f231ff5d7e))
+
 ## [1.9.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.23...v1.9.24) (2022-02-16)
 
 ### Bug Fixes
