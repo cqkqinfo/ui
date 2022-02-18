@@ -75,6 +75,7 @@ export default ({
     className: classNames(styles.input, className),
     placeholderStyle: {
       color: '#CCCCCC',
+      wordBreak: 'breakWord',
       ...placeholderStyle,
     },
     onInput: useCallback(
