@@ -1,3 +1,9 @@
+## [1.9.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.27...v1.9.28) (2022-02-18)
+
+### Bug Fixes
+
+- textarea placeholder 不换行 ([b8343a9](https://gitlab2.cqkqinfo.com/web/ui/commit/b8343a976d9ea7ad03789e0afc76d5e0c640f481))
+
 ## [1.9.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.26...v1.9.27) (2022-02-18)
 
 ### Features
