@@ -77,7 +77,7 @@ export default ({
       color: '#CCCCCC',
       wordBreak: 'breakWord',
       ...placeholderStyle,
-    },
+    } as any,
     onInput: useCallback(
       (e: any) => {
         const value = e.detail?.value || e.target?.value;
