@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'remax/wechat';
+import { Image } from 'remax/ali';
 import previewImage from '../preview-image';
 import { useEffectState } from 'parsec-hooks';
 import { useProps, Props } from './common';
