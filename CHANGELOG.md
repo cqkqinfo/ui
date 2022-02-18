@@ -1,3 +1,9 @@
+## [1.9.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.26...v1.9.27) (2022-02-18)
+
+### Features
+
+- image 支持 lazyLoad ([5e712a4](https://gitlab2.cqkqinfo.com/web/ui/commit/5e712a4f818385be4160753159f47fb6ebe0737a))
+
 ## [1.9.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.25...v1.9.26) (2022-02-17)
 
 ### Bug Fixes
