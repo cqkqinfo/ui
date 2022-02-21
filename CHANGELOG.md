@@ -1,3 +1,9 @@
+## [1.9.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.29...v1.9.30) (2022-02-21)
+
+### Bug Fixes
+
+- 阿里小程序 list 组件报错 ([6fdd760](https://gitlab2.cqkqinfo.com/web/ui/commit/6fdd7604c9435a8dbc5c3daf29f2fce741ce15ce))
+
 ## [1.9.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.28...v1.9.29) (2022-02-18)
 
 ### Bug Fixes
