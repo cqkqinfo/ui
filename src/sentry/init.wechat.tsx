@@ -1,6 +1,6 @@
 import * as Sentry from 'sentry-miniapp';
 import { Severity } from '@sentry/types';
-import { getUpdateManager } from 'remax/ali';
+import { getUpdateManager } from 'remax/wechat';
 import showModal from '../show-modal';
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
