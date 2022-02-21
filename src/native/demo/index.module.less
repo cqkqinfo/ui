@@ -1,0 +1,32 @@
+.wrap {
+  height: 300px;
+  overflow: auto;
+  border: 1px solid #eee;
+}
+
+.left {
+  .item {
+    background-color: #eee;
+    width: 100px;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+    &.active {
+      border-right: 5px solid blue;
+    }
+  }
+}
+
+.right {
+  .item {
+    margin-bottom: 20px;
+    width: 110px;
+    height: 200px;
+    background-color: red;
+    &.active {
+      background-color: yellow;
+    }
+  }
+}
