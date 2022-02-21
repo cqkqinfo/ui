@@ -16,6 +16,7 @@ import Loading from '../loading';
 import Button from '../button';
 import { Props as SpaceProps } from '../space';
 import { NeedWrap, Space } from '@kqinfo/ui';
+import getCurrentPage from '../get-current-page';
 
 export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
   /**
@@ -69,10 +70,8 @@ const List = forwardRef(
     {
       getList,
       renderItem,
-      cacheKey = process.env.REMAX_PLATFORM === 'wechat'
-        ? // eslint-disable-next-line
-          // @ts-ignore
-          getCurrentPages()[getCurrentPages().length - 1].pageId
+      cacheKey = process.env.REMAX_PLATFORM !== 'web'
+        ? getCurrentPages()[getCurrentPages().length - 1].pageId
         : window.location.pathname,
       noData = useMemo(() => <NoData />, []),
       noMore,

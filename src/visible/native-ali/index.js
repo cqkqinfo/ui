@@ -16,28 +16,30 @@ Component({
     id: '',
     isShow: false,
   },
-  onInit() {
+  didMount() {
     this.setData({
       id: `visible${idCount++}`,
-      height: this.properties.height || 1,
+      height: this.props.height || 1,
     });
-    var offsetY = this.properties.perf
+    var offsetY = this.props.perf
       ? // eslint-disable-next-line no-undef
         my.getSystemInfoSync().windowHeight * 2
       : 0;
     var that = this;
-    my.createIntersectionObserver(this)
+    my.createIntersectionObserver()
       .relativeToViewport({
         top: offsetY,
         bottom: offsetY,
       })
-      .observe(`#${this.data.id}`, function({ intersectionRect: { height } }) {
+      .observe(`#${this.data.id}`, function({
+        intersectionRect: { height } = {},
+      }) {
         var isShow = height > 0;
         that.setData({ isShow });
         if (isShow) {
-          that.triggerEvent('visible');
+          that.props.onVisible();
         } else {
-          that.triggerEvent('hidden');
+          that.props.onHidden();
         }
       });
   },

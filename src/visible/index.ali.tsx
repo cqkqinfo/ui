@@ -23,14 +23,16 @@ export default ({
   onVisible,
   height,
   perf,
-}: Props) => (
-  <Visible
-    perf={perf}
-    class-name={className}
-    bindvisible={onVisible}
-    height={height}
-    bindhidden={onHidden}
-  >
-    {children || <View style={{ height: '1px', width: '1px' }} />}
-  </Visible>
-);
+}: Props) => {
+  return (
+    <Visible
+      perf={perf}
+      class-name={className}
+      onVisible={onVisible}
+      height={height}
+      onHidden={onHidden}
+    >
+      {children || <View style={{ height: '1px', width: '1px' }} />}
+    </Visible>
+  );
+};
