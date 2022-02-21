@@ -1,3 +1,9 @@
+## [1.9.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.30...v1.9.31) (2022-02-21)
+
+### Bug Fixes
+
+- 从朋友圈进入报错 ([83040c8](https://gitlab2.cqkqinfo.com/web/ui/commit/83040c82daeba5b2413ed14711f7b6732ca3017f))
+
 ## [1.9.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.29...v1.9.30) (2022-02-21)
 
 ### Bug Fixes
