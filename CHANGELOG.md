@@ -1,3 +1,16 @@
+## [1.9.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.31...v1.9.32) (2022-02-22)
+
+### Bug Fixes
+
+- textarea placeholder 不换行 ([d61a4b6](https://gitlab2.cqkqinfo.com/web/ui/commit/d61a4b688e36b948ba3bf1d86158f670eb667608))
+- ts 类型 ([72e0b33](https://gitlab2.cqkqinfo.com/web/ui/commit/72e0b339bf4d64c9d03dcd54329f4dc0cab0686b))
+- 支付宝小程序 tabBar 报错 ([190e797](https://gitlab2.cqkqinfo.com/web/ui/commit/190e7978c1eebea3250c19f024fe13f70ed42036))
+- 支付宝小程序 useGetSystemInfoSync 报错 ([2c6595a](https://gitlab2.cqkqinfo.com/web/ui/commit/2c6595a564a71074ecd93e216a190e94d7521a87))
+- 支付宝小程序 useViewLayout 死循环 ([169aa01](https://gitlab2.cqkqinfo.com/web/ui/commit/169aa0148510a0118a358a9ae4d289fbe70260cc))
+- 支付宝小程序图标 color size 改变不生效 ([d41846e](https://gitlab2.cqkqinfo.com/web/ui/commit/d41846e6bd916eadf6845db852413144322b88a3))
+- 支付宝小程序图标 color size 改变不生效 ([5089aae](https://gitlab2.cqkqinfo.com/web/ui/commit/5089aae6e496ab4829a3a417794178483866f54d))
+- 支付宝小程序图标大小异常 ([4628835](https://gitlab2.cqkqinfo.com/web/ui/commit/4628835da3955bb2d7fdb38d693660b60c7382f2))
+
 ## [1.9.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.30...v1.9.31) (2022-02-21)
 
 ### Bug Fixes
