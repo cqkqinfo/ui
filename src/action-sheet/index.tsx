@@ -70,6 +70,9 @@ const ActionSheet = () => {
 
 ActionSheet.show = (options: ShowOptions) => {
   const page = getCurrentPage();
+  if (!data[page]) {
+    throw new Error('请在页面添加<ActionSheet/>组件');
+  }
   return data[page].fn(options);
 };
 
