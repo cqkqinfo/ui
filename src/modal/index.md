@@ -34,6 +34,11 @@ export default () => {
         onTap={() =>
           Modal.show({
             title: '发送报告至邮箱',
+            // 异步关闭
+            onOk: () =>
+              new Promise(resolve => {
+                setTimeout(resolve, 3000);
+              }),
             content: (
               <ReInput
                 style={{
