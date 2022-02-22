@@ -1,3 +1,9 @@
+## [1.9.34](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.33...v1.9.34) (2022-02-22)
+
+### Bug Fixes
+
+- 第一次弹窗不显示 ([0193c63](https://gitlab2.cqkqinfo.com/web/ui/commit/0193c63836f9a954e2ab8667e66ac5ccf8bee92d))
+
 ## [1.9.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.32...v1.9.33) (2022-02-22)
 
 ### Features
