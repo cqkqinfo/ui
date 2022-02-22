@@ -1,3 +1,10 @@
+## [1.9.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.32...v1.9.33) (2022-02-22)
+
+### Features
+
+- modal 支持异步关闭 ([94803b1](https://gitlab2.cqkqinfo.com/web/ui/commit/94803b13f41ec243caf638653f1a127625968a5f))
+- 添加弹出层报错信息 ([46bc39c](https://gitlab2.cqkqinfo.com/web/ui/commit/46bc39c28ceb2d45ef60fd8a29b3f373a4bc0f8f))
+
 ## [1.9.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.31...v1.9.32) (2022-02-22)
 
 ### Bug Fixes
