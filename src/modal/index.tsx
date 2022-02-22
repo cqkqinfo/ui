@@ -190,6 +190,9 @@ const Modal = () => {
 
 Modal.show = (options: ShowOptions) => {
   const page = getCurrentPage();
+  if (!data[page]) {
+    throw new Error('请在页面添加<Modal/>组件');
+  }
   return data[page].fn(options);
 };
 
