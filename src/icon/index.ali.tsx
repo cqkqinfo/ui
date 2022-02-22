@@ -25,13 +25,6 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
   const isNumber = typeof innerSize === 'number';
   const wh = isNumber ? rpxToPx(+innerSize) : (innerSize + '').toUpperCase();
   const { width: width2 = wh, ...arg } = useViewLayout({ run: !size });
-  const size2 = width2.toString().includes('PX')
-    ? rpxToPx(+width2.toString().replace('PX', ''))
-    : getPlatform === 'wechat' && size
-    ? pxToRpx(+width2)
-    : typeof width2 === 'string'
-    ? undefined
-    : width2;
   return (
     <View
       className={classNames(styles.wrap, className)}
@@ -57,7 +50,13 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
           <Icon
             name={name}
             size={
-              getPlatform === 'ali' && size2 ? Number(size2) / 2 : Number(size)
+              width2.toString().includes('PX')
+                ? rpxToPx(+width2.toString().replace('PX', ''))
+                : getPlatform === 'ali' && size
+                ? pxToRpx(+width2)
+                : typeof width2 === 'string'
+                ? undefined
+                : width2
             }
             color={color}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
