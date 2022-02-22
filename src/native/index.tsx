@@ -48,8 +48,12 @@ export default forwardRef<NativeInstance, Props>(
     const initRef = useRef(true);
     const preInitData = usePrevious(initData);
     useEffect(() => {
-      if (JSON.stringify(preInitData) !== JSON.stringify(initData)) {
+      if (
+        initRef.current &&
+        JSON.stringify(preInitData) !== JSON.stringify(initData)
+      ) {
         returns.setData(initData);
+        initRef.current = false;
       }
     }, [initData, preInitData, returns]);
     return (
