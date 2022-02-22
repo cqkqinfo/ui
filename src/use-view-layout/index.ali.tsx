@@ -13,7 +13,7 @@ export const getLayout = (id: string) =>
       });
   });
 
-export default () => {
+export default ({ run = true }: { run?: boolean } = {}) => {
   const [wh, setWH] = useState<{
     width?: number;
     height?: number;
@@ -23,21 +23,23 @@ export default () => {
   const countRef = useRef(0);
   const id = useId();
   useEffect(() => {
-    const query = createSelectorQuery();
-    const count = countRef.current + 1;
-    countRef.current = count;
-    query
-      .select(`#${id}`)
-      .boundingClientRect()
-      .exec((data: any) => {
-        const ret = data[0] || {};
-        if (ret && (ret?.width !== wh.width || ret?.height !== wh.height)) {
-          if (count === countRef.current) {
-            const { width, height, left, top } = ret;
-            setWH({ width, height, x: left, y: top });
+    if (run && wh.height === undefined) {
+      const query = createSelectorQuery();
+      const count = countRef.current + 1;
+      countRef.current = count;
+      query
+        .select(`#${id}`)
+        .boundingClientRect()
+        .exec((data: any) => {
+          const ret = data[0] || {};
+          if (ret && (ret?.width !== wh.width || ret?.height !== wh.height)) {
+            if (count === countRef.current) {
+              const { width, height, left, top } = ret;
+              setWH({ width, height, x: left, y: top });
+            }
           }
-        }
-      });
-  }, [id, wh]);
+        });
+    }
+  }, [id, run, wh]);
   return { ...wh, id };
 };
