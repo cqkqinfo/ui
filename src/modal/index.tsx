@@ -5,6 +5,9 @@ import styles from './index.module.less';
 import Space from '../space';
 import classNames from 'classnames';
 import rpxToPx from '../rpx-to-px';
+import Icon from '../icon';
+import { useConfig } from '../config-provider';
+import ColorText from '../color-text';
 
 export interface ShowOptions {
   /**
@@ -17,6 +20,14 @@ export interface ShowOptions {
    * @default 确定
    */
   okText?: React.ReactNode;
+  /**
+   * 确认事件，传入promise方法，可以阻止点击确认后弹窗关闭
+   */
+  onOk?: () => Promise<any>;
+  /**
+   * 确定按钮颜色
+   */
+  okTextColor?: string;
   /**
    * 取消文字
    * @default 取消
@@ -80,6 +91,8 @@ export interface ShowOptions {
 const data: SheetWrapData = {};
 
 const Modal = () => {
+  const { brandPrimary } = useConfig();
+  const [okLoading, setOkLoading] = useState(false);
   const [
     {
       title,
@@ -96,7 +109,9 @@ const Modal = () => {
       btnCls,
       wrapStyle,
       bodyStyle,
+      okTextColor = brandPrimary,
       width,
+      onOk = async () => {},
       footer = (
         <Space
           className={classNames(styles.footer, footerCls)}
@@ -121,12 +136,19 @@ const Modal = () => {
             justify={'center'}
             alignItems={'center'}
             className={classNames(styles.ok, styles.btn, okCls, btnCls)}
-            onTap={() => {
+            onTap={async () => {
+              if (okLoading) return;
+              setOkLoading(true);
+              await onOk().finally(() => {
+                setOkLoading(false);
+              });
               ref.current?.promiseRef.resolve();
               ref.current?.sheetRef?.setVisible(false);
             }}
+            size={10}
           >
-            {okText}
+            {okLoading && <Icon color={okTextColor} name={'kq-loading'} />}
+            <ColorText color={okTextColor}>{okText}</ColorText>
           </Space>
         </Space>
       ),
