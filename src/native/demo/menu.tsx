@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Space, Native, PartTitle } from '@kqinfo/ui';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { NativeInstance } from '@kqinfo/ui/es/native';
 import styles from './index.module.less';
 import classnames from 'classnames';
@@ -69,7 +71,7 @@ const Demo2 = () => {
     <Space className={styles.wrap}>
       <Space vertical className={styles.left}>
         {listData.map(({ index }) => {
-          const getCls = current =>
+          const getCls = (current: number) =>
             classnames(styles.item, current === index && styles.active);
           return (
             <Native
@@ -99,7 +101,7 @@ const Demo2 = () => {
         size={10}
       >
         {listData[current].list.map(({ index }) => {
-          const getCls = rightCurrent =>
+          const getCls = (rightCurrent: number) =>
             classnames(styles.item, rightCurrent === index && styles.active);
           return (
             <Space
