@@ -1,0 +1,13 @@
+diff --git a/node_modules/mini-program-iconfont-cli/templates/alipay.js.template b/node_modules/mini-program-iconfont-cli/templates/alipay.js.template
+index 6215329..6e71662 100644
+--- a/node_modules/mini-program-iconfont-cli/templates/alipay.js.template
++++ b/node_modules/mini-program-iconfont-cli/templates/alipay.js.template
+@@ -27,7 +27,7 @@ Component({
+       });
+     }
+   },
+-  disUpdate(prevProps) {
++  didUpdate(prevProps) {
+     const size = this.props.size;
+     const color = this.props.color;
+ 
