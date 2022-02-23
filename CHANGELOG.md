@@ -1,3 +1,9 @@
+## [1.9.38](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.37...v1.9.38) (2022-02-23)
+
+### Bug Fixes
+
+- axios sentry 报错 ([0c36a90](https://gitlab2.cqkqinfo.com/web/ui/commit/0c36a901240a7158d2e096a24360921ecaaa7bfa))
+
 ## [1.9.37](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.36...v1.9.37) (2022-02-23)
 
 ### Bug Fixes
