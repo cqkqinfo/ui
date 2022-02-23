@@ -31,8 +31,8 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
       {...props}
       {...arg}
       style={{
-        // width: wh,
-        // height: wh,
+        width: wh,
+        height: wh,
         ...style,
       }}
     >
@@ -46,17 +46,17 @@ export default ({ name, color, size, className, style, ...props }: Props) => {
           },
         }}
       >
-        {width2 && (
+        {!!width2 && (
           <Icon
             name={name}
             size={
-              width2.toString().includes('PX')
-                ? rpxToPx(+width2.toString().replace('PX', ''))
+              /px/i.test(width2.toString())
+                ? +width2.toString().replace(/px/i, '')
                 : getPlatform === 'ali' && size
                 ? pxToRpx(+width2)
                 : typeof width2 === 'string'
                 ? undefined
-                : width2
+                : +width2
             }
             color={color}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
