@@ -1,3 +1,9 @@
+## [1.9.35](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.34...v1.9.35) (2022-02-23)
+
+### Features
+
+- TransferChange 添加 boolean 模式 ([ab76da1](https://gitlab2.cqkqinfo.com/web/ui/commit/ab76da10485c87146f619649e9c7a2c1c3250107))
+
 ## [1.9.34](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.33...v1.9.34) (2022-02-22)
 
 ### Bug Fixes
