@@ -1,3 +1,10 @@
+## [1.9.37](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.36...v1.9.37) (2022-02-23)
+
+### Bug Fixes
+
+- 支付宝小程序图过大 ([2398647](https://gitlab2.cqkqinfo.com/web/ui/commit/2398647b17e99bd294c94c2dbef43d8af4551bfd))
+- 编译失败 ([d02ae98](https://gitlab2.cqkqinfo.com/web/ui/commit/d02ae985e9d219d1db48a942407e2d09305fc19c))
+
 ## [1.9.36](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.35...v1.9.36) (2022-02-23)
 
 ### Bug Fixes
