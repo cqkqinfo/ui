@@ -1,4 +1,4 @@
-import { useGetSystemInfoSync } from '@kqinfo/ui';
+import useGetSystemInfoSync from '../use-get-system-info-sync';
 
 export default () => {
   const {

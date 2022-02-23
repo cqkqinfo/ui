@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
-import { useSafeArea } from '@kqinfo/ui';
+import useSafeArea from '../use-safe-area';
 
 export interface TabBarItemProps {
   /**
