@@ -19,8 +19,8 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
         category: 'xhr',
         message: 'response.config',
         data: {
-          url: response.config.url,
-          headers: response.config.headers,
+          url: response.config?.url,
+          headers: response.config?.headers,
         },
         level: Sentry.Severity.Info,
       });
@@ -37,8 +37,8 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
         category: 'xhr',
         message: 'response.config',
         data: {
-          url: response.config.url,
-          headers: response.config.headers,
+          url: response.config?.url,
+          headers: response.config?.headers,
         },
         level: Sentry.Severity.Info,
       });
