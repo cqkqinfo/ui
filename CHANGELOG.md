@@ -1,3 +1,9 @@
+## [1.9.36](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.35...v1.9.36) (2022-02-23)
+
+### Bug Fixes
+
+- pc 部分组件样式过大 ([b24b9a6](https://gitlab2.cqkqinfo.com/web/ui/commit/b24b9a6fa0d36d3ded7b3cbfa9da36f046305b11))
+
 ## [1.9.35](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.34...v1.9.35) (2022-02-23)
 
 ### Features
