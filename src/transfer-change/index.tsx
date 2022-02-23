@@ -23,7 +23,7 @@ export default ({
   /**
    * 内置模式
    */
-  mode?: 'array' | 'split' | 'date' | 'time' | 'JSON' | 'city';
+  mode?: 'array' | 'split' | 'date' | 'time' | 'JSON' | 'city' | 'boolean';
   /**
    * 当mode是date时可以用
    */
@@ -43,6 +43,8 @@ export default ({
       value = JSON.parse(value || '{}');
     } else if (mode === 'city') {
       value = getAddressId(value);
+    } else if (mode === 'boolean') {
+      value = !!+value;
     }
   }
   const handleChange = useCallback(
@@ -63,6 +65,8 @@ export default ({
         value = Object.keys(value).length ? JSON.stringify(value) : undefined;
       } else if (mode === 'city') {
         value = getAddress(value);
+      } else if (mode === 'boolean') {
+        value = +value;
       }
       onChange(value);
       (children as any)?.props?.onChange?.(...arg);

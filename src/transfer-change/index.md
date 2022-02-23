@@ -24,6 +24,7 @@ import {
   Button,
   getAddressOptions,
   Picker,
+  Switch,
   Icon,
 } from '@kqinfo/ui';
 import { DatePicker, Select } from 'antd';
@@ -38,7 +39,7 @@ export default () => {
     <Form
       form={form}
       onFinish={console.log}
-      onValuesChange={(_, values) => console.log(values)}
+      onValuesChange={(_, values) => alert(JSON.stringify(values))}
     >
       <Space vertical size={'10px'}>
         <PartTitle>将onChange事件转移</PartTitle>
@@ -110,6 +111,14 @@ export default () => {
                 placeholder="请输入标签，回车键确认"
                 mode="tags"
               />
+            </TransferChange>
+          </FormItem>
+        </Form>
+        <PartTitle>将boolean值转为1或者0</PartTitle>
+        <Form cell>
+          <FormItem label={'是否'} name={'boolean'} initialValue={1}>
+            <TransferChange mode={'boolean'}>
+              <Switch />
             </TransferChange>
           </FormItem>
         </Form>
