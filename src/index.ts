@@ -542,3 +542,8 @@ export { default as WebView } from './web-view';
  * 车牌号码输入键盘
  */
 export { default as LicenseKeyBoard } from './license-key-board';
+
+/**
+ * 车牌号码输入框
+ */
+export { default as InputLicenseKeyBoard } from './input-license-key-board';

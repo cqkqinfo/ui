@@ -189,6 +189,16 @@ const LicenseKeyBoard: React.FC<LicenseKeyBoardProps> = p => {
           }
         }}
         onTouchEnd={e => {
+          if (
+            (value.length < 2 && (isNumberKey || isSpecialCharacters)) ||
+            isDisabledKey ||
+            ((isNewEnergyPlate(value)
+              ? value.length >= 8
+              : value.length >= 7) &&
+              key !== 'OK' &&
+              key !== 'BACKSPACE')
+          )
+            return;
           onKeyPress(e, key);
           if (key === 'BACKSPACE') {
             onBackspacePressEnd();
