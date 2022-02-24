@@ -1,3 +1,15 @@
+## [1.9.40](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.39...v1.9.40) (2022-02-24)
+
+### Bug Fixes
+
+- ci ([43d39f2](https://gitlab2.cqkqinfo.com/web/ui/commit/43d39f28d5093c9d42f288317bf2ff36c9893eee))
+- 文档 picker 不正常 ([956bfc0](https://gitlab2.cqkqinfo.com/web/ui/commit/956bfc0b5d1b1e898bf83ebb5f1a9e1062acd0b6))
+- 车牌号按钮置灰后还能继续输入 ([f692afb](https://gitlab2.cqkqinfo.com/web/ui/commit/f692afb3ea7fc63451f1ed9c189dace2db913585))
+
+### Features
+
+- sheet 隐藏是摧毁组件内容 ([b3b02b3](https://gitlab2.cqkqinfo.com/web/ui/commit/b3b02b345778bba6de7d5a9d2b776c615ee14e66))
+
 ## [1.9.39](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.38...v1.9.39) (2022-02-24)
 
 ### Bug Fixes
