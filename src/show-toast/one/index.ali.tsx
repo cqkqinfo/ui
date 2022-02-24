@@ -7,10 +7,6 @@ export default ({ title, icon, duration = 3000 }: Options) =>
       type: icon,
       content: title,
       duration,
-      success: () => {
-        setTimeout(() => {
-          resolve('');
-        }, duration);
-      },
+      success: () => resolve(''),
     });
   });

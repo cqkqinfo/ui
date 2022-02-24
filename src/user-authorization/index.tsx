@@ -67,9 +67,6 @@ export default ({
             setCheck(false);
             login({ code: hisCode })
               .then(loginData => onAuthorization({ ...loginData, ...userInfo }))
-              .then(() => {
-                navigateBack();
-              })
               .catch(() => {
                 setCheck(true);
               });
