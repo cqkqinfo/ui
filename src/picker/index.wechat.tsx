@@ -147,7 +147,9 @@ export default (props: Props) => {
           (str: any, i: any) => `${str}${['年', '月', '日', '时', '分'][i]}`,
         );
       newValue.forEach((v: any, i: any) => {
-        numbers[i] = rangeRef.current[i].findIndex((value: any) => v === value);
+        numbers[i] = rangeRef.current[i]?.findIndex(
+          (value: any) => v === value,
+        );
         numbers[i] = numbers[i] === -1 ? 0 : numbers[i];
       });
     } else if (cols === 1 && ['string', 'number'].includes(typeof value)) {
