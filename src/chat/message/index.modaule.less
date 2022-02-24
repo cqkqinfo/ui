@@ -1,0 +1,82 @@
+@import '../../styles/index';
+
+.scroll {
+  transform: rotate(180deg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  min-height: 100%;
+  transform: rotate(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0 20px;
+}
+
+.divider {
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 36px;
+}
+
+.arrow {
+  width: 1px;
+  height: 1px;
+  border: 15px solid transparent;
+  border-top: 30px solid #fff;
+  transform: translate(13px, 50%);
+  margin-top: 15px;
+  margin-right: -1px;
+}
+
+.isMeArrow {
+  transform: translate(-13px, 50%);
+  margin-left: -1px;
+  margin-right: 0;
+  border-top-color: lighten(@brand-primary, 45%);
+}
+
+.tip {
+  font-size: 26px;
+  color: #999999;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.isMe {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  justify-content: center;
+  color: #aaa;
+}
+
+.bubble {
+  max-width: 450px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 27px 20px;
+  box-sizing: border-box;
+  font-size: 32px;
+  color: #333333;
+  line-height: 44px;
+}
+
+.isMeBubble {
+  background-color: lighten(@brand-primary, 45%);
+}
