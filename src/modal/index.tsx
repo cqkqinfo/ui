@@ -9,6 +9,8 @@ import Icon from '../icon';
 import { useConfig } from '../config-provider';
 import ColorText from '../color-text';
 
+export const Options = ({}: ShowOptions) => {};
+
 export interface ShowOptions {
   /**
    * 确认标题

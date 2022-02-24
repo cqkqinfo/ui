@@ -79,4 +79,4 @@ export default () => {
 };
 ```
 
-<API></API>
+<API exports='["default", "Options"]'></API>

@@ -44,4 +44,4 @@ export default () => {
 };
 ```
 
-<API></API>
+<API exports='["default"]'></API>
