@@ -64,6 +64,7 @@ const LicenseKeyBoard: React.FC<LicenseKeyBoardProps> = p => {
   const smallVehicleNewEnergy = '1234567890';
   const newEnergyLetter = 'ABCDEFGHJK';
   const newEnergyLetterReg = new RegExp(`[${newEnergyLetter}]`);
+
   /**
    新能源车牌号规则：
    https://zh.wikipedia.org/wiki/中华人民共和国民用机动车号牌#新能源汽车号牌
