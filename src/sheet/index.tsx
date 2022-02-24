@@ -57,9 +57,11 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
       },
     });
     const currentPage = getCurrentPage();
+    const [visible, setVisible] = useState(false);
     useImperativeHandle(ref, () => ({
       ...sheetInstanceRef.current,
       setVisible: visible => {
+        setVisible(visible);
         setIsShowSheetPage?.(visible ? currentPage : '');
         sheetInstanceRef.current.setVisible(visible);
       },
@@ -80,6 +82,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             )}
             onTap={() => {
               setIsShowSheetPage?.('');
+              setVisible(false);
               sheetInstanceRef.current.setVisible(false);
               onClose?.();
             }}
@@ -111,10 +114,10 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             className: classNames(styles.sheet, className),
           }}
         >
-          {content}
+          {visible && content}
         </Native>
       ),
-      [className, content],
+      [className, content, visible],
     );
   },
 );
