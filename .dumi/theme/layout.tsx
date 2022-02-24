@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from 'dumi-theme-mobile/src/layouts';
 import './layout.less';
 import { CopyrightCircleOutlined } from '@ant-design/icons';
+import 'antd-mobile/es/global';
 
 export default ({ children, ...props }: any) => (
   <Layout
