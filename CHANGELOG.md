@@ -1,3 +1,16 @@
+## [1.9.39](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.38...v1.9.39) (2022-02-24)
+
+### Bug Fixes
+
+- picker datetime 模式报错 ([8bad202](https://gitlab2.cqkqinfo.com/web/ui/commit/8bad202134247ab33a2ea4f187f8864eab6c9b33))
+- web 端图标会不显示 ([6cbc7cf](https://gitlab2.cqkqinfo.com/web/ui/commit/6cbc7cfb400fdc01776968bf816cfe1f39be5f8e))
+- 删除 showToast 小程序环境回调函数的定时器 ([b6f7a8e](https://gitlab2.cqkqinfo.com/web/ui/commit/b6f7a8e9455de386af20cbc9707716302074c151))
+- 车牌号按钮置灰后还能继续输入 ([f21bcb8](https://gitlab2.cqkqinfo.com/web/ui/commit/f21bcb83cea0d0e500ce2e430027bcf9ba011e98))
+
+### Features
+
+- 新增车牌号输入文本框 ([81cb0db](https://gitlab2.cqkqinfo.com/web/ui/commit/81cb0dbb8c40c3a5fc3dea869a4a3dc0caff0f0f))
+
 ## [1.9.38](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.37...v1.9.38) (2022-02-23)
 
 ### Bug Fixes
