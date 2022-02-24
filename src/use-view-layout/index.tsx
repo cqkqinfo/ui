@@ -24,5 +24,5 @@ export default ({ run = true }: { run?: boolean } = {}) => {
       forceUpdate();
     }
   }, [width, height, forceUpdate, run]);
-  return { width, height, ref, y, x };
+  return { width: width || undefined, height: height || undefined, ref, y, x };
 };
