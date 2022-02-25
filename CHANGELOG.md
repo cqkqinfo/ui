@@ -1,3 +1,11 @@
+## [1.9.41](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.40...v1.9.41) (2022-02-25)
+
+### Features
+
+- getPlatform 添加 pc 平台 ([5133fb9](https://gitlab2.cqkqinfo.com/web/ui/commit/5133fb98adbaa024397d6b6b9b990b4498260ae0))
+- 分割线组件添加 hideLine 属性 ([b15c264](https://gitlab2.cqkqinfo.com/web/ui/commit/b15c264def1a0fb13d9206818386e1670d1a3f6d))
+- 完善聊天组件 ([35482c0](https://gitlab2.cqkqinfo.com/web/ui/commit/35482c09cee3eeec77f84716fcedba820327c5b2))
+
 ## [1.9.40](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.39...v1.9.40) (2022-02-24)
 
 ### Bug Fixes
