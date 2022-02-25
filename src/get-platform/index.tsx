@@ -1,6 +1,7 @@
-export default (process.env.REMAX_PLATFORM as
+export default process.env.REMAX_PLATFORM as
   | 'web'
   | 'wechat'
   | 'ali'
   | 'toutiao'
-  | 'native') || 'web';
+  | 'pc'
+  | 'native';

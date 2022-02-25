@@ -65,14 +65,11 @@ export interface Props<D> extends Omit<LoadMoreOptions, 'loadMoreVisible'> {
 }
 
 const List = forwardRef(
-  // eslint-disable-next-line @typescript-eslint/ban-types
   <D extends { id: number }>(
     {
       getList,
       renderItem,
-      cacheKey = process.env.REMAX_PLATFORM !== 'web'
-        ? getCurrentPages()[getCurrentPages().length - 1].pageId
-        : window.location.pathname,
+      cacheKey = getCurrentPage(),
       noData = useMemo(() => <NoData />, []),
       noMore,
       loadingTip,
