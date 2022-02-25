@@ -10,6 +10,7 @@ export default ({
   color,
   style,
   lineCls,
+  hideLine,
   ...props
 }: SpaceProps & {
   /**
@@ -20,6 +21,10 @@ export default ({
    * 分割线类名
    */
   lineCls?: string;
+  /**
+   * 隐藏线
+   */
+  hideLine?: boolean;
 }) => {
   const { brandPrimary } = useConfig();
   const showColor = color || brandPrimary;
@@ -42,9 +47,9 @@ export default ({
         ...style,
       }}
     >
-      {line}
+      {!hideLine && line}
       {children}
-      {line}
+      {!hideLine && line}
     </Space>
   );
 };
