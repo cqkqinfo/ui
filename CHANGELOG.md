@@ -1,3 +1,9 @@
+## [1.9.42](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.41...v1.9.42) (2022-02-26)
+
+### Bug Fixes
+
+- ios uploadImg 不能选择图片 ([42899c2](https://gitlab2.cqkqinfo.com/web/ui/commit/42899c26fa9cb6c90261ceae185638ebbd6050fa))
+
 ## [1.9.41](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.40...v1.9.41) (2022-02-25)
 
 ### Features
