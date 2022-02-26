@@ -94,7 +94,7 @@ export default ({
   addBtn,
   style,
   delIcon = <Icon name="kq-clear2" color="#EA5328" />,
-  sourceType,
+  sourceType = ['album', 'camera'],
   tip = (
     <View className={classNames(styles.promptText)}>
       <Text className={classNames(styles.promptText1)}>添加图片</Text>
