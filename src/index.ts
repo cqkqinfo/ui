@@ -498,3 +498,12 @@ export { default as WebView } from './web-view';
  * 车牌号码输入键盘
  */
 export { default as LicenseKeyBoard } from './license-key-board';
+
+/**
+ * 车牌号码输入框
+ */
+export { default as InputLicenseKeyBoard } from './input-license-key-board';
+/**
+ * 使用回调页面
+ */
+export { default as useBackUrl } from './use-back-url';
