@@ -4,9 +4,8 @@ import ScrollView from '../../scroll-view';
 import styles from './index.modaule.less';
 import Item, { Props as Data } from './Item';
 import Divider from '../../divider';
-import useWebSocket from '../../use-web-socket';
 
-export type Props = Pick<
+export type Props<D> = Pick<
   Data,
   'doctorName' | 'doctorAvatar' | 'patName' | 'patAvatar'
 > & {
@@ -14,22 +13,28 @@ export type Props = Pick<
   /**
    * 初始化消息数据
    */
-  initData?: Omit<
-    Data,
-    'doctorName' | 'doctorAvatar' | 'patName' | 'patAvatar'
-  >[];
-  socketUrl?: string;
+  data?: D[];
+  /**
+   * 转换你的数据为messageData
+   */
+  transformData: (
+    data: D,
+  ) => Omit<Data, 'doctorName' | 'doctorAvatar' | 'patName' | 'patAvatar'>;
 };
 
-export default ({ initData = [], before, ...props }: Props) => {
-  // const {} = useWebSocket(socketUrl)
+export default <D extends unknown>({
+  data = [],
+  before,
+  transformData,
+  ...props
+}: Props<D>) => {
   return (
     <ScrollView className={styles.scroll} scrollY showScrollbar={false}>
       <View className={styles.message}>
         {before}
         <Divider className={styles.divider}>查看历史消息</Divider>
-        {initData?.map((item, index) => (
-          <Item {...item} {...props} key={index} />
+        {data?.map((item, index) => (
+          <Item {...transformData(item)} {...props} key={index} />
         ))}
       </View>
     </ScrollView>

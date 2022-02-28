@@ -1,4 +1,10 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import styles from './index.module.less';
 import Space from '../space';
 import Button from '../button';
@@ -14,19 +20,19 @@ import useSafeArea from '../use-safe-area';
 import Header, { Props as HeaderProps } from './Header';
 import Message, { Props as MessageProps } from './message';
 import { Props as MessageData } from './message/Item';
+import useWebSocket from '../use-web-socket';
+import classNames from 'classnames';
 
 export const patInfo = ({}: InfoCardProps) => {};
 
 export const header = ({}: Omit<HeaderProps, 'isDoctor'>) => {};
-
-export const message = ({}: MessageProps) => {};
 
 export const messageInitData = ({}: Omit<
   MessageData,
   'before' | 'doctorName' | 'doctorAvatar' | 'patName' | 'patAvatar'
 >) => {};
 
-export interface Props {
+export type Props<D> = {
   /**
    * 类名
    */
@@ -44,12 +50,28 @@ export interface Props {
    */
   header?: HeaderProps;
   /**
-   * 消息内容
+   * socket链接
    */
-  message?: MessageProps;
-}
+  socketUrl: string;
+  /**
+   * 初始化接口的返回的聊天数据
+   */
+  initMessages?: D[];
+} & Omit<MessageProps<D>, 'initData'>;
 
-export default ({ className, header, patInfo, isDoctor, message }: Props) => {
+export default <D extends unknown>({
+  className,
+  header,
+  patInfo,
+  isDoctor,
+  socketUrl,
+  initMessages,
+  doctorName,
+  patName,
+  patAvatar,
+  doctorAvatar,
+  transformData,
+}: Props<D>) => {
   const mainRef = useRef<NativeInstance>(null);
   const mainStyle: React.CSSProperties = useMemo(
     () => ({
@@ -106,6 +128,15 @@ export default ({ className, header, patInfo, isDoctor, message }: Props) => {
   const [inputValue, setInputValue] = useState<string | undefined>('');
   const { bottomHeight } = useSafeArea();
   const [isEnd, setIsEnd] = useState(false);
+  //================WebSocket================//
+  const { sendMessage, latestMessage } = useWebSocket(socketUrl);
+  const messageHistory = useRef<D[]>(initMessages || []);
+  messageHistory.current = useMemo(() => {
+    if (latestMessage) {
+      return messageHistory.current.concat(latestMessage as any);
+    }
+    return messageHistory.current;
+  }, [latestMessage]);
   return (
     <Space
       vertical
@@ -132,7 +163,12 @@ export default ({ className, header, patInfo, isDoctor, message }: Props) => {
       >
         <Message
           before={patInfo && isDoctor && <InfoCardCom {...patInfo} />}
-          {...message}
+          data={messageHistory.current}
+          transformData={transformData}
+          doctorName={doctorName}
+          patName={patName}
+          patAvatar={patAvatar}
+          doctorAvatar={doctorAvatar}
         />
         {!isEnd && (
           <>
@@ -154,7 +190,21 @@ export default ({ className, header, patInfo, isDoctor, message }: Props) => {
                   confirmHold
                   confirmType={'send'}
                 />
-                <Button block={false} className={styles.send} size={'action'}>
+                <Button
+                  disabled={!inputValue}
+                  onTap={() => {
+                    if (inputValue) {
+                      sendMessage?.(inputValue);
+                      setInputValue('');
+                    }
+                  }}
+                  block={false}
+                  className={classNames(
+                    styles.send,
+                    !inputValue && styles.disabled,
+                  )}
+                  size={'action'}
+                >
                   发送
                 </Button>
               </Space>

@@ -28,23 +28,33 @@ export default () => (
       diagnosisDesc: '主要诊断',
       onToDetail: () => alert('查看详情'),
     }}
-    message={{
-      doctorName: '医生',
-      patName: '患者',
-      initData: [
-        {
-          content: '233',
-          date: dayjs()
-            .subtract(1, 'd')
-            .toString(),
-        },
-        {
-          content: '666',
-          date: dayjs().toString(),
-          isMe: true,
-        },
-      ],
+    socketUrl={'ws://82.157.123.54:9010/ajaxchattest'}
+    // 将接口数据转为messageData
+    transformData={data => {
+      console.log(data);
+      return data?.data
+        ? {
+            content: data?.data?.split(' [<a')[0],
+            date: dayjs().toString(),
+            isMe: true,
+          }
+        : data;
     }}
+    doctorName={'医生'}
+    patName={'患者'}
+    initMessages={[
+      {
+        content: '233',
+        date: dayjs()
+          .subtract(1, 'd')
+          .toString(),
+      },
+      {
+        content: '666',
+        date: dayjs().toString(),
+        isMe: true,
+      },
+    ]}
     header={{
       endDate: dayjs()
         .add(10, 'm')
