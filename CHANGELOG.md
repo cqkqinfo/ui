@@ -1,3 +1,10 @@
+## [1.9.47](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.46...v1.9.47) (2022-02-28)
+
+### Bug Fixes
+
+- useBackUrl 异常 ([9d882ec](https://gitlab2.cqkqinfo.com/web/ui/commit/9d882ec4b2a02ece120d8bb05f3dabf7cf096b43))
+- useBackUrl 异常 ([fe8f22d](https://gitlab2.cqkqinfo.com/web/ui/commit/fe8f22db616d826896cd44ca09e58e14af88afe3))
+
 ## [1.9.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.45...v1.9.46) (2022-02-28)
 
 ### Bug Fixes
