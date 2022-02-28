@@ -55,10 +55,14 @@ export default <T extends DataRecord = DataRecord>({
   useEffect(() => {
     if (!chart || !data) return;
     if (JSON.stringify(dataRef.current) === JSON.stringify(data)) return;
+    if (dataRef.current) {
+      chart.changeData(data);
+    } else {
+      chart.source(data, recordScale);
+      setChart(chart);
+      chart.render();
+    }
     dataRef.current = data;
-    chart.source(data, recordScale);
-    setChart(chart);
-    chart.render();
   }, [chart, data, recordScale, setChart]);
   return <Canvas id={id} ref={canvasRef} style={style} className={className} />;
 };
