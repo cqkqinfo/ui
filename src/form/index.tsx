@@ -30,6 +30,10 @@ import {
   ValidateErrorEntity,
 } from 'rc-field-form/es/interface';
 import Space from '../space';
+import getStorageSync from '../get-storage-sync';
+import setStorageSync from '../set-storage-sync';
+import removeStorageSync from '../remove-storage-sync';
+import { useInit } from 'parsec-hooks';
 const CircularJSON = require('circular-json');
 
 export const FormStore = createContainer(initialState => {
@@ -209,6 +213,10 @@ export interface Props<Values extends unknown = any>
    * @default true
    */
   nestedForm?: boolean;
+  /**
+   * 设置后会自动缓存表单数据
+   */
+  autoCacheKey?: string;
 }
 
 const ReForm = ContainerUseWrap(
@@ -221,10 +229,11 @@ const ReForm = ContainerUseWrap(
     nestedForm = true,
     className,
     style,
+    autoCacheKey,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     value,
-    values = value,
+    values = value || (autoCacheKey ? getStorageSync(autoCacheKey) : undefined),
     ...props
   }: Props<Values>) => {
     const [myForm] = Form.useForm();
@@ -243,6 +252,28 @@ const ReForm = ContainerUseWrap(
         form && form.setFieldsValue(values);
       }
     }, [form, values]);
+    useEffect(() => {
+      if (!form) return;
+      const old = form.resetFields;
+      form.resetFields = (...arg) => {
+        old(...arg);
+        if (autoCacheKey) {
+          setStorageSync(autoCacheKey, form.getFieldsValue());
+        }
+      };
+    }, [autoCacheKey, form]);
+    useEffect(() => {
+      if (!form) return;
+      const old = form.validateFields;
+      form.validateFields = (...arg) => {
+        return old(...arg).then((...arg) => {
+          if (autoCacheKey) {
+            removeStorageSync(autoCacheKey);
+          }
+          return Promise.resolve(...arg);
+        });
+      };
+    }, [autoCacheKey, form]);
     return (
       <NeedWrap
         need={shadowProps !== false && (card === undefined ? cell : card)}
@@ -269,6 +300,17 @@ const ReForm = ContainerUseWrap(
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 props.onChange?.(arg[1]);
+                if (autoCacheKey) {
+                  setStorageSync(autoCacheKey, arg[1]);
+                }
+              },
+              onFinish: (...arg: any) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                props.onFinish?.(...arg);
+                if (autoCacheKey) {
+                  removeStorageSync(autoCacheKey);
+                }
               },
               onFinishFailed: (e: any) => {
                 setErrorFields(e.errorFields);
