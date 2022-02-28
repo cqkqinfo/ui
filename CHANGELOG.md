@@ -1,3 +1,10 @@
+## [1.9.43](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.42...v1.9.43) (2022-02-28)
+
+### Features
+
+- 完善聊天组件 ([ea68d93](https://gitlab2.cqkqinfo.com/web/ui/commit/ea68d93a90dab63b4899e64d2c966d62beb0163c))
+- 表单组件支持自动缓存 ([32a7cad](https://gitlab2.cqkqinfo.com/web/ui/commit/32a7cad7f8a9889369e93e0969395b6d41852d12))
+
 ## [1.9.42](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.41...v1.9.42) (2022-02-26)
 
 ### Bug Fixes
