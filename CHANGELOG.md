@@ -1,3 +1,9 @@
+## [1.9.44](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.43...v1.9.44) (2022-02-28)
+
+### Features
+
+- 添加 useBackUrl ([bc411c7](https://gitlab2.cqkqinfo.com/web/ui/commit/bc411c763af063708dcb33275c1404756782cabf))
+
 ## [1.9.43](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.42...v1.9.43) (2022-02-28)
 
 ### Features
