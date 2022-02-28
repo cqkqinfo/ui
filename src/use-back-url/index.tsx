@@ -1,5 +1,8 @@
 import { useQuery } from 'remax';
 import qs from 'qs';
+import setStorageSync from '../set-storage-sync';
+import getStorageSync from '../get-storage-sync';
+import removeStorageSync from '../remove-storage-sync';
 
 interface Options {
   /**
@@ -20,7 +23,7 @@ interface Options {
   backUrl?: string;
 }
 
-type Return = [any, (data: any) => void] | [];
+type Return = [any, (data: any) => void] | [any];
 
 export const returns = ({}: Return) => {};
 
@@ -35,16 +38,28 @@ export default ({
   backUrl = window.location.href,
 }: Options = {}): Return => {
   const { backSuccess, ...query } = useQuery();
-  if (backSuccess) {
-    pageData.callback = data => {
-      window.location.href = `${query.backUrl}?${qs.stringify(data)}`;
-    };
-    return [query, pageData.callback];
+  const storageUrl = getStorageSync('backUrl');
+  if (backSuccess || storageUrl) {
+    if (!storageUrl) {
+      setStorageSync('backUrl', query.backUrl);
+    }
+    return [
+      query,
+      data => {
+        removeStorageSync('backUrl');
+        window.location.href = `${storageUrl}?${qs.stringify({
+          ...data,
+          backSuccess: 1,
+        })}`;
+      },
+    ];
   }
-  window.location.href = `${host}#${path}?${qs.stringify({
-    backUrl,
-    backSuccess: 1,
-    ...params,
-  })}`;
-  return [];
+  if (path) {
+    window.location.href = `${host}#${path}?${qs.stringify({
+      backUrl,
+      backSuccess: 1,
+      ...params,
+    })}`;
+  }
+  return [{}];
 };
