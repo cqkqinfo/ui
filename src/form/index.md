@@ -110,7 +110,12 @@ export default () => {
     getAddressOptions().then(options => setAddressOptions(options));
   }, []);
   return (
-    <Form form={form} onFinish={console.log}>
+    <Form
+      form={form}
+      // 也支持自动缓存值
+      autoCacheKey={'test'}
+      onFinish={console.log}
+    >
       <Space vertical size={'10px'}>
         <PartTitle>Form1</PartTitle>
         <Form cell>
