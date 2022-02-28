@@ -39,15 +39,17 @@ export default ({
 }: Options = {}): Return => {
   const { backSuccess, ...query } = useQuery();
   const storageUrl = getStorageSync('backUrl');
+  if (backSuccess && !storageUrl) {
+    setStorageSync('backUrl', query.backUrl);
+  }
   if (backSuccess || storageUrl) {
-    if (!storageUrl) {
-      setStorageSync('backUrl', query.backUrl);
-    }
     return [
       query,
       data => {
         removeStorageSync('backUrl');
-        window.location.href = `${storageUrl}?${qs.stringify({
+        window.location.href = `${storageUrl}${
+          storageUrl.includes('?') ? '&' : '?'
+        }${qs.stringify({
           ...data,
           backSuccess: 1,
         })}`;
@@ -55,10 +57,14 @@ export default ({
     ];
   }
   if (path) {
-    window.location.href = `${host}#${path}?${qs.stringify({
+    window.location.href = `${host}#${path}${
+      path.includes('?') ? '&' : '?'
+    }${qs.stringify({
+      ...query,
+      ...params,
       backUrl,
       backSuccess: 1,
-      ...params,
+      // ...params,
     })}`;
   }
   return [{}];
