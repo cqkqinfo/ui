@@ -1,3 +1,10 @@
+## [1.9.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.45...v1.9.46) (2022-02-28)
+
+### Bug Fixes
+
+- f2 数据更新图表渲染错误 ([7dc2d96](https://gitlab2.cqkqinfo.com/web/ui/commit/7dc2d96dc54c1d34d4424daf3b2b954e18988f74))
+- useBackUrl 异常 ([468d6f9](https://gitlab2.cqkqinfo.com/web/ui/commit/468d6f9bd5729663b893495b4e41fb670fa2e256))
+
 ## [1.9.45](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.44...v1.9.45) (2022-02-28)
 
 ### Bug Fixes
