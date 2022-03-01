@@ -1,8 +1,5 @@
 import { useQuery } from 'remax';
 import qs from 'qs';
-import setStorageSync from '../set-storage-sync';
-import getStorageSync from '../get-storage-sync';
-import removeStorageSync from '../remove-storage-sync';
 
 interface Options {
   /**
@@ -35,15 +32,15 @@ export default ({
 }: Options = {}): Return => {
   const { backSuccess, ...query } = useQuery();
   const key = `${window.location.pathname}-backUrl`;
-  const storageUrl = getStorageSync(key);
+  const storageUrl = sessionStorage[key];
   if (backSuccess && !storageUrl) {
-    setStorageSync(key, query.backUrl);
+    sessionStorage.set(key, query.backUrl);
   }
   if (backSuccess || storageUrl) {
     return [
       query,
       data => {
-        removeStorageSync(key);
+        sessionStorage.removeItem(key);
         window.location.href = `${storageUrl}${
           storageUrl.includes('?') ? '&' : '?'
         }${qs.stringify({
