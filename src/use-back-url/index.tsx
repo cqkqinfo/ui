@@ -33,8 +33,8 @@ export default ({
   const { backSuccess, ...query } = useQuery();
   const key = `${window.location.pathname}-backUrl`;
   const storageUrl = sessionStorage[key];
-  if (backSuccess && !storageUrl) {
-    sessionStorage.set(key, query.backUrl);
+  if (backSuccess && !storageUrl && query.backUrl) {
+    sessionStorage.setItem(key, query.backUrl);
   }
   if (backSuccess || storageUrl) {
     return [
