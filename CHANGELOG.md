@@ -1,3 +1,9 @@
+## [1.9.49](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.48...v1.9.49) (2022-03-01)
+
+### Bug Fixes
+
+- sessionStorage 报错 ([90b40d2](https://gitlab2.cqkqinfo.com/web/ui/commit/90b40d25dc3851079ad046d36b780568ba214336))
+
 ## [1.9.48](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.47...v1.9.48) (2022-03-01)
 
 ### Bug Fixes
