@@ -1,7 +1,5 @@
 import { Dialog } from 'antd-mobile';
 
-let modal: any;
-
 const fn = ({
   title = '提示',
   cancelText = '取消',
@@ -10,8 +8,7 @@ const fn = ({
   content = undefined,
 }) =>
   new Promise((resolve, reject) => {
-    modal?.close?.();
-    modal = Dialog[showCancel ? 'confirm' : 'alert']({
+    return Dialog[showCancel ? 'confirm' : 'alert']({
       title,
       content,
       cancelText,
