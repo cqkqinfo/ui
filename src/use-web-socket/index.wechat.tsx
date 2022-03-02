@@ -52,5 +52,5 @@ class WebSocket {
 (wx as any)['WebSocket'] = WebSocket;
 
 export default (socketUrl: string, options?: Options) => {
-  return useWebSocket(socketUrl, options);
+  return useWebSocket(socketUrl, options as any);
 };
