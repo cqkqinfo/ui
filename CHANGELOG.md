@@ -1,3 +1,9 @@
+## [1.9.51](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.50...v1.9.51) (2022-03-02)
+
+### Bug Fixes
+
+- 修复 showModal web 端调用无用方法报错 ([c854f50](https://gitlab2.cqkqinfo.com/web/ui/commit/c854f503ae5c9bac3caa19c4960c44e9e6aae362))
+
 ## [1.9.50](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.49...v1.9.50) (2022-03-02)
 
 ### Reverts
