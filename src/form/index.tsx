@@ -3,7 +3,9 @@ import React, {
   useEffect,
   useLayoutEffect,
   useRef,
+  forwardRef,
   useState,
+  useImperativeHandle,
 } from 'react';
 import RcForm, {
   FormProps,
@@ -33,7 +35,6 @@ import Space from '../space';
 import getStorageSync from '../get-storage-sync';
 import setStorageSync from '../set-storage-sync';
 import removeStorageSync from '../remove-storage-sync';
-import { useInit } from 'parsec-hooks';
 const CircularJSON = require('circular-json');
 
 export const FormStore = createContainer(initialState => {
@@ -221,120 +222,127 @@ export interface Props<Values extends unknown = any>
 
 const ReForm = ContainerUseWrap(
   FormStore,
-  <Values extends {} = any>({
-    card,
-    shadowProps,
-    cell = false,
-    colon = !cell,
-    nestedForm = true,
-    className,
-    style,
-    autoCacheKey,
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    value,
-    values = value || (autoCacheKey ? getStorageSync(autoCacheKey) : undefined),
-    ...props
-  }: Props<Values>) => {
-    const [myForm] = Form.useForm();
-    const {
-      setErrorFields,
-      form = !nestedForm ? myForm : undefined,
-    } = FormStore.useContainer();
-    const preValues = useRef<Values>();
-    useLayoutEffect(() => {
-      if (
-        values &&
-        CircularJSON.stringify(preValues.current) !==
-          CircularJSON.stringify(values)
-      ) {
-        preValues.current = { ...values };
-        form && form.setFieldsValue(values);
-      }
-    }, [form, values]);
-    useEffect(() => {
-      if (!form) return;
-      const old = form.resetFields;
-      form.resetFields = (...arg) => {
-        old(...arg);
-        if (autoCacheKey) {
-          setStorageSync(autoCacheKey, form.getFieldsValue());
+  forwardRef(
+    <Values extends {} = any>(
+      {
+        card,
+        shadowProps,
+        cell = false,
+        colon = !cell,
+        nestedForm = true,
+        className,
+        style,
+        autoCacheKey,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        value,
+        values = value ||
+          (autoCacheKey ? getStorageSync(autoCacheKey) : undefined),
+        ...props
+      }: Props<Values>,
+      ref: React.Ref<FormInstance | undefined>,
+    ) => {
+      const [myForm] = Form.useForm();
+      const {
+        setErrorFields,
+        form = !nestedForm ? myForm : undefined,
+      } = FormStore.useContainer();
+      const preValues = useRef<Values>();
+      useLayoutEffect(() => {
+        if (
+          values &&
+          CircularJSON.stringify(preValues.current) !==
+            CircularJSON.stringify(values)
+        ) {
+          preValues.current = { ...values };
+          form && form.setFieldsValue(values);
         }
-      };
-    }, [autoCacheKey, form]);
-    useEffect(() => {
-      if (!form) return;
-      const old = form.validateFields;
-      form.validateFields = (...arg) => {
-        return old(...arg).then((...arg) => {
+      }, [form, values]);
+      useEffect(() => {
+        if (!form) return;
+        const old = form.resetFields;
+        form.resetFields = (...arg) => {
+          old(...arg);
           if (autoCacheKey) {
-            removeStorageSync(autoCacheKey);
+            setStorageSync(autoCacheKey, form.getFieldsValue());
           }
-          return Promise.resolve(...arg);
-        });
-      };
-    }, [autoCacheKey, form]);
-    return (
-      <NeedWrap
-        need={shadowProps !== false && (card === undefined ? cell : card)}
-        wrap={Shadow as any}
-        wrapProps={{ card: true, ...shadowProps }}
-      >
-        <Space
-          style={style}
-          className={className}
-          alignSelf={'stretch'}
-          vertical
+        };
+      }, [autoCacheKey, form]);
+      useEffect(() => {
+        if (!form) return;
+        const old = form.validateFields;
+        form.validateFields = (...arg) => {
+          return old(...arg).then((...arg) => {
+            if (autoCacheKey) {
+              removeStorageSync(autoCacheKey);
+            }
+            return Promise.resolve(...arg);
+          });
+        };
+      }, [autoCacheKey, form]);
+      useImperativeHandle(ref, () => form);
+      return (
+        <NeedWrap
+          need={shadowProps !== false && (card === undefined ? cell : card)}
+          wrap={Shadow as any}
+          wrapProps={{ card: true, ...shadowProps }}
         >
-          <NeedWrap
-            need={!!form}
-            wrap={RcForm as any}
-            wrapProps={{
-              component: false,
-              form,
-              ...props,
-              onValuesChange: (...arg: any) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                props.onValuesChange?.(...arg);
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                props.onChange?.(arg[1]);
-                if (autoCacheKey) {
-                  setStorageSync(autoCacheKey, arg[1]);
-                }
-              },
-              onFinish: (...arg: any) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                props.onFinish?.(...arg);
-                if (autoCacheKey) {
-                  removeStorageSync(autoCacheKey);
-                }
-              },
-              onFinishFailed: (e: any) => {
-                setErrorFields(e.errorFields);
-                if (e.errorFields?.length > 0) {
-                  if (props.onFinishFailed) {
-                    props.onFinishFailed(e);
-                  } else {
-                    showToast({
-                      title: e.errorFields?.[0]?.errors?.[0],
-                      icon: 'none',
-                    });
-                  }
-                } else {
-                  props.onFinishFailed?.(e.values as any);
-                }
-              },
-            }}
+          <Space
+            style={style}
+            className={className}
+            alignSelf={'stretch'}
+            vertical
           >
-            <Space vertical>{props.children}</Space>
-          </NeedWrap>
-        </Space>
-      </NeedWrap>
-    );
-  },
+            <NeedWrap
+              need={!!form}
+              wrap={RcForm as any}
+              wrapProps={{
+                component: false,
+                form,
+                ...props,
+                onValuesChange: (...arg: any) => {
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  props.onValuesChange?.(...arg);
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  props.onChange?.(arg[1]);
+                  if (autoCacheKey) {
+                    setStorageSync(autoCacheKey, arg[1]);
+                  }
+                },
+                onFinish: (...arg: any) => {
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  props.onFinish?.(...arg);
+                  if (autoCacheKey) {
+                    removeStorageSync(autoCacheKey);
+                  }
+                },
+                onFinishFailed: (e: any) => {
+                  setErrorFields(e.errorFields);
+                  if (e.errorFields?.length > 0) {
+                    if (props.onFinishFailed) {
+                      props.onFinishFailed(e);
+                    } else {
+                      showToast({
+                        title: e.errorFields?.[0]?.errors?.[0],
+                        icon: 'none',
+                      });
+                    }
+                  } else {
+                    props.onFinishFailed?.(e.values as any);
+                  }
+                },
+              }}
+            >
+              <Space vertical>{props.children}</Space>
+            </NeedWrap>
+          </Space>
+        </NeedWrap>
+      );
+    },
+  ),
 );
 
 const Form: typeof ReForm & {
