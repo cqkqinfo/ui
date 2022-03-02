@@ -18,7 +18,9 @@ import getList from '../_mock/getList';
 
 export default () => {
   const [search, setSearch] = useState();
-  const listRef = useRef<{ refreshList: (retainList?: boolean) => void }>(null);
+  const listRef = useRef<{
+    refreshList: (retainList?: boolean) => Promise<void>;
+  }>(null);
   return (
     <Space vertical size={'10px'}>
       <Space size={'10px'}>
