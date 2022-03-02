@@ -1,3 +1,9 @@
+## [1.9.50](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.49...v1.9.50) (2022-03-02)
+
+### Reverts
+
+- Revert "fix: 第一次弹窗不显示" ([d608779](https://gitlab2.cqkqinfo.com/web/ui/commit/d608779bc2154e337c90ee9df9f48f508e27e0b4))
+
 ## [1.9.49](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.48...v1.9.49) (2022-03-01)
 
 ### Bug Fixes
