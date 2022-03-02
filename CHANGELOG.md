@@ -1,3 +1,9 @@
+## [1.9.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.51...v1.9.52) (2022-03-02)
+
+### Features
+
+- form 支持 ref ([6fcd44b](https://gitlab2.cqkqinfo.com/web/ui/commit/6fcd44bd3b3604a34ee5f41c14fcbaad4304d9a0))
+
 ## [1.9.51](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.50...v1.9.51) (2022-03-02)
 
 ### Bug Fixes
