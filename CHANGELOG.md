@@ -1,3 +1,13 @@
+## [1.9.58](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.57...v1.9.58) (2022-03-04)
+
+### Bug Fixes
+
+- showToast web mask 错误 ([f6ef105](https://gitlab2.cqkqinfo.com/web/ui/commit/f6ef10500f47fd79c67d13ed4a8603e28c50c620))
+
+### Features
+
+- formRules 添加 number 校验 ([8598504](https://gitlab2.cqkqinfo.com/web/ui/commit/85985047035701d5a8ab5dbf111e3b978e7bfa61))
+
 ## [1.9.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.56...v1.9.57) (2022-03-04)
 
 ### Bug Fixes
