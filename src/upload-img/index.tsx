@@ -1,6 +1,6 @@
 import { View, Text, Image } from '@remax/one';
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './index.module.less';
 import { selectFiles, useRefState, useStateRef } from 'parsec-hooks';
 import Icon from '../icon';
@@ -121,6 +121,7 @@ export default ({
             <Image
               className={classNames(styles.uploadImgItemImage)}
               src={item}
+              mode={'aspectFill'}
               onTap={() => {
                 previewImage({ urls: value, current: item });
               }}
