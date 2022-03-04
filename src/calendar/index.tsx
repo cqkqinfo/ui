@@ -286,12 +286,12 @@ export default ({
                   selectedRef.current = day;
                   onChange?.(day);
                 }
-                nativeRefArrRef.current.forEach(({ day, native }) =>
-                  native?.setData(getItemNativeData(day)),
-                );
               }}
               initData={getItemNativeData(day)}
-              ref={native => nativeRefArrRef.current.push({ day, native })}
+              ref={native => {
+                nativeRefArrRef.current.push({ day, native });
+                native?.setData(getItemNativeData(day));
+              }}
             >
               {renderDate(day)}
               <View className={classNames(styles.dotWrap, dotWrapCls)}>

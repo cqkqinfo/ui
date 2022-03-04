@@ -1,6 +1,6 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import React from 'react';
-import { useId, usePrevious, useRefState } from 'parsec-hooks';
+import { useId, useRefState } from 'parsec-hooks';
 import { TapEvent } from '@remax/one/esm/types';
 import plainStyle from '@remax/one/esm/useWebPlaceholderStyle/plainStyle';
 
@@ -46,12 +46,6 @@ export default forwardRef<NativeInstance, Props>(
     useImperativeHandle(ref, () => returns, [returns]);
     const id = useId();
     const initRef = useRef(true);
-    const preInitData = usePrevious(initData);
-    useEffect(() => {
-      if (JSON.stringify(preInitData) !== JSON.stringify(initData)) {
-        returns.setData(initData);
-      }
-    }, [initData, preInitData, returns]);
     return (
       <div
         id={id}
