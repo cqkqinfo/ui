@@ -1,3 +1,13 @@
+## [1.9.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.52...v1.9.53) (2022-03-04)
+
+### Bug Fixes
+
+- actionSheet 要点击两次才显示 ([f244211](https://gitlab2.cqkqinfo.com/web/ui/commit/f244211f30aaaea1a453747a3072be1cd5babf5f))
+
+### Features
+
+- actionSheet 支持设置 style ([56ac66c](https://gitlab2.cqkqinfo.com/web/ui/commit/56ac66cbd5d45f7fd817bda79563a1962bd60bd6))
+
 ## [1.9.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.51...v1.9.52) (2022-03-02)
 
 ### Features
