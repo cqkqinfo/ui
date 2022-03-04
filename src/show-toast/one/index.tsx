@@ -12,7 +12,7 @@ export default ({
       icon: icon === 'none' ? undefined : icon,
       content: title,
       duration,
-      maskClickable: mask,
+      maskClickable: !mask,
       afterClose: () => resolve(''),
     });
   });
