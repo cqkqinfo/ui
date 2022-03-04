@@ -4702,9 +4702,10 @@ axe-core@^4.0.2:
   version "4.2.0"
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.2.0.tgz#6594db4ee62f78be79e32a7295d21b099b60668d"
 
-axios-ali-adapter@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/axios-ali-adapter/-/axios-ali-adapter-0.0.4.tgz#7904eb67c85eb1f13730a8d71f36c963e11999ea"
+axios-ali-adapter@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/axios-ali-adapter/-/axios-ali-adapter-0.0.5.tgz#c2afc33b29837965aafe01adaf547d3832af9974"
+  integrity sha512-CX3V5ilmOY/nxMKDw6AkpPT2KOuznz3XvNtl9kQG+usb2jPnK6GDFjdSp55mGhQxFxwRCM2XTncSgymfz2We2Q==
 
 axios-wechat-adapter@^0.0.8:
   version "0.0.8"
