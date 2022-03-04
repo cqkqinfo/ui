@@ -1,3 +1,9 @@
+## [1.9.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.53...v1.9.54) (2022-03-04)
+
+### Bug Fixes
+
+- 钉钉小程序不能使用 axios ([b84a720](https://gitlab2.cqkqinfo.com/web/ui/commit/b84a72098ebe2deded24f714d99984393b8cd728))
+
 ## [1.9.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.52...v1.9.53) (2022-03-04)
 
 ### Bug Fixes
