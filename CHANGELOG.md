@@ -1,3 +1,9 @@
+## [1.9.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.55...v1.9.56) (2022-03-04)
+
+### Bug Fixes
+
+- web 端 uploadFile 报错 ([f566228](https://gitlab2.cqkqinfo.com/web/ui/commit/f566228435dae4702d7956e17f7a9c422dc12683))
+
 ## [1.9.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.54...v1.9.55) (2022-03-04)
 
 ### Bug Fixes
