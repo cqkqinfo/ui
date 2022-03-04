@@ -23,19 +23,36 @@ export interface ShowOptions {
    * 子项类名
    */
   itemCls?: string;
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * 类名
+   */
+  className?: string;
 }
+
+export const showOptions = ({}: ShowOptions) => {};
 
 const data: SheetWrapData = {};
 
 const ActionSheet = () => {
-  const [{ title, titleCls, itemCls, items }, setOptions] = useState<
-    ShowOptions
-  >({
+  const [
+    { title, titleCls, itemCls, items, className, style },
+    setOptions,
+  ] = useState<ShowOptions>({
     items: [],
   });
   const ref = useRef<SheetWrapInstance>(null);
   return (
-    <SheetWrap ref={ref} setOptions={setOptions} data={data}>
+    <SheetWrap
+      ref={ref}
+      setOptions={setOptions}
+      data={data}
+      className={className}
+      style={style}
+    >
       <Space vertical style={{ width: '100vw' }}>
         {title && (
           <View className={classNames(titleCls, styles.title)}>{title}</View>
