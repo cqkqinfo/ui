@@ -38,6 +38,8 @@ export interface ShowOptions {
   content: React.ReactNode;
 }
 
+export const showOptions = ({}: ShowOptions) => {};
+
 const data: SheetWrapData = {};
 
 const AffirmSheet = ({
