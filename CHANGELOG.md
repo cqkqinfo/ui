@@ -1,3 +1,10 @@
+## [1.9.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.54...v1.9.55) (2022-03-04)
+
+### Bug Fixes
+
+- uploadImg 组件上传后列表图片压缩 ([6a10d74](https://gitlab2.cqkqinfo.com/web/ui/commit/6a10d74cc93dae68eea4bab20c14579ce74eed80))
+- web 端 uploadFile 报错 ([c43c71f](https://gitlab2.cqkqinfo.com/web/ui/commit/c43c71fc11665e3cd2ee13e83ca858c59704c5c1))
+
 ## [1.9.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.53...v1.9.54) (2022-03-04)
 
 ### Bug Fixes
