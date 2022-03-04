@@ -11,9 +11,7 @@ export default ({
     formData.append(key, (data as any)[key]);
   });
   formData.append(name, filePath, (filePath as any).name);
-  return axios
-    .post(url, formData, {
-      headers: { Accept: '*/*' },
-    })
-    .then(res => JSON.stringify(res));
+  return axios.post(url, formData, {
+    headers: { Accept: '*/*' },
+  });
 };
