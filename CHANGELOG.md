@@ -1,3 +1,9 @@
+## [1.9.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.56...v1.9.57) (2022-03-04)
+
+### Bug Fixes
+
+- 日历组件小程序 disabled 后仍然可以点击 ([c331935](https://gitlab2.cqkqinfo.com/web/ui/commit/c33193528369f6aa453df0c11398e20a4746a6db))
+
 ## [1.9.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.55...v1.9.56) (2022-03-04)
 
 ### Bug Fixes
