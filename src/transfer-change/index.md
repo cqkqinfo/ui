@@ -27,7 +27,7 @@ import {
   Switch,
   Icon,
 } from '@kqinfo/ui';
-import { DatePicker, Select } from 'antd';
+import { DatePicker, Select, Input } from 'antd';
 
 export default () => {
   const [form] = Form.useForm();
@@ -39,7 +39,7 @@ export default () => {
     <Form
       form={form}
       onFinish={console.log}
-      onValuesChange={(_, values) => alert(JSON.stringify(values))}
+      onValuesChange={(_, values) => console.log(values)}
     >
       <Space vertical size={'10px'}>
         <PartTitle>将onChange事件转移</PartTitle>
@@ -119,6 +119,46 @@ export default () => {
           <FormItem label={'是否'} name={'boolean'} initialValue={1}>
             <TransferChange mode={'boolean'}>
               <Switch />
+            </TransferChange>
+          </FormItem>
+        </Form>
+        <PartTitle>自定义数组</PartTitle>
+        <Form cell>
+          <FormItem label={'数据项'} name={'arr'} vertical>
+            <TransferChange size={'10px'}>
+              {(onChange, value = []) => (
+                <Space size={'10px'} vertical flex={1}>
+                  {value.map((item, index) => (
+                    <Space alignItems={'center'} size={'10px'}>
+                      <Input
+                        value={item}
+                        onChange={e => {
+                          value[index] = e.target.value;
+                          onChange([...value]);
+                        }}
+                        placeholder={'请输入'}
+                        style={{
+                          textAlign: 'left',
+                        }}
+                      />
+                      <Icon
+                        name={'kq-clear2'}
+                        onTap={() => {
+                          value.splice(index, 1);
+                          onChange([...value]);
+                        }}
+                      />
+                    </Space>
+                  ))}
+                  <Button
+                    onTap={() => {
+                      onChange([...value, undefined]);
+                    }}
+                  >
+                    添加 +
+                  </Button>
+                </Space>
+              )}
             </TransferChange>
           </FormItem>
         </Form>
