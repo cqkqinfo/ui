@@ -57,6 +57,15 @@ export default {
       ? Promise.reject(new Error('请输入手机号码'))
       : Promise.resolve();
   },
+  number: (rule: any, value: any) => {
+    return value
+      ? /^(-?\d+)(\.\d+)?$/.test(value)
+        ? Promise.resolve()
+        : Promise.reject(new Error(rule.message || '请输入正确的数字'))
+      : rule.required
+      ? Promise.reject(new Error('请输入数字'))
+      : Promise.resolve();
+  },
   password: (rule: any, value: any) => {
     return value
       ? passwordSchemas.some(schema => schema.validate(value))
