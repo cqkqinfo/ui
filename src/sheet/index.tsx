@@ -30,6 +30,7 @@ export interface SheetProps {
    */
   direction?: 'left' | 'top' | 'right' | 'bottom';
   onClose?: () => void;
+  style?: React.CSSProperties;
 }
 
 export interface SheetInstance {
@@ -40,7 +41,15 @@ export const SheetContent = createContext(false);
 
 const Sheet = forwardRef<SheetInstance, SheetProps>(
   (
-    { children, className, direction = 'bottom', contentCls, center, onClose },
+    {
+      style,
+      children,
+      className,
+      direction = 'bottom',
+      contentCls,
+      center,
+      onClose,
+    },
     ref,
   ) => {
     const { setIsShowSheetPage } = useConfig();
@@ -80,6 +89,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
               contentCls,
               styles[direction],
             )}
+            style={style}
             onTap={() => {
               setIsShowSheetPage?.('');
               setVisible(false);
