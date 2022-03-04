@@ -239,7 +239,7 @@ export default ({
       ))}
       {days.map((day, index) => {
         const dot = renderDot?.(day, index);
-        const { renderProps, active } = getItemArg(day);
+        const { renderProps, active, disabled } = getItemArg(day);
         const renderEmpty = (before = false) => {
           const length = before ? day.weekday() : 7 - day.weekday() - 1;
           return new Array(length).fill(0).map((_, i) => (
@@ -268,6 +268,7 @@ export default ({
             <Native
               {...renderProps}
               onTap={() => {
+                if (disabled) return;
                 if (range) {
                   const [start, end] = selected as any;
                   let current: Current;
