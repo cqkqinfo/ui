@@ -41,6 +41,16 @@ export default () => {
           name={'idCard'}
           rules={[{ validator: formRules.idCard, required: true }]}
         />
+        <FormItem
+          label={'手机号'}
+          name={'phone'}
+          rules={[{ validator: formRules.phone, required: true }]}
+        />
+        <FormItem
+          label={'数字'}
+          name={'number'}
+          rules={[{ validator: formRules.number, required: true }]}
+        />
       </Form>
       <Button type={'primary'} onTap={() => form.submit()}>
         提交
