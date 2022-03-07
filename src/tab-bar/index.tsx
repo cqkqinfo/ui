@@ -25,6 +25,8 @@ export interface TabBarItemProps {
   hide?: boolean;
 }
 
+export const tabBarItemProps = ({}: TabBarItemProps) => {};
+
 export interface TabBarProps {
   /**
    * 自定义样式名
@@ -51,6 +53,10 @@ export interface TabBarProps {
    */
   items: TabBarItemProps[];
   onChange?: (current: number | string) => void;
+  /**
+   * 子项类名
+   */
+  itemCls?: string;
 }
 
 const TabBar = (props: TabBarProps) => {
@@ -62,6 +68,7 @@ const TabBar = (props: TabBarProps) => {
     activeColor = brandPrimary,
     current,
     items,
+    itemCls,
     onChange,
   } = props;
   const [index, setIndex] = useEffectState(current || items?.[0].index);
@@ -77,7 +84,7 @@ const TabBar = (props: TabBarProps) => {
           const active = index === item.index;
           return (
             <View
-              className={styles.tabBarItem}
+              className={classNames(styles.tabBarItem, itemCls)}
               key={item.index}
               onTap={() => {
                 setIndex?.(item.index);
