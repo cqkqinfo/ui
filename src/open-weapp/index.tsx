@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import { View, ViewProps } from 'remax/one';
 import isWx from '../is-wx';
 import { useId } from 'parsec-hooks';
-import { initData } from '../wx-init';
+// import { initData } from '../wx-init';
 
 export interface Props extends ViewProps {
   /**
@@ -42,7 +42,7 @@ export default ({
   const [initReady, setInitReady] = useState(false);
   const tagName = isWx && initReady ? 'wx-open-launch-weapp' : 'open-weapp';
   useEffect(() => {
-    initData.pending.then(() => setInitReady(true));
+    // initData.pending.then(() => setInitReady(true));
   }, []);
   useEffect(() => {
     const event = function(e: any) {
