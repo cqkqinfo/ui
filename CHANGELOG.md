@@ -1,3 +1,11 @@
+## [1.9.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.60...v1.9.61) (2022-03-07)
+
+### Features
+
+- 防止微信初始化失败 ([d73e375](https://gitlab2.cqkqinfo.com/web/ui/commit/d73e3757833aacfab6f6be925f8e67a6dac0ac09))
+- 很多组件兼容 rn ([99d54a5](https://gitlab2.cqkqinfo.com/web/ui/commit/99d54a55c5ea78a06c1c307714bd5b9033f21a45))
+- 升级 debug 工具 ([7eb9ae4](https://gitlab2.cqkqinfo.com/web/ui/commit/7eb9ae46facae03119a10464c59d3e3920193cbc))
+
 ## [1.9.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.58...v1.9.60) (2022-03-07)
 
 ### Bug Fixes
