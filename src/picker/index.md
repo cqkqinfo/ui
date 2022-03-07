@@ -22,9 +22,12 @@ import {
   Space,
   Button,
 } from '@kqinfo/ui';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 export default () => {
-  const [addressOptions, setAddressOptions] = useState<PickerData[]>([]);
+  const [addressOptions, setAddressOptions] = useState<CascadePickerOption[]>(
+    [],
+  );
   useEffect(() => {
     getAddressOptions().then(options => setAddressOptions(options));
   }, []);
