@@ -22,5 +22,5 @@
     confirm-hold="{{confirmHold}}"
     show-confirm-bar="{{showConfirmBar}}"
   />
-  <view wx:if="{{!myValue}}" style="{{placeholderStyle}}" class="placeholder" >{{placeholder}}</view>
+  <view wx:if="{{!myValue&&!isFocus}}" style="{{placeholderStyle}}" class="placeholder" >{{placeholder}}</view>
 </view>
