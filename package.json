@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.9.58",
+  "version": "1.9.59",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -101,6 +101,7 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.0.0",
     "@ant-design/icons": "^4.7.0",
+    "@ant-design/react-native": "^4.2.0",
     "@testing-library/react": "^11.2.6",
     "@types/crypto-js": "^4.0.1",
     "@types/file-saver": "^2.0.4",
