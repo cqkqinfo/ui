@@ -38,7 +38,7 @@ export default ({
         interval={interval}
         current={currentNum}
         indicatorColor={indicatorColor}
-        onChange={myOnChange}
+        onAnimationFinish={myOnChange}
         indicatorDots={indicatorDots === true}
         indicatorActiveColor={'rgba(0,0,0,0.2)'}
         {...props}
