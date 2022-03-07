@@ -20,6 +20,7 @@ exports[`表单 card模式 1`] = `
         <div
           class=""
           data-is-last="false"
+          style="border-bottom-width: 1px;"
         >
           <div>
             <div
@@ -57,6 +58,7 @@ exports[`表单 card模式 1`] = `
               class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
@@ -75,7 +77,7 @@ exports[`表单 card模式 1`] = `
         <div
           class=""
           data-is-last="true"
-          style="border-bottom: 0;"
+          style="border-bottom-width: 0;"
         >
           <div>
             <div
@@ -118,6 +120,7 @@ exports[`表单 card模式 1`] = `
               class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
@@ -159,6 +162,7 @@ exports[`表单 cell模式 1`] = `
         <div
           class=""
           data-is-last="false"
+          style="border-bottom-width: 1px;"
         >
           <div>
             <div
@@ -209,7 +213,7 @@ exports[`表单 cell模式 1`] = `
         <div
           class=""
           data-is-last="true"
-          style="border-bottom: 0;"
+          style="border-bottom-width: 0;"
         >
           <div>
             <div
@@ -288,6 +292,7 @@ exports[`表单 两端对齐 1`] = `
         <div
           class=""
           data-is-last="false"
+          style="border-bottom-width: 1px;"
         >
           <div>
             <div
@@ -325,6 +330,7 @@ exports[`表单 两端对齐 1`] = `
               class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
@@ -343,7 +349,7 @@ exports[`表单 两端对齐 1`] = `
         <div
           class=""
           data-is-last="true"
-          style="border-bottom: 0;"
+          style="border-bottom-width: 0;"
         >
           <div>
             <div
@@ -386,6 +392,7 @@ exports[`表单 两端对齐 1`] = `
               class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
@@ -427,6 +434,7 @@ exports[`表单 渲染 1`] = `
         <div
           class=""
           data-is-last="false"
+          style="border-bottom-width: 1px;"
         >
           <div>
             <div
@@ -464,6 +472,7 @@ exports[`表单 渲染 1`] = `
               class=""
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
@@ -482,7 +491,7 @@ exports[`表单 渲染 1`] = `
         <div
           class=""
           data-is-last="true"
-          style="border-bottom: 0;"
+          style="border-bottom-width: 0;"
         >
           <div>
             <div
@@ -525,6 +534,7 @@ exports[`表单 渲染 1`] = `
               class=""
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
+              style="text-align: left;"
               toutiao-selection-end="999"
               toutiao-selection-start="999"
               value=""
