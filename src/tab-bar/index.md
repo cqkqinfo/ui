@@ -64,4 +64,4 @@ export default () => {
 };
 ```
 
-<API></API>
+<API exports='["default", "tabBarItemProps"]'></API>
