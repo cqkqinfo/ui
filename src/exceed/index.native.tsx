@@ -39,7 +39,7 @@ export default ({
     className={classNames(styles.exceed, className)}
     style={{
       height: style?.lineHeight
-        ? clamp * +style?.lineHeight
+        ? clamp * +style?.lineHeight?.toString().replace('px', '')
         : `${clamp * 1.2}em`,
       ...style,
     }}
