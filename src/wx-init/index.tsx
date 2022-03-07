@@ -11,6 +11,12 @@ interface ConfigData {
   openTagList?: string[];
 }
 
+let initResolve: () => void;
+
+export const initData = {
+  pending: new Promise<void>(resolve => (initResolve = resolve)),
+};
+
 export default ({
   apiUrl,
   configData,
@@ -51,6 +57,9 @@ export default ({
       Sentry.setExtra('wxConfig', config);
       wx.error((res: any) => {
         Sentry.setExtra('wxError', res);
+      });
+      wx.ready(() => {
+        initResolve();
       });
       resolve({});
     };

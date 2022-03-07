@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { View, ViewProps } from 'remax/one';
 import isWx from '../is-wx';
 import { useId } from 'parsec-hooks';
+import { initData } from '../wx-init';
 
 export interface Props extends ViewProps {
   /**
@@ -33,15 +34,20 @@ export default ({
   path,
   id = useId(),
   className,
-  onLaunch = () => console.log(`跳转到：${path}`),
+  onLaunch,
   appId,
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
-  const tagName = isWx ? 'wx-open-launch-weapp' : 'open-weapp';
+  const [initReady, setInitReady] = useState(false);
+  const tagName = isWx && initReady ? 'wx-open-launch-weapp' : 'open-weapp';
+  useEffect(() => {
+    initData.pending.then(() => setInitReady(true));
+  }, []);
   useEffect(() => {
     const event = function(e: any) {
       onLaunch?.(e);
+      console.log(`跳转到：${path}`);
     };
     setTimeout(() => {
       const btn = document.getElementById(id);
