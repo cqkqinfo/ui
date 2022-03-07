@@ -1,3 +1,10 @@
+## [1.9.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.58...v1.9.60) (2022-03-07)
+
+### Bug Fixes
+
+- 小程序重新进入页面后 swiper 闪动 ([10f3cc9](https://gitlab2.cqkqinfo.com/web/ui/commit/10f3cc99614d687db17cf4f4578b7f5253c8b49e))
+- ci ([cb4439e](https://gitlab2.cqkqinfo.com/web/ui/commit/cb4439ec22d8bc878dec785fff5f9b34635e0a5e))
+
 ## [1.9.59](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.58...v1.9.59) (2022-03-07)
 
 ### Bug Fixes
