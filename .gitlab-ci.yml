@@ -11,6 +11,10 @@ variables:
   APP_NAME: admin # 注意：h5端改成mobile, PC端改成site
   PREPARE_CMD: yarn #安装依赖包的命令
   DIST_PATH: docs-dist #打包结果的路径
+  FF_USE_FASTZIP: "true"
+  ARTIFACT_COMPRESSION_LEVEL: fast
+  CACHE_COMPRESSION_LEVEL: fast
+  TRANSFER_METER_FREQUENCY: 5s
 
 ##------------- production阶段 -------------
 build_app:
@@ -35,6 +39,8 @@ build_app:
     paths:
       - node_modules/
       - $DIST_PATH/
+    key: "node_modules"
+    untracked: true
   only:
     - master
   tags:
@@ -80,6 +86,8 @@ publish:
     paths:
       - node_modules/
       - $DIST_PATH/
+    key: "node_modules"
+    untracked: true
   tags:
     - java_test
   only:
