@@ -62,6 +62,10 @@ export interface RadioProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * dot类名
+   */
+  dotCls?: string;
 }
 
 const Radio = (props: RadioProps) => {
@@ -72,7 +76,7 @@ const Radio = (props: RadioProps) => {
     checked,
     value,
     activeBackgroundColor = brandPrimary,
-    backgroundColor = '#eeeeee',
+    backgroundColor,
     color = '#000',
     activeColor = '#fff',
     style,
@@ -80,6 +84,7 @@ const Radio = (props: RadioProps) => {
     className,
     activeCls,
     type = 'normal',
+    dotCls,
   } = props;
   const [myChecked, setMyChecked] = useEffectState(checked);
   return (
@@ -99,7 +104,7 @@ const Radio = (props: RadioProps) => {
             ? 'none'
             : myChecked
             ? activeBackgroundColor
-            : backgroundColor,
+            : backgroundColor || '#eeeeee',
         color: type !== 'button' ? 'none' : myChecked ? activeColor : color,
         ...style,
       }}
@@ -112,11 +117,15 @@ const Radio = (props: RadioProps) => {
     >
       {type === 'normal' && (
         <View
-          className={classNames(styles.dot, myChecked && styles.dotCheck)}
+          className={classNames(
+            styles.dot,
+            dotCls,
+            myChecked && styles.dotCheck,
+          )}
           style={{
             borderColor: myChecked ? activeBackgroundColor : '#eee',
             borderWidth: myChecked ? undefined : 1,
-            background: activeColor,
+            background: backgroundColor || '#fff',
           }}
         />
       )}
