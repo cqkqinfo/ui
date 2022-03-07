@@ -33,6 +33,13 @@ export default {
     [
       'import',
       {
+        libraryName: '@ant-design/react-native',
+      },
+      '@ant-design/react-native',
+    ],
+    [
+      'import',
+      {
         libraryName: 'antd',
         libraryDirectory: 'es',
         style: 'less',

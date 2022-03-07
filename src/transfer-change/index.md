@@ -125,7 +125,7 @@ export default () => {
         <PartTitle>自定义数组</PartTitle>
         <Form cell>
           <FormItem label={'数据项'} name={'arr'} vertical>
-            <TransferChange size={'10px'}>
+            <TransferChange>
               {(onChange, value = []) => (
                 <Space size={'10px'} vertical flex={1}>
                   {value.map((item, index) => (
