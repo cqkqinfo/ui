@@ -19,7 +19,7 @@ const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
   return (
     <View
       {...myProps}
-      children={platform === 'web' ? props.children : myProps.children}
+      children={platform !== 'wechat' ? props.children : myProps.children}
     />
   );
 };
@@ -134,6 +134,7 @@ export default ({
         : node}
     </NeedWrap>
   );
+  const leftChildrenAlign = childrenAlign === 'left';
   return (
     <NeedWrap wrap={Form} wrapProps={{ component: false }} need={!store}>
       {noStyle
@@ -150,6 +151,14 @@ export default ({
               ) : React.isValidElement(children) ? (
                 React.cloneElement(children as React.ReactElement, {
                   ...control,
+                  style: {
+                    ...children.props?.style,
+                    ...(leftChildrenAlign ? { textAlign: 'left' } : {}),
+                  },
+                  placeholderStyle: {
+                    ...children.props?.placeholderStyle,
+                    ...(leftChildrenAlign ? { textAlign: 'left' } : {}),
+                  },
                   onFocus: (...e: any) => {
                     inputFocus.current = true;
                     React.isValidElement(children) &&
@@ -196,7 +205,7 @@ export default ({
                   vertical && styles.vertical,
                 )}
                 style={{
-                  borderBottom: (props as any)['data-is-last'] ? 0 : undefined,
+                  borderBottomWidth: (props as any)['data-is-last'] ? 0 : 1,
                   ...itemStyle,
                   ...style,
                 }}
@@ -265,15 +274,13 @@ export default ({
                   className={classNames(
                     styles.children,
                     cell && styles['cell-children'],
-                    childrenAlign === 'left' && styles['cell-children-left'],
+                    leftChildrenAlign && styles['cell-children-left'],
                     childrenCls,
                     outChildrenCls,
                   )}
                   style={{
                     justifyContent:
-                      label && childrenAlign !== 'left'
-                        ? 'flex-end'
-                        : 'flex-start',
+                      label && !leftChildrenAlign ? 'flex-end' : 'flex-start',
                     ...itemChildrenStyle,
                   }}
                 >
