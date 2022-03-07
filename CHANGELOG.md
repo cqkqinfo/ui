@@ -1,3 +1,15 @@
+## [1.9.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.61...v1.9.62) (2022-03-07)
+
+### Bug Fixes
+
+- exceed rn 报错 ([7a4d912](https://gitlab2.cqkqinfo.com/web/ui/commit/7a4d91237b10569d448d572de15acce046a1414b))
+- input placeholder 重叠 ([a38da42](https://gitlab2.cqkqinfo.com/web/ui/commit/a38da424cd0f908eb6a42013b86632dbb9d9d00a))
+- radio 背景色不能覆盖 ([e2a0b90](https://gitlab2.cqkqinfo.com/web/ui/commit/e2a0b908c74612c76e7b238fdc1df8da3d98fbee))
+
+### Features
+
+- tabBar 添加 itemCls ([931a5bd](https://gitlab2.cqkqinfo.com/web/ui/commit/931a5bd44f713c51a45129175574bc49aa0d8178))
+
 ## [1.9.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.60...v1.9.61) (2022-03-07)
 
 ### Features
