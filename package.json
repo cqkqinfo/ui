@@ -88,6 +88,7 @@
     "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.14.0",
     "swiper": "^7.2.0",
+    "vstores": "^0.0.7",
     "weixin-js-sdk": "^1.6.0",
     "wxbarcode": "^1.0.2"
   },
