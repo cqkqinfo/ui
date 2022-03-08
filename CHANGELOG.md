@@ -1,3 +1,9 @@
+## [1.9.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.66...v1.9.67) (2022-03-08)
+
+### Features
+
+- useBackUrl 默认返回 query ([007e6ab](https://gitlab2.cqkqinfo.com/web/ui/commit/007e6abeef9167e2c7729b02e14af4204d610e84))
+
 ## [1.9.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.65...v1.9.66) (2022-03-08)
 
 ### Bug Fixes
