@@ -52,6 +52,8 @@ export default () => {
     [],
   );
 
+  const [opsVisibleIndex, setOpsVisibleIndex] = useState<number>();
+
   return (
     <Space vertical size={'10px'}>
       <PartTitle>一般用法</PartTitle>
@@ -65,7 +67,10 @@ export default () => {
       </DropDownMenu>
       <div style={{ marginTop: '150px' }} />
       <PartTitle>自定义子项目</PartTitle>
-      <DropDownMenu>
+      <DropDownMenu
+        opsVisibleIndex={opsVisibleIndex}
+        onOpsVisible={(_, visibleIndex) => setOpsVisibleIndex(visibleIndex)}
+      >
         <DropDownMenuItem
           value={selectUser}
           onChange={setSelectUser}
@@ -73,7 +78,7 @@ export default () => {
         />
         <DropDownMenuItem title="报告类型" options={options2} />
         <DropDownMenuItem title="报告日历">
-          <Calendar />
+          <Calendar onChange={() => setOpsVisibleIndex(undefined)} />
         </DropDownMenuItem>
       </DropDownMenu>
     </Space>
