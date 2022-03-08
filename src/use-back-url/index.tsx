@@ -41,25 +41,31 @@ export default ({
       query,
       data => {
         sessionStorage.removeItem(key);
-        window.location.href = `${storageUrl}${
-          storageUrl.includes('?') ? '&' : '?'
-        }${qs.stringify({
-          ...data,
-          backSuccess: 1,
-        })}`;
+        window.location.replace(
+          `${storageUrl}${storageUrl.includes('?') ? '&' : '?'}${qs.stringify({
+            ...data,
+            backSuccess: 1,
+          })}`,
+        );
       },
     ];
   }
   if (path) {
-    window.location.href = `${host}#${path}${
-      path.includes('?') ? '&' : '?'
-    }${qs.stringify({
-      ...query,
-      ...params,
-      backUrl,
-      backSuccess: 1,
-      // ...params,
-    })}`;
+    const key = `${window.location.pathname}-jumpSuccess`;
+    if (sessionStorage[key]) {
+      sessionStorage.removeItem(key);
+      return [query];
+    }
+    sessionStorage.setItem(key, '1');
+    window.location.replace(
+      `${host}#${path}${path.includes('?') ? '&' : '?'}${qs.stringify({
+        ...query,
+        ...params,
+        backUrl,
+        backSuccess: 1,
+        // ...params,
+      })}`,
+    );
   }
   return [query];
 };
