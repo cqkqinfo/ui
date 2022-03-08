@@ -7,6 +7,7 @@ import NeedWrap from '../need-wrap';
 import Animated from '../animated';
 import 'array-flat-polyfill';
 import '../_init';
+import styles from './index.module.less';
 
 export interface Props
   extends Pick<
@@ -102,6 +103,23 @@ export default forwardRef(
       )
       ?.flat(3)
       ?.filter?.(i => ![undefined, true, false, null].includes(i));
+    style = {
+      lineHeight: vertical ? 1 : undefined,
+      flex,
+      justifyContent: justify,
+      margin,
+      padding,
+      alignSelf,
+      alignItems,
+      flexWrap,
+      flexDirection: vertical ? 'column' : undefined,
+      ...style,
+    };
+    Object.entries(style).forEach(([key, value]) => {
+      if (value === undefined) {
+        delete (style as any)[key];
+      }
+    });
     return (
       <NeedWrap
         wrap={Animated.View}
@@ -109,21 +127,8 @@ export default forwardRef(
         wrapProps={animation as any}
       >
         <View
-          style={{
-            lineHeight: vertical ? 1 : undefined,
-            flex,
-            justifyContent: justify,
-            margin,
-            padding,
-            alignSelf,
-            alignItems,
-            flexWrap,
-            display: 'flex',
-            boxSizing: 'border-box',
-            flexDirection: vertical ? 'column' : undefined,
-            ...style,
-          }}
-          className={classNames(className)}
+          style={style}
+          className={classNames(styles.space, className)}
           {...props}
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
