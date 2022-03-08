@@ -555,3 +555,7 @@ export { default as InputLicenseKeyBoard } from './input-license-key-board';
  * 使用回调页面
  */
 export { default as useBackUrl } from './use-back-url';
+/**
+ * 是否是微信环境
+ */
+export { default as isWx } from './is-wx';
