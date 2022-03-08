@@ -1,3 +1,9 @@
+## [1.9.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.67...v1.9.68) (2022-03-08)
+
+### Features
+
+- 防止 useBackUrl 重复跳转 ([0f0b671](https://gitlab2.cqkqinfo.com/web/ui/commit/0f0b671d978525c1e28f1fd58cd993f12de5459f))
+
 ## [1.9.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.66...v1.9.67) (2022-03-08)
 
 ### Features
