@@ -1,3 +1,9 @@
+## [1.9.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.64...v1.9.65) (2022-03-08)
+
+### Bug Fixes
+
+- 移除 FastClick 修复上传需要点击多次才粗发 ([8685fed](https://gitlab2.cqkqinfo.com/web/ui/commit/8685fed456f02fa4a03609540179fbbb1c005fe8))
+
 ## [1.9.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.63...v1.9.64) (2022-03-08)
 
 ### Features
