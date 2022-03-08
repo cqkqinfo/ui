@@ -61,5 +61,5 @@ export default ({
       // ...params,
     })}`;
   }
-  return [{}];
+  return [query];
 };
