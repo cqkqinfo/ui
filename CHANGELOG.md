@@ -1,3 +1,10 @@
+## [1.9.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.65...v1.9.66) (2022-03-08)
+
+### Bug Fixes
+
+- openWeapp 不能初始化 ([0862f7c](https://gitlab2.cqkqinfo.com/web/ui/commit/0862f7c05452657e8f1903f06ae1fc35cbcf06e4))
+- openWeapp 文档错误 ([1f52515](https://gitlab2.cqkqinfo.com/web/ui/commit/1f525155f44f00377d029a2db6cdb2107c976134))
+
 ## [1.9.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.64...v1.9.65) (2022-03-08)
 
 ### Bug Fixes
