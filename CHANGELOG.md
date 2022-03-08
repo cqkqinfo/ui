@@ -1,3 +1,9 @@
+## [1.9.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.63...v1.9.64) (2022-03-08)
+
+### Features
+
+- 导出 isWx ([a49969c](https://gitlab2.cqkqinfo.com/web/ui/commit/a49969cfdae98b11313c8b124d112658d6f3f1a0))
+
 ## [1.9.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.62...v1.9.63) (2022-03-08)
 
 ### Features
