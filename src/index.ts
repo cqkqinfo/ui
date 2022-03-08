@@ -174,6 +174,10 @@ export { default as showLoading } from './show-loading';
  */
 export { default as axios } from './axios';
 /**
+ * store 存储器
+ */
+export { default as storage } from './storage';
+/**
  * 显示弹窗
  */
 export { default as showModal } from './show-modal';
