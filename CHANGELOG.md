@@ -1,3 +1,9 @@
+## [1.9.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.62...v1.9.63) (2022-03-08)
+
+### Features
+
+- 增加 storage 存储器 ([4c14045](https://gitlab2.cqkqinfo.com/web/ui/commit/4c140456a7eb19e19d5a9de3e15fa5733d728090))
+
 ## [1.9.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.61...v1.9.62) (2022-03-07)
 
 ### Bug Fixes
