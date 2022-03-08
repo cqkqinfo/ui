@@ -11,7 +11,7 @@ export interface Props extends ViewProps {
    */
   children?: React.ReactElement;
   /**
-   * web端跳转需要这个，小程序的账号原始id
+   * web端跳转需要这个，小程序gh_开头的账号原始id
    */
   username?: string;
   /**

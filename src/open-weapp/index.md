@@ -21,14 +21,12 @@ import { View } from 'remax/one';
 export default () => (
   <Space vertical size={'10px'} alignItems={'flex-start'}>
     <PartTitle>一般用法</PartTitle>
-    <OpenWeapp onLaunch={() => alert('模拟成功')}>
-      <View
-        style={{ width: 100, height: 100, background: '#eee' }}
-        path={'pages/index/index'}
-        username={''}
-      >
-        打开
-      </View>
+    <OpenWeapp
+      onLaunch={() => alert('模拟成功')}
+      path={'pages/index/index'}
+      username={'gh_d9c1c80f9bfa'}
+    >
+      <View style={{ width: 100, height: 100, background: '#eee' }}>打开</View>
     </OpenWeapp>
   </Space>
 );
