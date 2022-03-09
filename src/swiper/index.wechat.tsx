@@ -37,10 +37,10 @@ export default ({
         autoplay={autoplay}
         interval={interval}
         current={currentNum}
-        indicatorColor={indicatorColor}
+        indicatorColor={'rgba(0,0,0,0.2)'}
         onAnimationFinish={myOnChange}
         indicatorDots={indicatorDots === true}
-        indicatorActiveColor={'rgba(0,0,0,0.2)'}
+        indicatorActiveColor={indicatorColor}
         {...props}
       >
         {items.map(({ node, className, style, ...prpos }, index) => (
