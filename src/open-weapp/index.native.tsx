@@ -19,6 +19,7 @@ export default ({
           ...style,
         },
         onTap: (e: any) => {
+          props.onTap?.(e);
           children.props.onTap?.(e);
           if (path) {
             // if (appId === getAccountInfoSync().miniProgram.appId) {
