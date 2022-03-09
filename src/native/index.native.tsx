@@ -13,6 +13,11 @@ export default forwardRef<NativeInstance, Props>(
       setData,
     });
     useImperativeHandle(ref, () => returns, [returns]);
-    return <View onTap={onTap}>{visible ? children : null}</View>;
+    return (
+      <View onTap={onTap} className={className} style={style as any}>
+        {visible ? children : null}
+        {content}
+      </View>
+    );
   },
 );
