@@ -47,6 +47,8 @@ export default ({
   >
     {typeof children === 'string'
       ? children.replace?.(/(<[^>]+>)|(&[^>]+;)/g, '')
+      : children instanceof Array
+      ? children.join('')
       : children}
     {more && (
       <Text
