@@ -1,3 +1,16 @@
+## [1.9.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.68...v1.9.69) (2022-03-09)
+
+### Bug Fixes
+
+- swiper indicatorActiveColor 不正常 ([84895bf](https://gitlab2.cqkqinfo.com/web/ui/commit/84895bfb1cdfbac7344d538bc2b3ac62d0cfe125))
+
+### Features
+
+- getVersion 支持 rn ([50bcb9b](https://gitlab2.cqkqinfo.com/web/ui/commit/50bcb9b9d7de8f805128f96f8d3f18cefd5a79ec))
+- openWeapp 兼容 rn ([32fedfa](https://gitlab2.cqkqinfo.com/web/ui/commit/32fedfa9408734830a4b0e356b7f2b0d98a83e64))
+- openWeapp 兼容 rn ([ec81455](https://gitlab2.cqkqinfo.com/web/ui/commit/ec814558eac80fc3a7c2c2bb84a20143e81cefc6))
+- richText 兼容 rn ([fe46c87](https://gitlab2.cqkqinfo.com/web/ui/commit/fe46c87f858dfb59c4b242cfdc3b3e64a1ec312d))
+
 ## [1.9.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.67...v1.9.68) (2022-03-08)
 
 ### Features
