@@ -51,12 +51,6 @@ export default ({
     ];
   }
   if (path) {
-    const key = `${window.location.pathname}-jumpSuccess`;
-    if (sessionStorage[key]) {
-      sessionStorage.removeItem(key);
-      return [query];
-    }
-    sessionStorage.setItem(key, '1');
     window.location.replace(
       `${host}#${path}${path.includes('?') ? '&' : '?'}${qs.stringify({
         ...query,
