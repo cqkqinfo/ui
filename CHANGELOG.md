@@ -1,3 +1,12 @@
+## [1.9.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.69...v1.9.70) (2022-03-09)
+
+### Bug Fixes
+
+- native rn 样式不生效 ([f99af9f](https://gitlab2.cqkqinfo.com/web/ui/commit/f99af9fefe5423cb2e6ac5053aff46ac6423fa9f))
+- openWeapp rn 不跳转 ([df55637](https://gitlab2.cqkqinfo.com/web/ui/commit/df556378197bb1a6941d2c678b1fb49107506d9a))
+- rn exceed 可能会报错 ([2ef7db0](https://gitlab2.cqkqinfo.com/web/ui/commit/2ef7db027c285c66626f20d20d90c5fce3b47434))
+- useBackUrl 不跳转 ([4b43381](https://gitlab2.cqkqinfo.com/web/ui/commit/4b43381c2b7fd333501bde8bc9e7dee78fbfbdc1))
+
 ## [1.9.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.68...v1.9.69) (2022-03-09)
 
 ### Bug Fixes

@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.9.69",
+  "version": "1.9.70",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
