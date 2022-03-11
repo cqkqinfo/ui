@@ -77,7 +77,6 @@ export default ({
         vertical
         style={{
           width: rpxToPx(666),
-          marginTop: process.env.REMAX_PLATFORM === 'native' ? -2 : undefined,
         }}
       >
         <View className={classNames(styles.title, titleCls)}>{title}</View>
