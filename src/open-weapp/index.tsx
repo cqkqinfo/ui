@@ -43,6 +43,9 @@ export default ({
   const tagName = isWx && initReady ? 'wx-open-launch-weapp' : 'open-weapp';
   useEffect(() => {
     initData.pending.then(() => setInitReady(true));
+    setTimeout(() => {
+      setInitReady(true);
+    }, 1000);
   }, []);
   useEffect(() => {
     const event = function(e: any) {
