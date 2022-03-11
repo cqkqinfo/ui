@@ -1,3 +1,9 @@
+## [1.9.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.70...v1.9.71) (2022-03-11)
+
+### Features
+
+- 防止 openWeapp 初始化失败 ([727fb12](https://gitlab2.cqkqinfo.com/web/ui/commit/727fb12f8636f097b6bf1bac8b45e3d3b5803b9a))
+
 ## [1.9.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.69...v1.9.70) (2022-03-09)
 
 ### Bug Fixes
