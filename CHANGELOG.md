@@ -1,3 +1,15 @@
+## [1.9.72](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.71...v1.9.72) (2022-03-11)
+
+### Bug Fixes
+
+- button size rn 不生效 ([625c95e](https://gitlab2.cqkqinfo.com/web/ui/commit/625c95e7e002931d4ae6eb05decaf00c4e023f36))
+- tip rn 不对齐 ([3a64c7f](https://gitlab2.cqkqinfo.com/web/ui/commit/3a64c7f885ccd7d072efbc74a7bb90bde9915edd))
+- 订阅消息兼容 rn ([f4027c4](https://gitlab2.cqkqinfo.com/web/ui/commit/f4027c4a4ea33a0706e392959ff494242d451966))
+
+### Features
+
+- 优化删除图标大小 ([5f3d617](https://gitlab2.cqkqinfo.com/web/ui/commit/5f3d6170813b396f5e95c05e74ca8e0ffa3a17c6))
+
 ## [1.9.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.70...v1.9.71) (2022-03-11)
 
 ### Features
