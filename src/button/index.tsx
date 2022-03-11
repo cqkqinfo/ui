@@ -103,12 +103,12 @@ const Button = ({
       className={classNames(
         styles.button,
         className,
+        block && styles.block,
         styles[size],
         styles[type],
         ghost && styles.ghost,
         ghost && styles[`${type}-ghost`],
         disabled && styles.disable,
-        block && styles.block,
         loading && styles.loading,
         round && styles.round,
         bold || (elderly && styles.bold),
