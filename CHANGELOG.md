@@ -1,3 +1,14 @@
+## [1.9.73](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.72...v1.9.73) (2022-03-14)
+
+### Bug Fixes
+
+- 微信 picker datetime 可能报错 ([9e501a4](https://gitlab2.cqkqinfo.com/web/ui/commit/9e501a48899b1cb5e85e98196213c85ee9c527c6))
+
+### Features
+
+- loading 支持自定义颜色 ([d1637e4](https://gitlab2.cqkqinfo.com/web/ui/commit/d1637e44bc4d02c2d767c23f03c947bd1670c789))
+- 大量组件兼容 rn ([8b86053](https://gitlab2.cqkqinfo.com/web/ui/commit/8b8605394ab8fc05c76cdc74927e27abcbfe48d1))
+
 ## [1.9.72](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.71...v1.9.72) (2022-03-11)
 
 ### Bug Fixes
