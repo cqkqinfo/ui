@@ -7,6 +7,7 @@ import Icon from '../icon';
 import { useConfig } from '../config-provider';
 import Space from '../space';
 import { rpxToPx } from '@kqinfo/ui';
+import classnames from 'classnames';
 
 export interface Props {
   /**
@@ -19,9 +20,17 @@ export interface Props {
    * @default full
    */
   type?: 'top' | 'full' | 'inline';
+  /**
+   * 加载文字类名
+   */
+  textCls?: string;
+  /**
+   * 加载图标颜色
+   */
+  iconColor?: string;
 }
 
-export default ({ type, content = '加载中' }: Props) => {
+export default ({ type, content = '加载中', iconColor, textCls }: Props) => {
   const { brandPrimary } = useConfig();
   const top = type === 'top';
   if (type === 'inline') {
@@ -43,10 +52,12 @@ export default ({ type, content = '加载中' }: Props) => {
         <View className={top ? styles.top : styles.full}>
           <Icon
             name={top ? 'kq-loading' : 'kq-loading2'}
-            color={top ? brandPrimary : '#fff'}
+            color={iconColor || (top ? brandPrimary : '#fff')}
             size={top ? 50 : 80}
           />
-          {!top && <View className={styles.text}>{content}</View>}
+          {!top && (
+            <View className={classnames(styles.text, textCls)}>{content}</View>
+          )}
         </View>
       </NeedWrap>
     </View>
