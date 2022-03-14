@@ -52,7 +52,7 @@ Component({
       }
     },
     myValue: function(value) {
-      if (this.data.changed || value) {
+      if ((this.data.changed || value) && value !== this.data.value) {
         this.setData({ changed: true });
         throttle(
           this.data.myId,
