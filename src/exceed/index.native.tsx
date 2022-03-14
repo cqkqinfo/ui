@@ -38,9 +38,11 @@ export default ({
   <View
     className={classNames(styles.exceed, className)}
     style={{
-      height: style?.lineHeight
-        ? clamp * +style?.lineHeight?.toString().replace('px', '')
-        : `${clamp * 1.2}em`,
+      height: children
+        ? style?.lineHeight
+          ? clamp * +style?.lineHeight?.toString().replace('px', '')
+          : `${clamp * 1.2}em`
+        : 0,
       ...style,
     }}
     {...props}

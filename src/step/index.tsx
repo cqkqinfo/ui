@@ -101,7 +101,7 @@ export default ({
                 >
                   {active && (
                     <View className={styles.iconWrap}>
-                      <Icon name="kq-yes" color={brandPrimary} />
+                      <Icon name="kq-yes" size={22} color={brandPrimary} />
                     </View>
                   )}
                 </View>

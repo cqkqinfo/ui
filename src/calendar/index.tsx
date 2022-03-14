@@ -8,6 +8,7 @@ import weekday from 'dayjs/plugin/weekday';
 import { useConfig } from '../config-provider';
 import { Native } from '@kqinfo/ui';
 import { NativeInstance } from '../native';
+import rpxToPx from '../rpx-to-px';
 
 dayjs.extend(weekday);
 
@@ -198,7 +199,7 @@ export default ({
       } = getItemArg(day);
       return {
         style: {
-          marginRight: day.weekday() === 6 ? '0PX' : undefined,
+          marginRight: day.weekday() === 6 ? '0PX' : rpxToPx(30),
           ...renderProps?.style,
         },
         className: classNames(
@@ -232,7 +233,7 @@ export default ({
         <View
           className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
-          style={{ marginRight: index === 6 ? 0 : undefined }}
+          style={{ marginRight: index === 6 ? 0 : rpxToPx(30) }}
         >
           {item}
         </View>
@@ -247,7 +248,7 @@ export default ({
               className={classNames(itemCls, styles.item, styles.empty)}
               key={i}
               style={{
-                marginRight: !before && i === length - 1 ? 0 : undefined,
+                marginRight: !before && i === length - 1 ? 0 : rpxToPx(30),
               }}
             />
           ));

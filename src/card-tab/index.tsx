@@ -51,7 +51,8 @@ export default <T extends unknown>({
       <Space
         flex={1}
         justify={'space-between'}
-        style={{ width: '100%' }}
+        style={{ width: wrapWidth || '100%' }}
+        flexWrap={'nowrap'}
         className={containerCls}
       >
         {tabs.map(({ content, index }, i) => {
