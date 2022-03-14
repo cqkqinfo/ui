@@ -287,16 +287,19 @@ export default ({
                   {readOnly ? (
                     <>
                       <Field shouldUpdate>
-                        {(_, __, { getFieldValue, getFieldsValue }) =>
-                          (name !== undefined &&
-                            (renderReadOnlyValue
-                              ? renderReadOnlyValue(
-                                  getFieldValue(name),
-                                  getFieldsValue(),
-                                )
-                              : getFieldValue(name) || values?.[name + ''])) ||
-                          children
-                        }
+                        {(_, __, { getFieldValue, getFieldsValue }) => (
+                          <View>
+                            {(name !== undefined &&
+                              (renderReadOnlyValue
+                                ? renderReadOnlyValue(
+                                    getFieldValue(name),
+                                    getFieldsValue(),
+                                  )
+                                : getFieldValue(name) ||
+                                  values?.[name + ''])) ||
+                              children}
+                          </View>
+                        )}
                       </Field>
                       <View
                         style={{

@@ -1,13 +1,18 @@
 import { useCallback, useState } from 'react';
 
-// export const getWH = (id: string) =>
-//   new Promise<{ width: number; height: number }>(resolve => {
-//     const { offsetWidth, offsetHeight } = document.getElementById(id) || {};
-//     resolve({
-//       width: offsetWidth || 0,
-//       height: offsetHeight || 0,
-//     });
-//   });
+export const getLayout = (id: string) =>
+  new Promise<{ width?: number; height?: number; x?: number; y?: number }>(
+    resolve => {
+      // const { width, height, x, y } =
+      //   document.getElementById(id)?.getBoundingClientRect() || {};
+      // resolve({
+      //   width,
+      //   height,
+      //   x,
+      //   y,
+      // });
+    },
+  );
 
 export default ({ run = true }: { run?: boolean } = {}) => {
   const [wh, setWh] = useState({});
