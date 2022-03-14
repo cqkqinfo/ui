@@ -200,7 +200,7 @@ export default (props: Props) => {
                     return str.replace('日', ' ');
                   }
                   return (
-                    str.replace(/\W$/, '') +
+                    str?.replace(/\W$/, '') +
                     (i < value.length - 1
                       ? i < value.length - 2
                         ? '-'
