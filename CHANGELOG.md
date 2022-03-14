@@ -1,3 +1,10 @@
+## [1.9.74](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.73...v1.9.74) (2022-03-14)
+
+### Bug Fixes
+
+- 微信小程序 input 不能被 reset ([7965255](https://gitlab2.cqkqinfo.com/web/ui/commit/7965255f4a616d072edcf315dfcd1e3b7a2961ba))
+- 阿里小程序 radio 显示不正常 ([54ea4b2](https://gitlab2.cqkqinfo.com/web/ui/commit/54ea4b2c2cb74da5e2bd9df0b4a384b2b8b9e820))
+
 ## [1.9.73](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.72...v1.9.73) (2022-03-14)
 
 ### Bug Fixes
