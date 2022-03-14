@@ -37,12 +37,17 @@ export default ({
 }: Props) => (
   <View
     className={classNames(styles.exceed, className)}
+    is-text
     style={{
       height: children
         ? style?.lineHeight
           ? clamp * +style?.lineHeight?.toString().replace('px', '')
           : `${clamp * 1.2}em`
         : 0,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      numberOfLines: clamp,
+      textOverflow: 'ellipsis',
       ...style,
     }}
     {...props}
