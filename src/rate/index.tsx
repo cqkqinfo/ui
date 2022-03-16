@@ -5,6 +5,7 @@ import { IconFontNames } from '../icon/other';
 import { useConfig } from '../config-provider';
 import styles from './index.module.less';
 import useViewLayout from '../use-view-layout';
+import pxToRpx from '../px-to-rpx';
 
 interface Props {
   /**
@@ -125,31 +126,38 @@ export default ({
       const itemStyle = {
         marginRight: index !== maxValue - 1 ? gutter : 0,
       };
-      if (renderItem) {
-        const result = renderNode({
+      let result = renderItem ? (
+        renderNode({
           index,
           maxValue,
           actived,
-        });
-        return React.isValidElement(result)
+        })
+      ) : (
+        <Icon
+          size={size}
+          name={iconName}
+          style={itemStyle}
+          onTap={() => handleChange(index + 1)}
+          color={actived ? activeColor || brandPrimary : defaultColor}
+        />
+      );
+      if (renderItem) {
+        result = React.isValidElement(result)
           ? React.cloneElement(result, {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               style: {
                 ...itemStyle,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 ...result.props.style,
               },
             })
           : result;
       }
       return (
-        <View {...(actived ? {} : rateArg)}>
-          <Icon
-            key={index}
-            size={size}
-            name={iconName}
-            style={itemStyle}
-            onTap={() => handleChange(index + 1)}
-            color={actived ? activeColor || brandPrimary : defaultColor}
-          />
+        <View key={index} {...(actived && !index ? {} : rateArg)}>
+          {result}
         </View>
       );
     });
@@ -163,7 +171,8 @@ export default ({
       <View
         className={styles.placeHolder}
         style={{
-          width: showVal * rateWidth + parseInt(showVal + '') * guttersWidth,
+          width: `${showVal * rateWidth +
+            parseInt(showVal + '') * guttersWidth}PX`,
         }}
       >
         <View className={styles.wrap} {...arg}>
