@@ -1,3 +1,15 @@
+## [1.9.76](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.75...v1.9.76) (2022-03-16)
+
+### Bug Fixes
+
+- native rn children 不更新 ([6be0506](https://gitlab2.cqkqinfo.com/web/ui/commit/6be050629251e05e3db67f13294d53a282cf8280))
+- sheet rn 不显示 ([e3eb8f5](https://gitlab2.cqkqinfo.com/web/ui/commit/e3eb8f5e842385e2e9169d830f7476b4b98c881e))
+
+### Features
+
+- rate 支持小数点显示 ([5252f74](https://gitlab2.cqkqinfo.com/web/ui/commit/5252f7464136407172a2d929f7a8a141b9a3e72e))
+- webView 支持 rn ([ce9e7e2](https://gitlab2.cqkqinfo.com/web/ui/commit/ce9e7e25baccb70c9ed16d39eaf8acb172b4ca82))
+
 ## [1.9.75](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.74...v1.9.75) (2022-03-14)
 
 ### Features
