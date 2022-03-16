@@ -1,3 +1,14 @@
 .wrap {
   display: inline-flex;
+  position: relative;
+}
+
+.placeHolder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  width: 100px;
 }

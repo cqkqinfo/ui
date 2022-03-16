@@ -4,6 +4,7 @@ import Icon from '../icon';
 import { IconFontNames } from '../icon/other';
 import { useConfig } from '../config-provider';
 import styles from './index.module.less';
+import useViewLayout from '../use-view-layout';
 
 interface Props {
   /**
@@ -118,39 +119,57 @@ export default ({
     },
     [renderItem, handleChange],
   );
-
-  return (
-    <View className={styles.wrap}>
-      {new Array(maxValue).fill(1).map((_, index) => {
-        const itemStyle = { marginRight: index !== maxValue - 1 ? gutter : 0 };
-        if (renderItem) {
-          const result = renderNode({
-            index,
-            maxValue,
-            actived: index + 1 <= showVal,
-          });
-          return React.isValidElement(result)
-            ? React.cloneElement(result, {
-                style: {
-                  ...itemStyle,
-                  ...result.props.style,
-                },
-              })
-            : result;
-        }
-        return (
+  const { width: rateWidth = 0, ...rateArg } = useViewLayout();
+  const renderRateArr = (actived = false) =>
+    new Array(maxValue).fill(1).map((_, index) => {
+      const itemStyle = {
+        marginRight: index !== maxValue - 1 ? gutter : 0,
+      };
+      if (renderItem) {
+        const result = renderNode({
+          index,
+          maxValue,
+          actived,
+        });
+        return React.isValidElement(result)
+          ? React.cloneElement(result, {
+              style: {
+                ...itemStyle,
+                ...result.props.style,
+              },
+            })
+          : result;
+      }
+      return (
+        <View {...(actived ? {} : rateArg)}>
           <Icon
             key={index}
             size={size}
             name={iconName}
             style={itemStyle}
             onTap={() => handleChange(index + 1)}
-            color={
-              index + 1 <= showVal ? activeColor || brandPrimary : defaultColor
-            }
+            color={actived ? activeColor || brandPrimary : defaultColor}
           />
-        );
-      })}
+        </View>
+      );
+    });
+
+  const { width: wrapWidth = 0, ...arg } = useViewLayout();
+  const guttersWidth = (wrapWidth - rateWidth * maxValue) / (maxValue - 1);
+
+  return (
+    <View className={styles.wrap}>
+      {renderRateArr()}
+      <View
+        className={styles.placeHolder}
+        style={{
+          width: showVal * rateWidth + parseInt(showVal + '') * guttersWidth,
+        }}
+      >
+        <View className={styles.wrap} {...arg}>
+          {renderRateArr(true)}
+        </View>
+      </View>
     </View>
   );
 };

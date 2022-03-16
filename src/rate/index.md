@@ -47,6 +47,8 @@ export default () => {
       <Rate value={value} onChange={setValue} />
       <div style={{ marginBottom: 10 }} />
       <Rate defaultValue={2} disabled />
+      <PartTitle>小数点值展示</PartTitle>
+      <Rate value={2.6} />
     </Space>
   );
 };
