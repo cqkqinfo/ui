@@ -5,7 +5,7 @@ import { IconFontNames } from '../icon/other';
 import { useConfig } from '../config-provider';
 import styles from './index.module.less';
 import useViewLayout from '../use-view-layout';
-import pxToRpx from '../px-to-rpx';
+import getPlatform from '../get-platform';
 
 interface Props {
   /**
@@ -162,8 +162,8 @@ export default ({
       );
     });
 
-  const { width: wrapWidth = 0, ...arg } = useViewLayout();
-  const guttersWidth = (wrapWidth - rateWidth * maxValue) / (maxValue - 1);
+  const { width: gutterWidth = 0, ...gutterArg } = useViewLayout();
+  const resultRateWidth = rateWidth - (getPlatform === 'web' ? 0 : gutterWidth);
 
   return (
     <View className={styles.wrap}>
@@ -171,13 +171,12 @@ export default ({
       <View
         className={styles.placeHolder}
         style={{
-          width: `${showVal * rateWidth +
-            parseInt(showVal + '') * guttersWidth}PX`,
+          width: `${parseInt(showVal + '') * (gutterWidth + resultRateWidth) +
+            (showVal % 1) * resultRateWidth}PX`,
         }}
       >
-        <View className={styles.wrap} {...arg}>
-          {renderRateArr(true)}
-        </View>
+        <View className={styles.wrap}>{renderRateArr(true)}</View>
+        <View style={{ height: 1, width: gutter }} {...gutterArg} />
       </View>
     </View>
   );
