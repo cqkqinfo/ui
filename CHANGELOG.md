@@ -1,3 +1,10 @@
+## [1.9.77](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.76...v1.9.77) (2022-03-16)
+
+### Bug Fixes
+
+- exceed 不能点击 ([02f683a](https://gitlab2.cqkqinfo.com/web/ui/commit/02f683ac58dff00492c8d70b0574f1e457be7b28))
+- rate 小数点小程序显示 ([689da37](https://gitlab2.cqkqinfo.com/web/ui/commit/689da37bb3980928345d46042401ed43b0b5c129))
+
 ## [1.9.76](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.75...v1.9.76) (2022-03-16)
 
 ### Bug Fixes
