@@ -1,3 +1,9 @@
+## [1.9.78](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.77...v1.9.78) (2022-03-16)
+
+### Bug Fixes
+
+- rate 小数点小程序显示 ([3417082](https://gitlab2.cqkqinfo.com/web/ui/commit/3417082f5cdf2bf38683f207530dd8d6ecd069b0))
+
 ## [1.9.77](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.76...v1.9.77) (2022-03-16)
 
 ### Bug Fixes
