@@ -1,3 +1,9 @@
+## [1.9.79](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.78...v1.9.79) (2022-03-16)
+
+### Bug Fixes
+
+- checkBox disabled 无效 ([3aef0ba](https://gitlab2.cqkqinfo.com/web/ui/commit/3aef0bae96aa6833106f87f563003d94d32865a1))
+
 ## [1.9.78](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.77...v1.9.78) (2022-03-16)
 
 ### Bug Fixes
