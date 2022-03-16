@@ -22,5 +22,5 @@ export default React.memo(
       );
     },
   ),
-  () => true,
+  ({ reRender = true }: any) => reRender,
 );
