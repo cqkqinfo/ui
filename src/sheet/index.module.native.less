@@ -8,11 +8,12 @@
   left: 0;
   top: 0;
   transition: all 0.3s, z-index 0s 0.3s;
-  overflow: hidden;
+  //overflow: hidden;
   pointer-events: none;
 }
 .content {
   //transform: translateY(200vh);
+  //margin-top: 200vh;
   transition: all 0.3s;
   will-change: transform;
   position: absolute;
@@ -20,29 +21,30 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  //overflow: auto;
 }
 .bottom {
-  margin-top: 200vh;
+  //margin-top: 200vh;
 }
 .top {
-  margin-bottom: 200vh;
+  //margin-bottom: 200vh;
 }
 .left {
-  margin-right: 200vw;
+  //margin-right: 200vw;
 }
 .right {
-  margin-left: 200vw;
+  //margin-left: 200vw;
 }
 .show {
   pointer-events: auto;
   z-index: 101;
   opacity: 1;
-  overflow: auto;
+  //overflow: auto;
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.3s;
-  .content {
-    //transform: translateY(0);
-    margin: 0;
-  }
+}
+.showContent {
+  //transform: translateY(0);
+  //margin-top: 0;
+  //margin-left: 0;
 }
