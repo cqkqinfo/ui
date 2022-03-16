@@ -48,7 +48,7 @@ export default () => {
       <div style={{ marginBottom: 10 }} />
       <Rate defaultValue={2} disabled />
       <PartTitle>小数点值展示</PartTitle>
-      <Rate value={2.6} />
+      <Rate value={4.4} />
     </Space>
   );
 };
