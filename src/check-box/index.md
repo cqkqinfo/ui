@@ -56,7 +56,11 @@ export default () => {
           { value: '1', label: '西瓜' },
           { value: '2', label: '香蕉' },
         ].map((item: any) => (
-          <CheckBox value={item.value} key={item.value}>
+          <CheckBox
+            disabled={item.value === '1'}
+            value={item.value}
+            key={item.value}
+          >
             {item.label}
           </CheckBox>
         ))}

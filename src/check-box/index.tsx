@@ -92,6 +92,7 @@ const Checkbox = (props: CheckBoxProps) => {
         styles.checkBox,
         type === 'normal' && styles.annaCheckBox,
         type === 'button' && styles.btn,
+        disabled && styles.disabled,
         myChecked && type === 'button' && styles.activebtn,
         myChecked && activeCls,
         className,
@@ -146,7 +147,7 @@ const getCheckboxs = (
       props: {
         ...checkbox.props,
         checked,
-        disabled,
+        disabled: p.disabled,
         onChange: onGroupChange,
       },
     };
