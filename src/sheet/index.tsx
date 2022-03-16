@@ -86,6 +86,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           <Space
             className={classNames(
               styles.content,
+              visible && styles.showContent,
               contentCls,
               styles[direction],
             )}
@@ -120,6 +121,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
       () => (
         <Native
           ref={nativeRef}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          reRender={false}
           initData={{
             className: classNames(styles.sheet, className),
           }}
