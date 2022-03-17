@@ -148,6 +148,7 @@ export default <T extends unknown>({
               )}
               {dataSource?.map((item, i) => (
                 <View
+                  is-text
                   key={i}
                   className={classNames(styles.row, rowCls)}
                   style={{
@@ -165,6 +166,7 @@ export default <T extends unknown>({
                 >
                   {columns?.map(({ dataIndex, render = v => v }, i) => (
                     <View
+                      is-text
                       style={{ justifyContent: getJustify(i), ...itemStyle }}
                       className={classNames(styles.item, itemCls)}
                       key={i}
