@@ -1,3 +1,13 @@
+## [1.9.83](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.82...v1.9.83) (2022-03-17)
+
+### Bug Fixes
+
+- useTitle 有时候失效 ([e500656](https://gitlab2.cqkqinfo.com/web/ui/commit/e5006567cbf890b9d1dddf660ef98b3852aa0ee4))
+
+### Reverts
+
+- Revert "fix: useTitle 有时候失效" ([9fa7c96](https://gitlab2.cqkqinfo.com/web/ui/commit/9fa7c96fea8377580ac6175132bd43aa8291755b))
+
 ## [1.9.82](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.81...v1.9.82) (2022-03-17)
 
 ### Bug Fixes
