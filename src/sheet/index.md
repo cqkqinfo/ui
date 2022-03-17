@@ -16,12 +16,11 @@ import React, { useRef, useState } from 'react';
 import { Space, Sheet, PartTitle, Button } from '@kqinfo/ui';
 import { SheetInstance } from '@kqinfo/ui/es/sheet';
 
-export default () => {
+const Demo = ({ direction, style }: any) => {
   const sheetRef = useRef<SheetInstance>(null);
   return (
-    <Space vertical size={'10px'}>
-      <PartTitle>一般用法</PartTitle>
-      <Sheet ref={sheetRef}>
+    <>
+      <Sheet ref={sheetRef} direction={direction}>
         <Button
           style={{ width: 100, height: 100 }}
           onTap={() => {
@@ -32,6 +31,7 @@ export default () => {
         </Button>
       </Sheet>
       <Button
+        style={style}
         type={'primary'}
         onTap={() => {
           sheetRef.current?.setVisible(true);
@@ -39,6 +39,22 @@ export default () => {
       >
         显示
       </Button>
+    </>
+  );
+};
+
+export default () => {
+  const sheetRef = useRef<SheetInstance>(null);
+  return (
+    <Space vertical size={'10px'}>
+      <PartTitle>从底部显示</PartTitle>
+      <Demo direction={'bottom'} />
+      <PartTitle>从顶部显示</PartTitle>
+      <Demo direction={'top'} />
+      <PartTitle>从左边显示</PartTitle>
+      <Demo direction={'left'} />
+      <PartTitle>从右边显示</PartTitle>
+      <Demo direction={'right'} />
     </Space>
   );
 };
