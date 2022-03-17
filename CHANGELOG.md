@@ -1,3 +1,9 @@
+## [1.9.81](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.80...v1.9.81) (2022-03-17)
+
+### Bug Fixes
+
+- sheet 方向错误 ([db4f2e5](https://gitlab2.cqkqinfo.com/web/ui/commit/db4f2e5ae23f3a46db810f0efecf36e84fcb9f80))
+
 ## [1.9.80](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.79...v1.9.80) (2022-03-17)
 
 ### Bug Fixes
