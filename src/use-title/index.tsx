@@ -1,8 +1,3 @@
-import { useForceUpdate, useTitle } from 'parsec-hooks';
-import { usePageEvent } from 'remax/macro';
+import { useTitle } from 'parsec-hooks';
 
-export default (title: string) => {
-  useTitle(title);
-  const { forceUpdate } = useForceUpdate();
-  usePageEvent('onShow', forceUpdate);
-};
+export default useTitle;
