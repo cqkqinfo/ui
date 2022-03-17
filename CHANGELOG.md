@@ -1,3 +1,9 @@
+## [1.9.82](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.81...v1.9.82) (2022-03-17)
+
+### Bug Fixes
+
+- useTitle 有时候失效 ([f9af88d](https://gitlab2.cqkqinfo.com/web/ui/commit/f9af88dca94ce084474185f2d8e8c4597acda46f))
+
 ## [1.9.81](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.80...v1.9.81) (2022-03-17)
 
 ### Bug Fixes
