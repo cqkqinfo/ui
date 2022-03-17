@@ -115,7 +115,16 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
           </Space>
         </SheetContent.Provider>
       ),
-      [center, children, contentCls, direction, onClose, setIsShowSheetPage],
+      [
+        center,
+        children,
+        contentCls,
+        direction,
+        onClose,
+        setIsShowSheetPage,
+        style,
+        visible,
+      ],
     );
     return useMemo(
       () => (
@@ -128,10 +137,10 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             className: classNames(styles.sheet, className),
           }}
         >
-          {visible && content}
+          {content}
         </Native>
       ),
-      [className, content, visible],
+      [className, content],
     );
   },
 );
