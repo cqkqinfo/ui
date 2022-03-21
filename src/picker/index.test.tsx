@@ -1,8 +1,12 @@
 import React from 'react';
 import Picker from './index';
-import data from '../address-options';
+import getAddressOptions from '../get-address-options';
 import { render, fireEvent } from '@testing-library/react';
 import dayjs from 'dayjs';
+
+let data: any = [];
+
+getAddressOptions().then(res => (data = res));
 
 describe('picker选择器', () => {
   it('渲染', () => {
