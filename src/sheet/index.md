@@ -55,6 +55,31 @@ export default () => {
       <Demo direction={'left'} />
       <PartTitle>从右边显示</PartTitle>
       <Demo direction={'right'} />
+      <PartTitle>抽屉</PartTitle>
+      <Sheet ref={sheetRef} direction={'right'}>
+        <Space
+          justify={'center'}
+          alignItems={'center'}
+          style={{ height: '100vh', width: '80vw', background: '#fff' }}
+        >
+          <Button
+            style={{ width: 100, height: 100 }}
+            onTap={() => {
+              sheetRef.current?.setVisible(false);
+            }}
+          >
+            隐藏
+          </Button>
+        </Space>
+      </Sheet>
+      <Button
+        type={'primary'}
+        onTap={() => {
+          sheetRef.current?.setVisible(true);
+        }}
+      >
+        显示
+      </Button>
     </Space>
   );
 };
