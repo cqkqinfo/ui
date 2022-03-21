@@ -53,6 +53,11 @@ export interface UseInputOption
    * 占位字符类名
    */
   placeholderClassName?: string;
+  /**
+   * 设置在微信上的延迟处理
+   * @default 500
+   */
+  delay?: number;
 }
 
 export default ({
@@ -62,6 +67,7 @@ export default ({
   placeholderStyle,
   value,
   disabled,
+  delay,
   ...props
 }: UseInputOption) => {
   const inSheet = useContext(SheetContent);
@@ -70,6 +76,7 @@ export default ({
   const newProps = {
     adjustPosition: true,
     ...props,
+    delay: delay || 500,
     disabled: disabled || (page === isShowSheetPage && !inSheet),
     value,
     className: classNames(styles.input, className),

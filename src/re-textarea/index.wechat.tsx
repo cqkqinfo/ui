@@ -31,6 +31,7 @@ export default (props: UseInputOption) => {
     showConfirmBar,
     type,
     placeholderClassName,
+    delay,
     onConfirm,
   } = useInput(props);
   return (
@@ -43,6 +44,7 @@ export default (props: UseInputOption) => {
       bindconfirm={onConfirm}
       className={className}
       placeholder={placeholder}
+      delay={delay}
       focus={focus}
       placeholderStyle={plainStyle(placeholderStyle)}
       autoHeight={autoHeight}

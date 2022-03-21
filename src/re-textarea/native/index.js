@@ -34,6 +34,7 @@ Component({
     defaultValue: String,
     disabled: Boolean,
     maxLength: Number,
+    delay: Number,
     password: Boolean,
     confirmType: String,
     placeholderClassName: String,
@@ -59,7 +60,7 @@ Component({
           () => {
             this.triggerEvent('change', value);
           },
-          500,
+          this.data.delay || 500,
         );
       }
     },
