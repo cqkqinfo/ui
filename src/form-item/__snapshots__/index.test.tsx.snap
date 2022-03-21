@@ -129,6 +129,7 @@ exports[`表单项 渲染 1`] = `
           >
             <input
               class=""
+              delay="500"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"

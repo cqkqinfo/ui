@@ -5644,10 +5644,6 @@ check-types@^8.0.3:
   version "8.0.3"
   resolved "https://registry.npmjs.org/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
 
-china-division@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/china-division/-/china-division-2.3.1.tgz#a49fa806af01d1852747466ad3c30bf0be988511"
-
 china-id-card@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/china-id-card/-/china-id-card-1.0.3.tgz#c2336ce8a4067ba813ce3b5d0a79a2236b8504eb"
@@ -9476,6 +9472,11 @@ immediate@~3.0.5:
   version "3.0.6"
   resolved "https://registry.nlark.com/immediate/download/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha1-nbHb0Pr43m++D13V5Wu2BigN5ps=
+
+immutable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/immutable/-/immutable-4.0.0.tgz#b86f78de6adef3608395efb269a91462797e2c23"
+  integrity sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==
 
 import-cdn-js@^0.0.2:
   version "0.0.2"
