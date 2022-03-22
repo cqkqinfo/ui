@@ -5,6 +5,7 @@ import styles from './index.module.less';
 import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
+import rpxToPx from '../rpx-to-px';
 
 export interface RadioProps {
   /**
@@ -124,7 +125,7 @@ const Radio = (props: RadioProps) => {
           )}
           style={{
             borderColor: myChecked ? activeBackgroundColor : '#eee',
-            borderWidth: myChecked ? undefined : 1,
+            borderWidth: myChecked ? rpxToPx(11) : 1,
             background: backgroundColor || '#fff',
           }}
         />
