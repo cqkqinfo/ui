@@ -1,3 +1,13 @@
+# [1.10.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.83...v1.10.0) (2022-03-22)
+
+### Bug Fixes
+
+- rn radio 没有选中效果 ([a154d84](https://gitlab2.cqkqinfo.com/web/ui/commit/a154d84adf2f14bd20b6e62bec336f1bf8954edc))
+
+### Features
+
+- reInput 添加 delay 配置 ([7f4e6cf](https://gitlab2.cqkqinfo.com/web/ui/commit/7f4e6cf43de656388e2b017038b13c2277e0fbed))
+
 ## [1.9.83](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.82...v1.9.83) (2022-03-17)
 
 ### Bug Fixes
