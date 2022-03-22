@@ -21,7 +21,7 @@ const getDeliveryStatus = switchVariable({
   default: '待发货',
   1: '待寄出',
   2: '待揽收',
-  '3,4': '已完成', // 多个值同个状态用','分割
+  '3|4': '已完成', // 正则表达式
 });
 
 const getStatusText = (orderStatus?: string, deliveryStatus?: string) =>
@@ -105,4 +105,4 @@ export default () => {
 };
 ```
 
-<API></API>
+<API exports='["Obj"]'></API>
