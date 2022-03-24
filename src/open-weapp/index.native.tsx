@@ -2,7 +2,7 @@ import React from 'react';
 import { navigateTo } from 'remax/one';
 import { Props } from './index';
 import getAccountInfoSync from '../get-account-info-sync';
-import WeChat from 'react-native-wechat-lib';
+import { launchMiniProgram } from 'react-native-wechat-lib';
 import versionVariable from '../version-variable';
 
 export default ({
@@ -29,13 +29,9 @@ export default ({
             if (appId === getAccountInfoSync().miniProgram.appId) {
               navigateTo({ url: path }).then(onLaunch);
             } else if (username) {
-              WeChat.launchMiniProgram({
+              launchMiniProgram({
                 userName: username,
-                miniProgramType: versionVariable({
-                  develop: 1,
-                  trial: 2,
-                  release: 0,
-                }), // 拉起小程序的类型. 0-正式版 1-开发版 2-体验版
+                miniProgramType: 0, // 拉起小程序的类型. 0-正式版 1-开发版 2-体验版
                 path,
               });
             }
