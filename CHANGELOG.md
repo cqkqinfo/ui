@@ -1,3 +1,9 @@
+## [1.10.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.2...v1.10.3) (2022-03-24)
+
+### Bug Fixes
+
+- swiper 设置 displayMultipleItems 后 lineDots 不正常 ([f547530](https://gitlab2.cqkqinfo.com/web/ui/commit/f5475302a6d642ca58d13db6e596407c36413101))
+
 ## [1.10.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.1...v1.10.2) (2022-03-24)
 
 ### Bug Fixes
