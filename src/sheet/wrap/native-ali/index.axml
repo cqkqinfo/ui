@@ -1,0 +1,4 @@
+<view disableScroll="{{true}}">
+    <slot/>
+</view>
+
