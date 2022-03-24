@@ -1,3 +1,10 @@
+## [1.10.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.0...v1.10.1) (2022-03-24)
+
+### Features
+
+- openWeapp 支持 rn ([8763353](https://gitlab2.cqkqinfo.com/web/ui/commit/8763353f333c23947ae2214fb17dedb8bbcf680f))
+- uploadImg 支持 readOnly ([edc20a0](https://gitlab2.cqkqinfo.com/web/ui/commit/edc20a078c66ccf6191675ce0034c35069c1a0bb))
+
 # [1.10.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.9.83...v1.10.0) (2022-03-22)
 
 ### Bug Fixes
