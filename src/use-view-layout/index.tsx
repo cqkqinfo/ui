@@ -1,5 +1,4 @@
-import { useForceUpdate } from 'parsec-hooks';
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 export const getLayout = (id: string) =>
   new Promise<{ width?: number; height?: number; x?: number; y?: number }>(
@@ -16,13 +15,27 @@ export const getLayout = (id: string) =>
   );
 
 export default ({ run = true }: { run?: boolean } = {}) => {
-  const { forceUpdate } = useForceUpdate();
-  const ref = useRef<HTMLElement>(null);
-  const { y, width, x, height } = ref.current?.getBoundingClientRect() || {};
-  useEffect(() => {
-    if (height === undefined && run) {
-      forceUpdate();
-    }
-  }, [width, height, forceUpdate, run]);
-  return { width: width || undefined, height: height || undefined, ref, y, x };
+  const [layout, setLayout] = useState<{
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+  }>({});
+  return {
+    ...layout,
+    ref: (ref: any) => {
+      if (ref && run) {
+        let newLayout = ref.getBoundingClientRect();
+        newLayout = {
+          width: newLayout.width,
+          height: newLayout.height,
+          x: newLayout.x,
+          y: newLayout.y,
+        };
+        if (JSON.stringify(newLayout) !== JSON.stringify(layout)) {
+          setLayout(newLayout);
+        }
+      }
+    },
+  };
 };

@@ -23,7 +23,7 @@ export default ({ run = true }: { run?: boolean } = {}) => {
   const countRef = useRef(0);
   const id = useId();
   useEffect(() => {
-    if (run && wh.height === undefined) {
+    if (run) {
       const query = createSelectorQuery();
       const count = countRef.current + 1;
       countRef.current = count;
@@ -40,6 +40,6 @@ export default ({ run = true }: { run?: boolean } = {}) => {
           }
         });
     }
-  }, [id, run, wh]);
+  });
   return { ...wh, id };
 };
