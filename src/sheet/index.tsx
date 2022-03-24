@@ -15,6 +15,7 @@ import Space from '../space';
 import switchVariable from '../switch-variable';
 import getCurrentPage from '../get-current-page';
 import { useConfig } from '../config-provider';
+import Wrap from './wrap';
 
 export interface SheetProps {
   children: React.ReactNode;
@@ -89,39 +90,41 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
     const content = useMemo(
       () => (
         <SheetContent.Provider value={true}>
-          <Space
-            className={classNames(
-              styles.content,
-              visible && styles.showContent,
-              contentCls,
-              styles[direction],
-            )}
-            style={style}
-            onTap={() => {
-              if (!maskClosable) {
-                return;
+          <Wrap visible={visible}>
+            <Space
+              className={classNames(
+                styles.content,
+                visible && styles.showContent,
+                contentCls,
+                styles[direction],
+              )}
+              style={style}
+              onTap={() => {
+                if (!maskClosable) {
+                  return;
+                }
+                setIsShowSheetPage?.('');
+                setVisible(false);
+                sheetInstanceRef.current.setVisible(false);
+                onClose?.();
+              }}
+              justify={switchVariable({
+                default: 'center',
+                left: 'flex-start',
+                right: 'flex-end',
+              })(direction)}
+              alignItems={
+                center
+                  ? 'center'
+                  : switchVariable({
+                      bottom: 'flex-end',
+                      default: 'flex-start',
+                    })(direction)
               }
-              setIsShowSheetPage?.('');
-              setVisible(false);
-              sheetInstanceRef.current.setVisible(false);
-              onClose?.();
-            }}
-            justify={switchVariable({
-              default: 'center',
-              left: 'flex-start',
-              right: 'flex-end',
-            })(direction)}
-            alignItems={
-              center
-                ? 'center'
-                : switchVariable({
-                    bottom: 'flex-end',
-                    default: 'flex-start',
-                  })(direction)
-            }
-          >
-            <Space onTap={e => e.stopPropagation()}>{children}</Space>
-          </Space>
+            >
+              <Space onTap={e => e.stopPropagation()}>{children}</Space>
+            </Space>
+          </Wrap>
         </SheetContent.Provider>
       ),
       [

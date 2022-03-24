@@ -13835,6 +13835,11 @@ pretty-time@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
 
+prevent-scroll@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/prevent-scroll/-/prevent-scroll-2.0.0.tgz#e8f6d3b7942baea9dedb82de81aef82b85af6fef"
+  integrity sha1-6PbTt5Qrrqne24Lega74K4Wvb+8=
+
 prism-react-renderer@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmjs.org/prism-react-renderer/-/prism-react-renderer-1.2.0.tgz#5ad4f90c3e447069426c8a53a0eafde60909cdf4"
