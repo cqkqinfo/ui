@@ -1,12 +1,17 @@
 import getCurrentPage from '../get-current-page';
 import React, { useRef, useState } from 'react';
-import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
+import {
+  SheetWrap,
+  SheetWrapInstance,
+  SheetWrapData,
+  SheetProps,
+} from '../sheet';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import Space from '../space';
 import classNames from 'classnames';
 
-export interface ShowOptions {
+export interface ShowOptions extends Pick<SheetProps, 'maskClosable'> {
   /**
    * 操作项
    */

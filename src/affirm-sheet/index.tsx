@@ -1,6 +1,11 @@
 import getCurrentPage from '../get-current-page';
 import React, { useRef, useState } from 'react';
-import { SheetWrap, SheetWrapInstance, SheetWrapData } from '../sheet';
+import {
+  SheetWrap,
+  SheetWrapInstance,
+  SheetWrapData,
+  SheetProps,
+} from '../sheet';
 import styles from './index.module.less';
 import Space from '../space';
 import ColorText from '../color-text';
@@ -8,7 +13,7 @@ import Button, { Props as ButtonProps } from '../button';
 import { useConfig } from '../config-provider';
 import classNames from 'classnames';
 
-export interface ShowOptions {
+export interface ShowOptions extends Pick<SheetProps, 'maskClosable'> {
   /**
    * 确认标题
    * @default 提示
