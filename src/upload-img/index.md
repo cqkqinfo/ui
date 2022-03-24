@@ -55,6 +55,9 @@ export default () => {
           showToast({ title: '文件过大', icon: 'none' });
         }}
         tip={'请上传'}
+        readOnly={{
+          deletable: (_, index) => index !== 1,
+        }}
         uploadFn={file =>
           new Promise(resolve => {
             setTimeout(() => {
@@ -76,4 +79,4 @@ export default () => {
 };
 ```
 
-<API></API>
+<API exports='["default", "readOnly"]'></API>
