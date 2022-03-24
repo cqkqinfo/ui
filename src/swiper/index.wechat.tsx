@@ -16,6 +16,7 @@ export default ({
   current,
   onChange,
   lineDotsCls,
+  displayMultipleItems,
   ...props
 }: Props) => {
   const [myCurrent, myOnChange] = useControllableValue(
@@ -29,6 +30,7 @@ export default ({
         },
   );
   const currentNum = myCurrent?.detail?.current;
+  console.log(currentNum);
   return (
     <View style={{ position: 'relative' }}>
       <Swiper
@@ -41,6 +43,7 @@ export default ({
         onAnimationFinish={myOnChange}
         indicatorDots={indicatorDots === true}
         indicatorActiveColor={indicatorColor}
+        displayMultipleItems={displayMultipleItems}
         {...props}
       >
         {items.map(({ node, className, style, ...prpos }, index) => (
@@ -58,6 +61,7 @@ export default ({
         <LineDots
           current={currentNum}
           length={items.length}
+          displayMultipleItems={displayMultipleItems}
           className={lineDotsCls}
         />
       )}
