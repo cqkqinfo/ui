@@ -7,16 +7,21 @@ export default ({
   current,
   length,
   className,
+  displayMultipleItems = 1,
 }: {
   length: number;
   current: number;
+  displayMultipleItems?: number;
   className?: string;
 }) => {
   return length - 1 ? (
     <View className={classNames(styles.lineWrap, className)}>
       <View
         className={styles.line}
-        style={{ marginLeft: `${33 * (current / (length - 1))}%` }}
+        style={{
+          marginLeft: `${33 *
+            (current / (length - 1 - (displayMultipleItems - 1)))}%`,
+        }}
       />
     </View>
   ) : null;

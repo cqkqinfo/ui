@@ -90,6 +90,7 @@ export default ({
       {indicatorDots === 'line' && (
         <LineDots
           length={items.length}
+          displayMultipleItems={displayMultipleItems}
           current={myCurrent?.detail?.current || 0}
           className={lineDotsCls}
         />
