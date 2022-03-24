@@ -7,6 +7,21 @@ import Icon from '../icon';
 import previewImage from '../preview-image';
 import getPlatform from '../get-platform';
 
+interface ReadOnly {
+  /**
+   * 是否可以添加
+   * @default true
+   */
+  addable: boolean;
+  /**
+   * 是否可以删除
+   * @default true
+   */
+  deletable: boolean | ((url: string, index: number) => boolean);
+}
+
+export const readOnly = ({}: ReadOnly) => {};
+
 interface Props {
   /**
    * 图片数量
@@ -79,6 +94,11 @@ interface Props {
    * 只有小程序支持，选择图片的来源
    */
   sourceType?: Array<'album' | 'camera'>;
+  /**
+   * 只读模式
+   * @default false
+   */
+  readOnly?: boolean | ReadOnly;
 }
 
 export default ({
@@ -106,13 +126,25 @@ export default ({
   className,
   delIconCls,
   itemCls,
+  readOnly = false,
 }: Props) => {
   const [loadingArr, setLoadingArr, loadingArrRef] = useRefState<string[]>([]);
   const valueRef = useStateRef(value);
+  const { addable = true, deletable = true } =
+    readOnly === true
+      ? {
+          addable: false,
+          deletable: false,
+        }
+      : readOnly
+      ? readOnly
+      : {};
   return (
     <View className={classNames(styles.uploadImg, className)} style={style}>
       {[...value, ...loadingArr].map((item, index) => {
         const loading = loadingArr.includes(item);
+        const canDel =
+          typeof deletable !== 'boolean' ? deletable(item, index) : deletable;
         return (
           <View
             className={classNames(styles.uploadImgItem, itemCls)}
@@ -131,21 +163,23 @@ export default ({
                 <Icon name={'kq-loading'} color={'#fff'} />
               </View>
             ) : (
-              <View
-                className={classNames(styles.uploadImgItemDelete, delIconCls)}
-                onTap={() => {
-                  const temp = [...value];
-                  temp.splice(index, 1);
-                  onChange && onChange([...temp]);
-                }}
-              >
-                {delIcon}
-              </View>
+              canDel && (
+                <View
+                  className={classNames(styles.uploadImgItemDelete, delIconCls)}
+                  onTap={() => {
+                    const temp = [...value];
+                    temp.splice(index, 1);
+                    onChange && onChange([...temp]);
+                  }}
+                >
+                  {delIcon}
+                </View>
+              )
             )}
           </View>
         );
       })}
-      {value.length + loadingArr.length < length && (
+      {value.length + loadingArr.length < length && addable && (
         <View
           onTap={() => {
             if (valueRef.current.length >= length) {
