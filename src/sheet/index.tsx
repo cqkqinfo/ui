@@ -31,6 +31,11 @@ export interface SheetProps {
   direction?: 'left' | 'top' | 'right' | 'bottom';
   onClose?: () => void;
   style?: React.CSSProperties;
+  /**
+   * 点击背景是否可以关闭
+   * @default true
+   */
+  maskClosable?: boolean;
 }
 
 export interface SheetInstance {
@@ -49,6 +54,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
       contentCls,
       center,
       onClose,
+      maskClosable = true,
     },
     ref,
   ) => {
@@ -92,6 +98,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             )}
             style={style}
             onTap={() => {
+              if (!maskClosable) {
+                return;
+              }
               setIsShowSheetPage?.('');
               setVisible(false);
               sheetInstanceRef.current.setVisible(false);
@@ -120,6 +129,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
         children,
         contentCls,
         direction,
+        maskClosable,
         onClose,
         setIsShowSheetPage,
         style,
@@ -178,11 +188,13 @@ export const SheetWrap = forwardRef(
       resolve: () => {},
       reject: () => {},
     });
+    const [sheetProps, setSheetProps] = useState<Partial<SheetProps>>({});
     useEffect(() => {
       data[page] = {
-        fn: options =>
+        fn: ({ maskClosable, ...options }) =>
           new Promise((resolve, reject) => {
             setOptions(options);
+            setSheetProps({ maskClosable });
             sheetRef.current?.setVisible(true);
             setPromiseFn({ reject, resolve });
           }),
@@ -195,7 +207,7 @@ export const SheetWrap = forwardRef(
       [promiseFn],
     );
     return (
-      <Sheet ref={sheetRef} {...props}>
+      <Sheet ref={sheetRef} {...props} {...sheetProps}>
         {children}
       </Sheet>
     );

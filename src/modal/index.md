@@ -90,12 +90,13 @@ export default () => {
         onTap={() =>
           Modal.show({
             title: '手动隐藏',
+            maskClosable: false,
             content: <Button onTap={() => Modal.hide()}>隐藏</Button>,
             footer: null,
           })
         }
       >
-        手动隐藏
+        禁止点击背景，手动隐藏
       </Button>
     </Space>
   );
