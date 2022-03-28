@@ -21,6 +21,13 @@ export default ({ run = true }: { run?: boolean } = {}) => {
     /**
      * 暂不支持根据run自动获取
      */
-    onLayout: useCallback(e => setWh(e.nativeEvent.layout), []),
+    onLayout: useCallback(
+      e => {
+        if (run) {
+          setWh(e.nativeEvent.layout);
+        }
+      },
+      [run],
+    ),
   };
 };
