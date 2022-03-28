@@ -9,6 +9,7 @@ import { useConfig } from '../config-provider';
 import { Native } from '@kqinfo/ui';
 import { NativeInstance } from '../native';
 import rpxToPx from '../rpx-to-px';
+import getPlatform from '../get-platform';
 
 dayjs.extend(weekday);
 
@@ -199,7 +200,12 @@ export default ({
       } = getItemArg(day);
       return {
         style: {
-          marginRight: day.weekday() === 6 ? '0PX' : rpxToPx(30),
+          marginRight:
+            day.weekday() === 6
+              ? '0PX'
+              : getPlatform === 'native'
+              ? rpxToPx(30)
+              : undefined,
           ...renderProps?.style,
         },
         className: classNames(
