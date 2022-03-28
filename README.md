@@ -73,6 +73,20 @@ const App = (props) => {
 };
 ```
 
+## 使用源安装
+
+在项目根目录添加`.npmrc`文件
+
+```
+canvas_binary_host_mirror=https://npm.taobao.org/mirrors/canvas/
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+electron_mirror=https://npm.taobao.org/mirrors/electron/
+chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver/
+sentrycli_cdnurl=https://cdn.npm.taobao.org/dist/sentry-cli
+cypress_download_mirror=https://npm.taobao.org/mirrors/cypress/
+```
+
 ## 开发
 
 安装依赖
