@@ -6,7 +6,6 @@ import Shadow from '../shadow';
 import Icon from '../icon';
 import { useConfig } from '../config-provider';
 import Space from '../space';
-import { rpxToPx } from '@kqinfo/ui';
 import classnames from 'classnames';
 
 export interface Props {
@@ -28,20 +27,34 @@ export interface Props {
    * 加载图标颜色
    */
   iconColor?: string;
+  className?: string;
+  /**
+   * 自定义图标
+   */
+  icon?: React.ReactNode;
 }
 
-export default ({ type, content = '加载中', iconColor, textCls }: Props) => {
+export default ({
+  type,
+  content = '加载中',
+  iconColor,
+  textCls,
+  icon,
+  className,
+}: Props) => {
   const { brandPrimary } = useConfig();
   const top = type === 'top';
   if (type === 'inline') {
     return (
       <Space
         size={10}
-        className={styles.tip}
+        className={classnames(styles.tip, className)}
         alignItems={'center'}
         justify={'center'}
       >
-        <Icon size={30} color={'#CCCCCC'} name={'kq-loading2'} />
+        {icon || (
+          <Icon size={30} color={iconColor || '#CCCCCC'} name={'kq-loading2'} />
+        )}
         {content}
       </Space>
     );
@@ -49,12 +62,14 @@ export default ({ type, content = '加载中', iconColor, textCls }: Props) => {
   return (
     <View className={!top && styles.mask}>
       <NeedWrap need={top} wrap={Shadow}>
-        <View className={top ? styles.top : styles.full}>
-          <Icon
-            name={top ? 'kq-loading' : 'kq-loading2'}
-            color={iconColor || (top ? brandPrimary : '#fff')}
-            size={top ? 50 : 80}
-          />
+        <View className={classnames(top ? styles.top : styles.full, className)}>
+          {icon || (
+            <Icon
+              name={top ? 'kq-loading' : 'kq-loading2'}
+              color={iconColor || (top ? brandPrimary : '#fff')}
+              size={top ? 50 : 80}
+            />
+          )}
           {!top && (
             <View className={classnames(styles.text, textCls)}>{content}</View>
           )}
