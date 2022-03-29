@@ -1,3 +1,11 @@
+## [1.10.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.4...v1.10.5) (2022-03-29)
+
+### Bug Fixes
+
+- ci ([29fb240](https://gitlab2.cqkqinfo.com/web/ui/commit/29fb240ac4c6341fe953e9c574260941bcd95eef))
+- exceed rn 不生效 ([325e037](https://gitlab2.cqkqinfo.com/web/ui/commit/325e037214875859b12c744fa930eb058ea4f162))
+- 日历组件小程序上异常 ([5f794a2](https://gitlab2.cqkqinfo.com/web/ui/commit/5f794a2cb1126dfd644f39ef9580e2655e36da7e))
+
 ## [1.10.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.3...v1.10.4) (2022-03-28)
 
 ### Bug Fixes
