@@ -239,7 +239,14 @@ export default ({
         <View
           className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
-          style={{ marginRight: index === 6 ? 0 : rpxToPx(30) }}
+          style={{
+            marginRight:
+              index === 6
+                ? 0
+                : getPlatform === 'native'
+                ? rpxToPx(30)
+                : undefined,
+          }}
         >
           {item}
         </View>
@@ -254,7 +261,12 @@ export default ({
               className={classNames(itemCls, styles.item, styles.empty)}
               key={i}
               style={{
-                marginRight: !before && i === length - 1 ? 0 : rpxToPx(30),
+                marginRight:
+                  !before && i === length - 1
+                    ? 0
+                    : getPlatform === 'native'
+                    ? rpxToPx(30)
+                    : undefined,
               }}
             />
           ));
