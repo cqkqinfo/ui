@@ -1,3 +1,13 @@
+## [1.10.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.5...v1.10.6) (2022-03-29)
+
+### Bug Fixes
+
+- rn noData 显示不正常 ([4051c26](https://gitlab2.cqkqinfo.com/web/ui/commit/4051c26d3b49c68db52b34808a356ba127a26a28))
+
+### Features
+
+- loading 添加更多自定义 ([cc6aa0a](https://gitlab2.cqkqinfo.com/web/ui/commit/cc6aa0a42059e5ddc303c90f108881feab3e4954))
+
 ## [1.10.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.4...v1.10.5) (2022-03-29)
 
 ### Bug Fixes
