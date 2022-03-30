@@ -511,3 +511,11 @@ export { default as useBackUrl } from './use-back-url';
  * 是否是微信环境
  */
 export { default as isWx } from './is-wx';
+/**
+ * 使用cdn
+ */
+export { default as useImportCDN } from './use-import-c-d-n';
+/**
+ * 引入cdn
+ */
+export { default as importCDN } from './import-c-d-n';

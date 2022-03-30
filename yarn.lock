@@ -3247,6 +3247,13 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
+"@types/acorn@^4.0.5":
+  version "4.0.6"
+  resolved "https://registry.npmmirror.com/@types/acorn/-/acorn-4.0.6.tgz#d61ca5480300ac41a7d973dd5b84d0a591154a22"
+  integrity sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==
+  dependencies:
+    "@types/estree" "*"
+
 "@types/aes-js@^3.1.1":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@types/aes-js/-/aes-js-3.1.1.tgz#34b3978122310c135de4b377270d1d65676fae28"
@@ -3308,6 +3315,11 @@
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+
+"@types/estree@0.0.41":
+  version "0.0.41"
+  resolved "https://registry.npmmirror.com/@types/estree/-/estree-0.0.41.tgz#fd90754150b57432b72bf560530500597ff04421"
+  integrity sha512-rIAmXyJlqw4KEBO7+u9gxZZSQHaCNnIzYrnNmYVpgfJhxTqO0brCX0SYpqUTkVI5mwwUwzmtspLBGBKroMeynA==
 
 "@types/file-saver@^2.0.4":
   version "2.0.4"
@@ -4167,7 +4179,7 @@ acorn@^6.0.1, acorn@^6.0.4, acorn@^6.4.1:
   version "6.4.2"
   resolved "https://registry.npmjs.org/acorn/-/acorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
 
-acorn@^7.1.1, acorn@^7.4.0:
+acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
   version "7.4.1"
   resolved "https://registry.npmjs.org/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
 
@@ -7803,6 +7815,16 @@ esutils@^2.0.2:
 etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
+
+eval5@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.npmmirror.com/eval5/-/eval5-1.4.7.tgz#cccc486d5e97dd68078663238fce4fe086c550c6"
+  integrity sha512-GtNl5TyxeIE1VkZ8p4vgzeLkdh7UEn9qzLnSIh/aXKYiJc31i1tNGB0CZhPaXReIZIE59xTV39IsAdWY7P93UA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    "@types/acorn" "^4.0.5"
+    "@types/estree" "0.0.41"
+    acorn "^7.1.0"
 
 event-target-shim@^5.0.0, event-target-shim@^5.0.1:
   version "5.0.1"
@@ -12855,10 +12877,10 @@ parse5@6.0.1, parse5@^6.0.0:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
 
-parsec-hooks@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-1.0.5.tgz#2c06bbf57baa493e46157df98776f62b6ce2590b"
-  integrity sha512-2lUvSLxhSqIGLEAJeB5iB026S8OE3pZd8VVmqa9bB575Pbcv5pz/SUCkNYiAXg1l02SMBbwiEKpjVtLycIpSzA==
+parsec-hooks@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-1.0.6.tgz#5b1d14ea8cf8d90d5f8721fb1b01f4ec24aa88c8"
+  integrity sha512-bF+UdFg/2ixDuglHxkgGlyElis1m8jtqnWe6z22CvGaFtjGzIwLy8AdAKBbO1IuB0AYRlgwwufA9U6sHswZQQg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"
