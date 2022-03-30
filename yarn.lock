@@ -5644,9 +5644,10 @@ check-types@^8.0.3:
   version "8.0.3"
   resolved "https://registry.npmjs.org/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
 
-china-id-card@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/china-id-card/-/china-id-card-1.0.3.tgz#c2336ce8a4067ba813ce3b5d0a79a2236b8504eb"
+china-id-card@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/china-id-card/-/china-id-card-1.2.1.tgz#bba0bbfe3262dbacbd61b24cdd99538e5d11e9a9"
+  integrity sha512-QNu0XNLkS/kKPVB2Zc1BAxs5qzcLfqXAXRAQCz3eXWSEPa9KezPyVzchxGsiUpavuUlAWt0Ujn6CT/e9kDJBQQ==
 
 chokidar@3.5.1, chokidar@^3.0.2, chokidar@^3.4.0, chokidar@^3.4.1:
   version "3.5.1"
