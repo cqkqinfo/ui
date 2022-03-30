@@ -1,3 +1,9 @@
+## [1.10.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.8...v1.10.9) (2022-03-30)
+
+### Features
+
+- 添加 useImportCDN ([f731ac4](https://gitlab2.cqkqinfo.com/web/ui/commit/f731ac470bd8bec7c2a8c4bd17201b6d8f3b6353))
+
 ## [1.10.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.7...v1.10.8) (2022-03-30)
 
 ## [1.10.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.6...v1.10.7) (2022-03-30)
