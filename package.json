@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.10.7",
+  "version": "1.10.8",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -45,7 +45,6 @@
     "@types/classnames": "^2.3.1",
     "@types/qs": "^6.9.7",
     "aes-js": "^3.1.2",
-    "react-native-webview": "^11.17.2",
     "ahooks": "^3.1.5",
     "antd-mobile": "^5.0.0-rc.22",
     "array-flat-polyfill": "^1.0.1",
@@ -84,6 +83,7 @@
     "react-native-safe-area-context": "^4.2.1",
     "react-native-svg": "^12.1.1",
     "react-native-web": "^0.17.5",
+    "react-native-webview": "^11.17.2",
     "react-native-wechat-lib": "^1.1.26",
     "react-photo-view": "^0.5.2",
     "react-sortablejs": "^6.0.0",
