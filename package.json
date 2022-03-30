@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.10.9",
+  "version": "1.10.10",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -120,7 +120,6 @@
     "@umijs/test": "^3.0.5",
     "antd": "^4.16.11",
     "babel-plugin-import": "^1.13.3",
-    "react-native-webview": "^11.17.2",
     "babel-plugin-polyfill-corejs2": "^0.1.10",
     "babel-plugin-polyfill-corejs3": "^0.1.7",
     "babel-plugin-polyfill-regenerator": "^0.1.6",
@@ -154,6 +153,7 @@
     "react-iconfont-cli": "^2.0.1",
     "react-native": "^0.66.0",
     "react-native-iconfont-cli": "^2.2.4",
+    "react-native-webview": "^11.17.2",
     "remax": "^2.15.6",
     "remax-iconfont-cli": "^2.0.1",
     "yorkie": "^2.0.0"
