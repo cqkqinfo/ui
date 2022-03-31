@@ -1,3 +1,9 @@
+## [1.10.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.11...v1.10.12) (2022-03-31)
+
+### Features
+
+- importCDN 支持运行 es6 代码 ([77388fc](https://gitlab2.cqkqinfo.com/web/ui/commit/77388fcda62e04c8ac983c70cf0100e1d0ebbb4e))
+
 ## [1.10.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.10...v1.10.11) (2022-03-31)
 
 ### Bug Fixes
