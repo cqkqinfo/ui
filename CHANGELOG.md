@@ -1,3 +1,9 @@
+## [1.10.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.10...v1.10.11) (2022-03-31)
+
+### Bug Fixes
+
+- listItem alignItems 不生效 ([147ed0d](https://gitlab2.cqkqinfo.com/web/ui/commit/147ed0dca9d65a96f17794ba8c79e5d4ace13c03))
+
 ## [1.10.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.9...v1.10.10) (2022-03-30)
 
 ## [1.10.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.8...v1.10.9) (2022-03-30)
