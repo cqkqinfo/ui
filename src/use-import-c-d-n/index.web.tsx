@@ -1,3 +1,3 @@
 import { useImportCDN } from 'parsec-hooks';
 
-export default useImportCDN;
+export default (link: string, name: string) => useImportCDN(link, name);
