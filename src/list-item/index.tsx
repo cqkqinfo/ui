@@ -96,8 +96,8 @@ export default ({
       className={classNames(styles.item, className)}
       size={20}
       flex={1}
-      {...props}
       alignItems={'center'}
+      {...props}
     >
       {(img || imgFooter) && (
         <Space size={20} vertical {...leftSpaceProps}>
