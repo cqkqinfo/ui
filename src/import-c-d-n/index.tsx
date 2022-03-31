@@ -36,7 +36,6 @@ export default async function<D = any>(
       .then(({ data }) => {
         interpreter.evaluate(`
           window['this'] = this;
-          console.log('this', this);
           ${data.replace(/(const|let) /g, 'var ')}
         `);
         Babel = window.this.Babel;
@@ -48,7 +47,10 @@ export default async function<D = any>(
         presets: ['env'],
       }).code;
     }
-    interpreter.evaluate(data);
+    interpreter.evaluate(`
+      window['this'] = this;
+      ${data}
+    `);
     const code = window[name] || window.this[name];
     callBack?.(code);
   });
