@@ -1,3 +1,9 @@
+## [1.10.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.13...v1.10.14) (2022-04-01)
+
+### Features
+
+- webView 添加 onError ([d2c4bd4](https://gitlab2.cqkqinfo.com/web/ui/commit/d2c4bd41d947db18ca86cd0e30546f391014257d))
+
 ## [1.10.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.12...v1.10.13) (2022-03-31)
 
 ### Features
