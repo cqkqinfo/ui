@@ -9,6 +9,7 @@ export default ({ src, ...props }: any) => {
       key={updateTime}
       source={{ uri: src }}
       {...props}
+      onError={console.error}
       onContentProcessDidTerminate={forceUpdate}
     />
   );
