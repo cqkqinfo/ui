@@ -1,3 +1,9 @@
+## [1.10.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.14...v1.10.15) (2022-04-02)
+
+### Features
+
+- 兼容 object.entries ([fbb3adf](https://gitlab2.cqkqinfo.com/web/ui/commit/fbb3adf514cdbc1c8d646f9c094d0f83d79ce5c9))
+
 ## [1.10.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.13...v1.10.14) (2022-04-01)
 
 ### Features
