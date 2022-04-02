@@ -1,3 +1,9 @@
+## [1.10.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.15...v1.10.16) (2022-04-02)
+
+### Features
+
+- 兼容 object.entries ([61219db](https://gitlab2.cqkqinfo.com/web/ui/commit/61219db92472375f54853c375a92fe95b435dc37))
+
 ## [1.10.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.14...v1.10.15) (2022-04-02)
 
 ### Features
