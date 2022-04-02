@@ -1,5 +1,6 @@
 import { useQuery } from 'remax';
 import qs from 'qs';
+import { useCallback } from 'react';
 
 interface Options {
   /**
@@ -39,15 +40,20 @@ export default ({
   if (backSuccess || storageUrl) {
     return [
       query,
-      data => {
-        sessionStorage.removeItem(key);
-        window.location.replace(
-          `${storageUrl}${storageUrl.includes('?') ? '&' : '?'}${qs.stringify({
-            ...data,
-            backSuccess: 1,
-          })}`,
-        );
-      },
+      useCallback(
+        data => {
+          sessionStorage.removeItem(key);
+          window.location.replace(
+            `${storageUrl}${storageUrl.includes('?') ? '&' : '?'}${qs.stringify(
+              {
+                ...data,
+                backSuccess: 1,
+              },
+            )}`,
+          );
+        },
+        [key, storageUrl],
+      ),
     ];
   }
   if (path) {
