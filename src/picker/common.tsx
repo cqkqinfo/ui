@@ -98,14 +98,14 @@ export const getChildren = ({
 
 export const useProps = (props: Props) => {
   const [value, onChange] = useControllableValue<Props['value']>(props);
-  const { data = [], cols = 1, title = '选择', renderValue = true } = props;
+  const { data, cols = 1, title = '选择', renderValue = true } = props;
 
   const newProps = {
     ...props,
     renderValue,
     cols,
     title,
-    data,
+    data: data || [],
     value,
     onChange,
   };
