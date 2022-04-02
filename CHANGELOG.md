@@ -1,3 +1,9 @@
+## [1.10.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.16...v1.10.17) (2022-04-02)
+
+### Features
+
+- 增加兼容性 ([6977adb](https://gitlab2.cqkqinfo.com/web/ui/commit/6977adb14de224f2e7fef4f47b395873b907a1d7))
+
 ## [1.10.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.15...v1.10.16) (2022-04-02)
 
 ### Features
