@@ -1,3 +1,14 @@
+## [1.10.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.17...v1.10.18) (2022-04-06)
+
+### Bug Fixes
+
+- ci ([0af5365](https://gitlab2.cqkqinfo.com/web/ui/commit/0af5365ab67886cb70280a03012c959a3dafd0aa))
+- 类型 ([1a006ae](https://gitlab2.cqkqinfo.com/web/ui/commit/1a006aee70449aadcd3a0eea0cbfed5533eb52e5))
+
+### Features
+
+- useBackUrl 添加 run ([d29d020](https://gitlab2.cqkqinfo.com/web/ui/commit/d29d0206d530b39f593b1fe4fb5c041f9d143967))
+
 ## [1.10.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.16...v1.10.17) (2022-04-02)
 
 ### Features
