@@ -4,4 +4,4 @@ export const envVersion = /localhost/.test(window.location.host)
   ? 'trial'
   : 'release';
 
-export default undefined;
+export default (undefined as any) as 'develop' | 'trial' | 'release';
