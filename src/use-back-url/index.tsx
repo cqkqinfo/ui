@@ -19,6 +19,11 @@ interface Options {
    * 跳转成功的回跳地址，默认为当前页面
    */
   backUrl?: string;
+  /**
+   * 是否跳转
+   * @default true
+   */
+  run?: boolean;
 }
 
 type Return = [any, (data: any) => void] | [any];
@@ -30,6 +35,7 @@ export default ({
   params,
   host = `${window.location.origin}${window.location.pathname}`,
   backUrl = window.location.href,
+  run = true,
 }: Options = {}): Return => {
   const { backSuccess, ...query } = useQuery();
   const key = `${window.location.pathname}-backUrl`;
@@ -56,7 +62,7 @@ export default ({
       ),
     ];
   }
-  if (path) {
+  if (path && run) {
     window.location.replace(
       `${host}#${path}${path.includes('?') ? '&' : '?'}${qs.stringify({
         ...query,
