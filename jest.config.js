@@ -15,6 +15,8 @@ module.exports = {
   },
   transformIgnorePatterns: [
     'node_modules/(?!(.*(remax|hex-rgb|antd-mobile).*))',
+    'es/**/*',
+    'lib/**/*',
   ],
   moduleNameMapper: {
     '^react-native$': 'react-native-web',
