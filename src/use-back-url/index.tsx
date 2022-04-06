@@ -1,6 +1,6 @@
 import { useQuery } from 'remax';
 import qs from 'qs';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 interface Options {
   /**
@@ -37,7 +37,8 @@ export default ({
   backUrl = window.location.href,
   run = true,
 }: Options = {}): Return => {
-  const { backSuccess, ...query } = useQuery();
+  const query = useMemo(() => useQuery(), []);
+  const { backSuccess } = query;
   const key = `${window.location.pathname}-backUrl`;
   const storageUrl = sessionStorage[key];
   if (backSuccess && !storageUrl && query.backUrl) {
