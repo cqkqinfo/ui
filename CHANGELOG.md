@@ -1,3 +1,9 @@
+## [1.10.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.21...v1.10.22) (2022-04-07)
+
+### Bug Fixes
+
+- useShareMessage path ([f831d1f](https://gitlab2.cqkqinfo.com/web/ui/commit/f831d1fa25b362e262c8971c6f017918cf781fca))
+
 ## [1.10.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.20...v1.10.21) (2022-04-07)
 
 ### Bug Fixes
