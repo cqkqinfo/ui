@@ -1,3 +1,13 @@
+## [1.10.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.19...v1.10.20) (2022-04-07)
+
+### Bug Fixes
+
+- ci ([141960b](https://gitlab2.cqkqinfo.com/web/ui/commit/141960b6bde135800c067c864292cc92aa3f54ac))
+
+### Features
+
+- 添加 useShareMessage ([29c138a](https://gitlab2.cqkqinfo.com/web/ui/commit/29c138a6e36864f14e92394f9ee0768402c3a59e))
+
 ## [1.10.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.18...v1.10.19) (2022-04-06)
 
 ## [1.10.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.17...v1.10.18) (2022-04-06)
