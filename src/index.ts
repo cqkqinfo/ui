@@ -563,3 +563,7 @@ export { default as useImportCDN } from './use-import-c-d-n';
  * 引入cdn
  */
 export { default as importCDN } from './import-c-d-n';
+/**
+ * 设置分享信息
+ */
+export { default as useShareMessage } from './use-share-message';

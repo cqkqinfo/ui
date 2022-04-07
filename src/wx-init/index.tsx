@@ -1,6 +1,7 @@
 import axios from '../axios';
 import Sentry from '../sentry';
 import isWx from '../is-wx';
+import versionVariable from '../version-variable';
 const wx = require('weixin-js-sdk');
 
 interface ConfigData {
@@ -21,11 +22,28 @@ wx.ready(() => {
   initResolve();
 });
 
+setTimeout(() => {
+  initResolve();
+}, 1500);
+
 export default ({
+  platformId = '2214',
   apiUrl,
   configData,
 }: {
+  /**
+   * 平台id
+   * @default 2214
+   */
+  platformId?: string;
+  /**
+   * 自定义获取微信配置的接口
+   * @default //ih.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig
+   */
   apiUrl?: string;
+  /**
+   * 手动传自定义微信配置
+   */
   configData?: ConfigData;
 }) =>
   new Promise((resolve, reject) => {
@@ -40,7 +58,10 @@ export default ({
         await axios
           .post(
             apiUrl ||
-              '//ih.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig?platformId=2214',
+              `//${versionVariable({
+                develop: 'tih',
+                release: 'ih',
+              })}.cqkqinfo.com/api/ehis/health/api/inquiry/getJsApiConfig?platformId=${platformId}`,
             data,
           )
           .then(({ data: { data } }: any) => {
