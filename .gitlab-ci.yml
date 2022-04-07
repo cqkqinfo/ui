@@ -38,6 +38,7 @@ build_app:
   cache:
     paths:
       - node_modules/
+      - src/.umi-production/
       - $DIST_PATH/
     key: "node_modules"
     untracked: true
