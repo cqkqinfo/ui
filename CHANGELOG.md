@@ -1,3 +1,10 @@
+## [1.10.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.22...v1.10.23) (2022-04-08)
+
+### Features
+
+- wxInit 支持手动传 jsApiList ([dc61bfc](https://gitlab2.cqkqinfo.com/web/ui/commit/dc61bfc0b7e8d28b814a242077ae09d9f4d8ddc6))
+- 部分工具兼容 rn ([6e6bad5](https://gitlab2.cqkqinfo.com/web/ui/commit/6e6bad58699bd722f2349ba67d09b22765ddd5cb))
+
 ## [1.10.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.21...v1.10.22) (2022-04-07)
 
 ### Bug Fixes
