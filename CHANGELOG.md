@@ -1,3 +1,22 @@
+## [1.10.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.22...v1.10.23) (2022-04-08)
+
+### Features
+
+- wxInit 支持手动传 jsApiList ([dc61bfc](https://gitlab2.cqkqinfo.com/web/ui/commit/dc61bfc0b7e8d28b814a242077ae09d9f4d8ddc6))
+- 部分工具兼容 rn ([6e6bad5](https://gitlab2.cqkqinfo.com/web/ui/commit/6e6bad58699bd722f2349ba67d09b22765ddd5cb))
+
+## [1.10.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.21...v1.10.22) (2022-04-07)
+
+### Bug Fixes
+
+- useShareMessage path ([f831d1f](https://gitlab2.cqkqinfo.com/web/ui/commit/f831d1fa25b362e262c8971c6f017918cf781fca))
+
+## [1.10.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.20...v1.10.21) (2022-04-07)
+
+### Bug Fixes
+
+- useShareMessage path ([5995f2b](https://gitlab2.cqkqinfo.com/web/ui/commit/5995f2b0078930577d5ea0fb0df1a042c3963120))
+
 ## [1.10.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.19...v1.10.20) (2022-04-07)
 
 ### Bug Fixes
