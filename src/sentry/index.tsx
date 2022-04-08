@@ -1,21 +1,24 @@
 import Sentry from './sentry';
 import getVersion from '../get-version';
 import './init';
+import getPlatform from '../get-platform';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
   init: (options = {}) => {
-    if (
-      process.env.REMAX_PLATFORM === 'wechat'
-        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          __wxConfig.envVersion !== 'develop'
-        : window
-        ? !window.location.host.includes('localhost')
-        : false
-    ) {
+    if (getVersion !== 'develop') {
       Sentry.init({
-        integrations: [new Sentry.Integrations.GlobalHandlers()],
+        integrations:
+          getPlatform === 'native'
+            ? [
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                new Sentry.ReactNativeTracing({
+                  // tracingOrigins: ['localhost', 'my-site-url.com', /^\//],
+                  // ... other options
+                }),
+              ]
+            : [new Sentry.Integrations.GlobalHandlers()],
         ignoreErrors: [
           'Non-Error exception captured',
           'promise rejection captured',
