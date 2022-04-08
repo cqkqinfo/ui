@@ -75,9 +75,9 @@ export default ({
           });
       }
       wx.config({
-        ...config,
         jsApiList: [...Object.keys(wx), 'requestWxFacePictureVerify'],
         openTagList: configData?.openTagList || ['wx-open-launch-weapp'],
+        ...config,
       });
       Sentry.setExtra('wxConfig', config);
       wx.error((res: any) => {
