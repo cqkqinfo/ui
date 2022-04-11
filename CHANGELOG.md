@@ -1,3 +1,9 @@
+## [1.10.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.24...v1.10.25) (2022-04-11)
+
+### Bug Fixes
+
+- 表单项报错会覆盖 after ([f22bf3b](https://gitlab2.cqkqinfo.com/web/ui/commit/f22bf3b04c5e09e404aff160cf7b4854f38f104e))
+
 ## [1.10.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.23...v1.10.24) (2022-04-11)
 
 ### Bug Fixes
