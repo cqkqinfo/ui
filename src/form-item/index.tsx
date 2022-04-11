@@ -185,7 +185,7 @@ export default ({
                 className={classNames(styles.after, afterCls, outAfterCls)}
                 style={{ display: after || showError ? undefined : 'none' }}
               >
-                <Space size={10}>
+                <Space size={10} alignItems={'center'}>
                   {showError && (
                     <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
                   )}
