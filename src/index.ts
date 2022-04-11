@@ -374,6 +374,10 @@ export { default as chooseImage } from './choose-image';
  */
 export { default as setClipboardData } from './set-clipboard-data';
 /**
+ * 读取剪切板
+ */
+export { default as getClipboardData } from './get-clipboard-data';
+/**
  * 版本变量
  */
 export { default as versionVariable } from './version-variable';
