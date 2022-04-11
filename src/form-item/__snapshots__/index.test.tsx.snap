@@ -88,7 +88,12 @@ exports[`表单项 渲染 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
         <div
           class=""
@@ -145,7 +150,12 @@ exports[`表单项 渲染 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
       </div>
     </div>

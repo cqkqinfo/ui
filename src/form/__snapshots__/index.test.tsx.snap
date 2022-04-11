@@ -73,7 +73,12 @@ exports[`表单 card模式 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
         <div
           class=""
@@ -136,7 +141,12 @@ exports[`表单 card模式 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -211,7 +221,12 @@ exports[`表单 cell模式 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
         <div
           class=""
@@ -268,7 +283,12 @@ exports[`表单 cell模式 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -349,7 +369,12 @@ exports[`表单 两端对齐 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
         <div
           class=""
@@ -412,7 +437,12 @@ exports[`表单 两端对齐 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -493,7 +523,12 @@ exports[`表单 渲染 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
         <div
           class=""
@@ -556,7 +591,12 @@ exports[`表单 渲染 1`] = `
           <div
             class=""
             style="display: none;"
-          />
+          >
+            <div
+              class=""
+              style="align-items: center;"
+            />
+          </div>
         </div>
       </div>
     </div>
