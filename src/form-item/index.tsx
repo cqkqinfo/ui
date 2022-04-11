@@ -11,6 +11,7 @@ import formRules from '../form-rules';
 import platform from '../get-platform';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
+import Space from '../space';
 
 const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
   const [myProps] = useEffectState(props, {
@@ -184,11 +185,12 @@ export default ({
                 className={classNames(styles.after, afterCls, outAfterCls)}
                 style={{ display: after || showError ? undefined : 'none' }}
               >
-                {showError ? (
-                  <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
-                ) : (
-                  after
-                )}
+                <Space size={10}>
+                  {showError && (
+                    <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
+                  )}
+                  {after}
+                </Space>
               </LazyUpdate>
             );
             const labelArr = typeof label === 'string' ? [...label] : undefined;
