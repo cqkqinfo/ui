@@ -28,6 +28,8 @@ build_app:
   script:
     - echo $PREPARE_CMD
     - $PREPARE_CMD
+    - rm -rf es
+    - rm -rf lib
     - $TEST_CMD
     - echo $BUILD_CMD
     - $BUILD_CMD
