@@ -30,7 +30,6 @@ export default ({
         },
   );
   const currentNum = myCurrent?.detail?.current;
-  console.log(currentNum);
   return (
     <View style={{ position: 'relative' }}>
       <Swiper
