@@ -1,3 +1,13 @@
+## [1.10.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.25...v1.10.26) (2022-04-12)
+
+### Bug Fixes
+
+- ci ([30dd53d](https://gitlab2.cqkqinfo.com/web/ui/commit/30dd53dd768bda8d90f03da659957fc08cd39992))
+
+### Features
+
+- rn showToast 是隐藏 loading ([c5aee62](https://gitlab2.cqkqinfo.com/web/ui/commit/c5aee6271bebb7fcb07bfe6296f9641de5520cb7))
+
 ## [1.10.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.24...v1.10.25) (2022-04-11)
 
 ### Bug Fixes
