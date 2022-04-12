@@ -14,7 +14,7 @@
     cursor-spacing="{{cursorSpacing}}"
     default-value="{{defaultValue}}"
     disabled="{{disabled}}"
-    max-length="{{maxLength}}"
+    maxlength="{{maxLength}}"
     password="{{password}}"
     confirm-type="{{confirmType}}"
     placeholder-class-name="{{placeholderClassName}}"
