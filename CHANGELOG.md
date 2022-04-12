@@ -1,3 +1,9 @@
+## [1.10.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.26...v1.10.27) (2022-04-12)
+
+### Bug Fixes
+
+- input maxLength 不生效 ([80584b5](https://gitlab2.cqkqinfo.com/web/ui/commit/80584b578f6dffa788fbc24422df04fcb028d214))
+
 ## [1.10.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.25...v1.10.26) (2022-04-12)
 
 ### Bug Fixes
