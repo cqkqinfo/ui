@@ -1,3 +1,9 @@
+## [1.10.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.28...v1.10.29) (2022-04-19)
+
+### Bug Fixes
+
+- 开发工具 input 不能输入 ([8d34d2f](https://gitlab2.cqkqinfo.com/web/ui/commit/8d34d2fbf995fbd8b0398507c7d4b47b0b48d925))
+
 ## [1.10.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.27...v1.10.28) (2022-04-19)
 
 ### Features
