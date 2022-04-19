@@ -68,6 +68,7 @@ export default ({
   value,
   disabled,
   delay,
+  maxLength = 999999999999999999,
   ...props
 }: UseInputOption) => {
   const inSheet = useContext(SheetContent);
@@ -76,6 +77,7 @@ export default ({
   const newProps = {
     adjustPosition: true,
     ...props,
+    maxLength,
     delay: delay || 500,
     disabled: disabled || (page === isShowSheetPage && !inSheet),
     value,
