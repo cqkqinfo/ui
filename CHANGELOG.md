@@ -1,3 +1,9 @@
+## [1.10.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.27...v1.10.28) (2022-04-19)
+
+### Features
+
+- swiper 支持 rn ([486fe82](https://gitlab2.cqkqinfo.com/web/ui/commit/486fe82b552fcbd7a070af822cfcdf505890867c))
+
 ## [1.10.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.26...v1.10.27) (2022-04-12)
 
 ### Bug Fixes
