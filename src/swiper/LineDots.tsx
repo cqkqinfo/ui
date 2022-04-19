@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import classNames from 'classnames';
+import { rpxToPx } from '@kqinfo/ui';
 
 export default ({
   current,
@@ -19,8 +20,10 @@ export default ({
       <View
         className={styles.line}
         style={{
-          marginLeft: `${33 *
-            (current / (length - 1 - (displayMultipleItems - 1)))}%`,
+          marginLeft:
+            ((33 * (current / (length - 1 - (displayMultipleItems - 1)))) /
+              100) *
+            rpxToPx(75),
         }}
       />
     </View>
