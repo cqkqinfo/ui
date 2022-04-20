@@ -571,3 +571,7 @@ export { default as importCDN } from './import-c-d-n';
  * 设置分享信息
  */
 export { default as useShareMessage } from './use-share-message';
+/**
+ * 分页器
+ */
+export { default as Pagination } from './pagination';
