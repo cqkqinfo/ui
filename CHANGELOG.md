@@ -1,3 +1,9 @@
+## [1.10.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.32...v1.10.33) (2022-04-20)
+
+### Features
+
+- 添加次要主题色设置 ([9e8b18d](https://gitlab2.cqkqinfo.com/web/ui/commit/9e8b18d36e627ed8c3aa06484577d28d6d0438b2))
+
 ## [1.10.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.31...v1.10.32) (2022-04-20)
 
 ### Features
