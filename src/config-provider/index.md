@@ -24,6 +24,7 @@ import {
   Picker,
   Icon,
   ReTextarea,
+  NoData,
   getAddressOptions,
 } from '@kqinfo/ui';
 import { Image } from 'remax/one';
@@ -47,6 +48,10 @@ export default () => {
             我是内容
           </div>
         </Shadow>
+      </ConfigProvider>
+      <PartTitle>默认占位组件</PartTitle>
+      <ConfigProvider renderNoData={() => '我是自定义占位组件'}>
+        <NoData />
       </ConfigProvider>
       <PartTitle>适老模式</PartTitle>
       <ConfigProvider elderly>
