@@ -1,15 +1,18 @@
 import React from 'react';
-import { View, ViewProps } from 'remax/one';
+import { ViewProps } from 'remax/one';
 import styles from './index.module.less';
 import { useConfig } from '../config-provider';
 import NoData from '../no-data';
 import Loading from '../loading';
 import Shadow, { Props as ShadowProps } from '../shadow';
 import NeedWrap from '../need-wrap';
+import Space from '../space';
 import classNames from 'classnames';
+import rpxToPx from '../rpx-to-px';
 const convert = require('color-convert');
 
 export type DataSource<T> = T[];
+export const ColumnType = ({}: Column<any>) => {};
 export interface Column<T> {
   /**
    * 列的title
@@ -19,6 +22,11 @@ export interface Column<T> {
    * 列的数据索引
    */
   dataIndex: keyof T;
+  /**
+   * 列的宽度
+   * @default flex: 1
+   */
+  width?: number;
   /**
    * 自定义渲染
    */
@@ -124,21 +132,23 @@ export default <T extends unknown>({
       : undefined;
   return (
     <NeedWrap wrap={Shadow as any} need={shadow !== false} wrapProps={shadow}>
-      <View className={classNames(styles.table, className)} {...props}>
-        <View className={classNames(styles.header, headerCls)}>
-          {columns?.map(({ title }, i) => (
-            <View
+      <Space className={classNames(styles.table, className)} {...props}>
+        <Space className={classNames(styles.header, headerCls)}>
+          {columns?.map(({ title, width }, i) => (
+            <Space
               key={i}
               className={classNames(styles.item, itemCls)}
               style={{
+                flex: width ? undefined : 1,
                 justifyContent: getJustify(i),
+                width: width && rpxToPx(width),
               }}
             >
               {title}
-            </View>
+            </Space>
           ))}
-        </View>
-        <View className={classNames(styles.body, bodyCls)} style={bodyStyle}>
+        </Space>
+        <Space className={classNames(styles.body, bodyCls)} style={bodyStyle}>
           {loading ? (
             <Loading type={'inline'} />
           ) : (
@@ -147,7 +157,7 @@ export default <T extends unknown>({
                 <NoData style={noDataStyle} className={noDataCls} />
               )}
               {dataSource?.map((item, i) => (
-                <View
+                <Space
                   key={i}
                   className={classNames(styles.row, rowCls)}
                   style={{
@@ -163,21 +173,26 @@ export default <T extends unknown>({
                       : undefined),
                   }}
                 >
-                  {columns?.map(({ dataIndex, render = v => v }, i) => (
-                    <View
-                      style={{ justifyContent: getJustify(i), ...itemStyle }}
+                  {columns?.map(({ dataIndex, render = v => v, width }, i) => (
+                    <Space
+                      style={{
+                        justifyContent: getJustify(i),
+                        flex: width ? undefined : 1,
+                        width: width && rpxToPx(width),
+                        ...itemStyle,
+                      }}
                       className={classNames(styles.item, itemCls)}
                       key={i}
                     >
                       {render(item[dataIndex], item, i)}
-                    </View>
+                    </Space>
                   ))}
-                </View>
+                </Space>
               ))}
             </>
           )}
-        </View>
-      </View>
+        </Space>
+      </Space>
     </NeedWrap>
   );
 };
