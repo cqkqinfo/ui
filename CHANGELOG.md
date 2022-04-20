@@ -1,3 +1,13 @@
+## [1.10.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.29...v1.10.30) (2022-04-20)
+
+### Bug Fixes
+
+- openWeapp rn 可能闪退 ([6f9251f](https://gitlab2.cqkqinfo.com/web/ui/commit/6f9251fb11d59ccfabac85f399db81e36406d184))
+
+### Features
+
+- table column 支持设置 width ([71ce189](https://gitlab2.cqkqinfo.com/web/ui/commit/71ce189bdad71eb5f072ef193d0346297e1a00ad))
+
 ## [1.10.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.28...v1.10.29) (2022-04-19)
 
 ### Bug Fixes
