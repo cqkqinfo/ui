@@ -9,7 +9,7 @@ group:
 
 ## NoData 空数据占位
 
-空数据占位
+空数据占位，可以通过[ConfigProvider](/components/config/config-provider/)来设置默认的空数据占位组件。
 
 ```tsx
 import React from 'react';

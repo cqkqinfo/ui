@@ -27,6 +27,10 @@ export interface GlobalConfig {
    * 保留字段，防止sheet显示时input点击穿透时用的
    */
   setIsShowSheetPage?: (showSheetPage: string) => void;
+  /**
+   * 全局控制渲染NoData组件，返回undefined则用默认的
+   */
+  renderNoData?: () => React.ReactNode;
 }
 
 export const {
