@@ -2,8 +2,8 @@ import React from 'react';
 import { navigateTo } from 'remax/one';
 import { Props } from './index';
 import getAccountInfoSync from '../get-account-info-sync';
-import { launchMiniProgram } from 'react-native-wechat-lib';
-import versionVariable from '../version-variable';
+import { isWXAppInstalled, launchMiniProgram } from 'react-native-wechat-lib';
+import showToast from '../show-toast';
 
 export default ({
   appId = getAccountInfoSync().miniProgram.appId,
@@ -29,10 +29,19 @@ export default ({
             if (appId === getAccountInfoSync().miniProgram.appId) {
               navigateTo({ url: path }).then(onLaunch);
             } else if (username) {
-              launchMiniProgram({
-                userName: username,
-                miniProgramType: 0, // 拉起小程序的类型. 0-正式版 1-开发版 2-体验版
-                path,
+              isWXAppInstalled().then(installed => {
+                if (installed) {
+                  launchMiniProgram({
+                    userName: username,
+                    miniProgramType: 0, // 拉起小程序的类型. 0-正式版 1-开发版 2-体验版
+                    path,
+                  });
+                } else {
+                  showToast({
+                    title: '请先安装微信',
+                    icon: 'none',
+                  });
+                }
               });
             }
           }
