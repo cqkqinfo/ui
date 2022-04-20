@@ -1,3 +1,9 @@
+## [1.10.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.31...v1.10.32) (2022-04-20)
+
+### Features
+
+- noData 支持全局替换 ([bef75ad](https://gitlab2.cqkqinfo.com/web/ui/commit/bef75ad6980f186a9fffdf3ed50338abe523f9a1))
+
 ## [1.10.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.30...v1.10.31) (2022-04-20)
 
 ### Features
