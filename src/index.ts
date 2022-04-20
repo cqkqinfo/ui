@@ -523,3 +523,7 @@ export { default as useImportCDN } from './use-import-c-d-n';
  * 引入cdn
  */
 export { default as importCDN } from './import-c-d-n';
+/**
+ * 分页器
+ */
+export { default as Pagination } from './pagination';
