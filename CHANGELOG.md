@@ -1,3 +1,9 @@
+## [1.10.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.30...v1.10.31) (2022-04-20)
+
+### Features
+
+- 添加分页器组件 ([42d1d08](https://gitlab2.cqkqinfo.com/web/ui/commit/42d1d08d5e403dc7406b2d09ffcf57122cef1f96))
+
 ## [1.10.30](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.29...v1.10.30) (2022-04-20)
 
 ### Bug Fixes
