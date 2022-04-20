@@ -53,7 +53,7 @@ module.exports = {
 +  plugins: [
 +   less({
 +     lessOptions: {
-+       modifyVars: { '@brand-primary': '#2780d9' },
++       modifyVars: { '@brand-primary': '#2780d9', '@brand-attract': '#ff9d46' },
 +       javascriptEnabled: true
 +     }
 +   })
@@ -69,7 +69,7 @@ module.exports = {
 
 const App = (props) => {
 -  return props.children;
-+  return <ConfigProvider brandPrimary={'#2780d9'}>{props.children}</ConfigProvider>;
++  return <ConfigProvider brandAttract={'#ff9d46'} brandPrimary={'#2780d9'}>{props.children}</ConfigProvider>;
 };
 ```
 

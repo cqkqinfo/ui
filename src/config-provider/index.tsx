@@ -7,6 +7,10 @@ export interface GlobalConfig {
    */
   brandPrimary?: string;
   /**
+   * 次要的主题色
+   */
+  brandAttract?: string;
+  /**
    * 阴影组件的颜色
    */
   shadowColor?: string;
@@ -40,6 +44,7 @@ export const {
   (
     {
       brandPrimary = '#2780d9',
+      brandAttract = '#ff9d46',
       shadowRadius = 20,
       ...config
     } = {} as GlobalConfig,
@@ -49,6 +54,7 @@ export const {
       brandPrimary,
       isShowSheet,
       shadowRadius,
+      brandAttract,
       setIsShowSheet,
       ...config,
     };
