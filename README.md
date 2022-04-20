@@ -87,6 +87,15 @@ sentrycli_cdnurl=https://cdn.npm.taobao.org/dist/sentry-cli
 cypress_download_mirror=https://npm.taobao.org/mirrors/cypress/
 ```
 
+用`yarn`安装的话添加`.yarnrc`文件
+
+```
+canvas_binary_host_mirror: https://npm.taobao.org/mirrors/canvas
+registry: https://registry.npm.taobao.org
+ENTRYCLI_CDNURL: https://cdn.npm.taobao.org/dist/sentry-cli
+sentrycli_cdnurl: https://cdn.npm.taobao.org/dist/sentry-cli
+```
+
 ## 开发
 
 安装依赖
