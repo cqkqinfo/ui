@@ -103,7 +103,6 @@ const Button = ({
       aria-disabled={disabled}
       className={classNames(
         styles.button,
-        className,
         block && styles.block,
         styles[size],
         styles[type],
@@ -116,6 +115,7 @@ const Button = ({
         type === 'default' && shadow && styles.noBorder,
         type === 'default' && shadow && styles[`${type}-noBorder`],
         elderly && styles.elderly,
+        className,
       )}
       {...props}
       onTap={e => {
