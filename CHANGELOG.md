@@ -1,3 +1,9 @@
+## [1.10.35](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.34...v1.10.35) (2022-04-25)
+
+### Bug Fixes
+
+- 分页显示错误 ([52a9c40](https://gitlab2.cqkqinfo.com/web/ui/commit/52a9c402e6a225a328038734e39dd1faaa1cf8f8))
+
 ## [1.10.34](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.33...v1.10.34) (2022-04-21)
 
 ### Bug Fixes
