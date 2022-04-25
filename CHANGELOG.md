@@ -1,3 +1,9 @@
+## [1.10.38](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.37...v1.10.38) (2022-04-25)
+
+### Bug Fixes
+
+- rn table 不显示 noData ([c39e9da](https://gitlab2.cqkqinfo.com/web/ui/commit/c39e9dae5b63637c49e982df449146969abdf28e))
+
 ## [1.10.37](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.36...v1.10.37) (2022-04-25)
 
 ### Bug Fixes
