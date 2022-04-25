@@ -3,6 +3,7 @@ import Space from '../space';
 import Button from '../button';
 import styles from './index.module.less';
 import classnames from 'classnames';
+import ScrollView from '../scroll-view';
 
 interface Props {
   /**
@@ -53,7 +54,7 @@ export default ({
       </Space>
     );
   };
-  const max = 5;
+  // const max = 5;
   const preDisabled = current <= 1;
   const nextDisabled = current >= total;
   return (
@@ -68,37 +69,11 @@ export default ({
       >
         上一页
       </Button>
-      {total > max && current > max && (
-        <Space size={10} alignItems={'center'}>
-          {renderNumber(1)}
-          <Space
-            className={styles.number}
-            onTap={() => {
-              const newCurrent = current - max;
-              onChange(newCurrent < 1 ? 1 : newCurrent);
-            }}
-          >
-            {'<<'}
-          </Space>
+      <ScrollView scrollX>
+        <Space size={23}>
+          {Array.from({ length: total }, (_, index) => renderNumber(index + 1))}
         </Space>
-      )}
-      {Array.from({ length: max }, (_, index) =>
-        renderNumber(index + 1 + Math.floor((current - 1) / max) * max),
-      )}
-      {total > max + 1 && current - 1 < total - max && (
-        <Space size={10} alignItems={'center'}>
-          <Space
-            className={styles.number}
-            onTap={() => {
-              const newCurrent = current + max;
-              onChange(newCurrent > total ? total : newCurrent);
-            }}
-          >
-            {'>>'}
-          </Space>
-          {renderNumber(total)}
-        </Space>
-      )}
+      </ScrollView>
       <Button
         disabled={nextDisabled}
         type={'attract'}

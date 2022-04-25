@@ -44,6 +44,16 @@ export default defineConfig({
     [
       'babel-plugin-import',
       {
+        libraryName: 'beeshell',
+        libraryDirectory: 'dist/components/',
+        camel2DashComponentName: false,
+        style: false,
+      },
+      'beeshell',
+    ],
+    [
+      'babel-plugin-import',
+      {
         libraryName: 'antd',
         libraryDirectory: 'es',
         style: true,
