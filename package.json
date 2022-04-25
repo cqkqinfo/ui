@@ -51,6 +51,7 @@
     "axios-ali-adapter": "^0.0.5",
     "axios-wechat-adapter": "^0.0.8",
     "base64-js": "^1.5.1",
+    "beeshell": "^2.0.11",
     "china-id-card": "^1.2.1",
     "circular-json": "^0.5.9",
     "classnames": "^2.3.1",

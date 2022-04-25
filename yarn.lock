@@ -5145,6 +5145,13 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+beeshell@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.npmmirror.com/beeshell/-/beeshell-2.0.11.tgz#90ed9356312676973db819ef9b8035bc7ea9cbdd"
+  integrity sha512-r4kXd78xxWjRIBUckvq1vGJ/sgcpPQbg/YIrtuJK3l+vn1bj6wtXiNGKTMpaxgI8FoGigSESvRm4IgY60pzIQQ==
+  dependencies:
+    moment "^2.24.0"
+
 bfj@^6.1.1:
   version "6.1.2"
   resolved "https://registry.npmjs.org/bfj/-/bfj-6.1.2.tgz#325c861a822bcb358a41c78a33b8e6e2086dde7f"

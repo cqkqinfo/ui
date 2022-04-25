@@ -21,7 +21,7 @@ export default () => {
   return (
     <Space vertical size={'10px'}>
       <PartTitle>基本用法</PartTitle>
-      <Pagination total={15} current={current} onChange={setCurrent} />
+      <Pagination total={6} current={current} onChange={setCurrent} />
     </Space>
   );
 };
