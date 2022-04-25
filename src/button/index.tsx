@@ -124,6 +124,9 @@ const Button = ({
           message: `点击了${children}`,
           level: Sentry.Severity.Info,
         });
+        if (disabled) {
+          return;
+        }
         props.onTap?.(e);
       }}
     >
