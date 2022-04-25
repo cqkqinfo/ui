@@ -148,7 +148,11 @@ export default <T extends unknown>({
             </Space>
           ))}
         </Space>
-        <Space className={classNames(styles.body, bodyCls)} style={bodyStyle}>
+        <Space
+          vertical
+          className={classNames(styles.body, bodyCls)}
+          style={bodyStyle}
+        >
           {loading ? (
             <Loading type={'inline'} />
           ) : (
