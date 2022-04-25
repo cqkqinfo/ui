@@ -3,7 +3,6 @@ import Space from '../space';
 import Button from '../button';
 import styles from './index.module.less';
 import classnames from 'classnames';
-import ScrollView from '../scroll-view';
 
 interface Props {
   /**
@@ -69,11 +68,7 @@ export default ({
       >
         上一页
       </Button>
-      <ScrollView scrollX>
-        <Space size={23}>
-          {Array.from({ length: total }, (_, index) => renderNumber(index + 1))}
-        </Space>
-      </ScrollView>
+      {Array.from({ length: total }, (_, index) => renderNumber(index + 1))}
       <Button
         disabled={nextDisabled}
         type={'attract'}
