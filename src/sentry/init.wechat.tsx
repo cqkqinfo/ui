@@ -1,5 +1,5 @@
 import * as Sentry from 'sentry-miniapp';
-import { Severity } from '@sentry/types';
+// import { Severity } from '@sentry/types';
 import { getUpdateManager } from 'remax/wechat';
 import showModal from '../show-modal';
 
@@ -33,21 +33,21 @@ Page = options => {
           }
         });
       this.setData = (data: any, callback: any) => {
-        const startTime = +new Date();
+        // const startTime = +new Date();
         fn(data);
         nativeSetData.call(this, data, (...arg: any[]) => {
-          const runTime = +new Date() - startTime;
+          // const runTime = +new Date() - startTime;
           // console.log(runTime);
-          if (runTime > 1500) {
-            Sentry.addBreadcrumb({
-              level: Sentry.Severity.Info,
-              message: `setData执行时间：${runTime}ms`,
-            });
-            Sentry.captureEvent({
-              message: 'setData执行时间过长',
-              level: Severity.Info,
-            });
-          }
+          // if (runTime > 1500) {
+          //   Sentry.addBreadcrumb({
+          //     level: Sentry.Severity.Info,
+          //     message: `setData执行时间：${runTime}ms`,
+          //   });
+          //   Sentry.captureEvent({
+          //     message: 'setData执行时间过长',
+          //     level: Severity.Info,
+          //   });
+          // }
           callback?.(...arg);
         });
       };
