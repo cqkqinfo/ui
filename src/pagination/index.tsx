@@ -43,6 +43,7 @@ export default ({
   style,
 }: Props) => {
   const renderNumber = (page: number) => {
+    if (page > total) return null;
     return (
       <Space
         className={classnames(styles.number, current === page && styles.active)}
@@ -53,9 +54,14 @@ export default ({
       </Space>
     );
   };
-  // const max = 5;
+  const max = 5;
   const preDisabled = current <= 1;
   const nextDisabled = current >= total;
+  const showLeft = current > max;
+  const showRight =
+    total > max &&
+    current <= total - (total % max) &&
+    (!!(total % max) || current < total - max + 1);
   return (
     <Space size={23} alignItems={'center'} className={className} style={style}>
       <Button
@@ -68,7 +74,37 @@ export default ({
       >
         上一页
       </Button>
-      {Array.from({ length: total }, (_, index) => renderNumber(index + 1))}
+      {showLeft && (
+        <Space size={10} alignItems={'center'}>
+          {renderNumber(1)}
+          <Space
+            className={styles.number}
+            onTap={() => {
+              const newCurrent = current - max;
+              onChange(newCurrent < 1 ? 1 : newCurrent);
+            }}
+          >
+            {'<<'}
+          </Space>
+        </Space>
+      )}
+      {Array.from({ length: max }, (_, index) =>
+        renderNumber(index + 1 + Math.floor((current - 1) / max) * max),
+      )}
+      {showRight && (
+        <Space size={10} alignItems={'center'}>
+          <Space
+            className={styles.number}
+            onTap={() => {
+              const newCurrent = current + max;
+              onChange(newCurrent > total ? total : newCurrent);
+            }}
+          >
+            {'>>'}
+          </Space>
+          {renderNumber(total)}
+        </Space>
+      )}
       <Button
         disabled={nextDisabled}
         type={'attract'}
