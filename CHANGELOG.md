@@ -1,3 +1,9 @@
+## [1.10.41](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.40...v1.10.41) (2022-04-28)
+
+### Bug Fixes
+
+- sentry 导致 console 显示错误 ([223079c](https://gitlab2.cqkqinfo.com/web/ui/commit/223079c5cbd0edadb7fbea8847d593c7f7f8780d))
+
 ## [1.10.40](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.39...v1.10.40) (2022-04-27)
 
 ### Bug Fixes
