@@ -5,6 +5,7 @@ import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
 import { Space } from '@kqinfo/ui';
+import ScrollView from '../scroll-view';
 
 export type ID = string | number;
 
@@ -97,7 +98,7 @@ export default ({
       className={classNames(styles.menu, className, elderly && styles.elderly)}
       style={style}
     >
-      <View className={classNames(styles.left, leftCls)}>
+      <ScrollView scrollY className={classNames(styles.left, leftCls)}>
         {data.map(({ id, name, children }) => {
           const active =
             (selected === id && styles.leftActive) ||
@@ -126,34 +127,36 @@ export default ({
             >
               {name}
               {haveChildren && active && (
-                <Space vertical key={id}>
-                  {children?.map(({ name, id }) => (
-                    <View
-                      className={classNames(
-                        styles.leftItemItem,
-                        selected === id &&
-                          classNames(
-                            styles.leftItemActive,
-                            leftChildrenActiveCls,
-                          ),
-                      )}
-                      key={id}
-                      onTap={e => {
-                        e.stopPropagation();
-                        setSelected(id);
-                        onChange?.(id, children || []);
-                      }}
-                    >
-                      {name}
-                    </View>
-                  ))}
-                </Space>
+                <ScrollView scrollY className={styles.leftScroll}>
+                  <Space vertical key={id}>
+                    {children?.map(({ name, id }) => (
+                      <View
+                        className={classNames(
+                          styles.leftItemItem,
+                          selected === id &&
+                            classNames(
+                              styles.leftItemActive,
+                              leftChildrenActiveCls,
+                            ),
+                        )}
+                        key={id}
+                        onTap={e => {
+                          e.stopPropagation();
+                          setSelected(id);
+                          onChange?.(id, children || []);
+                        }}
+                      >
+                        {name}
+                      </View>
+                    ))}
+                  </Space>
+                </ScrollView>
               )}
             </Space>
           );
         })}
-      </View>
-      <View className={classNames(styles.right, rightCls)}>
+      </ScrollView>
+      <ScrollView scrollY className={classNames(styles.right, rightCls)}>
         {right.map((item, i) => (
           <View
             key={item.id}
@@ -164,7 +167,7 @@ export default ({
             {item.name}
           </View>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
