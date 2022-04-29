@@ -1,3 +1,15 @@
+## [1.10.42](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.41...v1.10.42) (2022-04-29)
+
+### Bug Fixes
+
+- 打包报错 ([ffc3e42](https://gitlab2.cqkqinfo.com/web/ui/commit/ffc3e42e474004c9415b38c5a7daaa9573307c68))
+- modal 没有传 title 还是有 title 节点 ([9c30e82](https://gitlab2.cqkqinfo.com/web/ui/commit/9c30e8270cac7b44fa490a8ab2d20dea1dae4998))
+
+### Features
+
+- 添加 calendar.picker ([c27e941](https://gitlab2.cqkqinfo.com/web/ui/commit/c27e9415ec7069033e8a284546810db0ce651149))
+- 优化菜单样式 ([721053c](https://gitlab2.cqkqinfo.com/web/ui/commit/721053c72c759c8dcccc802701be9e211d002cb4))
+
 ## [1.10.41](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.40...v1.10.41) (2022-04-28)
 
 ### Bug Fixes
