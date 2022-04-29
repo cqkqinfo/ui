@@ -99,6 +99,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
                 styles[direction],
               )}
               style={style}
+              active-opacity={false}
               onTap={() => {
                 if (!maskClosable) {
                   return;
