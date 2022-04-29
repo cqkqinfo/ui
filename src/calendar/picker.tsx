@@ -3,14 +3,22 @@ import { Calendar, Space, Icon, rpxToPx } from '@kqinfo/ui';
 import dayjs from 'dayjs';
 import { useEffectState } from 'parsec-hooks';
 import { Props } from './index';
+import styles from './index.module.less';
+import classnames from 'classnames';
 
 export default ({
   style,
   startDay,
   current,
   renderDisable,
+  headerCls,
   ...props
-}: Props) => {
+}: Props & {
+  /**
+   * header类名
+   */
+  headerCls?: string;
+}) => {
   const [currentStartDay, setCurrentStartDay] = useEffectState(
     useMemo(
       () =>
@@ -24,11 +32,7 @@ export default ({
     <Space vertical size={30} style={style}>
       <Space
         justify={'space-between'}
-        style={{
-          fontSize: rpxToPx(36),
-          fontWeight: 'bold',
-          marginTop: rpxToPx(30),
-        }}
+        className={classnames(styles.pickerHeader, headerCls)}
         alignItems={'center'}
       >
         <Icon
