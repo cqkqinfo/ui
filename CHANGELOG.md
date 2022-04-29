@@ -1,3 +1,9 @@
+## [1.10.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.45...v1.10.46) (2022-04-29)
+
+### Features
+
+- calendar picker 添加 headerCls 类名 ([517155a](https://gitlab2.cqkqinfo.com/web/ui/commit/517155a6cff230d44115ebfe49bc3d509e880cf6))
+
 ## [1.10.45](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.44...v1.10.45) (2022-04-29)
 
 ### Bug Fixes
