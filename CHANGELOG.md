@@ -1,3 +1,10 @@
+## [1.10.45](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.44...v1.10.45) (2022-04-29)
+
+### Bug Fixes
+
+- calendar picker renderDisable 异常 ([79486a4](https://gitlab2.cqkqinfo.com/web/ui/commit/79486a4ca060243b47f45d1c35ff090642dbf978))
+- rn sheet 点击会透明 ([e6d4643](https://gitlab2.cqkqinfo.com/web/ui/commit/e6d46439fafa9a00e49965f45ae0602cf9f5845a))
+
 ## [1.10.44](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.43...v1.10.44) (2022-04-29)
 
 ### Bug Fixes
