@@ -4,7 +4,13 @@ import dayjs from 'dayjs';
 import { useEffectState } from 'parsec-hooks';
 import { Props } from './index';
 
-export default ({ style, startDay, current, ...props }: Props) => {
+export default ({
+  style,
+  startDay,
+  current,
+  renderDisable,
+  ...props
+}: Props) => {
   const [currentStartDay, setCurrentStartDay] = useEffectState(
     useMemo(
       () =>
@@ -55,8 +61,10 @@ export default ({ style, startDay, current, ...props }: Props) => {
         limit={42}
         startDay={dayjs(currentStartDay).set('date', 1)}
         current={current}
-        renderDisable={day => !day.isSame(currentStartDay, 'month')}
         {...props}
+        renderDisable={
+          renderDisable || (day => !day.isSame(currentStartDay, 'month'))
+        }
       />
     </Space>
   );
