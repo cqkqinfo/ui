@@ -1,3 +1,9 @@
+## [1.10.44](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.43...v1.10.44) (2022-04-29)
+
+### Bug Fixes
+
+- rn sheet 点击背景会透明 ([fd2959a](https://gitlab2.cqkqinfo.com/web/ui/commit/fd2959a85a75546dce2eb396b3d7b5b131e3cd21))
+
 ## [1.10.43](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.42...v1.10.43) (2022-04-29)
 
 ### Bug Fixes
