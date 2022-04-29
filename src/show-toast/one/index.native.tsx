@@ -11,7 +11,8 @@ export default ({
   new Promise(resolve => {
     hideLoading();
     if (icon === 'none') {
-      Toast.fail(title, duration / 1000, () => resolve(''), mask);
+      Toast.show(title, duration / 1000, mask);
+      resolve('');
     } else {
       Toast.success(title, duration / 1000, () => resolve(''), mask);
     }
