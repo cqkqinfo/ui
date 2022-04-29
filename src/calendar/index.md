@@ -24,69 +24,13 @@ import {
 } from '@kqinfo/ui';
 import dayjs from 'dayjs';
 import { SheetInstance } from '@kqinfo/ui/es/sheet';
-import { useEffectState } from 'parsec-hooks';
-
-const CalendarPicker = ({ style, current, ...props }: Props) => {
-  const [currentMonth, setCurrentMonth] = useEffectState(
-    useMemo(
-      () => (current instanceof Array ? current[0] : current) || dayjs(),
-      [current],
-    ),
-  );
-  return (
-    <Space vertical size={30} style={style}>
-      <Space
-        justify={'space-between'}
-        style={{
-          fontSize: rpxToPx(36),
-          fontWeight: 'bold',
-          marginTop: rpxToPx(30),
-        }}
-        alignItems={'center'}
-      >
-        <Icon
-          size={28}
-          color={'#3A3A3A'}
-          name={'kq-left'}
-          onTap={() => setCurrentMonth(currentMonth.subtract(1, 'y'))}
-        />
-        <Icon
-          size={34}
-          color={'#3A3A3A'}
-          name={'kq-zuo'}
-          onTap={() => setCurrentMonth(currentMonth.subtract(1, 'month'))}
-        />
-        {currentMonth.format('YYYY年MM月')}
-        <Icon
-          size={34}
-          color={'#3A3A3A'}
-          name={'kq-you'}
-          onTap={() => setCurrentMonth(currentMonth.add(1, 'month'))}
-        />
-        <Icon
-          size={28}
-          color={'#3A3A3A'}
-          name={'kq-right'}
-          onTap={() => setCurrentMonth(currentMonth.add(1, 'y'))}
-        />
-      </Space>
-      <Calendar
-        limit={42}
-        startDay={dayjs(currentMonth).set('date', 1)}
-        renderDisable={day => !day.isSame(currentMonth, 'month')}
-        current={current}
-        {...props}
-      />
-    </Space>
-  );
-};
 
 export default () => {
   const sheetRef = useRef<SheetInstance>(null);
   return (
     <Space vertical size={'10px'}>
       <PartTitle>自定义一个日历</PartTitle>
-      <CalendarPicker onChange={console.log} />
+      <Calendar.Picker onChange={console.log} />
       <PartTitle>范围选择</PartTitle>
       <Calendar range current={[dayjs(), dayjs().add(7, 'd')]} />
       <PartTitle>列表模式</PartTitle>

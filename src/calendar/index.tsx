@@ -10,6 +10,7 @@ import { Native } from '@kqinfo/ui';
 import { NativeInstance } from '../native';
 import rpxToPx from '../rpx-to-px';
 import getPlatform from '../get-platform';
+import Picker from './picker';
 
 dayjs.extend(weekday);
 
@@ -107,7 +108,7 @@ export interface Props {
   rangeActiveCls?: string;
 }
 
-export default ({
+const Calendar = ({
   className,
   current,
   renderDot,
@@ -343,3 +344,7 @@ export default ({
     </View>
   );
 };
+
+Calendar.Picker = Picker;
+
+export default Calendar;
