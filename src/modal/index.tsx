@@ -176,12 +176,14 @@ const Modal = () => {
           alignItems={'stretch'}
           style={bodyStyle}
         >
-          <Space
-            className={classNames(styles.title, titleCls)}
-            justify={'center'}
-          >
-            {title}
-          </Space>
+          {title && (
+            <Space
+              className={classNames(styles.title, titleCls)}
+              justify={'center'}
+            >
+              {title}
+            </Space>
+          )}
           <Space
             className={classNames(styles.content, contentCls)}
             justify={'center'}
