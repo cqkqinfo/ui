@@ -123,7 +123,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
                     })(direction)
               }
             >
-              <Space onTap={e => e.stopPropagation()}>{children}</Space>
+              <Space active-opacity={false} onTap={e => e.stopPropagation()}>
+                {children}
+              </Space>
             </Space>
           </Wrap>
         </SheetContent.Provider>
