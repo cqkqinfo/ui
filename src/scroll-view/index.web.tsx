@@ -67,7 +67,11 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
         onClick={onTap}
         ref={domRef}
       >
-        <Space flex={1} justify={'space-between'} vertical={scrollY}>
+        <Space
+          flex={1}
+          justify={scrollY ? undefined : 'space-between'}
+          vertical={scrollY}
+        >
           <Visible onVisible={() => onScrollToUpper?.({} as any)} />
           {children}
           <Visible onVisible={() => onScrollToLower?.({} as any)} />
