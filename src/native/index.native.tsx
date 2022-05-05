@@ -40,7 +40,6 @@ export default React.memo(
           JSON.stringify(style) !==
           JSON.stringify(returnsRef.current.data.style)
         ) {
-          console.log(style, returnsRef.current.data.style);
           returnsRef.current.data.style = style;
           setNativePropsRef.current?.({
             style,
