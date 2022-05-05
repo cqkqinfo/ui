@@ -16,6 +16,7 @@ import switchVariable from '../switch-variable';
 import getCurrentPage from '../get-current-page';
 import { useConfig } from '../config-provider';
 import Wrap from './wrap';
+import getPlatform from '../get-platform';
 
 export interface SheetProps {
   children: React.ReactNode;
@@ -77,7 +78,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
     useImperativeHandle(ref, () => ({
       ...sheetInstanceRef.current,
       setVisible: visible => {
-        setVisible(visible);
+        if (getPlatform !== 'native') {
+          setVisible(visible);
+        }
         setIsShowSheetPage?.(visible ? currentPage : '');
         sheetInstanceRef.current.setVisible(visible);
       },
@@ -105,7 +108,9 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
                   return;
                 }
                 setIsShowSheetPage?.('');
-                setVisible(false);
+                if (getPlatform !== 'native') {
+                  setVisible(false);
+                }
                 sheetInstanceRef.current.setVisible(false);
                 onClose?.();
               }}
