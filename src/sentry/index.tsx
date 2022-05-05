@@ -18,12 +18,14 @@ const newSentry: typeof Sentry = {
                   // ... other options
                 }),
               ]
-            : [
+            : getPlatform === 'web'
+            ? [
                 new Sentry.Integrations.Breadcrumbs({
                   console: false,
                 }),
                 new Sentry.Integrations.GlobalHandlers(),
-              ],
+              ]
+            : [new Sentry.Integrations.GlobalHandlers()],
         ignoreErrors: [
           'Non-Error exception captured',
           'promise rejection captured',
