@@ -1,3 +1,9 @@
+## [1.10.51](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.50...v1.10.51) (2022-05-05)
+
+### Bug Fixes
+
+- 小程序报错 ([3dd1c11](https://gitlab2.cqkqinfo.com/web/ui/commit/3dd1c119e10897f94aab8c403b9da00501ba0984))
+
 ## [1.10.50](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.49...v1.10.50) (2022-05-05)
 
 ### Bug Fixes
