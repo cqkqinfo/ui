@@ -1,3 +1,5 @@
+## [1.10.47](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.46...v1.10.47) (2022-05-05)
+
 ## [1.10.46](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.45...v1.10.46) (2022-04-29)
 
 ### Features
