@@ -15,6 +15,7 @@ Component({
   lifetimes: {
     ready: function() {
       this.triggerEvent('this', {
+        data: this.data,
         setData: ({ style, ...data }) => {
           this.setData({
             ...data,
