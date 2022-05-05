@@ -16,6 +16,7 @@ Component({
         this.props.onTap(e);
       }
       this.props.onThis({
+        data: this.data,
         setData: ({ style, ...data }) =>
           this.setData({
             ...data,
