@@ -1,3 +1,5 @@
+## [1.10.49](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.48...v1.10.49) (2022-05-05)
+
 ## [1.10.48](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.47...v1.10.48) (2022-05-05)
 
 ## [1.10.47](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.46...v1.10.47) (2022-05-05)
