@@ -1,3 +1,9 @@
+## [1.10.50](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.49...v1.10.50) (2022-05-05)
+
+### Bug Fixes
+
+- native data 为空 ([ef09367](https://gitlab2.cqkqinfo.com/web/ui/commit/ef09367726cfc17f7356f050e80ba8b743733fef))
+
 ## [1.10.49](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.48...v1.10.49) (2022-05-05)
 
 ## [1.10.48](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.47...v1.10.48) (2022-05-05)
