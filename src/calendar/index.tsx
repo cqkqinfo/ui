@@ -11,6 +11,7 @@ import { NativeInstance } from '../native';
 import rpxToPx from '../rpx-to-px';
 import getPlatform from '../get-platform';
 import Picker from './picker';
+import { useMemoizedFn } from 'ahooks';
 
 dayjs.extend(weekday);
 
@@ -111,27 +112,45 @@ export interface Props {
 const Calendar = ({
   className,
   current,
-  renderDot,
-  onChange,
+  renderDot: _renderDot = () => false,
+  onChange: _onChange = () => {},
   itemCls,
-  renderDisable = day => day.isBefore(dayjs(), 'date'),
+  renderDisable: _renderDisable = day => day.isBefore(dayjs(), 'date'),
   activeItemCls,
   disableItemCls,
   activeDotCls,
   dotWrapCls,
   limit = 14,
-  renderDate = day => day.get('date'),
-  listEndDay,
+  renderDate: _renderDate = day => day.get('date'),
+  listEndDay: _listEndDay,
   monthCls,
-  startDay: outStartDay,
+  startDay: _outStartDay,
   elderly = useConfig().elderly,
-  renderItemProps,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  renderItemProps: _renderItemProps = () => {},
   dotCls,
   range,
   weekCls,
   rangeActiveCls,
   ...props
 }: Props) => {
+  const renderDot = useMemoizedFn(_renderDot);
+  const onChange = useMemoizedFn(_onChange);
+  const renderDisable = useMemoizedFn(_renderDisable);
+  const renderDate = useMemoizedFn(_renderDate);
+  const renderItemProps = useMemoizedFn(_renderItemProps);
+  const listEndDayStr = _listEndDay?.toString();
+  const listEndDay = useMemo(
+    () => (listEndDayStr ? dayjs(listEndDayStr) : undefined),
+    [listEndDayStr],
+  );
+  const outStartDayStr = _outStartDay?.toString();
+  const outStartDay = useMemo(
+    () => (outStartDayStr ? dayjs(outStartDayStr) : undefined),
+    [outStartDayStr],
+  );
+
   const [selected, setSelected] = useEffectState<Current>(
     useMemo(() => current || (range ? [dayjs(), undefined] : dayjs()), [
       current,
@@ -226,7 +245,6 @@ const Calendar = ({
   const nativeRefArrRef = useRef<
     { day: dayjs.Dayjs; native: NativeInstance | null }[]
   >([]);
-  nativeRefArrRef.current = [];
   return (
     <View
       className={classNames(
@@ -252,95 +270,117 @@ const Calendar = ({
           {item}
         </View>
       ))}
-      {days.map((day, index) => {
-        const dot = renderDot?.(day, index);
-        const { renderProps, active, disabled } = getItemArg(day);
-        const renderEmpty = (before = false) => {
-          const length = before ? day.weekday() : 7 - day.weekday() - 1;
-          return new Array(length).fill(0).map((_, i) => (
-            <View
-              className={classNames(itemCls, styles.item, styles.empty)}
-              key={i}
-              style={{
-                marginRight:
-                  !before && i === length - 1
-                    ? 0
-                    : getPlatform === 'native'
-                    ? rpxToPx(30)
-                    : undefined,
-              }}
-            />
-          ));
-        };
-        if (listEndDay && day.month() === startDay.month() - 1) {
-          return null;
-        }
-        return (
-          <React.Fragment key={index}>
-            {day.date() === 1 && listEndDay && (
-              <>
-                <View className={classNames(styles.month, monthCls)}>
-                  {day.format('YYYY年MM月')}
-                </View>
-                {renderEmpty(true)}
-              </>
-            )}
-            <Native
-              {...renderProps}
-              onTap={() => {
-                if (disabled) return;
-                if (range) {
-                  const [start, end] = selected as any;
-                  let current: Current;
-                  if (start && end) {
-                    current = [day, undefined];
-                  } else if (start && dayjs(start).isBefore(day)) {
-                    current = [start, day];
-                  } else {
-                    current = [day, undefined];
-                  }
-                  setSelected(current);
-                  selectedRef.current = current;
-                  onChange?.(current);
-                } else {
-                  setSelected(day);
-                  selectedRef.current = day;
-                  onChange?.(day);
-                }
-              }}
-              initData={getItemNativeData(day)}
-              ref={native => {
-                nativeRefArrRef.current.push({ day, native });
-                native?.setData(getItemNativeData(day));
-              }}
-            >
-              {renderDate(day)}
-              <View className={classNames(styles.dotWrap, dotWrapCls)}>
-                {dot === true ? (
-                  <View
-                    className={classNames(
-                      styles.dot,
-                      dotCls,
-                      active && classNames(styles.activeDot, activeDotCls),
-                    )}
-                  >
-                    {dot}
+      {useMemo(() => {
+        return days.map((day, index) => {
+          const dot = renderDot?.(day, index);
+          const { renderProps, active, disabled } = getItemArg(day);
+          const renderEmpty = (before = false) => {
+            const length = before ? day.weekday() : 7 - day.weekday() - 1;
+            return new Array(length).fill(0).map((_, i) => (
+              <View
+                className={classNames(itemCls, styles.item, styles.empty)}
+                key={i}
+                style={{
+                  marginRight:
+                    !before && i === length - 1
+                      ? 0
+                      : getPlatform === 'native'
+                      ? rpxToPx(30)
+                      : undefined,
+                }}
+              />
+            ));
+          };
+          if (listEndDay && day.month() === startDay.month() - 1) {
+            return null;
+          }
+          return (
+            <React.Fragment key={index}>
+              {day.date() === 1 && listEndDay && (
+                <>
+                  <View className={classNames(styles.month, monthCls)}>
+                    {day.format('YYYY年MM月')}
                   </View>
-                ) : (
-                  dot
-                )}
-              </View>
-            </Native>
-            {listEndDay &&
-              (day.month() !==
-                dayjs(day)
-                  .add(1, 'day')
-                  .month() ||
-                days.length === index + 1) &&
-              renderEmpty(false)}
-          </React.Fragment>
-        );
-      })}
+                  {renderEmpty(true)}
+                </>
+              )}
+              <Native
+                {...renderProps}
+                onTap={() => {
+                  if (disabled) return;
+                  if (range) {
+                    const [start, end] = selectedRef.current as any;
+                    let current: Current;
+                    if (start && end) {
+                      current = [day, undefined];
+                    } else if (start && dayjs(start).isBefore(day)) {
+                      current = [start, day];
+                    } else {
+                      current = [day, undefined];
+                    }
+                    setSelected(current);
+                    selectedRef.current = current;
+                    onChange?.(current);
+                  } else {
+                    setSelected(day);
+                    selectedRef.current = day;
+                    onChange?.(day);
+                  }
+                  nativeRefArrRef.current.forEach(({ day, native }) => {
+                    native?.setData(getItemNativeData(day));
+                  });
+                }}
+                initData={getItemNativeData(day)}
+                ref={native => {
+                  nativeRefArrRef.current[index] = { day, native };
+                  native?.setData(getItemNativeData(day));
+                }}
+              >
+                {renderDate(day)}
+                <View className={classNames(styles.dotWrap, dotWrapCls)}>
+                  {dot === true ? (
+                    <View
+                      className={classNames(
+                        styles.dot,
+                        dotCls,
+                        active && classNames(styles.activeDot, activeDotCls),
+                      )}
+                    >
+                      {dot}
+                    </View>
+                  ) : (
+                    dot
+                  )}
+                </View>
+              </Native>
+              {listEndDay &&
+                (day.month() !==
+                  dayjs(day)
+                    .add(1, 'day')
+                    .month() ||
+                  days.length === index + 1) &&
+                renderEmpty(false)}
+            </React.Fragment>
+          );
+        });
+      }, [
+        activeDotCls,
+        days,
+        dotCls,
+        dotWrapCls,
+        getItemArg,
+        getItemNativeData,
+        itemCls,
+        listEndDay,
+        monthCls,
+        onChange,
+        range,
+        renderDate,
+        renderDot,
+        selectedRef,
+        setSelected,
+        startDay,
+      ])}
     </View>
   );
 };
