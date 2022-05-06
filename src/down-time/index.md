@@ -26,15 +26,18 @@ export default () => {
           .add(10, 's')
           .add(2, 'd')
           .toString()}
-        format={({ d, h, m, s, isEnd }) =>
-          isEnd ? 'end' : `${d}天${h}时${m}分${s}`
-        }
+        format={({ d, h, m, s, isEnd, diff }) => {
+          return isEnd ? 'end' : `${d}天${h}时${m}分${s}`;
+        }}
       />
       <DownTime
         targetDate={dayjs()
           .add(10, 's')
           .toString()}
-        format={({ d, h, m, s, isEnd }) => (isEnd ? 'end' : `${h}:${m}:${s}`)}
+        format={({ d, h, m, s, isEnd, diff }) => {
+          console.log(diff);
+          return isEnd ? 'end' : `${d}天${h}时${m}分${s}`;
+        }}
       />
     </Space>
   );
