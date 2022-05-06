@@ -3,11 +3,9 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import React from 'react';
 import { NativeInstance, Props } from './index';
 import { View } from 'remax/one';
-import { useForceUpdate } from 'parsec-hooks';
 
 export default React.memo(
   forwardRef<NativeInstance, Props>(({ initData, children, onTap }, ref) => {
-    const { forceUpdate } = useForceUpdate();
     const returnsRef = useRef<NativeInstance>({
       data: {
         style: {
@@ -34,20 +32,28 @@ export default React.memo(
         }
         if (content !== returnsRef.current.data.content) {
           returnsRef.current.data.content = content;
-          forceUpdate();
+          setTextNativePropsRef.current?.({
+            text: content,
+          });
         }
         if (
           JSON.stringify(style) !==
           JSON.stringify(returnsRef.current.data.style)
         ) {
           returnsRef.current.data.style = style;
-          setNativePropsRef.current?.({
+          setTextNativePropsRef.current?.({
+            style: {
+              color: style.color,
+            },
+          });
+          setViewNativePropsRef.current?.({
             style,
           });
         }
       },
     });
-    const setNativePropsRef = useRef<any>(null);
+    const setViewNativePropsRef = useRef<any>(null);
+    const setTextNativePropsRef = useRef<any>(null);
     useImperativeHandle(ref, () => returnsRef.current, []);
     const initRef = useRef(false);
     return (
@@ -56,8 +62,9 @@ export default React.memo(
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         ref={ref => {
-          setNativePropsRef.current = ref?.view?.current?.setNativeProps;
-          if (!initRef.current && setNativePropsRef.current) {
+          setViewNativePropsRef.current = ref?.view?.current?.setNativeProps;
+          setTextNativePropsRef.current = ref?.text?.current?.setNativeProps;
+          if (!initRef.current && setViewNativePropsRef.current) {
             // @ts-ignore
             returnsRef.current.setData(initData);
             initRef.current = true;
@@ -67,7 +74,7 @@ export default React.memo(
         style={initData?.style as any}
       >
         {children}
-        {returnsRef.current.data.content}
+        {returnsRef.current.data.content || (!children && '')}
       </View>
     );
   }),
