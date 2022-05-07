@@ -16,15 +16,19 @@ export default ({
   size = { ...(className as any), ...style }.fontSize,
   ...props
 }: Props) => {
-  const [width2, setWidth2] = useState(0);
   const isNumber = typeof size === 'number';
+  const [width2, setWidth2] = useState(rpxToPx(isNumber ? size : 0));
   return (
     <View
       className={classNames(styles.wrap, className)}
       {...props}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      onLayout={e => setWidth2(e.nativeEvent.layout.width)}
+      onLayout={e => {
+        if (!width2) {
+          setWidth2(e.nativeEvent.layout.width);
+        }
+      }}
       style={{
         width: isNumber ? rpxToPx(+(size as any)) : size,
         height: isNumber ? rpxToPx(+(size as any)) : size,
