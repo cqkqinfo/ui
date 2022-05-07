@@ -1,3 +1,9 @@
+## [1.10.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.53...v1.10.54) (2022-05-07)
+
+### Performance Improvements
+
+- 优化 rn icon 性能 ([e944b10](https://gitlab2.cqkqinfo.com/web/ui/commit/e944b101a2cffd7d14040c2c62cea12832fbdb6c))
+
 ## [1.10.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.52...v1.10.53) (2022-05-07)
 
 ### Performance Improvements
