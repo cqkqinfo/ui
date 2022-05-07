@@ -17,6 +17,8 @@ export default ({
   ...props
 }: Props) => {
   const isNumber = typeof size === 'number';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const [width2, setWidth2] = useState(rpxToPx(isNumber ? size : 0));
   return (
     <View
