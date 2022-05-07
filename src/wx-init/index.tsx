@@ -3,7 +3,6 @@ import Sentry from '../sentry';
 import isWx from '../is-wx';
 import versionVariable from '../version-variable';
 const wx = require('weixin-js-sdk');
-
 interface ConfigData {
   appId: string;
   timestamp: number;
