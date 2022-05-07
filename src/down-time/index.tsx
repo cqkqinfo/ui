@@ -32,22 +32,31 @@ interface Props {
    * 类名
    */
   className?: string;
+  /**
+   * 自动停止
+   */
+  autoStop?: boolean;
 }
 
-export default ({ targetDate, format, style, className }: Props) => {
+export default ({ targetDate, format, style, className, autoStop }: Props) => {
   const ref = useRef<NativeInstance>(null);
   useEffect(() => {
     if (!targetDate) return;
-    const fn = () =>
+    const fn = () => {
+      const formatArg = {
+        ...getDownCount(targetDate),
+        diff: dayjs().diff(targetDate, 's'),
+      };
       ref.current?.setData({
-        content: format({
-          ...getDownCount(targetDate),
-          diff: dayjs().diff(targetDate, 's'),
-        }),
+        content: format(formatArg),
       });
+      if (formatArg.isEnd && autoStop) {
+        clearTimeInterval(timer);
+      }
+    };
     fn();
     const timer = setTimeInterval(fn, 1000);
     return () => clearTimeInterval(timer);
-  }, [format, targetDate]);
+  }, [autoStop, format, targetDate]);
   return <Native ref={ref} initData={{ style, className }} />;
 };

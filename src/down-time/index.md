@@ -30,6 +30,7 @@ export default () => {
           return isEnd ? 'end' : `${d}天${h}时${m}分${s}`;
         }}
       />
+      <PartTitle>结束状态</PartTitle>
       <DownTime
         targetDate={dayjs()
           .add(10, 's')
@@ -37,6 +38,16 @@ export default () => {
         format={({ d, h, m, s, isEnd, diff }) => {
           console.log(diff);
           return isEnd ? 'end' : `${d}天${h}时${m}分${s}`;
+        }}
+      />
+      <PartTitle>自动停止</PartTitle>
+      <DownTime
+        autoStop
+        targetDate={dayjs()
+          .add(10, 's')
+          .toString()}
+        format={({ d, h, m, s, isEnd, diff }) => {
+          return `${d}天${h}时${m}分${s}`;
         }}
       />
     </Space>
