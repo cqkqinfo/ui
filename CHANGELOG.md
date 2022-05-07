@@ -1,3 +1,9 @@
+## [1.10.59](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.58...v1.10.59) (2022-05-07)
+
+### Bug Fixes
+
+- rn 依赖 ([6ef88d2](https://gitlab2.cqkqinfo.com/web/ui/commit/6ef88d2a76ec6129495bc861bb1babdfbdf19dae))
+
 ## [1.10.58](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.57...v1.10.58) (2022-05-07)
 
 ## [1.10.57](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.56...v1.10.57) (2022-05-07)
