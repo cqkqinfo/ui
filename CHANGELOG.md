@@ -1,3 +1,9 @@
+## [1.10.53](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.52...v1.10.53) (2022-05-07)
+
+### Performance Improvements
+
+- 优化 DownTime 性能 ([fb8dc2a](https://gitlab2.cqkqinfo.com/web/ui/commit/fb8dc2a01b4a03a753d61f42426986a998d3e7a2))
+
 ## [1.10.52](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.51...v1.10.52) (2022-05-06)
 
 ### Features
