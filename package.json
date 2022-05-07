@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@kqinfo/ui",
-  "version": "1.10.59",
+  "version": "1.10.60",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -81,7 +81,6 @@
     "react-native-linear-gradient": "^2.5.6",
     "react-native-qrcode-svg": "^6.1.1",
     "react-native-render-html": "^6.3.4",
-    "react-native-svg": "^12.1.1",
     "react-native-swiper": "^1.6.0",
     "react-native-web": "^0.17.5",
     "react-native-wechat-lib": "^1.1.26",
@@ -103,6 +102,7 @@
     "react-dom": "^16.x",
     "react-native-drop-shadow": "^0.*",
     "react-native-safe-area-context": "^4.*",
+    "react-native-svg": "^12.*",
     "react-native-webview": "*",
     "remax": "^2.x"
   },
@@ -157,6 +157,7 @@
     "react-native-drop-shadow": "^0.0.2",
     "react-native-iconfont-cli": "^2.2.4",
     "react-native-safe-area-context": "^4.2.1",
+    "react-native-svg": "^12.1.1",
     "react-native-webview": "^11.17.2",
     "remax": "^2.15.6",
     "remax-iconfont-cli": "^2.0.1",
