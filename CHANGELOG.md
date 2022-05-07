@@ -1,3 +1,10 @@
+## [1.10.56](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.55...v1.10.56) (2022-05-07)
+
+### Bug Fixes
+
+- ci ([ebc5013](https://gitlab2.cqkqinfo.com/web/ui/commit/ebc50131faba5dbed831fcfb3b7e45150d574c06))
+- 修复 swiper web 端 circular 无缝链接属性失效、wx-init 找不到 wx 对象 ([b808d49](https://gitlab2.cqkqinfo.com/web/ui/commit/b808d49d4517581f83b8b217ba9be2b463ec7f81))
+
 ## [1.10.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.54...v1.10.55) (2022-05-07)
 
 ### Features
