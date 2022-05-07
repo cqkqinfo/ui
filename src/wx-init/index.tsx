@@ -2,7 +2,6 @@ import axios from '../axios';
 import Sentry from '../sentry';
 import isWx from '../is-wx';
 const wx = require('weixin-js-sdk');
-
 interface ConfigData {
   appId: string;
   timestamp: number;

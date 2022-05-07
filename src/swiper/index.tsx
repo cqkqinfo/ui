@@ -37,6 +37,7 @@ export default ({
   displayMultipleItems = 1,
   current,
   lineDotsCls,
+  circular,
   ...props
 }: Props) => {
   const [myCurrent, myOnChange] = useControllableValue(
@@ -65,6 +66,7 @@ export default ({
         myOnChange({ detail: { current: e.activeIndex } });
       }}
       // centeredSlides
+      loop={circular}
       slidesPerView={displayMultipleItems}
       slideToClickedSlide
       resistanceRatio={0}
