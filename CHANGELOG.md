@@ -1,3 +1,9 @@
+## [1.10.55](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.54...v1.10.55) (2022-05-07)
+
+### Features
+
+- 倒计时支持自动停止 ([4fb5bfd](https://gitlab2.cqkqinfo.com/web/ui/commit/4fb5bfd4e8f755304bd125e9ec19ec509ae50a50))
+
 ## [1.10.54](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.53...v1.10.54) (2022-05-07)
 
 ### Performance Improvements
