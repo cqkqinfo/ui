@@ -1,3 +1,9 @@
+## [1.10.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.60...v1.10.61) (2022-05-10)
+
+### Bug Fixes
+
+- ali 小程序 f2 报错 ([268446a](https://gitlab2.cqkqinfo.com/web/ui/commit/268446a490349522fd0b1fb7ba99cf36f30e081a))
+
 ## [1.10.60](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.59...v1.10.60) (2022-05-07)
 
 ### Bug Fixes
