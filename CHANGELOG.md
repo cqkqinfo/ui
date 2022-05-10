@@ -1,3 +1,9 @@
+## [1.10.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.62...v1.10.63) (2022-05-10)
+
+### Bug Fixes
+
+- 钉钉小程序 f2 报错 ([0bd6b84](https://gitlab2.cqkqinfo.com/web/ui/commit/0bd6b84cd7fedadef4f2003eae40601c33c7d0f9))
+
 ## [1.10.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.61...v1.10.62) (2022-05-10)
 
 ### Bug Fixes
