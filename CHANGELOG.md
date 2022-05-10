@@ -1,3 +1,9 @@
+## [1.10.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.64...v1.10.65) (2022-05-10)
+
+### Bug Fixes
+
+- ci ([d6901b0](https://gitlab2.cqkqinfo.com/web/ui/commit/d6901b0685fcd3c0330921a664bc918c3d0b6610))
+
 ## [1.10.64](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.63...v1.10.64) (2022-05-10)
 
 ## [1.10.63](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.62...v1.10.63) (2022-05-10)
