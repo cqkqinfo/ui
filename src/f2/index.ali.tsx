@@ -8,6 +8,41 @@ import useViewLayout from '../use-view-layout';
 // @ts-ignore
 const F2 = require('@antv/f2/lib/core');
 
+function strLen(str: string) {
+  let len = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) > 0 && str.charCodeAt(i) < 128) {
+      len++;
+    } else {
+      len += 2;
+    }
+  }
+
+  return len;
+}
+
+// override some methods
+// 由于目前钉钉小程序框架善不支持 measureText 方法，故用此方法 mock
+F2.Util.measureText = function(
+  text: string,
+  font: string,
+  ctx: CanvasRenderingContext2D,
+) {
+  if (!ctx.measureText) {
+    let fontSize = 12;
+    if (font) {
+      fontSize = parseInt(font.split(' ')[3], 10);
+    }
+    fontSize /= 2;
+    return {
+      width: strLen(text) * fontSize,
+    };
+  }
+
+  ctx.font = font || '12px sans-serif';
+  return ctx.measureText(text);
+};
+
 function wrapEvent(e: any) {
   if (!e) return;
   if (!e.preventDefault) {
