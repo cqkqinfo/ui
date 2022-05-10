@@ -1,3 +1,9 @@
+## [1.10.62](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.61...v1.10.62) (2022-05-10)
+
+### Bug Fixes
+
+- debug web 加载慢 ([decffcb](https://gitlab2.cqkqinfo.com/web/ui/commit/decffcbe31f5bbcd4b140736b210fc47f5020415))
+
 ## [1.10.61](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.60...v1.10.61) (2022-05-10)
 
 ### Bug Fixes
