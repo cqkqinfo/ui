@@ -10,7 +10,10 @@ export default (showDebug = ['develop', 'trial'].includes(envVersion)) => {
     window.location.href.includes('isDebug=true')
   ) {
     Promise.all([
-      ImportCDNJS('//cdn.bootcss.com/eruda/2.4.1/eruda.min.js', 'eruda'),
+      ImportCDNJS(
+        '//cdn.bootcdn.net/ajax/libs/eruda/2.4.1/eruda.min.js',
+        'eruda',
+      ),
       ImportCDNJS(
         '//unpkg.com/eruda-pixel@1.0.10/eruda-pixel.js',
         'erudaPixel',
