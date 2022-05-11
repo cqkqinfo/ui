@@ -48,7 +48,7 @@
     "ahooks": "^3.1.5",
     "antd-mobile": "^5.0.0-rc.22",
     "array-flat-polyfill": "^1.0.1",
-    "axios-ali-adapter": "^0.0.5",
+    "axios-ali-adapter": "^0.0.6",
     "axios-wechat-adapter": "^0.0.8",
     "base64-js": "^1.5.1",
     "china-id-card": "^1.2.1",
