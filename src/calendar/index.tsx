@@ -112,34 +112,28 @@ export interface Props {
 const Calendar = ({
   className,
   current,
-  renderDot: _renderDot = () => false,
+  renderDot,
   onChange: _onChange = () => {},
   itemCls,
-  renderDisable: _renderDisable = day => day.isBefore(dayjs(), 'date'),
+  renderDisable = day => day.isBefore(dayjs(), 'date'),
   activeItemCls,
   disableItemCls,
   activeDotCls,
   dotWrapCls,
   limit = 14,
-  renderDate: _renderDate = day => day.get('date'),
+  renderDate = day => day.get('date'),
   listEndDay: _listEndDay,
   monthCls,
   startDay: _outStartDay,
   elderly = useConfig().elderly,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  renderItemProps: _renderItemProps = () => {},
+  renderItemProps,
   dotCls,
   range,
   weekCls,
   rangeActiveCls,
   ...props
 }: Props) => {
-  const renderDot = useMemoizedFn(_renderDot);
   const onChange = useMemoizedFn(_onChange);
-  const renderDisable = useMemoizedFn(_renderDisable);
-  const renderDate = useMemoizedFn(_renderDate);
-  const renderItemProps = useMemoizedFn(_renderItemProps);
   const listEndDayStr = _listEndDay?.toString();
   const listEndDay = useMemo(
     () => (listEndDayStr ? dayjs(listEndDayStr) : undefined),
