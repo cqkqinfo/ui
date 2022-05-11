@@ -1,3 +1,9 @@
+## [1.10.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.65...v1.10.66) (2022-05-11)
+
+### Bug Fixes
+
+- renderDot 取不到最新数据 ([411b411](https://gitlab2.cqkqinfo.com/web/ui/commit/411b411a66a3e78b41e3b18981adb320394961ec))
+
 ## [1.10.65](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.64...v1.10.65) (2022-05-10)
 
 ### Bug Fixes
