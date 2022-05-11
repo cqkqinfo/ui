@@ -1,3 +1,9 @@
+## [1.10.67](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.66...v1.10.67) (2022-05-11)
+
+### Bug Fixes
+
+- rn switch 报错 ([2f49731](https://gitlab2.cqkqinfo.com/web/ui/commit/2f49731e89ebb06887ae83c19803e68f32e8d3cb))
+
 ## [1.10.66](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.65...v1.10.66) (2022-05-11)
 
 ### Bug Fixes
