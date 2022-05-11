@@ -12,7 +12,7 @@ group:
 日历
 
 ```tsx
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import {
   Calendar,
   Space,
@@ -27,6 +27,12 @@ import { SheetInstance } from '@kqinfo/ui/es/sheet';
 
 export default () => {
   const sheetRef = useRef<SheetInstance>(null);
+  const [days, setDays] = useState<number[]>([]);
+  useEffect(() => {
+    setTimeout(() => {
+      setDays(new Array(10).fill(0).map((_, i) => dayjs().get('day') + i));
+    }, 2000);
+  }, []);
   return (
     <Space vertical size={'10px'}>
       <PartTitle>自定义一个日历</PartTitle>
@@ -62,11 +68,9 @@ export default () => {
       <PartTitle>自定义渲染</PartTitle>
       <Calendar
         renderDate={day => `${day.get('month') + 1}/${day.get('date')}`}
-        renderDot={(_, index) =>
-          index === 5 ? (
+        renderDot={day =>
+          days.includes(day.get('day')) && (
             <div style={{ transform: 'scale(.6)' }}>满</div>
-          ) : (
-            index > 7
           )
         }
       />
