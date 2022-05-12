@@ -4,6 +4,7 @@ import getPlatform from '../get-platform';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import cssToObject from 'transform-css-to-js';
+import getVersion from '../get-version';
 
 const suffix = switchVariable({
   default: 'css',
@@ -28,7 +29,13 @@ export const transformObj = (css: string) => {
 
 export default async ({ host, path }: { host: string; path: string }) => {
   return Promise.all(
-    [`${host}${path}.${suffix}`, `${host}/remax-styles.${suffix}`].map(link =>
+    [
+      `${host}${path}.${suffix}`,
+      `${host}/${switchVariable({
+        default: 'app',
+        development: 'remax-styles',
+      })(process.env.NODE_ENV || '')}.${suffix}`,
+    ].map(link =>
       axios.get(link, {
         responseType: 'text',
       }),
