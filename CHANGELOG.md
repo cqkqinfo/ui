@@ -1,3 +1,14 @@
+## [1.10.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.68...v1.10.69) (2022-05-12)
+
+### Bug Fixes
+
+- 正式环境 importOnlineCss 404 ([0623af1](https://gitlab2.cqkqinfo.com/web/ui/commit/0623af1cbe3af96b0aec93a36739f976fff221a8))
+
+### Features
+
+- 新增 importOnlineComponent ([35c914b](https://gitlab2.cqkqinfo.com/web/ui/commit/35c914b8d681a794076690148bb0bee745eb51a6))
+- 新增 importOnlineCss ([92d3f9e](https://gitlab2.cqkqinfo.com/web/ui/commit/92d3f9ead88c5bdceca56c617fade7a7f834c825))
+
 ## [1.10.68](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.67...v1.10.68) (2022-05-11)
 
 ### Bug Fixes
