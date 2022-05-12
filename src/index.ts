@@ -527,3 +527,7 @@ export { default as importCDN } from './import-c-d-n';
  * 分页器
  */
 export { default as Pagination } from './pagination';
+/**
+ * 引入在线css
+ */
+export { default as importOnlineCss } from './import-online-css';
