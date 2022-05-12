@@ -8,25 +8,34 @@ import cssToObject from 'transform-css-to-js';
 const suffix = switchVariable({
   default: 'css',
   ali: 'acss',
-  wecaht: 'wxss',
+  wechat: 'wxss',
 })(getPlatform);
 
 export const transformObj = (css: string) => {
-  const cssStr = cssToObject(
-    css
-      .replace(`@import "./../../remax-styles.${suffix}";`, '')
-      .replace(/:root/g, '.root')
-      .replace(/([^}]+),\n([^{]+)({[^}]+})/, '$1 $3 $2 $3') // 匹配.a,\n
-      .replace(/@keyframes[\s\S]+}\n}/g, ''),
-  )
+  // console.log(css);
+  const transformStr = css
+    .replace(/@import "\.\/\.\.\/\.\.\/remax-styles\.(css|acss|wxss)";/g, '')
+    .replace(/:root/g, '.root')
+    // .replace(/([^}]+),\n([^{]+)({[^}]+})/g, '$1 $3 $2 $3') // 匹配.a,\n
+    .replace(/([^}]+),\n([^{]+)({[^}]+})/g, '') // 匹配.a,\n
+    .replace(/@keyframes[\s\S]+}\n}/g, '');
+  const cssStr = cssToObject(transformStr)
     .replace(/(\w+):/g, '"$1":')
     .replace(/\/\/ \.[^\n]+/g, '');
+  // console.log(cssStr);
   return JSON.parse(cssStr);
 };
 
 export default async ({ host, path }: { host: string; path: string }) => {
-  const { data: css } = await axios.get(`${host}${path}.${suffix}`, {
-    responseType: 'text',
+  return Promise.all(
+    [`${host}${path}.${suffix}`, `${host}/remax-styles.${suffix}`].map(link =>
+      axios.get(link, {
+        responseType: 'text',
+      }),
+    ),
+  ).then(res => {
+    const obj = transformObj(res.map(({ data }) => data).join(''));
+    // console.log(obj);
+    return obj;
   });
-  return transformObj(css);
 };

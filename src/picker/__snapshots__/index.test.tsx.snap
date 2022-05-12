@@ -134,59 +134,6 @@ exports[`picker选择器 渲染 1`] = `
       style="transform: translate(0, 100%);"
     >
       <div
-        class="adm-picker"
-      >
-        <div
-          class="adm-picker-header"
-        >
-          <a
-            class="adm-picker-header-button"
-          >
-            取消
-          </a>
-          <div
-            class="adm-picker-header-title"
-          >
-            选择
-          </div>
-          <a
-            class="adm-picker-header-button"
-          >
-            确定
-          </a>
-        </div>
-        <div
-          class="adm-picker-body"
-        >
-          <div
-            class="adm-picker-view"
-          >
-            <div
-              class="adm-picker-view-column"
-            >
-              <div
-                aria-hidden="true"
-                class="adm-picker-view-column-wheel"
-                style="transform: none;"
-              />
-            </div>
-            <div
-              class="adm-picker-view-mask"
-            >
-              <div
-                class="adm-picker-view-mask-top"
-              />
-              <div
-                class="adm-picker-view-mask-middle"
-              />
-              <div
-                class="adm-picker-view-mask-bottom"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
         class="adm-safe-area adm-safe-area-position-bottom"
       />
     </div>

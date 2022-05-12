@@ -11,6 +11,10 @@ Object {
     "minWidth": "20.26667vw",
     "width": "auto",
   },
+  "after1wn5JClass": Object {
+    "display": "inline-flex",
+    "marginLeft": "1.33333vw",
+  },
   "attract2tRfzClass": Object {
     "background": "#ff9d46",
     "border": "1px solid #ff9d46",
@@ -34,6 +38,9 @@ Object {
   "boldEUTWXClass": Object {
     "fontWeight": "bold",
   },
+  "bottom1uzPMClass": Object {
+    "transform": "translateY(200vh)",
+  },
   "button2hlxTActiveClass": Object {
     "opacity": "0.7",
   },
@@ -54,22 +61,58 @@ Object {
     "padding": "0 1.46667vw",
     "userSelect": "none",
   },
-  "buttonXxxxxxClass": Object {
-    "alignItems": "center",
-    "background": "#2780d9",
-    "border": "1px solid #2780d9",
-    "borderRadius": "2.66667vw",
+  "cellChildren3pxXhClass": Object {
+    "display": "flex",
+    "justifyContent": "space-between",
+    "textAlign": "right",
+  },
+  "cellChildren3pxXhtextareaClass": Object {
     "boxSizing": "border-box",
-    "color": "#ffffff",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "fontSize": "4.8vw",
-    "justifyContent": "center",
-    "lineHeight": "4.8vw",
-    "maxHeight": "13.06667vw",
-    "minHeight": "13.06667vw",
-    "padding": "0 1.46667vw",
-    "userSelect": "none",
+    "padding": "2.66667vw 0",
+  },
+  "cellChildrenLeftTPyPvClass": Object {
+    "justifyContent": "flex-start",
+  },
+  "cellGuhZBClass": Object {
+    "border": "0 solid #e2e2e2",
+    "borderBottom": "1px solid #e2e2e2",
+    "justifyContent": "space-between",
+    "minHeight": "11.73333vw",
+    "width": "100%",
+  },
+  "cellGuhZBLastChildClass": Object {
+    "borderBottom": "none !important",
+  },
+  "children9PFPRClass": Object {
+    "color": "#666",
+    "flex": "1",
+  },
+  "children9PFPRPickerChildrenClass": Object {
+    "alignItems": "center",
+    "display": "flex",
+    "height": "9.33333vw",
+    "justifyContent": "flex-end",
+    "whiteSpace": "break-spaces",
+    "width": "100%",
+  },
+  "children9PFPRpickerClass": Object {
+    "width": "100%",
+  },
+  "colonBgNb5Class": Object {
+    "display": "inline-block",
+    "padding": "0 1.33333vw",
+    "position": "relative",
+    "top": "-0.26667vw",
+  },
+  "content1LwVzClass": Object {
+    "height": "100vh",
+    "left": "0",
+    "overflow": "auto",
+    "position": "absolute",
+    "top": "0",
+    "transition": "all 0.3s",
+    "width": "100vw",
+    "willChange": "transform",
   },
   "default3PkNhClass": Object {
     "backgroundColor": "#fff",
@@ -90,6 +133,24 @@ Object {
     "fontSize": "5.6vw",
     "lineHeight": "1",
   },
+  "elderlyDM5G7CellGuhZBClass": Object {
+    "minHeight": "15.73333vw",
+  },
+  "elderlyDM5G7Children9PFPRClass": Object {
+    "color": "#333333",
+    "fontWeight": "bold",
+  },
+  "elderlyDM5G7ColonBgNb5Class": Object {
+    "padding": "0",
+    "paddingRight": "4.26667vw",
+  },
+  "elderlyDM5G7Item1K29FClass": Object {
+    "fontSize": "5.33333vw",
+  },
+  "elderlyDM5G7LabelH8Z6QClass": Object {
+    "color": "#666666",
+    "marginRight": "0 !important",
+  },
   "elderlyP2n0mAction1GQqlClass": Object {
     "background": "#00b8a9",
     "borderColor": "#00b8a9",
@@ -101,6 +162,18 @@ Object {
   },
   "elderlyP2n0mButton2hlxTClass": Object {
     "fontSize": "5.46667vw",
+  },
+  "error1UZ47Children9PFPRClass": Object {
+    "color": "#ed4e56",
+  },
+  "error1UZ47Class": Object {
+    "color": "#ed4e56",
+  },
+  "error1UZ47LabelH8Z6QClass": Object {
+    "color": "#ed4e56",
+  },
+  "error1UZ47PlaceholderClass": Object {
+    "color": "#ed4e56 !important",
   },
   "ghost382cClass": Object {
     "backgroundColor": "transparent",
@@ -128,8 +201,62 @@ Object {
     "height": "100%",
     "width": "100%",
   },
+  "input2D75Class": Object {
+    "backgroundColor": "transparent",
+    "border": "none",
+    "color": "inherit",
+    "fontSize": "1em",
+    "whiteSpace": "break-spaces",
+    "width": "100%",
+  },
+  "item1K29FClass": Object {
+    "alignItems": "center",
+    "borderBottomColor": "transparent",
+    "color": "#333",
+    "display": "flex",
+    "fontSize": "4vw",
+    "position": "relative",
+    "whiteSpace": "nowrap",
+  },
+  "item1K29FVertical24MTWCard2iaXgClass": Object {
+    "margin": "2.66667vw 0 0",
+  },
+  "item1K29FVertical24MTWCard2iaXgLabelWrapYZRzXClass": Object {
+    "marginBottom": "1.33333vw",
+  },
+  "item1K29FVertical24MTWCellGuhZBChildren9PFPRClass": Object {
+    "borderTop": "1px solid #eee",
+    "marginTop": "1.33333vw",
+    "paddingTop": "2.66667vw",
+  },
+  "item1K29FVertical24MTWCellGuhZBClass": Object {
+    "padding": "4vw 0",
+  },
+  "item1K29FVertical24MTWChildren9PFPRClass": Object {
+    "width": "100%",
+  },
+  "item1K29FVertical24MTWClass": Object {
+    "alignItems": "flex-start",
+    "flexDirection": "column",
+  },
+  "labelH8Z6QClass": Object {
+    "display": "inline-flex",
+  },
+  "labelWrapYZRzXClass": Object {
+    "alignItems": "center",
+    "display": "flex",
+  },
+  "left1bRpuClass": Object {
+    "transform": "translateX(-200vh)",
+  },
   "loading3nLe1Class": Object {
     "pointerEvents": "none",
+  },
+  "mark3TiN3Class": Object {
+    "color": "#ea5328",
+    "display": "inline-block",
+    "left": "-0.5em",
+    "position": "absolute",
   },
   "mark3ulmIClass": Object {
     "color": "#d95e38",
@@ -148,6 +275,9 @@ Object {
     "fontWeight": "bold",
     "lineHeight": "4vw",
   },
+  "right2WAfbClass": Object {
+    "transform": "translateX(200vh)",
+  },
   "rootRootClass": Object {
     "AdmColorPrimary": "#2780d9",
   },
@@ -156,6 +286,30 @@ Object {
   },
   "round32MClass": Object {
     "borderRadius": "7.86667vw",
+  },
+  "sheet9WewvClass": Object {
+    "backgroundColor": "transparent",
+    "height": "100vh",
+    "left": "0",
+    "opacity": "0",
+    "overflow": "hidden",
+    "pointerEvents": "none",
+    "position": "fixed",
+    "top": "0",
+    "transition": "all 0.3s, z-index 0s 0.3s",
+    "width": "100vw",
+    "zIndex": "-1",
+  },
+  "show1laF7Class": Object {
+    "backgroundColor": "rgba(0, 0, 0, 0.6)",
+    "opacity": "1",
+    "overflow": "auto",
+    "pointerEvents": "auto",
+    "transition": "all 0.3s",
+    "zIndex": "101",
+  },
+  "showContent1rV2tClass": Object {
+    "transform": "translateY(0) translateX(0)",
   },
   "smallQeiCpClass": Object {
     "fontSize": "4vw",
@@ -182,6 +336,12 @@ Object {
     "color": "#666666",
     "fontSize": "4vw",
     "fontWeight": "bold",
+  },
+  "topZIZJRClass": Object {
+    "transform": "translateY(-200vh)",
+  },
+  "web2yhSFocusClass": Object {
+    "outline": "none",
   },
   "wrap1LAMiClass": Object {
     "alignItems": "center",
