@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`引用在线css 基本 1`] = `
+Object {
+  "action1GQqlClass": Object {
+    "borderRadius": "1.33333vw",
+    "flex": "none",
+    "fontSize": "3.46667vw",
+    "maxHeight": "9.86667vw",
+    "minHeight": "9.86667vw",
+    "minWidth": "20.26667vw",
+    "width": "auto",
+  },
+  "attract2tRfzClass": Object {
+    "background": "#ff9d46",
+    "border": "1px solid #ff9d46",
+  },
+  "attractGhost7iFzLClass": Object {
+    "color": "#ff9d46",
+  },
+  "attractNoBorder3D15Class": Object {
+    "color": "#ff9d46",
+  },
+  "block1RpwClass": Object {
+    "display": "flex",
+    "flex": "1",
+    "width": "100%",
+  },
+  "block1vZo7Class": Object {
+    "background": "#2780d9",
+    "height": "3.73333vw",
+    "width": "1.2vw",
+  },
+  "boldEUTWXClass": Object {
+    "fontWeight": "bold",
+  },
+  "button2hlxTActiveClass": Object {
+    "opacity": "0.7",
+  },
+  "button2hlxTClass": Object {
+    "alignItems": "center",
+    "background": "#2780d9",
+    "border": "1px solid #2780d9",
+    "borderRadius": "2.66667vw",
+    "boxSizing": "border-box",
+    "color": "#ffffff",
+    "cursor": "pointer",
+    "display": "inline-flex",
+    "fontSize": "4.8vw",
+    "justifyContent": "center",
+    "lineHeight": "4.8vw",
+    "maxHeight": "13.06667vw",
+    "minHeight": "13.06667vw",
+    "padding": "0 1.46667vw",
+    "userSelect": "none",
+  },
+  "buttonXxxxxxClass": Object {
+    "alignItems": "center",
+    "background": "#2780d9",
+    "border": "1px solid #2780d9",
+    "borderRadius": "2.66667vw",
+    "boxSizing": "border-box",
+    "color": "#ffffff",
+    "cursor": "pointer",
+    "display": "inline-flex",
+    "fontSize": "4.8vw",
+    "justifyContent": "center",
+    "lineHeight": "4.8vw",
+    "maxHeight": "13.06667vw",
+    "minHeight": "13.06667vw",
+    "padding": "0 1.46667vw",
+    "userSelect": "none",
+  },
+  "default3PkNhClass": Object {
+    "backgroundColor": "#fff",
+    "border": "1px solid #e2e2e2",
+    "color": "#999999",
+  },
+  "disable1ffneClass": Object {
+    "backgroundColor": "#cccccc",
+    "borderColor": "#cccccc",
+    "color": "#fff",
+    "pointerEvents": "none",
+  },
+  "elderly1VOquBlock1vZo7Class": Object {
+    "height": "5.06667vw",
+    "width": "1.2vw",
+  },
+  "elderly1VOquTitle3PwhHClass": Object {
+    "fontSize": "5.6vw",
+    "lineHeight": "1",
+  },
+  "elderlyP2n0mAction1GQqlClass": Object {
+    "background": "#00b8a9",
+    "borderColor": "#00b8a9",
+    "borderRadius": "2.66667vw",
+    "color": "#ffffff",
+    "fontSize": "4.8vw",
+    "fontWeight": "bold",
+    "maxHeight": "15.46667vw",
+  },
+  "elderlyP2n0mButton2hlxTClass": Object {
+    "fontSize": "5.46667vw",
+  },
+  "ghost382cClass": Object {
+    "backgroundColor": "transparent",
+    "color": "#2780d9",
+  },
+  "ghost382cDefault3PkNhClass": Object {
+    "backgroundColor": "transparent",
+  },
+  "group3hLFButton2hlxTClass": Object {
+    "flex": "initial",
+    "width": "auto",
+  },
+  "group3hLFButton2hlxTFirstChildNotLastChildClass": Object {
+    "borderBottomRightRadius": "0",
+    "borderTopRightRadius": "0",
+  },
+  "group3hLFButton2hlxTLastChildNotFirstChildClass": Object {
+    "borderBottomLeftRadius": "0",
+    "borderTopLeftRadius": "0",
+  },
+  "group3hLFButton2hlxTNotFirstChildNotLastChildClass": Object {
+    "borderRadius": "0",
+  },
+  "icon1oAmJClass": Object {
+    "height": "100%",
+    "width": "100%",
+  },
+  "loading3nLe1Class": Object {
+    "pointerEvents": "none",
+  },
+  "mark3ulmIClass": Object {
+    "color": "#d95e38",
+    "fontSize": "4vw",
+    "fontWeight": "bold",
+    "position": "relative",
+    "top": "-1.06667vw",
+  },
+  "noBorder1U6tEClass": Object {
+    "border": "none",
+    "color": "#2780d9",
+  },
+  "part3XIhqClass": Object {
+    "color": "#333333",
+    "fontSize": "4vw",
+    "fontWeight": "bold",
+    "lineHeight": "4vw",
+  },
+  "rootRootClass": Object {
+    "AdmColorPrimary": "#2780d9",
+  },
+  "rotate3JMmyClass": Object {
+    "animation": "loading-rotate___3Mvyn 1s linear infinite",
+  },
+  "round32MClass": Object {
+    "borderRadius": "7.86667vw",
+  },
+  "smallQeiCpClass": Object {
+    "fontSize": "4vw",
+    "maxHeight": "10.4vw",
+    "minHeight": "10.4vw",
+    "padding": "0 3.6vw",
+  },
+  "testClass": Object {
+    "backgroundColor": "#f00",
+    "fontSize": "8vw",
+    "height": "26.66667vw",
+    "width": "26.66667vw",
+  },
+  "tinyLdnO2Class": Object {
+    "fontSize": "4.26667vw",
+    "maxHeight": "9.33333vw",
+    "minHeight": "9.33333vw",
+    "padding": "0 3.6vw",
+  },
+  "title3PwhHClass": Object {
+    "marginLeft": "1.6vw",
+  },
+  "today39KY3Class": Object {
+    "color": "#666666",
+    "fontSize": "4vw",
+    "fontWeight": "bold",
+  },
+  "wrap1LAMiClass": Object {
+    "alignItems": "center",
+    "display": "flex",
+    "justifyContent": "center",
+  },
+}
+`;
