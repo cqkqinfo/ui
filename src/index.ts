@@ -531,3 +531,7 @@ export { default as Pagination } from './pagination';
  * 引入在线css
  */
 export { default as importOnlineCss } from './import-online-css';
+/**
+ * 引入在线组件
+ */
+export { default as importOnlineComponent } from './import-online-component';
