@@ -1,6 +1,6 @@
-import { useQuery } from 'remax';
 import qs from 'qs';
 import { useCallback, useMemo } from 'react';
+import getCurrentPage from '../get-current-page';
 
 interface Options {
   /**
@@ -37,7 +37,10 @@ export default ({
   backUrl = window.location.href,
   run = true,
 }: Options = {}): Return => {
-  const query = useMemo(() => useQuery(), []);
+  const query = useMemo(
+    () => qs.parse(getCurrentPage().split('?')?.[1]) as any,
+    [],
+  );
   const { backSuccess } = query;
   const key = `${window.location.pathname}-backUrl`;
   const storageUrl = sessionStorage[key];
