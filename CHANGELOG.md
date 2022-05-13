@@ -1,3 +1,13 @@
+## [1.10.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.69...v1.10.70) (2022-05-13)
+
+### Bug Fixes
+
+- useQuery 报错 ([ceb08cf](https://gitlab2.cqkqinfo.com/web/ui/commit/ceb08cfeba6adb3efc8cce33a80f1c0d8c583c36))
+
+### Features
+
+- getCurrentPage 会带上参数 ([717499c](https://gitlab2.cqkqinfo.com/web/ui/commit/717499c3b3f923d5760816236976de7d25dbf1cd))
+
 ## [1.10.69](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.68...v1.10.69) (2022-05-12)
 
 ### Bug Fixes
