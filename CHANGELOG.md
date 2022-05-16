@@ -1,3 +1,5 @@
+# [1.11.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.71...v1.11.0) (2022-05-16)
+
 ## [1.10.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.70...v1.10.71) (2022-05-16)
 
 ### Bug Fixes
