@@ -1,12 +1,12 @@
 import Sentry from './sentry';
-import getVersion from '../get-version';
+import getVersion, { envVersion } from '../get-version';
 import './init';
 import getPlatform from '../get-platform';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
   init: (options = {}) => {
-    if (getVersion !== 'develop') {
+    if (envVersion !== 'develop') {
       Sentry.init({
         integrations:
           getPlatform === 'native'
