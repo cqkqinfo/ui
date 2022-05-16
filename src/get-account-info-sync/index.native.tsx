@@ -1,7 +1,7 @@
 import getVersion from '../get-version';
 
-export default () => ({
+export default async () => ({
   miniProgram: {
-    envVersion: getVersion,
+    envVersion: await getVersion(),
   },
 });
