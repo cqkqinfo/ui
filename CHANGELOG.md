@@ -1,3 +1,9 @@
+## [1.10.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.70...v1.10.71) (2022-05-16)
+
+### Bug Fixes
+
+- sentry 环境判断错误 ([52ae867](https://gitlab2.cqkqinfo.com/web/ui/commit/52ae8676c1a3329a83b4cde7e5041167dc86af6c))
+
 ## [1.10.70](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.69...v1.10.70) (2022-05-13)
 
 ### Bug Fixes
