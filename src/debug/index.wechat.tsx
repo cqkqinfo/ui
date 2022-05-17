@@ -1,8 +1,10 @@
 import { setEnableDebug } from 'remax/wechat';
-import { envVersion } from '../get-version';
+import getVersion from '../get-version';
 
 export default () => {
-  if (['develop', 'trial'].includes(envVersion)) {
-    setEnableDebug({ enableDebug: true });
-  }
+  getVersion().then(env => {
+    if (['develop', 'trial'].includes(env)) {
+      setEnableDebug({ enableDebug: true });
+    }
+  });
 };
