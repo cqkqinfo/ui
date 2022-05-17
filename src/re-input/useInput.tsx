@@ -68,7 +68,7 @@ export default ({
   value,
   disabled,
   delay,
-  maxLength = 999999999999999999,
+  maxLength = 100000000,
   ...props
 }: UseInputOption) => {
   const inSheet = useContext(SheetContent);
