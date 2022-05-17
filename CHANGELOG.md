@@ -1,3 +1,9 @@
+## [1.11.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.1...v1.11.2) (2022-05-17)
+
+### Bug Fixes
+
+- get-version 改变导致的 ci 失败 ([ff6625e](https://gitlab2.cqkqinfo.com/web/ui/commit/ff6625ef9d86eced37c46364e3be865e680ede76))
+
 ## [1.11.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.0...v1.11.1) (2022-05-17)
 
 ### Bug Fixes
