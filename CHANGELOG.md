@@ -1,3 +1,9 @@
+## [1.11.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.0...v1.11.1) (2022-05-17)
+
+### Bug Fixes
+
+- 支付宝小程序安卓不能输入 ([905cf1e](https://gitlab2.cqkqinfo.com/web/ui/commit/905cf1ebc1b350ba6796fcc1862c310f00695f1d))
+
 # [1.11.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.71...v1.11.0) (2022-05-16)
 
 ## [1.10.71](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.10.70...v1.10.71) (2022-05-16)
