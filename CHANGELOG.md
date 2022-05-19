@@ -1,3 +1,9 @@
+## [1.11.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.2...v1.11.3) (2022-05-19)
+
+### Bug Fixes
+
+- pc 引用后字体大小过大 ([88164c9](https://gitlab2.cqkqinfo.com/web/ui/commit/88164c9f50f6648367b4839c913a7f150d2bef60))
+
 ## [1.11.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.1...v1.11.2) (2022-05-17)
 
 ### Bug Fixes
