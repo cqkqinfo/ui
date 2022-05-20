@@ -1,3 +1,9 @@
+## [1.11.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.3...v1.11.4) (2022-05-20)
+
+### Features
+
+- login 组件支付宝小程新增 aliScopes（需要授权的权限配置） ([9cd238f](https://gitlab2.cqkqinfo.com/web/ui/commit/9cd238fb0876da7cc2b1240d23ee44b0c9cbdce7))
+
 ## [1.11.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.2...v1.11.3) (2022-05-19)
 
 ### Bug Fixes
