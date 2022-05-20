@@ -1,10 +1,10 @@
 import { getAuthCode } from 'remax/ali';
 
-export default async () => {
+export default async (data?: { aliScopes?: string[] }) => {
   const res = await getAuthCode({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    scopes: ['auth_user', 'hospital_order'],
+    scopes: data?.aliScopes || ['auth_user'],
   });
   return { authCode: res.authCode };
 };
