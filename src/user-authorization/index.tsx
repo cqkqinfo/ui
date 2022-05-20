@@ -20,6 +20,10 @@ export interface Props {
    */
   hisCode?: string;
   /**
+   * 支付宝小程序需要授权的权限
+   */
+  aliScopes?: string[];
+  /**
    * 授权事件
    */
   onAuthorization: (data: LoginData & GetUserInfoData) => Promise<any>;
@@ -41,6 +45,7 @@ export default ({
   hisName,
   onAuthorization,
   hisCode,
+  aliScopes,
   logo,
   homeUrl,
   agreementUrl,
@@ -65,7 +70,7 @@ export default ({
           type={'getUserInfo'}
           onGetUserInfo={userInfo => {
             setCheck(false);
-            login({ code: hisCode })
+            login({ code: hisCode, aliScopes })
               .then(loginData => onAuthorization({ ...loginData, ...userInfo }))
               .catch(() => {
                 setCheck(true);

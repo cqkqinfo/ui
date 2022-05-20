@@ -15,4 +15,7 @@ export interface LoginData {
   authCode?: string;
 }
 
-export default (data?: { code?: string }): Promise<LoginData> => login();
+export default (data?: {
+  code?: string;
+  aliScopes?: string[];
+}): Promise<LoginData> => login();
