@@ -35,6 +35,11 @@ export interface GlobalConfig {
    * 全局控制渲染NoData组件，返回undefined则用默认的
    */
   renderNoData?: () => React.ReactNode;
+  /**
+   * 设计图宽度
+   * @default 750
+   */
+  viewportWidth?: number;
 }
 
 export const {
@@ -61,16 +66,24 @@ export const {
   },
 );
 
+export const data = {
+  viewportWidth: 750,
+};
+
 export default ({
   children,
+  viewportWidth = 750,
   ...props
-}: GlobalConfig & { children: React.ReactNode }) => (
-  <ConfigProvider
-    initialState={props}
-    children={
-      React.isValidElement(children)
-        ? React.cloneElement(children, { ...children.props, ...props })
-        : children
-    }
-  />
-);
+}: GlobalConfig & { children: React.ReactNode }) => {
+  data.viewportWidth = viewportWidth;
+  return (
+    <ConfigProvider
+      initialState={props}
+      children={
+        React.isValidElement(children)
+          ? React.cloneElement(children, { ...children.props, ...props })
+          : children
+      }
+    />
+  );
+};
