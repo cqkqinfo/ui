@@ -1,3 +1,9 @@
+## [1.11.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.4...v1.11.5) (2022-05-24)
+
+### Features
+
+- 可以设置 viewportWidth ([43485d4](https://gitlab2.cqkqinfo.com/web/ui/commit/43485d44f859db2adf397465dd31aa61bc8cefe1))
+
 ## [1.11.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.3...v1.11.4) (2022-05-20)
 
 ### Features
