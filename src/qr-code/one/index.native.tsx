@@ -4,6 +4,7 @@ import React from 'react';
 import QrCodeProps from './common';
 import QRCode from 'react-native-qrcode-svg';
 import { View } from 'remax/one';
+import useViewLayout from '../../use-view-layout';
 
 export default ({
   content,
@@ -14,9 +15,10 @@ export default ({
   style,
   ...restProps
 }: QrCodeProps) => {
+  const { width, ...arg } = useViewLayout();
   return (
-    <View style={style} {...restProps}>
-      <QRCode value={content} size={style?.width as any} {...restProps} />
+    <View style={style} {...restProps} {...arg}>
+      <QRCode value={content} size={width} {...restProps} />
     </View>
   );
 };
