@@ -1,7 +1,10 @@
 import getVersion from '../get-version';
 
-export default async () => ({
+let version: any;
+getVersion().then(v => (version = v));
+
+export default () => ({
   miniProgram: {
-    envVersion: await getVersion(),
+    envVersion: version,
   },
 });
