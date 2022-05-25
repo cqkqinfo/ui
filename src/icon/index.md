@@ -87,6 +87,7 @@ const names = [
   'kq-zhengque',
   'kq-sousuo',
   'kq-xihuan',
+  'kq-buxihuan',
   'kq-erweima',
   'kq-shang',
   'kq-xia',
