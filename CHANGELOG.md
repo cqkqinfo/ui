@@ -1,3 +1,14 @@
+## [1.11.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.5...v1.11.6) (2022-05-25)
+
+### Bug Fixes
+
+- rn getAccountInfo 报错 ([131095b](https://gitlab2.cqkqinfo.com/web/ui/commit/131095bfeefb4061daabd0bf802d3fd01daf9a46))
+- rn 二维码大小 ([99cfa9a](https://gitlab2.cqkqinfo.com/web/ui/commit/99cfa9a9e5916ca373783a3373e0020d9308f15b))
+
+### Features
+
+- 更新爱心图标 ([8a217b4](https://gitlab2.cqkqinfo.com/web/ui/commit/8a217b43650d4bee4a4914d8f964bc218b00e028))
+
 ## [1.11.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.4...v1.11.5) (2022-05-24)
 
 ### Features
