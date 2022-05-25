@@ -57,7 +57,8 @@ exports[`表单 card模式 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               style="text-align: left;"
@@ -126,7 +127,8 @@ exports[`表单 card模式 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               style="text-align: left;"
@@ -208,7 +210,8 @@ exports[`表单 cell模式 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -271,7 +274,8 @@ exports[`表单 cell模式 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
@@ -357,7 +361,8 @@ exports[`表单 两端对齐 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               style="text-align: left;"
@@ -426,7 +431,8 @@ exports[`表单 两端对齐 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               style="text-align: left;"
@@ -513,7 +519,8 @@ exports[`表单 渲染 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入姓名"
               placeholderstyle="[object Object]"
               style="text-align: left;"
@@ -582,7 +589,8 @@ exports[`表单 渲染 1`] = `
             <input
               class=""
               delay="500"
-              maxlength="1000000000000000000"
+              disabled=""
+              maxlength="100000000"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               style="text-align: left;"
