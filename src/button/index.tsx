@@ -133,6 +133,7 @@ const Button = ({
       <Space size={'.5em'} alignItems={'center'}>
         {loading ? (
           <Icon
+            size={36}
             name={'kq-loading'}
             color={type === 'default' ? '#999' : '#fff'}
           />
