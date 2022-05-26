@@ -1,3 +1,19 @@
+# [1.12.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.8...v1.12.0) (2022-05-26)
+
+### Bug Fixes
+
+- formItem 两端对齐样式错误 ([25d55ad](https://gitlab2.cqkqinfo.com/web/ui/commit/25d55ada0c4d22862765dea7c12f249d79b688c8))
+- rn getCurrentPage 不对 ([de530e7](https://gitlab2.cqkqinfo.com/web/ui/commit/de530e7037447e24d6dff2a9f31c849444941a52))
+- 下拉菜单在 rn 样式错误 ([79c4c0b](https://gitlab2.cqkqinfo.com/web/ui/commit/79c4c0b1019f394687df842c7346e7df7d0b9ce4))
+
+### Features
+
+- button loading 图标添加默认大小 ([c0df90e](https://gitlab2.cqkqinfo.com/web/ui/commit/c0df90e64d593a241a53d0d4b2cfb50e1930b1ee))
+
+### Reverts
+
+- Revert "fix: get-version 改变导致的 ci 失败" ([2a1524f](https://gitlab2.cqkqinfo.com/web/ui/commit/2a1524fb6feccadf5cefd9ed616d8736d6816cc5))
+
 ## [1.11.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.7...v1.11.8) (2022-05-26)
 
 ### Features
