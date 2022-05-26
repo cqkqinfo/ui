@@ -193,7 +193,8 @@ export default ({
                 </Space>
               </LazyUpdate>
             );
-            const labelArr = typeof label === 'string' ? [...label] : undefined;
+            const labelArr =
+              typeof label === 'string' && labelWidth ? [...label] : undefined;
             return (
               <LazyUpdate
                 className={classNames(
