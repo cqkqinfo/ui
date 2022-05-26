@@ -1,10 +1,4 @@
-import getVersion from '../get-version';
-
-let envVersion = '';
-
-getVersion().then(env => {
-  envVersion = env;
-});
+import { envVersion } from '../get-version';
 
 export default <D extends unknown>(obj: {
   /**
@@ -19,4 +13,4 @@ export default <D extends unknown>(obj: {
    * 正式版变量
    */
   release?: D;
-}) => ((obj as any)[envVersion] || obj['develop']) as D;
+}) => (obj[envVersion] || obj['develop']) as D;

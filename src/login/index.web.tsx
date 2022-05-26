@@ -1,14 +1,13 @@
 import getStorageSync from '../get-storage-sync';
 import setStorageSync from '../set-storage-sync';
-import getVersion from '../get-version';
+import { envVersion } from '../get-version';
 import qs from 'qs';
 
-export default async ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
+export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
   let openId = getStorageSync('openId');
   if (code !== getStorageSync('authorizeCode')) {
     openId = undefined;
   }
-  const envVersion = await getVersion();
   if (envVersion === 'develop') {
     return Promise.resolve({ openId });
   }
