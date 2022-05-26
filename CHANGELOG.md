@@ -1,3 +1,9 @@
+## [1.11.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.7...v1.11.8) (2022-05-26)
+
+### Features
+
+- formItem 自动换行适配设备 ([9dd7283](https://gitlab2.cqkqinfo.com/web/ui/commit/9dd7283d9a8071bc6fff282c2aab5dc1e5748fba))
+
 ## [1.11.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.6...v1.11.7) (2022-05-26)
 
 ### Bug Fixes
