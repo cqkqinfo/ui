@@ -220,6 +220,7 @@ export default ({
                       <View
                         className={classNames(
                           styles.mark,
+                          cell && styles['cell-mark'],
                           requiredMarkCls,
                           outRequiredMarkCls,
                         )}
@@ -258,18 +259,18 @@ export default ({
                             </View>
                           ))
                         : label}
+                      {(colon === undefined ? (
+                        !cell
+                      ) : (
+                        colon === true
+                      )) ? (
+                        <View className={classNames(styles.colon, colonCls)}>
+                          :
+                        </View>
+                      ) : (
+                        colon
+                      )}
                     </View>
-                    {(colon === undefined ? (
-                      !cell
-                    ) : (
-                      colon === true
-                    )) ? (
-                      <View className={classNames(styles.colon, colonCls)}>
-                        :
-                      </View>
-                    ) : (
-                      colon
-                    )}
                     {vertical && errIcon}
                   </View>
                 )}
