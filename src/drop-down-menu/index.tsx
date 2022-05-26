@@ -3,6 +3,7 @@ import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
+import useViewLayout from '../use-view-layout';
 
 export interface DropDownMenuProps {
   /**
@@ -40,12 +41,15 @@ export default (props: DropDownMenuProps) => {
     style,
   } = props;
   const [showOptions, setShowOptions] = useEffectState<number>(opsVisibleIndex);
+  const { width, y, ...arg } = useViewLayout();
   const handledChildren = useMemo(
     () =>
       React.Children.map(children, (item, index) => {
         if (isReactElement(item)) {
           const childProps = {
             ...item.props,
+            parentWidth: width,
+            parentY: y,
             onToggle: (i: any) => {
               setShowOptions(prev => {
                 const showOptions = prev === index ? -1 : index;
@@ -59,12 +63,16 @@ export default (props: DropDownMenuProps) => {
         }
         return item;
       }),
-    [children, onOpsVisible, setShowOptions, showOptions],
+    [children, onOpsVisible, setShowOptions, showOptions, width, y],
   );
   return (
     <>
       {showOptions !== -1 && showModal && <View className={styles.modal} />}
-      <View className={classNames(styles.wrap, className)} style={style}>
+      <View
+        className={classNames(styles.wrap, className)}
+        style={style}
+        {...arg}
+      >
         {handledChildren}
       </View>
     </>

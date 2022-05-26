@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/ban-ts-comment */
 import React, { useMemo } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
@@ -9,6 +9,8 @@ import Rotate from '../rotate';
 import Space from '../space';
 import { IconNames } from '../icon/web';
 import rpxToPx from '../rpx-to-px';
+import ScrollView from '../scroll-view';
+import getPlatform from '../get-platform';
 
 export interface DropDownMenuIremProps {
   /**
@@ -76,6 +78,10 @@ export default (props: DropDownMenuIremProps) => {
     onChange,
     titleCls,
     children,
+    // @ts-ignore
+    parentWidth,
+    // @ts-ignore
+    parentY,
   } = props as DropDownMenuIremProps & {
     /**内部传参 */
     onToggle?: () => void;
@@ -89,32 +95,51 @@ export default (props: DropDownMenuIremProps) => {
 
   return (
     <>
-      <Fold folded={!showOptions} className={styles.down} maxHeight={'50vh'}>
-        <Space vertical style={{ width: '100%' }}>
-          {options?.map(item => {
-            return (
-              <View
-                key={item.value}
-                onTap={() => {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  onToggle?.(-1);
-                  onChange?.(item.value, item);
-                }}
-                className={classNames(
-                  styles.downSelect,
-                  styles.flexCenter,
-                  props.itemCls,
-                  item.value === value &&
-                    classNames(props.itemSelectCls, styles.select),
-                )}
-              >
-                {item.text}
-              </View>
-            );
-          })}
-        </Space>
-        {children}
+      <Fold
+        folded={!showOptions}
+        className={styles.down}
+        maxHeight={'50vh'}
+        style={
+          getPlatform === 'native'
+            ? {
+                position: 'fixed',
+                top: (parentY || 0) + rpxToPx(100),
+              }
+            : undefined
+        }
+      >
+        {showOptions && (
+          <ScrollView scrollY style={{ maxHeight: '50vh' }}>
+            <Space
+              vertical
+              style={{ width: getPlatform === 'native' ? parentWidth : '100%' }}
+            >
+              {options?.map(item => {
+                return (
+                  <View
+                    key={item.value}
+                    onTap={() => {
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
+                      onToggle?.(-1);
+                      onChange?.(item.value, item);
+                    }}
+                    className={classNames(
+                      styles.downSelect,
+                      styles.flexCenter,
+                      props.itemCls,
+                      item.value === value &&
+                        classNames(props.itemSelectCls, styles.select),
+                    )}
+                  >
+                    {item.text}
+                  </View>
+                );
+              })}
+            </Space>
+            {children}
+          </ScrollView>
+        )}
       </Fold>
       <View
         className={classNames(
