@@ -34,26 +34,7 @@ exports[`表单项 渲染 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                码
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                类
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                型
-              </div>
+              号码类型
             </div>
           </div>
           <div
@@ -111,21 +92,7 @@ exports[`表单项 渲染 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                手
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                机
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
+              手机号
             </div>
           </div>
           <div
