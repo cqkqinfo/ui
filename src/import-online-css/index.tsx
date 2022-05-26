@@ -4,6 +4,7 @@ import getPlatform from '../get-platform';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import cssToObject from 'transform-css-to-js';
+import getVersion from '../get-version';
 
 const suffix = switchVariable({
   default: 'css',

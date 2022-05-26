@@ -1,12 +1,11 @@
 import Sentry from './sentry';
-import getVersion from '../get-version';
+import getVersion, { envVersion } from '../get-version';
 import './init';
 import getPlatform from '../get-platform';
 
 const newSentry: typeof Sentry = {
   ...Sentry,
-  init: async (options = {}) => {
-    const envVersion = await getVersion();
+  init: (options = {}) => {
     if (envVersion !== 'develop') {
       Sentry.init({
         integrations:
@@ -36,7 +35,7 @@ const newSentry: typeof Sentry = {
         // of transactions for performance monitoring.
         // We recommend adjusting this value in production
         tracesSampleRate: 1.0,
-        release: envVersion,
+        release: getVersion,
         ...options,
         dsn:
           options?.dsn ||
