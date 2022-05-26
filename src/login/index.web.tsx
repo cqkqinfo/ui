@@ -1,6 +1,6 @@
 import getStorageSync from '../get-storage-sync';
 import setStorageSync from '../set-storage-sync';
-import { envVersion } from '../get-version';
+import getVersion from '../get-version';
 import qs from 'qs';
 
 export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
@@ -8,7 +8,7 @@ export default ({ code = 'ff8080817a8bfc68017af6e31b270003' }) => {
   if (code !== getStorageSync('authorizeCode')) {
     openId = undefined;
   }
-  if (envVersion === 'develop') {
+  if (getVersion() === 'develop') {
     return Promise.resolve({ openId });
   }
   const params = qs.parse(window.location.href.split('?')[1]);

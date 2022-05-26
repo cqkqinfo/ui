@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ImportCDNJS from 'import-cdn-js';
-import { envVersion } from '../get-version';
+import getVersion from '../get-version';
 
-export default (showDebug = ['develop', 'trial'].includes(envVersion)) => {
+export default (showDebug = ['develop', 'trial'].includes(getVersion())) => {
   if (
     showDebug ||
     window.location.hostname === '122.9.36.145' ||
