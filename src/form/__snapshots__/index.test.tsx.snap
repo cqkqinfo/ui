@@ -33,16 +33,7 @@ exports[`表单 card模式 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                姓
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                名
-              </div>
+              姓名
             </div>
             <div
               class=""
@@ -98,21 +89,7 @@ exports[`表单 card模式 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                手
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                机
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
+              手机号
             </div>
             <div
               class=""
@@ -191,16 +168,7 @@ exports[`表单 cell模式 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                姓
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                名
-              </div>
+              姓名
             </div>
           </div>
           <div
@@ -250,21 +218,7 @@ exports[`表单 cell模式 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                手
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                机
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
+              手机号
             </div>
           </div>
           <div
@@ -495,16 +449,7 @@ exports[`表单 渲染 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                姓
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                名
-              </div>
+              姓名
             </div>
             <div
               class=""
@@ -560,21 +505,7 @@ exports[`表单 渲染 1`] = `
               class=""
               style="justify-content: flex-end;"
             >
-              <div
-                style="width: 1em;"
-              >
-                手
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                机
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
+              手机号
             </div>
             <div
               class=""
