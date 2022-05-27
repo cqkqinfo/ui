@@ -18,7 +18,7 @@ export default ({
   const { width, ...arg } = useViewLayout();
   return (
     <View style={style} {...restProps} {...arg}>
-      <QRCode value={content} size={width} {...restProps} />
+      {!!width && <QRCode value={content} size={width} {...restProps} />}
     </View>
   );
 };
