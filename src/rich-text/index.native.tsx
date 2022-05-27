@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RichTextProps } from 'remax/wechat';
 import useProps from './useProps';
 import WebView from 'react-native-webview';
@@ -8,6 +8,8 @@ export default (props: RichTextProps) => {
   const [height, setHeight] = useState(0);
   return (
     <WebView
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       style={{
         width: '100%',
         height,
