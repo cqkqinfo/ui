@@ -1,20 +1,27 @@
 import React from 'react';
 import { RichTextProps } from 'remax/wechat';
 import useProps from './useProps';
-import RenderHtml from 'react-native-render-html';
-import plainStyle from '@remax/one/esm/useWebPlaceholderStyle/plainStyle';
-import styles from './index.module.less';
+import WebView from 'react-native-webview';
 
 export default (props: RichTextProps) => {
   const { nodes, style } = useProps(props);
+  const [height, setHeight] = useState(0);
   return (
-    <RenderHtml
+    <WebView
+      style={{
+        width: '100%',
+        height,
+        ...style,
+      }}
+      originWhitelist={['*']}
+      injectedJavaScript={`(function() {
+    window.ReactNativeWebView.postMessage(document.body.offsetHeight);
+})();`}
+      onMessage={({ nativeEvent: { data } }) => {
+        setHeight(+data + 20);
+      }}
       source={{
-        html: `<div style='${plainStyle({
-          // ...style,
-          ...styles.wrap,
-          ...styles.text,
-        })}'>${nodes}</div>`,
+        html: `<html><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><body></body>${nodes}</body></html>`,
       }}
     />
   );
