@@ -1,3 +1,14 @@
+# [1.13.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.12.1...v1.13.0) (2022-05-29)
+
+### Bug Fixes
+
+- rn 二维码大小异常 ([8175dda](https://gitlab2.cqkqinfo.com/web/ui/commit/8175dda45519c4eff8fe9f25c4d5b0c78b2808ce))
+
+### Features
+
+- rn richText 用 webview 实现 ([7edb666](https://gitlab2.cqkqinfo.com/web/ui/commit/7edb666ad8744dfb4151bc08a12c5d6443f9027f))
+- rn richText 用 webview 实现 ([0a6b90f](https://gitlab2.cqkqinfo.com/web/ui/commit/0a6b90f6a67afa033516777b3fa8018626fc1820))
+
 ## [1.12.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.12.0...v1.12.1) (2022-05-26)
 
 # [1.12.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.11.8...v1.12.0) (2022-05-26)
