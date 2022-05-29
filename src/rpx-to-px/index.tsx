@@ -1,11 +1,18 @@
 import screenWidth from '../screen-width';
-import { data } from '../config-provider';
+
+export const config = {
+  /**
+   * 设计图宽度
+   * @default 750
+   */
+  viewportWidth: 750,
+};
 
 export default (rpx: number) => {
   return (
-    ((screenWidth / data.viewportWidth) * rpx) /
+    ((screenWidth / config.viewportWidth) * rpx) /
     (process.env.REMAX_PLATFORM === 'wechat'
-      ? screenWidth / data.viewportWidth
+      ? screenWidth / config.viewportWidth
       : 1)
   );
 };
