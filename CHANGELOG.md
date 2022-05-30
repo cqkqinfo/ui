@@ -1,3 +1,9 @@
+## [1.13.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.0...v1.13.1) (2022-05-30)
+
+### Bug Fixes
+
+- 部分安卓机不换行 ([023c5e4](https://gitlab2.cqkqinfo.com/web/ui/commit/023c5e409e36854fc59b0786951f5a14623ee1ce))
+
 # [1.13.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.12.1...v1.13.0) (2022-05-29)
 
 ### Bug Fixes
