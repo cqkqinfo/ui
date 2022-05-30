@@ -1,11 +1,12 @@
 import React from 'react';
 import { VideoProps } from '@remax/wechat/esm/hostComponents/Video';
 
-export default (props: VideoProps) => {
+export default ({ autoplay, ...props }: VideoProps) => {
   return (
     <video
       controls
       {...(props as any)}
+      autoPlay={autoplay}
       webkit-playsinline="true"
       x-webkit-airplay="true"
       playsInline
