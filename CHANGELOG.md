@@ -1,3 +1,9 @@
+## [1.13.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.1...v1.13.2) (2022-05-30)
+
+### Bug Fixes
+
+- video web 端 autoPlay 不生效 ([3ea5cb7](https://gitlab2.cqkqinfo.com/web/ui/commit/3ea5cb7360e0cdbdb2369eeb2b34ff1add629b26))
+
 ## [1.13.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.0...v1.13.1) (2022-05-30)
 
 ### Bug Fixes
