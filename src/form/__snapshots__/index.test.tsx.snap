@@ -34,11 +34,11 @@ exports[`表单 card模式 1`] = `
               style="justify-content: flex-end;"
             >
               姓名
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
@@ -90,11 +90,11 @@ exports[`表单 card模式 1`] = `
               style="justify-content: flex-end;"
             >
               手机号
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
@@ -301,11 +301,11 @@ exports[`表单 两端对齐 1`] = `
               >
                 名
               </div>
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
@@ -371,11 +371,11 @@ exports[`表单 两端对齐 1`] = `
               >
                 号
               </div>
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
@@ -450,11 +450,11 @@ exports[`表单 渲染 1`] = `
               style="justify-content: flex-end;"
             >
               姓名
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
@@ -506,11 +506,11 @@ exports[`表单 渲染 1`] = `
               style="justify-content: flex-end;"
             >
               手机号
-              <div
-                class=""
-              >
-                :
-              </div>
+            </div>
+            <div
+              class=""
+            >
+              :
             </div>
           </div>
           <div
