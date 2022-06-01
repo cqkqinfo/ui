@@ -155,6 +155,11 @@ interface BaseItemProps {
    * 适老模式，开启后尺寸会变大
    */
   elderly?: boolean;
+  /**
+   * 校验状态，设为false后不会红框提示
+   * @default true
+   */
+  verifyStatus?: boolean;
 }
 
 export interface ItemProps<Values = {}>
