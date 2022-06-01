@@ -1,3 +1,9 @@
+## [1.13.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.3...v1.13.4) (2022-06-01)
+
+### Features
+
+- 表单添加 verifyStatus 配置 ([4463c7f](https://gitlab2.cqkqinfo.com/web/ui/commit/4463c7fa3960869aa004db6ced17833e03756b60))
+
 ## [1.13.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.2...v1.13.3) (2022-05-31)
 
 ### Features
