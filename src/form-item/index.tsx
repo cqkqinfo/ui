@@ -47,6 +47,7 @@ export default ({
   childrenCls: outChildrenCls,
   colonCls: outColonCls,
   labelWidth: outLabelWidth,
+  verifyStatus: outVerifyStatus = true,
   style,
   labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
   childrenAlign: outChildrenAlign,
@@ -56,6 +57,7 @@ export default ({
   const store = FormStore.useContainer();
   const {
     labelWidth = outLabelWidth,
+    verifyStatus = outVerifyStatus,
     itemCls,
     childrenCls = outChildrenCls,
     colon = outColon,
@@ -142,6 +144,7 @@ export default ({
         ? renderField()
         : renderField((control, meta, form) => {
             const showError =
+              verifyStatus &&
               !!meta.errors.length &&
               (!errorFields.length ||
                 errorFields[0]?.name.includes(name as any)) &&
