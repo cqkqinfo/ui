@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import formRules from '../form-rules';
 import platform from '../get-platform';
-import { useEffectState } from 'parsec-hooks';
+import { useEffectState, useId } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
 import Space from '../space';
 
@@ -24,6 +24,10 @@ const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
     />
   );
 };
+
+export interface FormItemChildrenNative {
+  setValue: (value: any) => void;
+}
 
 export default ({
   label,
@@ -78,6 +82,7 @@ export default ({
     card,
     itemStyle,
     itemChildrenStyle,
+    formItemNatives,
     values,
     errorFields,
   } = store || {};
@@ -138,6 +143,19 @@ export default ({
     </NeedWrap>
   );
   const leftChildrenAlign = childrenAlign === 'left';
+  const nativeRef = useRef<FormItemChildrenNative>(null);
+  const nativeId = useId();
+  if (
+    formItemNatives.current &&
+    !formItemNatives?.current?.find(({ id }) => id === nativeId)
+  ) {
+    formItemNatives.current.push({
+      setFieldData: ({ value }) => {
+        nativeRef.current?.setValue(value);
+      },
+      id: nativeId,
+    });
+  }
   return (
     <NeedWrap wrap={Form} wrapProps={{ component: false }} need={!store}>
       {noStyle
@@ -179,6 +197,7 @@ export default ({
                       children.props.onChange?.(...arg);
                     }
                   },
+                  nativeRef,
                 })
               ) : (
                 <View>{children}</View>
