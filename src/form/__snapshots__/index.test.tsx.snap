@@ -19,116 +19,140 @@ exports[`表单 card模式 1`] = `
       >
         <div
           class=""
-          data-is-last="false"
-          style="border-bottom-width: 1px;"
+          id="id21"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 0;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="justify-content: flex-end;"
-            >
-              姓名
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="false"
+            style="border-bottom-width: 1px;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 0;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                姓名
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入姓名"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入姓名"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id22"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class=""
-          data-is-last="true"
-          style="border-bottom-width: 0;"
+          id="id24"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 1;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="justify-content: flex-end;"
-            >
-              手机号
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="true"
+            style="border-bottom-width: 0;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 1;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                手机号
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入手机号"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入手机号"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id25"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,104 +180,128 @@ exports[`表单 cell模式 1`] = `
       >
         <div
           class=""
-          data-is-last="false"
-          style="border-bottom-width: 1px;"
+          id="id11"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 0;"
-            >
-              *
+          <div
+            class=""
+            data-is-last="false"
+            style="border-bottom-width: 1px;"
+          >
+            <div>
+              <div
+                class=""
+                style="opacity: 0;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                姓名
+              </div>
             </div>
             <div
               class=""
               style="justify-content: flex-end;"
             >
-              姓名
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入姓名"
+                placeholderstyle="[object Object]"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
             </div>
-          </div>
-          <div
-            class=""
-            style="justify-content: flex-end;"
-          >
-            <input
-              class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入姓名"
-              placeholderstyle="[object Object]"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id12"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class=""
-          data-is-last="true"
-          style="border-bottom-width: 0;"
+          id="id14"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 1;"
-            >
-              *
+          <div
+            class=""
+            data-is-last="true"
+            style="border-bottom-width: 0;"
+          >
+            <div>
+              <div
+                class=""
+                style="opacity: 1;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                手机号
+              </div>
             </div>
             <div
               class=""
               style="justify-content: flex-end;"
             >
-              手机号
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入手机号"
+                placeholderstyle="[object Object]"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
             </div>
-          </div>
-          <div
-            class=""
-            style="justify-content: flex-end;"
-          >
-            <input
-              class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入手机号"
-              placeholderstyle="[object Object]"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id15"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -281,139 +329,163 @@ exports[`表单 两端对齐 1`] = `
       >
         <div
           class=""
-          data-is-last="false"
-          style="border-bottom-width: 1px;"
+          id="id31"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 0;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="width: 3em; justify-content: space-between;"
-            >
-              <div
-                style="width: 1em;"
-              >
-                姓
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                名
-              </div>
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="false"
+            style="border-bottom-width: 1px;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 0;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="width: 3em; justify-content: space-between;"
+              >
+                <div
+                  style="width: 1em;"
+                >
+                  姓
+                </div>
+                <div
+                  style="width: 1em;"
+                >
+                  名
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入姓名"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入姓名"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id32"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class=""
-          data-is-last="true"
-          style="border-bottom-width: 0;"
+          id="id34"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 1;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="width: 3em; justify-content: space-between;"
-            >
-              <div
-                style="width: 1em;"
-              >
-                手
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                机
-              </div>
-              <div
-                style="width: 1em;"
-              >
-                号
-              </div>
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="true"
+            style="border-bottom-width: 0;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 1;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="width: 3em; justify-content: space-between;"
+              >
+                <div
+                  style="width: 1em;"
+                >
+                  手
+                </div>
+                <div
+                  style="width: 1em;"
+                >
+                  机
+                </div>
+                <div
+                  style="width: 1em;"
+                >
+                  号
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入手机号"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入手机号"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id35"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -441,116 +513,140 @@ exports[`表单 渲染 1`] = `
       >
         <div
           class=""
-          data-is-last="false"
-          style="border-bottom-width: 1px;"
+          id="id1"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 0;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="justify-content: flex-end;"
-            >
-              姓名
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="false"
+            style="border-bottom-width: 1px;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 0;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                姓名
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入姓名"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入姓名"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id2"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class=""
-          data-is-last="true"
-          style="border-bottom-width: 0;"
+          id="id4"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 1;"
-            >
-              *
-            </div>
-            <div
-              class=""
-              style="justify-content: flex-end;"
-            >
-              手机号
-            </div>
-            <div
-              class=""
-            >
-              :
-            </div>
-          </div>
           <div
             class=""
-            style="justify-content: flex-start;"
+            data-is-last="true"
+            style="border-bottom-width: 0;"
           >
-            <input
+            <div>
+              <div
+                class=""
+                style="opacity: 1;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                手机号
+              </div>
+              <div
+                class=""
+              >
+                :
+              </div>
+            </div>
+            <div
               class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入手机号"
-              placeholderstyle="[object Object]"
-              style="text-align: left;"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
+              style="justify-content: flex-start;"
+            >
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入手机号"
+                placeholderstyle="[object Object]"
+                style="text-align: left;"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
+            </div>
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id5"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
