@@ -1,3 +1,5 @@
+## [1.13.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.5...v1.13.6) (2022-06-07)
+
 ## [1.13.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.4...v1.13.5) (2022-06-02)
 
 ## [1.13.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.3...v1.13.4) (2022-06-01)
