@@ -12,7 +12,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id0"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         西瓜
       </div>
@@ -22,7 +25,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id1"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         香蕉
       </div>
@@ -32,7 +38,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id2"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         苹果
       </div>
@@ -42,7 +51,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id3"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         桔子
       </div>
@@ -52,7 +64,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id4"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         芒果
       </div>
@@ -62,7 +77,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id5"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         甘蔗
       </div>
@@ -72,7 +90,10 @@ exports[`radio 渲染 1`] = `
       >
         <div
           class=""
-          style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+          id="id6"
+          style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
         />
         火龙果
       </div>
