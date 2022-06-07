@@ -1,3 +1,9 @@
+## [1.13.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.7...v1.13.8) (2022-06-07)
+
+### Bug Fixes
+
+- 没有 nativeRef 是 radio 不更新 ([ec2188f](https://gitlab2.cqkqinfo.com/web/ui/commit/ec2188feaebc21c0faba7e415e539e7601110a8b))
+
 ## [1.13.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.5...v1.13.7) (2022-06-07)
 
 ## [1.13.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.5...v1.13.6) (2022-06-07)
