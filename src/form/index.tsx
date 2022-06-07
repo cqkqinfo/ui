@@ -78,7 +78,7 @@ export type RuleObject = AggregationRule | ArrayRule;
 export type Rule = RuleObject | RuleRender;
 
 type FormItemNativeInstance = {
-  setFieldData: (data: FieldData) => void;
+  setFieldData: (data: Partial<FieldData>) => void;
   id: string;
 };
 
@@ -275,8 +275,11 @@ const ReForm = ContainerUseWrap(
         ) {
           preValues.current = { ...values };
           form && form.setFieldsValue(values);
+          Object.entries(values).forEach(([key, value], index) => {
+            formItemNatives.current[index]?.setFieldData?.({ value });
+          });
         }
-      }, [form, values]);
+      }, [form, formItemNatives, values]);
       useEffect(() => {
         if (!form) return;
         const old = form.resetFields;
