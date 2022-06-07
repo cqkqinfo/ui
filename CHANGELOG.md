@@ -1,3 +1,9 @@
+## [1.13.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.9...v1.13.10) (2022-06-07)
+
+### Bug Fixes
+
+- radio 有可能报错 ([e490f3c](https://gitlab2.cqkqinfo.com/web/ui/commit/e490f3cb52065c8ad6cbef7bc0aadcace166701a))
+
 ## [1.13.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.8...v1.13.9) (2022-06-07)
 
 ## [1.13.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.7...v1.13.8) (2022-06-07)
