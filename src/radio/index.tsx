@@ -226,7 +226,9 @@ Radio.Group = (props: GroupProps) => {
   const strV = JSON.stringify(v);
   useEffect(() => {
     if (!nativeRef) {
-      radiosRef.current.forEach(({ setValue }) => setValue(JSON.parse(strV)));
+      radiosRef.current.forEach(({ setValue }) => {
+        setValue(strV ? JSON.parse(strV) : undefined);
+      });
     }
   }, [nativeRef, strV]);
 
