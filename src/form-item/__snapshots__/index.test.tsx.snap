@@ -19,118 +19,142 @@ exports[`表单项 渲染 1`] = `
       >
         <div
           class=""
-          data-is-last="false"
-          initialvalue="1"
-          style="border-bottom-width: 1px;"
+          id="id1"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 0;"
-            >
-              *
+          <div
+            class=""
+            data-is-last="false"
+            initialvalue="1"
+            style="border-bottom-width: 1px;"
+          >
+            <div>
+              <div
+                class=""
+                style="opacity: 0;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                号码类型
+              </div>
             </div>
             <div
               class=""
               style="justify-content: flex-end;"
             >
-              号码类型
-            </div>
-          </div>
-          <div
-            class=""
-            style="justify-content: flex-end;"
-          >
-            <div
-              class=""
-            >
               <div
                 class=""
-                style="background: none;"
               >
                 <div
                   class=""
-                  id="id1"
-                  style="border-color:#eee;
+                  style="background: none;"
+                >
+                  <div
+                    class=""
+                    id="id2"
+                    style="border-color:#eee;
 border-width:1rpx;
 background:#fff;"
-                />
-                身份证
-              </div>
-              <div
-                class=""
-                style="background: none;"
-              >
+                  />
+                  身份证
+                </div>
                 <div
                   class=""
-                  id="id2"
-                  style="border-color:#eee;
+                  style="background: none;"
+                >
+                  <div
+                    class=""
+                    id="id3"
+                    style="border-color:#eee;
 border-width:1rpx;
 background:#fff;"
-                />
-                手机号
+                  />
+                  手机号
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id4"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div
           class=""
-          data-is-last="true"
-          style="border-bottom-width: 0;"
+          id="id7"
+          style=""
         >
-          <div>
-            <div
-              class=""
-              style="opacity: 1;"
-            >
-              *
+          <div
+            class=""
+            data-is-last="true"
+            style="border-bottom-width: 0;"
+          >
+            <div>
+              <div
+                class=""
+                style="opacity: 1;"
+              >
+                *
+              </div>
+              <div
+                class=""
+                style="justify-content: flex-end;"
+              >
+                手机号
+              </div>
             </div>
             <div
               class=""
               style="justify-content: flex-end;"
             >
-              手机号
+              <input
+                class=""
+                delay="500"
+                disabled=""
+                maxlength="100000000"
+                nativeref="[object Object]"
+                placeholder="请输入手机号"
+                placeholderstyle="[object Object]"
+                toutiao-selection-end="999"
+                toutiao-selection-start="999"
+                value=""
+                wechat-confirm-type="done"
+                wechat-cursor-spacing="0"
+                wechat-placeholder-class="input-placeholder"
+                wechat-selection-end="-1"
+                wechat-selection-start="-1"
+              />
             </div>
-          </div>
-          <div
-            class=""
-            style="justify-content: flex-end;"
-          >
-            <input
-              class=""
-              delay="500"
-              disabled=""
-              maxlength="100000000"
-              nativeref="[object Object]"
-              placeholder="请输入手机号"
-              placeholderstyle="[object Object]"
-              toutiao-selection-end="999"
-              toutiao-selection-start="999"
-              value=""
-              wechat-confirm-type="done"
-              wechat-cursor-spacing="0"
-              wechat-placeholder-class="input-placeholder"
-              wechat-selection-end="-1"
-              wechat-selection-start="-1"
-            />
-          </div>
-          <div
-            class=""
-            style="display: none;"
-          >
             <div
               class=""
               style="align-items: center;"
-            />
+            >
+              <div
+                class=""
+                id="id8"
+                style="display: none;"
+              >
+                <div
+                  class=""
+                  style="width: 16px; height: 16px;"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
