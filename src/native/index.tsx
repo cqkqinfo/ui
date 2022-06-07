@@ -66,7 +66,9 @@ export default forwardRef<NativeInstance, Props>(
                   'style',
                   typeof style === 'object' ? plainStyle(style) : style,
                 );
-                dom.hidden = !visible;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                dom.style.display = visible ? style.display : 'none';
                 if (content !== undefined) {
                   dom.innerText = content + '';
                 }

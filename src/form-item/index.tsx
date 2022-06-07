@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { View, ViewProps } from 'remax/one';
+import { View } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
 import { FormStore, ItemProps } from '../form';
@@ -8,22 +8,10 @@ import Input from '../re-input';
 import classNames from 'classnames';
 import Icon from '../icon';
 import formRules from '../form-rules';
-import platform from '../get-platform';
-import { useEffectState, useId } from 'parsec-hooks';
+import { useId } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
 import Space from '../space';
-
-const LazyUpdate = (props: React.PropsWithChildren<ViewProps>) => {
-  const [myProps] = useEffectState(props, {
-    wait: 0,
-  });
-  return (
-    <View
-      {...myProps}
-      children={platform !== 'wechat' ? props.children : myProps.children}
-    />
-  );
-};
+import Native, { NativeInstance } from '../native';
 
 export interface FormItemChildrenNative {
   setValue: (value: any) => void;
@@ -84,7 +72,6 @@ export default ({
     itemChildrenStyle,
     formItemNatives,
     values,
-    errorFields,
   } = store || {};
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
@@ -144,14 +131,24 @@ export default ({
   );
   const leftChildrenAlign = childrenAlign === 'left';
   const nativeRef = useRef<FormItemChildrenNative>(null);
+  const errorIconNative = useRef<NativeInstance>(null);
+  const itemNative = useRef<NativeInstance>(null);
   const nativeId = useId();
   if (
     formItemNatives.current &&
     !formItemNatives?.current?.find(({ id }) => id === nativeId)
   ) {
     formItemNatives.current.push({
-      setFieldData: ({ value }) => {
+      setFieldData: ({ value, errors = [] }) => {
         nativeRef.current?.setValue(value);
+        const showError =
+          verifyStatus && !!errors.length && !inputFocus.current;
+        errorIconNative.current?.setData({
+          visible: showError,
+        });
+        itemNative.current?.setData({
+          className: showError ? styles.error : '',
+        });
       },
       id: nativeId,
     });
@@ -161,12 +158,6 @@ export default ({
       {noStyle
         ? renderField()
         : renderField((control, meta, form) => {
-            const showError =
-              verifyStatus &&
-              !!meta.errors.length &&
-              (!errorFields.length ||
-                errorFields[0]?.name.includes(name as any)) &&
-              !inputFocus.current;
             const childNode =
               typeof children === 'function' ? (
                 children(control, meta, form)
@@ -203,146 +194,155 @@ export default ({
                 <View>{children}</View>
               );
             const errIcon = (
-              <LazyUpdate
+              <Space
+                size={10}
+                alignItems={'center'}
                 className={classNames(styles.after, afterCls, outAfterCls)}
-                style={{ display: after || showError ? undefined : 'none' }}
               >
-                <Space size={10} alignItems={'center'}>
-                  {showError && (
-                    <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
-                  )}
-                  {after}
-                </Space>
-              </LazyUpdate>
+                <Native
+                  ref={errorIconNative}
+                  initData={{
+                    visible: false,
+                    style: {
+                      display: 'flex',
+                    },
+                  }}
+                >
+                  <Icon size={32} name={'kq-tip'} color={'#ED4E56'} />
+                </Native>
+                {after}
+              </Space>
             );
             const labelArr =
               typeof label === 'string' && labelWidth ? [...label] : undefined;
             return (
-              <LazyUpdate
-                className={classNames(
-                  styles.item,
-                  itemCls,
-                  showError && styles.error,
-                  elderly && styles.elderly,
-                  className,
-                  cell && styles.cell,
-                  card && styles.card,
-                  vertical && styles.vertical,
-                )}
-                style={{
-                  borderBottomWidth: (props as any)['data-is-last'] ? 0 : 1,
-                  ...itemStyle,
-                  ...style,
-                }}
-                {...props}
-              >
-                {label && (
-                  <View className={styles.labelWrap}>
-                    {requiredMark && (!vertical || required) && (
-                      <View
-                        className={classNames(
-                          styles.mark,
-                          cell && styles['cell-mark'],
-                          requiredMarkCls,
-                          outRequiredMarkCls,
-                        )}
-                        style={{ opacity: +(required && requiredMark) }}
-                      >
-                        *
-                      </View>
-                    )}
-                    <View
-                      style={{
-                        [labelArr &&
-                        (labelWidth + '').includes('em') &&
-                        labelArr.length <=
-                          +((labelWidth + '').match(/\d+/) as any)[0]
-                          ? 'width'
-                          : 'minWidth']: labelWidth,
-                        justifyContent:
-                          labelJustify === 'right'
-                            ? 'flex-end'
-                            : labelJustify === 'justify'
-                            ? 'space-between'
-                            : 'flex-start',
-                        ...labelStyle,
-                      }}
-                      className={classNames(
-                        styles.label,
-                        cell && styles['cell-label'],
-                        labelCls,
-                        outLabelCls,
-                      )}
-                    >
-                      {labelArr
-                        ? labelArr.map((item, index) => (
-                            <View key={index} style={{ width: '1em' }}>
-                              {item}
-                            </View>
-                          ))
-                        : label}
-                    </View>
-                    {(colon === undefined ? (
-                      !cell
-                    ) : (
-                      colon === true
-                    )) ? (
-                      <View className={classNames(styles.colon, colonCls)}>
-                        :
-                      </View>
-                    ) : (
-                      colon
-                    )}
-                    {vertical && errIcon}
-                  </View>
-                )}
+              <Native ref={itemNative}>
                 <View
                   className={classNames(
-                    styles.children,
-                    cell && styles['cell-children'],
-                    leftChildrenAlign && styles['cell-children-left'],
-                    childrenCls,
-                    outChildrenCls,
+                    styles.item,
+                    itemCls,
+                    // showError && styles.error,
+                    elderly && styles.elderly,
+                    className,
+                    cell && styles.cell,
+                    card && styles.card,
+                    vertical && styles.vertical,
                   )}
                   style={{
-                    justifyContent:
-                      label && !leftChildrenAlign ? 'flex-end' : 'flex-start',
-                    ...itemChildrenStyle,
+                    borderBottomWidth: (props as any)['data-is-last'] ? 0 : 1,
+                    ...itemStyle,
+                    ...style,
                   }}
+                  {...props}
                 >
-                  {readOnly ? (
-                    <>
-                      <Field shouldUpdate>
-                        {(_, __, { getFieldValue, getFieldsValue }) => (
-                          <View>
-                            {(name !== undefined &&
-                              (renderReadOnlyValue
-                                ? renderReadOnlyValue(
-                                    getFieldValue(name),
-                                    getFieldsValue(),
-                                  )
-                                : getFieldValue(name) ||
-                                  values?.[name + ''])) ||
-                              children}
-                          </View>
-                        )}
-                      </Field>
+                  {label && (
+                    <View className={styles.labelWrap}>
+                      {requiredMark && (!vertical || required) && (
+                        <View
+                          className={classNames(
+                            styles.mark,
+                            cell && styles['cell-mark'],
+                            requiredMarkCls,
+                            outRequiredMarkCls,
+                          )}
+                          style={{ opacity: +(required && requiredMark) }}
+                        >
+                          *
+                        </View>
+                      )}
                       <View
                         style={{
-                          visibility: 'hidden',
-                          position: 'absolute',
-                          pointerEvents: 'none',
+                          [labelArr &&
+                          (labelWidth + '').includes('em') &&
+                          labelArr.length <=
+                            +((labelWidth + '').match(/\d+/) as any)[0]
+                            ? 'width'
+                            : 'minWidth']: labelWidth,
+                          justifyContent:
+                            labelJustify === 'right'
+                              ? 'flex-end'
+                              : labelJustify === 'justify'
+                              ? 'space-between'
+                              : 'flex-start',
+                          ...labelStyle,
                         }}
+                        className={classNames(
+                          styles.label,
+                          cell && styles['cell-label'],
+                          labelCls,
+                          outLabelCls,
+                        )}
                       >
-                        {childNode}
+                        {labelArr
+                          ? labelArr.map((item, index) => (
+                              <View key={index} style={{ width: '1em' }}>
+                                {item}
+                              </View>
+                            ))
+                          : label}
                       </View>
-                    </>
-                  ) : (
-                    childNode
+                      {(colon === undefined ? (
+                        !cell
+                      ) : (
+                        colon === true
+                      )) ? (
+                        <View className={classNames(styles.colon, colonCls)}>
+                          :
+                        </View>
+                      ) : (
+                        colon
+                      )}
+                      {vertical && errIcon}
+                    </View>
                   )}
+                  <View
+                    className={classNames(
+                      styles.children,
+                      cell && styles['cell-children'],
+                      leftChildrenAlign && styles['cell-children-left'],
+                      childrenCls,
+                      outChildrenCls,
+                    )}
+                    style={{
+                      justifyContent:
+                        label && !leftChildrenAlign ? 'flex-end' : 'flex-start',
+                      ...itemChildrenStyle,
+                    }}
+                  >
+                    {readOnly ? (
+                      <>
+                        <Field shouldUpdate>
+                          {(_, __, { getFieldValue, getFieldsValue }) => (
+                            <View>
+                              {(name !== undefined &&
+                                (renderReadOnlyValue
+                                  ? renderReadOnlyValue(
+                                      getFieldValue(name),
+                                      getFieldsValue(),
+                                    )
+                                  : getFieldValue(name) ||
+                                    values?.[name + ''])) ||
+                                children}
+                            </View>
+                          )}
+                        </Field>
+                        <View
+                          style={{
+                            visibility: 'hidden',
+                            position: 'absolute',
+                            pointerEvents: 'none',
+                          }}
+                        >
+                          {childNode}
+                        </View>
+                      </>
+                    ) : (
+                      childNode
+                    )}
+                  </View>
+                  {!vertical && errIcon}
                 </View>
-                {!vertical && errIcon}
-              </LazyUpdate>
+              </Native>
             );
           })}
     </NeedWrap>

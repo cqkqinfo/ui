@@ -39,19 +39,12 @@ import removeStorageSync from '../remove-storage-sync';
 const CircularJSON = require('circular-json');
 
 export const FormStore = createContainer(initialState => {
-  const [errorFields, setErrorFields] = useState<
-    ValidateErrorEntity['errorFields']
-  >([]);
   const formItemNatives = useRef<FormItemNativeInstance[]>([]);
   return {
     ...((initialState || {}) as any),
-    errorFields,
-    setErrorFields,
     formItemNatives,
   } as Props<any> & {
-    errorFields: ValidateErrorEntity['errorFields'];
     formItemNatives: React.MutableRefObject<FormItemNativeInstance[]>;
-    setErrorFields: (errorFields: ValidateErrorEntity['errorFields']) => void;
   };
 });
 
@@ -262,7 +255,6 @@ const ReForm = ContainerUseWrap(
     ) => {
       const [myForm] = Form.useForm();
       const {
-        setErrorFields,
         form = !nestedForm ? myForm : undefined,
         formItemNatives,
       } = FormStore.useContainer();
@@ -358,7 +350,6 @@ const ReForm = ContainerUseWrap(
                   }
                 },
                 onFinishFailed: (e: any) => {
-                  setErrorFields(e.errorFields);
                   if (e.errorFields?.length > 0) {
                     if (props.onFinishFailed) {
                       props.onFinishFailed(e);
