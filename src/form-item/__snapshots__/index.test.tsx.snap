@@ -50,7 +50,10 @@ exports[`表单项 渲染 1`] = `
               >
                 <div
                   class=""
-                  style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+                  id="id1"
+                  style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
                 />
                 身份证
               </div>
@@ -60,7 +63,10 @@ exports[`表单项 渲染 1`] = `
               >
                 <div
                   class=""
-                  style="border-color: #eee; border-width: 1px; background: rgb(255, 255, 255);"
+                  id="id2"
+                  style="border-color:#eee;
+border-width:1rpx;
+background:#fff;"
                 />
                 手机号
               </div>
@@ -104,6 +110,7 @@ exports[`表单项 渲染 1`] = `
               delay="500"
               disabled=""
               maxlength="100000000"
+              nativeref="[object Object]"
               placeholder="请输入手机号"
               placeholderstyle="[object Object]"
               toutiao-selection-end="999"
