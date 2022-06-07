@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef } from 'react';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
@@ -223,6 +223,12 @@ Radio.Group = (props: GroupProps) => {
       radiosRef.current.forEach(({ setValue }) => setValue(value));
     },
   }));
+  const strV = JSON.stringify(v);
+  useEffect(() => {
+    if (!nativeRef) {
+      radiosRef.current.forEach(({ setValue }) => setValue(JSON.parse(strV)));
+    }
+  }, [nativeRef, strV]);
 
   return (
     <View
