@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle, useRef } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
@@ -6,6 +6,8 @@ import { Property } from 'csstype';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
+import Native, { NativeInstance } from '../native';
+import { FormItemChildrenNative } from '../form-item';
 
 export interface RadioProps {
   /**
@@ -67,6 +69,10 @@ export interface RadioProps {
    * dot类名
    */
   dotCls?: string;
+  /**
+   * native性能优化
+   */
+  nativeRef?: React.Ref<FormItemChildrenNative>;
 }
 
 const Radio = (props: RadioProps) => {
@@ -86,7 +92,22 @@ const Radio = (props: RadioProps) => {
     activeCls,
     type = 'normal',
     dotCls,
+    nativeRef,
   } = props;
+  const getDotData = (checked = false) => ({
+    className: classNames(styles.dot, dotCls, checked && styles.dotCheck),
+    style: {
+      borderColor: checked ? activeBackgroundColor : '#eee',
+      borderWidth: checked ? rpxToPx(11) : 1,
+      background: backgroundColor || '#fff',
+    },
+  });
+  const dotNativeRef = useRef<NativeInstance>(null);
+  useImperativeHandle(nativeRef, () => ({
+    setValue: v => {
+      dotNativeRef.current?.setData(getDotData(value === v));
+    },
+  }));
   const [myChecked, setMyChecked] = useEffectState(checked);
   return (
     <View
@@ -117,18 +138,7 @@ const Radio = (props: RadioProps) => {
       }}
     >
       {type === 'normal' && (
-        <View
-          className={classNames(
-            styles.dot,
-            dotCls,
-            myChecked && styles.dotCheck,
-          )}
-          style={{
-            borderColor: myChecked ? activeBackgroundColor : '#eee',
-            borderWidth: myChecked ? rpxToPx(11) : 1,
-            background: backgroundColor || '#fff',
-          }}
-        />
+        <Native ref={dotNativeRef} initData={getDotData(myChecked)} />
       )}
       {children}
     </View>
@@ -143,6 +153,7 @@ export interface GroupProps {
   style?: React.CSSProperties;
   className?: string;
   disabled?: boolean;
+  nativeRef?: React.Ref<FormItemChildrenNative>;
 }
 
 const getRadios = (
@@ -150,6 +161,7 @@ const getRadios = (
   value?: string | number,
   disabled?: boolean,
   onChange?: (v: string | number) => void,
+  radiosRef?: React.RefObject<FormItemChildrenNative[]>,
 ) => {
   const onGroupChange = (checked: boolean, v: string | number) => {
     if (disabled) {
@@ -157,7 +169,7 @@ const getRadios = (
     }
     onChange?.(v);
   };
-  return React.Children.map(children, radio => {
+  return React.Children.map(children, (radio, index) => {
     const newRadio = radio;
 
     let checked = false;
@@ -171,6 +183,11 @@ const getRadios = (
         checked,
         disabled,
         onChange: onGroupChange,
+        nativeRef: (ref: any) => {
+          if (radiosRef?.current) {
+            radiosRef.current[index] = ref;
+          }
+        },
       });
     }
     return newRadio;
@@ -186,13 +203,26 @@ Radio.Group = (props: GroupProps) => {
     disabled = false,
     style,
     className,
+    nativeRef,
   } = props;
   const [v, setV] = useEffectState(value);
+  const radiosRef = useRef<FormItemChildrenNative[]>([]);
 
-  const radios = getRadios(children, v, disabled, (...arg) => {
-    setV(arg[0]);
-    onChange?.(...arg);
-  });
+  const radios = getRadios(
+    children,
+    v,
+    disabled,
+    (...arg) => {
+      setV(arg[0]);
+      onChange?.(...arg);
+    },
+    radiosRef,
+  );
+  useImperativeHandle(nativeRef, () => ({
+    setValue: (value: any) => {
+      radiosRef.current.forEach(({ setValue }) => setValue(value));
+    },
+  }));
 
   return (
     <View

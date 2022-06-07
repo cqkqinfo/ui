@@ -30,6 +30,7 @@ import {
   Meta,
   FormInstance,
   ValidateErrorEntity,
+  FieldData,
 } from 'rc-field-form/es/interface';
 import Space from '../space';
 import getStorageSync from '../get-storage-sync';
@@ -41,12 +42,15 @@ export const FormStore = createContainer(initialState => {
   const [errorFields, setErrorFields] = useState<
     ValidateErrorEntity['errorFields']
   >([]);
+  const formItemNatives = useRef<FormItemNativeInstance[]>([]);
   return {
     ...((initialState || {}) as any),
     errorFields,
     setErrorFields,
+    formItemNatives,
   } as Props<any> & {
     errorFields: ValidateErrorEntity['errorFields'];
+    formItemNatives: React.MutableRefObject<FormItemNativeInstance[]>;
     setErrorFields: (errorFields: ValidateErrorEntity['errorFields']) => void;
   };
 });
@@ -72,6 +76,11 @@ interface ArrayRule extends Omit<AggregationRule, 'type'> {
 }
 export type RuleObject = AggregationRule | ArrayRule;
 export type Rule = RuleObject | RuleRender;
+
+type FormItemNativeInstance = {
+  setFieldData: (data: FieldData) => void;
+  id: string;
+};
 
 interface BaseItemProps {
   style?: React.CSSProperties;
@@ -160,6 +169,10 @@ interface BaseItemProps {
    * @default true
    */
   verifyStatus?: boolean;
+  /**
+   * nativeRef优化性能
+   */
+  nativeRef?: React.Ref<FormItemNativeInstance>;
 }
 
 export interface ItemProps<Values = {}>
@@ -251,6 +264,7 @@ const ReForm = ContainerUseWrap(
       const {
         setErrorFields,
         form = !nestedForm ? myForm : undefined,
+        formItemNatives,
       } = FormStore.useContainer();
       const preValues = useRef<Values>();
       useLayoutEffect(() => {
@@ -286,6 +300,7 @@ const ReForm = ContainerUseWrap(
         };
       }, [autoCacheKey, form]);
       useImperativeHandle(ref, () => form);
+      const preFields = useRef([]);
       return (
         <NeedWrap
           need={shadowProps !== false && (card === undefined ? cell : card)}
@@ -305,6 +320,21 @@ const ReForm = ContainerUseWrap(
                 component: false,
                 form,
                 ...props,
+                onFieldsChange: (...arg: any) => {
+                  const fields = arg[1];
+                  fields.forEach((item: any, index: number) => {
+                    if (
+                      JSON.stringify(item) !==
+                      JSON.stringify(preFields.current[index])
+                    ) {
+                      formItemNatives.current[index]?.setFieldData?.(item);
+                    }
+                  });
+                  preFields.current = fields;
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  props.onFieldsChange?.(...arg);
+                },
                 onValuesChange: (...arg: any) => {
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore
