@@ -1,3 +1,9 @@
+## [1.13.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.12...v1.13.13) (2022-06-08)
+
+### Bug Fixes
+
+- ci ([c0251c7](https://gitlab2.cqkqinfo.com/web/ui/commit/c0251c71e75ba5c02dd799d1e40e87f6eeb4494b))
+
 ## [1.13.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.11...v1.13.12) (2022-06-08)
 
 ### Features
