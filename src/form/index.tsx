@@ -4,7 +4,6 @@ import React, {
   useLayoutEffect,
   useRef,
   forwardRef,
-  useState,
   useImperativeHandle,
 } from 'react';
 import RcForm, {
@@ -29,7 +28,6 @@ import {
   StoreValue,
   Meta,
   FormInstance,
-  ValidateErrorEntity,
   FieldData,
 } from 'rc-field-form/es/interface';
 import Space from '../space';
@@ -72,6 +70,7 @@ export type Rule = RuleObject | RuleRender;
 
 type FormItemNativeInstance = {
   setFieldData: (data: Partial<FieldData>) => void;
+  name?: string;
   id: string;
 };
 
@@ -322,7 +321,14 @@ const ReForm = ContainerUseWrap(
                       JSON.stringify(item) !==
                       JSON.stringify(preFields.current[index])
                     ) {
-                      formItemNatives.current[index]?.setFieldData?.(item);
+                      formItemNatives.current
+                        .filter(({ name }) => name === item.name[0])
+                        .forEach(({ setFieldData }) =>
+                          setFieldData({
+                            ...item,
+                            errors: index ? [] : item.errors,
+                          }),
+                        );
                     }
                   });
                   preFields.current = fields;
@@ -351,6 +357,15 @@ const ReForm = ContainerUseWrap(
                 },
                 onFinishFailed: (e: any) => {
                   if (e.errorFields?.length > 0) {
+                    const {
+                      name: [name],
+                      errors,
+                    } = e.errorFields[0] || {};
+                    formItemNatives.current
+                      .find(({ name: n }) => n === name)
+                      ?.setFieldData({
+                        errors,
+                      });
                     if (props.onFinishFailed) {
                       props.onFinishFailed(e);
                     } else {
