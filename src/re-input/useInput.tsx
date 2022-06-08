@@ -80,7 +80,7 @@ export default ({
     maxLength,
     delay: delay || 500,
     disabled:
-      disabled || (isShowSheetPage && page === isShowSheetPage && !inSheet),
+      disabled || !!(isShowSheetPage && page === isShowSheetPage && !inSheet),
     value,
     className: classNames(styles.input, className),
     placeholderStyle: {

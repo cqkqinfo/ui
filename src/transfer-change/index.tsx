@@ -4,7 +4,6 @@ import getAddress from '../get-address';
 import getAddressId from '../get-address-id';
 import weekday from 'dayjs/plugin/weekday';
 import localeData from 'dayjs/plugin/localeData';
-import { useWhyDidYouUpdate } from 'ahooks';
 
 dayjs.extend(weekday);
 dayjs.extend(localeData);
@@ -75,12 +74,6 @@ export default React.memo(
       },
       [children, dateFormat, mode, onChange],
     );
-    useWhyDidYouUpdate('aaaaa', {
-      children,
-      handleChange,
-      mode,
-      value,
-    });
     return useMemo(
       () =>
         mode && React.isValidElement(children)
