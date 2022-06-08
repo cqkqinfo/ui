@@ -1,3 +1,10 @@
+## [1.13.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.14...v1.13.15) (2022-06-08)
+
+### Bug Fixes
+
+- ci ([ad53d55](https://gitlab2.cqkqinfo.com/web/ui/commit/ad53d5515ea1c1d8b82fde118bc971c9721f8a07))
+- 微信 native 不显示 ([4c07add](https://gitlab2.cqkqinfo.com/web/ui/commit/4c07add9c84319b369a59abd83f98f0dc4659bf0))
+
 ## [1.13.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.13...v1.13.14) (2022-06-08)
 
 ## [1.13.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.12...v1.13.13) (2022-06-08)
