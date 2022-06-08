@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { View } from 'remax/one';
 import Form, { Field } from 'rc-field-form';
 import styles from './index.module.less';
@@ -150,9 +150,19 @@ export default ({
           className: showError ? styles.error : '',
         });
       },
+      name: name ? name + '' : undefined,
       id: nativeId,
     });
   }
+  useEffect(() => {
+    return () => {
+      formItemNatives?.current.splice(
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        formItemNatives?.current?.findIndex(({ id }) => id === nativeId),
+        1,
+      );
+    };
+  }, [formItemNatives, nativeId]);
   return (
     <NeedWrap wrap={Form} wrapProps={{ component: false }} need={!store}>
       {noStyle
