@@ -1,3 +1,14 @@
+## [1.13.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.11...v1.13.12) (2022-06-08)
+
+### Features
+
+- radio 点击透明 ([b64c65d](https://gitlab2.cqkqinfo.com/web/ui/commit/b64c65dbf81756cae5d9d8b45fbd4f5b58953a85))
+
+### Performance Improvements
+
+- 优化 transferChange 性能 ([ac7e907](https://gitlab2.cqkqinfo.com/web/ui/commit/ac7e9071b4d0dde5be6ec246336e49889b45edb9))
+- 防止微信 native 多余的 setData ([2b829a3](https://gitlab2.cqkqinfo.com/web/ui/commit/2b829a34ee0453e64bf2fd08c96e78f31fe809cf))
+
 ## [1.13.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.10...v1.13.11) (2022-06-08)
 
 ### Bug Fixes
