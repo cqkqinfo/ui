@@ -8,6 +8,7 @@ import React, {
   useEffect,
   useImperativeHandle,
   useRef,
+  useState,
 } from 'react';
 import { NativeInstance, Props, Data } from './index';
 import { usePrevious } from 'parsec-hooks';
@@ -29,18 +30,18 @@ export default forwardRef<NativeInstance, Props>(
     ref,
   ) => {
     const dataRef = useRef<Data>({ visible, className, style, content });
-    const thisRef = useRef<NativeInstance>({
+    const [thisRef, setThisRef] = useState<NativeInstance>({
       data: {},
       setData: data => (dataRef.current = data),
     });
-    useImperativeHandle(ref, () => thisRef.current, [thisRef]);
+    useImperativeHandle(ref, () => thisRef, [thisRef]);
     const preInitData = usePrevious(initData);
     useEffect(() => {
       if (
         JSON.stringify(preInitData) !== JSON.stringify(initData) &&
         initData
       ) {
-        thisRef.current.setData(initData);
+        thisRef.setData(initData);
       }
     }, [initData, preInitData, thisRef]);
     const preDataStr = useRef(JSON.stringify(dataRef.current));
@@ -51,7 +52,7 @@ export default forwardRef<NativeInstance, Props>(
       visible,
       bindthis: ({ detail }: any) => {
         detail.setData(dataRef.current);
-        thisRef.current = {
+        setThisRef({
           ...detail,
           setData: data => {
             if (preDataStr.current !== JSON.stringify(data)) {
@@ -59,7 +60,7 @@ export default forwardRef<NativeInstance, Props>(
               preDataStr.current = JSON.stringify(data);
             }
           },
-        };
+        });
       },
       bindtap: (e: any) => onTap?.(e.detail),
     };
