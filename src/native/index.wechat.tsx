@@ -45,29 +45,50 @@ export default forwardRef<NativeInstance, Props>(
       }
     }, [initData, preInitData, thisRef]);
     const preDataStr = useRef(JSON.stringify(dataRef.current));
-    const props = {
-      content,
-      'class-name': className,
-      style,
-      visible,
-      bindthis: ({ detail }: any) => {
-        detail.setData(dataRef.current);
-        setThisRef({
-          ...detail,
-          setData: data => {
-            if (preDataStr.current !== JSON.stringify(data)) {
-              detail.setData({ visible, className, style, content, ...data });
-              preDataStr.current = JSON.stringify(data);
-            }
-          },
-        });
-      },
-      bindtap: (e: any) => onTap?.(e.detail),
-    };
     return flex ? (
-      <FlexNative {...props}>{children}</FlexNative>
+      <FlexNative
+        content={content}
+        class-name={className}
+        style={style}
+        visible={visible}
+        bindtap={(e: any) => onTap?.(e.detail)}
+        bindthis={({ detail }: any) => {
+          detail.setData(dataRef.current);
+          setThisRef({
+            ...detail,
+            setData: data => {
+              if (preDataStr.current !== JSON.stringify(data)) {
+                detail.setData({ visible, className, style, content, ...data });
+                preDataStr.current = JSON.stringify(data);
+              }
+            },
+          });
+        }}
+      >
+        {children}
+      </FlexNative>
     ) : (
-      <Native {...props}>{children}</Native>
+      <Native
+        content={content}
+        class-name={className}
+        style={style}
+        visible={visible}
+        bindtap={(e: any) => onTap?.(e.detail)}
+        bindthis={({ detail }: any) => {
+          detail.setData(dataRef.current);
+          setThisRef({
+            ...detail,
+            setData: data => {
+              if (preDataStr.current !== JSON.stringify(data)) {
+                detail.setData({ visible, className, style, content, ...data });
+                preDataStr.current = JSON.stringify(data);
+              }
+            },
+          });
+        }}
+      >
+        {children}
+      </Native>
     );
   },
 );
