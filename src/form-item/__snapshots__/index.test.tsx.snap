@@ -125,7 +125,6 @@ background:#fff;"
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入手机号"

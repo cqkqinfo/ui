@@ -53,7 +53,6 @@ exports[`表单 card模式 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入姓名"
@@ -122,7 +121,6 @@ exports[`表单 card模式 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入手机号"
@@ -209,7 +207,6 @@ exports[`表单 cell模式 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入姓名"
@@ -272,7 +269,6 @@ exports[`表单 cell模式 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入手机号"
@@ -372,7 +368,6 @@ exports[`表单 两端对齐 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入姓名"
@@ -455,7 +450,6 @@ exports[`表单 两端对齐 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入手机号"
@@ -547,7 +541,6 @@ exports[`表单 渲染 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入姓名"
@@ -616,7 +609,6 @@ exports[`表单 渲染 1`] = `
               <input
                 class=""
                 delay="500"
-                disabled=""
                 maxlength="100000000"
                 nativeref="[object Object]"
                 placeholder="请输入手机号"
