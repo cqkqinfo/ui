@@ -3,6 +3,7 @@
     class="{{className}}"
     id="{{id}}"
     style="{{style}}"
+    focus="{{focus}}"
     model:value="{{myValue}}"
     bindfocus="onFocus"
     bindblur="onBlur"
