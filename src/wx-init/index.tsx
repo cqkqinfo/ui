@@ -44,7 +44,7 @@ export default ({
    * 手动传自定义微信配置
    */
   configData?: ConfigData;
-}) =>
+} = {}) =>
   new Promise((resolve, reject) => {
     const data = new FormData();
     const url = window.location.href.split('#')[0] || window.location.href;
@@ -94,5 +94,7 @@ export default ({
       } else {
         init();
       }
+    } else {
+      resolve({});
     }
   });
