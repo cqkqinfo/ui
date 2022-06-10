@@ -123,9 +123,15 @@ export default ({
               ? React.cloneElement(result, {
                   ...(result as any).props,
                   ...props,
+                  nativeRef,
                 })
               : result;
           }
+        : React.isValidElement(node)
+        ? React.cloneElement(node, {
+            ...node.props,
+            nativeRef,
+          })
         : node}
     </NeedWrap>
   );
@@ -226,7 +232,10 @@ export default ({
             const labelArr =
               typeof label === 'string' && labelWidth ? [...label] : undefined;
             return (
-              <Native ref={itemNative}>
+              <Native
+                initData={{ style: { display: 'flex' } }}
+                ref={itemNative}
+              >
                 <View
                   className={classNames(
                     styles.item,
