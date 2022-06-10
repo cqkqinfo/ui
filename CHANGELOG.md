@@ -1,3 +1,12 @@
+## [1.13.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.17...v1.13.18) (2022-06-10)
+
+### Bug Fixes
+
+- formItem 的 nativeRef 有时候不会生效 ([9a09142](https://gitlab2.cqkqinfo.com/web/ui/commit/9a09142d5a362a6b61dc1cd83289185b61d29a50))
+- placeholderClassName 无效 ([d0c9c3a](https://gitlab2.cqkqinfo.com/web/ui/commit/d0c9c3a6fd394878f4b342fe2aeaaacdf5e34480))
+- rn native 有可能报错 ([a146224](https://gitlab2.cqkqinfo.com/web/ui/commit/a1462247da791cf4508a9804a1d805065664d1b5))
+- wxinit 在非微信环境不会 resolve ([c7c5b5b](https://gitlab2.cqkqinfo.com/web/ui/commit/c7c5b5bdb40c6b2e420dd2cfe58c239d9e4617d3))
+
 ## [1.13.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.16...v1.13.17) (2022-06-09)
 
 ### Bug Fixes
