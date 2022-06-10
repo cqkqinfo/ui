@@ -13,4 +13,4 @@ export default <D extends unknown>(obj: {
    * 正式版变量
    */
   release?: D;
-}) => (obj[getVersion()] || obj['develop']) as D;
+}) => obj[getVersion()] as D;
