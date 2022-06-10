@@ -15,7 +15,7 @@ export default React.memo(
           ...initData?.style,
         },
       },
-      setData: ({ visible, style, content, className }: any) => {
+      setData: ({ visible, style, content, className }: any = {}) => {
         style = {
           // @ts-ignore
           ...initData?.className,
