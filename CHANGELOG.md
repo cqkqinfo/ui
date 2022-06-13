@@ -1,3 +1,9 @@
+## [1.14.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.0...v1.14.1) (2022-06-13)
+
+### Bug Fixes
+
+- formItem 宽度样式 ([27eb099](https://gitlab2.cqkqinfo.com/web/ui/commit/27eb0992317d203b29cb868feb6ca7cd4dc13022))
+
 # [1.14.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.18...v1.14.0) (2022-06-10)
 
 ## [1.13.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.13.17...v1.13.18) (2022-06-10)
