@@ -102,6 +102,7 @@ background:#fff;"
           <div
             class=""
             data-is-last="true"
+            nativeref="[object Object]"
             style="border-bottom-width: 0;"
           >
             <div>
