@@ -233,7 +233,7 @@ export default ({
               typeof label === 'string' && labelWidth ? [...label] : undefined;
             return (
               <Native
-                initData={{ style: { display: 'flex' } }}
+                // initData={{ style: { display: 'flex' } }}
                 ref={itemNative}
               >
                 <View
