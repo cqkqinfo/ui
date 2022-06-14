@@ -17,40 +17,38 @@ export interface FormItemChildrenNative {
   setValue: (value: any) => void;
 }
 
-export default ({
-  label,
-  name,
-  strLabel = typeof label === 'string' ? label : name + '' || '',
-  className,
-  after,
-  rules = [],
-  elderly: outElderly = useConfig().elderly,
-  vertical: outVertical,
-  children,
-  requiredMark: outRequiredMark,
-  readOnly: outReadOnly,
-  requiredMarkCls: outRequiredMarkCls,
-  labelStyle: outLabelStyle,
-  noStyle: outNoStyle,
-  labelCls: outLabelCls,
-  afterCls: outAfterCls,
-  cell: outCell,
-  colon: outColon = outElderly,
-  childrenCls: outChildrenCls,
-  colonCls: outColonCls,
-  labelWidth: outLabelWidth,
-  verifyStatus: outVerifyStatus = true,
-  style,
-  labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
-  childrenAlign: outChildrenAlign,
-  renderReadOnlyValue,
-  ...props
-}: ItemProps) => {
+export default (outProps: ItemProps) => {
   const store = FormStore.useContainer();
+  const {
+    itemCls,
+    card,
+    itemStyle,
+    itemChildrenStyle,
+    formItemNatives,
+    values,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    elderly: outElderly = useConfig().elderly,
+    vertical: outVertical,
+    requiredMark: outRequiredMark,
+    readOnly: outReadOnly,
+    requiredMarkCls: outRequiredMarkCls,
+    labelStyle: outLabelStyle,
+    noStyle: outNoStyle,
+    labelCls: outLabelCls,
+    afterCls: outAfterCls,
+    cell: outCell,
+    colon: outColon = outElderly,
+    childrenCls: outChildrenCls,
+    colonCls: outColonCls,
+    labelWidth: outLabelWidth,
+    verifyStatus: outVerifyStatus = true,
+    labelJustify: outLabelJustify = outElderly ? 'left' : 'right',
+    childrenAlign: outChildrenAlign,
+  } = store || {};
   const {
     labelWidth = outLabelWidth,
     verifyStatus = outVerifyStatus,
-    itemCls,
     childrenCls = outChildrenCls,
     colon = outColon,
     colonCls = outColonCls,
@@ -67,12 +65,18 @@ export default ({
     elderly = outElderly,
     noStyle = outNoStyle,
     childrenAlign = cell ? outChildrenAlign || 'right' : 'left',
-    card,
-    itemStyle,
-    itemChildrenStyle,
-    formItemNatives,
-    values,
-  } = store || {};
+    label,
+    name,
+    strLabel = typeof label === 'string' ? label : name + '' || '',
+    className,
+    after,
+    style,
+    renderReadOnlyValue,
+    children: _children,
+    rules: _rules,
+    ...props
+  } = outProps;
+  let { rules = [], children } = outProps;
   const labelJustify =
     store.labelJustify || labelWidth ? 'justify' : outLabelJustify;
   let required = outRequiredMark || false;
