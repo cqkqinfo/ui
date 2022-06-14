@@ -1,3 +1,9 @@
+## [1.14.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.2...v1.14.3) (2022-06-14)
+
+### Features
+
+- partTitle 支持圆角样式 ([ff59ffc](https://gitlab2.cqkqinfo.com/web/ui/commit/ff59ffcf3a9ac148f062d6acec72239b8cbb73e2))
+
 ## [1.14.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.1...v1.14.2) (2022-06-14)
 
 ### Bug Fixes
