@@ -4,8 +4,8 @@ import React from 'react';
 import { NativeInstance, Props } from './index';
 import { View } from 'remax/one';
 
-export default React.memo(
-  forwardRef<NativeInstance, Props>(({ initData, children, onTap }, ref) => {
+export default forwardRef<NativeInstance, Props>(
+  ({ initData, children, onTap }, ref) => {
     const returnsRef = useRef<NativeInstance>({
       data: {
         style: {
@@ -73,10 +73,8 @@ export default React.memo(
         className={initData?.className}
         style={initData?.style as any}
       >
-        {children}
-        {returnsRef.current.data.content || (!children && '')}
+        {children || ''}
       </View>
     );
-  }),
-  ({ reRender = true }: any) => reRender,
+  },
 );

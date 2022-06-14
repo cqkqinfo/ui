@@ -1,7 +1,6 @@
 import { getDownCount } from 'parsec-hooks/lib/downTimeHooks';
-import { Native } from '@kqinfo/ui';
 import React, { useEffect, useRef } from 'react';
-import { NativeInstance } from '../native';
+import Native, { NativeInstance } from '../native';
 import dayjs from 'dayjs';
 import {
   setTimeInterval,
