@@ -5,7 +5,7 @@ import WebView from 'react-native-webview';
 
 export default (props: RichTextProps) => {
   const { nodes, style } = useProps(props);
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState(1);
   return (
     <WebView
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
