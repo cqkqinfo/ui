@@ -25,6 +25,9 @@ export default () => (
     <PartTitle required bold={false} full>
       填充字体颜色
     </PartTitle>
+    <PartTitle required bold={false} round>
+      圆角
+    </PartTitle>
     <PartTitle
       required
       bold={false}
