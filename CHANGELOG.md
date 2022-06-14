@@ -1,3 +1,11 @@
+## [1.14.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.1...v1.14.2) (2022-06-14)
+
+### Bug Fixes
+
+- formItem props 不能覆盖 form 设置的 props ([ef3ec28](https://gitlab2.cqkqinfo.com/web/ui/commit/ef3ec28f8695f616a61279fa1931eeaf95d7d01a))
+- radio rn 不能选中 ([8b445d8](https://gitlab2.cqkqinfo.com/web/ui/commit/8b445d8f8e35141da51f1b2d477f5f2afc483fd8))
+- rn 富文本闪退 ([219d94e](https://gitlab2.cqkqinfo.com/web/ui/commit/219d94eba114ebe6e633167433401423c2ce8f81))
+
 ## [1.14.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.0...v1.14.1) (2022-06-13)
 
 ### Bug Fixes
