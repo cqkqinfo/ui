@@ -1,4 +1,9 @@
-import React, { useEffect, useImperativeHandle, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import styles from './index.module.less';
@@ -94,21 +99,29 @@ const Radio = (props: RadioProps) => {
     dotCls,
     nativeRef,
   } = props;
-  const getDotData = (checked = false) => ({
-    className: classNames(styles.dot, dotCls, checked && styles.dotCheck),
-    style: {
-      borderColor: checked ? activeBackgroundColor : '#eee',
-      borderWidth: checked ? rpxToPx(11) : 1,
-      background: backgroundColor || '#fff',
-    },
-  });
+  const getDotData = useCallback(
+    (checked = false) => ({
+      className: classNames(styles.dot, dotCls, checked && styles.dotCheck),
+      style: {
+        borderColor: checked ? activeBackgroundColor : '#eee',
+        borderWidth: checked ? rpxToPx(11) : 1,
+        background: backgroundColor || '#fff',
+      },
+    }),
+    [activeBackgroundColor, backgroundColor, dotCls],
+  );
   const dotNativeRef = useRef<NativeInstance>(null);
   useImperativeHandle(nativeRef, () => ({
     setValue: v => {
-      dotNativeRef.current?.setData(getDotData(value === v));
+      dotNativeRef.current?.setData(
+        getDotData(value === undefined ? v : value === v),
+      );
     },
   }));
   const [myChecked, setMyChecked] = useEffectState(checked);
+  useEffect(() => {
+    dotNativeRef.current?.setData(getDotData(myChecked));
+  }, [getDotData, myChecked]);
   return (
     <View
       className={classNames(
@@ -132,8 +145,10 @@ const Radio = (props: RadioProps) => {
       }}
       onTap={e => {
         if (!disabled) {
-          setMyChecked(!myChecked);
-          onChange?.(!myChecked, !myChecked ? value : undefined);
+          const checked = !myChecked;
+          setMyChecked(checked);
+          onChange?.(checked, checked ? value : undefined);
+          dotNativeRef.current?.setData(getDotData(checked));
         }
       }}
     >
