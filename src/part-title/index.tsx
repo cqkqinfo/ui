@@ -38,6 +38,10 @@ export interface Props {
    * 样式
    */
   style?: React.CSSProperties;
+  /**
+   * 圆角样式
+   */
+  round?: boolean;
 }
 
 export default ({
@@ -49,6 +53,7 @@ export default ({
   offsetX = 0,
   elderly = useConfig().elderly,
   action,
+  round,
   ...props
 }: Props) => {
   const { brandPrimary } = useConfig();
@@ -66,7 +71,7 @@ export default ({
         }}
         alignItems={'center'}
       >
-        <View className={styles.block} />
+        <View className={classNames(styles.block, round && styles.round)} />
         <Text
           className={styles.title}
           style={{
