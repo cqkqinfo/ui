@@ -1,3 +1,13 @@
+## [1.14.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.3...v1.14.4) (2022-06-15)
+
+### Bug Fixes
+
+- rn native 倒计时显示重复字符串 ([53fe452](https://gitlab2.cqkqinfo.com/web/ui/commit/53fe452555048911ff5fa765f00cddc3b3694fa5))
+
+### Features
+
+- switchVariable 支持枚举对象 ([51d2432](https://gitlab2.cqkqinfo.com/web/ui/commit/51d2432ee9ca014fdb4636d829be2ca837232161))
+
 ## [1.14.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.2...v1.14.3) (2022-06-14)
 
 ### Features
