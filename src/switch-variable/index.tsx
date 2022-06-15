@@ -10,18 +10,30 @@ export const Obj = ({}: {
 }) => {};
 
 /* eslint-disable @typescript-eslint/ban-types */
-export default <T extends unknown>(obj: {
+export default <T extends unknown>(
+  obj: {
+    /**
+     * 默认变量
+     */
+    default?: T extends object ? Partial<T> : T;
+    [key: string]: (T extends object ? Partial<T> : T) | undefined;
+  },
   /**
-   * 默认变量
+   * 取key值
    */
-  default?: T extends object ? Partial<T> : T;
-  [key: string]: (T extends object ? Partial<T> : T) | undefined;
-}) => (v: keyof typeof obj) => {
+  readKey = false,
+) => (v: keyof typeof obj) => {
   const defaultValue = obj['default'];
   let value = defaultValue;
-  Object.keys(obj).forEach(key => {
-    if (new RegExp(key).test(v + '')) {
-      value = obj[key];
+  Object.entries(obj).forEach(([key, itemValue]) => {
+    if (readKey) {
+      if (new RegExp(itemValue + '').test(v + '')) {
+        value = key as any;
+      }
+    } else {
+      if (new RegExp(key).test(v + '')) {
+        value = obj[key];
+      }
     }
   });
   if (typeof value === 'object' && typeof defaultValue === 'object') {
