@@ -11,6 +11,35 @@ group:
 
 简化版 switch case 根据不同变量返回不同变量，用于多环境、多状态，多版本的值判断
 
+### 取枚举对象名称
+
+```tsx
+import React from 'react';
+import { switchVariable, Button, Space, PartTitle } from '@kqinfo/ui';
+
+enum DeliveryStatus {
+  待发货 = 0,
+  待寄出,
+  待揽收,
+  已完成,
+}
+
+const getDeliveryText = switchVariable(DeliveryStatus, true);
+
+export default () => {
+  return (
+    <Space vertical size={'10px'}>
+      <PartTitle>待审核</PartTitle>
+      <Button>{getDeliveryText(1)}</Button>
+      <PartTitle>待寄出</PartTitle>
+      <Button>{getDeliveryText(2)}</Button>
+      <PartTitle>已完成</PartTitle>
+      <Button>{getDeliveryText(3)}</Button>
+    </Space>
+  );
+};
+```
+
 ### 多维度状态判断
 
 ```tsx
