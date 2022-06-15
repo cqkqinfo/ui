@@ -39,28 +39,33 @@ export default ({
     shadowRadius = (outShadowRadius = 20),
   } = useConfig();
   const rpx20 = rpxToPx(20) + 'px';
-  return React.cloneElement(children, {
-    ...children.props,
-    ...props,
-    style: {
-      cursor: active !== undefined ? 'pointer' : undefined,
-      ...(card
-        ? {
-            boxSizing: 'border-box',
-            backgroundColor: '#fff',
-            borderRadius: rpx20,
-            paddingLeft: rpx20,
-            paddingRight: rpx20,
-          }
-        : {}),
-      ...children.props.style,
-      ...props.style,
-      boxShadow:
-        outShadowColor !== false &&
-        `0 0 ${rpxToPx(shadowRadius)}px rgba(${convert.hex
-          .rgb(outShadowColor || shadowColor)
-          .join(',')}, 0.15)`,
-      border: active ? `1px solid ${outShadowColor || shadowColor}` : undefined,
-    },
-  });
+  return (
+    children &&
+    React.cloneElement(children, {
+      ...children.props,
+      ...props,
+      style: {
+        cursor: active !== undefined ? 'pointer' : undefined,
+        ...(card
+          ? {
+              boxSizing: 'border-box',
+              backgroundColor: '#fff',
+              borderRadius: rpx20,
+              paddingLeft: rpx20,
+              paddingRight: rpx20,
+            }
+          : {}),
+        ...children.props.style,
+        ...props.style,
+        boxShadow:
+          outShadowColor !== false &&
+          `0 0 ${rpxToPx(shadowRadius)}px rgba(${convert.hex
+            .rgb(outShadowColor || shadowColor)
+            .join(',')}, 0.15)`,
+        border: active
+          ? `1px solid ${outShadowColor || shadowColor}`
+          : undefined,
+      },
+    })
+  );
 };
