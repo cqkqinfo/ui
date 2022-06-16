@@ -1,3 +1,10 @@
+## [1.14.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.7...v1.14.8) (2022-06-16)
+
+### Bug Fixes
+
+- switchVariable 类型 ([d386ad9](https://gitlab2.cqkqinfo.com/web/ui/commit/d386ad9c61cce6b2b4bbe1d67538d018a3452560))
+- 默认 sentry id ([90936b8](https://gitlab2.cqkqinfo.com/web/ui/commit/90936b88516cf97321ee4ff6ac16360adcff624f))
+
 ## [1.14.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.6...v1.14.7) (2022-06-16)
 
 ### Features
