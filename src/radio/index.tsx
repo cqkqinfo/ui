@@ -98,6 +98,7 @@ const Radio = (props: RadioProps) => {
     type = 'normal',
     dotCls,
     nativeRef,
+    ...otherProps
   } = props;
   const getDotData = useCallback(
     (checked = false) => ({
@@ -151,6 +152,7 @@ const Radio = (props: RadioProps) => {
           dotNativeRef.current?.setData(getDotData(checked));
         }
       }}
+      {...otherProps}
     >
       {type === 'normal' && (
         <Native ref={dotNativeRef} initData={getDotData(myChecked)} />
