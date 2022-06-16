@@ -1,3 +1,9 @@
+## [1.14.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.6...v1.14.7) (2022-06-16)
+
+### Features
+
+- 添加 childrenStyle ([4ea3d3a](https://gitlab2.cqkqinfo.com/web/ui/commit/4ea3d3a9ae96510aa29e10cd00d5d47c99190ddf))
+
 ## [1.14.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.5...v1.14.6) (2022-06-16)
 
 ### Bug Fixes
