@@ -15,8 +15,8 @@ export default <T extends unknown>(
     /**
      * 默认变量
      */
-    default?: T extends object ? Partial<T> : T;
-    [key: string]: (T extends object ? Partial<T> : T) | undefined;
+    default?: (T extends object ? Partial<Partial<T>> : T) | undefined;
+    [key: string]: (T extends object ? Partial<Partial<T>> : T) | undefined;
   },
   /**
    * 取key值
@@ -27,11 +27,11 @@ export default <T extends unknown>(
   let value = defaultValue;
   Object.entries(obj).forEach(([key, itemValue]) => {
     if (readKey) {
-      if (new RegExp(itemValue + '').test(v + '')) {
+      if (new RegExp(`^(${itemValue})$`).test(v + '')) {
         value = key as any;
       }
     } else {
-      if (new RegExp(key).test(v + '')) {
+      if (new RegExp(`^(${key})$`).test(v + '')) {
         value = obj[key];
       }
     }
