@@ -4,6 +4,7 @@ import { View, ViewProps } from 'remax/one';
 import isWx from '../is-wx';
 import { useId } from 'parsec-hooks';
 import { initData } from '../wx-init';
+import getVersion from '../get-version';
 
 export interface Props extends ViewProps {
   /**
@@ -26,6 +27,11 @@ export interface Props extends ViewProps {
    * 打开成功事件
    */
   onLaunch?: (e: any) => void;
+  /**
+   * 打开小程序的环境
+   * @default 当前环境
+   */
+  envVersion?: 'develop' | 'release' | 'trial';
 }
 
 export default ({
@@ -36,6 +42,7 @@ export default ({
   className,
   onLaunch,
   appId,
+  envVersion = getVersion(),
   ...props
 }: Props) => {
   const childrenHtml = children ? ReactDOMServer.renderToString(children) : '';
@@ -76,6 +83,7 @@ export default ({
           username="${username}"
           appId="${appId}"
           path="${path}"
+          env-version='${envVersion}'
         >
           <template class='open-weapp'>
             ${childrenHtml}
