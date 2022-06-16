@@ -18,10 +18,10 @@ import React from 'react';
 import { switchVariable, Button, Space, PartTitle } from '@kqinfo/ui';
 
 enum DeliveryStatus {
-  待发货 = 0,
-  待寄出,
-  待揽收,
-  已完成,
+  待发货 = 'dfh',
+  待寄出 = 'djc',
+  待揽收 = 'dls',
+  已完成 = 'ywc',
 }
 
 const getDeliveryText = switchVariable(DeliveryStatus, true);
@@ -29,12 +29,12 @@ const getDeliveryText = switchVariable(DeliveryStatus, true);
 export default () => {
   return (
     <Space vertical size={'10px'}>
-      <PartTitle>待审核</PartTitle>
-      <Button>{getDeliveryText(1)}</Button>
+      <PartTitle>待发货</PartTitle>
+      <Button>{getDeliveryText('dfh')}</Button>
       <PartTitle>待寄出</PartTitle>
-      <Button>{getDeliveryText(2)}</Button>
+      <Button>{getDeliveryText('djc')}</Button>
       <PartTitle>已完成</PartTitle>
-      <Button>{getDeliveryText(3)}</Button>
+      <Button>{getDeliveryText('ywc')}</Button>
     </Space>
   );
 };
