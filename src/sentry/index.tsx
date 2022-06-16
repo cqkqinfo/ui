@@ -39,7 +39,7 @@ const newSentry: typeof Sentry = {
         ...options,
         dsn:
           options?.dsn ||
-          'https://2306075284d9444894a37d888ef6977a@sentry.parsec.com.cn/13',
+          'https://c4d3b0feed534673bf62e8f3a9230b14@sentry.parsec.com.cn/5',
       });
     }
   },
