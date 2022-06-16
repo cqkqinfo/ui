@@ -1,3 +1,14 @@
+## [1.14.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.5...v1.14.6) (2022-06-16)
+
+### Bug Fixes
+
+- shadow 有可能报错 ([462a056](https://gitlab2.cqkqinfo.com/web/ui/commit/462a056378ac22f5bc35260688a00e49a90007f6))
+
+### Features
+
+- openWeapp 支持设置环境 ([72a576a](https://gitlab2.cqkqinfo.com/web/ui/commit/72a576a3526bcdf2f58cef1fb93323e662b7a69d))
+- radio 传递 otherProps ([6a2ff5a](https://gitlab2.cqkqinfo.com/web/ui/commit/6a2ff5ac887736f91db503eb469d46a9e2280892))
+
 ## [1.14.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.4...v1.14.5) (2022-06-15)
 
 ### Bug Fixes
