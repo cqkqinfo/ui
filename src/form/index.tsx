@@ -112,6 +112,10 @@ interface BaseItemProps {
    */
   labelStyle?: React.CSSProperties;
   /**
+   * children样式
+   */
+  childrenStyle?: React.CSSProperties;
+  /**
    * 子元素类别
    */
   childrenCls?: string;

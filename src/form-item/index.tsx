@@ -62,6 +62,7 @@ export default (outProps: ItemProps) => {
     readOnly = outReadOnly,
     labelCls = outLabelCls,
     labelStyle = outLabelStyle,
+    childrenStyle = itemChildrenStyle,
     elderly = outElderly,
     noStyle = outNoStyle,
     childrenAlign = cell ? outChildrenAlign || 'right' : 'left',
@@ -329,7 +330,7 @@ export default (outProps: ItemProps) => {
                     style={{
                       justifyContent:
                         label && !leftChildrenAlign ? 'flex-end' : 'flex-start',
-                      ...itemChildrenStyle,
+                      ...childrenStyle,
                     }}
                   >
                     {readOnly ? (
