@@ -1,3 +1,9 @@
+## [1.14.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.9...v1.14.10) (2022-06-20)
+
+### Features
+
+- 正式环境可以显示 curl ([25779d8](https://gitlab2.cqkqinfo.com/web/ui/commit/25779d82bb0ddeaa9e9464729d42a97b13cd8615))
+
 ## [1.14.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.8...v1.14.9) (2022-06-20)
 
 ### Bug Fixes
