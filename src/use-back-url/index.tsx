@@ -54,12 +54,12 @@ export default ({
         data => {
           sessionStorage.removeItem(key);
           window.location.replace(
-            `${storageUrl}${storageUrl.includes('?') ? '&' : '?'}${qs.stringify(
-              {
-                ...data,
-                backSuccess: 1,
-              },
-            )}`,
+            `${storageUrl}${
+              storageUrl?.includes('?') ? '&' : '?'
+            }${qs.stringify({
+              ...data,
+              backSuccess: 1,
+            })}`,
           );
         },
         [key, storageUrl],
