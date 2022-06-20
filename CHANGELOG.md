@@ -1,3 +1,9 @@
+## [1.14.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.8...v1.14.9) (2022-06-20)
+
+### Bug Fixes
+
+- useBackUrl includes 报错 ([260bcde](https://gitlab2.cqkqinfo.com/web/ui/commit/260bcde0d78196d50f7204c4bf9b031d0dae099c))
+
 ## [1.14.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.7...v1.14.8) (2022-06-16)
 
 ### Bug Fixes
