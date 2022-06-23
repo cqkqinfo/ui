@@ -42,6 +42,10 @@ export interface Props {
    */
   rightItemCls?: string;
   /**
+   * 右边选中子项类名
+   */
+  rightActiveCls?: string;
+  /**
    * 菜单数据
    */
   data: MenuItem[];
@@ -83,8 +87,12 @@ export default ({
   elderly = useConfig().elderly,
   onChange,
   style,
+  rightActiveCls,
 }: Props) => {
   const [selected, setSelected] = useEffectState(current, { wait: 300 });
+  const [rightSelected, setRightSelected] = useEffectState<
+    MenuItem | undefined
+  >(undefined);
   const right = useMemo(() => {
     return (
       data
@@ -161,8 +169,15 @@ export default ({
           <View
             key={item.id}
             style={{ borderBottom: i === right.length - 1 ? 0 : undefined }}
-            className={classNames(styles.rightItem, rightItemCls)}
-            onTap={() => onSelect?.(item)}
+            className={classNames(
+              styles.rightItem,
+              rightItemCls,
+              rightSelected?.id === item.id && rightActiveCls,
+            )}
+            onTap={() => {
+              onSelect?.(item);
+              setRightSelected(item);
+            }}
           >
             {item.name}
           </View>
