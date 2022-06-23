@@ -1,3 +1,9 @@
+## [1.14.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.10...v1.14.11) (2022-06-23)
+
+### Features
+
+- menu 支持 rightActiveCls ([6808a1a](https://gitlab2.cqkqinfo.com/web/ui/commit/6808a1a89b37d7afbcbfdfc808f919509f46e863))
+
 ## [1.14.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.9...v1.14.10) (2022-06-20)
 
 ### Features
