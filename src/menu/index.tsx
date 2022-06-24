@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, memo } from 'react';
 import { View } from 'remax/one';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
-import { Space } from '@kqinfo/ui';
+import { Space, Icon, Rotate, Fold } from '@kqinfo/ui';
 import ScrollView from '../scroll-view';
 
 export type ID = string | number;
@@ -54,6 +54,10 @@ export interface Props {
    */
   current?: ID;
   /**
+   * 二级菜单模式: 折叠、子菜单
+   */
+  childrenMenuMode?: 'collapse' | 'subMenu';
+  /**
    * 当前选择的菜单id
    */
   onChange?: (id: ID, children: MenuItem[]) => void;
@@ -78,10 +82,13 @@ export default ({
   data,
   leftItemCls,
   leftChildrenActiveCls,
+  childrenMenuMode = 'subMenu',
   leftActiveCls,
   rightItemCls,
   current = data?.[0]?.children?.[0]?.children
-    ? data?.[0]?.children?.[0]?.id
+    ? childrenMenuMode === 'subMenu'
+      ? data?.[0]?.children?.[0]?.id
+      : data?.[0]?.id
     : data?.[0]?.id,
   onSelect,
   elderly = useConfig().elderly,
@@ -94,13 +101,13 @@ export default ({
     MenuItem | undefined
   >(undefined);
   const right = useMemo(() => {
-    return (
-      data
-        .map(item => [item, item.children])
-        .flat(3)
-        .find(item => item?.id === selected)?.children || []
-    );
-  }, [data, selected]);
+    return childrenMenuMode === 'subMenu'
+      ? data
+          .map(item => [item, item.children])
+          .flat(3)
+          .find(item => item?.id === selected)?.children || []
+      : data.find(item => item?.id === selected)?.children || [];
+  }, [childrenMenuMode, data, selected]);
   return (
     <View
       className={classNames(styles.menu, className, elderly && styles.elderly)}
@@ -112,6 +119,7 @@ export default ({
             (selected === id && styles.leftActive) ||
             children?.some(({ id }) => id === selected);
           const haveChildren = children?.some(({ children }) => children);
+
           return (
             <Space
               vertical
@@ -123,7 +131,11 @@ export default ({
                 active && classNames(styles.leftActive, leftActiveCls),
               )}
               onTap={() => {
-                if (haveChildren && children?.[0]) {
+                if (
+                  haveChildren &&
+                  children?.[0] &&
+                  childrenMenuMode === 'subMenu'
+                ) {
                   const first = children[0];
                   setSelected(first.id);
                   onChange?.(first.id, first.children || []);
@@ -134,7 +146,7 @@ export default ({
               }}
             >
               {name}
-              {haveChildren && active && (
+              {haveChildren && active && childrenMenuMode === 'subMenu' && (
                 <ScrollView scrollY className={styles.leftScroll}>
                   <Space vertical key={id}>
                     {children?.map(({ name, id }) => (
@@ -165,24 +177,85 @@ export default ({
         })}
       </ScrollView>
       <ScrollView scrollY className={classNames(styles.right, rightCls)}>
-        {right.map((item, i) => (
-          <View
-            key={item.id}
-            style={{ borderBottom: i === right.length - 1 ? 0 : undefined }}
-            className={classNames(
-              styles.rightItem,
-              rightItemCls,
-              rightSelected?.id === item.id && rightActiveCls,
-            )}
-            onTap={() => {
-              onSelect?.(item);
-              setRightSelected(item);
-            }}
-          >
-            {item.name}
-          </View>
-        ))}
+        {right.map((item, i) =>
+          item?.children ? (
+            <CollapseItem
+              item={item}
+              onChange={() => onChange?.(item.id, item.children || [])}
+              onTap={(v: MenuItem) => {
+                onSelect?.(v);
+              }}
+            />
+          ) : (
+            <Space
+              alignItems="center"
+              justify="space-between"
+              key={item.id}
+              style={{ borderBottom: i === right.length - 1 ? 0 : undefined }}
+              className={classNames(
+                styles.rightItem,
+                rightItemCls,
+                rightSelected?.id === item.id && rightActiveCls,
+              )}
+              onTap={() => {
+                onSelect?.(item);
+                setRightSelected(item);
+              }}
+            >
+              <View>{item.name}</View>
+            </Space>
+          ),
+        )}
       </ScrollView>
     </View>
   );
 };
+
+const CollapseItem = memo(
+  ({
+    item,
+    onChange,
+    onTap,
+  }: {
+    item: MenuItem;
+    onChange: () => void;
+    onTap: (item: MenuItem) => void;
+  }) => {
+    const [folded, setFolded] = useState(true);
+    return (
+      <>
+        <Space
+          alignItems="center"
+          justify="space-between"
+          className={styles.rightItem}
+          onTap={() => {
+            onChange();
+            if (item?.children) {
+              setFolded(!folded);
+            }
+          }}
+        >
+          <View>{item.name}</View>
+          {item?.children && (
+            <Rotate angle={folded ? 0 : 90}>
+              <Icon name={'kq-right'} size={'12px'} />
+            </Rotate>
+          )}
+        </Space>
+
+        <Fold folded={folded}>
+          {item?.children &&
+            item?.children.map(v => (
+              <Space
+                className={styles.rightItem}
+                key={v.id}
+                onTap={() => onTap(v)}
+              >
+                {v.name}
+              </Space>
+            ))}
+        </Fold>
+      </>
+    );
+  },
+);
