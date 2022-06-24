@@ -61,10 +61,48 @@ export default () => {
           },
         ]}
       />
-      <PartTitle>二级菜单</PartTitle>
+      <PartTitle>二级菜单（子菜单模式）</PartTitle>
       <Menu
         onSelect={console.log}
         onChange={console.log}
+        data={[
+          {
+            name: '科室1',
+            id: 1,
+            children: [
+              {
+                name: '子科室1',
+                id: 11,
+                children: [
+                  { name: '子子科室1', id: 11 },
+                  { name: '子子科室2', id: 12 },
+                ],
+              },
+              {
+                name: '子科室2',
+                id: 12,
+                children: [
+                  { name: '子子科室3', id: 15 },
+                  { name: '子子科室4', id: 16 },
+                ],
+              },
+            ],
+          },
+          {
+            name: '科室2',
+            id: 2,
+            children: [
+              { name: '子科室3', id: 13 },
+              { name: '子科室4', id: 14 },
+            ],
+          },
+        ]}
+      />
+      <PartTitle>二级菜单（折叠模式）</PartTitle>
+      <Menu
+        onSelect={console.log}
+        onChange={console.log}
+        childrenMenuMode="collapse"
         data={[
           {
             name: '科室1',
