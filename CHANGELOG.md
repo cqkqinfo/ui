@@ -1,3 +1,9 @@
+## [1.14.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.11...v1.14.12) (2022-06-24)
+
+### Features
+
+- menu 新增二级菜单模式（折叠、子菜单） ([e4ed264](https://gitlab2.cqkqinfo.com/web/ui/commit/e4ed264e5fe5a11f699d7fb831d07bc2e21cbbbc))
+
 ## [1.14.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.10...v1.14.11) (2022-06-23)
 
 ### Features
