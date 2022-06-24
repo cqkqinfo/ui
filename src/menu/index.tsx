@@ -236,7 +236,8 @@ const CollapseItem = memo(
           }}
         >
           <View>{item.name}</View>
-          {item?.children && (
+
+          {item?.children && item?.children?.length > 0 && (
             <Rotate angle={folded ? 0 : 90}>
               <Icon name={'kq-right'} size={'12px'} />
             </Rotate>
@@ -247,7 +248,7 @@ const CollapseItem = memo(
           {item?.children &&
             item?.children.map(v => (
               <Space
-                className={styles.rightItem}
+                className={classNames(styles.rightItem, styles.rightItemText)}
                 key={v.id}
                 onTap={() => onTap(v)}
               >
