@@ -1,3 +1,13 @@
+## [1.14.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.12...v1.14.13) (2022-06-25)
+
+### Bug Fixes
+
+- 修复 preview-image web 端点击穿透 ([a6119f0](https://gitlab2.cqkqinfo.com/web/ui/commit/a6119f0943cc2b263b253006a1fbbde2694677d8))
+
+### Features
+
+- menu 新增 list 模式 ([a61d665](https://gitlab2.cqkqinfo.com/web/ui/commit/a61d665fef78711e6c6c443bb5ae95f85a3e38ae))
+
 ## [1.14.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.11...v1.14.12) (2022-06-24)
 
 ### Features
