@@ -82,6 +82,33 @@
   height: 100%;
 }
 
+.list {
+  .right;
+  padding: 0;
+}
+
+.listItem {
+  .rightItem;
+  position: relative;
+  font-weight: bold;
+  color: #333333;
+  font-size: 30px;
+  padding: 34px 20px 34px 55px;
+  &:hover,
+  &:active {
+    color: @brand-primary;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 0;
+      width: 5px;
+      height: 98px;
+      background: @brand-primary;
+    }
+  }
+}
+
 .elderly {
   font-weight: bold;
   .leftItem,
