@@ -16,7 +16,8 @@ const Component = ({ urls, current, dom }: Options & { dom: HTMLElement }) => {
       visible
       onIndexChange={setIndex}
       index={index}
-      onClose={() => {
+      onClose={e => {
+        e?.stopPropagation();
         ReactDOM.unmountComponentAtNode(dom);
       }}
     />
