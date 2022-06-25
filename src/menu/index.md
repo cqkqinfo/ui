@@ -61,6 +61,30 @@ export default () => {
           },
         ]}
       />
+      <PartTitle>一级菜单</PartTitle>
+      <Menu
+        onSelect={console.log}
+        onChange={console.log}
+        menuMode="list"
+        data={[
+          {
+            name: '科室1',
+            id: 1,
+          },
+          {
+            name: '科室2',
+            id: 2,
+          },
+          {
+            name: '科室3',
+            id: 3,
+          },
+          {
+            name: '科室4',
+            id: 4,
+          },
+        ]}
+      />
       <PartTitle>二级菜单（子菜单模式）</PartTitle>
       <Menu
         onSelect={console.log}

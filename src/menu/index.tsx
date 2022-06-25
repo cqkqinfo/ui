@@ -46,6 +46,18 @@ export interface Props {
    */
   rightActiveCls?: string;
   /**
+   * 右边子项子级类名
+   */
+  rightItemChildrenCls?: string;
+  /**
+   * 菜单list模式类名
+   */
+  listCls?: string;
+  /**
+   * 菜单list子项类名
+   */
+  listItemCls?: string;
+  /**
    * 菜单数据
    */
   data: MenuItem[];
@@ -54,7 +66,18 @@ export interface Props {
    */
   current?: ID;
   /**
+   * 菜单模式
+   * @default children
+   *  */
+  menuMode?: 'children' | 'list';
+  /**
+   * 右边图标大小，默认是fontSize的值，传入number的话请输入rpx的值
+   * @default 12px
+   */
+  rightIconSize?: number | string;
+  /**
    * 二级菜单模式: 折叠、子菜单
+   * @default subMenu
    */
   childrenMenuMode?: 'collapse' | 'subMenu';
   /**
@@ -82,9 +105,14 @@ export default ({
   data,
   leftItemCls,
   leftChildrenActiveCls,
+  rightItemChildrenCls,
+  listCls,
+  listItemCls,
+  menuMode = 'children',
   childrenMenuMode = 'subMenu',
   leftActiveCls,
   rightItemCls,
+  rightIconSize = '12px',
   current = data?.[0]?.children?.[0]?.children
     ? childrenMenuMode === 'subMenu'
       ? data?.[0]?.children?.[0]?.id
@@ -113,100 +141,133 @@ export default ({
       className={classNames(styles.menu, className, elderly && styles.elderly)}
       style={style}
     >
-      <ScrollView scrollY className={classNames(styles.left, leftCls)}>
-        {data.map(({ id, name, children }) => {
-          const active =
-            (selected === id && styles.leftActive) ||
-            children?.some(({ id }) => id === selected);
-          const haveChildren = children?.some(({ children }) => children);
+      {menuMode === 'children' ? (
+        <>
+          <ScrollView scrollY className={classNames(styles.left, leftCls)}>
+            {data.map(({ id, name, children }) => {
+              const active =
+                (selected === id && styles.leftActive) ||
+                children?.some(({ id }) => id === selected);
+              const haveChildren = children?.some(({ children }) => children);
 
-          return (
-            <Space
-              vertical
-              size={30}
-              key={id}
-              className={classNames(
-                styles.leftItem,
-                leftItemCls,
-                active && classNames(styles.leftActive, leftActiveCls),
-              )}
-              onTap={() => {
-                if (
-                  haveChildren &&
-                  children?.[0] &&
-                  childrenMenuMode === 'subMenu'
-                ) {
-                  const first = children[0];
-                  setSelected(first.id);
-                  onChange?.(first.id, first.children || []);
-                } else {
-                  setSelected(id);
-                  onChange?.(id, children || []);
-                }
-              }}
-            >
-              {name}
-              {haveChildren && active && childrenMenuMode === 'subMenu' && (
-                <ScrollView scrollY className={styles.leftScroll}>
-                  <Space vertical key={id}>
-                    {children?.map(({ name, id }) => (
-                      <View
-                        className={classNames(
-                          styles.leftItemItem,
-                          selected === id &&
-                            classNames(
-                              styles.leftItemActive,
-                              leftChildrenActiveCls,
-                            ),
-                        )}
-                        key={id}
-                        onTap={e => {
-                          e.stopPropagation();
-                          setSelected(id);
-                          onChange?.(id, children || []);
-                        }}
-                      >
-                        {name}
-                      </View>
-                    ))}
-                  </Space>
-                </ScrollView>
-              )}
-            </Space>
-          );
-        })}
-      </ScrollView>
-      <ScrollView scrollY className={classNames(styles.right, rightCls)}>
-        {right.map((item, i) =>
-          item?.children ? (
-            <CollapseItem
-              item={item}
-              onChange={() => onChange?.(item.id, item.children || [])}
-              onTap={(v: MenuItem) => {
-                onSelect?.(v);
-              }}
-            />
-          ) : (
-            <Space
-              alignItems="center"
-              justify="space-between"
-              key={item.id}
-              style={{ borderBottom: i === right.length - 1 ? 0 : undefined }}
-              className={classNames(
-                styles.rightItem,
-                rightItemCls,
-                rightSelected?.id === item.id && rightActiveCls,
-              )}
-              onTap={() => {
-                onSelect?.(item);
-                setRightSelected(item);
-              }}
-            >
-              <View>{item.name}</View>
-            </Space>
-          ),
-        )}
-      </ScrollView>
+              return (
+                <Space
+                  vertical
+                  size={30}
+                  key={id}
+                  className={classNames(
+                    styles.leftItem,
+                    leftItemCls,
+                    active && classNames(styles.leftActive, leftActiveCls),
+                  )}
+                  onTap={() => {
+                    if (
+                      haveChildren &&
+                      children?.[0] &&
+                      childrenMenuMode === 'subMenu'
+                    ) {
+                      const first = children[0];
+                      setSelected(first.id);
+                      onChange?.(first.id, first.children || []);
+                    } else {
+                      setSelected(id);
+                      onChange?.(id, children || []);
+                    }
+                  }}
+                >
+                  {name}
+                  {haveChildren && active && childrenMenuMode === 'subMenu' && (
+                    <ScrollView scrollY className={styles.leftScroll}>
+                      <Space vertical key={id}>
+                        {children?.map(({ name, id }) => (
+                          <View
+                            className={classNames(
+                              styles.leftItemItem,
+                              selected === id &&
+                                classNames(
+                                  styles.leftItemActive,
+                                  leftChildrenActiveCls,
+                                ),
+                            )}
+                            key={id}
+                            onTap={e => {
+                              e.stopPropagation();
+                              setSelected(id);
+                              onChange?.(id, children || []);
+                            }}
+                          >
+                            {name}
+                          </View>
+                        ))}
+                      </Space>
+                    </ScrollView>
+                  )}
+                </Space>
+              );
+            })}
+          </ScrollView>
+          <ScrollView scrollY className={classNames(styles.right, rightCls)}>
+            {right.map((item, i) =>
+              item?.children ? (
+                <CollapseItem
+                  key={item.id}
+                  className={classNames(
+                    styles.rightItem,
+                    rightItemCls,
+                    rightSelected?.id === item.id && rightActiveCls,
+                  )}
+                  iconSize={rightIconSize}
+                  childrenClassName={rightItemChildrenCls}
+                  item={item}
+                  onChange={() => onChange?.(item.id, item.children || [])}
+                  onTap={(v: MenuItem) => {
+                    onSelect?.(v);
+                  }}
+                />
+              ) : (
+                <Space
+                  alignItems="center"
+                  justify="space-between"
+                  key={item.id}
+                  style={{
+                    borderBottom: i === right.length - 1 ? 0 : undefined,
+                  }}
+                  className={classNames(
+                    styles.rightItem,
+                    rightItemCls,
+                    rightSelected?.id === item.id && rightActiveCls,
+                  )}
+                  onTap={() => {
+                    onSelect?.(item);
+                    setRightSelected(item);
+                  }}
+                >
+                  <View>{item.name}</View>
+                </Space>
+              ),
+            )}
+          </ScrollView>
+        </>
+      ) : (
+        <ScrollView scrollY className={classNames(styles.list, listCls)}>
+          {data.map(({ id, name }) => {
+            return (
+              <Space
+                key={id}
+                alignItems="center"
+                justify="space-between"
+                className={classNames(styles.listItem, listItemCls)}
+                onTap={() => {
+                  onChange?.(id, [{ id, name }]);
+                }}
+              >
+                <View>{name}</View>
+                <Icon name={'kq-right'} size={rightIconSize} />
+              </Space>
+            );
+          })}
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -216,10 +277,16 @@ const CollapseItem = memo(
     item,
     onChange,
     onTap,
+    className,
+    childrenClassName,
+    iconSize,
   }: {
     item: MenuItem;
     onChange: () => void;
     onTap: (item: MenuItem) => void;
+    className?: string;
+    childrenClassName?: string;
+    iconSize: string | number;
   }) => {
     const [folded, setFolded] = useState(true);
     return (
@@ -227,7 +294,7 @@ const CollapseItem = memo(
         <Space
           alignItems="center"
           justify="space-between"
-          className={styles.rightItem}
+          className={className}
           onTap={() => {
             onChange();
             if (item?.children) {
@@ -236,9 +303,10 @@ const CollapseItem = memo(
           }}
         >
           <View>{item.name}</View>
-          {item?.children && (
+
+          {item?.children && item?.children?.length > 0 && (
             <Rotate angle={folded ? 0 : 90}>
-              <Icon name={'kq-right'} size={'12px'} />
+              <Icon name={'kq-right'} size={iconSize} />
             </Rotate>
           )}
         </Space>
@@ -247,7 +315,11 @@ const CollapseItem = memo(
           {item?.children &&
             item?.children.map(v => (
               <Space
-                className={styles.rightItem}
+                className={classNames(
+                  styles.rightItem,
+                  styles.rightItemText,
+                  childrenClassName,
+                )}
                 key={v.id}
                 onTap={() => onTap(v)}
               >
