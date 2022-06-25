@@ -46,6 +46,10 @@ export interface Props {
    */
   rightActiveCls?: string;
   /**
+   * 右边子项子级类名
+   */
+  rightItemChildrenCls?: string;
+  /**
    * 菜单数据
    */
   data: MenuItem[];
@@ -82,6 +86,7 @@ export default ({
   data,
   leftItemCls,
   leftChildrenActiveCls,
+  rightItemChildrenCls,
   childrenMenuMode = 'subMenu',
   leftActiveCls,
   rightItemCls,
@@ -180,6 +185,12 @@ export default ({
         {right.map((item, i) =>
           item?.children ? (
             <CollapseItem
+              className={classNames(
+                styles.rightItem,
+                rightItemCls,
+                rightSelected?.id === item.id && rightActiveCls,
+              )}
+              childrenClassName={rightItemChildrenCls}
               item={item}
               onChange={() => onChange?.(item.id, item.children || [])}
               onTap={(v: MenuItem) => {
@@ -216,10 +227,14 @@ const CollapseItem = memo(
     item,
     onChange,
     onTap,
+    className,
+    childrenClassName,
   }: {
     item: MenuItem;
     onChange: () => void;
     onTap: (item: MenuItem) => void;
+    className?: string;
+    childrenClassName?: string;
   }) => {
     const [folded, setFolded] = useState(true);
     return (
@@ -227,7 +242,7 @@ const CollapseItem = memo(
         <Space
           alignItems="center"
           justify="space-between"
-          className={styles.rightItem}
+          className={className}
           onTap={() => {
             onChange();
             if (item?.children) {
@@ -248,7 +263,11 @@ const CollapseItem = memo(
           {item?.children &&
             item?.children.map(v => (
               <Space
-                className={classNames(styles.rightItem, styles.rightItemText)}
+                className={classNames(
+                  styles.rightItem,
+                  styles.rightItemText,
+                  childrenClassName,
+                )}
                 key={v.id}
                 onTap={() => onTap(v)}
               >
