@@ -2,10 +2,6 @@ import _provinces from './provinces.json';
 import _cities from './cities.json';
 import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 import axios from '../axios';
-import { List } from 'immutable';
-
-const provinces = List(_provinces);
-const cities = List(_cities);
 
 export interface CascaderOptionType {
   value?: string;
@@ -20,6 +16,8 @@ let pending: any = Promise.resolve();
 let options: any = [];
 
 export default async () => {
+  const provinces = JSON.parse(JSON.stringify(_provinces)) as typeof _provinces;
+  const cities = JSON.parse(JSON.stringify(_cities)) as typeof _cities;
   if (!areas) {
     areas = [];
     pending = axios.get(
@@ -32,9 +30,9 @@ export default async () => {
   if (!transform) {
     transform = true;
     areas.forEach((area: any) => {
-      const matchCity = cities
-        .filter(city => city.code === area.cityCode)
-        .get(0) as CascaderOptionType;
+      const matchCity = cities.filter(
+        city => city.code === area.cityCode,
+      )[0] as CascaderOptionType;
       if (matchCity) {
         matchCity.children = matchCity.children || [];
         matchCity.children.push({
@@ -44,9 +42,9 @@ export default async () => {
       }
     });
     cities.forEach((city: CascaderOptionType) => {
-      const matchProvince = provinces
-        .filter(province => province.code === city.provinceCode)
-        .get(0) as CascaderOptionType;
+      const matchProvince = provinces.filter(
+        province => province.code === city.provinceCode,
+      )[0] as CascaderOptionType;
       if (matchProvince) {
         matchProvince.children = matchProvince.children || [];
         matchProvince.children.push({
