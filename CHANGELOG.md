@@ -1,3 +1,9 @@
+## [1.14.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.14...v1.14.15) (2022-06-28)
+
+### Features
+
+- 优化 getAddressOptions 体积 ([ca594d8](https://gitlab2.cqkqinfo.com/web/ui/commit/ca594d8462db427a001cadf9d757fd2709d91b1c))
+
 ## [1.14.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.13...v1.14.14) (2022-06-28)
 
 ### Features
