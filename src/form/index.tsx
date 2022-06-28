@@ -232,6 +232,11 @@ export interface Props<Values extends unknown = any>
    * 设置后会自动缓存表单数据
    */
   autoCacheKey?: string;
+  /**
+   * 提交后自动清空缓存
+   * @default true
+   */
+  autoClearCache?: boolean;
 }
 
 const ReForm = ContainerUseWrap(
@@ -252,6 +257,7 @@ const ReForm = ContainerUseWrap(
         value,
         values = value ||
           (autoCacheKey ? getStorageSync(autoCacheKey) : undefined),
+        autoClearCache = true,
         ...props
       }: Props<Values>,
       ref: React.Ref<FormInstance | undefined>,
@@ -290,13 +296,13 @@ const ReForm = ContainerUseWrap(
         const old = form.validateFields;
         form.validateFields = (...arg) => {
           return old(...arg).then((...arg) => {
-            if (autoCacheKey) {
+            if (autoCacheKey && autoClearCache) {
               removeStorageSync(autoCacheKey);
             }
             return Promise.resolve(...arg);
           });
         };
-      }, [autoCacheKey, form]);
+      }, [autoCacheKey, autoClearCache, form]);
       useImperativeHandle(ref, () => form);
       const preFields = useRef([]);
       return (
@@ -355,7 +361,7 @@ const ReForm = ContainerUseWrap(
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore
                   props.onFinish?.(...arg);
-                  if (autoCacheKey) {
+                  if (autoCacheKey && autoClearCache) {
                     removeStorageSync(autoCacheKey);
                   }
                 },
