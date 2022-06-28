@@ -1,3 +1,9 @@
+## [1.14.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.13...v1.14.14) (2022-06-28)
+
+### Features
+
+- 添加 autoClearCache ([7d84071](https://gitlab2.cqkqinfo.com/web/ui/commit/7d84071aaa153f463e571b4f0c1d329ac8938ddd))
+
 ## [1.14.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.12...v1.14.13) (2022-06-25)
 
 ### Bug Fixes
