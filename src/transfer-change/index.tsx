@@ -4,10 +4,15 @@ import getAddress from '../get-address';
 import getAddressId from '../get-address-id';
 import weekday from 'dayjs/plugin/weekday';
 import localeData from 'dayjs/plugin/localeData';
-import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 dayjs.extend(weekday);
 dayjs.extend(localeData);
+
+export interface DataType {
+  value: string | number;
+  label: string | number;
+  children?: DataType[];
+}
 
 export default React.memo(
   ({
@@ -42,7 +47,7 @@ export default React.memo(
     /**
      * 当mode是cascade时需要传
      */
-    data?: CascadePickerOption[];
+    data?: DataType[];
   }) => {
     if (value !== undefined) {
       if (mode === 'array') {
@@ -61,7 +66,7 @@ export default React.memo(
       } else if (mode === 'boolean') {
         value = !!+value;
       } else if (mode === 'cascade' && data) {
-        const fn = (data: CascadePickerOption[], v: string[]) => {
+        const fn = (data: DataType[], v: (string | number)[]) => {
           return data.forEach(({ value: v2, children }) => {
             const find = v2 === value;
             const v3 = [...v, v2];
