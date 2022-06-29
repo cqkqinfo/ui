@@ -1,3 +1,9 @@
+## [1.14.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.16...v1.14.17) (2022-06-29)
+
+### Features
+
+- 添加 cascade 模式 ([0f86f41](https://gitlab2.cqkqinfo.com/web/ui/commit/0f86f4168c40b58384c44779082c87245ca45a96))
+
 ## [1.14.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.15...v1.14.16) (2022-06-29)
 
 ### Features
