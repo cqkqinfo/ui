@@ -1,3 +1,11 @@
+## [1.14.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.15...v1.14.16) (2022-06-29)
+
+### Features
+
+- 支持数组 params ([e43306c](https://gitlab2.cqkqinfo.com/web/ui/commit/e43306c15c9ac173ea4555c12c4d312bde15fa50))
+- 显示 url data ([c4f2d28](https://gitlab2.cqkqinfo.com/web/ui/commit/c4f2d2888ae2944ca6a3d211df71be9d14873406))
+- 添加 cascade 模式 ([4be9e48](https://gitlab2.cqkqinfo.com/web/ui/commit/4be9e48dc917c1e5bfe2b12927ed830209ad28e5))
+
 ## [1.14.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.14...v1.14.15) (2022-06-28)
 
 ### Features
