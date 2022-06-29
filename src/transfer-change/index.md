@@ -76,6 +76,21 @@ export default () => {
             </TransferChange>
           </FormItem>
         </Form>
+        <PartTitle>递归联级选项</PartTitle>
+        <Form cell>
+          <FormItem
+            label={'地区'}
+            name={'cascade'}
+            initialValue={'110105'}
+            after={<Icon name={'kq-right'} color={'#666'} />}
+          >
+            <TransferChange mode={'cascade'} data={addressOptions}>
+              <Picker cols={3} data={addressOptions}>
+                请选择
+              </Picker>
+            </TransferChange>
+          </FormItem>
+        </Form>
         <PartTitle>自动格式化JSON数据</PartTitle>
         <Form cell>
           <FormItem
