@@ -41,7 +41,7 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
       }
       Sentry.addBreadcrumb({
         category: 'xhr',
-        message: 'response.data',
+        message: `${response?.config.url}.data`,
         data: response?.data,
         level: Sentry.Severity.Info,
       });
@@ -50,7 +50,7 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
     response => {
       Sentry.addBreadcrumb({
         category: 'xhr',
-        message: 'response.data',
+        message: `${response?.config.url}.data`,
         data: response?.data,
         level: Sentry.Severity.Error,
       });
