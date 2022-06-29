@@ -4,6 +4,7 @@ import getAddress from '../get-address';
 import getAddressId from '../get-address-id';
 import weekday from 'dayjs/plugin/weekday';
 import localeData from 'dayjs/plugin/localeData';
+import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker/cascade-picker';
 
 dayjs.extend(weekday);
 dayjs.extend(localeData);
@@ -15,6 +16,7 @@ export default React.memo(
     value,
     mode,
     dateFormat = 'YYYY-MM-DD HH:mm:ss',
+    data,
   }: {
     children:
       | ((onChange: (value: any) => void, value: any) => any)
@@ -24,11 +26,23 @@ export default React.memo(
     /**
      * 内置模式
      */
-    mode?: 'array' | 'split' | 'date' | 'time' | 'JSON' | 'city' | 'boolean';
+    mode?:
+      | 'array'
+      | 'split'
+      | 'date'
+      | 'time'
+      | 'JSON'
+      | 'city'
+      | 'boolean'
+      | 'cascade';
     /**
      * 当mode是date时可以用
      */
     dateFormat?: string;
+    /**
+     * 当mode是cascade时需要传
+     */
+    data?: CascadePickerOption[];
   }) => {
     if (value !== undefined) {
       if (mode === 'array') {
@@ -46,6 +60,20 @@ export default React.memo(
         value = getAddressId(value);
       } else if (mode === 'boolean') {
         value = !!+value;
+      } else if (mode === 'cascade' && data) {
+        const fn = (data: CascadePickerOption[], v: string[]) => {
+          return data.forEach(({ value: v2, children }) => {
+            const find = v2 === value;
+            const v3 = [...v, v2];
+            if (find) {
+              value = v3;
+            }
+            if (children) {
+              fn(children, v3);
+            }
+          });
+        };
+        fn(data, []);
       }
     }
     const handleChange = useCallback(
@@ -68,6 +96,8 @@ export default React.memo(
           value = getAddress(value);
         } else if (mode === 'boolean') {
           value = +value;
+        } else if (mode === 'cascade') {
+          value = value[value.length - 1];
         }
         onChange(value);
         (children as any)?.props?.onChange?.(...arg);
