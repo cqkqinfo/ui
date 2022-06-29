@@ -8,6 +8,16 @@ const setSentry = (axios: AxiosStatic | AxiosInstance) => {
   axios.interceptors.request.use(config => {
     config.headers['Content-Type'] =
       config.headers['Content-Type'] || 'application/json;charset=UTF-8';
+    if (config.params) {
+      Object.entries(config.params).forEach(([key, value]) => {
+        if (value instanceof Array) {
+          delete config.params[key];
+          config.url += `${config.url?.includes('?') ? '&' : '?'}${value
+            .map(id => `${key}=${id}`)
+            .join('&')}`;
+        }
+      });
+    }
     if (isProduction) {
       const curl = `curl '${config.baseURL || ''}${config.url}${
         config.params
