@@ -1,3 +1,11 @@
+## [1.14.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.17...v1.14.18) (2022-07-01)
+
+### Bug Fixes
+
+- getCurrentPage 微信报错 ([d182982](https://gitlab2.cqkqinfo.com/web/ui/commit/d18298238420510f73840e0880be61d103cfe635))
+- rn 条形码样式 ([fac6639](https://gitlab2.cqkqinfo.com/web/ui/commit/fac6639dc9a54ad2aae5f21954c9b438b8fc0578))
+- 左侧菜单自级传递 children 错误 ([1c93b37](https://gitlab2.cqkqinfo.com/web/ui/commit/1c93b372c5dbea40ac8972a0f0cdcf6da62eae45))
+
 ## [1.14.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.16...v1.14.17) (2022-06-29)
 
 ### Features
