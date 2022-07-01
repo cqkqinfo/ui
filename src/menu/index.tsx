@@ -179,7 +179,7 @@ export default ({
                   {haveChildren && active && childrenMenuMode === 'subMenu' && (
                     <ScrollView scrollY className={styles.leftScroll}>
                       <Space vertical key={id}>
-                        {children?.map(({ name, id }) => (
+                        {children?.map(({ name, id, children }) => (
                           <View
                             className={classNames(
                               styles.leftItemItem,
