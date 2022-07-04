@@ -1,3 +1,10 @@
+## [1.14.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.18...v1.14.19) (2022-07-04)
+
+### Features
+
+- 更新 antd-mobile ([1690c8e](https://gitlab2.cqkqinfo.com/web/ui/commit/1690c8e26f68407f677ac78fb4522015f68f9a84))
+- 索引器添加 slideItemCls 属性 ([d5cc476](https://gitlab2.cqkqinfo.com/web/ui/commit/d5cc476a4a7ddc4cc3838f6eb1a6070297787f38))
+
 ## [1.14.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.17...v1.14.18) (2022-07-01)
 
 ### Bug Fixes
