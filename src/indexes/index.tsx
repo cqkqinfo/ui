@@ -99,7 +99,6 @@ export default <D extends unknown>({
             }}
             className={classNames(
               styles.slideItem,
-              slideItemCls,
               current === i && styles.slideActive,
             )}
             key={i}
@@ -117,7 +116,10 @@ export default <D extends unknown>({
               }
             }}
           >
-            <View className={styles.index} id={`index${i}`}>
+            <View
+              className={classNames(styles.index, slideItemCls)}
+              id={`index${i}`}
+            >
               {i}
             </View>
           </Visible>
