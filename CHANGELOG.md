@@ -1,3 +1,9 @@
+## [1.14.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.20...v1.14.21) (2022-07-04)
+
+### Bug Fixes
+
+- 阿里小程序 native visible 不生效 ([0349b4c](https://gitlab2.cqkqinfo.com/web/ui/commit/0349b4c02520ba80dd020cdca0a05ea2c7a19c0c))
+
 ## [1.14.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.19...v1.14.20) (2022-07-04)
 
 ### Features
