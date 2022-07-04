@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View } from 'remax/one';
 import { ScrollViewProps } from 'remax/wechat';
 import styles from './index.module.less';
@@ -22,12 +22,17 @@ interface Props<D> extends ScrollViewProps {
    * 索引的类名
    */
   indexCls?: string;
+  /**
+   * 侧边项类名
+   */
+  slideItemCls?: string;
 }
 
 export default <D extends unknown>({
   renderItem,
   list,
   className,
+  slideItemCls,
   ...props
 }: Props<D>) => {
   const indexs = useMemo(() => {
@@ -83,7 +88,7 @@ export default <D extends unknown>({
         }}
       >
         {Object.keys(indexs).map(i => (
-          <div
+          <View
             onTouchStart={() => {
               setCurrent(i);
             }}
@@ -94,12 +99,13 @@ export default <D extends unknown>({
             }}
             className={classNames(
               styles.slideItem,
+              slideItemCls,
               current === i && styles.slideActive,
             )}
             key={i}
           >
             {i}
-          </div>
+          </View>
         ))}
       </View>
       {Object.keys(indexs).map(i => (
