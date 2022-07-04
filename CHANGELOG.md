@@ -1,3 +1,9 @@
+## [1.14.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.19...v1.14.20) (2022-07-04)
+
+### Features
+
+- 索引器添加 slideItemCls 属性 ([f10d17f](https://gitlab2.cqkqinfo.com/web/ui/commit/f10d17f8683b81379c49d1d92318e013218bc2c3))
+
 ## [1.14.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.18...v1.14.19) (2022-07-04)
 
 ### Features
