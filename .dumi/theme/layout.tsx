@@ -1,8 +1,6 @@
 import React from 'react';
 import Layout from 'dumi-theme-mobile/src/layouts';
 import './layout.less';
-import { CopyrightCircleOutlined } from '@ant-design/icons';
-import Generate from './generate';
 import 'antd-mobile/es/global';
 
 export default ({ children, ...props }: any) => (
@@ -10,11 +8,7 @@ export default ({ children, ...props }: any) => (
     {...props}
     children={
       <>
-        {props.location.pathname.includes('/generate') ? (
-          <Generate />
-        ) : (
-          children
-        )}
+        {children}
         <div
           style={{
             color: 'rgba(0,0,0,.45)',
@@ -23,7 +17,7 @@ export default ({ children, ...props }: any) => (
             marginTop: 100,
           }}
         >
-          Copyright <CopyrightCircleOutlined /> 凯桥前端部
+          Copyright ©️ 凯桥前端部
         </div>
       </>
     }
