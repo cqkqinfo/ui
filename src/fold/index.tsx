@@ -40,7 +40,7 @@ export default ({
       id={id}
       style={{
         transition: 'all .3s',
-        overflow: folded ? 'hidden' : undefined,
+        overflow: folded ? 'hidden' : 'initial',
         ...(folded
           ? { maxHeight: 0 }
           : {
