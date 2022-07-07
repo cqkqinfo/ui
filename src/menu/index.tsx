@@ -297,7 +297,7 @@ const CollapseItem = memo(
           className={className}
           onTap={() => {
             onChange();
-            if (item?.children) {
+            if (item?.children && item?.children?.length > 0) {
               setFolded(!folded);
             }
           }}
@@ -313,7 +313,7 @@ const CollapseItem = memo(
 
         <Fold folded={folded}>
           {item?.children &&
-            item?.children.map(v => (
+            item?.children?.map(v => (
               <Space
                 className={classNames(
                   styles.rightItem,
