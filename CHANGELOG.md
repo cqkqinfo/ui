@@ -1,3 +1,9 @@
+## [1.14.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.21...v1.14.22) (2022-07-07)
+
+### Bug Fixes
+
+- 1.fold 组件 overflow undefined 导致失效 2.menu 适老模式 item 布局适配 ([3fe86c1](https://gitlab2.cqkqinfo.com/web/ui/commit/3fe86c1362dc9f0c0f10db4954120543940ba930))
+
 ## [1.14.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.20...v1.14.21) (2022-07-04)
 
 ### Bug Fixes
