@@ -3,7 +3,7 @@ import Space from '../space';
 import Barcode from 'react-native-barcode-builder';
 import BarCodeProps from './common';
 export default ({ content, style, ...props }: BarCodeProps) => {
-  return (
+  return content ? (
     <Space
       vertical
       alignItems={'center'}
@@ -19,5 +19,5 @@ export default ({ content, style, ...props }: BarCodeProps) => {
         format="CODE128"
       />
     </Space>
-  );
+  ) : null;
 };
