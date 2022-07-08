@@ -8,6 +8,7 @@ import Space, { Props as SpaceProps } from '../space';
 import Icon from '../icon';
 import { useConfig } from '../config-provider';
 import '../_init';
+import switchVariable from '../switch-variable';
 
 export interface Props
   extends Partial<
@@ -123,7 +124,16 @@ const Button = ({
           <Icon
             size={36}
             name={'kq-loading'}
-            color={type === 'default' ? '#999' : '#fff'}
+            color={
+              ghost
+                ? switchVariable({
+                    default: useConfig().brandPrimary,
+                    attract: useConfig().brandAttract,
+                  })(type)
+                : type === 'default'
+                ? '#999'
+                : '#fff'
+            }
           />
         ) : (
           icon
