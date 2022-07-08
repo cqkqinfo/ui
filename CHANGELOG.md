@@ -1,3 +1,9 @@
+## [1.14.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.22...v1.14.23) (2022-07-08)
+
+### Bug Fixes
+
+- button ghost icon 颜色 ([5caa0b7](https://gitlab2.cqkqinfo.com/web/ui/commit/5caa0b74fcf6b2c2624b56a38b40549a73577879))
+
 ## [1.14.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.21...v1.14.22) (2022-07-07)
 
 ### Bug Fixes
