@@ -1,3 +1,9 @@
+## [1.14.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.25...v1.14.26) (2022-07-11)
+
+### Features
+
+- 添加 ScaleView 组件 ([37be630](https://gitlab2.cqkqinfo.com/web/ui/commit/37be6300b8657e9f110993b78d6937ebe532bc48))
+
 ## [1.14.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.24...v1.14.25) (2022-07-11)
 
 ### Bug Fixes
