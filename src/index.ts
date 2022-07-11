@@ -583,3 +583,7 @@ export { default as importOnlineCss } from './import-online-css';
  * 引入在线组件
  */
 export { default as importOnlineComponent } from './import-online-component';
+/**
+ * 缩放view
+ */
+export { default as ScaleView } from './scale-view';
