@@ -1,3 +1,9 @@
+## [1.14.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.24...v1.14.25) (2022-07-11)
+
+### Bug Fixes
+
+- onTap 执行两次 ([75f3228](https://gitlab2.cqkqinfo.com/web/ui/commit/75f322849cf6d3e8ccaf87b7e51156ea7c8ffbb1))
+
 ## [1.14.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.23...v1.14.24) (2022-07-11)
 
 ### Bug Fixes
