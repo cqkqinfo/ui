@@ -1,3 +1,14 @@
+## [1.14.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.23...v1.14.24) (2022-07-11)
+
+### Bug Fixes
+
+- fixed rn 不显示 ([93e5b60](https://gitlab2.cqkqinfo.com/web/ui/commit/93e5b60a3914a2a3f4da3729dab604c3abb913d5))
+- rn 条形码样式 ([5cde5e2](https://gitlab2.cqkqinfo.com/web/ui/commit/5cde5e2fa42e10399cd75e81f32c2b4ce3187820))
+
+### Features
+
+- 添加 ScaleView 组件 ([27655d5](https://gitlab2.cqkqinfo.com/web/ui/commit/27655d544a7ab03a73785a33eafde886f47d7831))
+
 ## [1.14.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.22...v1.14.23) (2022-07-08)
 
 ### Bug Fixes
