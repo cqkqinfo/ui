@@ -75,6 +75,7 @@ export default (outProps: ItemProps) => {
     renderReadOnlyValue,
     children: _children,
     rules: _rules,
+    onTap,
     ...props
   } = outProps;
   let { rules = [], children } = outProps;
@@ -257,6 +258,7 @@ export default (outProps: ItemProps) => {
                     ...itemStyle,
                     ...style,
                   }}
+                  onTap={onTap}
                   {...props}
                 >
                   {label && (
