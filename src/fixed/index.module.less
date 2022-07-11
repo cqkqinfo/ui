@@ -7,6 +7,7 @@
 .fixed {
   position: fixed;
   z-index: 2;
+  bottom: 0;
   &:nth-child(2) {
     top: 0;
   }
@@ -14,8 +15,8 @@
     top: initial;
     bottom: 0;
   }
-  > .index {
-    opacity: 1;
-    pointer-events: auto;
-  }
+}
+.fixedIndex {
+  opacity: 1;
+  pointer-events: auto;
 }
