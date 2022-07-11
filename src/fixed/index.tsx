@@ -29,7 +29,7 @@ export default ({
           {...props}
           style={{ width: `${width || screenWidth}PX`, ...props.style }}
         >
-          <View className={styles.index}>{children}</View>
+          <View className={styles.fixedIndex}>{children}</View>
         </View>
       )}
     </>
