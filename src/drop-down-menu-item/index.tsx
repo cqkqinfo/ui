@@ -108,7 +108,7 @@ export default (props: DropDownMenuIremProps) => {
           getPlatform === 'native'
             ? {
                 position: 'fixed',
-                top: (parentY || 0) + rpxToPx(100),
+                top: parentY || 0,
               }
             : undefined
         }
