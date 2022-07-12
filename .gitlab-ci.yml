@@ -30,7 +30,7 @@ build_app:
     - $PREPARE_CMD
     - rm -rf es
     - rm -rf lib
-    - $TEST_CMD
+#    - $TEST_CMD
     - echo $BUILD_CMD
     - $BUILD_CMD
   artifacts:
