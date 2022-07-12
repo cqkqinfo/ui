@@ -1,3 +1,9 @@
+## [1.14.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.26...v1.14.27) (2022-07-12)
+
+### Features
+
+- 添加 dowCls 类名 ([e8d8031](https://gitlab2.cqkqinfo.com/web/ui/commit/e8d803104dfc458355512a661e94c6e527466565))
+
 ## [1.14.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.25...v1.14.26) (2022-07-11)
 
 ### Features
