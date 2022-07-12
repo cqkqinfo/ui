@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
 import useViewLayout from '../use-view-layout';
+import rpxToPx from '../rpx-to-px';
 
 export interface DropDownMenuProps {
   /**
@@ -25,6 +26,11 @@ export interface DropDownMenuProps {
    */
   opsVisibleIndex?: number;
   style?: React.CSSProperties;
+  /**
+   * 定位top高度
+   * @default 100
+   */
+  topHeight?: number;
 }
 
 function isReactElement(obj: any): obj is ReactElement {
@@ -39,6 +45,7 @@ export default (props: DropDownMenuProps) => {
     onOpsVisible,
     opsVisibleIndex = -1,
     style,
+    topHeight = 100,
   } = props;
   const [showOptions, setShowOptions] = useEffectState<number>(opsVisibleIndex);
   const { width, y, ...arg } = useViewLayout();
@@ -49,7 +56,7 @@ export default (props: DropDownMenuProps) => {
           const childProps = {
             ...item.props,
             parentWidth: width,
-            parentY: y,
+            parentY: (y || 0) + rpxToPx(topHeight),
             onToggle: (i: any) => {
               setShowOptions(prev => {
                 const showOptions = prev === index ? -1 : index;
