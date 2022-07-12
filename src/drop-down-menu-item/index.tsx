@@ -61,6 +61,10 @@ export interface DropDownMenuIremProps {
    * 标题类名
    */
   titleCls?: string;
+  /**
+   * 下拉类名
+   */
+  dowCls?: string;
 }
 
 export default (props: DropDownMenuIremProps) => {
@@ -77,6 +81,7 @@ export default (props: DropDownMenuIremProps) => {
     onTap,
     onChange,
     titleCls,
+    dowCls,
     children,
     // @ts-ignore
     parentWidth,
@@ -97,7 +102,7 @@ export default (props: DropDownMenuIremProps) => {
     <>
       <Fold
         folded={!showOptions}
-        className={styles.down}
+        className={classNames(styles.down, dowCls)}
         maxHeight={'50vh'}
         style={
           getPlatform === 'native'
