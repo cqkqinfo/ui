@@ -9,9 +9,11 @@ group:
 
 ## F2 图表组件
 
-跨平台[F2](https://f2.antv.vision/zh/docs/tutorial/getting-started)图表组件，`RN`暂时一次只能渲染一个图表
+### F2 是用的 3.x 版本，查看文档请看 3.x 版本的
 
-默认是[按需加载](https://f2.antv.vision/zh/docs/tutorial/require#%E5%BC%95%E5%85%A5%E9%9C%80%E8%A6%81%E7%9A%84%E6%A8%A1%E5%9D%97)用法，用到什么引入什么
+跨平台[F2](https://f2-v3.antv.vision/zh)图表组件，`RN`暂时一次只能渲染一个图表
+
+默认是[按需加载](https://f2-v3.antv.vision/zh/docs/tutorial/require)用法，用到什么引入什么
 
 ```tsx
 import React, { useEffect, useState } from 'react';
