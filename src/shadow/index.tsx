@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
@@ -23,6 +24,10 @@ export interface Props {
    * 是否选中
    */
   active?: boolean;
+  /**
+   * 类名
+   */
+  className?: string;
 }
 
 export default ({
@@ -31,6 +36,7 @@ export default ({
   shadowColor: outShadowColor,
   active,
   shadowRadius: outShadowRadius,
+  className,
   ...props
 }: Props) => {
   const {
@@ -43,6 +49,7 @@ export default ({
     ? React.cloneElement(children, {
         ...children.props,
         ...props,
+        className: classnames(children.props.className, className),
         style: {
           cursor: active !== undefined ? 'pointer' : undefined,
           ...(card
