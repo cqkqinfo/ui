@@ -1,3 +1,13 @@
+## [1.14.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.28...v1.14.29) (2022-07-14)
+
+### Bug Fixes
+
+- 价格换行 ([6edf112](https://gitlab2.cqkqinfo.com/web/ui/commit/6edf1128d50ab9e5d28a66d6688428aa740ab7c3))
+
+### Features
+
+- 添加 classname 属性 ([0937ddb](https://gitlab2.cqkqinfo.com/web/ui/commit/0937ddb4a71e69dbdba81af1a10bf2ac7b5d89e9))
+
 ## [1.14.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.27...v1.14.28) (2022-07-12)
 
 ### Features
