@@ -66,6 +66,7 @@ export default ({
     <Space
       className={classNames(styles.price, className)}
       alignItems={'baseline'}
+      flexWrap={'nowrap'}
       {...props}
     >
       <Space
