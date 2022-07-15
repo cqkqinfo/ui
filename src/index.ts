@@ -536,6 +536,6 @@ export { default as importOnlineCss } from './import-online-css';
  */
 export { default as importOnlineComponent } from './import-online-component';
 /**
- * 缩放view
+ * 最大宽度视图
  */
-export { default as ScaleView } from './scale-view';
+export { default as MaxWidthView } from './max-width-view';
