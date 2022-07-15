@@ -8,7 +8,13 @@ export default ({
   style,
 }: {
   children: React.ReactElement;
+  /**
+   * 最大宽度
+   */
   maxWidth: number;
+  /**
+   * 组件当前宽度
+   */
   comWidth?: number;
   style?: React.CSSProperties;
 }) => {
