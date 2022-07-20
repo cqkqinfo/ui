@@ -1,3 +1,10 @@
+## [1.15.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.1...v1.15.2) (2022-07-20)
+
+### Features
+
+- scrollIntoView web 端滚动到视图中间 ([0598b94](https://gitlab2.cqkqinfo.com/web/ui/commit/0598b9447f497b8e9a90819bfe0d1847facc968b))
+- 添加 slideCls ([696e1e5](https://gitlab2.cqkqinfo.com/web/ui/commit/696e1e5f4ca128ec56ec4222d7628c6391d07726))
+
 ## [1.15.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.0...v1.15.1) (2022-07-20)
 
 ### Features
