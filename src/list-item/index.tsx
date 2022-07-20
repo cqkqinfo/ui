@@ -115,7 +115,7 @@ export default ({
           )}
         </Space>
       )}
-      <Space size={20} flex={1} vertical {...leftSpaceProps}>
+      <Space size={20} flex={1} vertical {...rightSpaceProps}>
         {(title || subtitle) && (
           <Space
             size={20}
