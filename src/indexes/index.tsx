@@ -26,6 +26,10 @@ interface Props<D> extends ScrollViewProps {
    * 侧边项类名
    */
   slideItemCls?: string;
+  /**
+   * 侧边类名
+   */
+  slideCls?: string;
 }
 
 export default <D extends unknown>({
@@ -33,6 +37,7 @@ export default <D extends unknown>({
   list,
   className,
   slideItemCls,
+  slideCls,
   ...props
 }: Props<D>) => {
   const indexs = useMemo(() => {
@@ -71,7 +76,7 @@ export default <D extends unknown>({
         {current}
       </View>
       <View
-        className={styles.slide}
+        className={classNames(slideCls, styles.slide)}
         /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
         // @ts-ignore
         onMouseEnter={() => {
