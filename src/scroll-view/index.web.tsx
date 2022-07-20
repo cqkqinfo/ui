@@ -38,9 +38,10 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       const target =
         scrollIntoView && document.querySelector(`#${scrollIntoView}`);
       if (target) {
-        target.scrollIntoView(
-          scrollWithAnimation ? { behavior: 'smooth', block: 'center' } : false,
-        );
+        target.scrollIntoView({
+          behavior: scrollWithAnimation ? 'smooth' : undefined,
+          block: 'center',
+        });
       }
     }, [scrollIntoView, scrollWithAnimation]);
     const domRef = useRef<HTMLDivElement>(null);
