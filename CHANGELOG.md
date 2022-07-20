@@ -1,3 +1,9 @@
+## [1.15.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.0...v1.15.1) (2022-07-20)
+
+### Features
+
+- reInput 支持支付宝小程序 ([85cf699](https://gitlab2.cqkqinfo.com/web/ui/commit/85cf6996106dd25f1fc0f255dcb55ee6d18fb627))
+
 # [1.15.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.29...v1.15.0) (2022-07-15)
 
 ## [1.14.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.14.28...v1.14.29) (2022-07-14)
