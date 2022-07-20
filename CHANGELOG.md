@@ -1,3 +1,9 @@
+## [1.15.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.2...v1.15.3) (2022-07-20)
+
+### Bug Fixes
+
+- rightSpaceProps 读取错误 ([320804a](https://gitlab2.cqkqinfo.com/web/ui/commit/320804a41cbd4830527da182024231411bd0da40))
+
 ## [1.15.2](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.1...v1.15.2) (2022-07-20)
 
 ### Features
