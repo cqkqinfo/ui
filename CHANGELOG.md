@@ -1,3 +1,12 @@
+## [1.15.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.5...v1.15.6) (2022-07-21)
+
+### Bug Fixes
+
+- textarea 小程序无法清空 ([8ffc6be](https://gitlab2.cqkqinfo.com/web/ui/commit/8ffc6be9c060196f59602219c478703947f8e492))
+- 倒计时小程序报错 ([388cf6f](https://gitlab2.cqkqinfo.com/web/ui/commit/388cf6ff286a3ee1c041480c56f30cc8e1fc1ea4))
+- 更多无法展开 ([4dd3be7](https://gitlab2.cqkqinfo.com/web/ui/commit/4dd3be7bcc5b367c9351f4e8b6c77babcbd7c7f4))
+- 移动端索引没有消失 ([d6e7dfb](https://gitlab2.cqkqinfo.com/web/ui/commit/d6e7dfb594251dac5b986c8c24ea8adc0455c3bc))
+
 ## [1.15.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.4...v1.15.5) (2022-07-21)
 
 ### Bug Fixes
