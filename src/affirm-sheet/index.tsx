@@ -41,6 +41,10 @@ export interface ShowOptions extends Pick<SheetProps, 'maskClosable'> {
    * 确认内容
    */
   content: React.ReactNode;
+  /**
+   * 自定义footer
+   */
+  footer?: React.ReactNode;
 }
 
 export const showOptions = ({}: ShowOptions) => {};
@@ -55,6 +59,7 @@ const AffirmSheet = ({
    */
   elderly?: boolean;
 }) => {
+  const ref = useRef<SheetWrapInstance>(null);
   const [
     {
       title = '提示',
@@ -63,18 +68,7 @@ const AffirmSheet = ({
       content,
       cancelProps,
       okProps,
-    },
-    setOptions,
-  ] = useState<ShowOptions>({} as any);
-  const ref = useRef<SheetWrapInstance>(null);
-  return (
-    <SheetWrap ref={ref} setOptions={setOptions} data={data}>
-      <Space
-        vertical
-        className={classNames(styles.wrap, elderly && styles.elderly)}
-      >
-        <ColorText className={styles.title}>{title}</ColorText>
-        <Space className={styles.content}>{content}</Space>
+      footer = (
         <Space size={20}>
           <Button
             type={'primary'}
@@ -98,6 +92,19 @@ const AffirmSheet = ({
             {okText}
           </Button>
         </Space>
+      ),
+    },
+    setOptions,
+  ] = useState<ShowOptions>({} as any);
+  return (
+    <SheetWrap ref={ref} setOptions={setOptions} data={data}>
+      <Space
+        vertical
+        className={classNames(styles.wrap, elderly && styles.elderly)}
+      >
+        <ColorText className={styles.title}>{title}</ColorText>
+        <Space className={styles.content}>{content}</Space>
+        {footer}
       </Space>
     </SheetWrap>
   );
