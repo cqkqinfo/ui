@@ -1,3 +1,9 @@
+## [1.15.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.3...v1.15.4) (2022-07-21)
+
+### Features
+
+- affirmSheet 添加 footer 属性 ([aa13a76](https://gitlab2.cqkqinfo.com/web/ui/commit/aa13a765c8854837cbdab73575484502a8f76072))
+
 ## [1.15.3](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.2...v1.15.3) (2022-07-20)
 
 ### Bug Fixes
