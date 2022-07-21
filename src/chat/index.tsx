@@ -103,6 +103,8 @@ export default <D extends unknown>({
             ? {
                 overflow: 'visible',
                 transform: `translateY(-261.5PX)`,
+                position: 'fixed',
+                bottom: 0,
               }
             : {}),
         },
@@ -159,7 +161,6 @@ export default <D extends unknown>({
         }}
         flex
         ref={mainRef}
-        onTap={() => setMoreVisible(undefined)}
       >
         <Message
           before={patInfo && isDoctor && <InfoCardCom {...patInfo} />}
@@ -169,6 +170,7 @@ export default <D extends unknown>({
           patName={patName}
           patAvatar={patAvatar}
           doctorAvatar={doctorAvatar}
+          onTap={() => setMoreVisible(undefined)}
         />
         {!isEnd && (
           <>
