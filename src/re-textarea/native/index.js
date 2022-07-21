@@ -48,12 +48,12 @@ Component({
   },
   observers: {
     value: function(value) {
-      if (!this.data.isFocus) {
+      if (!this.data.isFocus || !value) {
         this.setData({ myValue: value });
       }
     },
     myValue: function(value) {
-      if (this.data.changed || value) {
+      if ((this.data.changed || value) && value !== this.data.value) {
         this.setData({ changed: true });
         throttle(
           this.data.myId,
