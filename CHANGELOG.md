@@ -1,3 +1,9 @@
+## [1.15.5](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.4...v1.15.5) (2022-07-21)
+
+### Bug Fixes
+
+- 索引列表首字母获取不正确 ([1b3f6ca](https://gitlab2.cqkqinfo.com/web/ui/commit/1b3f6ca816b8f79ec02bec1558bdb670da5d2f6e))
+
 ## [1.15.4](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.3...v1.15.4) (2022-07-21)
 
 ### Features
