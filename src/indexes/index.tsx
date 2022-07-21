@@ -89,11 +89,16 @@ export default <D extends unknown>({
         onMouseLeave={() => {
           setIsHoverSlide(false);
         }}
+        onTouchMove={e => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          e.preventDefault?.();
+        }}
         onTouchStart={() => {
           setIsHoverSlide(true);
         }}
-        onTouchCancel={() => {
-          setIsHoverSlide(true);
+        onTouchEnd={() => {
+          setIsHoverSlide(false);
         }}
       >
         {Object.keys(indexs).map(i => (
