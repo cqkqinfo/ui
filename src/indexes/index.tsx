@@ -46,7 +46,11 @@ export default <D extends unknown>({
       const {
         index: [first],
       } = renderItem(item);
-      const [index] = pinyin(first, { pattern: 'initial', type: 'array' });
+      const [index] = pinyin(first, {
+        pattern: 'first',
+        type: 'array',
+        toneType: 'none',
+      });
       if (!obj[index]) {
         obj[index] = [];
       }
