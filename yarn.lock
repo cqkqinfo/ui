@@ -13186,10 +13186,10 @@ parse5@6.0.1, parse5@^6.0.0:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
 
-parsec-hooks@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.npmmirror.com/parsec-hooks/-/parsec-hooks-1.0.18.tgz#296b74b2d3d4d7405b86993520f44414b474cbb8"
-  integrity sha512-jHVFv9ZBndraijfMl1+qZu5ETvcCQj8KmPZc/sArkMXGOaRKxzOm6f8+ISG20K2LQ/Bsdx0/VqItxrfJxivkyg==
+parsec-hooks@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.npmjs.org/parsec-hooks/-/parsec-hooks-1.0.19.tgz#5aeec9f62ada0d253b96f074c8af200e24fa7f63"
+  integrity sha512-xNNfmEU8W34u+RsJo09u+W4xVsxIcEmgpqrXltJJv5W8hUiPwtc8NK24YP06Zfp9Rn6h8oXFrRBL6noZzAU8mg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"
@@ -13197,6 +13197,7 @@ parsec-hooks@^1.0.18:
     import-cdn-js "^0.0.2"
     intersection-observer "^0.8.0"
     qs "^6.9.4"
+    request-animation-frame-polyfill "^1.1.2"
     resize-observer-polyfill "^1.5.1"
     unstated-next "^1.1.0"
 
@@ -15568,6 +15569,11 @@ repeat-string@^1.0.0, repeat-string@^1.5.2, repeat-string@^1.6.1:
 replace-ext@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/replace-ext/-/replace-ext-1.0.1.tgz#2d6d996d04a15855d967443631dd5f77825b016a"
+
+request-animation-frame-polyfill@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/request-animation-frame-polyfill/-/request-animation-frame-polyfill-1.1.2.tgz#b5f98bd2a4baabbd385989acedb1b66c3e5b51c3"
+  integrity sha512-6qqZrrCZT+yLuI4jrGn3qWPiqp/yKcd+thD0YvXubMNFDG9Cj6/KbeieJXT2qo+bEHTuJgRysJuvR7lgfH4mXw==
 
 request-progress@^3.0.0:
   version "3.0.0"
