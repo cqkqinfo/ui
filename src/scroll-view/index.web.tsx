@@ -40,7 +40,7 @@ export default forwardRef<HTMLDivElement, PropsWithChildren<ScrollViewProps>>(
       if (target) {
         target.scrollIntoView({
           behavior: scrollWithAnimation ? 'smooth' : undefined,
-          block: 'center',
+          block: 'start',
         });
       }
     }, [scrollIntoView, scrollWithAnimation]);
