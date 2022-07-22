@@ -1,3 +1,9 @@
+## [1.15.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.9...v1.15.10) (2022-07-22)
+
+### Bug Fixes
+
+- 索引列表不能定位到顶部 ([6ae20f5](https://gitlab2.cqkqinfo.com/web/ui/commit/6ae20f50e2dcdc48c6e0ba2a080d54c2a54e37fa))
+
 ## [1.15.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.8...v1.15.9) (2022-07-22)
 
 ### Features
