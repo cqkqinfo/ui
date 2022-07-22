@@ -35,11 +35,15 @@ export default () =>
               document.body.removeChild(el);
               qrScanner.stop();
             };
-            const qrScanner = new QrScanner(el, result => {
-              resolve({ result });
-              document.body.removeChild(el);
-              qrScanner.stop();
-            });
+            const qrScanner = new QrScanner(
+              el,
+              result => {
+                resolve({ result });
+                document.body.removeChild(el);
+                qrScanner.stop();
+              },
+              { highlightCodeOutline: true, highlightScanRegion: true },
+            );
             qrScanner.start();
           } else if (index === 1) {
             selectFiles().then(([file]) => {
