@@ -105,6 +105,7 @@ export default <D extends unknown>({
             }}
             className={classNames(
               styles.slideItem,
+              slideItemCls,
               current === i && styles.slideActive,
             )}
             key={i}
@@ -124,10 +125,7 @@ export default <D extends unknown>({
                   }
                 }}
               >
-                <View
-                  className={classNames(styles.index, slideItemCls)}
-                  id={`index${i}`}
-                >
+                <View className={classNames(styles.index)} id={`index${i}`}>
                   {i}
                 </View>
               </Visible>
@@ -135,7 +133,7 @@ export default <D extends unknown>({
             </React.Fragment>
           )),
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [indexs, setCurrent, slideItemCls],
+        [indexs, setCurrent],
       )}
     </ScrollView>
   );
