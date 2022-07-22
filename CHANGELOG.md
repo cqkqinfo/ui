@@ -1,3 +1,9 @@
+## [1.15.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.6...v1.15.7) (2022-07-22)
+
+### Features
+
+- 优化当前索引显示 ([4a24a03](https://gitlab2.cqkqinfo.com/web/ui/commit/4a24a03607df53964dbd093d0308ff94c074106f))
+
 ## [1.15.6](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.5...v1.15.6) (2022-07-21)
 
 ### Bug Fixes
