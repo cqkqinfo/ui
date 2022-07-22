@@ -74,6 +74,16 @@ export default <D extends unknown>({
   }, [list, renderItem]);
   const [current, setCurrent] = useEffectState(Object.keys(indexs)[0]);
   const [isHoverSlide, setIsHoverSlide] = useState(false);
+  const [showCurrentIndex, setShowCurrentIndex] = useState(false);
+  useEffect(() => {
+    if (isHoverSlide) {
+      setShowCurrentIndex(isHoverSlide);
+    }
+    const timer = setTimeout(() => {
+      setShowCurrentIndex(false);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [isHoverSlide]);
   setUserSelect(!isHoverSlide);
   const scrollSetRef = useRef(false);
   const renderSlid = (bg = false) => (
@@ -134,43 +144,46 @@ export default <D extends unknown>({
       scrollY
       className={classNames(styles.wrap, className)}
       scrollIntoView={isHoverSlide ? `index${current}` : undefined}
-      onTouchStart={e => {
-        scrollSetRef.current = true;
-      }}
       {...props}
     >
       <View
         className={classNames(styles.current, indexCls)}
-        style={{ opacity: isHoverSlide ? 1 : 0 }}
+        style={{ opacity: showCurrentIndex ? 1 : 0 }}
       >
         {current}
       </View>
       {renderSlid()}
       {renderSlid(true)}
-      {useMemo(
-        () =>
-          Object.keys(indexs).map(i => (
-            <React.Fragment key={i}>
-              <Visible
-                onVisible={() => {
-                  if (scrollSetRef.current) {
-                    setCurrent(i);
-                  }
-                }}
-              >
-                <View
-                  className={classNames(styles.index, indexLineCls)}
-                  id={`index${i}`}
+      <View
+        onTouchStart={e => {
+          scrollSetRef.current = true;
+        }}
+      >
+        {useMemo(
+          () =>
+            Object.keys(indexs).map(i => (
+              <React.Fragment key={i}>
+                <Visible
+                  onVisible={() => {
+                    if (scrollSetRef.current) {
+                      setCurrent(i);
+                    }
+                  }}
                 >
-                  {i}
-                </View>
-              </Visible>
-              {indexs[i].map(data => renderItem(data).node)}
-            </React.Fragment>
-          )),
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [indexs, setCurrent],
-      )}
+                  <View
+                    className={classNames(styles.index, indexLineCls)}
+                    id={`index${i}`}
+                  >
+                    {i}
+                  </View>
+                </Visible>
+                {indexs[i].map(data => renderItem(data).node)}
+              </React.Fragment>
+            )),
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          [indexs, setCurrent],
+        )}
+      </View>
     </ScrollView>
   );
 };
