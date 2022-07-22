@@ -1,3 +1,9 @@
+## [1.15.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.10...v1.15.11) (2022-07-22)
+
+### Bug Fixes
+
+- 索引列表移动端索引不会消失 ([2ff2974](https://gitlab2.cqkqinfo.com/web/ui/commit/2ff29741c814549948c57abea5ca338600d52d3a))
+
 ## [1.15.10](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.9...v1.15.10) (2022-07-22)
 
 ### Bug Fixes
