@@ -1,3 +1,9 @@
+## [1.15.13](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.12...v1.15.13) (2022-07-22)
+
+### Features
+
+- 添加 indexLineCls 属性 ([88a00ba](https://gitlab2.cqkqinfo.com/web/ui/commit/88a00ba582bf72cd8f490fed27370442f0836b98))
+
 ## [1.15.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.11...v1.15.12) (2022-07-22)
 
 ### Bug Fixes
