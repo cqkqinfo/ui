@@ -1,3 +1,9 @@
+## [1.15.12](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.11...v1.15.12) (2022-07-22)
+
+### Bug Fixes
+
+- slideItemCls 属性无效 ([4a2fd5e](https://gitlab2.cqkqinfo.com/web/ui/commit/4a2fd5e65548ad4a09c363161473a33e5b05ab5c))
+
 ## [1.15.11](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.10...v1.15.11) (2022-07-22)
 
 ### Bug Fixes
