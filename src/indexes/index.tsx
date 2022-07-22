@@ -120,7 +120,6 @@ export default <D extends unknown>({
               <Visible
                 onVisible={() => {
                   if (!isHoverSlideRef.current) {
-                    console.log(111, i);
                     setCurrent(i);
                   }
                 }}
