@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'remax/one';
 import { ScrollViewProps } from 'remax/wechat';
 import styles from './index.module.less';
@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import ScrollView from '../scroll-view';
 import Visible from '../visible';
 import { pinyin } from 'pinyin-pro';
-import { useEffectState, useStateRef } from 'parsec-hooks';
+import { useEffectState } from 'parsec-hooks';
 import setUserSelect from './setUserSelect';
 import rpxToPx from '../rpx-to-px';
 
@@ -75,9 +75,15 @@ export default <D extends unknown>({
   const [current, setCurrent] = useEffectState(Object.keys(indexs)[0]);
   const [isHoverSlide, setIsHoverSlide] = useState(false);
   setUserSelect(!isHoverSlide);
-  const isHoverSlideRef = useStateRef(isHoverSlide);
+  const scrollSetRef = useRef(false);
   const renderSlid = (bg = false) => (
-    <View className={classNames(slideCls, styles.slide)}>
+    <View
+      className={classNames(slideCls, styles.slide)}
+      onTouchStart={e => {
+        e.stopPropagation();
+        scrollSetRef.current = false;
+      }}
+    >
       {Object.keys(indexs).map(i => (
         <View
           onTouchStart={() => {
@@ -128,6 +134,9 @@ export default <D extends unknown>({
       scrollY
       className={classNames(styles.wrap, className)}
       scrollIntoView={isHoverSlide ? `index${current}` : undefined}
+      onTouchStart={e => {
+        scrollSetRef.current = true;
+      }}
       {...props}
     >
       <View
@@ -144,7 +153,7 @@ export default <D extends unknown>({
             <React.Fragment key={i}>
               <Visible
                 onVisible={() => {
-                  if (!isHoverSlideRef.current) {
+                  if (scrollSetRef.current) {
                     setCurrent(i);
                   }
                 }}
