@@ -1,3 +1,10 @@
+## [1.15.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.15...v1.15.16) (2022-07-22)
+
+### Features
+
+- 优化索引列表使用体验 ([31fd03f](https://gitlab2.cqkqinfo.com/web/ui/commit/31fd03f61613a9ba5555a239559616ec5773ab76))
+- 优化索引列表使用体验 ([9da7119](https://gitlab2.cqkqinfo.com/web/ui/commit/9da711916e9329ec75d127b070c46a4f93109dfe))
+
 ## [1.15.15](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.14...v1.15.15) (2022-07-22)
 
 ## [1.15.14](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.13...v1.15.14) (2022-07-22)
