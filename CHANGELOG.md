@@ -1,3 +1,9 @@
+## [1.15.9](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.8...v1.15.9) (2022-07-22)
+
+### Features
+
+- 更新 qr-scanner ([9de363b](https://gitlab2.cqkqinfo.com/web/ui/commit/9de363bf0a07d0ee47444c791dd1d8f2f39c2660))
+
 ## [1.15.8](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.7...v1.15.8) (2022-07-22)
 
 ## [1.15.7](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.6...v1.15.7) (2022-07-22)
