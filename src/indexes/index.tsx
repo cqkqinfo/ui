@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import ScrollView from '../scroll-view';
 import Visible from '../visible';
 import { pinyin } from 'pinyin-pro';
-import { useEffectState } from 'parsec-hooks';
+import { useEffectState, useStateRef } from 'parsec-hooks';
 
 interface Props<D> extends ScrollViewProps {
   /**
@@ -66,6 +66,7 @@ export default <D extends unknown>({
   }, [list, renderItem]);
   const [current, setCurrent] = useEffectState(Object.keys(indexs)[0]);
   const [isHoverSlide, setIsHoverSlide] = useState(false);
+  const isHoverSlideRef = useStateRef(isHoverSlide);
   return (
     <ScrollView
       scrollY
@@ -79,37 +80,28 @@ export default <D extends unknown>({
       >
         {current}
       </View>
-      <View
-        className={classNames(slideCls, styles.slide)}
-        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-        // @ts-ignore
-        onMouseEnter={() => {
-          setIsHoverSlide(true);
-        }}
-        onMouseLeave={() => {
-          setIsHoverSlide(false);
-        }}
-        onTouchMove={e => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          e.preventDefault?.();
-        }}
-        onTouchStart={() => {
-          setIsHoverSlide(true);
-        }}
-        onTouchEnd={() => {
-          setIsHoverSlide(false);
-        }}
-      >
+      <View className={classNames(slideCls, styles.slide)}>
         {Object.keys(indexs).map(i => (
           <View
             onTouchStart={() => {
+              setIsHoverSlide(true);
               setCurrent(i);
+            }}
+            onTouchEnd={() => {
+              setIsHoverSlide(false);
+            }}
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            onMouseEnter={() => {
+              setIsHoverSlide(true);
             }}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
             onMouseMove={() => {
               setCurrent(i);
+            }}
+            onMouseLeave={() => {
+              setIsHoverSlide(false);
             }}
             className={classNames(
               styles.slideItem,
@@ -121,25 +113,31 @@ export default <D extends unknown>({
           </View>
         ))}
       </View>
-      {Object.keys(indexs).map(i => (
-        <React.Fragment key={i}>
-          <Visible
-            onVisible={() => {
-              if (!isHoverSlide) {
-                setCurrent(i);
-              }
-            }}
-          >
-            <View
-              className={classNames(styles.index, slideItemCls)}
-              id={`index${i}`}
-            >
-              {i}
-            </View>
-          </Visible>
-          {indexs[i].map(data => renderItem(data).node)}
-        </React.Fragment>
-      ))}
+      {useMemo(
+        () =>
+          Object.keys(indexs).map(i => (
+            <React.Fragment key={i}>
+              <Visible
+                onVisible={() => {
+                  if (!isHoverSlideRef.current) {
+                    console.log(111, i);
+                    setCurrent(i);
+                  }
+                }}
+              >
+                <View
+                  className={classNames(styles.index, slideItemCls)}
+                  id={`index${i}`}
+                >
+                  {i}
+                </View>
+              </Visible>
+              {indexs[i].map(data => renderItem(data).node)}
+            </React.Fragment>
+          )),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [indexs, setCurrent, slideItemCls],
+      )}
     </ScrollView>
   );
 };
