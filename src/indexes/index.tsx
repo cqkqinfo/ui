@@ -19,7 +19,7 @@ interface Props<D> extends ScrollViewProps {
    */
   list: D[];
   /**
-   * 索引的类名
+   * 索引标识的类名
    */
   indexCls?: string;
   /**
@@ -30,6 +30,10 @@ interface Props<D> extends ScrollViewProps {
    * 侧边类名
    */
   slideCls?: string;
+  /**
+   * 索引分割线类名
+   */
+  indexLineCls?: string;
 }
 
 export default <D extends unknown>({
@@ -38,6 +42,8 @@ export default <D extends unknown>({
   className,
   slideItemCls,
   slideCls,
+  indexLineCls,
+  indexCls,
   ...props
 }: Props<D>) => {
   const indexs = useMemo(() => {
@@ -75,7 +81,7 @@ export default <D extends unknown>({
       {...props}
     >
       <View
-        className={styles.current}
+        className={classNames(styles.current, indexCls)}
         style={{ opacity: isHoverSlide ? 1 : 0 }}
       >
         {current}
@@ -125,7 +131,10 @@ export default <D extends unknown>({
                   }
                 }}
               >
-                <View className={classNames(styles.index)} id={`index${i}`}>
+                <View
+                  className={classNames(styles.index, indexLineCls)}
+                  id={`index${i}`}
+                >
                   {i}
                 </View>
               </Visible>
