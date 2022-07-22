@@ -93,7 +93,7 @@ export default <D extends unknown>({
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
             onMouseEnter={() => {
-              setIsHoverSlide(true);
+              // setIsHoverSlide(true);
             }}
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
