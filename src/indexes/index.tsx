@@ -7,6 +7,8 @@ import ScrollView from '../scroll-view';
 import Visible from '../visible';
 import { pinyin } from 'pinyin-pro';
 import { useEffectState, useStateRef } from 'parsec-hooks';
+import setUserSelect from './setUserSelect';
+import rpxToPx from '../rpx-to-px';
 
 interface Props<D> extends ScrollViewProps {
   /**
@@ -72,7 +74,55 @@ export default <D extends unknown>({
   }, [list, renderItem]);
   const [current, setCurrent] = useEffectState(Object.keys(indexs)[0]);
   const [isHoverSlide, setIsHoverSlide] = useState(false);
+  setUserSelect(!isHoverSlide);
   const isHoverSlideRef = useStateRef(isHoverSlide);
+  const renderSlid = (bg = false) => (
+    <View className={classNames(slideCls, styles.slide)}>
+      {Object.keys(indexs).map(i => (
+        <View
+          onTouchStart={() => {
+            setIsHoverSlide(true);
+            setCurrent(i);
+          }}
+          onTouchEnd={() => {
+            setIsHoverSlide(false);
+          }}
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          onMouseEnter={() => {
+            // setIsHoverSlide(true);
+          }}
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          onMouseMove={() => {
+            setCurrent(i);
+          }}
+          onMouseLeave={() => {
+            setIsHoverSlide(false);
+          }}
+          className={classNames(
+            styles.slideItem,
+            slideItemCls,
+            current === i && styles.slideActive,
+          )}
+          style={
+            bg
+              ? {
+                  borderStyle: 'solid',
+                  borderWidth: rpxToPx(5),
+                  boxSizing: 'content-box',
+                  opacity: 0,
+                  marginBottom: 0,
+                }
+              : undefined
+          }
+          key={i}
+        >
+          {i}
+        </View>
+      ))}
+    </View>
+  );
   return (
     <ScrollView
       scrollY
@@ -86,40 +136,8 @@ export default <D extends unknown>({
       >
         {current}
       </View>
-      <View className={classNames(slideCls, styles.slide)}>
-        {Object.keys(indexs).map(i => (
-          <View
-            onTouchStart={() => {
-              setIsHoverSlide(true);
-              setCurrent(i);
-            }}
-            onTouchEnd={() => {
-              setIsHoverSlide(false);
-            }}
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            onMouseEnter={() => {
-              // setIsHoverSlide(true);
-            }}
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            onMouseMove={() => {
-              setCurrent(i);
-            }}
-            onMouseLeave={() => {
-              setIsHoverSlide(false);
-            }}
-            className={classNames(
-              styles.slideItem,
-              slideItemCls,
-              current === i && styles.slideActive,
-            )}
-            key={i}
-          >
-            {i}
-          </View>
-        ))}
-      </View>
+      {renderSlid()}
+      {renderSlid(true)}
       {useMemo(
         () =>
           Object.keys(indexs).map(i => (
