@@ -21,6 +21,10 @@ export interface Props {
    */
   itemCls?: string;
   /**
+   * 圆点类名
+   */
+  dotCls?: string;
+  /**
    * 子项节点
    */
   items: (
@@ -36,6 +40,10 @@ export interface Props {
    * active状态下的横线类名
    */
   activeLineCls?: string;
+  /**
+   * 横线类名
+   */
+  lineCls?: string;
   /**
    * active状态下的item类名
    */
@@ -67,6 +75,8 @@ export default ({
   itemCls,
   activeColor = '#FCFFC7',
   defaultColor,
+  dotCls,
+  lineCls,
 }: Props) => {
   const { brandPrimary } = useConfig();
   if (type === 'dashed') {
@@ -79,6 +89,7 @@ export default ({
           const active = i === current - 1;
           const { text } = typeof item === 'function' ? item(active) : item;
           const width = `${100 / (items.length || 1)}%`;
+          const color = active ? activeColor : defaultColor;
           return (
             <View
               key={i}
@@ -96,8 +107,12 @@ export default ({
                 <View
                   className={classNames(
                     styles.circle,
+                    dotCls,
                     active && styles.activeCircle,
                   )}
+                  style={{
+                    backgroundColor: color,
+                  }}
                 >
                   {active && (
                     <View className={styles.iconWrap}>
@@ -113,6 +128,7 @@ export default ({
                 <View
                   className={classNames(
                     styles.dashedLine,
+                    lineCls,
                     active && activeLineCls,
                     active && styles.activeLine,
                   )}
@@ -144,7 +160,11 @@ export default ({
           >
             <View className={styles.numberWrap}>
               <View
-                className={classNames(styles.line, active && activeLineCls)}
+                className={classNames(
+                  styles.line,
+                  lineCls,
+                  active && activeLineCls,
+                )}
                 style={{
                   left: i === 0 ? '50%' : i === items.length - 1 ? '-50%' : 0,
                   background: current - 1 ? color : defaultColor,
@@ -153,7 +173,7 @@ export default ({
               <View style={{ position: 'relative', zIndex: 1 }}>
                 {icon || (
                   <View
-                    className={styles.number}
+                    className={classNames(styles.number, dotCls)}
                     style={{
                       backgroundColor: color,
                     }}
