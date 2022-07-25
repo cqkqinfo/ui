@@ -1,3 +1,9 @@
+## [1.15.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.16...v1.15.17) (2022-07-25)
+
+### Features
+
+- 步骤条添加更多自定义类名 ([eb5cb54](https://gitlab2.cqkqinfo.com/web/ui/commit/eb5cb541e78befdfea732afab527c6d99e07e805))
+
 ## [1.15.16](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.15...v1.15.16) (2022-07-22)
 
 ### Features
