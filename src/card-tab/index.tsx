@@ -41,6 +41,7 @@ export default <T extends unknown>({
   return (
     <ScrollView
       scrollX
+      showScrollbar={false}
       scrollLeft={tabs.length ? scrollLeft : undefined}
       className={classNames(styles.tab, className)}
       style={style}
