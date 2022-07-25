@@ -6,6 +6,7 @@ import { useEffectState } from 'parsec-hooks';
 import { useConfig } from '../config-provider';
 import { Space, Icon, Rotate, Fold } from '@kqinfo/ui';
 import ScrollView from '../scroll-view';
+import classnames from 'classnames';
 
 export type ID = string | number;
 
@@ -211,11 +212,8 @@ export default ({
               item?.children ? (
                 <CollapseItem
                   key={item.id}
-                  className={classNames(
-                    styles.rightItem,
-                    rightItemCls,
-                    rightSelected?.id === item.id && rightActiveCls,
-                  )}
+                  className={classNames(styles.rightItem, rightItemCls)}
+                  activeCls={rightActiveCls}
                   iconSize={rightIconSize}
                   childrenClassName={rightItemChildrenCls}
                   item={item}
@@ -280,12 +278,14 @@ const CollapseItem = memo(
     className,
     childrenClassName,
     iconSize,
+    activeCls,
   }: {
     item: MenuItem;
     onChange: () => void;
     onTap: (item: MenuItem) => void;
     className?: string;
     childrenClassName?: string;
+    activeCls?: string;
     iconSize: string | number;
   }) => {
     const [folded, setFolded] = useState(true);
@@ -294,7 +294,7 @@ const CollapseItem = memo(
         <Space
           alignItems="center"
           justify="space-between"
-          className={className}
+          className={classnames(className, !folded && activeCls)}
           onTap={() => {
             onChange();
             if (item?.children && item?.children?.length > 0) {
