@@ -1,3 +1,9 @@
+## [1.15.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.18...v1.15.19) (2022-07-25)
+
+### Bug Fixes
+
+- 折叠菜单 rightActiveCls 不生效 ([bb32d6b](https://gitlab2.cqkqinfo.com/web/ui/commit/bb32d6bcc88d06a0d9c609a5af31346750cd676c))
+
 ## [1.15.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.17...v1.15.18) (2022-07-25)
 
 ### Features
