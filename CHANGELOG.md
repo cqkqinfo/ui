@@ -1,3 +1,9 @@
+## [1.15.18](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.17...v1.15.18) (2022-07-25)
+
+### Features
+
+- CardTab 隐藏滚动条 ([10f629b](https://gitlab2.cqkqinfo.com/web/ui/commit/10f629be861bbfade217e5bc5c4f745d9eb1869b))
+
 ## [1.15.17](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.16...v1.15.17) (2022-07-25)
 
 ### Features
