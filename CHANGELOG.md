@@ -1,3 +1,9 @@
+## [1.15.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.19...v1.15.20) (2022-07-26)
+
+### Bug Fixes
+
+- 支付宝小程序 showToast icon 默认图标跟别的平台不一致 ([d0a92ea](https://gitlab2.cqkqinfo.com/web/ui/commit/d0a92ea28ab329099b98bd68d7372e359330d48a))
+
 ## [1.15.19](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.18...v1.15.19) (2022-07-25)
 
 ### Bug Fixes
