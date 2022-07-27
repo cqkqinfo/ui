@@ -1,3 +1,9 @@
+## [1.15.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.20...v1.15.21) (2022-07-27)
+
+### Bug Fixes
+
+- 支付宝小程序 showToast 时没有隐藏 loading ([7b2570d](https://gitlab2.cqkqinfo.com/web/ui/commit/7b2570d4aadb4a5a46a9ae7531f6065f6338bc9d))
+
 ## [1.15.20](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.19...v1.15.20) (2022-07-26)
 
 ### Bug Fixes
