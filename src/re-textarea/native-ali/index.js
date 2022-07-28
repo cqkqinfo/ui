@@ -57,6 +57,8 @@ Component({
   methods: {
     onBlur(e) {
       this.setData({ isFocus: false });
+      this.props.onChange &&
+        this.props.onChange({ detail: { value: this.data.myValue } });
       this.props.onBlur && this.props.onBlur(e);
     },
     onFocus(e) {
@@ -77,6 +79,8 @@ Component({
       }
     },
     onConfirm(e) {
+      this.props.onChange &&
+        this.props.onChange({ detail: { value: this.data.myValue } });
       this.props.onConfirm && this.props.onConfirm(e);
     },
   },
