@@ -158,10 +158,10 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             className: classNames(styles.sheet, className),
           }}
         >
-          {content}
+          {visible ? content : null}
         </Native>
       ),
-      [className, content],
+      [className, content, visible],
     );
   },
 );
