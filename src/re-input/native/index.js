@@ -73,6 +73,7 @@ Component({
   methods: {
     onBlur(e) {
       this.setData({ isFocus: false });
+      this.triggerEvent('change', this.data.myValue);
       this.triggerEvent('blur', e);
     },
     onFocus(e) {
@@ -80,6 +81,7 @@ Component({
       this.triggerEvent('focus', e);
     },
     onConfirm(e) {
+      this.triggerEvent('change', this.data.myValue);
       this.triggerEvent('confirm', e);
     },
   },
