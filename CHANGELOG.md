@@ -1,3 +1,10 @@
+## [1.15.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.21...v1.15.22) (2022-07-28)
+
+### Features
+
+- input 确认或者失焦时更新值 ([56ebc40](https://gitlab2.cqkqinfo.com/web/ui/commit/56ebc40064b308ac36b51efec2cc8712398eefad))
+- 弹窗隐藏时卸载内容 ([741177a](https://gitlab2.cqkqinfo.com/web/ui/commit/741177a1e7df3025ca18fffeb99f984ebacf3c2f))
+
 ## [1.15.21](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.20...v1.15.21) (2022-07-27)
 
 ### Bug Fixes
