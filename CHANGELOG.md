@@ -1,3 +1,10 @@
+## [1.15.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.23...v1.15.24) (2022-07-29)
+
+### Features
+
+- 日历添加 weekOffset 属性 ([596e674](https://gitlab2.cqkqinfo.com/web/ui/commit/596e674c60ee9e2e0fd2f93eb09be6e1a9b0bf4c))
+- 通告栏右侧不要间距 ([3f62dd3](https://gitlab2.cqkqinfo.com/web/ui/commit/3f62dd38990a0939697691fc769620fec12c9ddd))
+
 ## [1.15.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.22...v1.15.23) (2022-07-29)
 
 ### Features
