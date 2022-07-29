@@ -1,3 +1,10 @@
+## [1.15.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.24...v1.15.25) (2022-07-29)
+
+### Features
+
+- sheet 添加 destroyOnClose 属性 ([ba0beb9](https://gitlab2.cqkqinfo.com/web/ui/commit/ba0beb9cbb4a27e54bad3ae6593a06a79e440b5e))
+- 日历添加 weekOffset 属性 ([95eba48](https://gitlab2.cqkqinfo.com/web/ui/commit/95eba48b94b3a3e59461f62c703cafce9a907186))
+
 ## [1.15.24](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.23...v1.15.24) (2022-07-29)
 
 ### Features
