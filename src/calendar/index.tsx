@@ -244,7 +244,14 @@ const Calendar = ({
         ),
       };
     },
-    [activeItemCls, disableItemCls, getItemArg, itemCls, rangeActiveCls],
+    [
+      activeItemCls,
+      disableItemCls,
+      getItemArg,
+      itemCls,
+      rangeActiveCls,
+      startWeekIndex,
+    ],
   );
   const nativeRefArrRef = useRef<
     { day: dayjs.Dayjs; native: NativeInstance | null }[]
