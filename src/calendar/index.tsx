@@ -91,9 +91,15 @@ export interface Props {
    */
   monthCls?: string;
   /**
-   * 开始时间，默认今天
+   * 开始时间
+   * @default 今天
    */
   startDay?: dayjs.Dayjs;
+  /**
+   * 星期排列偏移
+   * @default 0
+   */
+  weekOffset?: number;
   /**
    * 适老模式，开启后尺寸会变大
    */
@@ -123,6 +129,7 @@ const Calendar = ({
   limit = 14,
   renderDate = day => day.get('date'),
   listEndDay: _listEndDay,
+  weekOffset = 0,
   monthCls,
   startDay: _outStartDay,
   elderly = useConfig().elderly,
@@ -158,6 +165,7 @@ const Calendar = ({
   limit = useMemo(() => {
     return listEndDay ? listEndDay.diff(dayjs(), 'day') + 1 : limit;
   }, [limit, listEndDay]);
+  const startWeekIndex = weekOffset;
   const days = useMemo(
     () =>
       new Array(limit).fill(0).map((_, index) =>
@@ -166,9 +174,9 @@ const Calendar = ({
             .subtract(startDay.day(), 'day')
             .add(index, 'day')
             .format('YYYY-MM-DD'),
-        ),
+        ).add(startWeekIndex, 'day'),
       ),
-    [limit, startDay],
+    [limit, startDay, startWeekIndex],
   );
   const getItemArg = useCallback(
     (day: dayjs.Dayjs) => {
@@ -215,7 +223,9 @@ const Calendar = ({
       return {
         style: {
           marginRight:
-            day.weekday() === 6
+            dayjs(day)
+              .subtract(startWeekIndex, 'day')
+              .weekday() === 6
               ? '0PX'
               : getPlatform === 'native'
               ? rpxToPx(30)
@@ -248,7 +258,10 @@ const Calendar = ({
       )}
       {...props}
     >
-      {weeks.map((item, index) => (
+      {[
+        ...weeks.filter((_, i) => i >= startWeekIndex),
+        ...weeks.filter((_, i) => i < startWeekIndex),
+      ].map((item, index) => (
         <View
           className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
