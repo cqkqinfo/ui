@@ -67,7 +67,12 @@ export default () => {
       </Sheet>
       <PartTitle>自定义渲染</PartTitle>
       <Calendar
-        renderDate={day => `${day.get('month') + 1}/${day.get('date')}`}
+        weekOffset={dayjs().weekday()}
+        renderDate={day =>
+          dayjs().isSame(day, 'date')
+            ? '今天'
+            : `${day.get('month') + 1}/${day.get('date')}`
+        }
         renderDot={day =>
           days.includes(day.get('day')) && (
             <div style={{ transform: 'scale(.6)' }}>满</div>
