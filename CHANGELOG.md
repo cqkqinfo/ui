@@ -1,3 +1,9 @@
+## [1.15.23](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.22...v1.15.23) (2022-07-29)
+
+### Features
+
+- 更新 antd-mobile、ahooks ([b790770](https://gitlab2.cqkqinfo.com/web/ui/commit/b79077009637a0a19be5e69c76ed070ee1f42627))
+
 ## [1.15.22](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.21...v1.15.22) (2022-07-28)
 
 ### Features
