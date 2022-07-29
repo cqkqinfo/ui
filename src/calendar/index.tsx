@@ -273,12 +273,7 @@ const Calendar = ({
           className={classNames(styles.item, itemCls, styles.week, weekCls)}
           key={item}
           style={{
-            marginRight:
-              index === 6
-                ? 0
-                : getPlatform === 'native'
-                ? rpxToPx(30)
-                : undefined,
+            marginRight: index === 6 ? 0 : rpxToPx(30),
           }}
         >
           {item}

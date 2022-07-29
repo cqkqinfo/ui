@@ -24,6 +24,9 @@ import {
 } from '@kqinfo/ui';
 import dayjs from 'dayjs';
 import { SheetInstance } from '@kqinfo/ui/es/sheet';
+import weekday from 'dayjs/plugin/weekday';
+
+dayjs.extend(weekday);
 
 export default () => {
   const sheetRef = useRef<SheetInstance>(null);
