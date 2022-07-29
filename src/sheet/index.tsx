@@ -38,6 +38,10 @@ export interface SheetProps {
    * @default true
    */
   maskClosable?: boolean;
+  /**
+   * 关闭时摧毁子元素
+   */
+  destroyOnClose?: boolean;
 }
 
 export interface SheetInstance {
@@ -56,6 +60,7 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
       contentCls,
       center,
       onClose,
+      destroyOnClose,
       maskClosable = true,
     },
     ref,
@@ -158,10 +163,10 @@ const Sheet = forwardRef<SheetInstance, SheetProps>(
             className: classNames(styles.sheet, className),
           }}
         >
-          {visible ? content : null}
+          {visible || !destroyOnClose ? content : null}
         </Native>
       ),
-      [className, content, visible],
+      [className, content, destroyOnClose, visible],
     );
   },
 );

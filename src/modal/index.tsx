@@ -164,7 +164,13 @@ const Modal = () => {
   ] = useState<ShowOptions>({} as any);
   const ref = useRef<SheetWrapInstance>(null);
   return (
-    <SheetWrap ref={ref} setOptions={setOptions} data={data} center>
+    <SheetWrap
+      destroyOnClose
+      ref={ref}
+      setOptions={setOptions}
+      data={data}
+      center
+    >
       <Space
         vertical
         className={classNames(styles.wrap, className)}
