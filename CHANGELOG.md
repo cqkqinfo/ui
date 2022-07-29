@@ -1,3 +1,9 @@
+## [1.15.26](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.25...v1.15.26) (2022-07-29)
+
+### Features
+
+- 日历添加 weekOffset 属性 ([ead3bed](https://gitlab2.cqkqinfo.com/web/ui/commit/ead3bedf982213820aed42cc2448909a945c3115))
+
 ## [1.15.25](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.24...v1.15.25) (2022-07-29)
 
 ### Features
