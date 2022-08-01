@@ -1,3 +1,9 @@
+## [1.15.29](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.28...v1.15.29) (2022-08-01)
+
+### Features
+
+- perviewImage 支持打开 base64 图片 ([c1e0804](https://gitlab2.cqkqinfo.com/web/ui/commit/c1e0804dcdeb90065ec3f3d58e23c8e5bafc5baa))
+
 ## [1.15.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.27...v1.15.28) (2022-08-01)
 
 ### Features
