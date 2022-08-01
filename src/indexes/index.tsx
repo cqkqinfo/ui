@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { View } from 'remax/one';
 import { ScrollViewProps } from 'remax/wechat';
 import styles from './index.module.less';
@@ -69,7 +75,8 @@ export default <D extends unknown>({
     });
     const obj2: typeof obj = {};
     Object.keys(obj)
-      .sort()
+      .sort(i => (i === '#' ? 99 : i.charCodeAt(0)))
+      .reverse()
       .forEach(i => {
         obj2[i.toUpperCase()] = obj[i];
       });
@@ -146,7 +153,9 @@ export default <D extends unknown>({
     <ScrollView
       scrollY
       className={classNames(styles.wrap, className)}
-      scrollIntoView={isHoverSlide ? `index${current}` : undefined}
+      scrollIntoView={
+        isHoverSlide ? `index${current === '#' ? '0' : current}` : undefined
+      }
       {...props}
     >
       <View
@@ -175,7 +184,7 @@ export default <D extends unknown>({
                 >
                   <View
                     className={classNames(styles.index, indexLineCls)}
-                    id={`index${i}`}
+                    id={`index${i === '#' ? '0' : i}`}
                   >
                     {i}
                   </View>
