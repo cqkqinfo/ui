@@ -54,11 +54,14 @@ export default <D extends unknown>({
       const {
         index: [first],
       } = renderItem(item);
-      const [index] = pinyin(first, {
+      let [index] = pinyin(first, {
         pattern: 'first',
         type: 'array',
         toneType: 'none',
       });
+      if (!/[a-z]/.test(index)) {
+        index = '#';
+      }
       if (!obj[index]) {
         obj[index] = [];
       }
