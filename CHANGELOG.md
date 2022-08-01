@@ -1,3 +1,9 @@
+## [1.15.28](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.27...v1.15.28) (2022-08-01)
+
+### Features
+
+- 添加#索引 ([8729ef7](https://gitlab2.cqkqinfo.com/web/ui/commit/8729ef763e29ed87a1ac656caefa5188f3d1598e))
+
 ## [1.15.27](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.26...v1.15.27) (2022-08-01)
 
 ### Features
