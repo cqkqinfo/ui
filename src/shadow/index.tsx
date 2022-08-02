@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import { useConfig } from '../config-provider';
 import rpxToPx from '../rpx-to-px';
-const convert = require('color-convert');
+import color from 'color';
 
 export interface Props {
   children: React.ReactElement;
@@ -65,8 +65,10 @@ export default ({
           ...props.style,
           boxShadow:
             outShadowColor !== false &&
-            `0 0 ${rpxToPx(shadowRadius)}px rgba(${convert.hex
-              .rgb(outShadowColor || shadowColor)
+            `0 0 ${rpxToPx(shadowRadius)}px rgba(${color(
+              outShadowColor || shadowColor,
+            )
+              .array()
               .join(',')}, 0.15)`,
           border: active
             ? `1px solid ${outShadowColor || shadowColor}`
