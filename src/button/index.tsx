@@ -92,57 +92,94 @@ const Button = ({
   block = true,
   ghost = false,
   loading = false,
-  elderly = useConfig().elderly,
   disabled,
+  style,
   ...props
-}: Props) => (
-  <NeedWrap wrap={Shadow} need={shadow}>
-    <View
-      role="button"
-      aria-label={typeof children === 'string' ? children : undefined}
-      aria-disabled={disabled}
-      className={classNames(
-        styles.button,
-        block && styles.block,
-        styles[size],
-        styles[type],
-        ghost && styles.ghost,
-        ghost && styles[`${type}-ghost`],
-        disabled && styles.disable,
-        loading && styles.loading,
-        round && styles.round,
-        bold || (elderly && styles.bold),
-        type === 'default' && shadow && styles.noBorder,
-        type === 'default' && shadow && styles[`${type}-noBorder`],
-        elderly && styles.elderly,
-        className,
-      )}
-      {...props}
-    >
-      <Space size={'.5em'} alignItems={'center'}>
-        {loading ? (
-          <Icon
-            size={36}
-            name={'kq-loading'}
-            color={
-              ghost
-                ? switchVariable({
-                    default: useConfig().brandPrimary,
-                    attract: useConfig().brandAttract,
-                  })(type)
-                : type === 'default'
-                ? '#999'
-                : '#fff'
-            }
-          />
-        ) : (
-          icon
+}: Props) => {
+  const { elderly: _elderly, brandPrimary, brandAttract } = useConfig();
+  const { elderly = _elderly } = props;
+  const noBorder = type === 'default' && shadow;
+  const backgroundColor = switchVariable({
+    default: switchVariable({
+      default: '#fff',
+      primary: brandPrimary,
+      attract: brandAttract,
+    })(type),
+    true: '',
+  })(ghost + '');
+  const borderColor = switchVariable({
+    default: '#e2e2e2',
+    primary: brandPrimary,
+    attract: brandAttract,
+  })(type);
+  const color = switchVariable({
+    default: switchVariable({
+      default: switchVariable({
+        default: '#999',
+        true: switchVariable({
+          default: brandPrimary,
+          'primary|attract': '#fff',
+        })(type),
+      })(shadow + ''),
+      'primary|attract': '#fff',
+    })(type),
+    true: switchVariable({
+      default: '#999',
+      primary: brandPrimary,
+      attract: brandAttract,
+    })(type),
+  })(ghost + '');
+  return (
+    <NeedWrap wrap={Shadow} need={shadow}>
+      <View
+        role="button"
+        aria-label={typeof children === 'string' ? children : undefined}
+        aria-disabled={disabled}
+        className={classNames(
+          styles.button,
+          block && styles.block,
+          styles[size],
+          disabled && styles.disable,
+          loading && styles.loading,
+          round && styles.round,
+          bold || (elderly && styles.bold),
+          noBorder && styles.noBorder,
+          elderly && styles.elderly,
+          className,
         )}
-        {children}
-      </Space>
-    </View>
-  </NeedWrap>
-);
+        style={{
+          backgroundColor,
+          borderColor,
+          color,
+          ...style,
+        }}
+        {...props}
+      >
+        <Space size={'.5em'} alignItems={'center'}>
+          {loading ? (
+            <Icon
+              size={36}
+              name={'kq-loading'}
+              color={
+                ghost
+                  ? switchVariable({
+                      default: brandPrimary,
+                      attract: brandAttract,
+                    })(type)
+                  : type === 'default'
+                  ? '#999'
+                  : '#fff'
+              }
+            />
+          ) : (
+            icon
+          )}
+          {children}
+        </Space>
+      </View>
+    </NeedWrap>
+  );
+};
 
 Button.Group = ({ className, ...props }: SpaceProps) => {
   return <Space className={classNames(className, styles.group)} {...props} />;
