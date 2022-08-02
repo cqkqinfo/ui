@@ -1,3 +1,9 @@
+## [1.15.32](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.31...v1.15.32) (2022-08-02)
+
+### Features
+
+- 菜单添加单列折叠模式 ([c10c1a7](https://gitlab2.cqkqinfo.com/web/ui/commit/c10c1a7dd56d3f5f54085b7bf3641eb4c5ae0f77))
+
 ## [1.15.31](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.30...v1.15.31) (2022-08-02)
 
 ### Features
