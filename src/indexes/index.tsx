@@ -75,11 +75,15 @@ export default <D extends unknown>({
     });
     const obj2: typeof obj = {};
     Object.keys(obj)
-      .sort(i => (i === '#' ? 99 : i.charCodeAt(0)))
-      .reverse()
+      .sort()
       .forEach(i => {
         obj2[i.toUpperCase()] = obj[i];
       });
+    if (obj2['#']) {
+      const old = obj2['#'];
+      delete obj2['#'];
+      obj2['#'] = old;
+    }
     return obj2;
   }, [list, renderItem]);
   const [current, setCurrent] = useEffectState(Object.keys(indexs)[0]);
