@@ -51,12 +51,12 @@ export default ({
   bold = true,
   full,
   offsetX = 0,
-  elderly = useConfig().elderly,
   action,
   round,
   ...props
 }: Props) => {
-  const { brandPrimary } = useConfig();
+  const { brandPrimary, elderly: _elderly } = useConfig();
+  const { elderly = _elderly } = props;
   return (
     <Space
       className={classNames(styles.part, className, elderly && styles.elderly)}
@@ -71,7 +71,10 @@ export default ({
         }}
         alignItems={'center'}
       >
-        <View className={classNames(styles.block, round && styles.round)} />
+        <View
+          className={classNames(styles.block, round && styles.round)}
+          style={{ backgroundColor: brandPrimary }}
+        />
         <Text
           className={styles.title}
           style={{
