@@ -132,7 +132,6 @@ const Calendar = ({
   weekOffset = 0,
   monthCls,
   startDay: _outStartDay,
-  elderly = useConfig().elderly,
   renderItemProps,
   dotCls,
   range,
@@ -140,6 +139,8 @@ const Calendar = ({
   rangeActiveCls,
   ...props
 }: Props) => {
+  const { elderly: _elderly, brandPrimary } = useConfig();
+  const { elderly = _elderly } = props;
   const onChange = useMemoizedFn(_onChange);
   const listEndDayStr = _listEndDay?.toString();
   const listEndDay = useMemo(
@@ -230,6 +231,8 @@ const Calendar = ({
               : getPlatform === 'native'
               ? rpxToPx(30)
               : undefined,
+          backgroundColor:
+            active || isEnd || isStart ? brandPrimary : undefined,
           ...renderProps?.style,
         },
         className: classNames(
@@ -246,6 +249,7 @@ const Calendar = ({
     },
     [
       activeItemCls,
+      brandPrimary,
       disableItemCls,
       getItemArg,
       itemCls,
@@ -274,6 +278,7 @@ const Calendar = ({
           key={item}
           style={{
             marginRight: index === 6 ? 0 : rpxToPx(30),
+            backgroundColor: elderly ? brandPrimary : undefined,
           }}
         >
           {item}
@@ -307,7 +312,10 @@ const Calendar = ({
             <React.Fragment key={index}>
               {day.date() === 1 && listEndDay && (
                 <>
-                  <View className={classNames(styles.month, monthCls)}>
+                  <View
+                    className={classNames(styles.month, monthCls)}
+                    style={{ backgroundColor: brandPrimary }}
+                  >
                     {day.format('YYYY年MM月')}
                   </View>
                   {renderEmpty(true)}
@@ -354,6 +362,9 @@ const Calendar = ({
                         dotCls,
                         active && classNames(styles.activeDot, activeDotCls),
                       )}
+                      style={{
+                        backgroundColor: brandPrimary,
+                      }}
                     >
                       {dot}
                     </View>
@@ -374,6 +385,7 @@ const Calendar = ({
         });
       }, [
         activeDotCls,
+        brandPrimary,
         days,
         dotCls,
         dotWrapCls,
