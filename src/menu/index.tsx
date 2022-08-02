@@ -303,7 +303,7 @@ const CollapseItem = memo(
     activeCls,
   }: {
     item: MenuItem;
-    onChange?: () => void;
+    onChange: () => void;
     onTap: (item: MenuItem) => void;
     className?: string;
     childrenClassName?: string;
@@ -320,9 +320,11 @@ const CollapseItem = memo(
           className={classnames(className, !folded && activeCls)}
           onTap={e => {
             e.stopPropagation();
-            onChange ? onChange() : onTap(item);
             if (item?.children && item?.children?.length > 0) {
               setFolded(!folded);
+              onChange();
+            } else {
+              onTap(item);
             }
           }}
         >
@@ -350,6 +352,7 @@ const CollapseItem = memo(
                 iconSize={iconSize}
                 item={v}
                 onTap={onTap}
+                onChange={onChange}
               />
               // <Space
               //   className={classNames(
