@@ -14,6 +14,7 @@ export interface Props extends ViewProps {
    */
   maxHeight?: string;
   children?: React.ReactNode;
+  animation?: boolean;
 }
 
 let count = 0;
@@ -23,6 +24,7 @@ export default ({
   style,
   id = useRef(`fold${count++}`).current,
   maxHeight: outMaxHeight,
+  animation = true,
   ...props
 }: Props) => {
   const [maxHeight, setMaxHeight] = useState<number | undefined>(undefined);
@@ -44,8 +46,9 @@ export default ({
         ...(folded
           ? { maxHeight: 0 }
           : {
-              maxHeight:
-                outMaxHeight || (maxHeight ? `${maxHeight}PX` : 'inherit'),
+              maxHeight: animation
+                ? outMaxHeight || (maxHeight ? `${maxHeight}PX` : 'inherit')
+                : undefined,
             }),
         ...style,
       }}
