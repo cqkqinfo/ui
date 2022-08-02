@@ -1,3 +1,9 @@
+## [1.16.1](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.16.0...v1.16.1) (2022-08-02)
+
+### Bug Fixes
+
+- 支付宝小程序预览图片 current 错误 ([c0bdc50](https://gitlab2.cqkqinfo.com/web/ui/commit/c0bdc505f59a48ef13db615f18ca42223bae1d58))
+
 # [1.16.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.33...v1.16.0) (2022-08-02)
 
 ## [1.15.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.32...v1.15.33) (2022-08-02)
