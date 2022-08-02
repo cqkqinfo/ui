@@ -70,7 +70,7 @@ export interface Props {
    * 菜单模式
    * @default children
    *  */
-  menuMode?: 'children' | 'list';
+  menuMode?: 'children' | 'list' | 'singleCol';
   /**
    * 右边图标大小，默认是fontSize的值，传入number的话请输入rpx的值
    * @default 12px
@@ -248,8 +248,29 @@ export default ({
         </>
       ) : (
         <ScrollView scrollY className={classNames(styles.list, listCls)}>
-          {data.map(({ id, name }) => {
-            return (
+          {data.map(item => {
+            const { id, name } = item;
+            return menuMode === 'singleCol' ? (
+              <CollapseItem
+                key={item.id}
+                className={classNames(styles.singleColItem, leftItemCls)}
+                activeCls={classNames(styles.leftActive, leftActiveCls)}
+                childrenActiveCls={classNames(
+                  styles.singleChildrenItemActive,
+                  rightActiveCls,
+                )}
+                iconSize={rightIconSize}
+                childrenClassName={classNames(
+                  styles.singleChildrenItem,
+                  rightItemChildrenCls,
+                )}
+                item={item}
+                onChange={() => onChange?.(item.id, item.children || [])}
+                onTap={(v: MenuItem) => {
+                  onSelect?.(v);
+                }}
+              />
+            ) : (
               <Space
                 key={id}
                 alignItems="center"
@@ -277,14 +298,16 @@ const CollapseItem = memo(
     onTap,
     className,
     childrenClassName,
+    childrenActiveCls,
     iconSize,
     activeCls,
   }: {
     item: MenuItem;
-    onChange: () => void;
+    onChange?: () => void;
     onTap: (item: MenuItem) => void;
     className?: string;
     childrenClassName?: string;
+    childrenActiveCls?: string;
     activeCls?: string;
     iconSize: string | number;
   }) => {
@@ -295,8 +318,9 @@ const CollapseItem = memo(
           alignItems="center"
           justify="space-between"
           className={classnames(className, !folded && activeCls)}
-          onTap={() => {
-            onChange();
+          onTap={e => {
+            e.stopPropagation();
+            onChange ? onChange() : onTap(item);
             if (item?.children && item?.children?.length > 0) {
               setFolded(!folded);
             }
@@ -311,20 +335,33 @@ const CollapseItem = memo(
           )}
         </Space>
 
-        <Fold folded={folded}>
+        <Fold folded={folded} animation={!item?.children?.length}>
           {item?.children &&
             item?.children?.map(v => (
-              <Space
-                className={classNames(
-                  styles.rightItem,
-                  styles.rightItemText,
-                  childrenClassName,
-                )}
+              <CollapseItem
                 key={v.id}
-                onTap={() => onTap(v)}
-              >
-                {v.name}
-              </Space>
+                className={classNames(className, childrenClassName)}
+                childrenClassName={classNames(
+                  childrenClassName,
+                  styles.singleChildrenChildrenItem,
+                )}
+                activeCls={childrenActiveCls}
+                childrenActiveCls={childrenActiveCls}
+                iconSize={iconSize}
+                item={v}
+                onTap={onTap}
+              />
+              // <Space
+              //   className={classNames(
+              //     styles.rightItem,
+              //     styles.rightItemText,
+              //     childrenClassName,
+              //   )}
+              //   key={v.id}
+              //   onTap={() => onTap(v)}
+              // >
+              //   {v.name}
+              // </Space>
             ))}
         </Fold>
       </>
