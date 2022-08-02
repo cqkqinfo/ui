@@ -5,6 +5,7 @@ import Icon from '../icon';
 import Space, { Props as SpaceProps } from '../space';
 import styles from './index.module.less';
 import { useEffectState } from 'parsec-hooks';
+import { useConfig } from '../config-provider';
 type CheckboxValue = string | number;
 export interface CheckBoxProps extends ViewProps {
   /**
@@ -74,8 +75,10 @@ const Checkbox = (props: CheckBoxProps) => {
     isRound = false,
     type = 'normal',
     boxActiveCls,
+    style,
     ...other
   } = props;
+  const { brandPrimary } = useConfig();
   const [myChecked, setMyChecked] = useEffectState(checked);
 
   const handleClick = (e: any) => {
@@ -85,6 +88,7 @@ const Checkbox = (props: CheckBoxProps) => {
     onChange?.(!myChecked, e, value);
     setMyChecked(!myChecked);
   };
+  const activeBtn = myChecked && type === 'button';
 
   return (
     <View
@@ -93,12 +97,16 @@ const Checkbox = (props: CheckBoxProps) => {
         type === 'normal' && styles.annaCheckBox,
         type === 'button' && styles.btn,
         disabled && styles.disabled,
-        myChecked && type === 'button' && styles.activebtn,
+        activeBtn && styles.activebtn,
         myChecked && activeCls,
         className,
       )}
       onTap={handleClick}
       {...other}
+      style={{
+        ...style,
+        backgroundColor: activeBtn ? brandPrimary : undefined,
+      }}
     >
       {type === 'normal' && (
         <View
@@ -109,6 +117,9 @@ const Checkbox = (props: CheckBoxProps) => {
             myChecked && styles.active,
             myChecked && boxActiveCls,
           )}
+          style={{
+            backgroundColor: myChecked ? brandPrimary : undefined,
+          }}
         >
           {myChecked && <Icon name="kq-yes" color={iconColor} />}
         </View>
