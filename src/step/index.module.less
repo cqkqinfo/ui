@@ -2,7 +2,6 @@
 
 .step {
   width: 100%;
-  background: @brand-primary;
   display: flex;
   padding: 10px 0;
 }
@@ -30,13 +29,11 @@
 .number {
   width: 28px;
   height: 28px;
-  background-color: lighten(@brand-primary, 25%);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: @brand-primary;
   line-height: 22px;
   position: relative;
   z-index: 1;
@@ -45,14 +42,12 @@
 .line {
   width: 100%;
   height: 1px;
-  background-color: lighten(@brand-primary, 25%);
   position: absolute;
   top: 50%;
 }
 
 .text {
   font-weight: bold;
-  color: lighten(@brand-primary, 25%);
 }
 
 .dashed {
@@ -67,7 +62,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: lighten(@brand-primary, 25%);
   font-size: 22px;
   font-weight: bold;
   position: relative;
@@ -79,7 +73,6 @@
 }
 
 .circle {
-  background-color: lighten(@brand-primary, 25%);
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -96,7 +89,6 @@
 }
 .iconWrap {
   position: relative;
-  background-color: #fff;
   z-index: 23;
 }
 .dashedLine {
@@ -105,7 +97,7 @@
   width: 100%;
   top: 24px;
   height: 1px;
-  border-bottom: 1px solid lighten(@brand-primary, 25%);
+  border-bottom: 1px solid;
 }
 .activeLine {
   border-bottom: 1px dashed #fff;

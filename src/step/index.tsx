@@ -4,6 +4,7 @@ import styles from './index.module.less';
 import Icon from '../icon';
 import classNames from 'classnames';
 import { useConfig } from '../config-provider';
+import Color from 'color';
 
 export interface Props {
   /**
@@ -50,6 +51,7 @@ export interface Props {
   activeItemCls?: string;
   /**
    * active颜色
+   * @default #fff
    */
   activeColor?: string;
   /**
@@ -73,17 +75,25 @@ export default ({
   activeLineCls,
   activeItemCls,
   itemCls,
-  activeColor = '#FCFFC7',
-  defaultColor,
+  activeColor = '#fff',
   dotCls,
   lineCls,
+  ...props
 }: Props) => {
   const { brandPrimary } = useConfig();
+  const {
+    defaultColor = Color(brandPrimary)
+      .lighten(0.5)
+      .string(),
+  } = props;
   if (type === 'dashed') {
     return (
       <View
         className={classNames(styles.step, styles.dashed, className)}
-        style={style}
+        style={{
+          backgroundColor: brandPrimary,
+          ...style,
+        }}
       >
         {items.map((item: any, i) => {
           const active = i === current - 1;
@@ -101,7 +111,7 @@ export default ({
                 styles.dashedItem,
                 active && activeItemCls,
               )}
-              style={{ width }}
+              style={{ width, color: defaultColor }}
             >
               <View className={classNames(styles.circleWrap)}>
                 <View
@@ -112,6 +122,7 @@ export default ({
                   )}
                   style={{
                     backgroundColor: color,
+                    color: brandPrimary,
                   }}
                 >
                   {active && (
@@ -121,7 +132,10 @@ export default ({
                   )}
                 </View>
               </View>
-              <View className={classNames(active && styles.activeText)}>
+              <View
+                className={classNames(active && styles.activeText)}
+                style={{ color }}
+              >
                 {text || item}
               </View>
               {i < items.length - 1 && (
@@ -132,6 +146,9 @@ export default ({
                     active && activeLineCls,
                     active && styles.activeLine,
                   )}
+                  style={{
+                    borderBottomColor: defaultColor,
+                  }}
                 />
               )}
             </View>
@@ -141,7 +158,13 @@ export default ({
     );
   }
   return (
-    <View className={classNames(styles.step, className)} style={style}>
+    <View
+      className={classNames(styles.step, className)}
+      style={{
+        backgroundColor: brandPrimary,
+        ...style,
+      }}
+    >
       {items.map((item: any, i) => {
         const active = i <= current - 1;
         const { icon, text } = typeof item === 'function' ? item(active) : item;
@@ -176,6 +199,7 @@ export default ({
                     className={classNames(styles.number, dotCls)}
                     style={{
                       backgroundColor: color,
+                      color: brandPrimary,
                     }}
                   >
                     {i + 1}
