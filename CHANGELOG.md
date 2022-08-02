@@ -1,3 +1,5 @@
+# [1.16.0](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.33...v1.16.0) (2022-08-02)
+
 ## [1.15.33](https://gitlab2.cqkqinfo.com/web/ui/compare/v1.15.32...v1.15.33) (2022-08-02)
 
 ### Features
